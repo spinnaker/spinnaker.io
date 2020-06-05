@@ -13,5 +13,5 @@ At present, there is only one language in the `./content` directory. Docsy assum
 
 ## todo
 
-- [] Newsletter signup (?)
-- [] Docsy has a built-in version selector for documentation, will it meet the stated need? I can also create a new shortcode in order to place it elsewhere...
+- [ ] Newsletter signup (?)
+- [ ] Docsy has a built-in version selector for documentation, will it meet the stated need? I can also create a new shortcode in order to place it elsewhere...
