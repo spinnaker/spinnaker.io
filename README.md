@@ -1,6 +1,6 @@
 # Spinnaker.io Documentation and Community Site
 
-Hugo site for Spinnaker.io.
+This site is built using [Hugo](https://gohugo.io) and the [Docsy Theme](https://www.docsy.dev/).
 
 ## Documentation Versioning
 
@@ -13,5 +13,5 @@ At present, there is only one language in the `./content` directory. Docsy assum
 
 ## todo
 
-[] Newsletter signup
-[] Docsy has a built-in version selector for documentation, will this do what you need? I can also create a new shortcode in order to place it elsewhere... 
+[] Newsletter signup (?)  
+[] Docsy has a built-in version selector for documentation, will it meet the stated need? I can also create a new shortcode in order to place it elsewhere...  
