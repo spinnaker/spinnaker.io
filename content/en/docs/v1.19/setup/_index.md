@@ -1,0 +1,33 @@
+---
+title: "Set Up Spinnaker"
+linkTitle: "Setup"
+weight: 1
+description: >
+  Instructions for installing and setting up Spinnaker
+---
+
+These pages contain instructions for installing and setting up Spinnaker
+
+## Try it out
+
+If you're new to Spinnaker and you want a quick way to evaluate it, try out one
+of the [quickstart solutions](/docs/v1.19/setup/quickstart/). These are demos for
+evaluation only and are not suitable for use in production.
+
+## Install it
+
+If you want a more serious, scalable deployment of Spinnaker continue
+[here](/docs/v1.19/setup/install/) to installation guide. All other
+resources on this Setup page will assume you're following those instructions.
+
+## Find out more
+
+* If you're curious how Spinnaker works, take a look at the
+  [Spinnaker Architecture](/docs/v1.19/reference/architecture/).
+* Take a look at the [Releases](/community/releases/) page to pick a version of
+  Spinnaker to install.
+
+## Then what?
+
+After you've done all this setup stuff, go to [Get started using
+Spinnaker](/docs/v1.19/guides/user/get-started/) to get to work.

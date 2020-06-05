@@ -1,0 +1,27 @@
+{
+  "name": "spinnaker.io",
+  "version": "1.0.0",
+  "description": "Documentation site for spinnaker",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spinnaker/spinnaker.io.git"
+  },
+  "keywords": [
+    "spinnaker",
+    "documentation"
+  ],
+  "author": "Amy E. Groshek, amy@amygroshek.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spinnaker/spinnaker.io/issues"
+  },
+  "homepage": "https://github.com/spinnaker/spinnaker.io#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "postcss-cli": "^7.1.1"
+  }
+}
