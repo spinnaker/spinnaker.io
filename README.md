@@ -1,6 +1,14 @@
-# spinnaker.io
+# Spinnaker.io Documentation and Community Site
 
 Hugo site for Spinnaker.io.
+
+## Documentation Versioning
+
+Documentation is versioned using subdirectories in the `./content/{lang}/` directory. At present only `./content/en/v1.19` contains contents, but `./content/en/v1.20` has been created and added to the documentation version switcher nav menu. Update documentation version switcher nav menu select in `./config.toml`.
+
+## Translation
+
+At present, there is only one language in the `./content` directory. Docsy assumes lang-en and uses this language automatically, but you can add additional directories with different contents. There is also a langauge switcher in the navbar that can be enabled by adding that language to the `[languages]` map in `.config.toml`.
 
 
 ## todo

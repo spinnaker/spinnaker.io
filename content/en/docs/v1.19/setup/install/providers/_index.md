@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "__2__. Choose Cloud Providers"
+title:  "Choose Cloud Providers"
 sidebar:
   nav: setup
 redirect_from: /docs/target-deployment-setup
