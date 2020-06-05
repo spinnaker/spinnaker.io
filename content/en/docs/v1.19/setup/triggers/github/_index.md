@@ -5,8 +5,6 @@ weight: 1
 description: 
 ---
 
-
-
 Spinnaker can be configured to listen to changes to a repository in
 [GitHub](https://github.com){:target="\_blank"}. These steps show you how to
 configure webhook push events to send to Spinnaker from a single GitHub repository.

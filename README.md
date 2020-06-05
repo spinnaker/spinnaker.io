@@ -15,3 +15,5 @@ At present, there is only one language in the `./content` directory. Docsy assum
 
 - [ ] Newsletter signup (?)
 - [ ] Docsy has a built-in version selector for documentation, will it meet the stated need? I can also create a new shortcode in order to place it elsewhere...
+- [ ] Format for news and videos list pages? Use docs template or other?
+- [ ] Want Algolia search in nav bar (default) or get Algolia search to work with side nav in docs template?

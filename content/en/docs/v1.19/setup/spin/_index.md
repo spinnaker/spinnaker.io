@@ -1,7 +1,7 @@
 ---
 title: "Install and Configure Spin CLI"
 linkTitle: "Install and Configure Spin CLI"
-weight: 8
+weight: 1
 description: 
 ---
 
