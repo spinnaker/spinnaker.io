@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 [Wercker](http://www.wercker.com) is a cloud CI system, which can be 
 enabled within Spinnaker as a pipeline trigger and also as a pipeline stage. The setup required

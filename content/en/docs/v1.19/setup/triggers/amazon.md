@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 Spinnaker pipelines can be triggered from a queue in [Amazon Simple Queue Service (SQS)](https://aws.amazon.com/sqs/){:target="\_blank"} that receives new notifications from [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/){:target="\_blank"}.
 

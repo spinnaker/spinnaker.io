@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 Given a pipeline template that defines variables to be resolved per pipeline,
 you can create pipelines that reference that template and that provide values

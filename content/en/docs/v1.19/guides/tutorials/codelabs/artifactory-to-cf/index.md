@@ -5,7 +5,7 @@
    nav: guides
 ---
 
- {% include toc %}
+ 
 
 In this codelab, you will deploy an artifact to Cloud Foundry via a Spinnaker pipeline. The pipeline is triggered by an artifact published to a JFrog Artifactory Maven repository or by an app manifest stored in a GitHub repository.
 

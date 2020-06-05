@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 In Cloud Foundry, artifacts can used for both an app's manifest and for the deployment archive (e.g. a JAR file for a Java app). These both can be used in a Deploy stage.
 

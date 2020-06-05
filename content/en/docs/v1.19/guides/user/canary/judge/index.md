@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 > Note: Automated canary analysis in Spinnaker is designed to support pluggable
 > judges. This document describes how the default judge (NetflixACAJudge) works.

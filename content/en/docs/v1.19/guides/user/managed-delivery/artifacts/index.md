@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /reference/managed-delivery/artifacts/
 ---
 
-{% include toc %}
+
 
 
 Managed Delivery supports two types of delivery artifacts: **debians** and **docker images**.

@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 Bitbucket file artifacts are references to files stored in
 [Bitbucket](https://bitbucket.org). They are generally consumed

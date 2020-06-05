@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 This is the reference documentation for Halyard, and will go into more detail
 than is needed to deploy most Spinnaker environments. If you're a new user

@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /setup/providers/dcos/
 ---
 
-{% include toc %}
+
 
 DC/OS configuration for Spinnaker consists of a set of DC/OS
 clusters and a set of [Accounts](/concepts/providers/#accounts) that have

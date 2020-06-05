@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /setup/scaling/externalize-redis/
 ---
 
-{% include toc %}
+
 
 One of the easiest ways to improve Spinnaker's reliability at scale is to use an
 external Redis. The Redis installed by Spinnaker (either locally, or in

@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 redirect_from: /setup/providers/oracle/
 ---
-{% include toc %}
+
 
 In [Oracle Cloud](https://cloud.oracle.com/){:target="\_blank"}, a Spinnaker
 [__Account__](/concepts/providers/#accounts) maps to an [Oracle Cloud Infrastructure user]( https://cloud.oracle.com/en_US/tryit){:target="\_blank"}.

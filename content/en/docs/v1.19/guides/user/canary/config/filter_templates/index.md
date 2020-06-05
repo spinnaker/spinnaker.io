@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 Filter templates allow you to compose and parameterize advanced queries against
 your telemetry provider. Parameterized queries are hydrated by values provided

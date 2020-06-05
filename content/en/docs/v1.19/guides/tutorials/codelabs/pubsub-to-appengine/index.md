@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 The goal of this codelab is to trigger a Spinnaker pipeline with a Pub/Sub message from GCS upon upload of a tarball.
 

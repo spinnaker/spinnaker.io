@@ -8,7 +8,7 @@ redirect_from:
   - /guides/user/pipeline-expressions/
 ---
 
-{% include toc %}
+
 
 Pipeline expressions allow you to dynamically set and access variables during
 pipeline execution. You can use an expression in almost any text field in a

@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 A Docker image is a snapshot of a container, to be run locally, or in the
 cloud. Docker image artifacts are used as references to images in

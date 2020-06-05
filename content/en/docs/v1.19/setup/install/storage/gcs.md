@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /setup/storage/gcs/
 ---
 
-{% include toc %}
+
 
 Using [Google Cloud Storage](https://cloud.google.com/storage/){:target="\_blank"}
 (GCS) as a storage source means that Spinnaker will store all of its persistent

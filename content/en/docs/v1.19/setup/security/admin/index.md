@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 ## Introduction
 In Spinnaker, it is possible to define that users belonging to a certain role are considered "Administrators". This virtually removes all READ/WRITE restrictions to accounts and applications for these users.

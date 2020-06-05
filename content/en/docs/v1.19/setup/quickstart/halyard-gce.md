@@ -6,7 +6,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
  > Note: we recommend that you install Spinnaker following the [standard setup directions](/docs/v1.19/setup/)
  rather than using this guide, which is just a set of commands to get Spinnaker up and running on

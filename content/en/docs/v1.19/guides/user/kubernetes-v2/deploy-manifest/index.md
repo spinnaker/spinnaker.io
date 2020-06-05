@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This guide shows the basics of how to deploy a Kubernetes manifest using the
 [Kubernetes provider](/setup/install/providers/kubernetes-v2).

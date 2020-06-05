@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 You can configure Spinnaker to use [Travis
 CI](https://travis-ci.org/){:target="\_blank"} as your Continuous Integration

@@ -5,7 +5,7 @@ sidebar:
 redirect_from: /setup/security/authentication/ssl
 
 ---
-{% include toc %}
+
 
 
 This section covers communication with Spinnaker from parties external to your

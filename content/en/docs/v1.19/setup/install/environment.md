@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 In this step, you tell Halyard in what type of environment to install Spinnaker.
 

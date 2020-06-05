@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 Pipeline expressions allow you to reference arbitrary values about the
 state of your system in the execution of your pipelines. For more information

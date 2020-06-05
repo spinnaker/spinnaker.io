@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 You can configure Front50 to use a MySQL compatible database in place of any cloud provider-specific storage service (S3, GCS, etc.).
 

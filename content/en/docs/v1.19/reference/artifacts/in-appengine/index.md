@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 Artifacts can be used for several things in the Google App Engine provider:
 

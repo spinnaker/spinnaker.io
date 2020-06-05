@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This codelab provides an overview of Spinnaker's integration with App Engine.
 You'll build and run a simple App Engine deployment pipeline with the following steps:

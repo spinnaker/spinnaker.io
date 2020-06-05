@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 Here are a few Q/A pairs that come up fairly frequently.
 

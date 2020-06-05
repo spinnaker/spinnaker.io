@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /setup/providers/azure/
 ---
 
-{% include toc %}
+
 
 In [Azure](https://azure.microsoft.com/){:target="\_blank"}, an
 [__Account__](/concepts/providers/#accounts) maps to a credential able to

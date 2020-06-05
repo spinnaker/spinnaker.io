@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 > :warning: These instructions are out-of-date and a new version is being
 > worked on. In the meantime, please use the following

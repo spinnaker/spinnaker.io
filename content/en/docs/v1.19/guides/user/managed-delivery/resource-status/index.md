@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /reference/managed-delivery/resource-status/
 ---
 
-{% include toc %}
+
 
 💡 *If you're not sure what a managed resource is, check out our [overview of Managed Delivery](/docs/v1/guides/user/managed-delivery) first.*
 

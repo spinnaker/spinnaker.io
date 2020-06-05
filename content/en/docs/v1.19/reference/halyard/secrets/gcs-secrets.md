@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 
 This document describes how to set up Spinnaker secrets in a GCS bucket. This example uses a bucket (`mybucket`) to store GitHub credentials and a kubeconfig file.

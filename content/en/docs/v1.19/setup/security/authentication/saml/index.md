@@ -5,7 +5,7 @@ sidebar:
 redirect_from: /docs/gate-saml-config
 ---
 
-{% include toc %}
+
 
 Security Assertion Markup Language (SAML) is an XML based way to implement single sign-on (SSO). 
 

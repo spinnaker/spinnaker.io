@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 [Amazon S3](https://aws.amazon.com/s3/) is an object store, and S3 object
 artifacts are references to objects stored in S3 buckets. These artifacts are

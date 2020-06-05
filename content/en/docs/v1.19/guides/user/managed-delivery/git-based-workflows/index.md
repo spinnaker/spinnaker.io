@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /reference/managed-delivery/git-based-workflows
 ---
 
-{% include toc %}
+
 
 Spinnaker supports git-based workflows to create and update Managed Delivery configurations.
 This allows you to keep your Managed Delivery configuration in code and follow all the usual

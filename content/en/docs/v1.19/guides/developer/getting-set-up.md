@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This page describes the steps a Developer should take to fetch Spinnaker's codebase
 and get set up to work on it.

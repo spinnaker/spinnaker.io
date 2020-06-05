@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 Once you've [created an application](/docs/v1/guides/user/applications/create/), you can
 finish configuring it before adding infrastructure and pipelines.

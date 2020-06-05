@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 Setting up [Google Cloud Build](https://cloud.google.com/cloud-build/) as a Continuous Integration (CI)
 system within Spinnaker allows you to:

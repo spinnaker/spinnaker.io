@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /guides/user/triggers/pubsub/
 ---
 
-{% include toc %}
+
 
 In order to programatically trigger pipelines one can configure Spinnaker to
 subscribe and listen to a pub/sub topic and push messages to the configured

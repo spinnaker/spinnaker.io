@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 In this codelab, you will create a source-to-prod continuous delivery pipeline for a simple java based application targeting VM Scale Sets in Azure.
 

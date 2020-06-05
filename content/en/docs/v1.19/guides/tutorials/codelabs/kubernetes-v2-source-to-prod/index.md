@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /guides/tutorials/codelabs/kubernetes-source-to-prod/
 ---
 
-{% include toc %}
+
 
 In this codelab you will configure:
 

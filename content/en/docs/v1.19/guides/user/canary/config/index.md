@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 Before you can add a canary stage to a pipeline, you need to configure what the
 canary consists of, including...

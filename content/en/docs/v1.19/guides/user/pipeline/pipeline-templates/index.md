@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 Pipeline Templates help you standardize and distribute reusable Pipelines
 across your team or among multiple teams.

@@ -4,7 +4,7 @@ title:  "Stackdriver"
 sidebar:
   nav: setup
 ---
-{% include toc %}
+
 
 ### Regarding using Spinnaker Monitoring metrics directly as Stackdriver Monitoring Custom Metrics
 

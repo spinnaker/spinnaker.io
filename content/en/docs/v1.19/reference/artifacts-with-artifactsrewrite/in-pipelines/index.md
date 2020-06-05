@@ -12,7 +12,7 @@ sidebar:
    unexpected behavior."
 %}
 
-{% include toc %}
+
 
 Now that you have an idea of [what an artifact is](/reference/artifacts/) in Spinnaker, you need to
 understand how it's used within pipelines. An artifact arrives in a pipeline execution either from an external trigger (for example, a Docker image pushed to a registry) or by getting fetched by a stage. That artifact is then consumed by downstream stages based on pre-defined behavior.

@@ -9,7 +9,7 @@ sidebar:
 > in release 1.21. Please refer to the [standard artifacts guide](/reference/artifacts-with-artifactsrewrite)
 > instead.
 
-{% include toc %}
+
 
 In Spinnaker, an artifact is an object that references an external resource. That resource could be…
 

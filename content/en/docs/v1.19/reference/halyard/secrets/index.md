@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 Storing Spinnaker configs in a git repository is a great solution for maintaining versions of your configurations, but storing secrets in plain text is a bad security practice. As of version 1.14, Spinnaker supports separating your secrets from your configs through end-to-end secrets management. Simply replace secrets in the Halconfig and service profiles with the syntax described here, and Spinnaker will decrypt them as needed. 
 

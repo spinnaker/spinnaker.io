@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 This is the reference documentation for the metrics reported by Spinnaker
 microservices. It is intended for operators who need to monitor the services

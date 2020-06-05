@@ -5,7 +5,7 @@ weight: 1
 description: ""
 ---
 
-{% include toc %}
+
 
 Out of the box, Spinnaker allows you to configure the following types of notifications:
 

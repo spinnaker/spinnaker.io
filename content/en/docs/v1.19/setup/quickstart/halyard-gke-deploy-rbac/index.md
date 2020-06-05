@@ -5,7 +5,7 @@ weight: 1
 description: 
 ---
 
-{% include toc %}
+
 
 If you've deployed Spinnaker already using [this
 codelab](/docs/v1.19/setup/quickstart/halyard-gke) you're left with a Spinnaker that can only deploy to the cluster that Spinnaker is deployed in.

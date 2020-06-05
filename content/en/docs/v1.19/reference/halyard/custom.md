@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/custom-configuration
 ---
 
-{% include toc %}
+
 
 While Halyard handles the majority of Spinnaker configuration, there will
 always be feature flags and properties either too new or niche to be supported

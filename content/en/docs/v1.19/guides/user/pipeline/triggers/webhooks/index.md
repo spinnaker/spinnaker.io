@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /guides/user/triggers/webhooks/
 ---
 
-{% include toc %}
+
 
 In order to programatically trigger pipelines one can send a `POST` call to
 Spinnaker at a preconfigured endpoint. This can be used to trigger pipelines

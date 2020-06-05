@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 In this codelab, you will create a cohesive workflow which takes source code and builds, tests, and promotes it to production.
 

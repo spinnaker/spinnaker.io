@@ -8,7 +8,7 @@ sidebar:
 
 {% include alpha version="1.19.4" %}
 
-{% include toc %}
+
 
 # Requirements
 

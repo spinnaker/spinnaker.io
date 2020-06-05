@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 Spinnaker surfaces a "Bake (Manifest)" stage to turn templates into manifests
 with the help of a templating engine. [Helm](https://helm.sh/) relies on the `helm template` command.

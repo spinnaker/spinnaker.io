@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 In this codelab, you will create a Source to Prod pipeline targeting a Kubernetes cluster in Azure. In the end you will have a Jenkins instance with a sample job that builds a container image and pushes it to an Azure Container Registry. You will also have a Spinnaker instance with a sample pipeline that deploys the container image to a staging environment, waits for manual judgement, and then deploys the image to a production environment.
 

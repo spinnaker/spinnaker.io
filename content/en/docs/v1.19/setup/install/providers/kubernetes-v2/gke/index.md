@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 This page describes how to set up a Kubernetes cluster on
 [GKE](https://cloud.google.com/kubernetes-engine/) to be used with Spinnaker's

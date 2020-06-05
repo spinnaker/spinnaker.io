@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 
 If you have [enabled canary for your application](/setup/canary/) and have one

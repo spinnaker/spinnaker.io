@@ -5,7 +5,7 @@ weight: 1
 description: 
 ---
 
-{% include toc %}
+
 
 Spinnaker can be configured to listen to changes to a repository in
 [GitHub](https://github.com){:target="\_blank"}. These steps show you how to

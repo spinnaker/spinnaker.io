@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This guide explains how to configure Spinnaker to trigger pipelines based on
 changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS)

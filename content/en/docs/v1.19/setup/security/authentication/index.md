@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 Spinnaker's authentication mechanism supports a variety of different login sources.  There are a lot of moving parts involved with
 getting this to work just right.  Here are some of the basics and tools that make setup easier to configure and test.  

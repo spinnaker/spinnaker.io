@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 [GCS](https://cloud.google.com/storage/) is an object store, and GCS object
 artifacts are references to objects stored in GCS buckets. These artifacts are

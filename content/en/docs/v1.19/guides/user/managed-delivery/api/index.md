@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /reference/managed-delivery/api/
 ---
 
-{% include toc %}
+
 
 
 The endpoints for managed delivery are located in the `managed-controller`.

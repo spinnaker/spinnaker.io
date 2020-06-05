@@ -4,7 +4,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 OAuth 2.0 is the preferred way to authenticate and authorize third parties access to your data guarded
 by the identity provider. To confirm your identity, Spinnaker requests access to your email address

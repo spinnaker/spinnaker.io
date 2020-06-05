@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 The Kubernetes provider enables a wide variety of ways to deploy your
 manifests into Kubernetes clusters. This page provides best-practices for doing

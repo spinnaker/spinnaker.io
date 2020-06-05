@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/front50-cassandra-to-redis
 ---
 
-{% include toc %}
+
 
 ## 1. Install Redis 
 

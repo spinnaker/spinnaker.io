@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 Spinnaker pipelines can be triggered using a [Google Pub/Sub
 subscription](https://cloud.google.com/pubsub/docs/overview){:target="\_blank"}.

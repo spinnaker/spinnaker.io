@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 You can pin an environment to a specific artifact version to ensure that all resources in the environment stay on that version.
 Until the pin is removed, that environment won't change to a new version of the artifact.

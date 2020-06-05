@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /reference/managed-delivery/delivery-configs/
 ---
 
-{% include toc %}
+
 
 _**Prerequisite:** read and complete the [getting started](/docs/v1/guides/user/managed-delivery/getting-started/) document!_
 

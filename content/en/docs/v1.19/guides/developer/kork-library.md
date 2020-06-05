@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/kork-library-dev
 ---
 
-{% include toc %}
+
 
 ## Introduction
 

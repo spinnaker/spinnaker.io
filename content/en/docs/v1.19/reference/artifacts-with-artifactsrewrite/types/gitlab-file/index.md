@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 A GitLab file artifact is a reference to a file stored in
 [GitLab](https://gitlab.com). These artifacts are generally consumed by stages

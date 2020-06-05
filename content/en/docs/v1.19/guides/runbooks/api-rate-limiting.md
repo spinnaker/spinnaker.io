@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 If your Spinnaker deployment has API clients interacting with it, enabling and
 knowing how to operate the API rate limiter can help keep Spinnaker reliable

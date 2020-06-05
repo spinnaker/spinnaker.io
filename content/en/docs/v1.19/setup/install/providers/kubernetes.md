@@ -11,7 +11,7 @@ redirect_from:
 > ⚠️ Spinnaker's legacy Kubernetes provider (V1) is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
 > We recommend using the [standard provider (V2)](/docs/v1.19/setup/install/providers/kubernetes-v2) instead. 
 
-{% include toc %}
+
 
 For the Kubernetes provider, a Spinnaker [Account](/concepts/providers/#accounts)
 maps to a credential that can authenticate against your Kubernetes Cluster. It

@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This guide describes how to surface information about your Kubernetes resources
 in Deck's details panel using Kubernetes annotations.  These annotations can be

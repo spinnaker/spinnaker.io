@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 HTTP file artifacts are references to files stored in plaintext reachable via
 HTTP. They are generally consumed by stages that read configuration from text

@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 GitHub file artifacts are references to files stored in
 [GitHub](https://github.com) or [GitHub

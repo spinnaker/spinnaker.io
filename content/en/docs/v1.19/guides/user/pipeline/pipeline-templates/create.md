@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This document describes how to create a pipeline template from an existing
 pipeline, and how to parameterize that template.

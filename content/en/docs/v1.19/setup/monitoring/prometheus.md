@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 [Prometheus](https://prometheus.io/){:target="\_blank"} is an open-source
 monitoring system that pairs nicely with Spinnaker. Prometheus does not have a

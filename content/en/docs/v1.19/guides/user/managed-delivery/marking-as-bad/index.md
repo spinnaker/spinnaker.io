@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 You can mark a version of an artifact in an environment as bad to ensure that that version never gets deployed to the environment.
 If you mark an artifact as bad in the first in a series of environments (linked together by `depends-on` constraints) that version of the artifact will never be promoted into the later environments.

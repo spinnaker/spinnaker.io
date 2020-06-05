@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 [Datadog](https://datadoghq.com){:target="\_blank"} is a modern monitoring &
 analytics solution. This document describes how to configure Spinnaker and its

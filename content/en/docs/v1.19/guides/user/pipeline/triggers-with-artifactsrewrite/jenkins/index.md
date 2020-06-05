@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This guide explains how to add a [Jenkins](https://jenkins.io/){:target="\_blank"}
 trigger to your pipeline.

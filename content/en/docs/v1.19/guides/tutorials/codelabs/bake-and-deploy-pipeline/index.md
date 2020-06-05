@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/bake-and-deploy-pipeline
 ---
 
-{% include toc %}
+
 
 > **VM only**: This codelab requires you have a VM (for example, on AWS or GCP)
 > on which to run it.

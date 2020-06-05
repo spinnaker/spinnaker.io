@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 To create a new stage, you need to make backend changes to 
 [orca](https://github.com/spinnaker/orca) to implement the logic of the stage,

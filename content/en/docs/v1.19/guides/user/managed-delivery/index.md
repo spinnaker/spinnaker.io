@@ -11,7 +11,7 @@ sidebar:
 > mission-critical production services. Only EC2 and Titus cloud providers are currently supported and
 > many features are still in flux or pending. 
 
-{% include toc %}
+
 
 ## What is Managed Delivery? 
 

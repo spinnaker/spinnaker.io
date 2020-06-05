@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 There are a number of other things you can configure in your Spinnaker
 installation enumerated below. At any point in time, assuming that your

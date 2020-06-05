@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 [Maven](https://maven.apache.org) is a build automation tool, and a Spinnaker Maven artifact is a reference to a Maven artifact stored in a Maven repository. These artifacts are generally consumed by stages that deploy application artifacts, such as a Deploy stage.
 

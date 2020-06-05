@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/customizing-instance-links
 ---
 
-{% include toc %}
+
 
 Spinnaker makes it easy to give users links to common features of their applications (logs, health, etc.), which are accessible from the instance details panel:
 

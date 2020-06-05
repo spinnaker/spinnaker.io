@@ -8,7 +8,7 @@ redirect_from:
   - /guides/user/triggers/github/
 ---
 
-{% include toc %}
+
 
 This guide explains how to configure Spinnaker to trigger pipelines based on
 commits to a [GitHub repostory](https://github.com) and inject changed GitHub

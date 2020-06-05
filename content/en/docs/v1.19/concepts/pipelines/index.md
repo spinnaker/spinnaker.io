@@ -5,7 +5,7 @@ sidebar:
   nav: concepts
 ---
 
-{% include toc %}
+
 
 ## About pipelines
 

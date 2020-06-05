@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 In this codelab, you will improve a deployment process by adding safeguards to your deployments.
 

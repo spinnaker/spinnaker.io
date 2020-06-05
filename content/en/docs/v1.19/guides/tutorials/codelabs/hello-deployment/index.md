@@ -6,7 +6,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This guide will run through the workflow of setting up an example application deployment with
 Spinnaker. It assumes you already have Spinnaker up and running on AWS or

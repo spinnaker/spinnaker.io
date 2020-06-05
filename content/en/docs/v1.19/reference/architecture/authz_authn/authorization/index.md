@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 ## Overview
 Fiat works closely with Front50 (apps permissions), Clouddriver (account permissions), and Igor (build services permissions).

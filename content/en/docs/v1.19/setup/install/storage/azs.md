@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /setup/storage/azs/
 ---
 
-{% include toc %}
+
 
 Using [Azure Storage](https://azure.microsoft.com/services/storage/){:target="\_blank"}
 (AZS) as a storage source means that Spinnaker will store all of its persistent

@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 A pipeline trigger defines when to automatically run a pipeline. There are many
 types of triggers available: Jenkins jobs, webhooks, CRON jobs, even other

@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 You can use `spin` CLI to visualize a pipeline created from a pipeline template
 without actually instantiating one.

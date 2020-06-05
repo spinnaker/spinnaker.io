@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/general-purpose-tags
 ---
 
-{% include toc %}
+
 
 This guide provides an introduction to the provider-agnostic tagging capabilities of Spinnaker, otherwise referred to as _Entity Tags_.
 

@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 
 Canary is a deployment process in which a change is partially rolled out, then

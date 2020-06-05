@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 Pipelines are the essential tool in Spinnaker for controlling how to deploy your
 application. A pipeline is composed of a series of stages that can be combined

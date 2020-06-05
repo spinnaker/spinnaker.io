@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /setup/providers/gce/
 ---
 
-{% include toc %}
+
 
 In [Google Compute Engine](https://cloud.google.com/compute){:target="\_blank"}
 (GCE), an [__Account__](/concepts/providers/#accounts) maps to a credential able

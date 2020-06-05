@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 Artifacts play an important role in the Kubernetes provider. Everything from
 the manifests you deploy to the Docker images or ConfigMaps they reference

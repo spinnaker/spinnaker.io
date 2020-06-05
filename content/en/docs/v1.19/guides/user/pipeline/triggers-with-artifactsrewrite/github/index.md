@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This guide explains how to configure Spinnaker to trigger pipelines based on
 commits to a [GitHub](https://github.com) repository and inject changed GitHub

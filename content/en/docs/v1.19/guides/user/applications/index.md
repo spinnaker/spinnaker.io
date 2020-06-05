@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 An application in Spinnaker is a construct that represents some service that you
 are going to deploy (typically a microservice). It includes...

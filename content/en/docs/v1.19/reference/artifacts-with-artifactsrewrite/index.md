@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 A Spinnaker artifact is a named JSON object that refers to an external resource.
 

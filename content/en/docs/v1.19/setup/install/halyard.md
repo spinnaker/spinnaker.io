@@ -8,7 +8,7 @@ redirect_from:
   - /docs/target-deployment-configuration
 ---
 
-{% include toc %}
+
 
 Halyard is a command-line administration tool that manages the lifecycle of your Spinnaker deployment,
 including writing & validating your deployment's configuration, deploying each of Spinnaker's

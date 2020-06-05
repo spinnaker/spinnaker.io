@@ -10,7 +10,7 @@ redirect-from: /guides/developer/plugin-creators/
 
 >Note: Spinnaker 1.19.x only supports backend plugins due to a bug in Deck.
 
-{% include toc %}
+
 
 
 # Requirements

@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/jenkins-script-execution-stage
 ---
 
-{% include toc %}
+
 
 Setting up [Jenkins](https://jenkins.io/){:target="\_blank"} as a Continuous
 Integration (CI) system within Spinnaker lets you trigger pipelines with

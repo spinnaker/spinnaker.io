@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 You can configure Clouddriver to use a MySQL compatible database in place of Redis for all of its persistence use cases. These are:
 

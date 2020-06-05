@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 Rather than refer to a resource by a URI, you can embed the artifact's contents
 directly into the `"reference"` field in Base64.

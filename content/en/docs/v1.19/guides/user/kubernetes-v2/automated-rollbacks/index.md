@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 There are clear benefits to having your stored manifests (in Git, GCS, etc...)
 match as closely as possible to what's running in your cluster: you have

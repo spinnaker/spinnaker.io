@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/from-source-to-prod
 ---
 
-{% include toc %}
+
 
 In this codelab, you will create a cohesive workflow which takes source code and builds, tests and promotes it to production. You can also watch a video of this codelab in this [Youtube playlist](https://www.youtube.com/watch?v=N9VnJlKn734&list=PL4yLrwUObNkttE526AAj_ykc5UlIPjz8m&index=1).
 

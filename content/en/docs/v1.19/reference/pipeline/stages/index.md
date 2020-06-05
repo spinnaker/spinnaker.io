@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 This article describes the currently-supported stages that you can add to your
 Spinnaker pipelines.

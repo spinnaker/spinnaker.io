@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /guides/user/triggers/searching
 ---
 
-{% include toc %}
+
 
 This guide describes how to use the `searchForPipelineExecutionsByTrigger` API to search for pipeline executions triggered by Pub/Sub messages or webhooks.
 

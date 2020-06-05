@@ -4,7 +4,7 @@ linkTitle: "Get Started"
 weight: 1
 ---
 
-{% include toc %}
+
 
 > This article assumes you are new to Spinnaker. It contains basic information
 > about what to do after [Spinnaker is installed](/setup/install/).

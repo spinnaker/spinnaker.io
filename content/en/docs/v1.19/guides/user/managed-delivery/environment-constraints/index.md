@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 _**Prerequisite:** understand the environment concept offered by [Delivery Configs](/docs/v1/guides/user/managed-delivery/delivery-configs/#environments)_
 

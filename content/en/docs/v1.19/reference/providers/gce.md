@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 If you are not familiar with Google Compute Engine or any of the terms used below, please consult
 Compute Engine's [reference documentation](https://cloud.google.com/compute).

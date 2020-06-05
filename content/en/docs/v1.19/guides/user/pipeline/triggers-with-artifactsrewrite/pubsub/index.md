@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 In order to programatically trigger pipelines one can configure Spinnaker to
 subscribe and listen to a Pub/Sub topic and push messages to the configured

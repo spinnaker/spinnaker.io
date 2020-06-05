@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-{% include toc %}
+
 
 This article describes how the Kubernetes provider works and how it differs
 from other providers in Spinnaker. If you're unfamiliar with Kubernetes

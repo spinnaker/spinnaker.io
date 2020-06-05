@@ -5,5 +5,5 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 

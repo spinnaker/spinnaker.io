@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 If you are not migrating an existing Orca deployment, refer to [Orca SQL Setup](/setup/productionize/persistence/orca-sql/) instead.
 

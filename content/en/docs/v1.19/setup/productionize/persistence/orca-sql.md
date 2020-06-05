@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 Orca's execution state is stored in Redis by default, but can be configured for SQL. 
 In this topology, Redis is still required for the work queue.

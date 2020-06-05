@@ -6,7 +6,7 @@ sidebar:
 ---
 
 
-{% include toc %}
+
 
 Spinnaker's Kubernetes provider fully supports Kubernetes-native, manifest-based deployments and is the recommended provider for deploying to Kubernetes with Spinnaker.
 [Spinnaker's legacy Kubernetes provider](https://www.spinnaker.io/setup/install/providers/kubernetes/){:target="\_blank"}

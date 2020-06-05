@@ -5,7 +5,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 Spinnaker relies on its Redis cache for a number of reasons: caching
 infrastructure, storing live executions, returning pipeline definitions faster,

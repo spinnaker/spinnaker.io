@@ -8,7 +8,7 @@ sidebar:
 **The Git Repo artifact is available in version 1.17 or later.**
 {: .notice--info}
 
-{% include toc %}
+
 
 Git Repo artifacts are references to Git repositories that are hosted by a Git hosting service. They are consumed
 by stages that need multiple files to produce an output such as the Bake (Manifest) stage when using the Kustomize template

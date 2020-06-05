@@ -4,7 +4,7 @@ sidebar:
   nav: setup
 ---
 
-{% include toc %}
+
 
 Lightweight Directory Access Protocol (LDAP) is a standard way many organizations maintain user
 credentials and group memberships. Spinnaker uses the standard "*bind*" approach for user

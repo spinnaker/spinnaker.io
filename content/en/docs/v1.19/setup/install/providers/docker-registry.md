@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /setup/providers/docker-registry/
 ---
 
-{% include toc %}
+
 
 > :warning: This only acts as a source of images, and does not include support
 > for deploying Docker images.

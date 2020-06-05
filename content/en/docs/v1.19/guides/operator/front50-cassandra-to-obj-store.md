@@ -6,7 +6,7 @@ sidebar:
 redirect_from: /docs/front50-cassandra-to-object-store
 ---
 
-{% include toc %}
+
 
 Cassandra is no longer an actively maintained or supported persistence store. 
 

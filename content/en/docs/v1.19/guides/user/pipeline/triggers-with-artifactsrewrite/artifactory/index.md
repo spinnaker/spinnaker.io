@@ -5,7 +5,7 @@ sidebar:
   nav: guides
 ---
 
-{% include toc %}
+
 
 This guide explains how to add a [JFrog
 Artifactory](https://jfrog.com/artifactory/) trigger to your pipeline.

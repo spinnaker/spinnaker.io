@@ -5,7 +5,7 @@
    nav: guides
 ---
  
- {% include toc %}
+ 
 
 In this codelab, you will deploy an artifact to Cloud Foundry via a Spinnaker pipeline that is triggered by JAR uploads to a Google Cloud Storage (GCS) bucket.
 
