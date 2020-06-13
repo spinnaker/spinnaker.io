@@ -1,11 +1,4 @@
 ---
-layout: single
-title:  "Triggering on Pub/Sub Messages"
-sidebar:
-  nav: guides
----
-
----
 title: "Triggering on Pub/Sub Messages"
 linkTitle: "Triggering on Pub/Sub Messages"
 weight: 

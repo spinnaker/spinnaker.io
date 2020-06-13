@@ -1,11 +1,4 @@
 ---
-layout: single
-title:  "Triggering pipelines with Jenkins"
-sidebar:
-  nav: guides
----
-
----
 title: "Triggering pipelines with Jenkins"
 linkTitle: "Triggering pipelines with Jenkins"
 weight: 

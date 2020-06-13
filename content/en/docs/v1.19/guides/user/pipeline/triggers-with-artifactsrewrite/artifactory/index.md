@@ -1,11 +1,4 @@
 ---
-layout: single
-title:  "Triggering pipelines with Artifactory"
-sidebar:
-  nav: guides
----
-
----
 title: "Triggering pipelines with Artifactory"
 linkTitle: "Triggering pipelines with Artifactory"
 weight: 
