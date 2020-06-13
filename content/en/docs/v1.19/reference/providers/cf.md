@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Cloud Foundry"
-sidebar:
-  nav: reference
+title: "Cloud Foundry"
+linkTitle: "Cloud Foundry"
+weight: 
+description:
 ---
-
-
 
 If you are not familiar with Cloud Foundry (CF) or any of the terms used below, please consult [Cloud Foundry's reference documentation](https://docs.cloudfoundry.org).
 

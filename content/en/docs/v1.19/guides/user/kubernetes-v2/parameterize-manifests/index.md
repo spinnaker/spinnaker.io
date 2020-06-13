@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Parameterize Kubernetes Manifests"
-sidebar:
-  nav: guides
+title: "Parameterize Kubernetes Manifests"
+linkTitle: "Parameterize Kubernetes Manifests"
+weight: 
+description: 
 ---
-
 
 
 Spinnaker can inject context from the currently executing pipeline into your

@@ -1,9 +1,8 @@
 ---
-layout: single
-title:  "Resource Status"
-sidebar:
-  nav: guides
-redirect_from: /reference/managed-delivery/resource-status/
+title: "Resource Status"
+linkTitle: "Resource Status"
+weight: 
+description: 
 ---
 
 

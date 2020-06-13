@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Managing Pipelines"
-sidebar:
-  nav: guides
+title: "Managing Pipelines"
+linkTitle: "Managing Pipelines"
+weight: 
+description: 
 ---
-
-
 
 Pipelines are the essential tool in Spinnaker for controlling how to deploy your
 application. A pipeline is composed of a series of stages that can be combined

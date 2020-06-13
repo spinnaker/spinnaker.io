@@ -1,3 +1,10 @@
+// Google fonts imports
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@100;400;500&family=Roboto:wght@100;300;400;500&display=swap');
+
+// font-family: 'Noto Sans', sans-serif;
+// font-family: 'Noto Sans JP', sans-serif;
+// font-family: 'Roboto', sans-serif;
+
 /*
 
 Bootstrap variables overrides for theme.
@@ -17,19 +24,19 @@ $td-enable-google-fonts: true !default;
 
 // Theme colors
 
-$primary: #30638E !default;
+$primary: #ff6f00; // Orange // #30638E !default;
 $primary-light: lighten($primary, 75%) !default;
-$secondary: #FFA630 !default;
-$success: #3772FF !default;
-$info: #C0E0DE !default;
-$warning: #ED6A5A !default;
-$danger: #ED6A5A !default;
+$secondary: #ffa630 !default;
+$success: #3772ff !default;
+$info: #c0e0de !default;
+$warning: #ed6a5a !default;
+$danger: #ed6a5a !default;
 $white: #fff !default;
-$light: #D3F3EE !default;
+$light: #d3f3ee !default;
 
-$dark: #403F4C !default;
-$blue: #72A1E5 !default;
-$orange: #BA5A31 !default;
+$dark: #403f4c !default;
+$blue: #72a1e5 !default;
+$orange: #ba5a31 !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #eee !default;
 $gray-300: #dee2e6 !default;
@@ -40,6 +47,9 @@ $gray-700: #495057 !default;
 $gray-800: #333 !default;
 $gray-900: #222 !default;
 $black: #000 !default;
+
+$graygreen: #425066 !default;
+$lightgray: #f5f6f7 !default;
 
 $code-color: darken($secondary, 20%) !default;
 
@@ -52,7 +62,9 @@ $td-sidebar-border-color: $border-color !default;
 // Background colors for the sections on home page etc. It is a paint by number system, starting at 0, where the number is taken from the shortcode's ordinal
 // if not provided by the user.
 // These colors are all part of the theme palette, but the mix is fairly random to create variation. This can be overridden by the project if needed.
-$td-box-colors: $dark, $primary, $secondary, $info, $primary-light, $gray-600, $success, $warning, $dark, $danger, $primary, $secondary, $primary-light, $info !default;
+$td-box-colors: $dark, $primary, $secondary, $info, $primary-light, $gray-600,
+    $success, $warning, $dark, $danger, $primary, $secondary, $primary-light,
+    $info !default;
 
 $link-color: darken($blue, 15%) !default;
 $link-decoration: none !default;
@@ -61,19 +73,22 @@ $link-hover-decoration: none !default;
 
 // Fonts
 
-$google_font_name: "Open Sans" !default;
-$google_font_family: "Open+Sans:300,300i,400,400i,700,700i" !default;
-$web-font-path: "https://fonts.googleapis.com/css?family=#{$google_font_family}";
+$google_font_name: 'Roboto' !default;
+$google_font_family: 'Rotobo:100,100i,300,300i,400,400i,700,700i' !default;
+$web-font-path: 'https://fonts.googleapis.com/css?family=#{$google_font_family}';
 
-$td-fonts-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$td-fonts-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
 
 @if $td-enable-google-fonts {
-    $td-fonts-serif: prepend($td-fonts-serif, "#{$google_font_name}");
+    $td-fonts-serif: prepend($td-fonts-serif, '#{$google_font_name}');
 }
 
 $font-family-sans-serif: $td-fonts-serif !default;
 
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 $font-size-base: 1rem !default;
 
@@ -122,7 +137,7 @@ $pagination-disabled-color: $gray-300 !default;
 
 // Navbar
 
-$navbar-dark-color: rgba($white, 0.75) !default;
+$navbar-dark-color: $graygreen; // rgba($white, 0.75) !default;
 $navbar-dark-hover-color: rgba($white, 0.5) !default;
 $navbar-dark-active-color: $white !default;
 $navbar-dark-disabled-color: rgba($white, 0.25) !default;

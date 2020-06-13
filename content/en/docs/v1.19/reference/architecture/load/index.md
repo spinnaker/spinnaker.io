@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Life of a Deployment"
-sidebar:
-  nav: reference
+title: "Life of a Deployment"
+linkTitle: "LOAD"
+weight: 
+description: 
 ---
 
 <div class="mermaid">

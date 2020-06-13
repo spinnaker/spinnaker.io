@@ -5,7 +5,13 @@ sidebar:
   nav: guides
 ---
 
-
+---
+title: "Triggering pipelines with Artifactory"
+linkTitle: "Triggering pipelines with Artifactory"
+weight: 
+description: >
+  This guide explains how to add a [JFrog Artifactory](https://jfrog.com/artifactory/) trigger to your pipeline. 
+---
 
 This guide explains how to add a [JFrog
 Artifactory](https://jfrog.com/artifactory/) trigger to your pipeline.
@@ -53,4 +59,3 @@ default.
 artifact.
 
 1. Click __Save Artifact__.
-

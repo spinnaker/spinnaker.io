@@ -1,9 +1,8 @@
 ---
-layout: single
-title:  "Front50: Cassandra to Object Store (S3, Azure, or GCS)"
-sidebar:
-  nav: guides
-redirect_from: /docs/front50-cassandra-to-object-store
+title: "Front50: Cassandra to Object Store (S3, Azure, or GCS)"
+linkTitle: "Front50: Cassandra to Object Store (S3, Azure, or GCS)"
+weight: 2
+description: 
 ---
 
 

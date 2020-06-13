@@ -1,8 +1,8 @@
 ---
-layout: single
 title: "Pinning an Environment"
-sidebar:
-  nav: guides
+linkTitle: "Pinning an Environment"
+weight: 
+description: 
 ---
 
 
@@ -52,13 +52,3 @@ with body:
   "version" : "master-h10.62bbbd6"
 }
 ```
-
-
-
-
-
-
-
-
-
-

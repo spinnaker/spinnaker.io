@@ -1,9 +1,10 @@
 ---
-layout: single
-title:  "Deploy Custom Spinnaker Builds"
-sidebar:
-  nav: guides
+title: "Deploy Custom Spinnaker Builds"
+linkTitle: "Deploy Custom Spinnaker Builds"
+weight: 2
+description: 
 ---
+
 
 ## The Bill of Materials (BOM)
 

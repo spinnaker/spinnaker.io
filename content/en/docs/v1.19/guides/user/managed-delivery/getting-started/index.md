@@ -1,9 +1,8 @@
 ---
-layout: single
-title:  "Getting Started"
-sidebar:
-  nav: guides
-redirect_from: /reference/managed-delivery/getting-started/
+title: "Getting Started"
+linkTitle: "Getting Started"
+weight: 
+description: 
 ---
 
 

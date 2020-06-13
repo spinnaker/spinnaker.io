@@ -1,10 +1,10 @@
 ---
-layout: single
-title:  "Artifacts"
-sidebar:
-  nav: guides
-redirect_from: /reference/managed-delivery/artifacts/
+title: "Artifacts"
+linkTitle: "Artifacts"
+weight: 
+description: 
 ---
+
 
 
 

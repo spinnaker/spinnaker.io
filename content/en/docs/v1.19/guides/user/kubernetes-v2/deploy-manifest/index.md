@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Deploy Kubernetes Manifests"
-sidebar:
-  nav: guides
+title: "Deploy Kubernetes Manifests"
+linkTitle: "Deploy Kubernetes Manifests"
+weight: 
+description: 
 ---
 
 

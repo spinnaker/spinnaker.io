@@ -1,10 +1,9 @@
 ---
-layout: single
 title: "Artifacts In App Engine"
-sidebar:
-  nav: reference
+linkTitle: "Artifacts In App Engine"
+weight: 
+description: 
 ---
-
 
 
 Artifacts can be used for several things in the Google App Engine provider:

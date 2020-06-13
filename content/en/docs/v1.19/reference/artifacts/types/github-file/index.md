@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "GitHub File"
-sidebar:
-  nav: reference
+title: "GitHub File"
+linkTitle: "GitHub File"
+weight: 
+description: 
 ---
-
 
 
 GitHub file artifacts are references to files stored in

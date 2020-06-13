@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Amazon ECS"
-sidebar:
-  nav: reference
+title: "Amazon ECS"
+linkTitle: "Amazon ECS"
+weight: 
+description:
 ---
-
-
 
 ## Resource mapping
 

@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Oracle Object"
-sidebar:
-  nav: reference
+title: "Oracle Object"
+linkTitle: "Oracle Object"
+weight: 
+description: 
 ---
-
 
 
 [Oracle Object Storage](https://docs.cloud.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) is an object store,

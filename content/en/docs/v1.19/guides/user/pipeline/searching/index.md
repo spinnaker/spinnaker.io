@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Searching for Triggered Pipeline Executions"
-sidebar:
-  nav: guides
-redirect_from: /guides/user/triggers/searching
+title: "Searching for Triggered Pipeline Executions"
+linkTitle: "Searching for Triggered Pipeline Executions"
+weight: 
+description: 
 ---
-
 
 
 This guide describes how to use the `searchForPipelineExecutionsByTrigger` API to search for pipeline executions triggered by Pub/Sub messages or webhooks.

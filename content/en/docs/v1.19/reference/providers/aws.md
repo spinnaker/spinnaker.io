@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Amazon Web Services"
-sidebar:
-  nav: reference
+title: "Amazon Web Services"
+linkTitle: "Amazon Web Services"
+weight: 
+description:
 ---
 
 Reference documentation coming soon! 

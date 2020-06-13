@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Authentication Architecture"
-sidebar:
-  nav: reference
+title: "Authentication Architecture"
+linkTitle: "Authentication Architecture"
+weight: 
+description: 
 ---
 
 

@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "HTTP File"
-sidebar:
-  nav: reference
+title: "HTTP File"
+linkTitle: "HTTP File"
+weight: 
+description: 
 ---
-
 
 
 HTTP file artifacts are references to files stored in plaintext reachable via

@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Triggering on Webhooks"
-sidebar:
-  nav: guides
+title: "Triggering on Webhooks"
+linkTitle: "Triggering on Webhooks"
+weight: 
+description:
 ---
-
 
 
 In order to programatically trigger pipelines you can send a `POST` call to

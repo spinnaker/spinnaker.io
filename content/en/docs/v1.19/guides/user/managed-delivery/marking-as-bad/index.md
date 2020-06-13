@@ -1,8 +1,8 @@
 ---
-layout: single
 title: "Marking an Artifact as Bad"
-sidebar:
-  nav: guides
+linkTitle: "Marking an Artifact as Bad"
+weight: 
+description: 
 ---
 
 

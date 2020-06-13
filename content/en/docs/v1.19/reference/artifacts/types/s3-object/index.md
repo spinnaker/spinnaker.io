@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "S3 Object"
-sidebar:
-  nav: reference
+title: "S3 Object"
+linkTitle: "S3 Object"
+weight: 
+description: 
 ---
-
 
 
 [S3](https://aws.amazon.com/s3/) is an object store, and S3 object

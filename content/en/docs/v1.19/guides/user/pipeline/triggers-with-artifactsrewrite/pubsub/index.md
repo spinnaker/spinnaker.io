@@ -5,7 +5,12 @@ sidebar:
   nav: guides
 ---
 
-
+---
+title: "Triggering on Pub/Sub Messages"
+linkTitle: "Triggering on Pub/Sub Messages"
+weight: 
+description:
+---
 
 In order to programatically trigger pipelines one can configure Spinnaker to
 subscribe and listen to a Pub/Sub topic and push messages to the configured

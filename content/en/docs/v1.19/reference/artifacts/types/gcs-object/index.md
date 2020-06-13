@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "GCS Object"
-sidebar:
-  nav: reference
+title: "GCS Object"
+linkTitle: "GCS Object"
+weight: 
+description: 
 ---
-
 
 
 [GCS](https://cloud.google.com/storage/) is an object store, and GCS object

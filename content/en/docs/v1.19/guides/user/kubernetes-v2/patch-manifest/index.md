@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Patch Kubernetes Manifests"
-sidebar:
-  nav: guides
+title: "Patch Kubernetes Manifests"
+linkTitle: "Patch Kubernetes Manifests"
+weight: 
+description: 
 ---
 
 

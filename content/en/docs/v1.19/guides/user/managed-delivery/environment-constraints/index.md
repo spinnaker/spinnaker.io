@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Environment Constraints"
-sidebar:
-  nav: guides
+title: "Environment Constraints"
+linkTitle: "Environment Constraints"
+weight: 
+description: 
 ---
-
 
 
 _**Prerequisite:** understand the environment concept offered by [Delivery Configs](/docs/v1/guides/user/managed-delivery/delivery-configs/#environments)_

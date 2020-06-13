@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Delivery Configs"
-sidebar:
-  nav: guides
-redirect_from: /reference/managed-delivery/delivery-configs/
+title: "Delivery Configs"
+linkTitle: "Delivery Configs"
+weight: 
+description: 
 ---
-
 
 
 _**Prerequisite:** read and complete the [getting started](/docs/v1/guides/user/managed-delivery/getting-started/) document!_
@@ -161,4 +159,3 @@ Note that the first environment has no constraints.
 ## Example 
 
 TODO eb: add an example 
-

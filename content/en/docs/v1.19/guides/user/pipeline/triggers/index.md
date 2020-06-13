@@ -1,10 +1,10 @@
 ---
-layout: single
-title:  "Overview"
-sidebar:
-  nav: guides
+title: "Triggers Overview"
+linkTitle: "Triggers Overview"
+weight: 
+description: >
+  A pipeline trigger defines when to automatically run a pipeline.
 ---
-
 
 
 A pipeline trigger defines when to automatically run a pipeline. There are many

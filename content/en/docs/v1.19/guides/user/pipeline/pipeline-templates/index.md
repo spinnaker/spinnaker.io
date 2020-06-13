@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Using Pipeline Templates"
-sidebar:
-  nav: guides
+title: "Using Pipeline Templates"
+linkTitle: "Using Pipeline Templates"
+weight: 
+description: 
 ---
-
-
 
 Pipeline Templates help you standardize and distribute reusable Pipelines
 across your team or among multiple teams.

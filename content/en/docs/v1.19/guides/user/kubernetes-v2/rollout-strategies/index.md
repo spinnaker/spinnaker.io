@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Rollout Strategies"
-sidebar:
-  nav: guides
+title: "Rollout Strategies"
+linkTitle: "Rollout Strategies"
+weight: 
+description: 
 ---
-
-
 
 This guide describes how to take advantage of the
 [Kubernetes](/setup/install/providers/kubernetes-v2) provider's first-class support

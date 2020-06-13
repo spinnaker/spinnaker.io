@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "General Purpose Tagging Guide"
-sidebar:
-  nav: guides
-redirect_from: /docs/general-purpose-tags
+title: "General Purpose Tagging Guide"
+linkTitle: "General Purpose Tagging Guide"
+weight: 2
+description: 
 ---
-
 
 
 This guide provides an introduction to the provider-agnostic tagging capabilities of Spinnaker, otherwise referred to as _Entity Tags_.

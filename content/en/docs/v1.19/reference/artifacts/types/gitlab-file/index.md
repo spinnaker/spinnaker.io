@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Gitlab File"
-sidebar:
-  nav: reference
+title: "Gitlab File"
+linkTitle: "Gitlab File"
+weight: 
+description: 
 ---
-
 
 
 Gitlab file artifacts are references to files stored in

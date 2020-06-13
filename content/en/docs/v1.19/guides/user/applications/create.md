@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Create an application"
-sidebar:
-  nav: guides
+title: "Create an application"
+linkTitle: "Create an application"
+weight: 2
+description: 
 ---
 
 You can't create a deployment pipeline unless you have an application to put it

@@ -1,8 +1,8 @@
 ---
-layout: single
 title: "Writing a New Stage"
-sidebar:
-  nav: guides
+linkTitle: "Writing a New Stage"
+weight: 2
+description: 
 ---
 
 

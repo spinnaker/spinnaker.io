@@ -1,8 +1,9 @@
 ---
-layout: single
 title: "Common Internals"
-sidebar:
-  nav: guides
+linkTitle: "Common Internals"
+weight: 2
+description: >
+  This page enumerates, at a high-level, what foundations the Spinnaker services are built atop.
 ---
 
 Spinnaker is built as a collection of microservices, all of these services share a common foundation.

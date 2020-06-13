@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Best Practices for the Kubernetes Provider"
-sidebar:
-  nav: guides
+title: "Best Practices for the Kubernetes Provider"
+linkTitle: "Best Practices for the Kubernetes Provider"
+weight: 
+description: 
 ---
 
 

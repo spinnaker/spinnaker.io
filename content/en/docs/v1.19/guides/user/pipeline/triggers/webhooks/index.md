@@ -1,12 +1,9 @@
 ---
-layout: single
-title:  "Triggering on Webhooks"
-sidebar:
-  nav: guides
-redirect_from: /guides/user/triggers/webhooks/
+title: "Triggering on Webhooks"
+linkTitle: "Triggering on Webhooks"
+weight: 
+description: 
 ---
-
-
 
 In order to programatically trigger pipelines one can send a `POST` call to
 Spinnaker at a preconfigured endpoint. This can be used to trigger pipelines

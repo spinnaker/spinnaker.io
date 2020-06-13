@@ -1,10 +1,9 @@
 ---
-Layout: single
-title:  "Kubernetes Provider"
-sidebar:
-  nav: reference
+title: "Kubernetes Provider"
+linkTitle: "Kubernetes Provider"
+weight: 
+description:
 ---
-
 
 
 This article describes how the Kubernetes provider works and how it differs

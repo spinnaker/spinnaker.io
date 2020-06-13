@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Component Sizing"
-sidebar:
-  nav: reference
+title: "Component Sizing"
+linkTitle: "Component Sizing"
+weight: 
+description: 
 ---
-
-
 
 
 Custom sizing can be specified for each Spinnaker component within the Halyard configuration. You can either add these sizes to the Halyard config manually, or use any of the [Halyard component sizing commands](https://www.spinnaker.io/reference/halyard/commands/#hal-config-deploy-component-sizing). This feature is currently only supported for distributed deployments using Kubernetes (`hal config deploy edit --type distributed --account-name my-k8s-cluster`).

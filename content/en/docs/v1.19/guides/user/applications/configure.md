@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Configure an application"
-sidebar:
-  nav: guides
+title: "Configure an application"
+linkTitle: "Configure an application"
+weight: 2
+description: 
 ---
-
 
 
 Once you've [created an application](/docs/v1/guides/user/applications/create/), you can

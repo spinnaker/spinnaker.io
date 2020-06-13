@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "API Rate Limiting"
-sidebar:
-  nav: guides
+title: "API Rate Limiting"
+linkTitle: "API Rate Limiting"
+weight: 2
+description: 
 ---
 
 

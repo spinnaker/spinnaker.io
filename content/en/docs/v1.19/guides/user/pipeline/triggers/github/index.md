@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Receiving artifacts from GitHub"
-sidebar:
-  nav: guides
-redirect_from:
-  - /guides/user/artifacts/github/
-  - /guides/user/triggers/github/
+title: "Receiving artifacts from GitHub"
+linkTitle: "Receiving artifacts from GitHub"
+weight: 
+description: >
+  This guide explains how to configure Spinnaker to trigger pipelines based on commits to a [GitHub repostory](https://github.com) and inject changed GitHub files as [artifacts](/reference/artifacts) into a pipeline.
 ---
 
 
@@ -127,5 +125,3 @@ run our pipeline. To configure the trigger:
 If you add or modify a file matching your expected artifact to the configured
 repository, it should execute. If it doesn't, you can start by checking the
 logs of the __Echo__ service.
-
-

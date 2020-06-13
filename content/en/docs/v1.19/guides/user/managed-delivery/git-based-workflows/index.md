@@ -1,9 +1,8 @@
 ---
-layout: single
-title:  "Git-Based Workflows"
-sidebar:
-  nav: guides
-redirect_from: /reference/managed-delivery/git-based-workflows
+title: "Git-Based Workflows"
+linkTitle: "Git-Based Workflows"
+weight: 
+description: 
 ---
 
 

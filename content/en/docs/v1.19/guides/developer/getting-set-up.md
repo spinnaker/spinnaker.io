@@ -1,10 +1,10 @@
 ---
-layout: single
 title: "Getting Set Up for Spinnaker Development"
-sidebar:
-  nav: guides
+linkTitle: "Getting Set Up"
+weight: 2
+description: >
+  [Kork](https://github.com/spinnaker/kork) is a common library used across multiple Spinnaker components.
 ---
-
 
 
 This page describes the steps a Developer should take to fetch Spinnaker's codebase

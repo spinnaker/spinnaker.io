@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Orca: Redis to SQL Migration"
-sidebar:
-  nav: guides
+title: "Orca: Redis to SQL Migration"
+linkTitle: "Orca: Redis to SQL Migration"
+weight: 2
+description: 
 ---
 
 

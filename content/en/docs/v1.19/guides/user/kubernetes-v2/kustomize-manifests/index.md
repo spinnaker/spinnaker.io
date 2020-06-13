@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Use Kustomize for Manifests"
-sidebar:
-  nav: guides
+title: "Use Kustomize for Manifests"
+linkTitle: "Use Kustomize for Manifests"
+weight: 
+description: 
 ---
 
 

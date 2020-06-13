@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Orca: Zombie Executions"
-sidebar:
-  nav: guides
+title: "Orca: Zombie Executions"
+linkTitle: "Orca: Zombie Executions"
+weight: 2
+description: 
 ---
 
 

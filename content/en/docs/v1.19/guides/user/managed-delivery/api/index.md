@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "API"
-sidebar:
-  nav: guides
-redirect_from: /reference/managed-delivery/api/
+title: "API"
+linkTitle: "API"
+weight: 
+description: 
 ---
-
 
 
 

@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Authorization Architecture"
-sidebar:
-  nav: reference
+title: "Authorization Architecture"
+linkTitle: "Authorization Architecture"
+weight: 
+description: 
 ---
-
 
 
 ## Overview

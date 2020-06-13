@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Custom CAs for Webhooks"
-sidebar:
-  nav: guides
+title: "Custom CAs for Webhooks"
+linkTitle: "Custom CAs for Webhooks"
+weight: 2
+description: 
 ---
 
 ## Overview

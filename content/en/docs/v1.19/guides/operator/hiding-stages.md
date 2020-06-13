@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Hiding Stages"
-sidebar:
-  nav: guides
+title: "Hiding Stages"
+linkTitle: "Hiding Stages"
+weight: 2
+description: 
 ---
 
 If you're using Spinnaker 1.20 or later, stages that are not provider-specific will be

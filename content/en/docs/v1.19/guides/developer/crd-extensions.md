@@ -1,8 +1,9 @@
 ---
-layout: single
-title:  "Kubernetes CRD Extensions"
-sidebar:
-  nav: guides
+title: "Kubernetes CRD Extensions"
+linkTitle: "Kubernetes CRD Extensions"
+weight: 2
+description: >
+  At Google, we've built extension points for deep CRD integrations within Spinnaker.
 ---
 
 # Spinnaker Extension Points for Custom Resource Definitions

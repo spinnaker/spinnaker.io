@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Orca Quality of Service"
-sidebar:
-  nav: guides
+title: "Orca Quality of Service"
+linkTitle: "Orca Quality of Service"
+weight: 2
+description: 
 ---
 
 

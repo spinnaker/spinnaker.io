@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Azure"
-sidebar:
-  nav: reference
+title: "Azure"
+linkTitle: "Azure"
+weight: 
+description:
 ---
-
 
 
 If you are not familiar with Azure or any of the terms used below, please consult the Azure [reference documentation](https://docs.microsoft.com/en-us/azure/).

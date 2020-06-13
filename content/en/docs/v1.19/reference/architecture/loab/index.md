@@ -5,6 +5,13 @@ sidebar:
   nav: reference
 ---
 
+---
+title: "Life of a Bake"
+linkTitle: "LOAB"
+weight: 
+description: 
+---
+
 <div class="mermaid">
 sequenceDiagram
 

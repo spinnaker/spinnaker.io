@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Echo: Cassandra to In-Memory"
-sidebar:
-  nav: guides
-redirect_from: /docs/echo-cassandra-to-in-memory
+title: "Echo: Cassandra to In-Memory"
+linkTitle: "Echo: Cassandra to In-Memory"
+weight: 2
+description: 
 ---
-
 
 
 Echo's scheduler can be run completely in-memory. On startup or redeploy, echo will check cron schedules to see if it needs to retroactively execute any missed triggers. This migration only requires configuration changes.

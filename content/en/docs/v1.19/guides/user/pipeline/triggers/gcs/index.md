@@ -1,9 +1,9 @@
 ---
-layout: single
-title:  "Receiving artifacts from GCS"
-sidebar:
-  nav: guides
-redirect_from: /guides/user/triggers/gcs/
+title: "Receiving artifacts from GCS"
+linkTitle: "Receiving artifacts from GCS"
+weight: 
+description: >
+  This guide explains how to configure Spinnaker to trigger pipelines based on changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS) bucket, and inject changed GCS objects as [artifacts](/reference/artifacts) into a pipeline.
 ---
 
 
@@ -145,6 +145,3 @@ Next, we must configure the trigger:
 If you upload a file to a path matching your configured __Object path__,
 the pipeline should execute. If it doesn't, you can start by checking the logs
 in the __Echo__ service.
-
-
-

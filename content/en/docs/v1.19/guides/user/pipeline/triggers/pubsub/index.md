@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Triggering on Pub/Sub Messages"
-sidebar:
-  nav: guides
-redirect_from: /guides/user/triggers/pubsub/
+title: "Triggering on Pub/Sub Messages"
+linkTitle: "Triggering on Pub/Sub Messages"
+weight: 
+description: 
 ---
-
 
 
 In order to programatically trigger pipelines one can configure Spinnaker to

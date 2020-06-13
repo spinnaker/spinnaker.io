@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Sharding Spinnaker"
-sidebar:
-  nav: guides
+title: "Sharding Spinnaker"
+linkTitle: "Sharding Spinnaker"
+weight: 2
+description: 
 ---
 
 

@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Artifacts from Build Triggers"
-sidebar:
-  nav: reference
+title: "Artifacts from Build Triggers"
+linkTitle: "Artifacts from Build Triggers"
+weight: 
+description: 
 ---
 
 ## Overview

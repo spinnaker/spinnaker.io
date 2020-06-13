@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "FAQ"
-sidebar:
-  nav: guides
+title: "FAQ"
+linkTitle: "FAQ"
+weight: 
+description: 
 ---
 
 

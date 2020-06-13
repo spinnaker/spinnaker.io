@@ -1,9 +1,11 @@
 ---
-layout: single
 title: "Commands"
-sidebar:
-  nav: reference
+linkTitle: "Commands"
+weight: 
+description: 
 ---
+
+
 Published: 2020-04-30 21:10:29
 
 
@@ -12473,4 +12475,3 @@ hal version list [parameters]
 
 
 ---
-

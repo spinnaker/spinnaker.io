@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "High Availability"
-sidebar:
-  nav: reference
+title: "High Availability"
+linkTitle: "High Availability"
+weight: 
+description: 
 ---
 
 

@@ -1,9 +1,8 @@
 ---
-layout: single
-title:  "Kubernetes"
-sidebar:
-  nav: reference
-redirect_from: /reference/providers/kubernetes-v1/
+title: "Kubernetes"
+linkTitle: "Kubernetes"
+weight: 
+description:
 ---
 
 > ⚠️ Spinnaker's legacy Kubernetes provider (V1) is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.

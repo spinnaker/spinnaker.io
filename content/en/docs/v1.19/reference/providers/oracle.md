@@ -1,11 +1,9 @@
 ---
-layout: single
-title:  "Oracle Cloud"
-sidebar:
-  nav: reference
+title: "Oracle Cloud"
+linkTitle: "Oracle Cloud"
+weight: 
+description:
 ---
-
-
 
 For more information about Oracle Cloud or any of the terms used below, please consult
 [Oracle Cloud Infrastructure Documentation](https://docs.cloud.oracle.com/iaas/Content/home.htm).

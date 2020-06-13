@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Run Job (Manifest)"
-sidebar:
-  nav: guides
+title: "Run Job (Manifest)"
+linkTitle: "Run Job (Manifest)"
+weight: 
+description: 
 ---
 
 The `Run Job (Manifest)` stage can be used to execute a Kubernetes Job as part of your pipeline. This stage will deploy a `Job` manifest and wait until it completes, allowing you to gate your pipeline's continuation on the job's success or failure.

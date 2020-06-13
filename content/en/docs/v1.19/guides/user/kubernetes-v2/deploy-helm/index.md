@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Deploy Helm Charts"
-sidebar:
-  nav: guides
+title: "Deploy Helm Charts"
+linkTitle: "Deploy Helm Charts"
+weight: 
+description: 
 ---
 
 

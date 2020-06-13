@@ -1,11 +1,10 @@
 ---
-layout: single
-title:  "Secrets in S3"
-sidebar:
-  nav: reference
+title: "Secrets in S3"
+linkTitle: "Secrets in S3"
+weight: 
+description: >
+  This document describes how to set up Spinnaker secrets in an encrypted S3 bucket.
 ---
-
-
 
 
 This document describes how to set up Spinnaker secrets in an encrypted S3 bucket. This example uses a bucket (`mybucket`) in the `us-west-2` region to store GitHub credentials and a kubeconfig file. You reference the bucket by its URL `mybucket.us-west-2.amazonaws.com`.

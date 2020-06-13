@@ -1,11 +1,8 @@
 ---
-layout: single
-title:  "Pipeline Expressions Guide"
-sidebar:
-  nav: guides
-redirect_from:
-  - /docs/pipeline-expressions-guide
-  - /guides/user/pipeline-expressions/
+title: "Pipeline Expressions Guide"
+linkTitle: "Pipeline Expressions Guide"
+weight: 
+description: 
 ---
 
 

@@ -1,12 +1,9 @@
 ---
-layout: single
-title:  "Custom Configuration"
-sidebar:
-  nav: reference
-redirect_from: /docs/custom-configuration
+title: "Component Configuration"
+linkTitle: "Component Configuration"
+weight: 
+description: 
 ---
-
-
 
 While Halyard handles the majority of Spinnaker configuration, there will
 always be feature flags and properties either too new or niche to be supported

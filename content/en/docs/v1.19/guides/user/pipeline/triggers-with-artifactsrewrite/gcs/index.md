@@ -1,11 +1,10 @@
 ---
-layout: single
-title:  "Receiving artifacts from GCS"
-sidebar:
-  nav: guides
+title: "Receiving artifacts from GCS"
+linkTitle: "Receiving artifacts from GCS"
+weight: 
+description: >
+  This guide explains how to configure Spinnaker to trigger pipelines based on changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS) bucket, and inject changed GCS objects as [artifacts](/reference/artifacts) into a pipeline.
 ---
-
-
 
 This guide explains how to configure Spinnaker to trigger pipelines based on
 changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS)

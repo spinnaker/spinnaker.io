@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Google Compute Engine"
-sidebar:
-  nav: reference
+title: "Google Compute Engine"
+linkTitle: "Google Compute Engine"
+weight: 
+description:
 ---
-
 
 
 If you are not familiar with Google Compute Engine or any of the terms used below, please consult

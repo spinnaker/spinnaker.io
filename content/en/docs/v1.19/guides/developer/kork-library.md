@@ -1,11 +1,10 @@
 ---
-layout: single
-title:  "Kork Library"
-sidebar:
-  nav: guides
-redirect_from: /docs/kork-library-dev
+title: "Kork Library"
+linkTitle: "Kork Library"
+weight: 2
+description: >
+  [Kork](https://github.com/spinnaker/kork) is a common library used across multiple Spinnaker components.
 ---
-
 
 
 ## Introduction
@@ -74,4 +73,3 @@ repositories {
 
 3. Create a submit a PR to the component that includes bumping this version number and any build/test fixes.
 4. Create and submit a PR for the feature that relied on the Kork changes.
-

@@ -1,11 +1,10 @@
 ---
-layout: single
-title:  "Secrets in GCS"
-sidebar:
-  nav: reference
+title: "Secrets in GCS"
+linkTitle: "Secrets in GCS"
+weight: 
+description: >
+  This document describes how to set up Spinnaker secrets in a GCS bucket.
 ---
-
-
 
 
 This document describes how to set up Spinnaker secrets in a GCS bucket. This example uses a bucket (`mybucket`) to store GitHub credentials and a kubeconfig file.

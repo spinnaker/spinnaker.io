@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Embedded base64"
-sidebar:
-  nav: reference
+title: "Embedded base64"
+linkTitle: "Embedded base64"
+weight: 
+description: 
 ---
 
 

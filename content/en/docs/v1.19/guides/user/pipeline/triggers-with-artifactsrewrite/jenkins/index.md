@@ -5,7 +5,13 @@ sidebar:
   nav: guides
 ---
 
-
+---
+title: "Triggering pipelines with Jenkins"
+linkTitle: "Triggering pipelines with Jenkins"
+weight: 
+description: >
+  This guide explains how to add a [Jenkins](https://jenkins.io/){:target="\_blank"} trigger to your pipeline.
+---
 
 This guide explains how to add a [Jenkins](https://jenkins.io/){:target="\_blank"}
 trigger to your pipeline.

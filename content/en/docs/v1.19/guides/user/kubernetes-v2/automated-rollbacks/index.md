@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Configure Automated Rollbacks in the Kubernetes Provider"
-sidebar:
-  nav: guides
+title: "Configure Automated Rollbacks in the Kubernetes Provider"
+linkTitle: "Configure Automated Rollbacks in the Kubernetes Provider"
+weight: 
+description: 
 ---
 
 

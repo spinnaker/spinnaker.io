@@ -1,8 +1,8 @@
 ---
-layout: single
-title:  "Delete an application"
-sidebar:
-  nav: guides
+title: "Delete an application"
+linkTitle: "Delete an application"
+weight: 2
+description: 
 ---
 
 

@@ -1,9 +1,8 @@
 ---
-layout: single
-title:  "Front50: Cassandra to Redis"
-sidebar:
-  nav: guides
-redirect_from: /docs/front50-cassandra-to-redis
+title: "Front50: Cassandra to Redis"
+linkTitle: "Front50: Cassandra to Redis"
+weight: 2
+description: 
 ---
 
 

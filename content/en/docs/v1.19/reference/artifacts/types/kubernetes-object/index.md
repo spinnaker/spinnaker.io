@@ -1,10 +1,9 @@
 ---
-layout: single
-title:  "Kubernetes Object"
-sidebar:
-  nav: reference
+title: "Kubernetes Object"
+linkTitle: "Kubernetes Object"
+weight: 
+description: 
 ---
-
 
 
 Kubernetes Object artifacts are _running_, _deployed_ Kubernetes Manifests.
