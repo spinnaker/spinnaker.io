@@ -29,4 +29,7 @@
   integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
   crossorigin="anonymous"></script>
 {{end}}
+{{ if eq .Params.mermaid true }}
+  {{ partial "mermaid-script.html" . }}
+{{ end }}
 {{ partial "hooks/head-end.html" . }}

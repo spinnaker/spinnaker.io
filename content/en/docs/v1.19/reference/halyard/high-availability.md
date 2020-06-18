@@ -1,11 +1,10 @@
 ---
-title: "High Availability"
-linkTitle: "High Availability"
-weight: 
-description: 
+title: 'High Availability'
+linkTitle: 'High Availability'
+mermaid: true
+weight:
+description:
 ---
-
-
 
 This page describes how you can configure a Halyard deployment to increase the availability of specific services beyond simply [horizontally scaling](/setup/productionize/scaling/horizontal-scaling/) the service. Halyard does this by splitting the functionalities of a service into separate logical roles (also known as sharding). The benefits of doing this is specific to the service that is being sharded. These deployment strategies are inspired by [Netflix's large scale experience](https://blog.spinnaker.io/scaling-spinnaker-at-netflix-part-1-8a5ae51ee6de).
 
@@ -13,26 +12,24 @@ When sharded, the new logical services are given new names. This means that thes
 
 Currently, this feature is only for Clouddriver and Echo.
 
-__Important:__ Halyard only supports this functionality for a [distributed Spinnaker deployment](/setup/install/environment/#distributed-installation) configured with the [Kubernetes provider](/setup/install/providers/kubernetes-v2/).
+**Important:** Halyard only supports this functionality for a [distributed Spinnaker deployment](/setup/install/environment/#distributed-installation) configured with the [Kubernetes provider](/setup/install/providers/kubernetes-v2/).
 
 ## HA Clouddriver
 
- <div class="mermaid">
- graph TB
+{{< mermaid >}}
+graph TB
 
- clouddriver(Clouddriver) --> clouddriver-caching(Clouddriver-Caching);
- clouddriver --> clouddriver-rw(Clouddriver-RW);
- clouddriver --> clouddriver-ro(Clouddriver-RO);
- clouddriver --> clouddriver-ro-deck(Clouddriver-RO-Deck)
+clouddriver(Clouddriver) --> clouddriver-caching(Clouddriver-Caching);
+clouddriver --> clouddriver-rw(Clouddriver-RW);
+clouddriver --> clouddriver-ro(Clouddriver-RO);
+clouddriver --> clouddriver-ro-deck(Clouddriver-RO-Deck)
 
- classDef default fill:#d8e8ec,stroke:#39546a;
- linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
+classDef default fill:#d8e8ec,stroke:#39546a;
+linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
 
- classDef split fill:#42f4c2,stroke:#39546a;
- class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
- </div>
-
- {% include mermaid %}
+classDef split fill:#42f4c2,stroke:#39546a;
+class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
+{{< /mermaid >}}
 
 Clouddriver benefits greatly from isolating its operations into separate services. To split Clouddriver for increased availability, run:
 
@@ -42,10 +39,10 @@ hal config deploy ha clouddriver enable
 
 When Spinnaker is deployed with this flag enabled, Clouddriver will be deployed as four different services, each only performing a subset of the base Clouddriver's operations:
 
-* [`clouddriver-caching`](#clouddriver-caching)
-* [`clouddriver-rw`](#clouddriver-rw)
-* [`clouddriver-ro`](#clouddriver-ro)
-* [`clouddriver-ro-deck`](#clouddriver-ro-deck)
+- [`clouddriver-caching`](#clouddriver-caching)
+- [`clouddriver-rw`](#clouddriver-rw)
+- [`clouddriver-ro`](#clouddriver-ro)
+- [`clouddriver-ro-deck`](#clouddriver-ro-deck)
 
 Although by default the four Clouddriver services will communicate with the global Redis (all Spinnaker services speak to this Redis) provided by Halyard, it is recommended that the logical Clouddriver services be configured to communicate with an external Redis service. To be most effective, `clouddriver-ro` should be configured to speak to a Redis read replica, `clouddriver-ro-deck` should be configured to speak to a different Redis read replica, and the other two should be configured to speak to the master. This is handled automatically by Halyard if the user provides the two endpoints using this command:
 
@@ -91,20 +88,19 @@ To add a [custom profile](/reference/halyard/custom/#custom-profiles) or [custom
 
 ## HA Echo
 
- <div class="mermaid">
- graph TB
+{{< mermaid >}}
+graph TB
 
- echo(Echo) --> echo-scheduler(Echo-Scheduler);
- echo(Echo) --> echo-worker(Echo-Worker);
+echo(Echo) --> echo-scheduler(Echo-Scheduler);
+echo(Echo) --> echo-worker(Echo-Worker);
 
- classDef default fill:#d8e8ec,stroke:#39546a;
- linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
+classDef default fill:#d8e8ec,stroke:#39546a;
+linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
 
- classDef split fill:#42f4c2,stroke:#39546a;
- class clouddriver-caching,clouddriver-ro,clouddriver-rw,echo-scheduler,echo-worker split
- </div>
+classDef split fill:#42f4c2,stroke:#39546a;
+class clouddriver-caching,clouddriver-ro,clouddriver-rw,echo-scheduler,echo-worker split
 
- {% include mermaid %}
+{{< /mermaid >}}
 
 Echo can be split into two separate services that handle different operations. To split Echo for increased availability, run:
 
@@ -114,8 +110,8 @@ hal config deploy ha echo enable
 
 When Spinnaker is deployed with this enabled, Echo will be deploy as two different services:
 
-* [`echo-scheduler`](#echo-scheduler)
-* [`echo-worker`](#echo-worker)
+- [`echo-scheduler`](#echo-scheduler)
+- [`echo-worker`](#echo-worker)
 
 Although only the `echo-worker` service can be horizontally scaled, splitting the services will reduce the load on both.
 
@@ -147,44 +143,42 @@ hal deploy apply --delete-orphaned-services
 
 With all services enabled for high availability, the new architecture looks like this:
 
- <div class="mermaid">
- graph TB
+{{< mermaid >}}
+graph TB
 
- deck(Deck) --> gate;
- api(Custom Script/API Caller) --> gate(Gate);
- gate --> kayenta(Kayenta);
- gate --> orca(Orca);
- gate --> clouddriver-ro(Clouddriver-RO);
- gate --> clouddriver-ro-deck(Clouddriver-RO-Deck)
- orca --> clouddriver-rw(Clouddriver-RW);
- gate --> rosco(Rosco);
- orca --> front50;
- orca --> rosco;
- gate --> front50(Front50);
- gate --> fiat(Fiat);
- orca --> kayenta;
- clouddriver-ro --> fiat;
- clouddriver-ro-deck --> fiat;
- clouddriver-rw --> fiat;
- orca --> fiat;
- front50 --> fiat;
- echo-worker(Echo-Worker) --> orca;
- echo-worker --> front50;
- igor(Igor) --> echo-worker;
- clouddriver-caching(Clouddriver-Caching);
- echo-scheduler(Echo-Scheduler);
+deck(Deck) --> gate;
+api(Custom Script/API Caller) --> gate(Gate);
+gate --> kayenta(Kayenta);
+gate --> orca(Orca);
+gate --> clouddriver-ro(Clouddriver-RO);
+gate --> clouddriver-ro-deck(Clouddriver-RO-Deck)
+orca --> clouddriver-rw(Clouddriver-RW);
+gate --> rosco(Rosco);
+orca --> front50;
+orca --> rosco;
+gate --> front50(Front50);
+gate --> fiat(Fiat);
+orca --> kayenta;
+clouddriver-ro --> fiat;
+clouddriver-ro-deck --> fiat;
+clouddriver-rw --> fiat;
+orca --> fiat;
+front50 --> fiat;
+echo-worker(Echo-Worker) --> orca;
+echo-worker --> front50;
+igor(Igor) --> echo-worker;
+clouddriver-caching(Clouddriver-Caching);
+echo-scheduler(Echo-Scheduler);
 
- classDef default fill:#d8e8ec,stroke:#39546a;
- linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
+classDef default fill:#d8e8ec,stroke:#39546a;
+linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
 
- classDef external fill:#c0d89d,stroke:#39546a;
- class deck,api external
+classDef external fill:#c0d89d,stroke:#39546a;
+class deck,api external
 
- classDef split fill:#42f4c2,stroke:#39546a;
- class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
- </div>
-
- {% include mermaid %}
+classDef split fill:#42f4c2,stroke:#39546a;
+class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
+{{< /mermaid >}}
 
 ## Recoverability
 

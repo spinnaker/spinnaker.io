@@ -1,18 +1,12 @@
 ---
-layout: single
-title:  "Life of a Bake"
-sidebar:
-  nav: reference
+title: 'Life of a Bake'
+linkTitle: 'LOAB'
+weight:
+description:
+mermaid: true
 ---
 
----
-title: "Life of a Bake"
-linkTitle: "LOAB"
-weight: 
-description: 
----
-
-<div class="mermaid">
+{{< mermaid >}}
 sequenceDiagram
 
 Title: Life of a Bake
@@ -48,16 +42,14 @@ Packer->>ArtifactRepo: Pull deployable asset from repo
 Packer->>Cloud: Publish machine image
 
 Loop In background thread
-  Rosco->>Packer: Poll until job completion
-  Rosco->>Redis: Mark bake completed
+Rosco->>Packer: Poll until job completion
+Rosco->>Redis: Mark bake completed
 end
 
 Loop In worker thread
-  Orca->>Rosco: Poll until task completion
-  Rosco->>Redis: Query bake status
-  Orca->>Redis: Update execution state
+Orca->>Rosco: Poll until task completion
+Rosco->>Redis: Query bake status
+Orca->>Redis: Update execution state
 end
 
-</div>
-
-{% include mermaid %}
+{{< /mermaid >}}

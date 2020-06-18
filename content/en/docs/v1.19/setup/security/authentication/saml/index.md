@@ -1,10 +1,10 @@
 ---
-title:  "SAML 2.0"
-sidebar:
-  nav: setup
-redirect_from: /docs/gate-saml-config
+title: 'SAML 2.0'
+linkTitle: 'SAML 2.0'
+mermaid: true
+weight:
+description:
 ---
-
 
 
 Security Assertion Markup Language (SAML) is an XML based way to implement single sign-on (SSO). 
@@ -107,7 +107,7 @@ hal config security authn saml edit --service-address-url https://my-real-gate-a
 
 Please check on the [SSL Documentation](/docs/v1.19/setup/security/ssl) for more information.
 
-> For the Quickstart images, append `/gate` to the `--service-address-url. All other configurations
+> For the Quickstart images, append `/gate` to the `--service-address-url`. All other configurations
 can omit this setting.
 
 ## Workflow
@@ -116,7 +116,7 @@ IdP for login, and redirected back to Spinnaker. Some SAML providers will allow 
 first_, and click a link to be taken to Spinnaker.
 
 
-<div class="mermaid">
+{{< mermaid >}}
     sequenceDiagram
     
     participant Deck
@@ -128,7 +128,7 @@ first_, and click a link to be taken to Spinnaker.
     
     Deck->>+IdentityProvider: GET https://idp.url/?SAMLRequest=...
     IdentityProvider->>-Deck: Returns login page
-</div>
+{{< /mermaid >}}
 
 1. User attempts to access a protected resource.
 
@@ -141,7 +141,7 @@ first_, and click a link to be taken to Spinnaker.
     [here](#network-architecture-and-ssl-termination) for how to override this value.
     
 1. SAML provider prompts user for username & password.
-    <div class="mermaid">
+    {{< mermaid >}}
         sequenceDiagram
         
         participant Deck
@@ -154,7 +154,7 @@ first_, and click a link to be taken to Spinnaker.
         Note right of Gate: User identity verified
         Note right of Gate: Gate extracts data based on userInfoMapping
         Gate->>-Deck: HTTP 302 /something/protected
-    </div>
+    {{< /mermaid >}}
 
 1. A SAML response must be POSTed to `/saml/SSO`, and most browsers won't re-POST when given an HTTP 302. Instead, 
 providers sometimes return a page (with HTTP 200) that has a self-submitting HTML form to POST to Gate's `/saml/SSO` 
@@ -166,8 +166,6 @@ endpoint.
 
 1. With the user's identity verified, Gate redirects the user to the originally requested URL.
 
-{% include mermaid %}
-
 ## Next steps
 
 Now that you've authenticated the user, proceed to setting up their [authorization](/docs/v1.19/setup/security/authorization/).
@@ -178,4 +176,3 @@ Now that you've authenticated the user, proceed to setting up their [authorizati
 * Review the authentication [reference guide](/reference/architecture/authz_authn/authentication).
 
 * Use an [incognito window](/docs/v1.19/setup/security/authentication#incognito-mode).
-

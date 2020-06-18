@@ -1,11 +1,10 @@
 ---
-layout: single
-title:  "Authentication"
-sidebar:
-  nav: setup
+title: 'Authentication'
+linkTitle: 'Authentication'
+mermaid: true
+weight:
+description:
 ---
-
-
 
 Spinnaker's authentication mechanism supports a variety of different login sources.  There are a lot of moving parts involved with
 getting this to work just right.  Here are some of the basics and tools that make setup easier to configure and test.  
@@ -14,7 +13,7 @@ getting this to work just right.  Here are some of the basics and tools that mak
 
 There are three basic systems involved with Spinnaker's authentication workflow: your identity provider, Gate, and Deck.  The changes will primarily be made to either your identity provider or Gate.  Deck itself will not require changes or updates, but it's useful to understand how all three parts interact.
 
-<div class="mermaid">
+{{< mermaid >}}
 graph LR
 classDef default fill:#d8e8ec,stroke:#7a8288;
 linkStyle default stroke:#7a8288, stroke-width:2px, fill:none;
@@ -27,7 +26,7 @@ deck-->gate
 gate-->deck
 deck-->idp
 idp-->deck
-</div>
+{{< /mermaid >}}
 
 1. **Deck**: Spinnaker's UI. Consists of a set of static HTML, JavaScript, and CSS files. Generally
  served from an Apache server, but there is nothing special about Apache that makes Deck work.
@@ -62,9 +61,6 @@ when working with configuration changes.
 A common issue with Incognito windows is that they _all share the same cookie jar_. This means that
  when you want to test a new configuration change, you need to close **_all_** Incognito windows.
  Otherwise, the session cookie will not be deleted.
-
-
-{% include mermaid %}
 
 
 ## Available Options
