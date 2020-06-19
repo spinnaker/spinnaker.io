@@ -75,8 +75,9 @@ weight = 1
 # Everything below this are Site Params
 
 [params]
-copyright = "Spinnaker.io"
-privacy_policy = "https://policies.google.com/privacy"
+copyright = 'Copyright © 2020 The Linux Foundation®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds.'
+privacy_policy = "http://www.linuxfoundation.org/privacy"
+terms_of_use = "http://www.linuxfoundation.org/terms"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
@@ -93,7 +94,7 @@ archived_version = false
 # The version number for the version of the docs represented in this doc set.
 # Used in the "version-banner" partial to display a version number for the 
 # current doc set.
-version = "1.19"
+version = "v1.19"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
@@ -148,37 +149,47 @@ enable = false
 
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
-[[params.links.user]]
-	name = "User mailing list"
-	url = "https://example.org/mail"
-	icon = "fa fa-envelope"
-        desc = "Discussion and help from your fellow users"
-[[params.links.user]]
-	name ="Twitter"
-	url = "https://example.org/twitter"
-	icon = "fab fa-twitter"
-        desc = "Follow us on Twitter to get the latest news!"
-[[params.links.user]]
-	name = "Stack Overflow"
-	url = "https://example.org/stack"
-	icon = "fab fa-stack-overflow"
-        desc = "Practical questions and curated answers"
+# [[params.links.user]]
+# 	name = "User mailing list"
+# 	url = "https://example.org/mail"
+# 	icon = "fa fa-envelope"
+#         desc = "Discussion and help from your fellow users"
+# [[params.links.user]]
+# 	name ="Twitter"
+# 	url = "https://example.org/twitter"
+# 	icon = "fab fa-twitter"
+#         desc = "Follow us on Twitter to get the latest news!"
+# [[params.links.user]]
+# 	name = "Stack Overflow"
+# 	url = "https://example.org/stack"
+# 	icon = "fab fa-stack-overflow"
+#   desc = "Practical questions and curated answers"
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
 	name = "GitHub"
-	url = "https://github.com/google/docsy"
+	url = "http://github.com/spinnaker"
 	icon = "fab fa-github"
-        desc = "Development takes place here!"
+  desc = "Spinnaker on Github"
 [[params.links.developer]]
 	name = "Slack"
-	url = "https://example.org/slack"
+	url = "http://join.spinnaker.io/"
 	icon = "fab fa-slack"
-        desc = "Chat with other project developers"
+  desc = "Spinnaker Community on Slack"
 [[params.links.developer]]
-	name = "Developer mailing list"
-	url = "https://example.org/mail"
-	icon = "fa fa-envelope"
-        desc = "Discuss development issues around the project"
+	name = "Community Forums"
+  url = "https://community.spinnaker.io/"
+  icon = "fas fa-comments"
+  desc = "Spinnaker Community Forums"
+[[params.links.developer]]
+	name = "Stack Overflow"
+  url = "https://stackoverflow.com/questions/tagged/spinnaker"
+  icon = "fab fa-stack-overflow"
+  desc = "Stack Overflow"
+[[params.links.developer]]
+  name = "Twitter"
+  url = "https://twitter.com/spinnakerio"
+  icon = "fab fa-twitter"
+  desc = "Spinnaker Twitter"
 
 # Additional menu item out
 [[menu.main]]
