@@ -1,0 +1,6 @@
+- name: 'name'
+  hide: false
+  is_featured: true
+  display_landing: true
+  display_succ_stories: false
+  URI: 'path'

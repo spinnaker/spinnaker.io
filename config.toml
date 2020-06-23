@@ -73,7 +73,6 @@ weight = 1
       unsafe = true
 
 # Everything below this are Site Params
-
 [params]
 copyright = 'Copyright © 2020 The Linux Foundation®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds.'
 privacy_policy = "http://www.linuxfoundation.org/privacy"
@@ -136,7 +135,7 @@ footer_about_disable = false
 # If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
 # add "hide_feedback: true" to the page's front matter.
 [params.ui.feedback]
-enable = true
+enable = false
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
 yes = 'Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
 no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
@@ -200,12 +199,12 @@ enable = false
 [[menu.main]]
   name = "Docs"
   weight = 2
-  url = "/docs/v1.19/"
+  url = "/docs/"
 
 # Add your release versions here
 [[params.versions]]
   version = "v1.19"
-  url = "/docs/v1.19/"
+  url = "/docs/"
 
 [[params.versions]]
   version = "v1.20"

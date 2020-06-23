@@ -1,0 +1,13 @@
+- name: 'name'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: 'path'
+  case_study_title: 'title string'
+  case_study: >
+    lorem ipsum
+  testimonial_title: 'title string'
+  testimonial: >
+    testimonial

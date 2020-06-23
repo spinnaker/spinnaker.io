@@ -2,9 +2,15 @@
 
 This site is built using [Hugo](https://gohugo.io) and the [Docsy Theme](https://www.docsy.dev/).
 
+## Contributing
+
+1. Start new development branches off of the `master` branch. 
+2. Create a pull request from your branch onto `master`. 
+3. Netlify will spawn a preview branch which will verify build success.
+4. Branches merged back into `master` will deploy to the current active version-branch of the site.
+
 ## Documentation Versioning
 
-Documentation is versioned using subdirectories in the `./content/{lang}/` directory. At present only `./content/en/v1.19` contains contents, but `./content/en/v1.20` has been created and added to the documentation version switcher nav menu. Update documentation version switcher nav menu select in `./config.toml`.
 
 ## Translation
 
