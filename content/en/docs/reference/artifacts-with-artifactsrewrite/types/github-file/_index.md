@@ -5,7 +5,7 @@ sidebar:
   nav: reference
 ---
 
-
+## Overview 
 
 A GitHub file artifact is a reference to a file stored in
 [GitHub](https://github.com) or [GitHub
@@ -49,13 +49,7 @@ The pipeline UI exposes the following fields for the GitHub file artifact:
 When configuring a Git trigger with __Type__ "GitHub", you can use a GitHub file
 as an expected artifact.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact-github-file.png"
-  caption="Configuring GitHub file fields in a pipeline trigger's expected
-           artifact settings."
-%}
+{{< figure src="./expected-artifact-github-file.png" caption="Configuring GitHub file fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 
@@ -64,13 +58,7 @@ stage, you can use a GitHub file as a manifest or application artifact. You can
 either use a previously-defined artifact (for example, an artifact defined in a
 trigger) or define an artifact inline.
 
-{%
-  include
-  figure
-  image_path="./deploy-manifest-stage-github-file.png"
-  caption="Configuring a Deploy (Manifest) stage to use a GitHub file as a
-           manifest source."
-%}
+{{< figure src="./deploy-manifest-stage-github-file.png" caption="Configuring a Deploy (Manifest) stage to use a GitHub file as a manifest source." >}}
 
 ## GitHub file artifact in a pipeline definition
 

@@ -5,9 +5,7 @@ sidebar:
   nav: reference
 ---
 
-**The Git Repo artifact is available in version 1.17 or later.**
-{: .notice--info}
-
+{{% alert title="note" %}}The Git Repo artifact is available in version 1.17 or later.{{% /alert %}}
 
 
 Git Repo artifacts are references to Git repositories that are hosted by a Git hosting service. They are consumed
@@ -51,12 +49,8 @@ _Work to support Git Repo artifacts in triggers is currently underway._
 
 When configuring the "Bake (Manifest)" stage, you can use a Git Repo artifact as an expected artifact.
 
-{%
-    include
-    figure
-    image_path="./bake-manifest-stage-git-repo.png"
-    caption="Configure a Bake (Manifest) stage to use a Git Repo artifact."
-%}
+{{< figure src="./bake-manifest-stage-git-repo.png" caption="Configure a Bake (Manifest) stage to use a Git Repo artifact." >}}
+
 
 ## Git Repo artifact in a pipeline definition
 

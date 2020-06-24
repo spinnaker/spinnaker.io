@@ -20,13 +20,7 @@ There are two ways to deploy a manifest:
 
 The image below shows a deploy stage that deploys a manifest stored in a GCS bucket:
 
-{%
-  include
-  figure
-  image_path="./manifest-artifact.png"
-  caption="Depending on how this pipeline is configured, it will only run when
-  the referenced file in GCS is modified."
-%}
+{{< figure src="./manifest-artifact.png" caption="Depending on how this pipeline is configured, it will only run when the referenced file in GCS is modified." >}}
 
 ## Kubernetes objects as artifacts
 
@@ -61,11 +55,7 @@ a deploy stage would _consume_ artifact 1, but _produce_ artifact 2 as an output
 When running pipelines, you can always check the produced outputs for any stage
 by examining the execution's "source" directly:
 
-{%
-  include
-  figure
-  image_path="./check-source.png"
-%}
+{{< figure src="./check-source.png" >}}
 
 ## Versioned Kubernetes objects
 

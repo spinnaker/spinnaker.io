@@ -42,13 +42,7 @@ The pipeline UI exposes the following fields for the embedded Base64 artifact:
 When configuring a trigger, you can (for example) configure an embedded Base64
 default artifact.
 
-{%
-  include
-  figure
-  image_path="./default-artifact-embedded-base64.png"
-  caption="Providing an embedded Base64 default artifact for a trigger's
-           expected artifact."
-%}
+{{< figure src="./default-artifact-embedded-base64.png" caption="Providing an embedded Base64 default artifact for a trigger's expected artifact." >}}
 
 ### In a pipeline stage
 
@@ -57,13 +51,7 @@ use embedded Base64 for a required artifact. You can either use a
 previously-defined artifact (for example, an artifact defined in a trigger) or
 define an artifact inline.
 
-{%
-  include
-  figure
-  image_path="./deploy-manifest-stage-embedded-base64.png"
-  caption="Configuring a Deploy (Manifest) stage to use an embedded Base64
-           artifact."
-%}
+{{< figure src="./deploy-manifest-stage-embedded-base64.png" caption="Configuring a Deploy (Manifest) stage to use an embedded artifact." >}}
 
 ## Embedded Base64 artifact in a pipeline definition
 

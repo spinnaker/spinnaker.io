@@ -43,13 +43,7 @@ The pipeline UI exposes the following fields for the Docker image artifact:
 When configuring the Docker Registry trigger, you can use a Docker image as an
 expected artifact.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact-docker-image.png"
-  caption="Configuring Docker image fields in a pipeline trigger's expected
-           artifact settings."
-%}
+{{< figure src="./expected-artifact-docker-image.png" caption="Configuring Docker image fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 
@@ -58,13 +52,7 @@ use a Docker image as a required artifact. You can either use a
 previously-defined artifact (for example, an artifact defined in a trigger) or
 define an artifact inline.
 
-{%
-  include
-  figure
-  image_path="./deploy-manifest-stage-docker-image.png"
-  caption="Configuring a Deploy (Manifest) stage to use a Docker image as a
-           required artifact."
-%}
+{{< figure src="./deploy-manifest-stage-docker-image.png" caption="Configuring a Deploy (Manifest) stage to use a Docker image as a required artifact." >}}
 
 ## Docker image artifact in a pipeline definition
 

@@ -40,13 +40,7 @@ The pipeline UI exposes the following fields for the GCS object artifact:
 When configuring certain triggers (such as a Pub/Sub trigger with __Pub/Sub
 System Type__ "Google"), you can use a GCS object as an expected artifact.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact-gcs-object.png"
-  caption="Configuring GCS object fields in a pipeline trigger's expected
-           artifact settings."
-%}
+{{< figure src=="./expected-artifact-gcs-object.png" caption="Configuring GCS object fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 
@@ -55,13 +49,7 @@ object as a manifest or application artifact. You can either use a
 previously-defined artifact (for example, an artifact defined in a trigger) or
 define an artifact inline.
 
-{%
-  include
-  figure
-  image_path="./deploy-manifest-stage-gcs-object.png"
-  caption="Configuring a Deploy (Manifest) stage to use a GCS object as a
-           manifest source."
-%}
+{{< figure src="./deploy-manifest-stage-gcs-object.png" caption="Configuring a Deploy (Manifest) stage to use a GCS object as a manifest source." >}}
 
 ## GCS object artifact in a pipeline definition
 
