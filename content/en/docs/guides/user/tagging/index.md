@@ -8,7 +8,7 @@ description:
 
 This guide provides an introduction to the provider-agnostic tagging capabilities of Spinnaker, otherwise referred to as _Entity Tags_.
 
-# Requirements
+## Requirements
 
 This is an *optional* feature of Spinnaker that requires
 - **Elasticsearch** (tested with 6.8.2)
@@ -16,7 +16,7 @@ This is an *optional* feature of Spinnaker that requires
 
 See [configuration](#configuration) for specific configuration details.
 
-# Overview
+## Overview
 
 Spinnaker provides a provider-agnostic way of attaching additional attributes (*key/value pairs*) to any managed entity.
 
@@ -33,7 +33,7 @@ Spinnaker provides a provider-agnostic way of attaching additional attributes (*
 
 There are no restrictions on the size or quantity of these tags (*unlike limitations imposed by native cloud provider tags*).
 
-## Current limitations
+### Current limitations
 - Completely separate from any tag support on the underlying cloud provider
   - *Callers must make an additional API call to retrieve entity tags*
 - Limited lifecycle support
@@ -43,12 +43,12 @@ There are no restrictions on the size or quantity of these tags (*unlike limitat
 >
 > If they are blocking a particular use-case, please file an [issue](https://github.com/spinnaker/spinnaker/issues).
 
-## Common use cases
+### Common use cases
 - Server Group Alerts and Notices
 - Server Group Attribution (*what pipeline / user created this server group*)
 - Security (*restricting when particular IAM roles can be used*)
 
-# Tag namespaces
+## Tag namespaces
 
 All tags have an associated namespace (_`default` will be used if unspecified_) that provides a means of grouping tags by a logical owner.
 
@@ -56,7 +56,7 @@ Tag names can be re-used across namespaces.
 
 Eventually Spinnaker will allow permissions to be defined per-namespace (ie. certain namespaces can only be modified by particular users or groups).
 
-# Implementation details
+## Implementation details
 
 These provider-agnostic tags are stored in S3 or GCS (*via Front50*) and indexed via Elasticsearch.
 
@@ -66,12 +66,12 @@ They are made up of:
 - 1..* Tags (`key`/`value` pairs with the `value` being either a literal or object)
 - 1..* Tag Metadata (*last modified timestamps per tag*)
 
-## Identifier
+### Identifier
 
 A unique identifier representing a tagged entity:
 `{cloudProvider}:{entityType}:{entityId}:{accountId}:{region}`
 
-## EntityRef
+### EntityRef
 
 `cloudProvider` The identifier of the cloud provider associated with this entity
 `accountId` The identifier of the account associated with this entity (supports `*` wildcard)
@@ -122,11 +122,11 @@ A unique identifier representing a tagged entity:
     }
 ```
 
-# API
+## API
 
 The following APIs are exposed in `gate` but are subject to change given the current **release candidate** status.
 
-## GET /tags
+### GET /tags
 
 Fetch all tags. Parameters are case-sensitive.
 
@@ -138,7 +138,7 @@ application | Filter by Application | ?application=app
 tag | Filter by Tag (specific value)<br/>Filter by Tag (any value) | ?tag:my_tag=my_value<br />?tag:my_tag=*
 maxResults | Maximum # of results to return (defaults to 100) | ?maxResults=1000
 
-## POST /tags
+### POST /tags
 
 Parameter Name | Description | Examples
 -- | -- | --
@@ -166,7 +166,7 @@ cloudProvider | cloudProvider | ?cloudProvider=aws<br/>?cloudProvider=* (wildcar
     ]'
 ```
 
-## POST /tasks
+### POST /tasks
 
 This API provides backwards compatibility with traditional Spinnaker tasks and can be used interchangeably with the `POST /tags` API.
 
@@ -204,7 +204,7 @@ This API provides backwards compatibility with traditional Spinnaker tasks and c
     }'
 ```
 
-## DELETE /tags/:id/:tagName
+### DELETE /tags/:id/:tagName
 
 #### Delete tags
 ```
@@ -213,7 +213,7 @@ This API provides backwards compatibility with traditional Spinnaker tasks and c
          -d $'{}'
 ```
 
-# FEATURE: Server group alerts and notices
+## FEATURE: Server group alerts and notices
 
 *Server Group Alerts and Notices* is a Spinnaker feature is built upon entity tags.
 
@@ -260,7 +260,7 @@ This API provides backwards compatibility with traditional Spinnaker tasks and c
          -d $'{}'
 ```
 
-# Configuration
+## Configuration
 
 The following configuration changes are necessary to enable entity tags on your Spinnaker installation:
 

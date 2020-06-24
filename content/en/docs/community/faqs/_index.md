@@ -5,8 +5,6 @@ weight: 2
 description:
 ---
 
-{% include toc %}
-
 ## What are the integrations available to Spinnaker?
 
 ### Cloud providers

@@ -11,20 +11,20 @@ sidebar:
 
 
 
-# Requirements
+## Requirements
 
 * You have read the [Plugin Creators Guide Overview](/docs/v1/guides/developer/plugin-creators/overview/).
 * [Gradle](https://gradle.org/) and [Yarn](https://classic.yarnpkg.com/en/) for building the plugin locally
 * IntelliJ IDEA, Orca branch `release-1.19.x` and Deck branch  for local testing
 * Spinnaker v1.19.4 and Halyard 1.34 for deploying the pf4jStagePlugin 1.0.16
 
-# pf4jStagePlugin plugin
+## pf4jStagePlugin plugin
 
 The [pf4jStagePlugin](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin) creates a custom pipeline stage that waits a number of seconds before signaling success. The plugin consists of a `random-wait-orca` [Kotlin](https://kotlinlang.org/docs/reference/) server component and a `random-wait-deck` [React](https://reactjs.org/) UI component.
 
 This is a very simplistic plugin for educational purposes only. You can use this plugin as a starting point to create a custom pipeline stage.
 
-## `random-wait-orca`
+### `random-wait-orca`
 
 This component implements the [SimpleStage](https://github.com/spinnaker/orca/blob/ab89a0d7f847205ccd62e70f8a714040a8621ee7/orca-api/src/main/java/com/netflix/spinnaker/orca/api/SimpleStage.java) PF4J extension point in Orca and  consists of five classes in the `io.armory.plugin.state.wait.random` package:
 
@@ -36,7 +36,7 @@ This component implements the [SimpleStage](https://github.com/spinnaker/orca/bl
 
 Watch a [video walkthrough](https://youtu.be/b7BmMY1kR10) and read [code comments](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin/tree/master/random-wait-orca/src/main/kotlin/io/armory/plugin/stage/wait/random) for more information.
 
-## `random-wait-deck`
+### `random-wait-deck`
 
 This component uses the [`rollup.js`](https://rollupjs.org/guide/en/#plugins-overview) plugin library to create a UI widget for Deck.
 
@@ -47,7 +47,7 @@ This component uses the [`rollup.js`](https://rollupjs.org/guide/en/#plugins-ove
 
 Watch a [video walkthrough](https://youtu.be/u9NVlG58NYo) and read [code comments](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin/tree/master/random-wait-deck/src) for details.
 
-# Building the release bundle
+## Building the release bundle
 
 After you [download](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin/archive/v1.0.16.tar.gz) the 1.0.16 source code, build the release bundle.
 
@@ -69,7 +69,7 @@ Plugin-Class: io.armory.plugin.stage.wait.random.RandomWaitPlugin
 ```
 
 
-# Debugging `random-wait-orca` in Orca locally
+## Debugging `random-wait-orca` in Orca locally
 
 > Help us improve this section by submitting a pull request!
 
@@ -79,7 +79,7 @@ Plugin-Class: io.armory.plugin.stage.wait.random.RandomWaitPlugin
 1. Follow the steps in the [Debugging](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin#debugging) section of the pf4jStagePlugin README.
 
 
-# Debugging `random-wait-deck` in Deck locally
+## Debugging `random-wait-deck` in Deck locally
 
 > Help us improve this section by submitting a pull request!
 
@@ -99,7 +99,7 @@ Plugin-Class: io.armory.plugin.stage.wait.random.RandomWaitPlugin
 
 1. Start Deck and navigate to the Pipeline creation screen. Verify that `Random Wait` is an option in the Stage drop-down.
 
-# Plugin build and configuration files
+## Plugin build and configuration files
 
 > Help us improve this section by submitting a pull request!
 

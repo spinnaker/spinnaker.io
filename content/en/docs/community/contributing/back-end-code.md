@@ -5,8 +5,6 @@ sidebar:
   nav: community
 ---
 
-{% include toc %}
-
 Please consider the following conventions when submitting pull requests to Spinnaker.
 
 ## Choice of language

@@ -23,7 +23,7 @@ Additionally, Spinnaker is capable of handling cron-based triggers and detect ch
 
 See also [`hal config notifications`](/reference/halyard/commands/#hal-config-notification).
 
-# Configuring notifications
+## Configuring notifications
 
 Notification configurations are in echo.yml and settings-local.js. For changes to echo.yml, create echo-local.yml and put your changes in there. You can customize settings-local.js directly.
 
@@ -164,7 +164,7 @@ A custom Slack message:
 
 > **Note**: the custom fields will apply to **all** notifications within a stage. If you have different notifications for different events (e.g. a Slack message when the stage starts **and** when it completes), the custom fields will be applied to both messages.
 
-# Setting up Git Triggers in Spinnaker
+## Setting up Git Triggers in Spinnaker
 
 Instead of listening for events from Github like in the Docker and Jenkins case, direct triggering from git requires a webhook endpoint to be set up in the corresponding VCS.
 
@@ -229,11 +229,11 @@ Enter your Repository name
 
 Save your pipeline
 
-### Notes
+#### Notes
 
 You can access the hash of the build via expression ```${trigger.hash}```
 
-# Add a listening webhook to spinnaker
+## Add a listening webhook to spinnaker
 
 The [echo-rest](https://github.com/spinnaker/echo/tree/master/echo-rest){:target="\_blank"}
 module in spinnaker allows you to set downstream listeners keeping track of
@@ -280,7 +280,7 @@ you can wrap the event via this configuration:
 
 The flatten setting will simply make the json in content and details ( see below ) into a json String.
 
-# Event types
+## Event types
 
 Here is an example event:
 

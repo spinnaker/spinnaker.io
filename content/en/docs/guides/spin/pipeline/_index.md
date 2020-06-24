@@ -65,9 +65,7 @@ existing pipeline into a valid argument to the `--file` flag by using the `get` 
 You can also export pipeline JSON from the pipeline UI in Deck by clicking
 `Pipeline Actions > Edit as JSON` and copying the JSON contents, e.g.
 
-{% include figure
-   image_path="./edit-json.png"
-%}
+{{< figure src="./edit-json.png" >}}
 
 You can also template the pipeline JSON using your favorite templating engine.
 

@@ -11,7 +11,7 @@ Aliases: `orphaned execution`
 
 A zombie Execution is one that has a status in the database of RUNNING but there are no messages in Orca's work queue or unacked set—the pipeline or task is not doing anything.
 
-# Diagnosis
+## Diagnosis
 
 Logs will be emitted regularly for Executions that are currently running in Orca via the `QueueProcessor` class, which will look similar to the following example.
 If no logs have been emitted for over 10 minutes for a `RUNNING` Execution, it is very likely a zombie.
@@ -20,7 +20,7 @@ If no logs have been emitted for over 10 minutes for a `RUNNING` Execution, it i
 Received message RunTask(executionType=pipeline, executionId=01CT1ST3MBJ9ECPH5JM5HVJARE, application=myapplication, stageId=01CT1ST4P79Y3MPW6FC4H38N3A, taskId=8, taskType=class com.netflix.spinnaker.orca.clouddriver.tasks.instance.WaitForUpInstancesTask)
 ```
 
-## Metrics & Alerting
+### Metrics & Alerting
 
 Orca can be configured to detect and emit metrics for zombie Executions.
 This setting is expensive with the `RedisExecutionRepository` and is disabled by default.
@@ -34,9 +34,9 @@ Found zombie executionType=pipeline application=myapplication executionName=myex
 
 If you've enabled the zombie check, set an alert on the metric `queue.zombies`, triggering whenever there is a count greater than 0.
 
-# Remediation
+## Remediation
 
-## Rehydrate the Queue
+### Rehydrate the Queue
 
 If the Execution is a zombie, there are no messages on the work queue for that Execution.
 You can attempt to re-hydrate the queue --- reissue messages onto the work queue based on the last stored state --- using an [admin API in Orca](https://github.com/spinnaker/orca/blob/master/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt#L33), which must be called directly as it is not exposed through Gate.

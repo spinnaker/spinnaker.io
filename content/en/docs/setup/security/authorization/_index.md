@@ -6,7 +6,7 @@ description: >
   Spinnaker has multiple options for both authentication and authorization
 ---
 
-### Overview
+## Overview
 
 Fiat (Fix it Again Travis) is the authorization (authz) microservice of Spinnaker. It can grant access to users 
 to execute pipelines, view infrastructure, etc. It is disabled by default. Much like authentication, Spinnaker allows for a 
@@ -22,8 +22,7 @@ With Fiat, you can&hellip;
 Permissions can be attached to applications and (provider) accounts. A permission associates a role with one of these
  options: `READ`, `WRITE`, or `EXECUTE` (for apps only).
  
-
-### Important notes
+## Important notes
 
 Keep these in mind as you consider your authorization strategy:
 
@@ -46,7 +45,7 @@ both permissions to perform certain actions.
 ![relationship between accounts and applications](application-account-relationship.png)
 
 
-### Requirements
+## Requirements
 
 * [Authentication](../authentication) successfully setup in Gate.
 
@@ -103,7 +102,7 @@ hal config provider $PROVIDER account edit $ACCOUNT \
   --write-permissions role1,role2,role3
 ```
 
-### Applications
+## Applications
 Before Spinnaker 1.14, there were two types of restrictions to an application `READ` and `WRITE`.
 In the 1.14 release, a new permission type called `EXECUTE` was added. For any new applications,
 the permission required to trigger pipelines changes from groups with `READ` access to those with
@@ -114,9 +113,7 @@ get `EXECUTE` access. There are two ways to change this behavior:
 
 * Modify the application config in the UI to explicitly add `EXECUTE` permissions to a group for an application:
 
-{% include figure
-   image_path="./applications_permissions.png"
-%}
+{{% figure src="./applications_permissions.png" %}}
 
 * Flip the default behavior across all applications to only grant `WRITE` users implicit `EXECUTE` access by
 setting the following property in `fiat-local.yml`:
@@ -164,5 +161,5 @@ be done in two ways:
 * Using [Pipeline Permissions](./pipeline-permissions/)
 * Using a Fiat [service account](./service-accounts/)
 
-## Reference Documentation
+## Reference documentation
 [Deeper details on Authorization in Spinnaker](/reference/architecture/authz_authn/authorization/)

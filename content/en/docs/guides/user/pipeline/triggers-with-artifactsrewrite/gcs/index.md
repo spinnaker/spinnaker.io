@@ -16,7 +16,7 @@ This functionality uses Google's
 messages to Spinnaker, and must be configured to send messages to
 Spinnaker's event bus as shown below.
 
-# Prerequisite configuration/setup
+## Prerequisites
 
 If you or your Spinnaker admin have already configured Spinnaker to listen to
 Pub/Sub messages from the GCS bucket you plan to publish objects to, you can
@@ -65,7 +65,7 @@ hal deploy apply
 
 to apply them in Spinnaker.
 
-# Using GCS artifacts in pipelines
+## Using GCS artifacts in pipelines
 
 We will need either an existing or a new pipeline that we want to be triggered
 on changes to GCS artifacts. If you do not have a pipeline, create one as shown

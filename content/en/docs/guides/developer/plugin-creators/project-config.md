@@ -11,7 +11,7 @@ sidebar:
 
 
 
-# Project Configuration
+## Project Configuration
 
 Keep the following recommendations and requirements in mind: - We recommend
 making the project a Gradle project. There is Gradle tooling to support plugin
@@ -19,7 +19,7 @@ development. - You can add any dependencies you need to make your plugin
 successful.. *TODO-CF* this is almost certainly a lie when it comes to things
 that conflict with the dependencies in the compileOnly scope...
 
-## Gradle configuration
+### Gradle configuration
 
 Some important aspects of your project's gradle build:
 

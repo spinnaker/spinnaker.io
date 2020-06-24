@@ -15,7 +15,7 @@ This functionality uses GitHub
 Spinnaker, and must be configured to send messages to Spinnaker's event bus as
 shown below.
 
-# Prerequisite configuration/setup
+## Prerequisites
 
 If you (or your Spinnaker admin) have already configured Spinnaker to listen to
 a GitHub webhooks from the repository you plan to publish commits to, you can
@@ -57,7 +57,7 @@ hal deploy apply
 
 to apply them in Spinnaker.
 
-# Using GitHub artifacts in pipelines
+## Using GitHub artifacts in pipelines
 
 We will need either an existing or a new pipeline that we want to be triggered
 on changes to GitHub artifacts. If you do not have a pipeline, create one as shown

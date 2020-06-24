@@ -8,7 +8,7 @@ description: >
 
 In this codelab you will configure a Spinnaker pipeline to deploy an application from Kubernetes manifest files targeting Kubernetes on Oracle Cloud Infrastructure Container Engine (OKE).
 
-# Prerequisites
+## Prerequisites
 
 Before we begin, we need to do the following:
 
@@ -63,7 +63,7 @@ ssh -A -L 9000:localhost:9000 -L 8084:localhost:8084 ubuntu@IP
 
 Now Spinnaker UI is available at [http://localhost:9000](http://localhost:9000).
 
-# 1: Create a Spinnaker application
+## 1: Create a Spinnaker application
 
 In this exercise, you’ll set up a pipeline to deploy a tomcat8 from Kubernetes manifest file to OKE. 
 
@@ -80,7 +80,7 @@ In the *New Application* dialog:
 
 ![](create-app.png)
 
-# 2: Create a load balancer
+## 2: Create a load balancer
 
 Navigate to the "Load Balancers" tab and click the *Create Load Balancer* button, enter the following yaml in the *Manifest*:
 
@@ -159,7 +159,7 @@ spec:
 
 * Save the pipeline.
 
-# 4. Deploy
+## 4. Deploy
 
 Run a "Start Manual Execution" in "Deploy to Test" to Test pipeline.
 

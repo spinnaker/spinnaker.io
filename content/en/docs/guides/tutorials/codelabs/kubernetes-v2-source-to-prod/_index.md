@@ -5,6 +5,7 @@ weight: 2
 description: 
 ---
 
+## Overview
 
 In this codelab you will configure:
 
@@ -14,7 +15,7 @@ In this codelab you will configure:
 * A set of Spinnaker pipelines to deploy changes to your code, manifests, and
   application configuration from source to production.
 
-# 0: Prerequisites
+## 0: Prerequisites
 
 Before we begin, we need to do the following:
 
@@ -214,7 +215,7 @@ Follow the steps shown
 `ENDPOINT=http://${NODE_IP}:${NODE_PORT}`. Keep track of what you pick as the
 `$SECRET`!
 
-# 1: Create a Spinnaker application
+## 1: Create a Spinnaker application
 
 When you first open Spinnaker (if you've followed the above
 [prerequisites](#0-prerequisites)) it'll be running on `localhost:9000`) you'll
@@ -241,7 +242,7 @@ After hitting __Create__, you should be brought to an empty __Clusters__ tab:
    image_path="./empty-clusters.png"
 %}
 
-# 2: Create a "Deploy to Staging" pipeline
+## 2: Create a "Deploy to Staging" pipeline
 
 Let's deploy the manifests and code in our staging cluster by setting up
 automated pipelines to do so. Start by navigating to __Pipelines__ >
@@ -325,7 +326,7 @@ Finally, configure the stage with the following values:
 
 Save the pipeline.
 
-# 3. Deploy manifests to staging
+## 3. Deploy manifests to staging
 
 Trigger the pipeline by pushing a commit to the `manifests/demo.yml` file in
 your repository. The pipeline should start in a few seconds. When it completes,
@@ -407,7 +408,7 @@ Docker artifact to bind in this deployment:
 
 Save the pipeline.
 
-# 5. Deploy Docker to staging
+## 5. Deploy Docker to staging
 
 You can push a tag to your repository by running:
 
@@ -437,7 +438,7 @@ image:
    image_path="./staging-v002.png"
 %}
 
-# 6. Configure a validation pipeline
+## 6. Configure a validation pipeline
 
 For the sake of a simple codelab, we will control which deployments make it to
 production by adding a "Manual Judgement" pipeline. In practice, this can be
@@ -472,7 +473,7 @@ cluster:
 
 Save the Pipeline.
 
-# 7. Promote to production
+## 7. Promote to production
 
 Let's promote these artifacts into our production cluster. Create a new
 pipeline, but instead of creating it from scratch, let's copy the "Deploy to
@@ -498,7 +499,7 @@ point at __prod-demo__:
    image_path="./deploy-to-prod-account.png"
 %}
 
-# 8. Run the full flow
+## 8. Run the full flow
 
 Now our full flow is ready to go - let's kick it off by changing the background
 color of our application.
@@ -535,7 +536,7 @@ both environments:
    image_path="./both-accounts.png"
 %}
 
-# 9. Extra credit
+## 9. Extra credit
 
 At this point there are few things you can play with:
 
@@ -549,7 +550,7 @@ At this point there are few things you can play with:
 * Insert [pipeline expressions](/docs/v1/guides/user/pipeline-expressions) into
   your manifest files.
 
-# 10. Teardown
+## 10. Teardown
 
 As referenced above, please teardown Spinnaker once you are done:
 

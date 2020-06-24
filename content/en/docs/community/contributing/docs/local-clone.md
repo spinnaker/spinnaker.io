@@ -5,8 +5,6 @@ sidebar:
   nav: community
 ---
 
-{% include toc %}
-
 If you are going to make a lot of changes, you can fork the `spinnaker/spinnaker.github.io` repository and work from a local clone. Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your computer and have configured your GitHub account. See the [GitHub Help](https://help.github.com) for details.
 
 ## Fork the Spinnaker documentation repository

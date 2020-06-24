@@ -16,7 +16,7 @@ specific things to allow Spinnaker to authenticate against your cluster.
 > `roles/container.admin` role as described
 > [here](https://cloud.google.com/kubernetes-engine/docs/how-to/iam#predefined).
 
-# Create a cluster
+## Create a cluster
 
 If you don't already have a cluster for this purpose, you can create a
 Kubernetes cluster on GKE using either
@@ -27,7 +27,7 @@ Third party tools like
 [Terraform](https://www.terraform.io/docs/providers/google/r/container_cluster.html)
 work too, and can be used to automate provisioning your clusters.
 
-# Download credentials
+## Download credentials
 
 Follow the instructions shown in [the official
 documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#generate_kubeconfig_entry)
@@ -57,7 +57,7 @@ __TL;DR__ Use the credentials you've downloaded to create a [Kubernetes service
 account](/docs/v1.19/setup/install/providers/kubernetes-v2/#optional-create-a-kubernetes-service-account)
 for Spinnaker to authenticate as.
 
-# Next Steps
+## Next steps
 
 [Follow the setup instructions for adding a Kubernetes account in
 Spinnaker](/docs/v1.19/setup/install/providers/kubernetes-v2/#adding-an-account).

@@ -5,15 +5,13 @@ sidebar:
   nav: community
 ---
 
-{% include toc %}
-
-# Review a Pull request
+## Review a Pull request
 
 Anyone can review a documentation pull request (PR). Visit the [**Pull requests**](https://github.com/spinnaker/spinnaker.github.io/pulls) section in the Spinnaker website repository to see a list of all currently open pull requests.
 
 Reviewing documentation pull requests is a great way to get started contributing to the Spinnaker community. It helps you to learn the code base and builds rapport with other contributors.
 
-# Before you begin
+## Before you begin
 
 Before reviewing documentation, do the following:
 
@@ -28,7 +26,7 @@ Read the [documentation style guide](/community/contributing/docs/docs-style-gui
 7. If you are an experienced contributor, consider pairing with new contributors whose work requires extensive changes.
 8. Be mindful of the needs of contributors that are neurodivergent or have a learning disability. Ask your fellow contributors how they work best and what communication style they prefer.
 
-# Start the review process
+## Start the review process
 
 1. Go to (<https://github.com/spinnaker/spinnaker.github.io/pulls>) to see a list of all current open PRs in the Spinnaker repository.
 
@@ -59,7 +57,7 @@ Read the [documentation style guide](/community/contributing/docs/docs-style-gui
   - Fill in any comments you have about the line in question, and click either, **Add a single comment** (if you have only one comment to make on the PR) or **Start a review** (if you have multiple comments)
   - When you've finished reviewing the PR, click **Review changes** at the top of the page. Here, you can add a summary of your review (and leave some positive comments and thanks for the contributor!), approve the PR, comment or request changes as needed. New contributors should always choose **Comment**.
 
-# Reviewing checklist
+## Reviewing checklist
 
 When reviewing a PR, use the following questions as a starting point:
 
@@ -70,6 +68,6 @@ When reviewing a PR, use the following questions as a starting point:
 - Are there long sentences which could be shorter or made less complex?
 - Are there long paragraphs which would work better as a bulleted list or table?
 
-# Other
+## Other
 
 For small issues with a PR, like typos or whitespace, prefix your comments with "nit:". This lets the author know the issue is non-critical.

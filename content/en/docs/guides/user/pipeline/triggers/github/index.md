@@ -17,7 +17,7 @@ This functionality uses GitHub
 Spinnaker, and must be configured to send messages to Spinnaker's event bus as
 shown below.
 
-# Prerequisite configuration/setup
+## Prerequisite configuration/setup
 
 If you (or your Spinnaker admin) have already configured Spinnaker to listen to
 a GitHub webhooks from the repository you plan to publish commits to, you can

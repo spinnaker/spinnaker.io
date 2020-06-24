@@ -15,14 +15,14 @@ redirect_from:
 
 In this guide, you add an existing plugin from an [example repository](https://github.com/spinnaker-plugin-examples/examplePluginRepository) to Spinnaker. See the [Plugin Creators Guide](/docs/v1/guides/developer/plugin-creators/overview/) for how to create a plugin.
 
-# Requirements
+## Requirements
 
 * The plugin is either a [Plugin Framework for Java](https://github.com/pf4j/pf4j)(PF4J) plugin or a Spring plugin
 * The plugin resides in a location that Spinnaker can access
 * You use Spinnaker v1.19.4 or later
 * You use Halyard v1.34 or later to deploy Spinnaker
 
-# Plugins overview
+## Plugins overview
 
 Spinnaker uses [PF4J-Update v2.3.0](https://github.com/pf4j/pf4j-update) to load and manage third-party plugins. Spinnaker supports local, remote, and file system repositories.
 
@@ -30,7 +30,7 @@ Each plugin repository is defined in a `repositories.json` file. Spinnaker must 
 
 See the PF4J-Update [README](https://github.com/pf4j/pf4j-update/tree/release-2.3.0) for a full explanation of the `repositories.json` and `plugins.json` structures.
 
-# Define plugins
+## Define plugins
 
 Define plugins in a file called `plugins.json`. This guide uses the [file](https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json) in the example repository.
 
@@ -99,7 +99,7 @@ Define plugins in a file called `plugins.json`. This guide uses the [file](https
 ```
 
 
-# Define a plugin repository
+## Define a plugin repository
 
 Define a plugin repository in a file called `repositories.json`. A repository exposes the plugins in the corresponding `plugins.json` file to Spinnaker.
 
@@ -124,7 +124,7 @@ This guide uses the [file](https://raw.githubusercontent.com/spinnaker-plugin-ex
 ```
 
 
-# Configure Spinnaker for the plugin repository
+## Configure Spinnaker for the plugin repository
 
 Use `hal plugins repository add REPOSITORY [parameters]` to add the repository file to Spinnaker's configuration:
 
@@ -135,19 +135,19 @@ hal plugins repository add spinnaker-plugin-examples \
 
 See the command [reference](/reference/halyard/commands/#hal-plugins-repository) for a complete list of parameters.
 
-# Deploy Spinnaker
+## Deploy Spinnaker
 
 Use `hal deploy apply` to redeploy Spinnaker with the updated configuration.
 
-# Additional plugin repository commands
+## Additional plugin repository commands
 
-## List configured plugin repositories
+### List configured plugin repositories
 
 ```
 hal plugins repository list
 ```
 
-## Edit a plugin repository
+### Edit a plugin repository
 
 You can update a repository's URL using `hal`. For example:
 
@@ -156,7 +156,7 @@ hal plugins repository edit spinnaker-plugin-examples \
     --url=https://github.com/aimeeu/examplePluginRepository/blob/master/plugins.json
 ```
 
-## Delete a plugin repository
+### Delete a plugin repository
 
 You can use `hal` to delete a plugin repository. For example:  
 
@@ -164,13 +164,13 @@ You can use `hal` to delete a plugin repository. For example:
 hal plugins repository delete spinnaker-plugin-examples
 ```
 
-# Install the plugin
+## Install the plugin
 
 After you add your plugin repository, you must configure Spinnaker to use your plugin.
 
 This guide uses the [pf4jStagePlugin](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin) plugin as an example.
 
-## Configure Spinnaker for the plugin
+### Configure Spinnaker for the plugin
 
 Use `hal` to enable your plugin so that Spinnaker will load it. Do not use `hal plugins enable`, which enables all plugins.
 
@@ -188,7 +188,7 @@ Users on Spinnaker 1.20.0 or later trying to install pf4jStagePlugin on 1.1.3 or
 
 See the command [reference](/reference/halyard/commands/#hal-plugins-add) for the complete list of parameters.
 
-## Configure the plugin
+### Configure the plugin
 
 Manually edit the `.hal\config` file to configure custom values for your plugin.
 Find the `plugins` section, locate your plugin's definition, and then change values in the `config` section.
@@ -209,19 +209,19 @@ spinnaker:
 ```
 
 
-## Deploy Spinnaker
+### Deploy Spinnaker
 
 Use `hal deploy apply` to redeploy Spinnaker with the updated configuration.
 
-# Additional plugin commands
+## Additional plugin commands
 
-## List configured plugins
+### List configured plugins
 
 ```
 hal plugins list
 ```
 
-## Edit a plugin
+### Edit a plugin
 
 You can use `hal plugins edit PLUGIN [parameters]` to modify a plugin's `version`, `ui-resource-location`, and `enabled` parameters. For example, to disable an enabled plugin, change the `enabled` parameter to false and then redeploy Spinnaker.
 
@@ -232,7 +232,7 @@ hal deploy apply
 
 See the command [reference](/reference/halyard/commands/#hal-plugins-edit) for the complete list of parameters.
 
-## Delete a plugin
+### Delete a plugin
 
 You can use `hal plugins delete PLUGIN` to delete a plugin.
 
@@ -241,6 +241,6 @@ hal plugins delete Armory.RandomWaitPlugin
 hal deploy apply
 ```
 
-# Resources
+## Resources
 
 You can ask for help with plugins in the [Spinnaker Slack's](https://join.spinnaker.io/) `#plugins` channel.

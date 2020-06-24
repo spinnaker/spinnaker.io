@@ -9,13 +9,13 @@ Say you've written a patch, and it's been merged into Spinnaker. First off,
 thanks for helping the project! Odds are, you want to deploy this patch to the
 Spinnaker you manage. You have a few options available:
 
-# Wait for the non-patch release
+## Wait for the non-patch release
 
 Any time we release a new minor version of Spinnaker (e.g. 1.16.0 or 1.17.0), we
 include all commits merged into `master` for each service. We do this on a
 [regular cadence](/community/releases/release-cadence).
 
-# Merge into the release branch
+## Merge into the release branch
 
 If your patch is a relatively small localized change that fixes a bug, and
 doesn't introduce a feature or breaking change, you can request that your patch
@@ -57,8 +57,7 @@ For example: say you've fixed a bug and had the fix merged into master. You're
 running Spinnaker 1.5.1, and want the fix in Spinnaker 1.5.2. First, find the
 commit's hash. This is easy to do in the "Commits" tab in your repository:
 
-{% include figure image_path="./commit.png" caption="The hash is `a090bf3` in
-this example" %}
+{{< figure src="./commit.png" caption="The hash is `a090bf3` in this example." >}}
 
 Now, in your cloned repository run:
 
@@ -80,11 +79,11 @@ Navigate to GitHub, and create a PR as you would normally, but make sure that
 your "base" is set to the release branch in the upstream repository as shown
 below:
 
-{% include figure image_path="./patch.png" %}
+{{< figure src="./patch.png" >}}
 
 Once this PR is merged, your patch should be released in the next few days.
 
-# Run the nightly builds (not recommended)
+## Run the nightly builds (not recommended)
 
 If you urgently need the change, you can always rely on the
 `master-latest-unvalidated` release version. Keep in mind these changes have

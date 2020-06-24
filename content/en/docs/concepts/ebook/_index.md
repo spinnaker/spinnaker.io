@@ -7,10 +7,10 @@ description:
 
 [![](cover.png)](ContinuousDeliveryWithSpinnaker.pdf)
 
-# Download Free
+## Download Free
 **[PDF](ContinuousDeliveryWithSpinnaker.pdf) | [Epub](ContinuousDeliveryWithSpinnaker.epub) | [Mobi](ContinuousDeliveryWithSpinnaker.mobi)**
 
-# Ebook Description
+## Ebook Description
 
 Many companies are moving away from “big bang” software releases every six months or so to a continuous delivery (CD) model that enables IT to release updates frequently, even if that means several times a day. Using Netflix and its open source Spinnaker CD platform as examples, this practical ebook demonstrates how a new host of tools can help you deploy software changes to production quickly, safely, and automatically.
 

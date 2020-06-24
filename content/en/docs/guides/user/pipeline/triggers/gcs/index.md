@@ -6,7 +6,7 @@ description: >
   This guide explains how to configure Spinnaker to trigger pipelines based on changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS) bucket, and inject changed GCS objects as [artifacts](/reference/artifacts) into a pipeline.
 ---
 
-
+## Overview
 
 This guide explains how to configure Spinnaker to trigger pipelines based on
 changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS)
@@ -18,7 +18,7 @@ This functionality uses Google's
 messages to Spinnaker, and must be configured to send messages to
 Spinnaker's event bus as shown below.
 
-# Prerequisite configuration/setup
+## Prerequisites
 
 If you (or your Spinnaker admin) has already configured Spinnaker to listen to
 a Pub/Sub messages from the GCS bucket you plan to publish objects to, you can

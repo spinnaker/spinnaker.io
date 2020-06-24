@@ -285,5 +285,3 @@ kubectl -n $NAMESPACE get svc spin-deck-public -o jsonpath='{.status.loadBalance
 ```
 
 Navigate to the URL in a supported browser and log in.
-
-

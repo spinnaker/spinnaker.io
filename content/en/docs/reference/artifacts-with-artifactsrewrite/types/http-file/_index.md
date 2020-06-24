@@ -42,13 +42,7 @@ The pipeline UI exposes the following fields for the HTTP file artifact:
 When configuring certain triggers, you can use an HTTP file as an expected
 artifact.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact-http-file.png"
-  caption="Configuring HTTP file fields in a pipeline trigger's expected
-           artifact settings."
-%}
+{{< figure src="./expected-artifact-http-file.png" caption="Configuring HTTP file fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 
@@ -57,13 +51,7 @@ file as a manifest or application artifact. You can either use a
 previously-defined artifact (for example, an artifact defined in a trigger) or
 define an artifact inline.
 
-{%
-  include
-  figure
-  image_path="./deploy-manifest-stage-http-file.png"
-  caption="Configuring a Deploy (Manifest) stage to use an HTTP file as a
-           manifest source."
-%}
+{{< figure src="./deploy-manifest-stage-http-file.png" caption="Configuring a Deploy (Manifest) stage to use an HTTP file as a manifest source." >}}
 
 ## HTTP file artifact in a pipeline definition
 
