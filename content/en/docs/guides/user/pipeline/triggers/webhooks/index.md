@@ -25,11 +25,7 @@ Trigger__ and make its type selector __Webhook__.
 To assign an endpoint that must be hit, you can provide a value to the
 __Source__ field as shown here:
 
-{%
-  include
-  figure
-  image_path="./basic-webhook.png"
-%}
+{{< figure src="./basic-webhook.png" >}}
 
 Notice that in the above image below the __Type__ dropdown, the webhook
 configuration points out that we can hit
@@ -54,12 +50,7 @@ value must match using regex.
 
 For example, if we had configured:
 
-{%
-  include
-  figure
-  image_path="./constraints-webhook.png"
-  caption="For clarity, the constraints are `foo = bar` and `bing = b.*p`."
-%}
+{{< figure src="./constraints-webhook.png" caption="For clarity, the constraints are `foo = bar` and `bing = b.*p`." >}}
 
 The following payload would be accepted:
 
@@ -86,22 +77,12 @@ Say your pipeline accepted some parameters (e.g. the desired stack to deploy
 to), you can make this explicit by adding a pipeline parameter on the same
 configuration screen as the webhook trigger:
 
-{%
-  include
-  figure
-  image_path="./parameters.png"
-  caption="For more information on how to use pipeline parameters, see the
-  [pipeline expressions guide](/docs/v1/guides/user/pipeline-expressions)."
-%}
+{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/v1/guides/user/pipeline-expressions)." >}}
 
 If you were to manually execute this pipeline, you would be prompted with the
 following dialogue:
 
-{%
-  include
-  figure
-  image_path="./manual-execution.png"
-%}
+{{< figure src="./manual-execution.png" >}}
 
 If instead you were to trigger this pipeline with a Webhook, you could supply
 each parameter a value inside a key/value map called `parameters`. Take the
@@ -129,11 +110,7 @@ If your pipeline requires artifacts (for example, a Kubernetes manifest file
 stored in GCS), you can make this explicit by defining an __Expected Artifact__
 and assigning it to the Webhook as shown below:
 
-{%
-  include
-  figure
-  image_path="./artifacts.png"
-%}
+{{< figure src="./artifacts.png" >}}
 
 In order to run this pipeline, you will need to supply the required artifact in
 your payload under a list of `artifacts`:

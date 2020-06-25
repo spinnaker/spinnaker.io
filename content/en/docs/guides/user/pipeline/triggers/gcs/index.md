@@ -71,13 +71,7 @@ We will need either an existing or a new pipeline that we want to be triggered
 on changes to GCS artifacts. If you do not have a pipeline, create one as shown
 below.
 
-{%
-  include
-  figure
-  image_path="./create-pipeline.png"
-  caption="You can create and edit pipelines in the __Pipelines__ tab of
-  Spinnaker"
-%}
+{{< figure src="./create-pipeline.png" caption="You can create and edit pipelines in the __Pipelines__ tab of Spinnaker" >}}
 
 ## Configure the GCS artifact
 
@@ -87,11 +81,7 @@ the pipeline starts executing. In doing so, you guarantee that an artifact
 matching your description is present in the pipeline's execution context; if no
 artifact for this description is present, the pipeline won't start.
 
-{%
-  include
-  figure
-  image_path="./add-artifact.png"
-%}
+{{< figure src="./add-artifact.png" >}}
 
 Now to configure the artifact, change the "Custom" dropdown to "GCS", and enter
 the fully qualifed GCS path in the __Object path__ field. Note: this path can be
@@ -99,24 +89,14 @@ a regex. You can, for example, set the object path to be
 `gs://${BUCKET}/folder/.*` to trigger on any change to an object inside
 `folder` in your `${BUCKET}`.
 
-{%
-  include
-  figure
-  image_path="./set-expected-artifact.png"
-  caption="`${BUCKET}` is a placeholder for the GCS bucket name that you have
-  configured to receive Pub/Sub messages from above."
-%}
+{{< figure src="./set-expected-artifact.png" caption="`${BUCKET}` is a placeholder for the GCS bucket name that you have configured to receive Pub/Sub messages from above." >}}
 
 ## Configure the GCS trigger
 
 Now that the expected artifact has been added, let's add a Pub/Sub trigger to
 run our pipeline.
 
-{%
-  include
-  figure
-  image_path="./add-trigger.png"
-%}
+{{< figure src="./add-trigger.png" >}}
 
 Next, we must configure the trigger: 
 
@@ -130,15 +110,7 @@ Next, we must configure the trigger:
   an explanation). 
 * __Expected Artifacts__ must reference the artifact defined previously.
 
-{%
-  include
-  figure
-  image_path="./pubsub-config.png"
-  caption="By setting the __Expected Artifacts__ field in the trigger config,
-  you guarantee that this pubsub subscription will only trigger this pipeline
-  when an artifact matching your requirements is present in the pubsub
-  message."
-%}
+{{< figure src="./pubsub-config.png" caption="By setting the __Expected Artifacts__ field in the trigger config, you guarantee that this pubsub subscription will only trigger this pipeline when an artifact matching your requirements is present in the pubsub message." >}}
 
 ## Test the pipeline
 

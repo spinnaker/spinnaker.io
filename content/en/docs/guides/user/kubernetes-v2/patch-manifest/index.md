@@ -26,11 +26,7 @@ There are a few steps:
 
 1. Start by selecting the __Patch (Manifest)__ stage from the stage selector:
 
-{%
-  include
-  figure
-  image_path="./patch-manifest.png"
-%}
+{{< figure src="./patch-manifest.png" >}}
 
 2. To identify the Kubernetes resource to patch, specify the following required fields:
 
@@ -71,13 +67,7 @@ metadata:
     foo: bar
 ```
 
-{%
-  include
-  figure
-  image_path="./in-pipeline.png"
-  caption="Notice that by selecting __Text__ as the __Manifest Source__, we get
-  to enter the manifest YAML by hand."
-%}
+{{< figure src="./in-pipeline.png" caption="Notice that by selecting __Text__ as the __Manifest Source__, we get to enter the manifest YAML by hand." >}}
 
 ### Specify patch content dynamically
 
@@ -90,13 +80,7 @@ You can also set up the pipeline to trigger based on changes to the patch conten
 
 Assuming you have declared an expected artifact upstream to your Patch (Manifest) stage, you can reference it in the Patch configuration:
 
-{%
-  include
-  figure
-  image_path="./in-artifact.png"
-  caption="Notice that by selecting __Artifact__ as the __Manifest Source__, we
-  get to pick which upstream artifact to deploy."
-%}
+{{< figure src="./in-artifact.png" caption="Notice that by selecting __Artifact__ as the __Manifest Source__, we get to pick which upstream artifact to deploy." >}}
 
 > __☞ Note__: Make sure that the __Artifact Account__ field matches an account
 > with permission to download the manifest.

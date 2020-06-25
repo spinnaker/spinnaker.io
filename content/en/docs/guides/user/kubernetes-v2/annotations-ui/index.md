@@ -23,11 +23,7 @@ kubectl annotate pod my-prod-pod-v000 \
 
 Here's how this annotation will render in Spinnaker's UI:
 
-{%
-  include
-  figure
-  image_path="./pod_info_example.png"
-%}
+{{< figure src="./pod_info_example.png" >}}
 
 Dissecting the annotation, here's how the UI is constructed:
 

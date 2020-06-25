@@ -30,11 +30,7 @@ To select a Pub/Sub subscription to trigger from, select values for
 __Pub/Sub System Type__ and __Subscription Name__. Note that the subscription
 must be configured before it is available to select in the UI.
 
-{%
-  include
-  figure
-  image_path="./basic-pubsub.png"
-%}
+{{< figure src="./basic-pubsub.png" >}}
 
 ### Payload constraints
 
@@ -45,12 +41,7 @@ value must match using regex.
 
 For example, if we had configured:
 
-{%
-  include
-  figure
-  image_path="./payload-constraints.png"
-  caption="For clarity, the constraints are `mykey = myvalue` and `bing = b.*p`."
-%}
+{{< figure src="./payload-constraints.png" caption="For clarity, the constraints are `mykey = myvalue` and `bing = b.*p`." >}}
 
 The following message payload would be accepted:
 
@@ -77,22 +68,12 @@ Say your pipeline accepted some parameters (for example, the desired stack to
 deploy to), you can make this explicit by adding a pipeline parameter on the
 same configuration screen as the Pub/Sub trigger:
 
-{%
-  include
-  figure
-  image_path="./parameters.png"
-  caption="For more information on how to use pipeline parameters, see the
-  [pipeline expressions guide](/docs/v1/guides/user/pipeline-expressions)."
-%}
+{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/v1/guides/user/pipeline-expressions)." >}}
 
 If you were to manually execute this pipeline, you would be prompted with the
 following dialogue:
 
-{%
-  include
-  figure
-  image_path="./manual-execution.png"
-%}
+{{< figure src="./manual-execution.png" >}}
 
 If instead you were to trigger this pipeline with a Pub/Sub Trigger, you could supply
 each parameter a value inside a key/value map called `parameters` in the message body. Take the
@@ -121,17 +102,9 @@ stored in GCS), you can make this explicit by defining an __Expected Artifact__
 and assigning it to the Pub/Sub Trigger. Under **Artifact Constraints**, select
 **Define a new artifact...** and supply the artifact details, as shown below:
 
-{%
-  include
-  figure
-  image_path="./pubsub-artifact.png"
-%}
+{{< figure src="./pubsub-artifact.png" >}}
 
-{%
-  include
-  figure
-  image_path="./artifact-constraints.png"
-%}
+{{< figure src="./artifact-constraints.png" >}}
 
 In order for this to work, you need to supply the required artifact in the
 Pub/Sub message payload, and configure Spinnaker so that it can translate the

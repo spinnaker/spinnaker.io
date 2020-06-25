@@ -189,8 +189,7 @@ For any V1 account you have running, you can add a V2 account following the
 steps [below](#adding-an-account). This will surface your infrastructure twice
 (once per account) helping your pipeline & operation migration.
 
-{% include figure image_path="./v1v2.png" caption="A V1 and V2 provider
-surfacing the same infrastructure" %}
+{{< figure src="./v1v2.png" caption="A V1 and V2 provider surfacing the same infrastructure" >}}
 
 <span class="end-collapsible-section"></span>
 

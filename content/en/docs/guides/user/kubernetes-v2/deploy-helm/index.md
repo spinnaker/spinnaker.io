@@ -69,21 +69,13 @@ metadata:
 
 As an example, we have a fully configured Bake (Manifest) stage below:
 
-{%
-  include
-  figure
-  image_path="./bake-manifest-stage.png"
-%}
+{{< figure src="./bake-manifest-stage.png" >}}
 
 Notice that in the "Produces Artifacts" section, Spinnaker has automatically
 created an `embedded/base64` artifact that is bound when the stage
 completes, representing the fully baked manifest set to be deployed downstream.
 
-{%
-  include
-  figure
-  image_path="./produces.png"
-%}
+{{< figure src="./produces.png" >}}
 
 If you are programatically generating stages, here is the JSON representation
 of the same stage from above:
@@ -129,11 +121,7 @@ Now that your manifest set has been baked by Helm, configure a downstream stage
 (Manifest)" stage to deploy the artifact produced by the "Bake (Manifest)"
 stage as shown here:
 
-{%
-  include
-  figure
-  image_path="./expected-artifact.png"
-%}
+{{< figure src="./expected-artifact.png" >}}
 
 > Note: Make sure to select "embedded-artifact" as the artifact account for
 > your base64 manifest set. This is required to translate the manifest set into
@@ -142,11 +130,7 @@ stage as shown here:
 When this stage runs, you can see every resource in your Helm chart get
 deployed at once:
 
-{%
-  include
-  figure
-  image_path="./result.png"
-%}
+{{< figure src="./result.png" >}}
 
 ## Other Templating Engines
 

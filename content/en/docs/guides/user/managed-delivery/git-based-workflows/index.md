@@ -20,11 +20,7 @@ pipeline's trigger, then save (or update) it in Spinnaker so it will automatical
 and manage the resources, environments and deployments described in the manifest.
 
 Here's what it looks like in the UI:
-{%
-  include
-  figure
-  image_path="./import-delivery-config.png"
-%}
+{{< figure src="./import-delivery-config.png" >}}
 
 Configuration is very straightforward: your Spinnaker operator will have configured a default
 "base path" under which to look for manifest files in your source code repos (`.spinnaker`,

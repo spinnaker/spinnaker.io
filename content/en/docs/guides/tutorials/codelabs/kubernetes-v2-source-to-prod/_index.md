@@ -221,26 +221,16 @@ When you first open Spinnaker (if you've followed the above
 [prerequisites](#0-prerequisites)) it'll be running on `localhost:9000`) you'll
 be greeted with the following __Applications__ screen.
 
-{% include figure
-   image_path="./app-screen.png"
-   caption="By default, Spinnaker indexes your entire cluster, which explains
-   why the screen is prepopulated with unrelated infrastructure. This can be
-   changed by ommiting namespaces as shown
-   [here](/reference/halyard/commands/#hal-config-provider-kubernetes-account-edit)."
-%}
+{{< figure src="./app-screen.png" caption="By default, Spinnaker indexes your entire cluster, which explains why the screen is prepopulated with unrelated infrastructure. This can be changed by omiting namespaces as shown [here](/reference/halyard/commands/#hal-config-provider-kubernetes-account-edit)." >}}
 
 Select __Actions__ > __Create Application__, and fill out the form as shown
 (the owner email will of course be different):
 
-{% include figure
-   image_path="./create-app.png"
-%}
+{{< figure src="./create-app.png" >}}
 
 After hitting __Create__, you should be brought to an empty __Clusters__ tab:
 
-{% include figure
-   image_path="./empty-clusters.png"
-%}
+{{< figure src="./empty-clusters.png" >}}
 
 ## 2: Create a "Deploy to Staging" pipeline
 
@@ -248,9 +238,7 @@ Let's deploy the manifests and code in our staging cluster by setting up
 automated pipelines to do so. Start by navigating to __Pipelines__ >
 __Configure a new Pipeline__. Name the pipeline as shown and hit create:
 
-{% include figure
-   image_path="./staging-pipeline-new.png"
-%}
+{{< figure src="./staging-pipeline-new.png" >}}
 
 At this point we want to add the manifest from GitHub as an expected artifact
 in this pipeline, meaning we expect each time that this pipeline executes,
@@ -259,24 +247,18 @@ use some default or prior manifest.
 
 Select __Add Artifact__:
 
-{% include figure
-   image_path="./add-github-artifact.png"
-%}
+{{< figure src="./add-github-artifact.png" >}}
 
 Select GitHub as the artifact type, and set the __File Path__ to
 `manifests/demo.yml`, and select __Use Prior Execution__, to tell
 Spinnaker that if no matching artifact is found, to use the last execution's
 value. (This will be useful later).
 
-{% include figure
-   image_path="./configure-github-artifact.png"
-%}
+{{< figure src="./configure-github-artifact.png" >}}
 
 Next, let's add a GitHub trigger:
 
-{% include figure
-   image_path="./add-github-trigger.png"
-%}
+{{< figure src="./add-github-trigger.png" >}}
 
 Supply the following configuration values:
 
@@ -289,26 +271,18 @@ Supply the following configuration values:
 | __Secret__ | The `$SECRET` chosen [above](#allow-github-to-post-push-events). |
 | __Expected Artifacts__ | Must reference the `manifests/demo.yml` artifact. |
 
-{% include figure
-   image_path="./configure-github-trigger.png"
-   caption="We supply the expected artifact to be sure that we only trigger the
-   pipeline when that file changes."
-%}
+{{< figure src="./configure-github-trigger.png" caption="We supply the expected artifact to be sure that we only trigger the pipeline when that file changes." >}}
 
 With the trigger configuration in place, let's configure a "Deploy manifest"
 stage.
 
 First add a stage:
 
-{% include figure
-   image_path="./first-stage.png"
-%}
+{{< figure src="./first-stage.png" >}}
 
 Then select the "Deploy (Manifest)" stage type:
 
-{% include figure
-   image_path="./add-deploy-manifest-stage.png"
-%}
+{{< figure src="./add-deploy-manifest-stage.png" >}}
 
 Finally, configure the stage with the following values:
 
@@ -320,9 +294,7 @@ Finally, configure the stage with the following values:
 | __Expected Artifact__ | Must reference the `manifests/demo.yml` artifact. |
 | __Artifact Account__ | The GitHub artifact account configured above. |
 
-{% include figure
-   image_path="./configure-deploy-manifest-stage.png"
-%}
+{{< figure src="./configure-deploy-manifest-stage.png" >}}
 
 Save the pipeline.
 
@@ -332,9 +304,7 @@ Trigger the pipeline by pushing a commit to the `manifests/demo.yml` file in
 your repository. The pipeline should start in a few seconds. When it completes,
 click __Details__ to see information about the execution:
 
-{% include figure
-   image_path="./staging-execution.png"
-%}
+{{< figure src="./staging-execution.png" >}}
 
 There are a couple of things to notice here: 
 
@@ -352,9 +322,7 @@ Next, let's see what this infrastructure looks like in Spinnaker. Navigate to
 the __Clusters__ tab, and select the blue Deployment object attached to the
 Replica Set shown below:
 
-{% include figure
-   image_path="./staging-v001.png"
-%}
+{{< figure src="./staging-v001.png" >}}
 
 We can see in the __Artifact__ section on the right that we have bound our
 Docker image as well as our ConfigMap.
@@ -377,34 +345,24 @@ if we build on every commit, this particular setup will trigger both when
 manifests & code are changed at once. This can be configured under your
 Docker repository's __Build Settings__ tab as shown here:
 
-{% include figure
-   image_path="./docker-tag-only.png"
-   caption="This build rule will create a matching image tag each time you push
-   a git tag."
-%}
+{{< figure src="./docker-tag-only.png" caption="This build rule will create a matching image tag each time you push a git tag." >}}
 
 Next, in Spinnaker, let's edit our Pipeline to allow Docker images to trigger a
 deployment:
 
 First, add a Docker expected artifact next to our Git expected artifact:
 
-{% include figure
-   image_path="./configure-docker-artifact.png"
-%}
+{{< figure src="./configure-docker-artifact.png" >}}
 
 Next, add a _Webhook_ trigger to listen to build events from DockerHub. The
 _Docker_ trigger alone won't provide us with provenance information.
 
-{% include figure
-   image_path="./configure-docker-webhook.png"
-%}
+{{< figure src="./configure-docker-webhook.png" >}}
 
 Finally, back in the "Deploy (Manifest)" stage configuration, select the
 Docker artifact to bind in this deployment:
 
-{% include figure
-   image_path="./bind-docker.png"
-%}
+{{< figure src="./bind-docker.png" >}}
 
 Save the pipeline.
 
@@ -417,9 +375,7 @@ git tag release-1.0
 git push origin release-1.0
 ```
 
-{% include figure
-   image_path="./staging-webhook-execution.png"
-%}
+{{< figure src="./staging-webhook-execution.png" >}}
 
 Notice that this time the trigger was a Webhook trigger, and we see details
 about both types of artifacts that we deployed. Since the GitHub file artifact
@@ -434,9 +390,7 @@ new ConfigMap, and kept the version at `-v000`.
 Back on the __Clusters__ tab we can see the deployment has rolled out our new
 image:
 
-{% include figure
-   image_path="./staging-v002.png"
-%}
+{{< figure src="./staging-v002.png" >}}
 
 ## 6. Configure a validation pipeline
 
@@ -447,29 +401,21 @@ staging; however, keeping the manual judgement stage is fine too.
 
 Start by creating a new pipeline, and call it "Validate Staging":
 
-{% include figure
-   image_path="./validate-staging-create.png"
-%}
+{{< figure src="./validate-staging-create.png" >}}
 
 We only want this pipeline to run when we successfully deploy to our staging
 environment, so create a Pipeline trigger in this new pipeline like shown:
 
-{% include figure
-   image_path="./staging-trigger.png"
-%}
+{{< figure src="./staging-trigger.png" >}}
 
 Add a single stage with type "Manual judgement":
 
-{% include figure
-   image_path="./add-manual-judgement.png"
-%}
+{{< figure src="./add-manual-judgement.png" >}}
 
 If desired, you can add additional "Instructions" for how to validate the
 cluster:
 
-{% include figure
-   image_path="./configure-manual-judgement.png"
-%}
+{{< figure src="./configure-manual-judgement.png" >}}
 
 Save the Pipeline.
 
@@ -479,25 +425,19 @@ Let's promote these artifacts into our production cluster. Create a new
 pipeline, but instead of creating it from scratch, let's copy the "Deploy to
 Staging" pipeline like this:
 
-{% include figure
-   image_path="./create-promote-copy.png"
-%}
+{{< figure src="./create-promote-copy.png" >}}
 
 We need to make two changes to this pipeline:
 
 First, delete the webhook and Git triggers, and replace it with a pipeline
 trigger that depends on the "Validate Staging" pipeline:
 
-{% include figure
-   image_path="./validate-staging-trigger.png"
-%}
+{{< figure src="./validate-staging-trigger.png" >}}
 
 Next, change the __Account__ the "Deploy (Manifest)" stage deploys to
 point at __prod-demo__:
 
-{% include figure
-   image_path="./deploy-to-prod-account.png"
-%}
+{{< figure src="./deploy-to-prod-account.png" >}}
 
 ## 8. Run the full flow
 
@@ -517,24 +457,18 @@ git push origin release-1.1
 
 When Spinnaker prompts you, accept (or reject) the manual judgement:
 
-{% include figure
-   image_path="./continue.png"
-%}
+{{< figure src="./continue.png" >}}
 
 Keep in mind, if you reject the manual judgement, but later change your mind,
 you can always trigger this pipeline again using the same context by selecting
 __Start manual execution__, and picking the latest parent execution:
 
-{% include figure
-   image_path="./prior-execution.png"
-%}
+{{< figure src="./prior-execution.png" >}}
 
 Once all three pipelines complete, you should have your docker image running in
 both environments:
 
-{% include figure
-   image_path="./both-accounts.png"
-%}
+{{< figure src="./both-accounts.png" >}}
 
 ## 9. Extra credit
 

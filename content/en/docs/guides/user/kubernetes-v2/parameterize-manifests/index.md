@@ -20,10 +20,7 @@ pipeline parameter to specify the target namespace.
 First we will register a pipeline parameter in the "configuration" tab of the
 pipeline editor (only the __Name__ is required):
 
-{% include
-   figure
-   image_path="./parameter.png"
-%}
+{{< figure src="./parameter.png" >}}
 
 > See more details on how to provide parameters to pipelines programmatically in
 > the [webhooks](/docs/v1/guides/user/triggers/webhooks) page.
@@ -45,10 +42,7 @@ metadata:
 
 When you go to run the pipeline by hand, you will see the following:
 
-{% include
-   figure
-   image_path="./run.png"
-%}
+{{< figure src="./run.png" >}}
 
 ## Parameterizing non-string keys
 

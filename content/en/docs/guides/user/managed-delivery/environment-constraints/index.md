@@ -342,18 +342,10 @@ environments:
 Upon evaluating whether a new Debian artifact for `myspinapp` should be deployed into the `test` environment,
 Spinnaker will gate the deployment on the `manual-judgement` constraint and send a notification that looks like
 the following to the `#myteam` Slack channel.
-{%
-  include
-  figure
-  image_path="./md-manual-judgment-notification.png"
-%}
+{{< figure src="./md-manual-judgment-notification.png" >}}
 
 Once a user in the channel clicks on the `Approve` button, the notification changes to reflect the approval:
-{%
-  include
-  figure
-  image_path="./md-manual-judgment-approved.png"
-%}
+{{< figure src="./md-manual-judgment-approved.png" >}}
 
 > :warning: Note that the `frequency` setting for notifications does not affect this behavior -- interactive
 > notifications will always be sent unless your operator has chosen to disable this feature entirely on your

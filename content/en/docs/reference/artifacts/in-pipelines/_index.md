@@ -123,9 +123,7 @@ To allow you to promote artifacts between executions, you can make use of the
 "Find Artifact from Execution" stage. All that's required is the pipeline ID
 whose execution history to search, and an expected artifact to bind.
 
-{% include figure
-   image_path="./find-artifact-from-execution.png"
-%}
+{{< figure src="./find-artifact-from-execution.png" >}}
 
 A common use case would be to "promote" the image deployed to staging to a
 pipeline that's deploying to production.
