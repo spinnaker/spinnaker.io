@@ -1,6 +1,49 @@
-- name: 'name'
+- id: rNpB9Mn0dm0
+  title: 'Serializing your culture with Kelsey Hightower @ Spinnaker.Live'
   hide: false
   is_featured: true
   display_landing: true
   display_succ_stories: false
-  URI: 'path'
+  URI: 'https://youtu.be/rNpB9Mn0dm0'
+- id: Wshp5-zrQnc
+  title: 'Adrian Hornsby @ Spinnaker.Live: Complex Systems, Outages, and Chaos'
+  hide: false
+  is_featured: true
+  display_landing: true
+  display_succ_stories: false
+  URI: 'https://youtu.be/Wshp5-zrQnc'
+- id: XvCN-D-w0-w
+  title: 'Working From Home: Tales From Behind The Webcam @ Spinnaker.Live'
+  hide: false
+  is_featured: true
+  display_landing: true
+  display_succ_stories: false
+  URI: 'https://youtu.be/XvCN-D-w0-w'
+- id: 1W23b5zj4xA
+  title: 'Fast & Fearless: Achieving Speed Because of Safety @ Spinnaker.Live'
+  hide: false
+  is_featured: true
+  display_landing: true
+  display_succ_stories: false
+  URI: 'https://youtu.be/1W23b5zj4xA'
+- id: 3NoC07lmTcE
+  title: 'Dave Farley @ Spinnaker.Live: Software Development in 100 Years Time & Continuous Delivery'
+  hide: false
+  is_featured: true
+  display_landing: true
+  display_succ_stories: false
+  URI: 'https://youtu.be/3NoC07lmTcE'
+- id: 8u9ichbEaQk
+  title: 'Edith Harbaugh @ Spinnaker.Live: Progressive Delivery with LaunchDarkly and Spinnaker'
+  hide: false
+  is_featured: true
+  display_landing: true
+  display_succ_stories: false
+  URI: 'https://youtu.be/8u9ichbEaQk'
+- id: 8u9ichbEaQk
+  title: 'Sandhya Sridharan @ Spinnaker.Live: Achieving Continuous Delivery at JPMorgan Chase scale'
+  hide: false
+  is_featured: true
+  display_landing: true
+  display_succ_stories: false
+  URI: 'https://youtu.be/64rhl9sxhSQ'

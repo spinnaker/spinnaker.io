@@ -1,13 +1,140 @@
-- name: 'name'
+- id: 001
+  name: 'name 001'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: false
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'title string'
+  case_study: >
+    Ea eiusmod labore ex eiusmod labore cupidatat duis cillum nostrud tempor amet cupidatat cillum excepteur dolore. Ad nisi deserunt mollit laboris pariatur laboris id do deserunt et labore. Deserunt ex excepteur sit occaecat non est nisi occaecat labore nisi aliquip ad consequat irure. Consectetur consequat nisi sunt qui fugiat aliquip mollit ipsum id sit reprehenderit Lorem id non eiusmod laborum.
+  testimonial_title: 'title string'
+  testimonial: >
+    Dolor labore fugiat irure quis qui elit dolore cillum sunt sit duis elit consectetur consectetur elit. Consequat ea consectetur eiusmod laboris cillum sint laborum velit cillum consequat velit ea ullamco incididunt deserunt pariatur mollit. Cillum nisi cupidatat eu occaecat non deserunt et consectetur velit incididunt mollit occaecat enim nisi veniam proident. Velit reprehenderit occaecat ut excepteur proident commodo reprehenderit laborum nisi nulla voluptate amet.
+- id: 002
+  name: 'name 002'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: true
   is_testimonial: false
-  logo: 'path'
+  logo: '/images/slack_logo.png'
   case_study_title: 'title string'
   case_study: >
-    lorem ipsum
+    Veniam eiusmod fugiat in velit mollit quis cillum enim magna minim magna non exercitation nulla in aute ullamco. Dolor in occaecat ex nostrud laboris eiusmod ea enim velit. Ullamco consequat cupidatat fugiat sint esse labore cupidatat nostrud ad sunt laboris amet labore. In Lorem tempor eu sit duis esse magna. Excepteur consectetur excepteur culpa fugiat nisi ex pariatur. Veniam culpa tempor nostrud irure quis cupidatat reprehenderit aliquip ea deserunt ullamco et amet officia id est. Dolor magna qui sit eiusmod Lorem incididunt dolor reprehenderit deserunt eiusmod aliquip nulla excepteur.
   testimonial_title: 'title string'
   testimonial: >
-    testimonial
+    Labore qui cillum excepteur tempor consectetur eu irure laborum culpa dolore esse non. Elit nulla occaecat mollit enim in et cupidatat dolore. Irure enim anim ut occaecat enim dolor magna adipisicing culpa reprehenderit aute elit laborum esse Lorem dolor occaecat. Do tempor fugiat est magna tempor nostrud nisi officia ut id dolor. Duis est magna mollit occaecat est consectetur commodo laboris consectetur incididunt officia duis nostrud occaecat commodo dolor. Ullamco laborum occaecat ut irure culpa consectetur occaecat exercitation dolor ea fugiat incididunt proident officia officia velit. Et amet magna ut Lorem voluptate nostrud aliquip mollit consequat sint velit officia ullamco. Exercitation aute fugiat reprehenderit Lorem officia Lorem id sit amet nisi esse enim aliqua duis ipsum.
+- id: 003
+  name: 'name 003'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: false
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'title string'
+  case_study: >
+    Deserunt ex consectetur reprehenderit consectetur ad elit non. Labore ipsum minim sint sunt aliqua veniam quis id sunt enim ex culpa officia elit voluptate. Est reprehenderit sit officia qui consequat laborum fugiat cillum irure do magna. Magna quis minim elit Lorem nostrud laborum amet in labore id. Cillum excepteur ea consectetur sunt magna laboris officia pariatur consequat aliquip excepteur proident occaecat labore elit laborum voluptate. In veniam ut veniam magna commodo sint duis ullamco quis officia ad voluptate. Cupidatat amet reprehenderit velit non deserunt pariatur in. Amet officia sit dolor ipsum excepteur sint velit adipisicing enim officia tempor labore ipsum esse.
+  testimonial_title: 'title string'
+  testimonial: >
+    Do aliquip magna nisi velit eu nisi magna dolore nostrud anim minim adipisicing nulla reprehenderit nostrud. Deserunt duis irure cupidatat qui occaecat duis officia commodo magna mollit. Incididunt nulla magna aute cupidatat Lorem est magna aliquip in.
+- id: 004
+  name: 'name 004'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'title string'
+  case_study: >
+    Nulla veniam aute sunt qui irure exercitation irure esse elit aliquip ea esse laboris aute consectetur duis. Quis aute elit excepteur adipisicing exercitation ut nostrud laboris laborum amet elit. Qui sit occaecat cupidatat magna deserunt fugiat reprehenderit culpa qui laborum sunt ex ex deserunt tempor minim. Eu elit sunt tempor voluptate tempor voluptate qui eu sint laboris amet. Amet enim ea amet tempor non laborum nisi magna mollit culpa. Qui mollit ut ex nulla duis cillum eu irure qui ipsum voluptate.
+  testimonial_title: 'title string'
+  testimonial: >
+    Ullamco commodo mollit proident enim enim nostrud anim ut laboris. Occaecat anim esse non ex id duis elit. Duis excepteur do pariatur dolore exercitation enim culpa. Nulla occaecat nisi sunt nisi enim est occaecat anim dolore laboris incididunt eu incididunt.
+- id: 005
+  name: 'name 005'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: false
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'title string'
+  case_study: >
+    Cupidatat cillum aliqua non do aute dolore occaecat pariatur ullamco labore. Nulla ut excepteur adipisicing veniam deserunt velit ut sunt id aute quis anim Lorem. Sunt aliquip enim commodo nostrud esse labore esse eu do excepteur occaecat. Cillum consectetur Lorem ad enim sit ex laboris laboris aliqua. Proident sunt labore velit velit esse tempor ipsum magna nisi laborum irure consequat qui. Veniam irure ut pariatur laboris commodo ut voluptate veniam qui. Aute mollit occaecat esse aliqua voluptate laborum ipsum. Pariatur mollit ex aliqua commodo elit magna minim elit cillum.
+  testimonial_title: 'title string'
+  testimonial: >
+    Consequat mollit ea cillum minim do aliquip consectetur dolor esse. Quis occaecat dolor pariatur tempor do anim quis aute id ut est velit consectetur. Officia velit fugiat laboris proident ea commodo commodo minim in magna magna aute exercitation laborum. Ullamco id adipisicing consequat qui nostrud eiusmod qui aute ullamco sit pariatur veniam consequat.
+- id: 006
+  name: 'name 006'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'title string'
+  case_study: >
+    Commodo nisi ad sunt adipisicing et occaecat labore ad cupidatat tempor irure nulla eiusmod et. Sint esse laborum cupidatat et mollit nulla dolore esse nulla. Aliqua sint laborum nostrud mollit fugiat adipisicing quis laboris reprehenderit. Do tempor aute et officia dolore est excepteur voluptate occaecat quis Lorem irure. Irure eu ullamco irure et ut esse fugiat reprehenderit cupidatat ad.
+  testimonial_title: 'title string'
+  testimonial: >
+    Nisi commodo veniam nisi aute nostrud veniam ex deserunt ipsum ullamco labore dolor. Dolor duis veniam do anim ex nulla magna sint ad laboris ullamco incididunt eu pariatur magna. Amet non laborum quis magna ad cillum enim ea amet. Pariatur velit nisi dolore qui et id aliqua ut tempor occaecat laboris sit fugiat amet.
+- id: 007
+  name: 'name 007'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: false
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'title string'
+  case_study: >
+    Voluptate id fugiat consectetur veniam qui mollit ut qui sunt nostrud. Ex consectetur voluptate aliquip ea eu aliqua occaecat ad magna reprehenderit consequat non culpa. Excepteur proident pariatur eiusmod nisi id occaecat laborum ut proident. Do minim pariatur aute magna tempor aute culpa ex ut pariatur nostrud.
+  testimonial_title: 'title string'
+  testimonial: >
+    Duis labore aliquip sint ut occaecat est non ad. Aute magna non esse incididunt amet cupidatat nisi voluptate irure velit nisi ex do. Voluptate labore in officia esse officia ad commodo enim. Irure est velit irure qui adipisicing laboris anim ex aliquip adipisicing quis deserunt. Eu labore nostrud nulla magna magna non qui sunt magna aliqua quis laboris et.
+- id: 008
+  name: 'name 008'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'title string'
+  case_study: >
+    Incididunt occaecat proident sunt consectetur dolor ut reprehenderit laborum. Tempor non dolore aute Lorem ea dolore quis duis. Commodo reprehenderit do ullamco nulla Lorem aliquip ad fugiat sint officia Lorem reprehenderit. Commodo mollit consequat ut mollit eu sunt esse proident anim ea nisi duis ipsum ea consectetur sint. Elit ex sit pariatur consequat veniam exercitation laboris esse id qui ullamco aute pariatur dolor ex. Voluptate sit dolor aliquip sit sunt quis pariatur voluptate.
+  testimonial_title: 'title string'
+  testimonial: >
+    Ullamco consectetur magna minim eu aute mollit duis dolor cillum incididunt excepteur ad. Consequat reprehenderit irure reprehenderit ex labore aliquip et sint voluptate fugiat id nisi consectetur et. Enim labore tempor eiusmod ut cillum minim ad dolore in sint cillum consequat duis excepteur aliqua. Adipisicing aliquip ex ipsum dolore nulla minim ut velit laborum sunt nisi sunt dolor minim eiusmod nulla.
+- id: 009
+  name: 'name 009'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: false
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'title string'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'title string'
+  testimonial: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+- id: 010
+  name: 'name 010'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/slack_logo.png'
+  case_study_title: 'Case study string'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'Testimonial title'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.

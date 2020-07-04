@@ -1,0 +1,9 @@
+.row {
+  &.hero {
+    height: 300px;
+    @include media-breakpoint-up(md) {
+      height: 500px;
+      margin-top: 49px;
+    }
+  }
+}
