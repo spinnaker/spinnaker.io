@@ -41,6 +41,12 @@
         // padding-bottom: 1rem;
         padding: 2rem 1rem;
       }
+      &.videos {
+        .vid {
+          padding-right: 0.25rem;
+          padding-left: 0.25rem;
+        }
+      }
     }
   }
 }

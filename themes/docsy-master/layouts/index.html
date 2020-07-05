@@ -86,15 +86,17 @@
 </div>
 <!-- Video carousel row -->
 <div class="row videos">
-  {{ range $.Site.Data.videos }}
-    {{ if eq .display_landing true }}
-      <div class="col-3">
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-          <iframe src="https://www.youtube.com/embed/{{.id}}?autoplay=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="{{.title}}"></iframe>
+  <div class="col-10 offset-1 init-carousel">
+    {{ range $.Site.Data.videos }}
+      {{ if eq .display_landing true }}
+        <div class="vid">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+            <iframe src="https://www.youtube.com/embed/{{.id}}?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="{{.title}}"></iframe>
+          </div>
         </div>
-      </div>
+      {{ end }}
     {{ end }}
-  {{ end }}
+  </div>
 </div>
 <!-- contributing row -->
 <div class="row contributing">

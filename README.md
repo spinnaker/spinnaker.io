@@ -48,3 +48,11 @@ class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo
 ```
 
 2. Add the frontmatter variable to the page: `mermaid: true`.
+
+## Custom YouTube Shortcode
+
+The internal YouTube embed template provided by Hugo does not allow for the setting if height and width. A custom YouTube shortcode has been added to the repository to allow for the setting of height and width of YouTube videos embedded in Markdown content. Width and height should always include percent or unit of measure.
+
+```
+{{< customyoutube id="b7BmMY1kR10" width="320px" height="240px" >}}
+```

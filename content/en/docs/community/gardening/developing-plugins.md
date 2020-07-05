@@ -35,4 +35,3 @@ This video focuses on the Gradle build process for packaging plugin development 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/G2eyc9gzNS0" frameborder="0" allowfullscreen></iframe>
 
 This video focuses on delivering a plugin to a running Spinnaker instance for integration testing and beyond. It uses the custom stage plugin as an example.
-
