@@ -107,9 +107,7 @@ a. Create a new pipeline for your application. In the pipeline configuration, un
   * For **Subscription Name**, select your GCP Cloud Pub/Sub Spinnaker subscription.
   * Under **Attribute Constraints**, add an entry with the key `eventType` and value `OBJECT_FINALIZE ` (see the [Google Cloud Storage documentation](https://cloud.google.com/storage/docs/pubsub-notifications)).
 
-  {% include figure
-     image_path="./add-a-trigger.png"
-  %}
+  {{< figure src="./add-a-trigger.png" >}}
 
 b. In the **Artifact Constraints** dropdown, select "Define a new artifact..." to bring up the **Expected Artifact** form. Provide the artifact information:
 
@@ -117,17 +115,13 @@ b. In the **Artifact Constraints** dropdown, select "Define a new artifact..." t
   * In the **Account** dropdown, select your GCS account.
   * In the **Object path** field, enter the path to the artifact.
 
-  {% include figure
-     image_path="./expected-artifact.png"
-  %}
+  {{< figure src="./expected-artifact.png" >}}
 
 c. Click **Save Artifact**.
 
 d. Add a Deploy stage to the pipeline. Create a new server group and provide details on deployment settings, the application artifact, and the manifest artifact:
 
-  {% include figure
-     image_path="./server-group.png"
-  %}
+  {{< figure src="./server-group.png" >}}
 
 ## 6. Upload the Application and Manifest Artifacts
 

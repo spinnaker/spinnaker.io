@@ -4,13 +4,16 @@ title:  "Development Environments for Spinnaker Gardening Days"
 sidebar:
   nav: community
 ---
+
+## Overview
+
 What's the best environment Spinnaker development? How can you set up your workstation to debug a Spinnaker service?  It depends! Consider these constraints when choosing your strategy:
 
 * __Locally available computing resources__: hosting Spinnaker services is memory intensive.
 * __Access and cost management for public clouds__: Spinnaker can be hosted in the cloud, where you'll pay for resources.
 * __Familiarity with Kubernetes__: you may use Kubernetes tools to manage your Spinnaker environment if you prefer.
 
-# Install Spinnaker
+## Install Spinnaker
 First things first, to develop Spinnaker, you'll need a Spinnaker instance. To get that, you have options:
 * Install [Minnaker](https://github.com/armory/minnaker), a POC Spinnaker instance that runs in a Linux VM on your local machine, or in the cloud.
 * [Clone and install each Spinnaker service locally.](#classic-local-installation-method)

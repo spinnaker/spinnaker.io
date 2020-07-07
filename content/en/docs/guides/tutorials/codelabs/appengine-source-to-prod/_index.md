@@ -6,14 +6,14 @@ description: >
   This codelab provides an overview of Spinnaker's integration with App Engine.
 ---
 
-
+## Overview
 
 This codelab provides an overview of Spinnaker's integration with App Engine.
 You'll build and run a simple App Engine deployment pipeline with the following steps:
 
 <img style="width: 60%;" src="images/codelab_diagram.png" alt="Codelab diagram"/>
 
-# Prerequisites
+## Prerequisites
 - Be sure you have your Google Cloud Platform project's ID. This value will be referenced as `GCP-PROJECT-ID` below.
 - Be sure you have `gcloud` installed, and that it is authenticated with your GCP project. In most cases, this should only require running `gcloud auth login <your@email.com>`
 and following the instructions in the prompt. If you don't have `gcloud` installed locally, you can always run `gcloud` from inside Cloud Shell, which you can open from your GCP console.
@@ -27,7 +27,7 @@ gcloud services enable compute.googleapis.com
 - If this is your first time deploying to App Engine in your project, execute the following command to create an App Engine application. You cannot change the region, so choose wisely:
 `gcloud app create --region <e.g., us-central>`.
 
-# Configuration & installation
+## Configuration & installation
 
 We're going to trigger our Spinnaker pipelines using Github webhooks. In order to do so,
 we will have to expose Spinnaker's API gateway to external traffic.
@@ -94,7 +94,9 @@ Run `sudo hal deploy apply` to install and run Spinnaker.
 
 The installation process will take several minutes. While you’re waiting for Spinnaker to start, you can configure your Github webhook:
  - Determine your Spinnaker instance’s external IP: <br>
-   ```gcloud compute instances describe $USER-spinnaker | grep natIP```
+   ```
+   gcloud compute instances describe $USER-spinnaker | grep natIP
+   ```
  - Fork this repository, which contains a sample App Engine application: [https://github.com/danielpeach/redblue](https://github.com/danielpeach/redblue).
  - Inside your fork, click "Settings", then "Webhooks", then "Add Webhook".
  - Under "Payload URL", enter `http://{externalIP}:8084/webhooks/git/github`.
@@ -102,7 +104,7 @@ The installation process will take several minutes. While you’re waiting for S
 
 At this point, Spinnaker should be up and running. Point your browser at [localhost:9000](http://localhost:9000) to view Spinnaker’s UI.
 
-# Deploy to App Engine
+## Deploy to App Engine
 
 First, we’ll create a Spinnaker application.
  - In the top-right corner of the UI, click "Actions", then `Create Application`.
@@ -135,7 +137,7 @@ It should be a "Hello World" page with a bright red background.
 Click on the tab labeled "Load Balancers". You will see a panel labeled "default". This is your default App Engine Service.
 If you deploy Versions to different App Engine Services, those Services will also appear under this tab.
 
-# Deployment pipeline
+## Deployment pipeline
 
 ![Codelab_Diagram](images/codelab_diagram.png)
 
@@ -151,14 +153,14 @@ Next, we’ll build a deployment pipeline. It will include the following stages:
   In a real deployment pipeline, it’s likely that this wait time would be longer - perhaps an hour or more.
 - Destroy - we’ll destroy the old server group.
 
-## Pipeline creation
+### Pipeline creation
 
 - Click on the "Pipelines" tab adjacent to the "Clusters" and "Tasks" tabs.
 - Click "New".
 - Under "Pipeline Name", enter `Deploy And Promote`.
 - Click "Create".
 
-## Webhook trigger
+### Webhook trigger
 
 Under "Automated Triggers":
 - Under "Type", select `Git`.
@@ -169,7 +171,7 @@ Under "Automated Triggers":
 
 ![Webhook_Trigger_Config](images/webhook_trigger_config.png)
 
-## Deploy stage
+### Deploy stage
 
 - Click "Add Stage". 
 - Under "Type", select `Deploy`.
@@ -186,7 +188,7 @@ Under "Automated Triggers":
 - Under "Config Filepaths", enter `app.yaml`.
 - Click "Add".
 
-## Edit Load Balancer stage
+### Edit Load Balancer stage
 
 - Click "Add Stage", then under "Type", select `Edit Load Balancer`.
 - Under "Stage Name", enter `Split Traffic 5%/95%`.
@@ -218,13 +220,13 @@ when we run this pipeline for the first time, it will be the server group we dep
 
 ![Edit_Load_Balancer_Config](images/edit_load_balancer_config.png)
 
-## Manual Judgment stage
+### Manual Judgment stage
 
 - Click "Add Stage", then under "Type", select `Manual Judgment`.
 - Under "Stage Name", enter `Validate Release`.
 - Under "Instructions", enter `Verify that the new release should receive 100% of traffic.`
 
-## Enable stage
+### Enable stage
 
 - Click "Add Stage", then under "Type", select `Enable Server Group`.
 - Under "Stage Name", enter `Enable Release`.
@@ -235,12 +237,12 @@ When this stage runs, all traffic will be directed to the server group deployed 
 
 ![Enable_Stage_Config](images/enable_stage_config.png)
 
-## Wait stage
+### Wait stage
 
 - Click "Add Stage", then under "Type", select `Wait`.
 - Under "Wait time (seconds)", enter `120`.
 
-## Destroy stage
+### Destroy stage
 
 - Click "Add Stage", then under "Type", select `Destroy Server Group`.
 - Under "Stage Name", enter `Destroy Previous Release`.
@@ -253,7 +255,7 @@ When we run this pipeline for the first time, this stage will destroy the first 
 
 Once you’re finished configuring your stages, click "Save Changes" on the bottom right corner of the screen.
 
-# Pipeline trigger
+## Pipeline trigger
 
 - If you haven’t already done so, clone your forked repository to your local workstation.
 - Check out a new branch named "release".
@@ -263,7 +265,7 @@ Once you’re finished configuring your stages, click "Save Changes" on the bott
 - If we’ve configured everything correctly, you should see your pipeline start within Spinnaker. 
   If you haven’t configured a webhook, you can also click "Start Manual Execution" to start your pipeline.
 
-# Pipeline execution
+## Pipeline execution
 
 Under the "Pipelines" tab, you should see your running pipeline.
 
@@ -284,6 +286,6 @@ Once you’re ready, go back to the "Pipelines" tab. Click "Continue" on the "Va
 - Your pipeline will wait for two minutes.
 - The first server group (the one we deployed at the beginning of this codelab) will be destroyed.
 
-# Clean up
+## Clean up
 
 If you're done with this codelab, run `gcloud compute instances delete $USER-spinnaker` to destroy your Spinnaker installation.

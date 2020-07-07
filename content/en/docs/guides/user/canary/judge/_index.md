@@ -69,11 +69,7 @@ if there is a significant difference between the canary and baseline.
 Each metric is classified as either Pass, High, or Low, as shown in the
 screen shot below.
 
-{%
- include
- figure
- image_path="./metric_classifications.png"
-%}
+{{< figure src="./metric_classifications.png" >}}
 
 The primary metric comparison algorithm (classifier) in Kayenta uses a
 nonparametric statistical test to check for a significant difference between the

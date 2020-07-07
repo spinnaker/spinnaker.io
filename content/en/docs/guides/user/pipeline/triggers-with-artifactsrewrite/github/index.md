@@ -6,6 +6,8 @@ description: >
   This guide explains how to configure Spinnaker to trigger pipelines based on commits to a [GitHub](https://github.com) repository and inject changed GitHub files as [artifacts](/reference/artifacts) into a pipeline.
 ---
 
+## Overview
+
 This guide explains how to configure Spinnaker to trigger pipelines based on
 commits to a [GitHub](https://github.com) repository and inject changed GitHub
 files as [artifacts](/reference/artifacts) into a pipeline.
@@ -15,7 +17,7 @@ This functionality uses GitHub
 Spinnaker, and must be configured to send messages to Spinnaker's event bus as
 shown below.
 
-# Prerequisite configuration/setup
+## Prerequisites
 
 If you (or your Spinnaker admin) have already configured Spinnaker to listen to
 a GitHub webhooks from the repository you plan to publish commits to, you can
@@ -57,19 +59,13 @@ hal deploy apply
 
 to apply them in Spinnaker.
 
-# Using GitHub artifacts in pipelines
+## Using GitHub artifacts in pipelines
 
 We will need either an existing or a new pipeline that we want to be triggered
 on changes to GitHub artifacts. If you do not have a pipeline, create one as shown
 below.
 
-{%
-  include
-  figure
-  image_path="./create-pipeline.png"
-  caption="You can create and edit pipelines in the __Pipelines__ tab of
-  Spinnaker"
-%}
+{{< figure src="./create-pipeline.png" caption="You can create and edit pipelines in the __Pipelines__ tab of Spinnaker" >}}
 
 ## Configure the GitHub trigger
 
@@ -84,11 +80,7 @@ Let's add a Git trigger to run our pipeline. To configure the trigger:
 | __Branch__ | (optional) Can be used (via regular expressions) to describe which branches to listen to changes one |
 | __Secret__ | (optional) _Strongly encouraged_ It must match the secret provided to the [webhook configuration](/setup/triggers/github/#configuring-your-github-webhook) |
 
-{%
-  include
-  figure
-  image_path="./git-config.png"
-%}
+{{< figure src="./git-config.png" >}}
 
 ## Configure the GitHub artifact
 
@@ -102,11 +94,7 @@ To configure the artifact, go to the __Artifact Constraints__ dropdown for the
 GitHub trigger configuration, and select __"Define a new artifact..."__ to bring
 up the __Expected Artifact__ form.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact.png"
-%}
+{{< figure src="./expected-artifact.png" >}}
 
 Enter the artifact information:
 

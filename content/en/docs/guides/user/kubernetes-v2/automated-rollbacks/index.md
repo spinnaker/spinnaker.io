@@ -18,11 +18,7 @@ rollback is that escape hatch.
 When using a Deployment object, you can see the history of rollouts in the
 "Clusters" tab:
 
-{% include
-   figure
-   image_path="./revisions.png"
-   caption="Version 4 is active, and version 3 has no pods running."
-%}
+{{< figure src="./revisions.png" caption="Version 4 is active, and version 3 has no pods running." >}}
 
 Spinnaker exposes "Undo Rollout" functionality in two places, in the [Clusters
 tab](#ad-hoc-rollbacks), and as a [pipeline stage](#automated-rollbacks).
@@ -33,25 +29,16 @@ In cases where you see something is immediately wrong and isolated to a
 resource in the "Clusters" tab, you can select "Undo Rollout" from the
 "Actions" dropdown:
 
-{% include
-   figure
-   image_path="./dropdown.png"
-%}
+{{< figure src="./dropdown.png" >}}
 
 And select the healthy revision to make active again:
 
-{% include
-   figure
-   image_path="./adhoc.png"
-%}
+{{< figure src="./adhoc.png" >}}
 
 Notice that the old configuration (version 3) will be rolled forward into a
 new version (version 5):
 
-{% include
-   figure
-   image_path="./v005.png"
-%}
+{{< figure src="./v005.png" >}}
 
 ## Automated rollbacks
 
@@ -59,10 +46,7 @@ You can also configure automated rollbacks inside of Spinnaker pipelines. These
 stages are best configured to run when other stages or branches fail,
 indicating that something has gone wrong in your rollout.
 
-{% include
-   figure
-   image_path="rollback-stage.png"
-%}
+{{< figure src="rollback-stage.png" >}}
 
 One parameter to watch out for is __Revisions Back__, which counts how many
 revisions the current active revision should be rolled back by. If you have the

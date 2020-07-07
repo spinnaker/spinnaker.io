@@ -11,7 +11,7 @@ Artifactory](https://jfrog.com/artifactory/) trigger to your pipeline.
 
 > Currently, the Artifactory trigger only works with Maven artifacts.
 
-# Prerequisites
+## Prerequisites
 
 This guide assumes you have the following:
 
@@ -25,7 +25,7 @@ commands](/reference/halyard/commands/#hal-config-artifact-maven))
 
 * Artifact support [enabled](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
 
-# Adding an Artifactory Trigger
+## Adding an Artifactory Trigger
 
 1. Create a pipeline.
 

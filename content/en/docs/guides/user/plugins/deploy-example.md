@@ -10,13 +10,13 @@ sidebar:
 
 
 
-# Requirements
+## Requirements
 
 * Spinnaker 1.19.4
 * Halyard 1.33
 * pf4jStagePlugin 1.0.16
 
-# Known Issues
+## Known Issues
 
 * Halyard does not update the plugin configuration when you run `hal plugins edit`. You must manually update the `.hal/config` entry.
 * Halyard does not tell Orca where to look for the plugin. Navigate to `.hal/default/profiles` and create an `orca-local.yml` file with this content:
@@ -28,7 +28,7 @@ These issues are fixed in Halyard 1.34.
 * Prior to Spinnaker 1.20.0 and pf4jStagePlugin 1.1.3, plugin users needed to upload their UI plugin bundle to a publicly-accessible static asset server
   and point to that resource using the `--ui-resource-location` Halyard flag. You may ignore those instructions below if you are using Spinnaker >= 1.20.0 and pf4jStagePlugin >= 1.1.3.
 
-# Steps
+## Steps
 
 1. Download  [`RandomWaitStageIndex.js`](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin/releases/download/v1.0.16/RandomWaitStageIndex.js) and move the file to a publicly accessible location that supports Cross-Origin Resource Sharing (CORS), such as an AWS S3 bucket.
 

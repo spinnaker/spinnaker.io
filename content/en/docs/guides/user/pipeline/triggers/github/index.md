@@ -6,18 +6,17 @@ description: >
   This guide explains how to configure Spinnaker to trigger pipelines based on commits to a [GitHub repostory](https://github.com) and inject changed GitHub files as [artifacts](/reference/artifacts) into a pipeline.
 ---
 
-
+## Overview
 
 This guide explains how to configure Spinnaker to trigger pipelines based on
 commits to a [GitHub repostory](https://github.com) and inject changed GitHub
 files as [artifacts](/reference/artifacts) into a pipeline.
 
-This functionality uses GitHub
-[Webhooks](https://developer.github.com/webhooks/) for delivering messages to
+This functionality uses GitHub [Webhooks](https://developer.github.com/webhooks/) for delivering messages to
 Spinnaker, and must be configured to send messages to Spinnaker's event bus as
 shown below.
 
-# Prerequisite configuration/setup
+## Prerequisite configuration/setup
 
 If you (or your Spinnaker admin) have already configured Spinnaker to listen to
 a GitHub webhooks from the repository you plan to publish commits to, you can
@@ -57,19 +56,13 @@ hal deploy apply
 
 to apply them in Spinnaker.
 
-# Using GitHub artifacts in pipelines
+## Using GitHub artifacts in pipelines
 
 We will need either an existing or a new pipeline that we want to be triggered
 on changes to GitHub artifacts. If you do not have a pipeline, create one as shown
 below.
 
-{%
-  include
-  figure
-  image_path="./create-pipeline.png"
-  caption="You can create and edit pipelines in the __Pipelines__ tab of
-  Spinnaker"
-%}
+{{< figure src="./create-pipeline.png" caption="You can create and edit pipelines in the __Pipelines__ tab of Spinnaker" >}}
 
 ## Configure the GitHub artifact
 
@@ -79,22 +72,14 @@ the pipeline starts executing. In doing so, you guarantee that an artifact
 matching your description is present in the pipeline's execution context. If no
 artifact for this description is present, the pipeline won't start.
 
-{%
-  include
-  figure
-  image_path="./add-artifact.png"
-%}
+{{< figure src="./add-artifact.png" >}}
 
 Now to configure the artifact, change the "Custom" dropdown to "GitHub", and
 enter the __File path__ field. Note: this path can be a regex. You can, for
 example, set the object path to be `folder/.*\.yml` to trigger on any change to
 a YAML file inside `folder` in your repository.
 
-{%
-  include
-  figure
-  image_path="./set-expected-artifact.png"
-%}
+{{< figure src="./set-expected-artifact.png" >}}
 
 ## Configure the GitHub trigger
 
@@ -111,14 +96,7 @@ run our pipeline. To configure the trigger:
 | __Secret__ | (optional) _Strongly encouraged_ It must match the secret provided to the [webhook configuration](/setup/triggers/github/#configuring-your-github-webhook) |
 | __Expected Artifacts__ | Must reference the artifact defined previously |
 
-{%
-  include
-  figure
-  image_path="./git-config.png"
-  caption="By setting the __Expected Artifacts__ field in the trigger config,
-  you guarantee that git webhooks will only trigger this pipeline
-  when an artifact matching your requirements is present in the commit."
-%}
+{{< figure src="./git-config.png" caption="By setting the __Expected Artifacts__ field in the trigger config,you guarantee that git webhooks will only trigger this pipeline when an artifact matching your requirements is present in the commit." >}}
 
 ## Test the pipeline
 

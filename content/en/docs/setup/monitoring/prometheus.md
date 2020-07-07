@@ -52,7 +52,7 @@ However, it is recommended that you use a standard direct polling deployment
 when possible for beter data accuracy.
 
 
-# Installing Prometheus
+## Installing Prometheus
 
 Typically the Prometheus server (along with Grafana) will be installed on
 one machine independent of Spinnaker, and the client-side configuration
@@ -161,7 +161,7 @@ the `spinnaker-monitoring-third-party` package as described above, do so now.
        because the Daemons might not be polled.
 
 
-# Using the Prometheus dashboards
+## Using the Prometheus dashboards
 
 Each of the dashboards use Grafana's templating mechanism in order to
 allow you to perform some global filtering. The variables provided depend

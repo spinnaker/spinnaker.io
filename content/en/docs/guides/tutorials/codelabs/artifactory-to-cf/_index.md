@@ -83,65 +83,45 @@ a. Follow the documentation about [Configuring GitHub Webhooks](https://www.spin
 
 a. Create a new pipeline for your application. In the pipeline configuration, add an Artifactory trigger to the Automated Triggers, as shown below.
 
-  {% include figure
-     image_path="./artifactory-trigger.png"
-  %}
+  {{< figure src="./artifactory-trigger.png" >}}
 
 b. In the Artifact Constraints dropdown for the Artifactory trigger, select "Define a new artifact..." and populate the Expected Artifact form with the details of the artifact that will be published to the Artifactory repository.
 
-  {% include figure
-     image_path="./artifactory-expected-artifact.png"
-  %}
+  {{< figure src="./artifactory-expected-artifact.png" >}}
 
 c. Add a Git trigger to the Automated Triggers, as shown below. Supply the secret you used in Step 4a.
 
-  {% include figure
-     image_path="./git-trigger.png"
-  %}
+  {{< figure src="./git-trigger.png" >}}
 
 d. In the Artifact Constraints dropdown for the Git trigger, select "Define a new artifact..." and populate the Expected Artifact form with the details of the manifest stored in the GitHub repository.
 
-  {% include figure
-     image_path="./git-expected-artifact.png"
-  %}
+  {{< figure src="./git-expected-artifact.png" >}}
 
 e. Add a "Deploy" stage to the pipeline. This stage deploys to the test environment.
 
-  {% include figure
-     image_path="./pipeline-first-stage.png"
-  %}
+  {{< figure src="./pipeline-first-stage.png" >}}
 
 f. Add a new server group and provide details on deployment settings, the application artifact, and the manifest artifact:
 
-  {% include figure
-     image_path="./server-group.png"
-  %}
+  {{< figure src="./server-group.png" >}}
 
 g. Add a "Manual Judgment" stage. You can use this stage, or stages such as "Script" or "Canary Analysis", to verify a deployment before promoting it from the test environment.
 
-  {% include figure
-     image_path="./pipeline-second-stage.png"
-  %}
+  {{< figure src="./pipeline-second-stage.png" >}}
 
 Add any desired configuration, such as notifications for when the stage is awaiting judgment or is manually judged to continue or stop.
 
-  {% include figure
-     image_path="./manual-judgment-configuration.png"
-  %}
+  {{< figure src="./manual-judgment-configuration.png" >}}
 
 After you have validated and approved the deployment, the next stage (following this "Manual Judgment" stage) deploys to the production environment.
 
 h. Add a "Clone Server Group" stage to the pipeline. This stage promotes the deployed application to the production environment.
 
-  {% include figure
-     image_path="./pipeline-third-stage.png"
-  %}
+  {{< figure src="./pipeline-third-stage.png" >}}
 
 i. Add a clone configuration and provide details on deployment settings, the source server group, and the manifest:
 
-  {% include figure
-     image_path="./clone-configuration.png"
-  %}
+  {{< figure src="./clone-configuration.png" >}}
 
 This clone configuration promotes the exact same application to the production environment as you deployed to the test environment with the "Deploy" stage in Step 5e. 
 

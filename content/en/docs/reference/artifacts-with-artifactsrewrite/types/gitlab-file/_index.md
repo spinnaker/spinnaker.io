@@ -43,13 +43,7 @@ The pipeline UI exposes the following fields for the GitLab file artifact:
 When configuring a Git trigger with __Type__ "GitLab", you can use a GitLab file
 as an expected artifact.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact-gitlab-file.png"
-  caption="Configuring GitLab file fields in a pipeline trigger's expected
-           artifact settings."
-%}
+{{< figure src="./expected-artifact-gitlab-file.png" caption="Configuring GitLab file fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 

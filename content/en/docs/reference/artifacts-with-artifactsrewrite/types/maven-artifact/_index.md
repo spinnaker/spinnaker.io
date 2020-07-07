@@ -24,13 +24,7 @@ The pipeline UI exposes the following fields for the Maven artifact:
 
 When configuring certain triggers (such as an Artifactory trigger), you can use a Maven artifact as an expected artifact.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact-maven-artifact.png"
-  caption="Configuring Maven artifact fields in a pipeline trigger's expected
-           artifact settings."
-%}
+{{< figure src="./expected-artifact-maven-artifact.png" caption="Configuring Maven artifact fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 
@@ -38,13 +32,7 @@ When configuring a Deploy stage, you can use a Maven artifact as an application
 artifact. You can either use a previously-defined artifact (for example, an
 artifact defined in a trigger) or define an artifact inline.
 
-{%
-  include
-  figure
-  image_path="./deploy-stage-maven-artifact.png"
-  caption="Configuring a Deploy stage to use a Maven artifact as an
-           application artifact."
-%}
+{{< figure src="./deploy-stage-maven-artifact.png" caption="Configuring a Deploy stage to use a Maven artifact as an application artifact." >}}
 
 ## Maven artifact in a pipeline definition
 

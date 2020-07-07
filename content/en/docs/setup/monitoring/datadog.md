@@ -11,7 +11,7 @@ sidebar:
 analytics solution. This document describes how to configure Spinnaker and its
 monitoring daemon to publish metrics and dashboards to Datadog.
 
-# Set up Datadog
+## Set up Datadog
 
 To get started, you'll need a Datadog account, API and App Keys. You can create
 API and App keys [here on the Datadog

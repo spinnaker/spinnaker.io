@@ -39,13 +39,7 @@ The pipeline UI exposes the following fields for the S3 object artifact:
 
 When configuring a trigger, you can use an S3 object as an expected artifact.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact-s3-object.png"
-  caption="Configuring S3 object fields in a pipeline trigger's expected
-           artifact settings."
-%}
+{{< figure src="./expected-artifact-s3-object.png" caption="Configuring S3 object fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 
@@ -54,13 +48,7 @@ object as a manifest or application artifact. You can either use a
 previously-defined artifact (for example, an artifact defined in a trigger) or
 define an artifact inline.
 
-{%
-  include
-  figure
-  image_path="./deploy-manifest-stage-s3-object.png"
-  caption="Configuring a Deploy (Manifest) stage to use an S3 object as a
-           manifest source."
-%}
+{{< figure src="./deploy-manifest-stage-s3-object.png" caption="Configuring a Deploy (Manifest) stage to use an S3 object as a manifest source." >}}
 
 ## S3 object artifact in a pipeline definition
 

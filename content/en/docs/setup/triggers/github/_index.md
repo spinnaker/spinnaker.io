@@ -36,10 +36,7 @@ Webhook__. Here, provide the following values to the form shown below:
 | __Content type__ | `application/json` |
 | __Secret__ | The value is up to you, and must be provided to any GitHub webhooks triggers that you configure within Spinnaker. It's used to ensure that only GitHub can trigger your pipelines, not an imposter. |
 
-{%
-   include figure
-   image_path="./github-webhook.png"
-%}
+{{< figure src="./github-webhook.png" >}}
 
 ## Spinnaker configuration
 

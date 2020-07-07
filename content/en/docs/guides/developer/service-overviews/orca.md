@@ -13,9 +13,9 @@ From Orca's [README](https://github.com/spinnaker/orca/blob/master/README.md):
 
 Orca is a stateless, horizontally scalable service. Spinnaker's execution state is persisted to a backend store and work is distributed evenly through a work queue. So long as your backend persistence layer has capacity, you can freely add or remove Orca servers to match workload demands.
 
-# Internals
+## Internals
 
-## Domain
+### Domain
 
 The primary domain model is an **Execution**, of which there are two types: `PIPELINE` and `ORCHESTRATION`. The `PIPELINE` type is for pipelines while `ORCHESTRATION`s is unscheduled, ad-hoc API-submitted actions and what you see in the UI under the "Tasks" tab in an Application. At this point in Spinnaker’s life, these two types are nearly programmatically identical, the key difference being that a Pipeline has a predefined persistent configuration, whereas an Orchestration is arbitarily configured at request-time and serial in execution. 
 
@@ -27,7 +27,7 @@ It's important to note that a Stage is recursively composable. One stage can hav
 
 Lastly, an Execution's stage graph does not need to be known ahead of time. An Execution can lay its tracks down ahead of itself as it is running, which is how some of the more advanced functionality is implemented, like automatic rollbacks or canary behaviors.
 
-## Runtime
+### Runtime
 
 Orca uses a distributed queue library, [Keiko](http://github.com/spinnaker/keiko), to manage its work. Keiko uses atomic messages to progress work through its lifecycle and allows Orca to first be resilient to node failure, as well as spread load evenly across the deployment making Orca easier to scale and operate.
 

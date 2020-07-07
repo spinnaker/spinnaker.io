@@ -46,11 +46,7 @@ Canary](/setup/canary/).
   Do this separately for all applications that will use automated canary
   analysis.
 
-{%
- include
- figure
- image_path="./enable_canary.png"
-%}
+{{< figure src="./enable_canary.png" >}}
 
 ## Create a canary configuration
 

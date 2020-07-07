@@ -6,6 +6,7 @@ description: >
   [Kork](https://github.com/spinnaker/kork) is a common library used across multiple Spinnaker components.
 ---
 
+## Overview
 
 This page describes the steps a Developer should take to fetch Spinnaker's codebase
 and get set up to work on it.
@@ -13,7 +14,7 @@ and get set up to work on it.
 Follow the [contributing guidelines](/community/contributing/submitting/)
 if you plan to submit your work as a patch to the open source project.
 
-# System Requirements
+## System Requirements
 
 This guide assumes you have access to a machine with a minimum specification of:
 
@@ -25,7 +26,7 @@ This guide assumes you have access to a machine with a minimum specification of:
 > to develop Spinnaker on different flavors of Linux and with fewer resources, depending on
 > what you're working on.
 
-# Installing Spinnaker's codebase with Halyard
+## Installing Spinnaker's codebase with Halyard
 
 The following steps will install Spinnaker's management tool, Halyard, fetch Spinnaker's
 codebase, and perform just enough configuration to get Spinnaker up and running.
@@ -64,7 +65,7 @@ Spinnaker. You can then access the Deck UI by visiting `http://localhost:9000`.
 > guide won't go into further detail on this but you can
 > [read more about Halyard configuration here](/reference/halyard/).
 
-# Making Changes to Spinnaker
+## Making Changes to Spinnaker
 
 Once you have a working LocalGit deployment you can begin to make changes to the codebase.
 After you've made edits in the code of a service you can see those changes reflected
@@ -75,9 +76,9 @@ with whichever service you want to restart. The only service that does not requi
 of restart is Deck; its webserver watches for file changes and re-compiles the application as
 necessary.
 
-# Configuring an IDE
+## Configuring an IDE
 
-## IntelliJ
+### IntelliJ
 
 Import the project into IntelliJ: 
 1. Select `New` > `Project from Existing Sources`
@@ -92,7 +93,7 @@ clean your workspace and delete all files that git doesn't already know about:
    Make sure that you're happy with the output of this command before proceeding.
 1. Run `git clean -dxf -e '*.iml' -e '*.ipr' -e '*.iws'` to perform the deletion.
 
-# Debugging
+## Debugging
 
 Each Java service can be configured to listen for a debugger. To start the JVM in debug
 mode, set the Java system property `DEBUG=true`.
@@ -113,7 +114,7 @@ service-specific debug ports are as follows:
 The JVM will not wait for the debugger to be attached before starting a service; the relevant
 JVM arguments can be seen and modified as needed in the service's `build.gradle` file.
 
-# Next Steps
+## Next steps
 
 * If you haven't done so already, read through the
 [Spinnaker Architecture reference](/reference/architecture/) to learn more about the individual

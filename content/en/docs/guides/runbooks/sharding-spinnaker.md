@@ -5,9 +5,7 @@ weight: 2
 description: 
 ---
 
-
-
-# Intro
+## Intro
 
 This document shows you how to shard traffic to different areas of Spinnaker: 
 
@@ -28,7 +26,7 @@ If no selector is specified, the default request will be used.
 
 There is a special additional dynamicEndpoints configuration in gate.yml to send all requests from Deck to that particular shard. 
 
-# Sharding Orca Requests
+## Sharding Orca Requests
 
 In gate.yml
 
@@ -45,7 +43,7 @@ services:
             applicationPattern: xxxxyyyapp |demo.*xxxxyyyy
 ```
 
-# Clouddriver Read-only Shards
+## Clouddriver Read-only Shards
 
 gate.yml
 

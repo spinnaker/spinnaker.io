@@ -23,11 +23,7 @@ Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/lab
 Spinnaker acknowledges this relationship with the blue load balancer icon
 on a workload as shown here:
 
-{%
-  include
-  figure
-  image_path="./lb.png"
-%}
+{{< figure src="./lb.png" >}}
 
 You can also tell Spinnaker which Service objects a workload should be
 associated with for its lifetime using the
@@ -49,11 +45,7 @@ spec:
     port: 80
 ```
 
-{%
-  include
-  figure
-  image_path="./create-lb.png"
-%}
+{{< figure src="./create-lb.png" >}}
 
 And then deploy the following Replica Set using the "Create Server Group"
 button:
@@ -82,11 +74,7 @@ spec:
         image: gcr.io/google_samples/gb-frontend:v3
 ```
 
-{%
-  include
-  figure
-  image_path="create-sg.png"
-%}
+{{< figure src"create-sg.png" >}}
 
 Notice that the selector `app: myapp` appearing on the Service did not have to
 be specified on the Replica Set's PodSpec; Spinnaker adds this automatically.
@@ -144,11 +132,7 @@ first deploy a new version of your application, have the stage wait until all
 Pods' health checks pass, and then disable the prior version of your
 application. When completed, an execution of this pipeline will look like:
 
-{%
-  include
-  figure
-  image_path="./run.png"
-%}
+{{< figure src="./run.png" >}}
 
 #### Prerequisites
 
@@ -205,11 +189,7 @@ spec:
 
 The stage configuration should look like this:
 
-{%
-  include
-  figure
-  image_path="./deploy-stage.png"
-%}
+{{< figure src="./deploy-stage.png" >}}
 
 There are _two_ important annotations to pay attention to here:
 
@@ -241,11 +221,7 @@ values:
 
 The stage configuration should look like this:
 
-{%
-  include
-  figure
-  image_path="./disable.png"
-%}
+{{< figure src="./disable.png" >}}
 
 There are _two_ important fields here:
 
@@ -266,8 +242,4 @@ There are _two_ important fields here:
 After a few runs of the pipeline, you should see the following in your cluster
 screen:
 
-{%
-  include
-  figure
-  image_path="./end-state.png"
-%}
+{{< figure src="./end-state.png" >}}

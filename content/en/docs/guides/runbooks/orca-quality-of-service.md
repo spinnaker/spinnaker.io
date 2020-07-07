@@ -13,7 +13,7 @@ Spinnaker ships with an optional Quality of Service (QoS) module that can be use
 By default, this QoS module is disabled, but can be enabled and tuned with a handful of knobs and different strategies.
 Before we dive into the configuration settings, we'll go over how QoS works.
 
-# How QoS Works
+## How QoS Works
 
 The QoS system is self-contained within Orca's [orca-qos][module] module and operates only on newly created executions (both pipeline and orchestrations).
 That is to say, the QoS system will _not_ impact running executions: Once an execution has started, it is completely outside of the domain of the QoS module.
@@ -77,7 +77,7 @@ end
 **Note**: This is the first implementation of the QoS system, we plan to iterate on this concept and make it more advanced over time.
 You can read the [original proposal][proposal] to get an idea of a potential roadmap.
 
-# Configuration
+## Configuration
 
 These configurations are not guaranteed to be fully inclusive of all knobs.
 A definitive list is available via the codebase.
@@ -86,13 +86,13 @@ A definitive list is available via the codebase.
 - `qos.learningMode.enabled`: Boolean (default `true`). If enabled, executions will always be `ENQUEUED`, but log messages & metrics will be emitted saying what the system would have done. This flag has no effect on `ExecutionPromoter`.
 - `pollers.qos.promoteIntervalMs`: Integer (default `5000`). The time (in milliseconds) that the promotion process will be run.
 
-## BufferPolicy: Naive
+### BufferPolicy: Naive
 
 The `NaiveBufferPolicy` will always buffer executions when enabled.
 
 - `qos.bufferPolicy.naive.enabled`: Boolean (default `true`).
 
-## BufferStateSupplier: ActiveExecutions
+### BufferStateSupplier: ActiveExecutions
 
 The `ActiveExecutionsBufferStateSupplier` will enable/disable the buffering state based on the number of active executions in the system.
 
@@ -100,7 +100,7 @@ The `ActiveExecutionsBufferStateSupplier` will enable/disable the buffering stat
 - `qos.bufferingState.activeExecutions.threshold`: Integer (default `100`). The high threshold of active executions before QoS will start actuating on executions.
 - `pollers.qos.updateStateIntervalMs`: Integer (default `5000`). The time (in milliseconds) that the function will update its internal record for how many executions are running in the system.
 
-## BufferStateSupplier: KillSwitch
+### BufferStateSupplier: KillSwitch
 
 The `KillSwitchBufferStateSupplier` will enable/disable the buffering state based on configuration only.
 This is handy if you're evaluating the fundamentals of the QoS system, or you want a break-the-glass operator knob to control QoS.
@@ -108,14 +108,14 @@ This is handy if you're evaluating the fundamentals of the QoS system, or you wa
 - `qos.bufferingState.supplier` must be set to `killSwitch`.
 - `qos.bufferingState.killSwitch.enabled`: Boolean (default `false`). If `true`, QoS will be enabled.
 
-## PromotionPolicy: Naive
+### PromotionPolicy: Naive
 
 The `NaivePromotionPolicy` will promote _N_ executions every promotion cycle.
 
 - `qos.promotionPolicy.naive.enabled`: Boolean (default `true`). Whether or not this policy is enabled.
 - `qos.promotionPolicy.naive.size`: Integer (default `1`). The max number of executions to promote.
 
-# Monitoring
+## Monitoring
 
 - `qos.executionsBuffered`: Counter. The number of executions that have been buffered.
 - `qos.executionsEnqueued`: Counter. The number of executions that have been enqueued (e.g. passed through the system and were judged not to be buffered).
@@ -123,7 +123,7 @@ The `NaivePromotionPolicy` will promote _N_ executions every promotion cycle.
 - `qos.promoter.elapsedTime`: Timer. The amount of time that is spent passing an execution through all enabled `PromotionPolicy`s. Since the promoter is run on a static interval, this should usually be a relatively high, yet constant, number.
 - `qos.promoter.executionsPromoted`: Counter. The number of executions that have been promoted.
 
-# Additional Notes
+## Additional Notes
 
 The QoS system is currently shared-nothing state. Each Orca instance will maintain its own state (aside from configuration) about whether or not it should be buffering executions, or when it should be running pollers.
 

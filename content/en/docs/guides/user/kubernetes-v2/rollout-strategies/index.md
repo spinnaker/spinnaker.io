@@ -55,11 +55,7 @@ to the new version and stop sending traffic to the old version(s).
 
 Example configuration:
 
-{%
-  include
-  figure
-  image_path="./dark.png"
-%}
+{{< figure src="./dark.png" >}}
 
 ### Highlander Rollouts
 
@@ -69,11 +65,7 @@ in the cluster.
 
 Example configuration:
 
-{%
-  include
-  figure
-  image_path="./highlander.png"
-%}
+{{< figure src="./highlander.png" >}}
 
 ### Red/Black Rollouts
 
@@ -89,8 +81,4 @@ using an ad-hoc Enable operation from the Clusters tab.
 
 Example configuration:
 
-{%
-  include
-  figure
-  image_path="./redblack.png"
-%}
+{{< figure src="./redblack.png" >}}

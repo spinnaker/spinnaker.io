@@ -197,7 +197,7 @@ command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
   annotation, you can select which load balancers to associate with a workload from the Deploy
   (Manifest) stage. Spinnaker will then add the appropriate annotation for you. 
 
-# Reserved labels
+## Reserved labels
 
 In accordance with [Kubernetes' recommendations on common
 labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/#labels),
@@ -216,7 +216,7 @@ Spinnaker applies the following labels as of release 1.9:
 > This labeling behavior can be disabled by setting the property
 > `kubernetes.v2.applyAppLabels: false` in `clouddriver-local.yml`.
 
-# How Kubernetes resources are managed by Spinnaker
+## How Kubernetes resources are managed by Spinnaker
 
 Resource mapping between Spinnaker and Kubernetes constructs, as well as the
 introduction of new types of resources, is a lot more flexible in the

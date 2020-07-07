@@ -70,40 +70,24 @@ You can specify the following:
   The relative path to the `kustomization.yaml` file residing in the
   Git repository.
 
-{%
-  include
-  figure
-  image_path="./render-engine-gitrepo.png"
-%}
+{{< figure src="./render-engine-gitrepo.png" >}}
 
 ### Using Spinnaker 1.16
 
 Select `Kustomize` as the Render Engine and define the artifact for your `kustomization.yaml`:
 
-{%
-  include
-  figure
-  image_path="./render-engine-github.png"
-%}
+{{< figure src="./render-engine-github.png" >}}
 
 ## Configuring the Produced Artifact
 
 With the `Bake (Manifest) Configuration` completed, configure a Produced Artifact to use the result in a stage downstream.
 Add an artifact:
 
-{%
-  include
-  figure
-  image_path="./add-artifact.png"
-%}
+{{< figure src="./add-artifact.png" >}}
 
 Define the artifact:
 
-{%
-  include
-  figure
-  image_path="./define-artifact.png"
-%}
+{{< figure src="./define-artifact.png" >}}
 
 You can now run your pipeline and get a Kustomize rendered manifest!
 
@@ -122,19 +106,9 @@ __example__: `https://github.com/kubernetes-sigs/kustomize`
 1. Provide the Kustomize file path. This should be the relative path to the `kustomization.yaml` within the repository.  
 __example__: `examples/wordpress/mysql/kustomization.yaml`
 
-{%
-  include
-  figure
-  caption="Before updating. The fields highlighed in red should be updated as described above."
-  image_path="./render-engine-pre-migration.png"
-%}
+{{< figure src="./render-engine-pre-migration.png" caption="Before updating. The fields highlighed in red should be updated as described above." >}}
 
-{%
-  include
-  figure
-  caption="After updating."
-  image_path="./render-engine-post-migration.png"
-%}
+{{< figure src="./render-engine-post-migration.png" caption="After updating." >}}
 
 
 ## Other Templating Engines

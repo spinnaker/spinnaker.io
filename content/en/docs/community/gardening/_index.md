@@ -5,15 +5,9 @@ weight: 2
 description:
 ---
 
-
-
-
 _Welcome to the command center for Spinnaker Gardening Days, a community celebration and hackathon._
-{%
-  include
-  figure
-  image_path="./Spinnaker-Garden-1C.jpg"
-%}
+{{< figure src="./Spinnaker-Garden-1C.jpg" >}}
+
 ## Register
 [Register for Spinnaker Gardening Days](https://www.eventbrite.com/e/spinnaker-gardening-days-communityhack-tickets-97845696111) on Eventbrite to reserve your tickets.
 

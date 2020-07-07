@@ -6,8 +6,6 @@ sidebar:
 redirect_from: /docs/support-policy
 ---
 
-{% include toc %}
-
 ## Q&A
 
 If you have a question that isn't answered by our documents and FAQ pages,

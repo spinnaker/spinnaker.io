@@ -18,10 +18,7 @@ cut in each component repository. For example, see the state of the
 [Clouddriver](https://github.com/spinnaker/clouddriver/) repository leading up
 to the 1.6 release:
 
-{% include
-   figure
-   image_path="./branches.png"
-%}
+{{< figure src="./branches.png" >}}
 
 We call this snapshot of all the Spinnaker repositories the "Release
 Candidate".
@@ -44,11 +41,7 @@ hal deploy apply
 
 ### Patching the Release Candidate
 
-{% include
-   warning
-   content="Do not merge feature code into a release branch, only fixes are
-   accepted."
-%}
+{{% alert color="warning" title="Warning" %}}"Do not merge feature code into a release branch, only fixes are accepted.{{% /alert %}}
 
 If you've found a fix for a bug in the Release Candidate, follow the [patching
 procedure described

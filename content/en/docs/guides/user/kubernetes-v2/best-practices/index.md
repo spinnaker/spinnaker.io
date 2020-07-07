@@ -97,11 +97,7 @@ Spinnaker provides quick ways to edit your deployed Manifests in the
 infrastructure screen. This is done to provide you a quick fallback when
 mitigating a broken rollout, or to increase the number of pods serving traffic.
 
-{%
-  include
-  figure
-  image_path="./edit.png"
-%}
+{{< figure src="./edit.png" >}}
 
 However, as long as your manifests are stored either in an external store, or
 in Spinnaker pipelines, these edits are overwritten the next time you deploy

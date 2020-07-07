@@ -21,11 +21,7 @@ when configuring a Server Group.
 In the image below, a GCS Artifact has been configured in the Create Server Group modal as the
 source code to deploy to App Engine:
 
-{%
-  include
-  figure
-  image_path="./gcs_bucket_source_code_artifact.png"
-%}
+{{< figure src="./gcs_bucket_source_code_artifact.png" >}}
 
 ## Artifacts Referencing Docker Images From GCR
 
@@ -35,11 +31,7 @@ Group's Source Type to "Container Image" and set the "Resolve URL" field to "via
 In the below image, a Docker Artifact has been configured in the Create Server Group modal as the
 container image URL to use for deployment to App Engine Flex:
 
-{%
-  include
-  figure
-  image_path="./container_image_artifact.png"
-%}
+{{< figure src="./container_image_artifact.png" >}}
 
 ## Artifacts Referencing Config Files
 
@@ -48,8 +40,4 @@ To use an artifact to reference config files used during deployment to App Engin
 
 In the below image a GCS Artifact has been added to the Config Files section of the Create Server Group modal:
 
-{%
-  include
-  figure
-  image_path="./config_file_artifact.png"
-%}
+{{< figure src="./config_file_artifact.png" >}}

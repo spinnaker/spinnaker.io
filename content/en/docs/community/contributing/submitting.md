@@ -6,8 +6,6 @@ sidebar:
 redirect_from: /docs/how-to-submit-a-patch
 ---
 
-{% include toc %}
-
 ## Before you begin
 
 We prefer small, well tested pull requests. Note that we are unlikely to accept

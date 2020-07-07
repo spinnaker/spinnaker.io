@@ -5,8 +5,6 @@ weight: 2
 description:
 ---
 
-{% include toc %}
-
 [If enabled](#how-is-the-data-collected), Spinnaker collects data about how the tool is being used. This data is anonymized (before being sent across the internet) and aggregated.
 
 ## Why is data being collected?
@@ -61,6 +59,6 @@ and redeploying.
 We're crunching the numbers and giving them back to the community in the form of dashboards (below) and access to the raw data by requesting access [here](https://groups.google.com/a/spinnaker.io/forum/#!forum/telemetry-readers) (a Google Account is required in order to access the data via Big Query).
 
 
-# Dashboards
+## Dashboards
 
 <iframe width="100%" height="1068" src="https://datastudio.google.com/embed/reporting/123CtgjFMBZF2qrwAAt7mAss50Nuh5ruh/page/ZwADB" frameborder="0" style="border:0" allowfullscreen></iframe>

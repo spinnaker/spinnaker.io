@@ -6,6 +6,7 @@ description: >
   In this codelab, you will improve a deployment process by adding safeguards to your deployments.
 ---
 
+## Overview 
 
 In this codelab, you will improve a deployment process by adding safeguards to your deployments.
 
@@ -15,9 +16,9 @@ This codelab is a continuation of the [Kubernetes: code to prod](https://www.spi
 
 Please follow the steps in the Kubernetes Source to Prod guide to create a deployed Spinnaker cluster.
 
-# Making manual operations safer 
+## Making manual operations safer 
 
-## Using the Rollback action
+### Using the Rollback action
 
 The rollback action automates the process of restoring to the previous good known server group. This feature enhances a traditionally manual operation by ensuring that the restored cluster is taking traffic before disabling the current server group.
 
@@ -57,9 +58,9 @@ You should see a task window and the deployment being rolled back safely and aut
 
 ![](images/rollback5.png)
 
-# Making a deployment pipeline safer
+## Making a deployment pipeline safer
 
-## Creating your deployment pipeline
+### Creating your deployment pipeline
 
 Go to the Pipelines screen and select _Create New_
 
@@ -91,7 +92,7 @@ Select `Add`
 
 Save the pipeline
 
-## Adding an execution window to deployment pipelines
+### Adding an execution window to deployment pipelines
 
 Execution windows allow you to restrict the times of the day or week when deployments can happen. By using execution windows, you can ensure that deployments don't interfere with times where your service is at peak demand. You can also use execution windows to make sure that there is always someone in the office ready to manually intervene or rollback your pipeline.
 
@@ -125,7 +126,7 @@ Go back and modify the execution window so your stage falls within the current w
 
 Execute your pipeline again. You should see your deployment continue without waiting.
 
-## Adding a Manual Judgment to deployment pipelines
+### Adding a Manual Judgment to deployment pipelines
 
 Manual Judgments serve as a gate for your pipeline. You can add manual judment stages to interrupt the pipeline execution to run a manual check. This is great for teams that have a manual or out-of-band QA process. 
 
@@ -239,7 +240,7 @@ Add a new Precondition:
 
 Save your pipeline
 
-### Create a rollback pipeline.
+### Create a rollback pipeline
 
 Create a new pipeline called 'Child Pipeline'
 
@@ -277,6 +278,6 @@ The child pipeline should not run
 
 ![](images/rollbackp8.png)
 
-## Learn More
+## Learn more
 
 Hopefully this codelab has given you a taste of the built-in mechanisms for safe deployment in Spinnaker. An almost complete list of safe deployment features in Spinnaker can be found in this [blog post](https://blog.spinnaker.io/can-i-push-that-building-safer-low-risk-deployments-with-spinnaker-a27290847ac4).

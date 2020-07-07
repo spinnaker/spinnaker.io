@@ -5,12 +5,8 @@ weight:
 description: 
 ---
 
-{{% alert title="Warning" color="warning" %}}
-Much of the behavior described here depends on looking up execution
-history in Redis. Deleting recent executions from Redis can cause
-unexpected behavior.
+{{% alert color="warning" title="Warning" %}}Much of the behavior described here depends on looking up execution history in Redis. Deleting recent executions from Redis can cause unexpected behavior.
 {{% /alert %}}
-
 
 Now that you have an idea of [what an artifact is](/reference/artifacts/) in Spinnaker, you need to
 understand how it's used within pipelines. An artifact arrives in a pipeline execution either from an external trigger (for example, a Docker image pushed to a registry) or by getting fetched by a stage. That artifact is then consumed by downstream stages based on pre-defined behavior.
@@ -18,7 +14,7 @@ understand how it's used within pipelines. An artifact arrives in a pipeline exe
 Spinnaker uses an "expected artifact" to enable a stage to bind an artifact
 from another pipeline execution, stage output, or running environment. 
 
-# Expected artifacts
+## Expected artifacts
 
 An "expected artifact" is a specification of what properties (found in the URI decoration) against which to match when searching for the desired artifact, plus optional fallback behavior.
 
@@ -64,12 +60,7 @@ In Pipeline Configuration, you can now declare which
 artifacts a pipeline expects to have present before the pipeline starts
 running.
 
-{% include figure
-   image_path="./expected-artifact-trigger.png"
-   caption="The UI provides short-hand for defining some types of
-            artifacts&mdash;in this example a docker image. This is optional, but helps
-            quickly define common types of artifacts."
-%}
+{{< figure src="./expected-artifact-trigger.png" caption="The UI provides short-hand for defining some types of artifacts&mdash;in this example a docker image. This is optional, but helps quickly define common types of artifacts." >}}
 
 You can define fallback behavior for when the artifact
 isn't bound at the start of the Pipeline. The two options are evaluated in
@@ -88,13 +79,7 @@ order:
 Once you have declared which artifacts are expected by this pipeline, you can
 assign expected artifacts to individual triggers.
 
-{% include figure
-   image_path="./pubsub-trigger-artifact.png"
-   caption="A pubsub subscription configured to listen to changes in
-            one GCR registry. Since this registry can contain many
-            repositories, we've assigned it an expected artifact to ensure only
-            changes in one repository can run this pipeline."
-%}
+{{< figure src="./pubsub-trigger-artifact.png" caption="A pubsub subscription configured to listen to changes in one GCR registry. Since this registry can contain many repositories, we've assigned it an expected artifact to ensure only changes in one repository can run this pipeline." >}}
 
 When a trigger has one or more expected artifacts, it only runs when each
 expected artifact can bind to one of the artifacts in the trigger's payload.
@@ -138,9 +123,7 @@ To allow you to promote artifacts between executions, you can make use of the
 "Find Artifact from Execution" stage. All that's required is the pipeline ID
 whose execution history to search, and an expected artifact to bind.
 
-{% include figure
-   image_path="./find-artifact-from-execution.png"
-%}
+{{< figure src="./find-artifact-from-execution.png" >}}
 
 A common use case would be to "promote" the image deployed to staging to a
 pipeline that's deploying to production.
@@ -173,11 +156,7 @@ Two concrete cases where artifacts can be passed are as follows:
 Stages can be configured to 'Produce' artifacts if they expose the following
 Stage configuration:
 
-{%
-   include
-   figure
-   image_path="./produced-artifact.png"
-%}
+{{< figure src="./produced-artifact.png" >}}
 
 If you are configuring your stages using JSON, the expected artifacts are
 placed in a top-level `expectedArtifacts: []` list.
@@ -198,37 +177,21 @@ There are two ways to use this:
    run. _Keep in mind:_ If the matching artifact is empty, it will bind any
    artifact, and your default artifact will not be used.
 
-# A visual explanation
+## A visual explanation
 
 To help explain how artifacts & expected artifacts work, let's walk through a
 demo pipeline. To begin, here is the key:
 
-{%
-   include
-   figure
-   image_path="./key.svg"
-%}
+{{< figure src="./key.svg" >}}
 
 Say we've configured the following pipeline:
 
-{%
-   include
-   figure
-   image_path="./configuration.svg"
-   caption="The pipeline declares that it expects an artifact matching _1_
-   (perhaps a docker image) _when the pipeline starts_. This is done in the
-   pipeline configuration tab. It also expects an artifact matching _2_ in
-   pipeline stage _B_ (perhaps a \"Find Artifact from Execution\" stage)."
-%}
+{{< figure src="./configuration.svg" caption="The pipeline declares that it expects an artifact matching _1_ (perhaps a docker image) _when the pipeline starts_. This is done in the pipeline configuration tab. It also expects an artifact matching _2_ in pipeline stage _B_ (perhaps a \"Find Artifact from Execution\" stage)." >}}
 
 The pipeline is triggered by some source (maybe a Webhook) supplying two
 artifacts:
 
-{%
-   include
-   figure
-   image_path="./trigger.svg"
-%}
+{{< figure src="./trigger.svg" >}}
 
 Artifact _1_ is bound, but both incoming artifacts are placed into the trigger,
 so any downstream stages (in this case all of them) can consume them. The
@@ -236,40 +199,24 @@ advantage of the expected artifact is that stages can _explicitly_ reference
 whatever artifact is bound downstream, rather than have to check for existance
 of the artifact at runtime.
 
-{%
-   include
-   figure
-   image_path="./running-a.svg"
-%}
+{{< figure src="./running-a.svg" >}}
 
 It's important to keep in mind that artifact _1_ was bound when the pipeline
 started. If we reference the expected artifact downstream (such as in the
 "Deploy Manifest") stage shown below, it is using the artifact that was bound
 when the pipeline first executed, not when the stage shown runs.
 
-{%
-   include
-   figure
-   image_path="./artifact-1.png"
-%}
+{{< figure src="./artifact-1.png" >}}
 
 When stage _B_ starts executing, it needs to bind expected artifact _2_. If,
 for example, it was a "Find Artifact from Execution" stage, it would do so by
 looking up the artifact from a another pipeline's execution, and binding it
 here.
 
-{%
-   include
-   figure
-   image_path="./running-b-d.svg"
-%}
+{{< figure src="./running-b-d.svg" >}}
 
 If stages _C_ or _D_ needed to reference an upstream artifact, they would have
 different artifacts accessible to them, since they have different upstream
 stages. For examples, stage _D_ does not have access to artifact _2_.
 
-{%
-   include
-   figure
-   image_path="./running-c-d.svg"
-%}
+{{< figure src="./running-c-d.svg" >}}

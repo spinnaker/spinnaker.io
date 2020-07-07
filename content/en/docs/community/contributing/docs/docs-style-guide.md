@@ -5,8 +5,6 @@ sidebar:
   nav: community
 ---
 
-{% include toc %}
-
 This page gives writing style guidelines for the Spinnaker documentation. Since these are guidelines, not rules, use your best judgment when creating content. Feel free to propose changes to this document in a pull request.
 
 If you have a style question that isn't answered in this guide, ask the SIG Docs team in the [Spinnaker Slack](https://join.spinnaker.io) `#sig-documentation` channel.

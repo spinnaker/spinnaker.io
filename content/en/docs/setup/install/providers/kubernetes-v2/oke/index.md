@@ -11,17 +11,17 @@ This page describes how to set up a Kubernetes cluster on
 [OKE](https://cloud.oracle.com/containers/kubernetes-engine/) to be used with Spinnaker's
 Kubernetes provider. 
 
-# Create a cluster
+## Create a cluster
 
 If you don't already have a cluster for this purpose, you can create a
 Kubernetes cluster on OKE by following [this tutorial](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-full/index.html).
 
-# Download kubectl configuration file
+## Download kubectl configuration file
 
 Follow [the instructions](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-full/index.html#DownloadthekubeconfigFilefortheCluster)
 to download kubectl configuration file.
 
-# Enable Kubernetes Cloud provider using Halyard
+## Enable Kubernetes Cloud provider using Halyard
 
 Run the following `hal` command to add an account named `my-k8s-v2-acct` to your list of Kubernetes accounts:
 

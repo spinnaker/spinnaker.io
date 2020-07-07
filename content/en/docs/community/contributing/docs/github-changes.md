@@ -5,9 +5,7 @@ sidebar:
   nav: community
 ---
 
-{% include toc %}
-
-# Open a pull request (PR) on GitHub
+## Open a pull request (PR) on GitHub
 
 1. Click the **Suggest an Edit** link on the documentation page you want to update. This takes you to the page's source file in GitHub.
 1. Click the **Edit this file...** pencil icon to edit the file.
@@ -46,16 +44,16 @@ sidebar:
 
    Congratulations! You can view your submitted pull request on the **Pull requests** [tab](https://github.com/spinnaker/spinnaker.github.io/pulls).
 
-# Address feedback in GitHub
+## Address feedback in GitHub
 
 Spinnaker community members will review your pull request. If you have a specific person in mind, [tag them in the issue comments](https://github.blog/2011-03-23-mention-somebody-they-re-notified/) using the @ symbol and then their GitHub username. Reviewers can request changes, leave comments, or approve the pull request.
 
-# What to do if a reviewer asks for changes
+## What to do if a reviewer asks for changes
 
 1. Go to the **Files changed** tab in GitHub.
 1. Make the requested changes.
 1. Commit the changes.
 
-# Need help? Get in touch!
+## Need help? Get in touch!
 
 Don't hesitate to reach out to the Docs team if you run into any issues. We're here to help. Post a message in the `#sig-documentation` [Slack Channel](https://app.slack.com/client/T091CRSGH/CMPS49682), and someone will get back to you!

@@ -42,28 +42,16 @@ First, navigate to the [Google credentials
 manager](https://console.developers.google.com/apis/credentials), and create a
 new set of credentials:
 
-{% include figure
-   image_path="./oauth-id.png"
-   alt="image of oauth id creation"
-%}
+{{< figure src="./oauth-id.png" alt="image of oauth id creation" >}}
 
 Next, fill out the following fields, and hit "Create":
 
-{% include figure
-   image_path="./create-client-id.png"
-   alt="image of oauth id form"
-   caption="The use of `localhost:8084` is intentional for now. We will
-   revisit this once we expose the Spinnaker endpoints."
-%}
+{{< figure src="./create-client-id.png" alt="image of oauth id form" caption="The use of `localhost:8084` is intentional for now. We will revisit this once we expose the Spinnaker endpoints." >}}
 
 You will be greeted with the following screen with values for `$CLIENT_ID` and
 `$CLIENT_SECRET`:
 
-{% include figure
-   image_path="./oauth-secrets.png"
-   alt="image of secrets"
-   caption="Keep these values safe!"
-%}
+{{< figure src="./oauth-secrets.png" alt="image of secrets" caption="Keep these values safe!" >}}
 
 With those secrets, run the following hal commands
 
@@ -94,10 +82,7 @@ If you're greeted with the following login screen on
 [localhost:9000](http://localhost:9000) you're all set! Make sure you can
 successfully login before continuing, however.
 
-{% include figure
-   image_path="./google-sign-in.png"
-   alt="image of sign in screen"
-%}
+{{< figure src="./google-sign-in.png" alt="image of sign in screen" >}}
 
 ## Part 2: Creating public Spinnaker endpoints
 
@@ -109,34 +94,20 @@ First we need IP addresses for our public services. Navigate to the [external IP
 address configuration](https://console.cloud.google.com/networking/addresses)
 for your GCP project, and fill out this screen and hit "Reserve" __two times__.
 
-{% include figure
-   image_path="./reserve-ip.png"
-   alt="image showing reserve ip screen"
-   caption="The name is not important; however, the region __must__ match that
-   of your GKE cluster. Remember to reserve __two__ IP addresses."
-%}
+{{< figure src="./reserve-ip.png" alt="image showing reserve ip screen" caption="The name is not important; however, the region __must__ match that of your GKE cluster. Remember to reserve __two__ IP addresses." >}}
 
 Once completed, you will see the reserved, static IP addresses with values for
 `$API_ADDRESS` and `$UI_ADDRESS`:
 
-{% include figure
-   image_path="./reserved-ips.png"
-   alt="image showing reserved ips"
-%}
+{{< figure src="./reserved-ips.png" alt="image showing reserved ips" >}}
 
 Now head to your [domain configuration](https://domains.google.com), and add A
 records for both IP addresses, and fill out this form twice as shown,
 subsituting for your values of `$API_ADDRESS` and `$UI_ADDRESS`:
 
-{% include figure
-   image_path="./spinnaker-subdomain.png"
-   alt="image showing spinnaker subdomain"
-%}
+{{< figure src="./spinnaker-subdomain.png" alt="image showing spinnaker subdomain" >}}
 
-{% include figure
-   image_path="./spinnaker-api-subdomain.png"
-   alt="image showing spinnaker api subdomain"
-%}
+{{< figure src="./spinnaker-api-subdomain.png" alt="image showing spinnaker api subdomain" >}}
 
 Once your resource records have been recorded, we need to configure Spinnaker
 and your Google credentials to accept logins from these domains.
@@ -145,15 +116,9 @@ First navigate back to the [Google credentials
 manager](https://console.developers.google.com/apis/credentials), and edit the
 Spinnaker client ID using your value of `$DOMAIN`:
 
-{% include figure
-   image_path="./edit-id.png"
-   alt="image showing client id edit link"
-%}
+{{< figure src="./edit-id.png" alt="image showing client id edit link" >}}
 
-{% include figure
-   image_path="./new-redirect.png"
-   alt="image showing updated redirect url"
-%}
+{{< figure src="./new-redirect.png" alt="image showing updated redirect url" >}}
 
 Now authorize the UI and API servers to receive requests at these urls using
 Halyard:

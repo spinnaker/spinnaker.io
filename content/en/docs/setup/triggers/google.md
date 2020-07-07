@@ -10,7 +10,7 @@ sidebar:
 Spinnaker pipelines can be triggered using a [Google Pub/Sub
 subscription](https://cloud.google.com/pubsub/docs/overview){:target="\_blank"}.
 
-# Prerequisites
+## Prerequisites
 
 You need a [Google Cloud Platform](https://cloud.google.com/){:target="\_blank"}
 (GCP) project to with the [Pub/Sub API
@@ -96,14 +96,7 @@ material](https://cloud.google.com/storage/docs/pubsub-notifications){:target="\
 
 ### Receiving messages from Google Container Registry (GCR)
 
-{% include
-   warning
-   content="The GCR message type extracts the image digest by default, but
-   Google App Engine doesn't support deploying from a digest. So if you're
-   using artifacts from GCR messages to trigger a GAE deployment, you need
-   to use a custom message template. The template must copy the image's tag
-   into the artifact's reference and version fields."
-%}
+{{% alert color="warning" title="Warning" %}}The GCR message type extracts the image digest by default, but Google App Engine doesn't support deploying from a digest. So if you're using artifacts from GCR messages to trigger a GAE deployment, you need to use a custom message template. The template must copy the image's tag into the artifact's reference and version fields.{{% /alert %}}
 
 First, record the fact that your `$MESSAGE_FORMAT` is `GCR`, this will be
 needed later.
@@ -167,18 +160,15 @@ gcloud iam service-accounts keys create $SERVICE_ACCOUNT_DEST \
     --iam-account $SA_EMAIL
 ```
 
-{% include
-   warning
-   content="It's possible to restrict access to a subscription by service
+{{% alert color="warning" title="Warning" %}}It's possible to restrict access to a subscription by service
    account in GCP. If this is how your subscription is configured, you may need
    to grant `$SA_EMAIL` additional permissions following the instructions on the
-   [Pub/Sub IAM page](https://cloud.google.com/pubsub/docs/access_control){:target='\_blank'}."
-%}
+   [Pub/Sub IAM page](https://cloud.google.com/pubsub/docs/access_control){{% /alert %}}
 
 Once you have run these commands, your GCS JSON key is sitting in a file
 called `$SERVICE_ACCOUNT_DEST`.
 
-# Editing your Pub/Sub settings
+## Editing your Pub/Sub settings
 
 All that's required are the following values:
 
@@ -211,6 +201,4 @@ hal config pubsub google subscription add $PUBSUB_NAME \
     --message-format $MESSAGE_FORMAT
 ```
 
-There are more options described
-[here](/reference/halyard/commands/#hal-config-pubsub-google-subscription-edit)
-if you need more control over your configuration.
+There are more options described [here](/reference/halyard/commands/#hal-config-pubsub-google-subscription-edit) if you need more control over your configuration.

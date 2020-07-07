@@ -32,11 +32,7 @@ that you want to deploy:
 In either case, start by selecting the __Deploy (Manifest)__ stage
 from the stage selector:
 
-{%
-  include
-  figure
-  image_path="./deploy-manifest.png"
-%}
+{{< figure src="./deploy-manifest.png" >}}
 
 > :warning: Don't select the regular __Deploy__ stage; it deploys more
 > opinionated "Server Groups" using other providers.
@@ -47,13 +43,7 @@ If you know ahead of time what you expect to deploy using a certain manifest
 (even if you don't know what version of your Docker image it will run) you can
 declare it directly in the pipeline by providing the manifest specification:
 
-{%
-  include
-  figure
-  image_path="./in-pipeline.png"
-  caption="Notice that by selecting __Text__ as the __Manifest Source__, we get
-  to enter the manifest YAML by hand."
-%}
+{{< figure src="./in-pipeline.png" caption="Notice that by selecting __Text__ as the __Manifest Source__, we get to enter the manifest YAML by hand." >}}
 
 Of course, if you are _generating_ your pipeline definitions rather than entering
 them into the UI, the stage definition would look more like this:
@@ -91,13 +81,7 @@ Changes to manifests can trigger pipelines. Here's some more information:
 Assuming you have declared an expected artifact upstream to your Deploy
 manifest stage, you can reference it in the Deploy configuration:
 
-{%
-  include
-  figure
-  image_path="./in-artifact.png"
-  caption="Notice that by selecting __Artifact__ as the __Manifest Source__, we
-  get to pick which upstream artifact to deploy."
-%}
+{{< figure src="./in-artifact.png" caption="Notice that by selecting __Artifact__ as the __Manifest Source__, we get to pick which upstream artifact to deploy." >}}
 
 > __☞ Note__: Make sure that the __Artifact Account__ field matches an account
 > with permission to download the manifest.
@@ -155,11 +139,4 @@ example where we specify that the docker image
 `gcr.io/my-project/my-image` must be bound in the manifest, otherwise the stage
 fails:
 
-{%
-  include
-  figure
-  image_path="./required-artifacts.png"
-  caption="Keep in mind that even if you don't specify an artifact as required,
-  it can still be bound in the manifest. This is just to ensure that all
-  artifacts you expect will be bound."
-%}
+{{< figure src="./required-artifacts.png" caption="Keep in mind that even if you don't specify an artifact as required, it can still be bound in the manifest. This is just to ensure that all artifacts you expect will be bound." >}}
