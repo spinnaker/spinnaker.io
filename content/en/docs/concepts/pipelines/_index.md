@@ -2,7 +2,7 @@
 title: "Pipelines"
 linkTitle: "Pipelines"
 weight: 2
-description:
+description: "Pipelines are the essential tool in Spinnaker for controlling how to deploy your application. A pipeline is composed of a series of stages that can be combined in almost any order, which makes pipelines flexible, consistent and repeatable."
 ---
 
 
@@ -32,7 +32,7 @@ Automation does not end with orchestrating only the high-level steps of your rel
 
 ## Pipeline templates
 
-Managed pipeline templates are a way to scalably manage pipelines across different teams. 
+Managed pipeline templates are a way to scalably manage pipelines across different teams.
 
 Pipeline templates have two main components:
 
