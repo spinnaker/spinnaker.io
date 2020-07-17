@@ -2,7 +2,7 @@
 title: "Clusters"
 linkTitle: "Clusters"
 weight: 2
-description:
+description: "Spinnaker acts as a single pane of glass from which to manage your global deployments across multiple clouds. The Clusters section acts as command and control base where we can increasingly layer on information relevant to deploying your applications."
 ---
 
 Spinnaker acts as a single pane of glass from which to manage your global deployments across multiple clouds. Here, we surface information related to health and status of running environments, and metadata around deployments and individual instances.
