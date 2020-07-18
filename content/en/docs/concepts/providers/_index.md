@@ -2,8 +2,7 @@
 title: "Providers"
 linkTitle: "Providers"
 weight: 2
-description: >
-  What does your user need to understand about your project in order to use it - or potentially contribute to it? 
+description: "In Spinnaker, a Cloud Provider is an interface to a set of virtual resources that Spinnaker has control over."
 ---
 
 In Spinnaker, a __Cloud Provider__ is an interface to a set of virtual
