@@ -2,7 +2,7 @@
 title: "Ebook: Continuous Delivery With Spinnaker"
 linkTitle: "Ebook"
 weight: 2
-description:
+description: "Using Netflix and its open source Spinnaker CD platform as examples, the Continuous Delivery with Spinnaker ebook demonstrates how a new host of tools can help you deploy software changes to production quickly, safely, and automatically."
 ---
 
 [![](cover.png)](ContinuousDeliveryWithSpinnaker.pdf)
