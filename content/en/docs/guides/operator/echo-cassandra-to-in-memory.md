@@ -2,7 +2,7 @@
 title: "Echo: Cassandra to In-Memory"
 linkTitle: "Echo: Cassandra to In-Memory"
 weight: 2
-description: 
+description: "Describes how to migrate Echo's scheduler from cassandara to in memory."
 ---
 
 
