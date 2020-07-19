@@ -2,12 +2,12 @@
 title: "Writing a New Stage"
 linkTitle: "Writing a New Stage"
 weight: 2
-description: 
+description: "A new stage requires you make backend changes to orca to implement the logic of the stage and front-end changes to deck to implement the UI."
 ---
 
 ## Overview
 
-To create a new stage, you need to make backend changes to 
+To create a new stage, you need to make backend changes to
 [orca](https://github.com/spinnaker/orca) to implement the logic of the stage,
 and the front-end changes to [deck](https://github.com/spinnaker/deck) to
 implement the UI. Depending on what the stage does, you may need to implement
@@ -83,7 +83,7 @@ public class ChapStage implements StageDefinitionBuilder, CancellableStage {
 
 ## Task classes
 
-A task class must implement a [com.netflix.spinnaker.orca.Task](https://github.com/spinnaker/orca/blob/master/orca-core/src/main/java/com/netflix/spinnaker/orca/Task.java), 
+A task class must implement a [com.netflix.spinnaker.orca.Task](https://github.com/spinnaker/orca/blob/master/orca-core/src/main/java/com/netflix/spinnaker/orca/Task.java),
 or an interface that extends it, such as:
 
 * A **RetryableTask** can be retried if it fails.
@@ -189,7 +189,7 @@ public class MonitorChapTask implements RetryableTask {
 
   @Autowired
   private ObjectMapper objectMapper;
-  
+
   @Autowired
   public ChapService chapService;
 
@@ -261,9 +261,9 @@ public class MonitorChapTask implements RetryableTask {
 
 ## Other classes used
 
-The details of the `com.netflix.spinnaker.orca.chap.Run` class and 
-`com.netflix.spinnaker.orca.chap.ChapService` interface aren't directly relevant 
-to learning how to write a Spinnaker stage, but for completeness, here's what 
+The details of the `com.netflix.spinnaker.orca.chap.Run` class and
+`com.netflix.spinnaker.orca.chap.ChapService` interface aren't directly relevant
+to learning how to write a Spinnaker stage, but for completeness, here's what
 those look like for this case:
 
 ### Run
@@ -370,9 +370,9 @@ public class ChapConfig {
   }
 
   @Bean
-  ChapService chapService(Endpoint chapEndpoint, 
-                          Client retrofitClient, 
-                          RestAdapter.LogLevel retrofitLogLevel, 
+  ChapService chapService(Endpoint chapEndpoint,
+                          Client retrofitClient,
+                          RestAdapter.LogLevel retrofitLogLevel,
                           ObjectMapper objectMapper) {
     return new RestAdapter.Builder()
       .setEndpoint(chapEndpoint)
