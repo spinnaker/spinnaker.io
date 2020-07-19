@@ -2,12 +2,12 @@
 title: "Front50: Cassandra to Redis"
 linkTitle: "Front50: Cassandra to Redis"
 weight: 2
-description: 
+description: "Describes migrating Front50 from Cassandra (no longer maintained) to Redis."
 ---
 
 
 
-## 1. Install Redis 
+## 1. Install Redis
 
 ## 2. Disable Cassandra in front50.yml
 
