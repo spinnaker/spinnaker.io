@@ -2,7 +2,7 @@
 title: "Custom Webhook Stages"
 linkTitle: "Custom Webhook Stages"
 weight: 2
-description: 
+description: "Custom webhook stages provide a simple, yet powerful, way of adding custom stages to Spinnaker."
 ---
 
 Custom webhook stages provide a simple, yet powerful, way of adding custom stages to Spinnaker. These stages are typically used to make quick API calls to an external system as part of a pipeline. Instead of extending the various components through code, users can simply add configuration to Orca for these stages. They appear in the UI as if they were a native stage.
@@ -32,7 +32,7 @@ Custom webhook stages support a variety of options, most of which are available 
 * `url` - the url for the webhook
 * `customHeaders` - any headers needed for your webhook's http request. ex. API tokens.
 * `method` - HTTP method used for the webhook.
-* `payload` - the JSON payload 
+* `payload` - the JSON payload
 
 ## Configuring parameters for custom webhook stages
 
@@ -121,7 +121,7 @@ payload: |-
     "deployment": {
       "revision": "${parameterValues['revision']}",
       "user": "${parameterValues['user']}",
-      "description": "${parameterValues['description']}"  
+      "description": "${parameterValues['description']}"
     }
   }
 parameters:
