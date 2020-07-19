@@ -2,7 +2,7 @@
 title: "Orca: Redis to SQL Migration"
 linkTitle: "Orca: Redis to SQL Migration"
 weight: 2
-description: 
+description: "Describes migrating Orca from Redis to SQL."
 ---
 
 
@@ -19,8 +19,8 @@ Migrating without downtime from Redis to SQL is a three-step process:
 
 When `DualExecutionRepository` is running, writes will be routed to either Redis or SQL.
 Executions will only be migrated to SQL once they've completed (either successfully or terminally): This keeps the migration story simple.
-As such, the migration agents will need to run for awhile. 
-At Netflix, we ran the migration cluster for two weeks, as we had long pipeline executions due to canaries. 
+As such, the migration agents will need to run for awhile.
+At Netflix, we ran the migration cluster for two weeks, as we had long pipeline executions due to canaries.
 You may only need to run the migration cluster for an hour.
 
 **NOTE**: _Deploying the migrators as a separate cluster is optional, however the migration process is memory hungry, so you may need to devote more resources to the Orca process._
@@ -71,7 +71,7 @@ keiko:
     enabled: false
 ```
 
-You will need to launch this migration cluster with `-Dspring.profiles.active=sqlmigration`. 
+You will need to launch this migration cluster with `-Dspring.profiles.active=sqlmigration`.
 [Spring Profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html) allow you to configure a service to startup with different configurations.
 
 ### Disable DualExecutionRepository
