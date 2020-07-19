@@ -2,12 +2,12 @@
 title: "Front50: Cassandra to Object Store (S3, Azure, or GCS)"
 linkTitle: "Front50: Cassandra to Object Store (S3, Azure, or GCS)"
 weight: 2
-description: 
+description: "Describes migrating Front50 from Cassandra (no longer maintained) to an Object Store."
 ---
 
 
 
-Cassandra is no longer an actively maintained or supported persistence store. 
+Cassandra is no longer an actively maintained or supported persistence store.
 
 A migration to S3, GCS, or AZS is **recommended**.
 
@@ -23,7 +23,7 @@ Note that currently only Amazon Simple Storage Service (S3), Google Cloud Storag
 
 If you wish to use S3 as the storage service, create the bucket and underlying root folder.
 
-See [Amazon's Documentation](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) for more information. 
+See [Amazon's Documentation](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) for more information.
 
 To enable versioning on an existing bucket, follow [these](http://docs.aws.amazon.com/AmazonS3/latest/UG/enable-bucket-versioning.html) steps.
 
@@ -69,7 +69,7 @@ services:
 If you wish to use GCS as the storage service, set the following YAML properties.
 The default project name is the `${providers.google.primaryCredentials.project}` from `spinnaker-local.yml`. It is needed only if the bucket does not exist and Spinnaker is going to create the bucket for you. The `jsonPath` is used to convey the credentials to use in order to access GCS. The default is `${providers.google.primaryCredentials.jsonPath}` from `spinnaker-local.yml` however if you created the bucket in a different project (e.g. in the project that is running Spinnaker as opposed to the project that Spinnaker may be managing) then you may need to supply different credentials.
 
-For more information about credentials and obtaining a JSON credentials file, see the [discussion on Service Accounts](https://support.google.com/cloud/answer/6158849?hl=en) 
+For more information about credentials and obtaining a JSON credentials file, see the [discussion on Service Accounts](https://support.google.com/cloud/answer/6158849?hl=en)
 
 ```
 services:
