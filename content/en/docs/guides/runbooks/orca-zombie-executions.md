@@ -2,7 +2,7 @@
 title: "Orca: Zombie Executions"
 linkTitle: "Orca: Zombie Executions"
 weight: 2
-description: 
+description: "A zombie Execution is one that has a status in the database of RUNNING but there are no messages in Orca's work queue or unacked set—the pipeline or task is not doing anything."
 ---
 
 
@@ -40,7 +40,7 @@ If you've enabled the zombie check, set an alert on the metric `queue.zombies`, 
 
 If the Execution is a zombie, there are no messages on the work queue for that Execution.
 You can attempt to re-hydrate the queue --- reissue messages onto the work queue based on the last stored state --- using an [admin API in Orca](https://github.com/spinnaker/orca/blob/master/orca-queue/src/main/kotlin/com/netflix/spinnaker/orca/q/admin/web/QueueAdminController.kt#L33), which must be called directly as it is not exposed through Gate.
-This command can take either a single execution or operate on all executions within a time range. 
+This command can take either a single execution or operate on all executions within a time range.
 **This command will dry-run by default.**
 To actually rehydrate the queue, pass the query parameter `dryRun=false`.
 
@@ -100,12 +100,12 @@ An example response from the endpoint:
 }
 ```
 
-For each Execution, a final action summary is provided `canApply`. 
+For each Execution, a final action summary is provided `canApply`.
 If any part of an Execution cannot be re-hydrated, the entire Execution will be skipped.
 
 ## Cancel the Execution
 
-If the Execution cannot be rehydrated, it will need to be canceled. 
+If the Execution cannot be rehydrated, it will need to be canceled.
 You can cancel the Execution via the UI or force cancellation via an Orca admin API:
 
 ```
