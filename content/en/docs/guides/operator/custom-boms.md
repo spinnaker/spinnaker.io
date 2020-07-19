@@ -2,7 +2,7 @@
 title: "Deploy Custom Spinnaker Builds"
 linkTitle: "Deploy Custom Spinnaker Builds"
 weight: 2
-description: 
+description: "A BOM describes a specific release of Spinnaker, which is composed of many microservices, each of which has their own version. When Spinnaker is built, the microservices are tested together to ensure that they interoperate correctly, and then their versions are recorded in a BOM.
 ---
 
 
@@ -164,7 +164,7 @@ credentials](https://cloud.google.com/docs/authentication/production) to
 authenticate.
 
 Given any GCS bucket, `gs://${BUCKET}`, the `${CONFIG_INPUT_ROOT}` is
-`gs://${BUCKET}`. 
+`gs://${BUCKET}`.
 
 As a result, a BOM at version `${VERSION}` can be found at
 `gs://${BUCKET}/bom/${VERSION}.yml`, and a configuration file `${PROFILE}` for
