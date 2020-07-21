@@ -2,7 +2,7 @@
 title: "Sharding Spinnaker"
 linkTitle: "Sharding Spinnaker"
 weight: 2
-description: "This document shows you how to shard traffic to different areas of Spinnaker"
+description: "This document shows you how to shard traffic to different areas of Spinnaker."
 ---
 
 ## Intro
