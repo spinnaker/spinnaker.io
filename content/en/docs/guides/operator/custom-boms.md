@@ -2,7 +2,7 @@
 title: "Deploy Custom Spinnaker Builds"
 linkTitle: "Deploy Custom Spinnaker Builds"
 weight: 2
-description: "A BOM describes a specific release of Spinnaker, which is composed of many microservices, each of which has their own version. When Spinnaker is built, the microservices are tested together to ensure that they interoperate correctly, and then their versions are recorded in a BOM."
+description: "A BOM describes a specific release of Spinnaker, which is composed of many microservices that each have their own version. When Spinnaker is built, the microservices are tested together to ensure that they interoperate correctly, and their versions are recorded in a BOM."
 ---
 
 
