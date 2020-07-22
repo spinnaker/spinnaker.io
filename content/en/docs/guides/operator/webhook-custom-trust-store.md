@@ -2,7 +2,7 @@
 title: "Custom CAs for Webhooks"
 linkTitle: "Custom CAs for Webhooks"
 weight: 2
-description: 
+description: "Webhook stages enable Spinnaker to make HTTP(S) calls to external web services. If these calls are secured with a non-publicly trusted CA, you need to add the CA as trusted to Spinnaker."
 ---
 
 ## Overview
