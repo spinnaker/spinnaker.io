@@ -2,7 +2,7 @@
 title: "Writing a New Stage"
 linkTitle: "Writing a New Stage"
 weight: 2
-description: "Creating new stage requires you to make backend changes to Orca to implement the logic of the stage and front-end changes to Deck to implement the UI."
+description: "Creating a new stage requires you to make backend changes to Orca to implement the logic of the stage and front-end changes to Deck to implement the UI."
 ---
 
 ## Overview
