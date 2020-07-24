@@ -2,7 +2,7 @@
 title: "Orca: Redis to SQL Migration"
 linkTitle: "Orca: Redis to SQL Migration"
 weight: 2
-description: "Describes migrating Orca from Redis to SQL."
+description: "Describes migrating Orca from Redis to SQL. The Redis instances that Spinnaker installs are not meant for production use. Moving to SQL makes a Spinnaker service more resilient."
 ---
 
 
