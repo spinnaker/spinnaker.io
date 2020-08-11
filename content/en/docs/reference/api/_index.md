@@ -1,9 +1,9 @@
 ---
 title: "API"
 linkTitle: "API"
-weight: 
-description: 
+weight:
+description:
 ---
 
 - [API documentation](/reference/api/docs.html)
-- [Swagger UI Guide](/reference/api/swagger-ui) 
+- [Swagger UI Guide](/docs/reference/api/swagger-ui)

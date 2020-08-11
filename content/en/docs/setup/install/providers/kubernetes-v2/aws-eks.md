@@ -1,11 +1,9 @@
 ---
-layout: single
 title:  "Set up the Kubernetes provider for Amazon EKS"
-sidebar:
-  nav: setup
+linkTitle: "EKS K8s Provider Setup"
+description: >
+  Set up Spinnaker on AWS EKS using the Kubernetes-V2 provider
 ---
-
-
 
 > Before you proceed further with this setup, we strongly recommend that you familiarize yourself with [Amazon EKS concepts](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html).
 Also, visit the [AWS global infrastructure region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for the most up-to-date information on Amazon EKS regional availability.
@@ -14,7 +12,7 @@ These instructions assume that you have AWS CLI [installed](https://docs.aws.ama
 
 ## Preparing to install Spinnaker on EKS
 
-The following steps describes how to the tools you need to install and manage Spinnaker and EKS. 
+The following steps describes how to the tools you need to install and manage Spinnaker and EKS.
 
 ### 1. Install and configure kubectl
 
@@ -32,7 +30,7 @@ kubectl help
 # Download and install aws-iam-authenticator
 curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.13.7/2019-06-11/bin/linux/amd64/aws-iam-authenticator
 chmod +x ./aws-iam-authenticator
-mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$HOME/bin:$PATH 
+mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$HOME/bin:$PATH
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 
 #Verify the installation of aws-iam-authenticator
@@ -71,7 +69,7 @@ The command returns the help for `eksctl`.
 
 ### 4. Install Halyard
 
-Install Halyard, which is used to install and manage Spinnaker: 
+Install Halyard, which is used to install and manage Spinnaker:
 
 ```
 # Download and configure Halyard
@@ -89,7 +87,7 @@ hal -v
 
 The command returns the Halyard version.
 
-### 5. Create the Amazon EKS cluster for Spinnaker 
+### 5. Create the Amazon EKS cluster for Spinnaker
 
 ```
 eksctl create cluster --name=eks-spinnaker --nodes=2 --region=us-west-2 --write-kubeconfig=false
@@ -97,7 +95,7 @@ eksctl create cluster --name=eks-spinnaker --nodes=2 --region=us-west-2 --write-
 
 ## Install and configure Spinnaker
 
-This section walks you through the process of installing and configuring Spinnaker for use with Amazon EKS. 
+This section walks you through the process of installing and configuring Spinnaker for use with Amazon EKS.
 
 ### 1. Retrieve Amazon EKS cluster kubectl contexts
 
@@ -107,9 +105,9 @@ aws eks update-kubeconfig --name eks-spinnaker --region us-west-2 --alias eks-sp
 
 ### 2. Check Halyard version
 
-More recent versions of Spinnaker require a more recent version of Halyard. For example, Spinnaker 1.19.x requires Halyard 1.32.0 or later. 
+More recent versions of Spinnaker require a more recent version of Halyard. For example, Spinnaker 1.19.x requires Halyard 1.32.0 or later.
 
-Verify your Halyard version: 
+Verify your Halyard version:
 
 ```
 hal -v
@@ -209,7 +207,7 @@ To identify the latest version of Spinnaker to install, run the following comman
 hal version list
 ```
 
-At the time of writing, 1.19.2 is the latest Spinnaker version. Configure Halyard to deploy Spinnaker 1.19.2: 
+At the time of writing, 1.19.2 is the latest Spinnaker version. Configure Halyard to deploy Spinnaker 1.19.2:
 
 ```
 export VERSION=1.19.2
@@ -239,19 +237,19 @@ Expose the Spinnaker API (Gate) and the Spinnaker UI (Deck) using Load Balancers
 export NAMESPACE=spinnaker
 # Expose Gate and Deck
 kubectl -n ${NAMESPACE} expose service spin-gate --type LoadBalancer \
-  --port 80 --target-port 8084 --name spin-gate-public 
+  --port 80 --target-port 8084 --name spin-gate-public
 
 kubectl -n ${NAMESPACE} expose service spin-deck --type LoadBalancer \
   --port 80 --target-port 9000 --name spin-deck-public  
-  
+
 export API_URL=$(kubectl -n $NAMESPACE get svc spin-gate-public \
  -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
- 
+
 export UI_URL=$(kubectl -n $NAMESPACE get svc spin-deck-public \
- -o jsonpath='{.status.loadBalancer.ingress[0].hostname}') 
+ -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 
 # Configure the URL for Gate
-hal config security api edit --override-base-url http://${API_URL} 
+hal config security api edit --override-base-url http://${API_URL}
 
 # Configure the URL for Deck
 hal config security ui edit --override-base-url http://${UI_URL}
@@ -270,7 +268,7 @@ kubectl -n spinnaker get pods
 
 ### 10. Re-verify the Spinnaker installation
 
-Run the following command to verify that the Spinnaker services are present in the cluster: 
+Run the following command to verify that the Spinnaker services are present in the cluster:
 
 ```
 kubectl -n spinnaker get svc

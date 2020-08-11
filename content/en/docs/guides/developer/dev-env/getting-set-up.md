@@ -8,8 +8,7 @@ description: >
 
 ## Overview
 
-This page describes the steps a Developer should take to fetch Spinnaker's codebase
-and get set up to work on it.
+This page describes the steps a Developer should take to fetch Spinnaker's codebase and get set up to work on it.
 
 Follow the [contributing guidelines](/community/contributing/submitting/)
 if you plan to submit your work as a patch to the open source project.
@@ -36,10 +35,10 @@ do multiple things, such as installing CLI tools or configuring service accounts
 way to approach this process is to open a step in its own browser tab and then work through
 it to completion, closing it (and any others you've opened in support of it) once it's done.
 
-1. [Install Halyard](/setup/install/halyard/#install-on-debianubuntu-and-macos)
-1. [Set up a storage service](/setup/install/storage/)
-1. [Set up your cloud provider of choice](/setup/install/providers)
-1. [Configure a LocalGit deployment](/setup/install/environment/#local-git)
+1. [Install Halyard]({{< relref "/docs/setup/install/halyard#install-on-debianubuntu-and-macos" >}})
+1. [Set up a storage service]({{< relref "/docs/setup/install/storage/storage-overview" >}})
+1. [Set up your cloud provider of choice]({{< relref "/docs/setup/install/providers/providers-overview" >}})
+1. [Configure a LocalGit deployment]({{< relref "/docs/setup/install/environment#local-git" >}})
 1. Run `hal deploy apply`
 
 ## What does this do?
@@ -117,13 +116,9 @@ JVM arguments can be seen and modified as needed in the service's `build.gradle`
 ## Next steps
 
 * If you haven't done so already, read through the
-[Spinnaker Architecture reference](/reference/architecture/) to learn more about the individual
-services' responsibilities and their dependencies on one-another. The
-[list of ports each Spinnaker service uses](https://www.spinnaker.io/reference/architecture/#port-mappings)
-can be very useful when querying and debugging a service's API.
+[Spinnaker Architecture reference]({{< relref "/docs/reference/architecture/_index.md" >}}) to learn more about the individual
+services' responsibilities, their dependencies on each other, and their port mappings.
 * Consider working on one of the
 [issues marked "beginner-friendly"](https://github.com/spinnaker/spinnaker/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22beginner+friendly%22)
 to start learning and contributing to Spinnaker right away.
-* [Sign up for Spinnaker's Slack community](https://join.spinnaker.io) and join the
-[#dev](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) channel to ask questions and get feedback
-while developing Spinnaker.
+* [Sign up for Spinnaker's Slack community](https://join.spinnaker.io) and join the [#dev](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) channel to ask questions and get feedback while developing Spinnaker.

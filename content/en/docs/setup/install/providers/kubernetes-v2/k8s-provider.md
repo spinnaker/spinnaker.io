@@ -1,8 +1,8 @@
 ---
-layout: single
 title:  "Kubernetes Provider"
-sidebar:
-  nav: setup
+linkTitle: "K8s Provider"
+description: >
+  Spinnaker's Kubernetes provider fully supports Kubernetes-native, manifest-based deployments and is the recommended provider for deploying to Kubernetes with Spinnaker.
 ---
 
 
@@ -23,7 +23,7 @@ The Kubernetes provider has two requirements:
 
 * A [`kubeconfig`](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/){:target="\_blank"} file
 
-    The `kubeconfig` file allows Spinnaker to authenticate against your cluster 
+    The `kubeconfig` file allows Spinnaker to authenticate against your cluster
     and to have read/write access to any resources you expect it to manage. You
     can think of it as private key file to let Spinnaker connect to your cluster.
     You can request this from your Kubernetes cluster administrator.
@@ -58,7 +58,7 @@ token under a new user called `${CONTEXT}-token-user` in context `$CONTEXT`.
 ```bash
 CONTEXT=$(kubectl config current-context)
 
-# This service account uses the ClusterAdmin role -- this is not necessary, 
+# This service account uses the ClusterAdmin role -- this is not necessary,
 # more restrictive roles can by applied.
 kubectl apply --context $CONTEXT \
     -f https://spinnaker.io/downloads/kubernetes/service-account.yml
@@ -175,7 +175,7 @@ reasons:
   Kubernetes. To avoid building dense and brittle mappings between Spinnaker's
   logical resources and Kubernetes's infrastructure resources, we chose to
   adopt the Kubernetes resources and operations more natively.
-  
+
 * The V2 provider does __not__ use the [Docker Registry
   Provider](https://www.spinnaker.io/setup/install/providers/docker-registry/).
   You may still need Docker Registry accounts to trigger pipelines, but

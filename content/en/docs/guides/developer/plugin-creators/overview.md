@@ -6,7 +6,7 @@ description: "Overview of plugin types"
 ---
 
 
-{% include alpha version="1.19.4" %}
+{{< alpha version="1.19.4" >}}
 
 >Note: Spinnaker 1.19.x only supports backend plugins due to a bug in Deck.
 

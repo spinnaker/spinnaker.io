@@ -4,16 +4,16 @@ linkTitle: "Dev on AWS"
 description: "Local development environment with Spinnaker running in AWS"
 ---
 
-This guide describes how a developer can set up a [Local Git deployment](/setup/install/environment/#local-git) of Spinnaker on Amazon EC2.
+This guide describes how a developer can set up a [Local Git deployment]({{< ref "environment#local-git" >}}) of Spinnaker on Amazon EC2.
 
 In this setup, Spinnaker runs on an EC2 instance. Code is edited on the machine and then synced to the EC2 instance for testing.
 
 
 # Configure local machine
 
-1. Create forks of all the [Spinnaker microservices](/reference/architecture/#spinnaker-microservices) on GitHub.
+1. Create forks of all the [Spinnaker microservices]({{< ref "microservices-overview#spinnaker-microservices" >}}) on GitHub.
 2. Clone them onto your local machine in a dedicated `/spinnaker` directory. This will simplify syncing them in a batch during development.
-3. Set up [Intellij](/guides/developer/dev-env/getting-set-up/#intellij) for Spinnaker as specified.
+3. Set up [Intellij]({{< ref "getting-set-up#intellij" >}}) for Spinnaker as specified.
 
 
 # Configure development region
@@ -28,7 +28,7 @@ In this setup, Spinnaker runs on an EC2 instance. Code is edited on the machine 
             * The ability to assume the `SpinnakerManagedRole` (described below)
             * Read-only access to Amazon Elastic Container Registry, if using private docker images.
 
-    * `SpinnakerManagedRole` : The role Spinnaker will assume to interact with your AWS resources. See the [AWS Setup Guide](/setup/install/providers/aws/) for more details.
+    * `SpinnakerManagedRole` : The role Spinnaker will assume to interact with your AWS resources. See the [AWS Setup Guide]({{< relref "/docs/setup/install/providers/aws/aws-concepts" >}}) for more details.
 
 2. In the AWS console, in the region where you want your development instance to reside, [create a key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair).
 
@@ -84,7 +84,7 @@ hal -v
 
 Configure and deploy the Spinnaker installation:
 
-```
+```bash
 # Store state in S3 and deploy a recent stable version
 hal config storage s3 edit --region $AWS_REGION   # use region where your dev instance resides
 hal config storage edit --type s3
@@ -299,7 +299,7 @@ Caused by: java.net.BindException: Address already in use
 	... 17 common frames omitted
 ```
 
-If you get this exception when running `hal deploy apply`, check that you don't already have an instance of that microservice currently running (perhaps as root or another user). Check that the [spinnaker microservice ports](https://www.spinnaker.io/reference/architecture/#port-mappings) are not already in use.
+If you get this exception when running `hal deploy apply`, check that you don't already have an instance of that microservice currently running (perhaps as root or another user). Check that the [spinnaker microservice ports]({{< relref "/docs/reference/architecture/microservices-overview#port-mappings" >}}) are not already in use.
 
 The following would be an example of how to debug this exception for Clouddriver (port 7002):
 * Check if the port for the given microservice is in use, and make a note of the process id (pid) that is using it. For instance for Clouddriver, you would do the following:
