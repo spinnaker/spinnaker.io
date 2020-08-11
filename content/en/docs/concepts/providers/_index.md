@@ -2,7 +2,7 @@
 title: "Providers"
 linkTitle: "Providers"
 weight: 2
-description: "In Spinnaker, a Cloud Provider is an interface to a set of virtual resources that Spinnaker has control over."
+description: "In Spinnaker, a Cloud Provider is an interface to a set of virtual resources over which Spinnaker has control."
 ---
 
 In Spinnaker, a __Cloud Provider__ is an interface to a set of virtual
@@ -12,9 +12,9 @@ can also be a PaaS, like [App Engine](https://cloud.google.com/appengine),
 or a container orchestrator, like [Kubernetes](https://kubernetes.io).
 
 The cloud provider is central to everything you do in Spinnaker. It's
-where you deploy your [Server Groups](/concepts/#server-group), the source of
+where you deploy your Server Groups, the source of
 your deployable artifacts, and the subject of automation via
-[Pipelines](/concepts/pipelines).
+[Pipelines]({{< relref "/docs/concepts/pipelines" >}}).
 
 ## Accounts
 
@@ -28,7 +28,7 @@ account and register the credentials with Halyard.
 Keep in mind that every Provider can have as many accounts added as desired -
 this will allow you to keep your environments (e.g. _staging_ vs. _prod_)
 separate, as well as restrict access to sets of resources using Spinnaker's
-[Authorization](/setup/security/authorization) mechanisms.
+[Authorization]({{< relref "/docs/setup/security/authorization" >}}) mechanisms.
 
 ## Supported providers
 

@@ -3,7 +3,7 @@ title: "Getting Set Up for Spinnaker Development"
 linkTitle: "Getting Set Up"
 weight: 2
 description: >
-  [Kork](https://github.com/spinnaker/kork) is a common library used across multiple Spinnaker components.
+  Set up a development environment on your laptop
 ---
 
 ## Overview
@@ -80,7 +80,7 @@ necessary.
 
 ### IntelliJ
 
-Import the project into IntelliJ: 
+Import the project into IntelliJ:
 1. Select `New` > `Project from Existing Sources`
 1. Navigating to a service's `build.gradle` file (i.e., `~/dev/spinnaker/clouddriver/build.gradle`)
 

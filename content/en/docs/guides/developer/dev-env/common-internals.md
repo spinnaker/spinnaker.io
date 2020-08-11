@@ -6,9 +6,7 @@ description: >
   This page enumerates, at a high-level, what foundations the Spinnaker services are built atop.
 ---
 
-Spinnaker is built as a collection of microservices, all of these services share a common foundation.
-This page enumerates, at a high-level, what foundations the Spinnaker services are built atop.
-You do not need to know all of these technologies to contribute, this page is meant more as a quick reference.
+Spinnaker is built as a collection of microservices, all of these services share a common foundation. This page enumerates, at a high-level, what foundations the Spinnaker services are built atop. You do not need to know all of these technologies to contribute, this page is meant more as a quick reference.
 
 ## Languages
 
@@ -26,7 +24,7 @@ Spinnaker is a collection of JVM backend-services and a frontend application (De
 
 ## Third-party Libraries
 
-Spinnaker is built on the shoulders of giants. 
+Spinnaker is built on the shoulders of giants.
 This is not an exhaustive list of libraries that we use, but the ones we've identified as having a large presence across the product.
 
 - Deck
