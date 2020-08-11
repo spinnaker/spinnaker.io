@@ -4,7 +4,7 @@ linkTitle: "Project Config"
 description: "IDE configuration, gradle"
 ---
 
-{% include alpha version="1.19.4" %}
+{{< alpha version="1.19.4" >}}
 > This guide is a work in progress. Help us improve the content by submitting a pull request!
 
 
