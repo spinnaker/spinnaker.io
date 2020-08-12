@@ -1,8 +1,8 @@
 ---
-title: "Kubernetes Source To Prod"
-linkTitle: "Kubernetes Source To Prod"
-weight: 2
-description: 
+title: "Kubernetes Source to Prod"
+linkTitle: "K8s Source to Prod"
+description:
+   Create a set of basic pipelines for deploying code from a Github repo to a Kubernetes cluster in the form of a Docker container.
 ---
 
 ## Overview
@@ -34,7 +34,7 @@ Before we begin, we need to do the following:
   Two Kubernetes clusters, one for staging and one for prod.
 
 * [Configure Spinnaker](#configure-spinnaker)
-  
+
   A running Spinnaker instance, able to deploy to Kubernetes and download
   artifacts from GitHub.
 
@@ -306,13 +306,13 @@ click __Details__ to see information about the execution:
 
 {{< figure src="./staging-execution.png" >}}
 
-There are a couple of things to notice here: 
+There are a couple of things to notice here:
 
 * In the top left we get details about the commit that triggered this
-  pipeline. 
+  pipeline.
 
 * In the __Deploy Status__ we can see what the YAML was that Spinnaker
-  deployed. 
+  deployed.
 
 * We see that the ConfigMap that we deployed was assigned version
   `-v000`. This was done to ensure that you can statically reference this
@@ -445,7 +445,7 @@ Now our full flow is ready to go - let's kick it off by changing the background
 color of our application.
 
 Open `content/index.html` in your text editor, and change the background color
-attribute, and generate a new commit. We can safely push this commit to GitHub 
+attribute, and generate a new commit. We can safely push this commit to GitHub
 without running our pipeline because we are only listening to change to the
 `manifests/demo.yml` file in our "Deploy to Staging" trigger. Tag and push this
 commit to generate a new docker build:

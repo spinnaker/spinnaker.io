@@ -1,9 +1,8 @@
 ---
 title: "Deploy Artifacts from Artifactory to CF"
 linkTitle: "Deploy Artifacts from Artifactory to CF"
-weight: 3
 description: >
-  In this codelab, you will deploy an artifact to Cloud Foundry via a Spinnaker pipeline.
+  Deploy an artifact to Cloud Foundry via a Spinnaker pipeline.
 ---
 
 In this codelab, you will deploy an artifact to Cloud Foundry via a Spinnaker pipeline. The pipeline is triggered by an artifact published to a JFrog Artifactory Maven repository or by an app manifest stored in a GitHub repository.
@@ -123,7 +122,7 @@ i. Add a clone configuration and provide details on deployment settings, the sou
 
   {{< figure src="./clone-configuration.png" >}}
 
-This clone configuration promotes the exact same application to the production environment as you deployed to the test environment with the "Deploy" stage in Step 5e. 
+This clone configuration promotes the exact same application to the production environment as you deployed to the test environment with the "Deploy" stage in Step 5e.
 
 You may wish to provide a different manifest when deploying the application to the production environment. For this alternate manifest to trigger pipeline executions, you would need to create a separate pipeline that deploys to the production environment.
 

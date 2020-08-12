@@ -1,26 +1,13 @@
 ---
-layout: single
 title:  "Videos"
-sidebar:
-  nav: guides
+description: >
+  An extensive collection of demonstration videos, covering many facets of Spinnaker use.
 ---
 
-## Contents
+Subscribe to the [Spinnaker YouTube
+channel](https://www.youtube.com/channel/UCcxQbw8kT1-FRhFhO2QCetg)
 
-* General
-  * [Welcome to Spinnaker: Feature Overview](#welcome-to-spinnaker-feature-overview-2m-46s)
-  * [Disabling a Spinnaker pipeline](#disabling-a-spinnaker-pipeline-0m-58s)
-  * [Manually triggering a Spinnaker pipeline](#manually-triggering-a-spinnaker-pipeline-0m-46s)
-  * [Manual Server Group rollbacks in Spinnaker](#manual-server-group-rollbacks-in-spinnaker-1m-40s)
-* Google
-  * [Continuous Delivery for Kubernetes on GCP](#continuous-delivery-for-kubernetes-on-gcp-6m-26s)
-  * [Continuous Delivery for Google App Engine](#continuous-delivery-for-google-app-engine-3m-55s)
-  * [Google Source to Production Codelab Walk Through](#google-source-to-production-codelab-walk-through)
-* Microsoft Azure 
-  * [Host Spinnaker on Azure](https://channel9.msdn.com/Shows/Azure-Friday/Host-Spinnaker-on-Azure)
-  * [Continuous Delivery to Azure with Spinnaker](https://channel9.msdn.com/Shows/Azure-Friday/Using-Spinnakers-Release-Pipeline-for-CD-to-Azure)
-  * [CI/CD with Jenkins and Spinnaker on Azure](https://channel9.msdn.com/Events/Build/2017/P4104)
-
+## General
 
 ### <a href="https://youtu.be/dwdVwE52KkU" target="_blank">Welcome to Spinnaker: Feature Overview (2m 46s)</a>
 
@@ -51,6 +38,8 @@ This short video demonstrates how to manually rollback a Server Group using
 Spinnaker.
 
 
+## Google
+
 ### <a href="https://youtu.be/aubbyQ60W2U" target="_blank">Continuous Delivery for Kubernetes on GCP (6m 26s)</a>
 
 <iframe width="280" height="158" src="https://www.youtube.com/embed/aubbyQ60W2U" frameborder="0" allowfullscreen></iframe>
@@ -76,3 +65,8 @@ This demo walks through a source-to-prod continuous delivery flow for an applica
 This series of videos walks through the [Google Source to Production Codelab]() in its entirety.
 
 
+## Microsoft Azure
+
+* [Host Spinnaker on Azure](https://channel9.msdn.com/Shows/Azure-Friday/Host-Spinnaker-on-Azure)
+* [Continuous Delivery to Azure with Spinnaker](https://channel9.msdn.com/Shows/Azure-Friday/Using-Spinnakers-Release-Pipeline-for-CD-to-Azure)
+* [CI/CD with Jenkins and Spinnaker on Azure](https://channel9.msdn.com/Events/Build/2017/P4104)

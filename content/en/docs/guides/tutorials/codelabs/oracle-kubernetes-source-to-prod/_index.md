@@ -1,9 +1,8 @@
 ---
 title: "Continuous Delivery to Kubernetes on Oracle"
-linkTitle: "Continuous Delivery to Kubernetes on Oracle"
-weight: 2
+linkTitle: "CD to K8s on Oracle"
 description: >
-  In this codelab you will configure a Spinnaker pipeline to deploy an application from Kubernetes manifest files targeting Kubernetes on Oracle Cloud Infrastructure Container Engine (OKE).
+  Deploy an application from Kubernetes manifest files targeting Kubernetes on Oracle Cloud Infrastructure Container Engine.
 ---
 
 In this codelab you will configure a Spinnaker pipeline to deploy an application from Kubernetes manifest files targeting Kubernetes on Oracle Cloud Infrastructure Container Engine (OKE).
@@ -48,7 +47,7 @@ hal config version edit --version $SPINNAKER_VERSION
 * Execute the following commands to complete the installation:
 
 ```bash
-hal config deploy edit --type localdebian 
+hal config deploy edit --type localdebian
 sudo hal deploy apply
 sudo systemctl daemon-reload
 ```
@@ -65,7 +64,7 @@ Now Spinnaker UI is available at [http://localhost:9000](http://localhost:9000).
 
 ## 1: Create a Spinnaker application
 
-In this exercise, you’ll set up a pipeline to deploy a tomcat8 from Kubernetes manifest file to OKE. 
+In this exercise, you’ll set up a pipeline to deploy a tomcat8 from Kubernetes manifest file to OKE.
 
 Navigate to Spinnaker at [http://localhost:9000](http://localhost:9000).
 
@@ -116,7 +115,7 @@ Click *Create*. This will create the load balancer shown below.
 Create a new pipeline by navigating to the PIPELINES tab and clicking the *New* button
 
 * Name the pipeline “Deploy to Test”.
-* Click the *Create* button. 
+* Click the *Create* button.
 
 ### Set up Deploy stage
 

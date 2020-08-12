@@ -1,11 +1,10 @@
 ---
 title: "Orca: Redis to SQL Migration"
-linkTitle: "Orca: Redis to SQL Migration"
+linkTitle: "Orca: Redis to SQL"
 weight: 2
-description: "Describes migrating Orca from Redis to SQL. The Redis instances that Spinnaker installs are not meant for production use. Moving to SQL makes a Spinnaker service more resilient."
+description: >
+  Migrate Orca from Redis to SQL for resilience
 ---
-
-
 
 If you are not migrating an existing Orca deployment, refer to [Orca SQL Setup](/setup/productionize/persistence/orca-sql/) instead.
 
@@ -17,11 +16,12 @@ Migrating without downtime from Redis to SQL is a three-step process:
 2. [Deploy a new Orca cluster with migrators enabled and queue processing disabled.](#deploy-a-migration-cluster)
 3. [Once all executions have been migrated, delete migration cluster and disable `DualExecutionRepository`.](#disable-dualexecutionrepository)
 
-When `DualExecutionRepository` is running, writes will be routed to either Redis or SQL.
-Executions will only be migrated to SQL once they've completed (either successfully or terminally): This keeps the migration story simple.
-As such, the migration agents will need to run for awhile.
-At Netflix, we ran the migration cluster for two weeks, as we had long pipeline executions due to canaries.
-You may only need to run the migration cluster for an hour.
+When `DualExecutionRepository` is running, writes will be routed to either Redis
+or SQL. Executions will only be migrated to SQL once they've completed (either
+successfully or terminally): This keeps the migration story simple. As such, the
+migration agents will need to run for awhile. At Netflix, we ran the migration
+cluster for two weeks, as we had long pipeline executions due to canaries. You
+may only need to run the migration cluster for an hour.
 
 **NOTE**: _Deploying the migrators as a separate cluster is optional, however the migration process is memory hungry, so you may need to devote more resources to the Orca process._
 
@@ -45,7 +45,7 @@ Note that both repositories are enabled. Orca will fail to start up if the `Dual
 
 ### Deploy a Migration Cluster
 
-At Netflix, we deployed `orca-main`, the cluster that serves our production traffic, as well as `orca-main-sqlmigration`, which does not receive API traffic nor process the work queue. It's sole purpose is to shovel bits from Redis to SQL.
+At Netflix, we deployed `orca-main`, the cluster that serves our production traffic, as well as `orca-main-sqlmigration`, which does not receive API traffic nor process the work queue. Its sole purpose is to shovel bits from Redis to SQL.
 
 To perform a deploy a migration cluster, add the following configuration to `orca.yml`:
 

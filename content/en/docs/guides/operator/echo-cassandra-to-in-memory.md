@@ -2,7 +2,8 @@
 title: "Echo: Cassandra to In-Memory"
 linkTitle: "Echo: Cassandra to In-Memory"
 weight: 2
-description: 
+description: >
+  Configuring Echo to use an in-memory scheduler
 ---
 
 

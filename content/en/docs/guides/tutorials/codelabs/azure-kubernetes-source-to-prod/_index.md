@@ -1,9 +1,8 @@
 ---
 title: "Continuous Delivery to Kubernetes on Azure"
 linkTitle: "Continuous Delivery to Kubernetes on Azure"
-weight: 2
 description: >
-  In this codelab, you will create a Source to Prod pipeline targeting a Kubernetes cluster in Azure.
+  Deploy a Dev Ops VM with a sample source-to-prod pipeline targeting Kubernetes on Azure.
 ---
 
 

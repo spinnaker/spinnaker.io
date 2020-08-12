@@ -1,9 +1,8 @@
 ---
 title: "App Engine: Source to Prod"
 linkTitle: "App Engine: Source to Prod"
-weight: 3
 description: >
-  This codelab provides an overview of Spinnaker's integration with App Engine.
+  Create a workflow to safely deploy to App Engine from source code.
 ---
 
 ## Overview
@@ -17,7 +16,7 @@ You'll build and run a simple App Engine deployment pipeline with the following 
 - Be sure you have your Google Cloud Platform project's ID. This value will be referenced as `GCP-PROJECT-ID` below.
 - Be sure you have `gcloud` installed, and that it is authenticated with your GCP project. In most cases, this should only require running `gcloud auth login <your@email.com>`
 and following the instructions in the prompt. If you don't have `gcloud` installed locally, you can always run `gcloud` from inside Cloud Shell, which you can open from your GCP console.
-- Be sure you have the App Engine Admin and Compute Engine APIs enabled for your GCP project: 
+- Be sure you have the App Engine Admin and Compute Engine APIs enabled for your GCP project:
 
 ```bash
 gcloud services enable appengine.googleapis.com
@@ -38,7 +37,7 @@ Github sends webhooks from IPs in the [CIDR ranges](https://help.github.com/arti
 
 ```bash
 gcloud compute firewall-rules create allow-github-webhook \
-    --allow="tcp:8084" \ 
+    --allow="tcp:8084" \
     --source-ranges=$(curl -s https://api.github.com/meta | python -c "import sys, json; print ','.join(json.load(sys.stdin)['hooks'])") \
     --target-tags="allow-github-webhook"
 ```
@@ -53,7 +52,7 @@ gcloud compute instances create $USER-spinnaker \
     --image-project="ubuntu-os-cloud" \
     --zone="us-central1-f" \
     --tags="allow-github-webhook"
-``` 
+```
 
 Next, run the following command to SSH into the machine we’ve just provisioned. We’ll also pass flags to forward ports 9000 and 8084 - Spinnaker’s UI and API servers listen on these ports.
 
@@ -110,7 +109,7 @@ First, we’ll create a Spinnaker application.
  - In the top-right corner of the UI, click "Actions", then `Create Application`.
  - Under "Name", enter `codelab`.
  - Under "Owner Email", enter your email address.
- - Under "Account(s)", select `my-appengine-account`. This is the account we configured with Halyard - 
+ - Under "Account(s)", select `my-appengine-account`. This is the account we configured with Halyard -
    it is associated with a set of credentials that allows Spinnaker to deploy to App Engine within your project.
    You can configure Spinnaker with multiple accounts to deploy to multiple GCP projects.
  - Click "Create".
@@ -118,8 +117,8 @@ First, we’ll create a Spinnaker application.
  ![Create_Codelab_Application](images/create_codelab_application.png)
 
  - Once your application has been created, you’ll be taken to the "Clusters" tab.
-   Click "Create Server Group". A Spinnaker server group is an App Engine Version. 
-   When creating server groups, Spinnaker applies its own naming conventions: all Versions created from the application "codelab" will be prefixed with "codelab-" 
+   Click "Create Server Group". A Spinnaker server group is an App Engine Version.
+   When creating server groups, Spinnaker applies its own naming conventions: all Versions created from the application "codelab" will be prefixed with "codelab-"
  - Under "Stack", enter `default`. Omit "Detail". In a Spinnaker application, a Cluster is a logical grouping of server groups with the same Stack and Detail.
    It can be helpful to use the name of an App Engine Service as the value for Stack - in our case, our Version will be deployed to the Service named "default".
  - Under "Git Repository URL", enter `https://github.com/{YourGitHubUsername}/redblue.git`; i.e., the URL to the repository you forked earlier.
@@ -129,9 +128,9 @@ First, we’ll create a Spinnaker application.
 
 ![Ad_Hoc_Create_Server_Group](images/ad_hoc_create_server_group.png)
 
-Your server group will take a moment to deploy. Once it appears in the UI, click on the section labeled "V000". 
-You should see a panel open on the right with details about the server group. 
-To view the app you just deployed, click one of the links under "DNS". 
+Your server group will take a moment to deploy. Once it appears in the UI, click on the section labeled "V000".
+You should see a panel open on the right with details about the server group.
+To view the app you just deployed, click one of the links under "DNS".
 It should be a "Hello World" page with a bright red background.
 
 Click on the tab labeled "Load Balancers". You will see a panel labeled "default". This is your default App Engine Service.
@@ -145,7 +144,7 @@ Next, we’ll build a deployment pipeline. It will include the following stages:
 
 - Trigger on a GitHub webhook - this will be triggered by a push to the forked repository.
 - Deploy - we’ll deploy the updated app to App Engine.
-- Edit Load Balancer - we’ll split traffic between our two server groups. 
+- Edit Load Balancer - we’ll split traffic between our two server groups.
 - Manual Judgment - we’ll verify that we’re ready to move all traffic to the new server group.
   This stage could be a stand-in for integration tests or canary analysis.
 - Enable - we’ll send 100% of traffic to the new server group.
@@ -173,7 +172,7 @@ Under "Automated Triggers":
 
 ### Deploy stage
 
-- Click "Add Stage". 
+- Click "Add Stage".
 - Under "Type", select `Deploy`.
 
 ![Deploy_Stage_Config](images/deploy_stage_config.png)
@@ -182,8 +181,8 @@ Under "Automated Triggers":
 - Under "Stack", enter `default`.
 - Under "Git Repository URL", enter `https://github.com/{YourGithubUsername}/redblue.git`; i.e., the URL to the repository you forked earlier.
 - Under "Branch", enter `release`.
-- When configuring your Git webhook trigger, you can specify a regex - 
-  the pipeline will only be triggered if the commit to the repository occurs on a branch matching the regex. 
+- When configuring your Git webhook trigger, you can specify a regex -
+  the pipeline will only be triggered if the commit to the repository occurs on a branch matching the regex.
   We can dynamically deploy to App Engine from the branch matching the regex by clicking "Resolve via trigger" in this dialog.
 - Under "Config Filepaths", enter `app.yaml`.
 - Click "Add".
@@ -196,26 +195,26 @@ Under "Automated Triggers":
 
 ![Select_Load_Balancer](images/select_load_balancer.png)
 
-This next part is tricky. We’ll specify how much traffic each server group will receive. 
-We could specify their exact names - e.g., `codelab-default-v000` and `codelab-default-v001` - but we want to run 
-this pipeline over and over again as we make changes to our app. We will need to resolve the names of the server groups dynamically. 
+This next part is tricky. We’ll specify how much traffic each server group will receive.
+We could specify their exact names - e.g., `codelab-default-v000` and `codelab-default-v001` - but we want to run
+this pipeline over and over again as we make changes to our app. We will need to resolve the names of the server groups dynamically.
 
-These steps allow us to allocate traffic to the newest server group in the Cluster `codelab-default` - 
+These steps allow us to allocate traffic to the newest server group in the Cluster `codelab-default` -
 this will always be the server group we deploy in our "Deploy" stage:
 
 - Next to the percent symbol, enter `5`. This is the percentage of traffic that this server group will receive.
-- Under "Locator", select `Coordinates`. 
+- Under "Locator", select `Coordinates`.
 - Under "Cluster", click "Toggle for list of existing clusters", then select `codelab-default`.
-- Under "Target", select `Newest server group`. 
+- Under "Target", select `Newest server group`.
 
-These steps to allocate traffic to the second-oldest server group in the Cluster `codelab-default` - 
+These steps to allocate traffic to the second-oldest server group in the Cluster `codelab-default` -
 when we run this pipeline for the first time, it will be the server group we deployed at the beginning of this codelab:
 
 - Click "Add allocation"
 - Next to the percent symbol, enter `95`. This is the percentage of traffic that this server group will receive.
-- Under "Locator", select `Coordinates`. 
+- Under "Locator", select `Coordinates`.
 - Under "Cluster", click "Toggle for list of existing clusters", then select `codelab-default`.
-- Under "Target", select `Previous server group`. 
+- Under "Target", select `Previous server group`.
 - Click "Done".
 
 ![Edit_Load_Balancer_Config](images/edit_load_balancer_config.png)
@@ -262,7 +261,7 @@ Once you’re finished configuring your stages, click "Save Changes" on the bott
 - Open "main.py" in your favorite text editor.
 - On the line that starts with `self.response.write`, replace `background-color: red` with `background-color: blue`.
 - Using git, add and commit your changes. Push your changes to your remote repository; i.e., `git push origin release`.
-- If we’ve configured everything correctly, you should see your pipeline start within Spinnaker. 
+- If we’ve configured everything correctly, you should see your pipeline start within Spinnaker.
   If you haven’t configured a webhook, you can also click "Start Manual Execution" to start your pipeline.
 
 ## Pipeline execution
@@ -271,14 +270,14 @@ Under the "Pipelines" tab, you should see your running pipeline.
 
 ![Deploy_Stage_Execution](images/deploy_stage_execution.png)
 
-Once the "Split Traffic 5%/95%" stage completes, your pipeline will pause on the "Validate Release" stage. 
+Once the "Split Traffic 5%/95%" stage completes, your pipeline will pause on the "Validate Release" stage.
 Two points of interest:
-- Under the "Clusters" tab, you should see your new server group. 
-  Click on the new server group; a panel should open on the right. 
+- Under the "Clusters" tab, you should see your new server group.
+  Click on the new server group; a panel should open on the right.
   Click one of the links under "DNS" - your site’s background will have changed to blue.
 - Under the "Load Balancers" tab, click on the load balancer labeled "Default"; a panel should open on the right.
   Under "Traffic Split", you should see the relative traffic allocations between your two server groups:
-  
+
 ![Traffic_Split_Details](images/traffic_split_details.png)
 
 Once you’re ready, go back to the "Pipelines" tab. Click "Continue" on the "Validate Release" stage. Your pipeline will continue:

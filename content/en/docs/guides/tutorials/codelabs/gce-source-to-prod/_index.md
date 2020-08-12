@@ -1,9 +1,8 @@
 ---
 title: "GCE Source To Prod"
 linkTitle: "GCE Source To Prod"
-weight: 3
 description: >
-  In this codelab, you will create a cohesive workflow which takes source code and builds, tests and promotes it to production.
+  Create a cohesive workflow which takes source code and builds, tests, and promotes it to production.
 ---
 
 
@@ -67,7 +66,7 @@ Spinnaker will take a few minutes to auto configure and start up. Take 3 minutes
 
 Open an SSH tunnel through which your local workstation will connect to Spinnaker:
 
-```bash 
+```bash
 gcloud compute ssh $INSTANCE_NAME \
     --project $MY_PROJECT \
     --zone $ZONE \
@@ -367,14 +366,14 @@ The image you’re using does have Jenkins polling for updates to the local git 
 
 You can update source by doing the following from your ssh terminal:
 
-```bash 
+```bash
 sudo su jenkins
 cd /var/lib/jenkins/hello-karyon-rxnetty
 ```
 
 Now change the number on the "release" line:
 
-```bash 
+```bash
 vi build.gradle
 ```
 

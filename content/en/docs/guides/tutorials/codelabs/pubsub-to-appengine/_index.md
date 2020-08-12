@@ -1,11 +1,9 @@
 ---
-title: "Codelab: Deploying GCS Pub/Sub Artifacts to App Engine"
-linkTitle: "Codelab: Deploying GCS Pub/Sub Artifacts to App Engine"
-weight: 2
+title: "Deploy GCS Pub/Sub Artifacts to Google App Engine"
+linkTitle: "Deploy GCS Pub/Sub Artifacts to GAE"
 description: >
-  The goal of this codelab is to trigger a Spinnaker pipeline with a Pub/Sub message from GCS upon upload of a tarball.
+  Trigger a pipeline from a Pub/Sub message from GCS upon upload of a tarball to GAE.
 ---
-
 
 The goal of this codelab is to trigger a Spinnaker pipeline with a Pub/Sub message from GCS upon upload of a tarball.
 

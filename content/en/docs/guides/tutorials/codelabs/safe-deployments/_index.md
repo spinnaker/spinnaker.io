@@ -1,12 +1,11 @@
 ---
 title: "Safe Deployments"
 linkTitle: "Safe Deployments"
-weight: 2
 description: >
-  In this codelab, you will improve a deployment process by adding safeguards to your deployments.
+  Enhance an existing deployment process to take advantage of Spinnaker safety features.
 ---
 
-## Overview 
+## Overview
 
 In this codelab, you will improve a deployment process by adding safeguards to your deployments.
 
@@ -16,13 +15,13 @@ This codelab is a continuation of the [Kubernetes: code to prod](https://www.spi
 
 Please follow the steps in the Kubernetes Source to Prod guide to create a deployed Spinnaker cluster.
 
-## Making manual operations safer 
+## Making manual operations safer
 
 ### Using the Rollback action
 
 The rollback action automates the process of restoring to the previous good known server group. This feature enhances a traditionally manual operation by ensuring that the restored cluster is taking traffic before disabling the current server group.
 
-Go to the clusters screen for your application and make sure you have at least one cluster with one server group with an attached load balancer. 
+Go to the clusters screen for your application and make sure you have at least one cluster with one server group with an attached load balancer.
 
 If you don't have an existing server group, click on _Create Server Group_, select your deployment details (pick an image name and load balancer) and click on _CREATE_ .
 
@@ -32,12 +31,12 @@ Clone this server group:
 
 1. Select the server group
 1. Click on _actions_, then select _clone server_ group in the dropdown.
-1. In the new dialog, select _Red/Black push_ as the strategy. 
+1. In the new dialog, select _Red/Black push_ as the strategy.
 1. Click _CREATE_.
 
 ![](images/rollback2.png)
 
-Wait for the task to finish. You should now have at least two server groups in your cluster, with the previous one disabled and the new one enabled. 
+Wait for the task to finish. You should now have at least two server groups in your cluster, with the previous one disabled and the new one enabled.
 
 ![](images/rollback25.png)
 
@@ -54,7 +53,7 @@ Rollback the deployment:
 
 4. Click _OK_
 
-You should see a task window and the deployment being rolled back safely and automatically. The previous server group should be eneabled and the current one disabled. 
+You should see a task window and the deployment being rolled back safely and automatically. The previous server group should be eneabled and the current one disabled.
 
 ![](images/rollback5.png)
 
@@ -128,7 +127,7 @@ Execute your pipeline again. You should see your deployment continue without wai
 
 ### Adding a Manual Judgment to deployment pipelines
 
-Manual Judgments serve as a gate for your pipeline. You can add manual judment stages to interrupt the pipeline execution to run a manual check. This is great for teams that have a manual or out-of-band QA process. 
+Manual Judgments serve as a gate for your pipeline. You can add manual judment stages to interrupt the pipeline execution to run a manual check. This is great for teams that have a manual or out-of-band QA process.
 
 Let's modify our pipeline by adding a manual judgment stage.
 
@@ -138,11 +137,11 @@ Enter "please approve this pipeline" in the instructions
 
 ![](images/manual1.png)
 
-Click on _Add Notification Preference_. 
+Click on _Add Notification Preference_.
 
 In the popup dialog:
 
-1. select type _Email_ 
+1. select type _Email_
 2. Enter your email address  
 3. Select to notify when _This stage is awaiting judgment_.
 
@@ -150,7 +149,7 @@ Click _Update_
 
 ![](images/manual2.png)
 
-Go to your deploy stage 
+Go to your deploy stage
 
 Select _Manual Judgment_ in the _Depends On_ field
 
@@ -172,11 +171,11 @@ Click on the link in your email. You should see the manual judgment awaiting app
 
 Click on _Continue_
 
-Your pipeline should run now. 
+Your pipeline should run now.
 
 ### Changing pipeline behavior based on selected judgment
 
-Manual Judgments can also be used to run a rollback task based on some input. 
+Manual Judgments can also be used to run a rollback task based on some input.
 
 Go to your Manual Judgement stage and type in "continue" as an input option.
 
@@ -190,11 +189,11 @@ In the new stage, check the _Conditional on Expression_ checkbox and enter `${ #
 
 ![](images/manual8.png)
 
-Select the deploy stage, check the _Conditional on Expression_ checkbox and enter `${ #judgment("Manual Judgment").equals("continue")}`. 
+Select the deploy stage, check the _Conditional on Expression_ checkbox and enter `${ #judgment("Manual Judgment").equals("continue")}`.
 
-Save your pipeline and run it. 
+Save your pipeline and run it.
 
-In the manual judgment stage, select `rollback` as your input. 
+In the manual judgment stage, select `rollback` as your input.
 
 ![](images/manual9.png)
 
@@ -202,7 +201,7 @@ You should see that the deploy stage is skipped while the rollback stage runs.
 
 ![](images/manual10.png)
 
-Run your pipeline again, this time selecting `continue` as your input. 
+Run your pipeline again, this time selecting `continue` as your input.
 
 The rollback stage should not run
 
@@ -210,7 +209,7 @@ The rollback stage should not run
 
 ## Creating an automatic rollback pipeline
 
-You can also create a pipeline to run in case a deployment fails. 
+You can also create a pipeline to run in case a deployment fails.
 
 For this exercise, we're going to create a pipeline that will trigger if a deployment pipeline fails.
 

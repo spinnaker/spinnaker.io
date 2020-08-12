@@ -9,9 +9,7 @@ description: >
 
 ## Overview
 
-Once you have `spin` install and configured, you can use it to start
-managing your managed pipeline templates (MPT). Note that currently only v2
-pipeline templates are supported from `spin`.
+>Note: `spin` only supports pipeline templates v2.
 
 `spin` can manage the whole lifecycle of your v2 pipeline templates:
 
