@@ -1,17 +1,15 @@
 ---
 title: "Rollout Strategies"
 linkTitle: "Rollout Strategies"
-weight: 
-description: 
+description: >
+  Use the Kubernetes provider's dark, highlander, or red/black rollout strategies
 ---
 
 This guide describes how to take advantage of the
 [Kubernetes](/setup/install/providers/kubernetes-v2) provider's first-class support
 for common rollout strategies, including dark, highlander, and red/black rollouts.
 
-> **Note:** The implementation of these rollout strategies currently leverages Spinnaker's existing
-> [traffic management strategy](/docs/v1/guides/user/kubernetes-v2/traffic-management/) and so is
-> [valid for ReplicaSets only](/docs/v1/guides/user/kubernetes-v2/traffic-management/#you-must-use-replica-sets).
+> **Note:** The implementation of these rollout strategies currently leverages Spinnaker's existing [traffic management strategy](/docs/guides/user/kubernetes-v2/traffic-management/) and so is [valid for ReplicaSets only](/docs/guides/user/kubernetes-v2/traffic-management/#you-must-use-replica-sets).
 
 ## Rollout Strategy Options
 
@@ -25,25 +23,25 @@ Configuration options:
 - __Service namespace__
 
   Select the namespace containing the service(s) you would like to associate with the workload.
-  
+
 - __Service(s)__
-  
+
   Select one or more services you would like to associate with the workload. Spinnaker will
   add a `traffic.spinnaker.io/load-balancers` annotation listing the selected services as
-  described [here](/docs/v1/guides/user/kubernetes-v2/traffic-management/#attach-a-service-to-a-workload).
-  
+  described [here](/docs/guides/user/kubernetes-v2/traffic-management/#attach-a-service-to-a-workload).
+
 - __Traffic__
 
   Check this box if you would like the workload to begin receiving traffic from the selected
   services as soon as it is ready. If you do not check this box, you can add a subsequent
   Enable (Manifest) stage to begin sending traffic to the workload.
-  
+
 - __Strategy__
 
   Select a strategy if you would like Spinnaker to handle previous versions of the workload
   currently deployed to the same cluster and namespace. Select `None` if you do not want
   Spinnaker to take any action regarding existing workloads.  
-     
+
 
 ### Dark Rollouts
 

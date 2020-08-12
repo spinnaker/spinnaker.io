@@ -1,14 +1,13 @@
 ---
 title: "Manage Traffic Using Kubernetes Manifests"
-linkTitle: "Manage Traffic Using Kubernetes Manifests"
-weight: 
-description: 
+linkTitle: "Manage Traffic"
+description: >
+  Manage traffic during deployments
 ---
 
-
-This guide shows the basics of how to manage traffic during deployments using
-the [Kubernetes provider](/setup/install/providers/kubernetes-v2). This includes
-automatically attaching a
+This guide shows the basics of how to manage traffic during deployments
+using the [Kubernetes provider](/docs/setup/install/providers/kubernetes-v2).
+This includes automatically attaching a
 [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 to a workload during deployment, and defining pipelines to perform blue/green
 deployments.
@@ -27,7 +26,7 @@ on a workload as shown here:
 
 You can also tell Spinnaker which Service objects a workload should be
 associated with for its lifetime using the
-[`traffic.spinnaker.io/load-balancers`](/reference/providers/kubernetes-v2/#traffic)
+[`traffic.spinnaker.io/load-balancers`](/docs/reference/providers/kubernetes-v2/#traffic)
 annotation. To try this out, do the following:
 
 Deploy the following Service using the "Create Load Balancer" button:
@@ -138,7 +137,7 @@ application. When completed, an execution of this pipeline will look like:
 
 You need the following:
 
-1. Spinnaker with the [Kubernetes provider](/setup/install/providers/kubernetes-v2) configured
+1. Spinnaker with the [Kubernetes provider](/docs/setup/install/providers/kubernetes-v2) configured
 
 2. One service called `my-service` running in the cluster and namespace your
    pipeline will deploy to. For the purpose of this example we will assume it
@@ -202,7 +201,7 @@ There are _two_ important annotations to pay attention to here:
 * `strategy.spinnaker.io/max-version-history`
 
   This annotation is explained [in the reference
-  section](/reference/providers/kubernetes-v2/#strategy), and is used to ensure
+  section](/docs/reference/providers/kubernetes-v2/#strategy), and is used to ensure
   that no more than a certain number of versions of this Replica Set are
   running for garbage collection purposes.
 
@@ -211,7 +210,7 @@ There are _two_ important annotations to pay attention to here:
 Add a "Disable (Manifest)" stage after the Deploy stage, and set the following
 values:
 
-| Field | Value | 
+| Field | Value |
 |-|-|
 | __Namespace__ | `default` |
 | __Kind__ | `replicaSet` |

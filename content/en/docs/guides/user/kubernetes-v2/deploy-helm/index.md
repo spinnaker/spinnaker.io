@@ -1,11 +1,9 @@
 ---
 title: "Deploy Helm Charts"
 linkTitle: "Deploy Helm Charts"
-weight: 
-description: 
+description: >
+  Use Spinnaker to create Helm charts for your applications
 ---
-
-
 
 Spinnaker surfaces a "Bake (Manifest)" stage to turn templates into manifests
 with the help of a templating engine. [Helm](https://helm.sh/) relies on the `helm template` command.
@@ -48,12 +46,12 @@ When configuring the "Bake (Manifest)" stage, you can specify the following:
 > Note: Not all Helm charts contain namespace definitions in their manifests.
 > Make sure that your manifests contain the following code:
 
-{% raw %}
+
 ```yaml
 metadata:
   namespace: {{ .Release.Namespace }}
 ```
-{% endraw %}
+
 
 * __Zero or more override artifacts__ (optional)
 
@@ -134,4 +132,4 @@ deployed at once:
 
 ## Other Templating Engines
 
-In addition to Helm, Spinnaker also supports Kustomize as a templating engine. For more information, see [Using Kustomize for Manifests](/docs/v1/guides/user/kubernetes-v2/kustomize-manifests/).
+In addition to Helm, Spinnaker also supports Kustomize as a templating engine. For more information, see [Using Kustomize for Manifests](/docs/guides/user/kubernetes-v2/kustomize-manifests/).

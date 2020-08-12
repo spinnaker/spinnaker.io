@@ -1,9 +1,8 @@
 ---
 title: "Annotation-Driven UI"
 linkTitle: "Annotation-Driven UI"
-weight: 
 description: >
-  This guide describes how to surface information about your Kubernetes resources in Deck's details panel using Kubernetes annotations.
+  Surface information about your Kubernetes resources in Deck's details panel using Kubernetes annotations.
 ---
 
 This guide describes how to surface information about your Kubernetes resources

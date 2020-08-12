@@ -1,11 +1,10 @@
 ---
 title: "Best practices for configuring canary"
-linkTitle: "Best practices for configuring canary"
+linkTitle: "Best practices"
 weight: 2
-description: 
+description: >
+  Details several best practices for configuring and using canary analysis.
 ---
-
-
 
 ## Don't put too many metrics in one group
 

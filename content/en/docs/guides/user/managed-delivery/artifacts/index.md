@@ -1,15 +1,11 @@
 ---
 title: "Artifacts"
 linkTitle: "Artifacts"
-weight: 
-description: 
+weight: 10
+description: "Debians and Docker images"
 ---
 
-
-
-
-
-Managed Delivery supports two types of delivery artifacts: **debians** and **docker images**.
+Managed Delivery supports two types of delivery artifacts: **debians** and **Docker images**.
 
 Delivery artifacts are meant to provide Spinnaker information about:
 1. Where to locate the *available versions* of an artifact you care about
@@ -21,7 +17,7 @@ Spinnaker needs this information to make decisions about when and how to roll ou
 
 ** Warning: this is Netflix specific. Interested in contributing? Reach out to us in the #sig-spinnaker-as-code slack channel. **
 
-All debians at Neflix are named and compared in the same way. 
+All debians at Neflix are named and compared in the same way.
 For example, a debian might look like this:
 
 ```
@@ -31,7 +27,7 @@ keel_0.353.0-h290.ae13adb_all.deb
 
 We compare the semantic version located after the `packagename_` (`keel_` in this example) and before the `-h`.
 
-Debians have status information on them. A debian can have any of these statuses: 
+Debians have status information on them. A debian can have any of these statuses:
 
 - snapshot
 - candidate
@@ -50,7 +46,7 @@ artifacts:
   reference: my-debian-artifact # optional human-readable reference to be used elsewhere in the config, defaults to artifact name
 ```
 
-If you provide status information, you limit the possible artifacts that can be deployed to your environment. 
+If you provide status information, you limit the possible artifacts that can be deployed to your environment.
 This is useful if you have a test environment that only snapshots should be deployed to, or a prod environment that only release artifacts should be deployed to.
 
 Status information is optional. If you leave it out, versions with *any* status will be considered eligible for deployment into your environment.
@@ -66,12 +62,12 @@ master-h5.5a52206
 
 # semver-jenkinsJob.commitSha
 v1.12.1-h1159.b839a00
-``` 
+```
 
 
 ### Basic Configuration
 
-In order to support the different ways of doing versioning, docker artifacts have some more config options. 
+In order to support the different ways of doing versioning, docker artifacts have some more config options.
 The basic structure is like this:
 
 ```yaml
@@ -105,7 +101,7 @@ If none of these work for you, you can provide your own regex to capture somethi
 You must create a regex that parses valid tags and captures a string from them which can be compared _either_ as an increasing number or a semantic version.
 The capture group must only capture one thing (you can't have multiple capture groups).
 
-For example, let's say your tags look like `master-h5.5a52206` and we didn't have a built in strategy for this style. 
+For example, let's say your tags look like `master-h5.5a52206` and we didn't have a built in strategy for this style.
 You'd define an artifact like this:
 
 ```yaml

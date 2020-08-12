@@ -1,17 +1,15 @@
 ---
 title: "Configure Automated Rollbacks in the Kubernetes Provider"
-linkTitle: "Configure Automated Rollbacks in the Kubernetes Provider"
-weight: 
-description: 
+linkTitle: "Automated Rollbacks"
+description: >
+  Create automated rollbacks
 ---
-
-
 
 There are clear benefits to having your stored manifests (in Git, GCS, etc...)
 match as closely as possible to what's running in your cluster: you have
 auditability, versioned changes, and a high confidence in what code you have
 running. However, in some cases, pushing changes from someplace like GitHub
-through your build system all the way production can simply take too long, and
+through your build system all the way to production can simply take too long, and
 an escape hatch is needed when something has gone seriously wrong. Automated
 rollback is that escape hatch.
 
@@ -54,8 +52,8 @@ following state:
 
 ```
 nginx-deployment-2d8178b77 (Revision 5) # active
-nginx-deployment-7bdd110f7 (Revision 4) 
-nginx-deployment-0b13cc8c1 (Revision 1) 
+nginx-deployment-7bdd110f7 (Revision 4)
+nginx-deployment-0b13cc8c1 (Revision 1)
 ```
 
 And roll back by "1" revision, (Revision 4) will be active again. Roll back by

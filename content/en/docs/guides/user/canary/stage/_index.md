@@ -1,15 +1,11 @@
 ---
-layout: single
 title:  "Add a canary stage to a pipeline"
-sidebar:
-  nav: guides
+linkTitle: "Canary stage"
+description: How to add a canary stage to your pipeline
 ---
 
-
-
-
-If you have [enabled canary for your application](/setup/canary/) and have one
-or more [canary configs prepared](/docs/v1/guides/user/canary/config/), you can now add
+If you have [enabled canary for your application](/docs/setup/canary/) and have one
+or more [canary configs prepared](/docs/guides/user/canary/config/), you can now add
 a canary stage to your pipeline and configure it to perform canary analysis for
 your deployment.
 
@@ -53,7 +49,7 @@ other permutations, like multiple stages? -->
 1. Give the stage a name, and use the __Depends On__ field to position the stage
 downstream of its dependencies.
 
-   ![Canary stage declaration](/docs/v1/guides/user/canary/stage/canary_stage_top.png)
+   ![Canary stage declaration](/docs/guides/user/canary/stage/canary_stage_top.png)
 
 1. Select the __Analysis Type__&mdash;either __Real Time__ or __Retrospective__.
 
@@ -78,7 +74,7 @@ downstream of its dependencies.
 
    * Choose the __Config Name__.
 
-     This is the canary config you created [here](/docs/v1/guides/user/canary/config).
+     This is the canary config you created [here](/docs/guides/user/canary/config).
      That configuration must be visible to this application. By default, all
      configs are visible to all applications, but your canary might be [set up
      so that each config is limited]() to the application in which it is created.
@@ -104,7 +100,7 @@ downstream of its dependencies.
      It would not be unusual for the __Interval__ and the __look-back__
      duration to be the same, but they don't have to be.
 
-   ![Canary stage declaration](/docs/v1/guides/user/canary/stage/stage_config_analysis.png)
+   ![Canary stage declaration](/docs/guides/user/canary/stage/stage_config_analysis.png)
 
 1. Describe the metric scope.
 
@@ -149,12 +145,12 @@ downstream of its dependencies.
      templates [specified in the canary
      config](/docs/v1/guides/user/canary/config/filter_templates/).
 
-   ![Canary stage declaration](/docs/v1/guides/user/canary/stage/metric_scope.png)
+   ![Canary stage declaration](/docs/guides/user/canary/stage/metric_scope.png)
 
 1. Adjust the __Scoring Thresholds__, if needed.
 
    The thresholds are pre-populated based on those configured in the main
-   [canary config](/docs/v1/guides/user/canary/config/), but you can override them here.
+   [canary config](/docs/guides/user/canary/config/), but you can override them here.
 
 1. Specify the accounts you're using for metrics and storage.
 
@@ -164,7 +160,7 @@ downstream of its dependencies.
    * The __Storage Account__ points to the GCS or S3 account you configured
    [here]().
 
-   ![Canary stage declaration](/docs/v1/guides/user/canary/stage/advanced_settings.png)
+   ![Canary stage declaration](/docs/guides/user/canary/stage/advanced_settings.png)
 
 <!--   ## Time scope in the canary stage
 

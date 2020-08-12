@@ -1,19 +1,18 @@
 ---
 title: "Git-Based Workflows"
 linkTitle: "Git-Based Workflows"
-weight: 
-description: 
+weight: 10
+description: >
+  Create and update Managed Delivery configurations using a Git-based workflow
 ---
-
-
 
 Spinnaker supports git-based workflows to create and update Managed Delivery configurations.
 This allows you to keep your Managed Delivery configuration in code and follow all the usual
 best practices like code review and approvals before a change is introduced to your managed
 resources, environments or deployments.
- 
-Git support is currently achieved via a pipeline configured with a 
-[trigger](/docs/v1/guides/user/pipeline/triggers/) that can provide source repository
+
+Git support is currently achieved via a pipeline configured with a
+[trigger](/docs/guides/user/pipeline/triggers/) that can provide source repository
 information (such as a Git trigger) and containing a single `Import Delivery Config` stage.
 This stage will retrieve a Delivery Config manifest from the repository associated with your
 pipeline's trigger, then save (or update) it in Spinnaker so it will automatically monitor
