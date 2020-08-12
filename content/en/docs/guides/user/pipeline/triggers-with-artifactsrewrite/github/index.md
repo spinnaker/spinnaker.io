@@ -1,16 +1,12 @@
 ---
 title: "Receiving artifacts from GitHub"
-linkTitle: "Receiving artifacts from GitHub"
-weight: 
+linkTitle: "GitHub"
+weight:
 description: >
-  This guide explains how to configure Spinnaker to trigger pipelines based on commits to a [GitHub](https://github.com) repository and inject changed GitHub files as [artifacts](/reference/artifacts) into a pipeline.
+  Configure Spinnaker to trigger pipelines based on commits to a [GitHub](https://github.com) repository and inject changed GitHub files as [artifacts](/docs/reference/artifacts) into a pipeline
 ---
 
 ## Overview
-
-This guide explains how to configure Spinnaker to trigger pipelines based on
-commits to a [GitHub](https://github.com) repository and inject changed GitHub
-files as [artifacts](/reference/artifacts) into a pipeline.
 
 This functionality uses GitHub
 [Webhooks](https://developer.github.com/webhooks/) for delivering messages to
@@ -33,7 +29,7 @@ You need the following:
 
 * [A running Spinnaker instance](/setup/install/). This guide shows you how to
   update it to accept messages from GitHub.
-  
+
 * Artifact support [enabled](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).  
 
 
@@ -73,7 +69,7 @@ Let's add a Git trigger to run our pipeline. To configure the trigger:
 
 | Field | Value |
 |-------|-------|
-| __Type__ | "Git" | 
+| __Type__ | "Git" |
 | __Repo Type__ | "GitHub" |
 | __Organization or User__  | `$ORGANIZATION` from above |
 | __Project__ | `$REPOSITORY` from above |

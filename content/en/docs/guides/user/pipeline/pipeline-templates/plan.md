@@ -1,13 +1,11 @@
 ---
-layout: single
 title:  "Visualize a Hydrated Pipeline"
-sidebar:
-  nav: guides
+weight: 25
+description: >
+  Visualize a pipeline created from a pipeline template without actually instantiating one
 ---
-
-
-
-You can use `spin` CLI to visualize a pipeline created from a pipeline template
+Y
+ou can use `spin` CLI to visualize a pipeline created from a pipeline template
 without actually instantiating one.
 
 When you do this, you are creating JSON output that looks like regular pipeline
@@ -26,7 +24,7 @@ spin pipeline-templates plan --file <path to pipeline config>
 ```
 
 ...where `<path to pipeline config>` points to the [file you
-created](/docs/v1/guides/user/pipeline/pipeline-templates/create/) when you
+created](/docs/guides/user/pipeline/pipeline-templates/create/) when you
 instantiated a pipeline based on the template.
 
 
@@ -42,5 +40,5 @@ spin pipeline save --file <path to pipeline config>
 
 ## Next steps
 
-* [Create a pipeline from the template](/docs/v1/guides/user/pipeline/pipeline-templates/instantiate/)
+* [Create a pipeline from the template](/docs/guides/user/pipeline/pipeline-templates/instantiate/)
 

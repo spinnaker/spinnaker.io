@@ -1,15 +1,9 @@
 ---
-layout: single
 title:  "Create a Pipeline Template"
-sidebar:
-  nav: guides
+weight: 10
+description: >
+  Create a pipeline template from an existing pipeline parameterize that template
 ---
-
-
-
-This document describes how to create a pipeline template from an existing
-pipeline, and how to parameterize that template.
-
 When you create a pipeline template, you start with the underlying JSON of a
 pipeline that already resembles the template you want. You turn this JSON into
 template JSON.

@@ -1,12 +1,13 @@
 ---
 title: "Triggering on Webhooks"
-linkTitle: "Triggering on Webhooks"
-weight: 
-description:
+linkTitle: "Webhooks"
+weight:
+description: >
+  Use a webhook to trigger a pipeline
 ---
 
 
-In order to programatically trigger pipelines you can send a `POST` call to
+In order to programmatically trigger pipelines you can send a `POST` call to
 Spinnaker at a preconfigured endpoint. You can use this to trigger pipelines
 when a CI job finishes, from the command line, or from a third-party system.
 The payload, whether it is one you are able to write, or it is provided for
@@ -16,11 +17,11 @@ you, will be available in the Pipeline's execution.
 > webhook.
 
 If you're triggering from a *GitHub* webhook, see the instructions
-[here](/setup/triggers/github/) to set up that webhook.
+[here](/docs/setup/triggers/github/) to set up that webhook.
 
 ## Prerequisites
 
-* Artifact support [enabled](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
 
 ## Adding a webhook trigger to a pipeline
 
@@ -82,7 +83,7 @@ Say your pipeline accepted some parameters (for example, the desired stack to
 deploy to), you can make this explicit by adding a pipeline parameter on the
 same configuration screen as the webhook trigger:
 
-{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/v1/guides/user/pipeline-expressions)." >}}
+{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline-expressions)." >}}
 
 
 If you were to manually execute this pipeline, you would be prompted with the
