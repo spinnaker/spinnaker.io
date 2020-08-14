@@ -49,3 +49,4 @@ HUGO_ENABLEGITINFO = "true"
   to = "/docs/reference/:splat"
   status = 301
   force = false
+  
