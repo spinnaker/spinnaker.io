@@ -31,3 +31,21 @@ HUGO_VERSION = "0.70.0"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
+
+[[redirects]]
+  from = "/setup/*"
+  to = "/docs/setup/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/guides/*"
+  to = "/docs/guides/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/reference/*"
+  to = "/docs/reference/:splat"
+  status = 301
+  force = false
