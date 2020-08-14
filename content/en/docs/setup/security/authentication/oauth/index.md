@@ -36,7 +36,7 @@ During the OAuth [workflow](/reference/architecture/authz_authn/authentication/#
 guess on how to assemble a URI to
 itself, called the *redirect URI*. Sometimes this guess is wrong when Spinnaker is deployed
 in concert with other networking components, such as an SSL-terminating load balancer, or in the
-case of the [Quickstart](/docs/v1.19/setup/quickstart) images, a fronting Apache instance.
+case of the [Quickstart](/docs/setup/quickstart) images, a fronting Apache instance.
 
 You can manually set the redirect URI at the `security.authn.oauth2.client.preEstablishedRedirectUri`
 field
@@ -120,13 +120,13 @@ hal config security authn oauth2 edit \
 
 ## Next steps
 
-Now that you've authenticated the user, proceed to setting up their [authorization](/docs/v1.19/setup/security/authorization/).
+Now that you've authenticated the user, proceed to setting up their [authorization](/docs/setup/security/authorization/).
 
 ## Troubleshooting
 
 * Review the general [authentication workflow](/reference/architecture/authz_authn/authentication/#workflow).
 
-* Use an [incognito window](/docs/v1.19/setup/security/authentication#incognito-mode).
+* Use an [incognito window](/docs/setup/security/authentication#incognito-mode).
 
 * I'm getting an `Error: redirect_uri_mismatch` from my OAuth provider.
 

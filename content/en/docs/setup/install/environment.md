@@ -53,7 +53,7 @@ which you will install Spinnaker.
    This must be on a Kubernetes cluster. It does not have to be the same
    provider as the one you're using to deploy your applications.
 
-   * [Kubernetes](/docs/v1.19/setup/install/providers/kubernetes-v2)
+   * [Kubernetes](/docs/setup/install/providers/kubernetes-v2)
 
    We recommend at least 4 cores and 16GB of RAM available in the cluster where
    you will deploy Spinnaker.
@@ -217,4 +217,4 @@ hal config version edit --version branch:upstream/master
 ## Next steps
 
 Now that your deployment environment is set up, you need to provide Spinnaker
-with a [Persistent Storage](/docs/v1.19/setup/install/storage/) source.
+with a [Persistent Storage](/docs/setup/install/storage/) source.

@@ -11,7 +11,7 @@ redirect_from: /setup/providers/dcos/
 DC/OS configuration for Spinnaker consists of a set of DC/OS
 clusters and a set of [Accounts](/concepts/providers/#accounts) that have
 credentials to authenticate to one or more of those clusters.
-Additionally, each account has a set of [Docker Registry](/docs/v1.19/setup/providers/docker-registry)
+Additionally, each account has a set of [Docker Registry](/docs/setup/providers/docker-registry)
 accounts to be used as a source of images.
 
 ## Prerequisites
@@ -28,7 +28,7 @@ has not been extensively tested.
 
 ### Docker registries
 
-Follow the steps under the [Docker Registry](/docs/v1.19/setup/providers/docker-registry)
+Follow the steps under the [Docker Registry](/docs/setup/providers/docker-registry)
 provider to add any registries containing images you want to deploy. If
 you have already done so, you can verify that these accounts exist by running:
 
@@ -94,6 +94,6 @@ and [clusters](/reference/halyard/commands/#hal-config-provider-dcos-cluster-add
 
 ## Next steps
 
-Optionally, you can [set up another cloud provider](/docs/v1.19/setup/install/providers/),
-but otherwise you're ready to [choose an environment](/docs/v1.19/setup/install/environment/)
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
+but otherwise you're ready to [choose an environment](/docs/setup/install/environment/)
 in which to install Spinnaker.

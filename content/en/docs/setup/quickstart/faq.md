@@ -41,7 +41,7 @@ infrastructure in whatever accounts it manages, and opening it to the public is
 not a good idea without authentication enabled. With that in mind, there are
 two solutions.
 
-1. Once you enable an [authentication](/docs/v1.19/setup/security/) mechanism, Spinnaker
+1. Once you enable an [authentication](/docs/setup/security/) mechanism, Spinnaker
    will bind the UI and API servers to `0.0.0.0` automatically. This is
    [configurable](/reference/halyard/custom/) if you prefer to bind a specify
    address instead. Regardless, you still need to set the API &
@@ -56,7 +56,7 @@ two solutions.
 
 ## I want to expose the distributed, Kubernetes hosted Spinnaker publicly
 
-There is [a guide](/docs/v1.19/setup/quickstart/halyard-gke-public/) for doing this using
+There is [a guide](/docs/setup/quickstart/halyard-gke-public/) for doing this using
 Google's authentication & domain registrar. If this doesn't match your
 environment, it may still be helpful to read. The key point is, Halyard does
 _not_ touch any of the Kubernetes Service objects once they are created. You
@@ -133,7 +133,7 @@ jittering in the UI as the caches are repopulated.
 
 ## I want to decouple my Halyard configuration from a single machine
 
-Please read [the backup documentation](/docs/v1.19/setup/install/backups/).
+Please read [the backup documentation](/docs/setup/install/backups/).
 
 ## Halyard produces a lot of ugly ANSI escape sequences making it frustrating to automate
 

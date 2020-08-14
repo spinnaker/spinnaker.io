@@ -21,7 +21,7 @@ To configure a Script stage, you need:
 *   A running Jenkins instance at `$JENKINS_HOST`, with a Jenkins user profile set up
     with access to create jobs
 *   A running Spinnaker instance, with access to configuration files, and in
-    which you have [set up Jenkins on Spinnaker](/docs/v1.19/setup/ci/jenkins/)
+    which you have [set up Jenkins on Spinnaker](/docs/setup/ci/jenkins/)
 
 ## Configure Jenkins
 

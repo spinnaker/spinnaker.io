@@ -31,14 +31,14 @@ you implement at least a temporary SSL solution **first**.
 A common practice is to offload SSL-related bits to outside of the server in
 question. This is fully supported in Spinnaker, but it does affect the
 authentication configuration slightly. See your [authentication
-method](/docs/v1.19/setup/security/authentication/) for specifics.
+method](/docs/setup/security/authentication/) for specifics.
 
-![SSL terminated at load balancer](/docs/v1.19/setup/security/authentication/network-arch/lb-ssl-termination.png)
+![SSL terminated at load balancer](/docs/setup/security/authentication/network-arch/lb-ssl-termination.png)
 
 During certain authentication workflows, Gate makes an intelligent guess on how to assemble a URI to
 itself, called the **`redirect_uri`**. Sometimes this guess is wrong when Spinnaker is deployed
 in concert with other networking components, such as an SSL-terminating load balancer, or in the
-case of the [Quickstart](/docs/v1.19/setup/quickstart) images, a fronting Apache instance.
+case of the [Quickstart](/docs/setup/quickstart) images, a fronting Apache instance.
 
 To manually set the `redirect_uri` for Gate, use the following `hal` command:
 
@@ -86,7 +86,7 @@ Terminating SSL within the Gate server is the de-facto way to enable SSL for
 Spinnaker. This works with or without a load balancer proxying traffic to this
 instance.  
 
-![SSL terminated at server through load balancer](/docs/v1.19/setup/security/authentication/network-arch/server-ssl-termination.png)
+![SSL terminated at server through load balancer](/docs/setup/security/authentication/network-arch/server-ssl-termination.png)
 
 #### 1. Generate key and self-signed certificate
 
@@ -406,7 +406,7 @@ new trust/key store by default.
 
 Choose an authentication method:
 
-* [OAuth 2.0](/docs/v1.19/setup/security/authentication/oauth/)
-* [SAML](/docs/v1.19/setup/security/authentication/saml/)
-* [LDAP](/docs/v1.19/setup/security/authentication/ldap/)
-* [X.509](/docs/v1.19/setup/security/authentication/x509/)
+* [OAuth 2.0](/docs/setup/security/authentication/oauth/)
+* [SAML](/docs/setup/security/authentication/saml/)
+* [LDAP](/docs/setup/security/authentication/ldap/)
+* [X.509](/docs/setup/security/authentication/x509/)

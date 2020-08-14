@@ -5,11 +5,11 @@ weight: 1
 description: 
 ---
 
-> Note: we recommend that you install Spinnaker following the [standard setup directions](/docs/v1.19/setup/)
+> Note: we recommend that you install Spinnaker following the [standard setup directions](/docs/setup/)
  rather than using this guide, which is just a set of commands to get Spinnaker up and running on
  GCS and GKE.
 
-In this guide, you will learn the basics of [Halyard](/docs/v1.19/setup/install/halyard/), Spinnaker's tool for managing your Spinnaker instance.
+In this guide, you will learn the basics of [Halyard](/docs/setup/install/halyard/), Spinnaker's tool for managing your Spinnaker instance.
 
 ## Overview
 
@@ -260,7 +260,7 @@ authorization if necessary. Then re-run `hal deploy apply`.
 > :point_right: Halyard will warn you that you have deployed Spinnaker remotely
 > without configuring an authentication mechanism. This is OK, but cumbersome,
 > since we can connect via SSH tunnels. If you want to configure
-> authentication, read more in the [security documentation](/docs/v1.19/setup/security).
+> authentication, read more in the [security documentation](/docs/setup/security).
 
 Now, to connect to Spinnaker, run:
 
@@ -273,4 +273,4 @@ Finally, from your local workstation browser, navigate to your [brand new Spinna
 
 ## Next steps
 
-For more information on halyard and managing Spinnaker, go to the [Setup](/docs/v1.19/setup/install/halyard) section for an overview of how halyard works, and the [Reference](/reference/halyard/) section for an exhaustive listing of halyard commands.
+For more information on halyard and managing Spinnaker, go to the [Setup](/docs/setup/install/halyard) section for an overview of how halyard works, and the [Reference](/reference/halyard/) section for an exhaustive listing of halyard commands.

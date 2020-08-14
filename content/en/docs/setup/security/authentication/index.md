@@ -72,6 +72,6 @@ A common issue with Incognito windows is that they _all share the same cookie ja
 
 ## Next steps
 
-Set up [Authorization](/docs/v1.19/setup/security/authorization/).
+Set up [Authorization](/docs/setup/security/authorization/).
 
-Learn how to configure Spinnaker to communicate over [SSL](/docs/v1.19/setup/security/ssl).
+Learn how to configure Spinnaker to communicate over [SSL](/docs/setup/security/ssl).

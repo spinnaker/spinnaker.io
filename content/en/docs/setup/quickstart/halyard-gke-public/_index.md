@@ -8,7 +8,7 @@ description:
 
 
 If you've deployed Spinnaker already using [this
-codelab](/docs/v1.19/setup/quickstart/halyard-gke) you're left with a Spinnaker that's
+codelab](/docs/setup/quickstart/halyard-gke) you're left with a Spinnaker that's
 accessible only with `hal deploy connect`. This is unwieldy, making Spinnaker
 difficult for other users in your organization to access.
 
@@ -31,7 +31,7 @@ You need a [GAFW domain](https://admin.google.com) (referred to as `$DOMAIN`
 for the remainder of this tutorial).
 
 You need a running Spinnaker cluster in GKE. If you don't have one, please go
-through [this codelab](/docs/v1.19/setup/quickstart/halyard-gke).
+through [this codelab](/docs/setup/quickstart/halyard-gke).
 
 ## Part 1: Configuring authentication
 

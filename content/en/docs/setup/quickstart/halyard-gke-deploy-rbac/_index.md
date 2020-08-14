@@ -8,7 +8,7 @@ description:
 
 
 If you've deployed Spinnaker already using [this
-codelab](/docs/v1.19/setup/quickstart/halyard-gke) you're left with a Spinnaker that can only deploy to the cluster that Spinnaker is deployed in.
+codelab](/docs/setup/quickstart/halyard-gke) you're left with a Spinnaker that can only deploy to the cluster that Spinnaker is deployed in.
 In many cases you want to deploy to clusters in another GCP project that has Kubernetes RBAC enabled.
 
 This codelab shows how to push your containers to a separate, RBAC-enabled cluster in a different GCP project, and how to enable Spinnaker to manipulate deployments in that cluster.
@@ -24,7 +24,7 @@ At the end of this guide you will have:
 
 ## Part 0: Prerequisites
 
-* A GCP project (referred to as $GCP_PROJECT) running a Spinnaker [GKE cluster with Halyard](/docs/v1.19/setup/quickstart/halyard-gke/)
+* A GCP project (referred to as $GCP_PROJECT) running a Spinnaker [GKE cluster with Halyard](/docs/setup/quickstart/halyard-gke/)
 * Another K8s cluster (referred to as $K8_TEST) running with Kubernetes version > 1.6 on another GCP project ($GCP_TEST)
 
 ## Part 1: Configure gcloud

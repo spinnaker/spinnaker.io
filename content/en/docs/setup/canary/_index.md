@@ -119,7 +119,7 @@ hal config canary edit --default-metrics-account ACCOUNT
 
 ## Provide the default storage account
 
-Add the account name for your [storage provider](/docs/v1.19/setup/install/storage).
+Add the account name for your [storage provider](/docs/setup/install/storage).
 This default can be overridden in [canary
 configuration](/guides/user/canary/config/).
 

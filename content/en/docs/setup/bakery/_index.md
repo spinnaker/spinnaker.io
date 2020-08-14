@@ -47,5 +47,5 @@ stage UI to refer to your custom template:
 
 The following providers support configuring their image bakery:
 
-* [Google Compute Engine](/docs/v1.19/setup/bakery/google/)
-* [Oracle Cloud Infrastructure](/docs/v1.19/setup/bakery/oracle/)
+* [Google Compute Engine](/docs/setup/bakery/google/)
+* [Oracle Cloud Infrastructure](/docs/setup/bakery/oracle/)

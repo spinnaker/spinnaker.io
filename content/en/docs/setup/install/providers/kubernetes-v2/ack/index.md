@@ -30,4 +30,4 @@ scp root@$MASTER:/etc/kubernetes/kube.conf $HOME/.kube/config
 ## Next Steps
 
 [Follow the setup instructions for adding a Kubernetes account in
-Spinnaker](/docs/v1.19/setup/install/providers/kubernetes-v2/#adding-an-account).
+Spinnaker](/docs/setup/install/providers/kubernetes-v2/#adding-an-account).

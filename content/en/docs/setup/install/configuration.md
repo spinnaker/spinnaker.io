@@ -19,7 +19,7 @@ hal deploy apply
 
 ### Deploy to more environments
 
-[Documentation](/docs/v1.19/setup/providers/) -- `hal config provider`
+[Documentation](/docs/setup/providers/) -- `hal config provider`
 
 You can add more Accounts to as many Providers as you want. There is nothing
 preventing you from deploying to two Kubernetes clusters, one Google Compute
@@ -27,7 +27,7 @@ Engine project, and an App Engine application all at once.
 
 ### Edit your storage settings
 
-[Documentation](/docs/v1.19/setup/install/storage/) -- `hal config storage`
+[Documentation](/docs/setup/install/storage/) -- `hal config storage`
 
 While you have likely already setup a storage source during the initial
 installation of Spinnaker, you can always reconfigure it. However, it is up to
@@ -35,27 +35,27 @@ you to migrate any data that you depend on.
 
 ### Secure your Spinnaker installation
 
-[Documentation](/docs/v1.19/setup/security/) -- `hal config security`
+[Documentation](/docs/setup/security/) -- `hal config security`
 
 You can configure SSL, setup a login page, or apply role-based authorization.
 
 ### Setup continuous integration
 
-[Documentation](/docs/v1.19/setup/ci/) -- `hal config ci`
+[Documentation](/docs/setup/ci/) -- `hal config ci`
 
 Configure Jenkins or Travis CI to trigger Pipelines or supply Spinnaker with
 build artifacts to build into images and deploy.
 
 ### Configure notifications
 
-[Documentation](/docs/v1.19/setup/features/notifications/) -- ` `
+[Documentation](/docs/setup/features/notifications/) -- ` `
 
 Enable notifications to be sent on Spinnaker events, and allow external events
 to trigger Pipelines in Spinnaker.
 
 ### Monitor your Spinnaker installation
 
-[Documentation](/docs/v1.19/setup/monitoring/) -- `hal config metric-stores`
+[Documentation](/docs/setup/monitoring/) -- `hal config metric-stores`
 
 Publish timeseries data from your Spinnaker installation to a variety of
 metric sources into curated dashboards. This is useful for understanding how
@@ -64,4 +64,4 @@ to scale and troubleshoot your deployment of Spinnaker.
 ## Next steps
 
 Now that you know how to make configuration changes, it's worth learning how to
-[Upgrade Spinnaker](/docs/v1.19/setup/install/upgrades/).
+[Upgrade Spinnaker](/docs/setup/install/upgrades/).

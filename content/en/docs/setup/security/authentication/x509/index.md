@@ -13,7 +13,7 @@ is generally easier than dynamically obtaining an OAuth Bearer token or SAML ass
 
 ## Certificates
 
-If you followed the [SSL](/docs/v1.19/setup/security/ssl) guide, you may already have generated a **certificate
+If you followed the [SSL](/docs/setup/security/ssl) guide, you may already have generated a **certificate
 authority**
 (CA). Using this CA, we can generate a client certificate using `openssl`.
 
@@ -160,12 +160,12 @@ passing between Deck, Gate, and a third-party identity provider. Connections are
 
 ## Next steps
 
-Now that you've authenticated the user, proceed to setting up their [authorization](/docs/v1.19/setup/security/authorization/).
+Now that you've authenticated the user, proceed to setting up their [authorization](/docs/setup/security/authorization/).
 
 ## Troubleshooting
 
-* Review the general [authentication guide](/docs/v1.19/setup/security/authentication).
+* Review the general [authentication guide](/docs/setup/security/authentication).
 * Review the authentication [reference guide](/reference/architecture/authz_authn/authentication).
 
 
-* Use an [incognito window](/docs/v1.19/setup/security/authentication#incognito-mode).
+* Use an [incognito window](/docs/setup/security/authentication#incognito-mode).

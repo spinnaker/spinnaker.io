@@ -68,4 +68,4 @@ hal config storage edit --type azs
 ## Next steps
 
 After you've set up Azure Storage as your storage service, you're ready to
-[deploy Spinnaker](/docs/v1.19/setup/install/deploy/).
+[deploy Spinnaker](/docs/setup/install/deploy/).

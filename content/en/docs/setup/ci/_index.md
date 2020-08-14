@@ -23,10 +23,10 @@ independently of one-another, enumerated below.
 
 These are the CI systems currently supported by Spinnaker:
 
-* [AWS CodeBuild](/docs/v1.19/setup/ci/codebuild/)
-* [Google Cloud Build](/docs/v1.19/setup/ci/gcb/)
-* [Jenkins](/docs/v1.19/setup/ci/jenkins/)
-* [Travis CI](/docs/v1.19/setup/ci/travis/)
-* [Wercker](/docs/v1.19/setup/ci/wercker/)
+* [AWS CodeBuild](/docs/setup/ci/codebuild/)
+* [Google Cloud Build](/docs/setup/ci/gcb/)
+* [Jenkins](/docs/setup/ci/jenkins/)
+* [Travis CI](/docs/setup/ci/travis/)
+* [Wercker](/docs/setup/ci/wercker/)
 
 See also [`hal config ci`](/reference/halyard/commands/#hal-config-ci).

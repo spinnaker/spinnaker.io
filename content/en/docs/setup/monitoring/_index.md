@@ -44,9 +44,9 @@ choice with each Spinnaker service's metrics. To do so, Halyard must be
 provided with third-party specific credentials and/or endpoints explained
 in each system's configuration below:
 
-* [Datadog](/docs/v1.19/setup/monitoring/datadog/)
-* [Prometheus](/docs/v1.19/setup/monitoring/prometheus/#configure-the-spinnaker-monitoring-daemon-for-prometheus)
-* [Stackdriver](/docs/v1.19/setup/monitoring/stackdriver/#configure-the-spinnaker-monitoring-daemon-for-stackdriver)
+* [Datadog](/docs/setup/monitoring/datadog/)
+* [Prometheus](/docs/setup/monitoring/prometheus/#configure-the-spinnaker-monitoring-daemon-for-prometheus)
+* [Stackdriver](/docs/setup/monitoring/stackdriver/#configure-the-spinnaker-monitoring-daemon-for-stackdriver)
 
 Once this is complete and Spinnaker is deployed, you can optionally use the
 `spinnaker-monitoring-third-party` package to deploy pre-configured [Spinnaker

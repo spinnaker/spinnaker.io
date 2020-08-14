@@ -10,7 +10,7 @@ Using [Oracle Object Storage](https://docs.cloud.oracle.com/iaas/Content/Object/
 
 ## Prerequisites
 
-If you have enabled [Oracle Cloud provider](/docs/v1.19/setup/install/providers/oracle/) in Spinnaker, you may use the same region, Tenancy’s OCID, user’s OCID, Compartment's OCID, private key file, and fingerprint to enable Oracle Object Storage. You will need the following to enable Oracle Object Storage in Spinnaker:
+If you have enabled [Oracle Cloud provider](/docs/setup/install/providers/oracle/) in Spinnaker, you may use the same region, Tenancy’s OCID, user’s OCID, Compartment's OCID, private key file, and fingerprint to enable Oracle Object Storage. You will need the following to enable Oracle Object Storage in Spinnaker:
 
 * A user in IAM for the person or system who will be using Spinnaker, and that user must be granted access to Object Storage or in one IAM group with permissions of Object Storage.
 
@@ -94,4 +94,4 @@ For example:
 ## Next steps
 
 After you've set up Oracle Object Storage as your external storage service, you're ready to
-[deploy Spinnaker](/docs/v1.19/setup/install/deploy/).
+[deploy Spinnaker](/docs/setup/install/deploy/).

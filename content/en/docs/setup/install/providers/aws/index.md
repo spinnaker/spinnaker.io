@@ -37,6 +37,6 @@ Refer to [AWS IAM Providing Access to multiple AWS Accounts](https://docs.aws.am
 
 There are several ways to configure the Amazon Web Services (AWS) Cloud Provider. Choose one or more based on your requirements:
 
-* [Amazon Elastic Compute Cloud (EC2)](/docs/v1.19/setup/install/providers/aws/aws-ec2/) - - Use this option, if you want to manage [EC2 Instances](https://aws.amazon.com/ec2/) via Spinnaker
-* [Amazon Elastic Container Service (ECS)](/docs/v1.19/setup/install/providers/aws/aws-ecs/) - Use this option, if you want to manage containers in [Amazon ECS](https://aws.amazon.com/ecs/)
-* [Amazon Elastic Kubernetes Service (EKS)](/docs/v1.19/setup/install/providers/kubernetes-v2/aws-eks/) - Use this option, if you want to manage containers in [Amazon EKS](https://aws.amazon.com/eks/). This option uses [Kubernetes V2 (manifest based) Clouddriver](/docs/v1.19/setup/install/providers/kubernetes-v2)
+* [Amazon Elastic Compute Cloud (EC2)](/docs/setup/install/providers/aws/aws-ec2/) - - Use this option, if you want to manage [EC2 Instances](https://aws.amazon.com/ec2/) via Spinnaker
+* [Amazon Elastic Container Service (ECS)](/docs/setup/install/providers/aws/aws-ecs/) - Use this option, if you want to manage containers in [Amazon ECS](https://aws.amazon.com/ecs/)
+* [Amazon Elastic Kubernetes Service (EKS)](/docs/setup/install/providers/kubernetes-v2/aws-eks/) - Use this option, if you want to manage containers in [Amazon EKS](https://aws.amazon.com/eks/). This option uses [Kubernetes V2 (manifest based) Clouddriver](/docs/setup/install/providers/kubernetes-v2)
