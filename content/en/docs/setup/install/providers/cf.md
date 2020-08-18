@@ -3,7 +3,8 @@ layout: single
 title:  "Cloud Foundry"
 sidebar:
   nav: setup
-redirect_from: /setup/providers/cf/
+aliases: 
+  - /setup/providers/cf/
 ---
 
 

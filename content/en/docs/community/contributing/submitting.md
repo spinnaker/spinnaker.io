@@ -3,7 +3,8 @@ layout: single
 title:  "Submitting A Patch"
 sidebar:
   nav: community
-redirect_from: /docs/how-to-submit-a-patch
+aliases: 
+  - /docs/how-to-submit-a-patch
 ---
 
 ## Before you begin

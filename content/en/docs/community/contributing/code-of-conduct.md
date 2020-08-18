@@ -3,7 +3,8 @@ layout: single
 title:  "Code Of Conduct"
 sidebar:
   nav: community
-redirect_from: /docs/code-of-conduct
+aliases: 
+  - /docs/code-of-conduct
 ---
 
 Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.

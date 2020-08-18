@@ -3,7 +3,7 @@ layout: single
 title:  "Kubernetes (legacy provider)"
 sidebar:
   nav: setup
-redirect_from: 
+aliases: 
  - /setup/providers/kubernetes/
  - /setup/install/providers/kubernetes-v1/
 ---

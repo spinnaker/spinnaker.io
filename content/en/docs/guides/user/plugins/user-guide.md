@@ -3,7 +3,7 @@ layout: single
 title:  "Users Guide"
 sidebar:
   nav: guides
-redirect_from:
+aliases:
   - /guides/user/plugin-users/
 ---
 

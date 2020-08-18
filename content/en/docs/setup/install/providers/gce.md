@@ -3,7 +3,8 @@ layout: single
 title:  "Google Compute Engine"
 sidebar:
   nav: setup
-redirect_from: /setup/providers/gce/
+aliases: 
+    - /setup/providers/gce/
 ---
 
 

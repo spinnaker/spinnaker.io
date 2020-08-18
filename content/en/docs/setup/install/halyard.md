@@ -3,7 +3,7 @@ layout: single
 title:  "Install Halyard"
 sidebar:
   nav: setup
-redirect_from:
+aliases:
   - /docs/creating-a-spinnaker-instance
   - /docs/target-deployment-configuration
 ---
