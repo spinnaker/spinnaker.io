@@ -1,15 +1,8 @@
 ---
-<<<<<<< HEAD
-layout: single
-title:  "Users Guide"
-sidebar:
-  nav: guides
-=======
 title: "Deployment Guide"
 weight: 5
 description: >
   Add, configure, and deploy plugins
->>>>>>> 3ff41f6... pipelines, plugins, tagging sections
 aliases:
   - /guides/user/plugin-users/
   - /guides/user/plugins/user-guide/
