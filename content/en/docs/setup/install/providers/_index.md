@@ -3,8 +3,10 @@ layout: single
 title:  "Choose Cloud Providers"
 sidebar:
   nav: setup
-redirect_from: /docs/target-deployment-setup
-redirect_from: /setup/providers/
+aliases: 
+  - /docs/target-deployment-setup
+  - /setup/providers/
+  - /docs/setup/providers
 ---
 
 In Spinnaker, *Providers* are integrations to the Cloud platforms you deploy

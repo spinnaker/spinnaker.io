@@ -3,7 +3,8 @@ layout: single
 title:  "Azure Storage"
 sidebar:
   nav: setup
-redirect_from: /setup/storage/azs/
+aliases: 
+  - /setup/storage/azs/
 ---
 
 

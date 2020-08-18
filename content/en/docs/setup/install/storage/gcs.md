@@ -3,7 +3,8 @@ layout: single
 title:  "Google Cloud Storage"
 sidebar:
   nav: setup
-redirect_from: /setup/storage/gcs/
+aliases: 
+    - /setup/storage/gcs/
 ---
 
 

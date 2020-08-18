@@ -3,7 +3,8 @@ layout: single
 title:  "Minio"
 sidebar:
   nav: setup
-redirect_from: /setup/storage/minio/
+aliases: 
+  - /setup/storage/minio/
 ---
 
 > :warning: Losing Minio's data will mean losing all your Spinnaker

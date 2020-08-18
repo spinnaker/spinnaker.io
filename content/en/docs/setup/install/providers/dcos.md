@@ -3,7 +3,8 @@ layout: single
 title:  "DC/OS"
 sidebar:
   nav: setup
-redirect_from: /setup/providers/dcos/
+aliases: 
+    - /setup/providers/dcos/
 ---
 
 

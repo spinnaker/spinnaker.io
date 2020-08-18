@@ -3,7 +3,8 @@ layout: single
 title:  "Redis"
 sidebar:
   nav: setup
-redirect_from: /setup/storage/redis/
+aliases: 
+   - /setup/storage/redis/
 ---
 
 {% include

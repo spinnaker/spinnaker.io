@@ -2,7 +2,8 @@
 title:  "SSL"
 sidebar:
   nav: setup
-redirect_from: /setup/security/authentication/ssl
+aliases: 
+  - /setup/security/authentication/ssl
 
 ---
 

@@ -3,7 +3,8 @@ layout: single
 title:  "Docker Registry"
 sidebar:
   nav: setup
-redirect_from: /setup/providers/docker-registry/
+aliases: 
+   - /setup/providers/docker-registry/
 ---
 
 
@@ -36,10 +37,15 @@ You can set up a Docker Registry provider for Spinnaker using any of the
 repositories listed here. Each one supports the same API, but there
 are subtle differences in how to get them to work with Spinnaker.
 
-* [DockerHub](#dockerhub)
-* [Google Container Registry](#google-container-registry)
-* [Amazon Elastic Container Registry (ECR)](#amazon-elastic-container-registry-ecr)
-* [Other Registries](#other-registries)
+- [Prerequisites](#prerequisites)
+- [Registry providers](#registry-providers)
+  - [DockerHub](#dockerhub)
+  - [Google Container Registry](#google-container-registry)
+  - [Amazon Elastic Container Registry (ECR)](#amazon-elastic-container-registry-ecr)
+  - [Other registries](#other-registries)
+- [Add the account](#add-the-account)
+- [Advanced Account Settings](#advanced-account-settings)
+- [Next Steps](#next-steps)
 
 ### DockerHub
 

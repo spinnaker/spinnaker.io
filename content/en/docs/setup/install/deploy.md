@@ -3,7 +3,8 @@ layout: single
 title:  "Deploy Spinnaker and Connect to the UI"
 sidebar:
   nav: setup
-redirect_from: /setup/install/upgrades/
+aliases: 
+   - /setup/install/upgrades/
 ---
 
 Now that we've enabled one or more [Cloud Providers](/docs/v1.19/setup/providers/), picked
