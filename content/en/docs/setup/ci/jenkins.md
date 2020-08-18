@@ -3,7 +3,8 @@ layout: single
 title:  "Jenkins"
 sidebar:
   nav: setup
-redirect_from: /docs/jenkins-script-execution-stage
+aliases: 
+    - /docs/jenkins-script-execution-stage
 ---
 
 

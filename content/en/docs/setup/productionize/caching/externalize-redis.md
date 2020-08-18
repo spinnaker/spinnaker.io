@@ -3,7 +3,8 @@ layout: single
 title:  "Externalize Redis"
 sidebar:
   nav: setup
-redirect_from: /setup/scaling/externalize-redis/
+aliases: 
+  - /setup/scaling/externalize-redis/
 ---
 
 

@@ -3,7 +3,8 @@ layout: single
 title:  "Google App Engine"
 sidebar:
   nav: setup
-redirect_from: /setup/providers/appengine/
+aliases: 
+    - /setup/providers/appengine/
 ---
 
 

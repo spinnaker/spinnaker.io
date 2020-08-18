@@ -3,7 +3,8 @@ layout: single
 title:  "Bake and Deploy Pipeline"
 sidebar:
   nav: guides
-redirect_from: /docs/bake-and-deploy-pipeline
+aliases: 
+  - /docs/bake-and-deploy-pipeline
 ---
 
 ---

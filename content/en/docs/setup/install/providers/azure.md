@@ -3,7 +3,8 @@ layout: single
 title:  "Azure"
 sidebar:
   nav: setup
-redirect_from: /setup/providers/azure/
+aliases: 
+  - /setup/providers/azure/
 ---
 
 
