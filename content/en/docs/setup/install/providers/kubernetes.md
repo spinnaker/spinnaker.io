@@ -9,14 +9,14 @@ aliases:
 ---
 
 > ⚠️ Spinnaker's legacy Kubernetes provider (V1) is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
-> We recommend using the [standard provider (V2)](/docs/v1.19/setup/install/providers/kubernetes-v2) instead. 
+> We recommend using the [standard provider (V2)](/docs/setup/install/providers/kubernetes-v2) instead. 
 
 
 
 For the Kubernetes provider, a Spinnaker [Account](/concepts/providers/#accounts)
 maps to a credential that can authenticate against your Kubernetes Cluster. It
 also includes a set of one or more [Docker
-Registry](/docs/v1.19/setup/providers/docker-registry) accounts that are used as a source
+Registry](/docs/setup/providers/docker-registry) accounts that are used as a source
 of images.
 
 When setting up your Kubernetes provider account, you will [use halyard to add
@@ -68,7 +68,7 @@ The simplest way to get credentials is to use legacy authorization.
 
 1. Enable Legacy authorization.
 
-   ![](/docs/v1.19/setup/install/providers/images/gke-enable-legacy-auth.png)
+   ![](/docs/setup/install/providers/images/gke-enable-legacy-auth.png)
 
 1. Configure `gcloud` to populate the `kubeconfig` with
 [legacy credentials](https://cloud.google.com/kubernetes-engine/docs/how-to/iam-integration#using_legacy_cluster_certificate_or_user_credentials){:target=""\_blank"}:
@@ -93,7 +93,7 @@ However, [you can also use RBAC and a service account](#optional-configure-kuber
 
 To use the Kubernetes (legacy) provider, you need a Docker registry as a source
 of images. To enable this, [set up a Docker registry as another
-provider](/docs/v1.19/setup/providers/docker-registry), and add any registries that
+provider](/docs/setup/providers/docker-registry), and add any registries that
 contain images you want to deploy.
 
 You can verify your Docker registry accounts using this command:
@@ -190,6 +190,6 @@ If you are looking for more configurability, see the available options in the
 
 ## Next steps
 
-Optionally, you can [set up another cloud provider](/docs/v1.19/setup/install/providers/),
-but otherwise you're ready to [choose the environment](/docs/v1.19/setup/install/environment/)
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
+but otherwise you're ready to [choose the environment](/docs/setup/install/environment/)
 in which to install Spinnaker.

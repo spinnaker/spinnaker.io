@@ -43,4 +43,4 @@ backup.
 ## Next steps
 
 After this step is done, you can use Spinnaker to create pipelines and deploy software, 
-but there are some [further configuration steps](/docs/v1.19/setup/other_config/) you're likely to need.
+but there are some [further configuration steps](/docs/setup/other_config/) you're likely to need.

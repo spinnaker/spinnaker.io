@@ -89,7 +89,7 @@ To enable Spinnaker and Jenkins to share a crumb to protect against CSRF...
 
     a. Under __Manage Jenkins__ > __Plugin Manager__ > __Available__, search for __Strict Crumb Issuer Plugin__, select __Install__
 
-    ![](/docs/v1.19/setup/ci/strict_crumb_issuer_plugin_install.png)
+    ![](/docs/setup/ci/strict_crumb_issuer_plugin_install.png)
 
 3. Enable CSRF protection in Jenkins:
 
@@ -100,7 +100,7 @@ To enable Spinnaker and Jenkins to share a crumb to protect against CSRF...
 
     c. Under __Strict Crumb Issuer__ > __Advanced__, deselect __Check the session ID__
 
-    ![](/docs/v1.19/setup/ci/jenkins_enable_csrf_strict.png)
+    ![](/docs/setup/ci/jenkins_enable_csrf_strict.png)
 
 ## Next steps
 
@@ -115,4 +115,4 @@ Jenkins or run the Jenkins stage. This is sufficient for most use cases. See
 for more information.
 
 Using the Script stage requires further configuration. See [Configuring
-the Script Stage](/docs/v1.19/setup/features/script-stage/) to finish setting it up.
+the Script Stage](/docs/setup/features/script-stage/) to finish setting it up.

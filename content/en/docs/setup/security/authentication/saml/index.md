@@ -98,14 +98,14 @@ may look something like this:
 During the SAML [workflow](/reference/architecture/authz_authn/authentication/#workflow), Gate makes an intelligent 
 guess on how to assemble a URI to itself, called the _Assertion Consumer Service URL_. Sometimes this guess is wrong 
 when Spinnaker is deployed in concert with other networking components, such as an SSL-terminating load balancer, or 
-in the case of the [Quickstart](/docs/v1.19/setup/quickstart) images, a fronting Apache instance.  
+in the case of the [Quickstart](/docs/setup/quickstart) images, a fronting Apache instance.  
 
 To override the values to assemble the URL, use the following `hal` command:
 ```bash
 hal config security authn saml edit --service-address-url https://my-real-gate-address.com:8084
 ```
 
-Please check on the [SSL Documentation](/docs/v1.19/setup/security/ssl) for more information.
+Please check on the [SSL Documentation](/docs/setup/security/ssl) for more information.
 
 > For the Quickstart images, append `/gate` to the `--service-address-url`. All other configurations
 can omit this setting.
@@ -168,11 +168,11 @@ endpoint.
 
 ## Next steps
 
-Now that you've authenticated the user, proceed to setting up their [authorization](/docs/v1.19/setup/security/authorization/).
+Now that you've authenticated the user, proceed to setting up their [authorization](/docs/setup/security/authorization/).
 
 ## Troubleshooting
 
-* Review the general [authentication guide](/docs/v1.19/setup/security/authentication).
+* Review the general [authentication guide](/docs/setup/security/authentication).
 * Review the authentication [reference guide](/reference/architecture/authz_authn/authentication).
 
-* Use an [incognito window](/docs/v1.19/setup/security/authentication#incognito-mode).
+* Use an [incognito window](/docs/setup/security/authentication#incognito-mode).

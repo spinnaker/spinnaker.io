@@ -195,4 +195,4 @@ To uninstall Halyard, just delete the container.
 
 ## Next steps
 
-Now that Halyard is running, it's time to [choose your cloud provider](/docs/v1.19/setup/install/providers/).
+Now that Halyard is running, it's time to [choose your cloud provider](/docs/setup/install/providers/).

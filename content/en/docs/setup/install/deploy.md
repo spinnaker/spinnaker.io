@@ -7,9 +7,9 @@ aliases:
    - /setup/install/upgrades/
 ---
 
-Now that we've enabled one or more [Cloud Providers](/docs/v1.19/setup/providers/), picked
-a [Deployment Environment](/docs/v1.19/setup/install/environment/), and configured
-[Persistent Storage](/docs/v1.19/setup/install/storage/), we're ready to pick a version of
+Now that we've enabled one or more [Cloud Providers](/docs/setup/providers/), picked
+a [Deployment Environment](/docs/setup/install/environment/), and configured
+[Persistent Storage](/docs/setup/install/storage/), we're ready to pick a version of
 Spinnaker, deploy it, and connect to it.
 
 ## Pick a version
@@ -67,12 +67,12 @@ provider (such as `kubectl get pods --namespace spinnaker`).
 
 * You can make Spinnaker publicly reachable without running this command,
 as described
-[here](/docs/v1.19/setup/quickstart/faq//#i-want-to-expose-localdebian-spinnaker-on-a-public-ip-address-but-it-always-binds-to-localhost)
+[here](/docs/setup/quickstart/faq//#i-want-to-expose-localdebian-spinnaker-on-a-public-ip-address-but-it-always-binds-to-localhost)
 (for local Debian) and
-[here](/docs/v1.19/setup/quickstart/faq/#i-want-to-expose-the-distributed-kubernetes-hosted-spinnaker-publicly)
+[here](/docs/setup/quickstart/faq/#i-want-to-expose-the-distributed-kubernetes-hosted-spinnaker-publicly)
 (for Kubernetes).
 
-* You can [set up authentication](/docs/v1.19/setup/security/authentication/).
+* You can [set up authentication](/docs/setup/security/authentication/).
 
 ## Troubleshooting
 
@@ -106,11 +106,11 @@ Now that Spinnaker is deployed and capable managing your cloud provider, you
 can...
 
 * Continue with additional configuration, such as your [image
-bakery](/docs/v1.19/setup/bakery/)
+bakery](/docs/setup/bakery/)
 
 * If you're a Spinnaker end user, read how to [get started using
 Spinnaker](/guides/user/get-started)
 
 * Visit the [Guides](/guides/) pages to learn more
 
-You might also want to [back up your configuration](/docs/v1.19/setup/install/backups/).
+You might also want to [back up your configuration](/docs/setup/install/backups/).

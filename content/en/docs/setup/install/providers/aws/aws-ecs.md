@@ -58,7 +58,7 @@ The IAM role for the cloud provider account associated with the Amazon ECS serve
 }
 ```
 
-For information on how to configure the IAM role associated with the cloud provider account, see the [AWS provider documentation](/docs/v1.19/setup/install/providers/aws/aws-ec2/).  For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html){:target="\_blank"}.
+For information on how to configure the IAM role associated with the cloud provider account, see the [AWS provider documentation](/docs/setup/install/providers/aws/aws-ec2/).  For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html){:target="\_blank"}.
 
 ### Task Execution IAM Role
 
@@ -83,7 +83,7 @@ If you are not using a task definition artifact (or if the artifact's task defin
 }
 ```
 
-For information on how to configure the IAM role associated with the cloud provider account, see the [AWS provider documentation](/docs/v1.19/setup/install/providers/aws/aws-ec2/).  For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html){:target="\_blank"}.
+For information on how to configure the IAM role associated with the cloud provider account, see the [AWS provider documentation](/docs/setup/install/providers/aws/aws-ec2/).  For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html){:target="\_blank"}.
 
 ### Optional: IAM Roles for Tasks
 
@@ -158,6 +158,6 @@ ecs:
 
 ## Next steps
 
-Optionally, you can [set up another cloud provider](/docs/v1.19/setup/install/providers/),
-but otherwise you're ready to [choose an environment](/docs/v1.19/setup/install/environment/)
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
+but otherwise you're ready to [choose an environment](/docs/setup/install/environment/)
 in which to install Spinnaker.

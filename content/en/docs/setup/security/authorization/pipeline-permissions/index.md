@@ -7,7 +7,7 @@ description:
 
 Pipeline permissions enable automatically triggered pipelines to modify
 resources in protected accounts and applications. They are an alternative
-to manually managing [Fiat Service Accounts](/docs/v1.19/setup/security/authorization/service-accounts/).
+to manually managing [Fiat Service Accounts](/docs/setup/security/authorization/service-accounts/).
 
 Without pipeline permissions, a Spinnaker operator first has to create a
 Fiat Service account with the correct permissions. A user can then specify the
@@ -40,7 +40,7 @@ is added in the pipeline configuration page in the UI. You can add any of the
 roles that you currently have. Once you add a role to the pipeline, only users
 who have _all of the specified roles_ can edit or execute the pipeline.
 This is similar to the behavior of
-[Fiat service accounts](/docs/v1.19/setup/security/authorization/service-accounts#service-account-roles).
+[Fiat service accounts](/docs/setup/security/authorization/service-accounts#service-account-roles).
 
 ![permissions selector from pipeline config in Deck](permissions-selector.png)
 
@@ -57,7 +57,7 @@ from your trigger, or enable the automatic migration (see next section).
 ### Automatic migration
 
 Front50 can automatically migrate all pipelines from using [Fiat Service
-Accounts](/docs/v1.19/setup/security/authorization/service-accounts/) to use Pipeline Permissions and managed service
+Accounts](/docs/setup/security/authorization/service-accounts/) to use Pipeline Permissions and managed service
 accounts. The migrator is disabled by default, and can be enabled by adding the
 following flag to `front50-local.yml`:
 

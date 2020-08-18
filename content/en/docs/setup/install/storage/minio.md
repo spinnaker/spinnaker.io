@@ -75,4 +75,4 @@ hal config storage edit --type s3
 ## Next steps
 
 After you've set up Minio as your external storage service, you're ready to
-[deploy Spinnaker](/docs/v1.19/setup/install/deploy/).
+[deploy Spinnaker](/docs/setup/install/deploy/).

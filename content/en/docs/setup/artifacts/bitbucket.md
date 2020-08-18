@@ -25,7 +25,7 @@ account with the needed credentials to read your artifact.
 1. Collect the `$USERNAME_PASSWORD_FILE` value returned from the
    [prerequisites](#prerequisites) section above.
    
-2. Enable [artifact support](/docs/v1.19/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+2. Enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
 
 
 2. Enable the Bitbucket artifact provider:

@@ -13,7 +13,7 @@ configure webhook push events to send to Spinnaker from a single GitHub reposito
 
 * You need Spinnaker's API running on an endpoint that is publicly reachable.
   Ideally this means that you've configured
-  [authentication](/docs/v1.19/setup/security/authentication). This is required to allow
+  [authentication](/docs/setup/security/authentication). This is required to allow
   GitHub's webhooks to reach Spinnaker.
 
   If you're unsure of what your Spinnaker API endpoint is, check the value of

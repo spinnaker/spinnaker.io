@@ -19,8 +19,8 @@ repositories](https://docs.docker.com/glossary/?term=repository){:target="\_blan
 
 Perform the steps in this article in the same place where you have Halyard
 installed, whether [in a Docker
-container](/docs/v1.19/setup/install/halyard/#install-halyard-on-docker) or [locally on
-Ubuntu/Debian or macOS](/docs/v1.19/setup/install/halyard/#update-halyard-on-debianubuntu-or-macos).
+container](/docs/setup/install/halyard/#install-halyard-on-docker) or [locally on
+Ubuntu/Debian or macOS](/docs/setup/install/halyard/#update-halyard-on-debianubuntu-or-macos).
 
 ## Prerequisites
 
@@ -157,7 +157,7 @@ API](https://console.developers.google.com/apis/api/cloudresourcemanager.googlea
 1. Add the account.
 
    > Note: if you're running Halyard [in a Docker
-   > container](/docs/v1.19/setup/install/halyard/#install-halyard-on-docker), you might
+   > container](/docs/setup/install/halyard/#install-halyard-on-docker), you might
    > have to restart the container, now mounting the `~/.gcp` directory.
 
    ```bash
@@ -266,6 +266,6 @@ Reference](/reference/halyard/commands#hal-config-provider-docker-registry-accou
 
 ## Next Steps
 
-Optionally, you can [set up another cloud provider](/docs/v1.19/setup/install/providers/),
-but otherwise you're ready to [choose an environment](/docs/v1.19/setup/install/environment/)
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
+but otherwise you're ready to [choose an environment](/docs/setup/install/environment/)
 in which to install Spinnaker.

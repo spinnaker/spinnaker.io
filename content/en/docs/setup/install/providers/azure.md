@@ -111,6 +111,6 @@ You can view the available configuration flags for Azure within the
 
 ## Next steps
 
-Optionally, you can [set up another cloud provider](/docs/v1.19/setup/install/providers/),
-but otherwise you're ready to [choose an environment](/docs/v1.19/setup/install/environment/)
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
+but otherwise you're ready to [choose an environment](/docs/setup/install/environment/)
 in which to install Spinnaker.

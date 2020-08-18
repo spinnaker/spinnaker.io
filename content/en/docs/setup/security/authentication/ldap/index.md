@@ -137,13 +137,13 @@ hal config security authn ldap edit --manager-password
 
 ## Next steps
 
-Now that you've authenticated the user, proceed to setting up their [authorization](/docs/v1.19/setup/security/authorization/).
+Now that you've authenticated the user, proceed to setting up their [authorization](/docs/setup/security/authorization/).
 
 ## Troubleshooting
 
 * Review the general [authentication workflow](/reference/architecture/authz_authn/authentication//#workflow).
 
-* Use an [Incognito window](/docs/v1.19/setup/security/authentication#incognito-mode). Close all Incognito windows between attempts.
+* Use an [Incognito window](/docs/setup/security/authentication#incognito-mode). Close all Incognito windows between attempts.
 
 * I'm getting the "Bad Credentials" exception mentioned above, but my username and password is
 correct!

@@ -5,4 +5,4 @@ weight: 1
 description: 
 ---
 
-* [Horizontally Scale Spinnaker](/docs/v1.19/setup/productionize/scaling/horizontal-scaling/)
+* [Horizontally Scale Spinnaker](/docs/setup/productionize/scaling/horizontal-scaling/)

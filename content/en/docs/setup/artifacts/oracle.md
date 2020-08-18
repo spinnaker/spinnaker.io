@@ -10,7 +10,7 @@ Spinnaker stages that read data from artifacts can consume
 
 ## Prerequisites
 
-If you have enabled [Oracle Cloud provider](/docs/v1.19/setup/install/providers/oracle/) in Spinnaker, you may use the same region, Tenancy’s OCID, user’s OCID, private key file, and fingerprint to enable Oracle Object Storage Artifact. You will need the following to enable Oracle Object Storage Artifact in Spinnaker:
+If you have enabled [Oracle Cloud provider](/docs/setup/install/providers/oracle/) in Spinnaker, you may use the same region, Tenancy’s OCID, user’s OCID, private key file, and fingerprint to enable Oracle Object Storage Artifact. You will need the following to enable Oracle Object Storage Artifact in Spinnaker:
 
 * A user in IAM for the person or system who will be using Spinnaker, and that user must be granted access to Object Storage or in one IAM group with permissions of Object Storage.
 
