@@ -1,17 +1,10 @@
 ---
-title: "`spin` CLI Guide"
-linkTitle: "`spin` CLI Guide"
+title: "spin CLI Guide"
+linkTitle: "spin CLI Guide"
 weight: 2
 description: >
-  This is the guide for the `spin` command-line interface.
+  You can edit pipelines, applications, and configs using the Spinnaker Command Line Interface (`spin` CLI).
 ---
 
+Before you begin, see [Install and Configure Spin CLI](/docs/setup/spin/).
 
-This is the guide for the `spin` command-line interface. 
-
-Before you begin, see [Install and Configure Spin CLI](/setup/spin/).
-
-* [Manage Applications](/docs/v1/guides/spin/app/)
-* [Manage Pipelines](/docs/v1/guides/spin/pipeline/)
-* [Manage Pipeline Templates](/docs/v1/guides/spin/pipeline-templates/)
-* [Manage Canary Configs](/docs/v1/guides/spin/canary-configs/)

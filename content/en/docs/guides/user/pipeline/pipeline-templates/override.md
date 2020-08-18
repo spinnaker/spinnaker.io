@@ -1,11 +1,10 @@
 ---
-layout: single
-title:  "Inherit from the Template or Override It"
-sidebar:
-  nav: guides
+title:  "Inherit from a Template or Override It"
+linkTitle: "Inherit from a Template"
+weight: 15
+description: >
+  Inherit or override template features in your pipeline
 ---
-
-
 
 In a pipeline that instantiates a template, besides providing values for
 template variables you can...
@@ -56,7 +55,7 @@ further stages, and the configuration required to wire added stages with
 inherited stages.
 
 1. Make sure you're inheriting from the element or elements you want to
-override. 
+override.
 
    [See above](#inherit-from-the-template)
 

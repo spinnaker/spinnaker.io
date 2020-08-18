@@ -1,15 +1,10 @@
 ---
 title: "Receiving artifacts from GCS"
-linkTitle: "Receiving artifacts from GCS"
-weight: 
+linkTitle: "GCS"
+weight:
 description: >
-  This guide explains how to configure Spinnaker to trigger pipelines based on changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS) bucket, and inject changed GCS objects as [artifacts](/reference/artifacts) into a pipeline.
+  Configure Spinnaker to trigger pipelines based on changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS) bucket and inject changed GCS objects as [artifacts](/reference/artifacts) into a pipeline
 ---
-
-This guide explains how to configure Spinnaker to trigger pipelines based on
-changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS)
-bucket, and inject changed GCS objects as [artifacts](/reference/artifacts)
-into a pipeline.
 
 This functionality uses Google's
 [Pub/Sub](https://cloud.google.com/pubsub/docs/overview) system for delivering
@@ -33,11 +28,11 @@ You need the following:
 * [`gcloud`](https://cloud.google.com/sdk/gcloud/). Make sure to run `gcloud
   auth login` if you have installed `gcloud` for the first time.
 
-* [A running Spinnaker instance](/setup/install/). This guide shows you how
+* [A running Spinnaker instance](/docs/setup/install/). This guide shows you how
   to configure an existing one to accept GCS messages, and download the files
   referenced by the messages in your pipelines.
-  
-* Artifact support [enabled](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).  
+
+* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).  
 
 At this point, we will configure Pub/Sub, and a GCS artifact account. The
 Pub/Sub messages will be received by Spinnaker whenever a file is uploaded or
@@ -46,14 +41,14 @@ necessary.
 
 ## 1. Configure Google Pub/Sub for GCS
 
-Follow the [Pub/Sub configuration](/setup/triggers/google/), in particular, pay
+Follow the [Pub/Sub configuration](/docs/setup/triggers/google/), in particular, pay
 attention to the [GCS
 section](/setup/triggers/google/#receiving-messages-from-google-cloud-storage-gcs)
 since this is where we'll be publishing our files to.
 
 ## 2. Configure a GCS artifact account
 
-Follow the [GCS artifact configuration](/setup/artifacts/gcs/).
+Follow the [GCS artifact configuration](/docs/setup/artifacts/gcs/).
 
 ## 3. Apply your configuration changes
 
@@ -79,7 +74,7 @@ Let's add a Pub/Sub trigger to run our pipeline.
 
 {{< figure src="./add-trigger.png" >}}
 
-Next, we must configure the trigger: 
+Next, we must configure the trigger:
 
 * __Type__ is "Pub/Sub".
 * __Pub/Sub System Type__ is "Google".
@@ -88,7 +83,7 @@ Next, we must configure the trigger:
 * __Attribute Constraints__ must be configured to include the pair `eventType`:
   `OBJECT_FINALIZE` (see the
   [docs](https://cloud.google.com/storage/docs/pubsub-notifications#events) for
-  an explanation). 
+  an explanation).
 
 {{< figure src="./pubsub-config.png" >}}
 

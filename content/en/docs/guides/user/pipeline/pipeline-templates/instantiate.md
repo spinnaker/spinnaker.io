@@ -1,11 +1,9 @@
 ---
-layout: single
 title:  "Create a Pipeline from a Template"
-sidebar:
-  nav: guides
+weight: 20
+description: >
+  Create pipelines that reference a template
 ---
-
-
 
 Given a pipeline template that defines variables to be resolved per pipeline,
 you can create pipelines that reference that template and that provide values
@@ -17,7 +15,7 @@ for all of those variables.
 
     `spin pipeline-template list`
 
-    This returns a list of all pipeline templates avaialble in the Spinnaker
+    This returns a list of all pipeline templates available in the Spinnaker
     deployment.
 
 1. From the list, determine which of the listed templates is the one you want,
@@ -68,14 +66,14 @@ and get it using the following command:
      "type": "front50/pipelineTemplate" # Static constant
    }
    ```
-   
+
    Because the template was "saved," using `spin pipeline-template save`, it
    was added to the Spinnaker deployment and is available using `spinnaker://`.
 
 ## Provide values for the variables
 
 > Note: the variables [defined in the pipeline
-> template](/docs/v1/guides/user/pipeline/pipeline-templates/create/#3-edit-the-file-for-template-format)
+> template](/docs/guides/user/pipeline/pipeline-templates/create/#3-edit-the-file-for-template-format)
 > include default values, so you don't have to provide a value for every variable defined.
 
 In the pipeline JSON file, in the `variables` section, list each variable
@@ -96,15 +94,14 @@ This doc describes doing it by hand.
 
 ## Specify inheritance and overrides
 
-1. [Indicate which elements of the template you want to
-inherit](/docs/v1/guides/user/pipeline/pipeline-templates/override/).
+1. [Indicate which elements of the template you want to inherit](/docs/guides/user/pipeline/pipeline-templates/override/).
 
    By default, the pipeline instance inherits the stages, expected artifacts, triggers, parameters, and notifications from the template.
    It's possible to opt out of inheriting triggers, parameters, and notifications by including the corresponding string in the `exclude` element.
    For example, the template might have a trigger defined in the `triggers` element, but you can opt out of inheriting it by including `triggers` inside the `exclude` element.
 
 1. If you want, you can
-[override](/docs/v1/guides/user/pipeline/pipeline-templates/override/) elements in the
+[override](/docs/guides/user/pipeline/pipeline-templates/override/) elements in the
 template.
 
 ## Add new stages
@@ -139,7 +136,7 @@ stage.
 ]
 ```
 
-The `config` object contains the entire stage config. In this Wait-stage example, `config` includes only `waitTime`. 
+The `config` object contains the entire stage config. In this Wait-stage example, `config` includes only `waitTime`.
 
 
 
@@ -148,7 +145,7 @@ The `config` object contains the entire stage config. In this Wait-stage example
 The template you're using might itself have branches, but if it doesn't, and
 you want your pipeline instance to have a branch, inject new stages as
 described [above](#add-new-stages), but include multiple `before` or multiple
-`after` elements (or both) to describe the graph. 
+`after` elements (or both) to describe the graph.
 
 ## Save the pipeline
 

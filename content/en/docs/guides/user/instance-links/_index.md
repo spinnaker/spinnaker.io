@@ -1,8 +1,9 @@
 ---
 title: "Customizing Instance Links"
-linkTitle: "Customizing Instance Links"
+linkTitle: "Instance Links"
 weight: 2
-description: 
+description: >
+  Give users links to common features of their apps
 ---
 
 

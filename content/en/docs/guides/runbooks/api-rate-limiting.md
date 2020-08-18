@@ -2,12 +2,8 @@
 title: "API Rate Limiting"
 linkTitle: "API Rate Limiting"
 weight: 2
-description: "If your Spinnaker deployment has API clients interacting with it, enabling and
-knowing how to operate the API rate limiter can help keep Spinnaker reliable
-through spikes of heavy traffic or rogue clients."
+description: "If your Spinnaker deployment has API clients interacting with it, enabling and knowing how to operate the API rate limiter can help keep Spinnaker reliable through spikes of heavy traffic or rogue clients."
 ---
-
-
 
 If your Spinnaker deployment has API clients interacting with it, enabling and
 knowing how to operate the API rate limiter can help keep Spinnaker reliable

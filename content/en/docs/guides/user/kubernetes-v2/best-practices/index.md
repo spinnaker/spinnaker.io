@@ -1,11 +1,9 @@
 ---
 title: "Best Practices for the Kubernetes Provider"
-linkTitle: "Best Practices for the Kubernetes Provider"
-weight: 
-description: 
+linkTitle: "Best Practices"
+description: >
+  Best practices for using the Kubernetes provider
 ---
-
-
 
 The Kubernetes provider enables a wide variety of ways to deploy your
 manifests into Kubernetes clusters. This page provides best-practices for doing
@@ -33,7 +31,7 @@ There are two ways to achieve this in Spinnaker:
    [jinja](http://jinja.pocoo.org/)) to express & render your manifests
    _before_ sending them to Spinnaker to deploy.
 
-2. Rely on Spinnaker's [artifact substitution](/docs/v1/guides/user/kubernetes-v2/deploy-manifest/#override-artifacts)
+2. Rely on Spinnaker's [artifact substitution](/docs/guides/user/kubernetes-v2/deploy-manifest/#override-artifacts)
    and a trigger that supplies your image by digest.
 
 ## Emit your deployed manifests to an audit log

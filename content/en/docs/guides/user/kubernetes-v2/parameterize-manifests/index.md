@@ -1,16 +1,15 @@
 ---
 title: "Parameterize Kubernetes Manifests"
-linkTitle: "Parameterize Kubernetes Manifests"
-weight: 
-description: 
+linkTitle: "Parameterize K8s Manifests"
+description: >
+  Inject parameters into your Kubernetes manifest as it is deployed
 ---
-
 
 Spinnaker can inject context from the currently executing pipeline into your
 manifests as they are deployed, whether they are deployed
-[statically](/docs/v1/guides/user/kubernetes-v2/deploy-manifest/#specify-manifests-statically)
+[statically](/docs/guides/user/kubernetes-v2/deploy-manifest/#specify-manifests-statically)
 or
-[dynamically](/docs/v1/guides/user/kubernetes-v2/deploy-manifest/#specify-manifests-dynamically).
+[dynamically](/docs/guides/user/kubernetes-v2/deploy-manifest/#specify-manifests-dynamically).
 
 This can be applied to a wide range of use-cases, but we will focus on using a
 pipeline parameter to specify the target namespace.
@@ -23,7 +22,7 @@ pipeline editor (only the __Name__ is required):
 {{< figure src="./parameter.png" >}}
 
 > See more details on how to provide parameters to pipelines programmatically in
-> the [webhooks](/docs/v1/guides/user/triggers/webhooks) page.
+> the [webhooks](/docs/guides/user/triggers/webhooks) page.
 
 ## Configure your manifest
 
@@ -38,7 +37,7 @@ metadata:
 ```
 
 > Keep in mind this manifest [can be stored in the pipeline, or in an external
-> store such as GitHub](/docs/v1/guides/user/kubernetes-v2/deploy-manifest).
+> store such as GitHub](/docs/guides/user/kubernetes-v2/deploy-manifest).
 
 When you go to run the pipeline by hand, you will see the following:
 
@@ -48,7 +47,7 @@ When you go to run the pipeline by hand, you will see the following:
 
 When parameterizing a YAML value that's not a string (such as the replica
 count), you will need to explicitly convert the evaluated expression [to the
-correct type](/reference/pipeline/expressions/#helper-functions).
+correct type](/docs/reference/pipeline/expressions/#helper-functions).
 
 If you were expecting the replica count to arrive in parameter `replicas`, you
 would write:
@@ -63,5 +62,4 @@ spec:
 
 ## More advanced parameterization
 
-Please read the [pipeline expressions
-guide](/docs/v1/guides/user/pipeline-expressions).
+Please read the [pipeline expressions guide](/docs/guides/user/pipeline-expressions).

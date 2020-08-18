@@ -1,14 +1,12 @@
 ---
 title: "Manage Canary Configs"
-linkTitle: "Manage Canary Configs"
+linkTitle: "Manage Canary"
 weight: 2
 description: >
-  You can use `spin` to manage the whole lifecycle of your canary configs
+  You can use `spin` to manage the whole lifecycle of your canary configs.
 ---
 
 ## Overview
-
-You can use `spin` to manage the whole lifecycle of your canary configs:
 
 ```bash
 $ spin canary canary-configs
@@ -40,8 +38,7 @@ Global Flags:
 Use " canary canary-config [command] --help" for more information about a command.
 ```
 
-The following instructions assume Spinnaker is running and Gate is listening on `http://localhost:8084`. If
-gate is running elsewhere, you can set the Gate endpoint with the global `--gate-endpoint` flag.
+The following instructions assume Spinnaker is running and Gate is listening on `http://localhost:8084`. If gate is running elsewhere, you can set the Gate endpoint with the global `--gate-endpoint` flag.
 
 
 ## Create and update canary configs with `save`

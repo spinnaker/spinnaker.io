@@ -1,13 +1,8 @@
 ---
-layout: single
 title:  "Enable Pipeline Templates"
-sidebar:
-  nav: guides
+weight: 5
+description: "Enable the pipeline templates feature in Spinnaker"
 ---
-
-
-
-## Enable the feature
 
 ```
 hal config features edit --pipeline-templates true

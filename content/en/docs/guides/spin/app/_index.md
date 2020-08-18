@@ -1,15 +1,13 @@
 ---
 title: "Manage Applications"
-linkTitle: "Manage Applications"
+linkTitle: "Manage Apps"
 weight: 2
 description: >
-  Once you have `spin` [installed and configured](/docs/v1/guides/spin/cli), you can use it to manage your Spinnaker application's lifecycle.
+  Once you have `spin` [installed and configured](/docs/setup/spin/), you can use it to manage your Spinnaker application's lifecycle.
 ---
 
 
 ## Overview
-
-Once you have `spin` [installed and configured](/docs/v1/guides/spin/cli), you can use it to manage your Spinnaker application's lifecycle.
 
 `spin` can manage the whole lifecycle of your application:
 

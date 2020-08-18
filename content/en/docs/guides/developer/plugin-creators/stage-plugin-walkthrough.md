@@ -1,8 +1,8 @@
 ---
-layout: single
 title: "Pipeline Stage Plugin Walkthrough"
-sidebar:
-  nav: guides
+linkTitle: "Stage Plugin Details"
+description: "Details of the RandomWait stage plugin (pf4jStagePlugin)"
+
 ---
 
 {{< alpha version="1.19.4" >}}

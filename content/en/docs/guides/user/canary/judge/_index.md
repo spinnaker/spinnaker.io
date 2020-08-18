@@ -1,6 +1,6 @@
 ---
-title: "The canary judge—how does it work?"
-linkTitle: "The canary judge—how does it work?"
+title: "How canary judgment works"
+linkTitle: "Canary judgment"
 weight: 2
 description: >
   To assess the quality of a canary deployment against a baseline, metrics from both deployments are compared in order to check for significant degradation.

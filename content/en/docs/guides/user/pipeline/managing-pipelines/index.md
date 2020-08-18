@@ -1,8 +1,9 @@
 ---
 title: "Managing Pipelines"
 linkTitle: "Managing Pipelines"
-weight: 
-description: 
+weight: 5
+description: >
+  Configure and control pipelines, including creating, adding triggers to, or disabling pipelines
 ---
 
 Pipelines are the essential tool in Spinnaker for controlling how to deploy your
@@ -40,7 +41,7 @@ Make sure that you are editing the **Configuration** stage of your pipeline.
 input any further required configuration.
 
 For further information on how triggers work, see the [documentation on pipeline
-triggers](/docs/v1/guides/user/pipeline/triggers/).
+triggers](/docs/guides/user/pipeline/triggers/).
 
 ### Add a stage
 The first step in any pipeline is **Configuration**, where you can set up
@@ -67,15 +68,15 @@ any necessary parameters.
 
 ### Linking to the Manual Execution dialog
 You can create a deep link to the confirmation dialog for any pipeline by adding
-a `startManualExecution` parameter to the URL for an application's pipelines 
+a `startManualExecution` parameter to the URL for an application's pipelines
 view. The parameter's value can be either the pipeline name or its ID.
 
 To prepopulate pipeline parameter values in the dialog, just include them as
 parameters in the URL.
 
-For example: 
+For example:
   * you have an an application named "myapp"
-  * the application has a pipeline named "deploy-to-prod" 
+  * the application has a pipeline named "deploy-to-prod"
   * the pipeline has one parameter, `region`
   * the pipeline's ID is `12345`
   * your Spinnaker installation is hosted at https://my.spinnaker.example.com

@@ -1,11 +1,10 @@
 ---
-title: "Overview"
-linkTitle: "Overview"
-weight: 
-description: 
+title: "Providers"
+weight:
+description:
 ---
 
-Once you're familar with the definition and setup of a [Cloud
+Once you're familiar with the definition and setup of a [Cloud
 Provider](/setup/providers/), you can read these reference pages for
 information on how Spinnaker concepts map to those of the Cloud Provider, as
 well as how the various Spinnaker operations are performed at the Cloud

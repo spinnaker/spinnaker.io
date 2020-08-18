@@ -1,14 +1,13 @@
 ---
 title: "Deploy Kubernetes Manifests"
-linkTitle: "Deploy Kubernetes Manifests"
-weight: 
-description: 
+linkTitle: "Deploy K8s Manifests"
+description: >
+  Deploy a Kubernetes manifest using the Kubernetes provider
+
 ---
 
-
-
 This guide shows the basics of how to deploy a Kubernetes manifest using the
-[Kubernetes provider](/setup/install/providers/kubernetes-v2).
+[Kubernetes provider](/docs/setup/install/providers/kubernetes-v2).
 
 There are two main steps:
 
@@ -64,9 +63,9 @@ them into the UI, the stage definition would look more like this:
 ### Specify manifests dynamically
 
 If you are storing your manifests outside of Spinnaker's
-[pipeline repository](/setup/install/storage/),
+[pipeline repository](/docs/setup/install/storage/),
 or want a single deploy stage to deploy a variety of manifests, you
-can specify your manifest using an [Artifact](/reference/artifacts).
+can specify your manifest using an [Artifact](/docs/reference/artifacts).
 
 The idea is: artifacts in Spinnaker allow you to reference remote, deployable
 resources. When referencing an artifact from a Deploy Manifest stage , that
@@ -75,8 +74,8 @@ This can be stored in GitHub or an object store (like GCS).
 
 Changes to manifests can trigger pipelines. Here's some more information:
 
-* [Consuming GitHub Artifacts](/docs/v1/guides/user/triggers/github)
-* [Consuming GCS Artifacts](/docs/v1/guides/user/triggers/gcs)
+* [Consuming GitHub Artifacts](/docs/guides/user/triggers/github)
+* [Consuming GCS Artifacts](/docs/guides/user/triggers/gcs)
 
 Assuming you have declared an expected artifact upstream to your Deploy
 manifest stage, you can reference it in the Deploy configuration:
@@ -103,7 +102,7 @@ easily overriding the version of...
 * Kubernetes Secret
 
 When one of these objects exists in the pipeline context from an upstream stage,
-Spinnaker [automatically tries to inject it](/reference/artifacts/in-kubernetes-v2/#binding-artifacts-in-manifests)
+Spinnaker [automatically tries to inject it](/docs/reference/artifacts/in-kubernetes-v2/#binding-artifacts-in-manifests)
 into the manifest you're deploying.
 
 For example, say you trigger your pipeline using a webhook coming

@@ -1,8 +1,8 @@
 ---
-layout: single
 title:  "Orca Internals Overview"
-sidebar:
-  nav: guides
+linkTitle: "Orca"
+description: >
+  Orca is a stateless, horizontally scalable service. Spinnaker's execution state is persisted to a backend store and work is distributed evenly through a work queue.
 ---
 
 Spinnaker is known and often loved for enabling accessible, highly configurable and composable workflows through its pipelines and tasks. This is largely thanks to the code that makes up Orca.
@@ -17,11 +17,11 @@ Orca is a stateless, horizontally scalable service. Spinnaker's execution state 
 
 ### Domain
 
-The primary domain model is an **Execution**, of which there are two types: `PIPELINE` and `ORCHESTRATION`. The `PIPELINE` type is for pipelines while `ORCHESTRATION`s is unscheduled, ad-hoc API-submitted actions and what you see in the UI under the "Tasks" tab in an Application. At this point in Spinnaker’s life, these two types are nearly programmatically identical, the key difference being that a Pipeline has a predefined persistent configuration, whereas an Orchestration is arbitarily configured at request-time and serial in execution. 
+The primary domain model is an **Execution**, of which there are two types: `PIPELINE` and `ORCHESTRATION`. The `PIPELINE` type is for pipelines while `ORCHESTRATION`s is unscheduled, ad-hoc API-submitted actions and what you see in the UI under the "Tasks" tab in an Application. At this point in Spinnaker’s life, these two types are nearly programmatically identical, the key difference being that a Pipeline has a predefined persistent configuration, whereas an Orchestration is arbitarily configured at request-time and serial in execution.
 
 For one Execution, there are one or many **Stages** organized as a DAG (Directed Acyclic Graph). An Execution supports concurrent branching logic of Stages. These Stages define higher-order, user-friendly actions and concepts, such as "Resize Server Group" or "Deploy" and can be chained together to form complex delivery workflows.
 
-Within a Stage, there are one or more Tasks (not to be confused with the Tasks tab in the UI). A **Task** can be considered an atomic unit of work, focused on a single action. If you are familiar with the Spinnaker UI, you'll note that for every Stage, there are multiple line items that correlate to a Stage's runtime: These are often Tasks. Tasks are always executed sequentially and serially. 
+Within a Stage, there are one or more Tasks (not to be confused with the Tasks tab in the UI). A **Task** can be considered an atomic unit of work, focused on a single action. If you are familiar with the Spinnaker UI, you'll note that for every Stage, there are multiple line items that correlate to a Stage's runtime: These are often Tasks. Tasks are always executed sequentially and serially.
 
 It's important to note that a Stage is recursively composable. One stage can have zero to many **Synthetic Stages**, that is, stages that can occur either `BEFORE` or `AFTER` its parent stage. This is most easily illustrated in a Canary stage, which deploys multiple Server Groups (a baseline and canary). While to the end-user this appears to be a single stage, it's actually a composition of multiple Deploy stages with some extra logic on top.
 
@@ -39,7 +39,7 @@ Some message types are redeliverable and can be duplicated, whereas others are n
 
 For every message type, there is a single correlated `Handler` that contains all of the logic for processing this `Message` type. A Message's contents are small and the bare minimum of information to process the request: For instance, an Execution is referenced by ID rather than containing its entire state. Orca builds atop these foundational Handlers in the form of `StageDefinitionBuilder` and other classes to build the DAG and implement actual Spinnaker orchestration logic.
 
-The queue can be categorized into two parts: The **QueueProcessor**, and its Handlers. Orca uses a single thread to run `QueueProcessor`, which polls the oldest messages "ready" off the queue. A ready message is one whose delivery time is now or in the past: It is normal to have many more messages in the queue than those that are actually ready. 
+The queue can be categorized into two parts: The **QueueProcessor**, and its Handlers. Orca uses a single thread to run `QueueProcessor`, which polls the oldest messages "ready" off the queue. A ready message is one whose delivery time is now or in the past: It is normal to have many more messages in the queue than those that are actually ready.
 
 A separate worker thread pool is used for Handlers. Orca depends on threads in that pool in order to scale sufficiently. You can tune threads either by adjusting the pool size or by increasing the number of Orca instances. By ignoring downstream bottlenecks Orca can scale horizontally to meet Spinnaker work demand.
 

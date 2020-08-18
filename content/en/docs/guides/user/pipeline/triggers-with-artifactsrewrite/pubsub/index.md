@@ -1,11 +1,12 @@
 ---
 title: "Triggering on Pub/Sub Messages"
-linkTitle: "Triggering on Pub/Sub Messages"
-weight: 
-description:
+linkTitle: "Pub/Sub Messages"
+weight:
+description: >
+  Trigger pipelines based on messaging
 ---
 
-In order to programatically trigger pipelines one can configure Spinnaker to
+In order to programmatically trigger pipelines, you can configure Spinnaker to
 subscribe and listen to a Pub/Sub topic and push messages to the configured
 topic. This can be used to trigger pipelines during CI jobs, from the command line,
 or from a third-party system. The message payload will be available in the
@@ -15,11 +16,11 @@ Pipeline's execution.
 > a single Pub/Sub message.
 
 Only Google Pub/Sub is supported. See the instructions
-[here](/setup/triggers/google/) to set up Google Pub/Sub.
+[here](/docs/setup/triggers/google/) to set up Google Pub/Sub.
 
 ## Prerequisites
 
-* Artifact support [enabled](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
 
 ## Adding a Pub/Sub trigger to a pipeline
 
@@ -68,7 +69,7 @@ Say your pipeline accepted some parameters (for example, the desired stack to
 deploy to), you can make this explicit by adding a pipeline parameter on the
 same configuration screen as the Pub/Sub trigger:
 
-{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/v1/guides/user/pipeline-expressions)." >}}
+{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline-expressions)." >}}
 
 If you were to manually execute this pipeline, you would be prompted with the
 following dialogue:

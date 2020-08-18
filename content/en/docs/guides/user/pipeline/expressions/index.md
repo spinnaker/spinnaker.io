@@ -1,11 +1,10 @@
 ---
 title: "Pipeline Expressions Guide"
 linkTitle: "Pipeline Expressions Guide"
-weight: 
-description: 
+weight: 10
+description: >
+  Dynamically set and access variables during pipeline execution
 ---
-
-
 
 Pipeline expressions allow you to dynamically set and access variables during
 pipeline execution. You can use an expression in almost any text field in a
@@ -17,7 +16,7 @@ other operations.
 
 This guide explains how and where to use expressions, and provides some examples
 of what you can do with them. For a list of available functions, see the
-[reference guide](/reference/pipeline/expressions/).
+[reference guide](/docs/reference/pipeline/expressions/).
 
 > Note: Pipeline expression syntax is based on [Spring Expression Language
 > (SpEL)](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html).
@@ -57,7 +56,7 @@ Default Artifact" and write the expression in the Object path.
 
 If you want to set the value of a field using a pipeline expression but there is
 no text box available, you can use the [Edit as
-JSON](/docs/v1/guides/user/pipeline/managing-pipelines/#edit-a-pipeline-as-json)
+JSON](/docs/guides/user/pipeline/managing-pipelines/#edit-a-pipeline-as-json)
 pipeline feature.
 
 ### When are pipeline expressions evaluated?
@@ -71,7 +70,7 @@ stage, because Spinnaker doesn't begin evaluating expressions until after the
 
 ### Helper functions
 
-There are several built-in [helper functions](/reference/pipeline/expressions/#helper-functions)
+There are several built-in [helper functions](/docs/reference/pipeline/expressions/#helper-functions)
 to simplify some common use cases. These functions allow you to do things like
 access a particular stage by name, strip non-alphanumerical characters out of a
 string, or parse JSON.
@@ -83,7 +82,7 @@ the helper functions that are available.
 
 ### Helper properties
 
-[_Helper properties_](/reference/pipeline/expressions/#helper-properties)
+[_Helper properties_](/docs/reference/pipeline/expressions/#helper-properties)
 are variables which refer to global information about the current pipeline
 execution. For example, `execution` is a variable which refers to the current
 pipeline execution, whereas `trigger` lets you access information
@@ -222,7 +221,7 @@ curl http://api.my.spinnaker/pipelines/$PIPELINE_ID/evaluateExpression \
        --data '${ #stage("Deploy").status.toString() }'
 ```
 
-If you've [enabled authz](/setup/security/authorization/) on Spinnaker, you can include your session cookie from your
+If you've [enabled authz](/docs/setup/security/authorization/) on Spinnaker, you can include your session cookie from your
  browser into `curl`.
 `-H 'cookie: SESSION=<INSERT_SESSION_ID_FROM_BROWSER_HERE>'`
 

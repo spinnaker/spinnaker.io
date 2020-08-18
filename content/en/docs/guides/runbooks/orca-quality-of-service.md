@@ -1,13 +1,12 @@
 ---
-title: 'Orca Quality of Service'
-linkTitle: 'Orca Quality of Service'
+title: 'Orca: Quality of Service'
+linkTitle: 'Orca: QoS'
 weight: 2
 description: "Spinnaker ships with an optional Quality of Service (QoS) module that can be used to manage the amount of active executions running at any given time."
 mermaid: true
 ---
 
-**EXPERIMENTAL**: This feature is still in an early adoption / experimental phase.
-While you can use it today (Orca v6.71.0), Netflix is currently running this in learning mode / judiciously enabling in response to on-call events.
+**EXPERIMENTAL**: This feature is still in an early adoption / experimental phase. While you can use it today (Orca v6.71.0), Netflix is currently running this in learning mode / judiciously enabling in response to on-call events.
 
 Spinnaker ships with an optional Quality of Service (QoS) module that can be used to manage the amount of active executions running at any given time.
 By default, this QoS module is disabled, but can be enabled and tuned with a handful of knobs and different strategies.

@@ -1,15 +1,15 @@
 ---
 title: "Resource Status"
 linkTitle: "Resource Status"
-weight: 
-description: 
+weight: 10
+description:
+  Status reference
 ---
 
-
-
-💡 *If you're not sure what a managed resource is, check out our [overview of Managed Delivery](/docs/v1/guides/user/managed-delivery) first.*
+>If you're not sure what a managed resource is, check out our [Overview of Managed Delivery](/docs/guides/user/managed-delivery/managed-deliver-overview) first.
 
 ## Overview
+
 Managed resources always have a **status**, which describes the current state of the resource from Spinnaker's perspective. A resource's status can help you quickly answer questions like:
   - Is Spinnaker taking automatic action on this resource right now?
   - Does the actual state of this resource match the declarative configuration I gave to Spinnaker?
@@ -25,7 +25,7 @@ Example on a cluster:
 
 
 ### API
-Find the [ID of a resource](/docs/v1/guides/user/managed-delivery/getting-started/#find-your-resource-id) and call the `/managed/resources/<resourceId>/status` endpoint.
+Find the [ID of a resource](/docs/guides/user/managed-delivery/getting-started/#find-your-resource-id) and call the `/managed/resources/<resourceId>/status` endpoint.
 
 Example request:
 ```bash
@@ -39,13 +39,14 @@ Example response:
 ## Status Reference
 
 ### Created
+
 {{< figure src="./resource-status-created.png" >}}
 
 When a resource has this status, it means Spinnaker has just received the resource’s declarative configuration and hasn't taken any action yet.
 
-If the actual state of the resource matches the declarative configuration, the resource will transition to the [Happy](/docs/v1/guides/user/managed-delivery/resource-status/#happy) status the next time Spinnaker checks it.
+If the actual state of the resource matches the declarative configuration, the resource will transition to the [Happy](/docs/guides/user/managed-delivery/resource-status/#happy) status the next time Spinnaker checks it.
 
-If Spinnaker detects a drift from the declarative configuration in the future, the resource will change status to [Diff](/docs/v1/guides/user/managed-delivery/resource-status/#diff). Once Spinnaker starts taking automatic action to correct the drift, the status will change to [Actuating](/docs/v1/guides/user/managed-delivery/resource-status/#actuating).
+If Spinnaker detects a drift from the declarative configuration in the future, the resource will change status to [Diff](/docs/guides/user/managed-delivery/resource-status/#diff). Once Spinnaker starts taking automatic action to correct the drift, the status will change to [Actuating](/docs/guides/user/managed-delivery/resource-status/#actuating).
 
 While Spinnaker is managing a resource, manual changes made via the UI or the API will be automatically reversed ("stomped") in favor of the declarative configuration.
 
@@ -54,7 +55,7 @@ While Spinnaker is managing a resource, manual changes made via the UI or the AP
 
 When a resource has this status, it means Spinnaker detected a drift from the declarative configuration but hasn't taken any action yet.
 
-Once Spinnaker starts taking automatic action to correct the drift, the status  changes to [Actuating](/docs/v1/guides/user/managed-delivery/resource-status/#actuating).
+Once Spinnaker starts taking automatic action to correct the drift, the status  changes to [Actuating](/docs/guides/user/managed-delivery/resource-status/#actuating).
 
 While Spinnaker is managing a resource, manual changes made via the UI or the API are automatically reversed ("stomped") in favor of the declarative configuration.
 
@@ -63,7 +64,7 @@ While Spinnaker is managing a resource, manual changes made via the UI or the AP
 
 When a resource has this status, it means Spinnaker detected a drift from the declarative configuration and automatic action is in progress to resolve it. You can click on "History" to see details about the detected drift and the specific tasks Spinnaker launched, along with whether they succeeded or failed.
 
-If automatic actions successfully resolve the drift, the status will change to [Happy](/docs/v1/guides/user/managed-delivery/resource-status/#happy). If automatic actions don't help to resolve the drift, the status will change to [Unhappy](/docs/v1/guides/user/managed-delivery/resource-status/#unhappy).
+If automatic actions successfully resolve the drift, the status will change to [Happy](/docs/guides/user/managed-delivery/resource-status/#happy). If automatic actions don't help to resolve the drift, the status will change to [Unhappy](/docs/guides/user/managed-delivery/resource-status/#unhappy).
 
 While Spinnaker is managing a resource, manual changes made via the UI or the API will be automatically reversed ("stomped") in favor of the declarative configuration.
 
@@ -72,7 +73,7 @@ While Spinnaker is managing a resource, manual changes made via the UI or the AP
 
 When a resource has this status, all is well and the actual state of the resource matches its declarative configuration.
 
-If Spinnaker detects a drift from the declarative configuration in the future, the resource status will change to [Diff](/docs/v1/guides/user/managed-delivery/resource-status/#diff). Once Spinnaker starts taking automatic action to correct the drift, the status will change to [Actuating](/docs/v1/guides/user/managed-delivery/resource-status/#actuating).
+If Spinnaker detects a drift from the declarative configuration in the future, the resource status will change to [Diff](/docs/guides/user/managed-delivery/resource-status/#diff). Once Spinnaker starts taking automatic action to correct the drift, the status will change to [Actuating](/docs/guides/user/managed-delivery/resource-status/#actuating).
 
 While Spinnaker is managing a resource, manual changes made via the UI or the API will be automatically reversed ("stomped") in favor of the declarative configuration.
 
@@ -81,7 +82,7 @@ While Spinnaker is managing a resource, manual changes made via the UI or the AP
 
 When a resource has this status, it means Spinnaker detected a drift from the declarative configuration but hasn't been able to resolve it through automatic actions. This might mean that the actions Spinnaker has taken are failing, or something else is preventing the actions from having their desired effect.
 
-While a resource is Unhappy, Spinnaker will continue trying to resolve the drift and may eventually succeed. If it does, the resource will transition to the [Happy](/docs/v1/guides/user/managed-delivery/resource-status/#happy) status.
+While a resource is Unhappy, Spinnaker will continue trying to resolve the drift and may eventually succeed. If it does, the resource will transition to the [Happy](/docs/guides/user/managed-delivery/resource-status/#happy) status.
 
 You can click on "History" to see the detected drift along with actions Spinnaker is taking. If you decide manual intervention is needed to remedy any issues you might discover, you can temporarily pause management by clicking "Pause management of this resource" or by pausing the entire application on the Config view for your app.
 
@@ -90,14 +91,14 @@ You can click on "History" to see the detected drift along with actions Spinnake
 
 When a resource has this status, it means Spinnaker is configured to continuously manage the resource but you've chosen to temporarily pause management. While management is paused Spinnaker won't check for drift from the declarative configuration, and it won't take any automatic actions. Depending on whether you've paused the specific resource or the entire application, you can either click "Resume management of this resource" or go to the Config view in your app to resume management.
 
-When you resume management the status will change to [Resumed](/docs/v1/guides/user/managed-delivery/resource-status/#resumed).
+When you resume management the status will change to [Resumed](/docs/guides/user/managed-delivery/resource-status/#resumed).
 
 ### Resumed
 {{< figure src="./resource-status-resumed.png" >}}
 
 When a resource has this status, it means management was just resumed after being temporarily paused and Spinnaker hasn't checked for drift from the declarative configuration yet.
 
-If a drift is detected, the status will change to [Diff](/docs/v1/guides/user/managed-delivery/resource-status/#diff). If no drift is detected, the status will change to [Happy](/docs/v1/guides/user/managed-delivery/resource-status/#unhappy).
+If a drift is detected, the status will change to [Diff](/docs/guides/user/managed-delivery/resource-status/#diff). If no drift is detected, the status will change to [Happy](/docs/guides/user/managed-delivery/resource-status/#unhappy).
 
 ### Currently unresolvable
 {{< figure src="./resource-status-currently-unresolvable.png" >}}
