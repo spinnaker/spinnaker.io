@@ -72,7 +72,7 @@ Adding a new cloud provider is not a simple task. You would want to extend the C
 
 There are two kinds of application metadata at play within Spinnaker.
 
-1. Data unique to Spinnaker, e.g. pipelines and their execution state, active triggers, deployment strategies, etc... These data can be exported with [this script](https://github.com/spinnaker/spinnaker/blob/master/pylib/spinnaker/import_export.py). Currently, these are stored inside Cassandra and Redis, but we are actively adding support for S3 and GCS buckets, as well as Git backed data stores to make exporting, transferring and versioning this state simpler.
+1. Data unique to Spinnaker, e.g. pipelines and their execution state, active triggers, deployment strategies, etc. Currently, these are stored inside Redis or SQL (for certain services), but we are actively adding support for S3 and GCS buckets, as well as Git backed data stores to make exporting, transferring and versioning this state simpler.
 2. Data and relationships between different Spinnaker resources. These come entirely from data available from the underlying platform (AWS, GCP, etc...), and are derived from either
   a. Platform state, e.g. instance health, load balancer and server group relationships, etc... 
   b. Spinnaker's naming conventions. For example, if you create a server group with name `myapp-dev-v000`, Spinnaker picks up this name from the platform and derives that you have an application `myapp`, with a cluster named `myapp-dev`, which contains a single server group with version `v000`.
