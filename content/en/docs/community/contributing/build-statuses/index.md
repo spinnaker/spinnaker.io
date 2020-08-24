@@ -57,7 +57,7 @@ branches:
   {%- else -%}
     {%- capture job -%}Flow_BuildAndValidate_{{branch | remove: "release-" | replace: ".", "_"}}{%- endcapture -%}
   {%- endif -%}
-* [![{{branch}} Build Status](https://builds.spinnaker.io/buildStatus/icon?job={{job}}&subject={{subject}}){:style="height: 25px"}](https://builds.spinnaker.io/job/{{job}}/){:target="\_blank"}
+* [![{{branch}} Build Status](https://builds.spinnaker.io/buildStatus/icon?job={{job}}&subject={{subject}}){:style="height: 25px"}](https://builds.spinnaker.io/job/{{job}}/)
 {% endfor %}
 
 
@@ -76,7 +76,7 @@ Service | Branch | Status
     {%- capture githubStatusImg -%}https://github.com/spinnaker/{{svc}}/workflows/Branch%20Build/badge.svg?branch={{branch}}{%- endcapture -%}
     {%- capture githubLink -%}https://github.com/spinnaker/{{svc}}/actions?query=workflow%3A%22Branch+Build%22+branch%3A{{branch}}{%- endcapture -%}
 
-    {{svcCol}} | `{{branch}}` | [![{{altTxt}}]({{githubStatusImg}}){:style="height: 25px"}]({{githubLink}}){:target="\_blank"}
+    {{svcCol}} | `{{branch}}` | [![{{altTxt}}]({{githubStatusImg}}){:style="height: 25px"}]({{githubLink}})
 {% endfor %}{% endfor %}
 
 
@@ -87,5 +87,5 @@ Service | Branch | Status
   {% capture githubStatusImg %}https://github.com/spinnaker/{{svc}}/workflows/Branch%20Build/badge.svg{% endcapture %}
   {% capture githubLink %}https://github.com/spinnaker/{{svc}}/actions?query=workflow%3A%22Branch+Build%22+branch%3Amaster{% endcapture %}
 
-  * {{svc | capitalize }} [![{{altTxt}}]({{githubStatusImg}}){:style="height: 25px"}]({{githubLink}}){:target="\_blank"}
+  * {{svc | capitalize }} [![{{altTxt}}]({{githubStatusImg}}){:style="height: 25px"}]({{githubLink}})
 {% endfor %}

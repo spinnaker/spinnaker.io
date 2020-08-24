@@ -9,7 +9,7 @@ aliases:
 
 
 
-Setting up [Jenkins](https://jenkins.io/){:target="\_blank"} as a Continuous
+Setting up [Jenkins](https://jenkins.io/) as a Continuous
 Integration (CI) system within Spinnaker lets you trigger pipelines with
 Jenkins, add a Jenkins stage to your pipeline, or add a Script stage to your
 pipeline.
@@ -44,7 +44,7 @@ human-readable name), to your list of Jenkins masters:
    ```
 
    > *Note*: If you use the [GitHub OAuth
-   > plugin](https://wiki.jenkins.io/display/JENKINS/GitHub+OAuth+Plugin){:target="\_blank"}
+   > plugin](https://wiki.jenkins.io/display/JENKINS/GitHub+OAuth+Plugin)
    > for authentication into Jenkins, you can use the GitHub $USERNAME, and use the
    > OAuth token as the $APIKEY.
 

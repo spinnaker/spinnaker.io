@@ -7,11 +7,11 @@ sidebar:
 
 
 
-Spinnaker pipelines can be triggered from a queue in [Amazon Simple Queue Service (SQS)](https://aws.amazon.com/sqs/){:target="\_blank"} that receives new notifications from [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/){:target="\_blank"}.
+Spinnaker pipelines can be triggered from a queue in [Amazon Simple Queue Service (SQS)](https://aws.amazon.com/sqs/) that receives new notifications from [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/).
 
 # Prerequisites
 
-You need an AWS Account and the [AWS Command Line Interface (cli)](https://aws.amazon.com/cli/){:target="\_blank"} installed locally and configured with credentials that allow you to manage your AWS cloud resources.
+You need an AWS Account and the [AWS Command Line Interface (cli)](https://aws.amazon.com/cli/) installed locally and configured with credentials that allow you to manage your AWS cloud resources.
 
 ## Creating an Simple Notification Service (SNS) Topic
 

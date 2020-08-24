@@ -14,9 +14,9 @@ to manage the roles users are granted.
 In order to access a user's group membership, we must use the Google Admin Directory API. We will
 setup a Google Cloud Platform (GCP) service account and grant it access to the Directory API.
 
-1. Enable the Admin SDK [here](https://console.cloud.google.com/apis/library/admin.googleapis.com){:target="\_blank"}.
+1. Enable the Admin SDK [here](https://console.cloud.google.com/apis/library/admin.googleapis.com).
 
-1. In your [Cloud Console](https://console.cloud.google.com){:target="\_blank"},
+1. In your [Cloud Console](https://console.cloud.google.com),
 create a service account that will access the G Suite Directory API.
 
     ![creating a service account for Fiat in GCP console](fiat-service-account.png)
@@ -36,7 +36,7 @@ create a service account that will access the G Suite Directory API.
     ![View the client ID](fiat-cliend-id.png)
 
 1. Give your service account access to the G Suite Directory API in the
-[G Suite Admin console](https://admin.google.com){:target="\_blank"}.
+[G Suite Admin console](https://admin.google.com).
 
     ![authorize the service account to access the Directory API](fiat-authorize-client.png)
 

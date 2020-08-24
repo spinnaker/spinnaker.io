@@ -8,14 +8,14 @@ sidebar:
 
 
 Spinnaker pipelines can be triggered using a [Google Pub/Sub
-subscription](https://cloud.google.com/pubsub/docs/overview){:target="\_blank"}.
+subscription](https://cloud.google.com/pubsub/docs/overview).
 
 ## Prerequisites
 
-You need a [Google Cloud Platform](https://cloud.google.com/){:target="\_blank"}
+You need a [Google Cloud Platform](https://cloud.google.com/)
 (GCP) project to with the [Pub/Sub API
-enabled](https://pantheon.corp.google.com/apis/api/pubsub.googleapis.com){:target="\_blank"},
-and [`gcloud`](https://cloud.google.com/sdk/downloads){:target="\_blank"}
+enabled](https://pantheon.corp.google.com/apis/api/pubsub.googleapis.com),
+and [`gcloud`](https://cloud.google.com/sdk/downloads)
 installed locally.  You can check that `gcloud` is installed and authenticated
 by running:
 
@@ -30,8 +30,8 @@ The Pub/Sub integration can be used to either:
 * Start pipelines by sending Pub/Sub messages from a system you own.
 
 * Start pipelines using Pub/Sub messages originating from a Google Cloud
-  system, such as [Google Cloud Storage](https://cloud.google.com/storage/){:target="\_blank"},
-  or [Google Container Registry](https://cloud.google.com/container-registry/){:target="\_blank"}.
+  system, such as [Google Cloud Storage](https://cloud.google.com/storage/),
+  or [Google Container Registry](https://cloud.google.com/container-registry/).
 
 Configuration and setup for all cases are described below.
 
@@ -60,7 +60,7 @@ gcloud beta pubsub subscriptions create $SUBSCRIPTION --topic $TOPIC
 ```
 
 At this point, you can use the [publisher
-guide](https://cloud.google.com/pubsub/docs/publisher){:target="\_blank"} to
+guide](https://cloud.google.com/pubsub/docs/publisher) to
 learn how to publish messages programmatically to the topic you have created.
 
 Note that your topic messages need to be valid JSON, otherwise an exception
@@ -92,7 +92,7 @@ gcloud beta pubsub subscriptions create $SUBSCRIPTION --topic $TOPIC
 
 To understand the format that GCS will publish messages in, please read the
 [reference
-material](https://cloud.google.com/storage/docs/pubsub-notifications){:target="\_blank"}.
+material](https://cloud.google.com/storage/docs/pubsub-notifications).
 
 ### Receiving messages from Google Container Registry (GCR)
 
@@ -127,12 +127,12 @@ gcloud beta pubsub subscriptions create $SUBSCRIPTION \
 
 To understand the format that GCR will publish messages in, please read the
 [reference
-material](https://cloud.google.com/container-registry/docs/configuring-notifications){:target="\_blank"}.
+material](https://cloud.google.com/container-registry/docs/configuring-notifications).
 
 ## Credentials
 
 Spinnaker needs a [service
-account](https://cloud.google.com/compute/docs/access/service-accounts){:target="\_blank"} to
+account](https://cloud.google.com/compute/docs/access/service-accounts) to
 authenticate as against GCP, with the `roles/pubsub.subscriber` role enabled. If
 you don't already have such a service account with the corresponding JSON key
 downloaded, you can run the following commands to do so:

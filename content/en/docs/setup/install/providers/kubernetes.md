@@ -30,10 +30,10 @@ you'll use.
 ### You need a Kubernetes cluster and its credentials
 
 You need a running Kubernetes cluster, with corresponding credentials in a
-[kubeconfig file](https://kubernetes.io/docs/concepts/cluster-administration/authenticate-across-clusters-kubeconfig/){:target="\_blank"}.
+[kubeconfig file](https://kubernetes.io/docs/concepts/cluster-administration/authenticate-across-clusters-kubeconfig/).
 
 If you have these, and you have
-[`kubectl`](https://kubernetes.io/docs/user-guide/kubectl-overview/){:target="\_blank"}
+[`kubectl`](https://kubernetes.io/docs/user-guide/kubectl-overview/)
 installed on the machine where you have your `kubeconfig`, you can verify the
 credentials work by running this command:
 
@@ -48,16 +48,16 @@ If you don't have a Kubernetes cluster, you can try one of these hosted
 solutions:
 
 * [Azure Container
-  Service](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough){:target="\_blank"}
+  Service](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough)
 
-* [EKS](https://aws.amazon.com/eks/){:target="\_blank"}
+* [EKS](https://aws.amazon.com/eks/)
 
-* [Google Kubernetes Engine](https://cloud.google.com/container-engine/){:target="\_blank"}
+* [Google Kubernetes Engine](https://cloud.google.com/container-engine/)
 
   See the note below on getting credentials in GKE.
 
 Or pick a different [solution that works for
-you](https://kubernetes.io/docs/setup/pick-right-solution/){:target="\_blank"}.
+you](https://kubernetes.io/docs/setup/pick-right-solution/).
 
 Consult the documentation for your environment to find out how to get the
 `kubeconfig` that you must provide to Halyard.
@@ -120,7 +120,7 @@ and `ServiceAccount`. If you're limiting Spinnaker to an explicit list of
 namespaces (using the `namespaces` option), you need to use `Role` &
 `RoleBinding` instead of `ClusterRole` and `ClusterRoleBinding`, and create one
 in each namespace Spinnaker will manage. You can read about the difference
-between `ClusterRole` and `Role` [here](https://kubernetes.io/docs/admin/authorization/rbac/#rolebinding-and-clusterrolebinding){:target="\_blank"}.
+between `ClusterRole` and `Role` [here](https://kubernetes.io/docs/admin/authorization/rbac/#rolebinding-and-clusterrolebinding).
 
 
 ```yaml

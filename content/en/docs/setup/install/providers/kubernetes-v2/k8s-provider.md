@@ -9,8 +9,8 @@ description: >
 
 
 Spinnaker's Kubernetes provider fully supports Kubernetes-native, manifest-based deployments and is the recommended provider for deploying to Kubernetes with Spinnaker.
-[Spinnaker's legacy Kubernetes provider](https://www.spinnaker.io/setup/install/providers/kubernetes/){:target="\_blank"}
-is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md){:target="\_blank"} in Spinnaker 1.21.
+[Spinnaker's legacy Kubernetes provider](https://www.spinnaker.io/setup/install/providers/kubernetes/)
+is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
 
 ## Accounts
 
@@ -21,14 +21,14 @@ credential that can authenticate against your Kubernetes Cluster.
 
 The Kubernetes provider has two requirements:
 
-* A [`kubeconfig`](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/){:target="\_blank"} file
+* A [`kubeconfig`](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file
 
     The `kubeconfig` file allows Spinnaker to authenticate against your cluster
     and to have read/write access to any resources you expect it to manage. You
     can think of it as private key file to let Spinnaker connect to your cluster.
     You can request this from your Kubernetes cluster administrator.
 
-* [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/){:target="\_blank"} CLI tool
+* [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/) CLI tool
 
     Spinnaker relies on `kubectl` to manage all API access. It's installed
     along with Spinnaker.
@@ -83,7 +83,7 @@ kubectl config set-context $CONTEXT --user ${CONTEXT}-token-user
 ### Optional: Configure Kubernetes roles (RBAC)
 
 If your Kubernetes cluster supports
-[RBAC](https://kubernetes.io/docs/admin/authorization/rbac/){:target="\_blank"}
+[RBAC](https://kubernetes.io/docs/admin/authorization/rbac/)
 and you want to restrict permissions granted to your Spinnaker account, you
 will need to follow the below instructions.
 
@@ -93,7 +93,7 @@ namespaces (using the `namespaces` option), you need to use `Role` &
 `RoleBinding` instead of `ClusterRole` and `ClusterRoleBinding`, and apply the
 `Role` and `RoleBinding` to each namespace Spinnaker manages. You can read
 about the difference between `ClusterRole` and `Role`
-[here](https://kubernetes.io/docs/admin/authorization/rbac/#rolebinding-and-clusterrolebinding){:target="\_blank"}.
+[here](https://kubernetes.io/docs/admin/authorization/rbac/#rolebinding-and-clusterrolebinding).
 If you're using RBAC to restrict the Spinnaker service account to a particular namespace,
 you must specify that namespace when you add the account to Spinnaker.
 If you don't specify any namespaces, then Spinnaker will attempt to list all namespaces,
@@ -166,7 +166,7 @@ reasons:
 
 * The V2 provider encourages you to leverage the Kubernetes native deployment
   orchestration (e.g.
-  [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/){:target="\_blank"})
+  [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/))
   instead of the Spinnaker red/black, where possible.
 
 * The initial operations available on Kubernetes manifests (e.g. scale, pause

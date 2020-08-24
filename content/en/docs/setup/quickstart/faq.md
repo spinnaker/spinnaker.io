@@ -50,7 +50,7 @@ two solutions.
    and `hal config security api edit --override-base-url <full api url>`.
 
 2. If you don't want to rely on authentication, you can follow [this
-   guide](https://blog.spinnaker.io/exposing-spinnaker-to-end-users-4808bc936698){:target="\_blank"}.
+   guide](https://blog.spinnaker.io/exposing-spinnaker-to-end-users-4808bc936698).
    This makes sense if you're running Spinnaker in a private network, or have
    another form of authentication fronting Spinnaker.
 
@@ -70,7 +70,7 @@ Odds are Halyard can't connect to the configuration & version bucket (in Google
 Cloud Storage) it uses to determine if the configuration you've provided works
 for the version of Spinnaker you want to install. The bucket is
 `gs://halconfig`, see if you can reach it locally using the
-[`gsutil`](https://cloud.google.com/storage/docs/gsutil){:target="\_blank"} CLI.
+[`gsutil`](https://cloud.google.com/storage/docs/gsutil) CLI.
 The remediation will depend on your local network. You can also always omit
 validation with the `--no-validate` flag.
 
@@ -92,7 +92,7 @@ If this happens, there are one of two causes:
 
 First, please read the [custom configuration](/reference/halyard/custom/)
 documentation. With that in mind, if you're configuring any of Spinnaker's
-[Spring-based](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html){:target="\_blank"}
+[Spring-based](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)
 services (everything but deck and spinnaker-monitoring), you're
 best off providing a `-local.yml` profile for the service in mind. For example,
 say you are configuring the Halyard
@@ -163,7 +163,7 @@ machines you care about.
 
 In the file under `/opt/halyard/bin/halyard`, add the necessary proxy
 configuration to the variable `DEFAULT_JVM_OPTS` as described
-[here](https://developers.google.com/gdata/articles/proxy_setup){:target="\_blank"}
+[here](https://developers.google.com/gdata/articles/proxy_setup)
 For example,
 ```bash
 DEFAULT_JVM_OPTS=-Dhttp.proxyHost=my.proxy.domain.com -Dhttp.proxyPort=3128
@@ -185,7 +185,7 @@ env:
 
 These settings will forward all external communication through the proxy server specified while
 keeping internal traffic non-proxied. Additional information can be found 
-[here.](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html){:target="\_blank"}
+[here.](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html)
 
 The Kubernetes provider must be handled differently. Because the Kubernetes provider 
 uses `kubectl` (which uses curl), you must set environment variables if you want 

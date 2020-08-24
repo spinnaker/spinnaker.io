@@ -9,13 +9,13 @@ sidebar:
 
 In the Amazon ECS cloud provider, an [__Account__](/concepts/providers/#accounts)
 maps to a Spinnaker AWS account, which itself is able to authenticate against a given [AWS
-account](https://aws.amazon.com/account/){:target="\_blank"}.
+account](https://aws.amazon.com/account/).
 
 ## Prerequisites
 
 ### Amazon ECS cluster
 
-You need to [create an Amazon ECS cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html){:target="\_blank"}. If using the 'EC2' launch type, this cluster must have enough EC2 instance capacity in it to deploy your containers.  If using the 'Fargate' launch type, you don't need to add any capacity to this cluster.
+You need to [create an Amazon ECS cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html). If using the 'EC2' launch type, this cluster must have enough EC2 instance capacity in it to deploy your containers.  If using the 'Fargate' launch type, you don't need to add any capacity to this cluster.
 
 ### Networking
 
@@ -32,11 +32,11 @@ aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com
 aws iam create-service-linked-role --aws-service-name ecs.application-autoscaling.amazonaws.com
 ```
 
-See the [Amazon ECS service-linked role documentation](https://docs.aws.amazon.com/AmazonECS/latest/userguide/using-service-linked-roles.html){:target="\_blank"} and the [Application Auto Scaling service-linked role documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html){:target="\_blank"} for information on the permissions in these roles.
+See the [Amazon ECS service-linked role documentation](https://docs.aws.amazon.com/AmazonECS/latest/userguide/using-service-linked-roles.html) and the [Application Auto Scaling service-linked role documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) for information on the permissions in these roles.
 
 ### Legacy IAM Roles (prior to 1.19)
 
-In Spinnaker versions 1.18 and below, the Amazon ECS cloud provider uses [legacy IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-legacy-iam-roles.html){:target="\_blank"}.  The provider uses the cloud provider account's assumed IAM role as both the [Service Scheduler IAM role](https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-legacy-iam-roles.html#service_IAM_role){:target="\_blank"} and the [Service Auto Scaling IAM role](https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-legacy-iam-roles.html#autoscale_IAM_role){:target="\_blank"} for the server group's Amazon ECS service.
+In Spinnaker versions 1.18 and below, the Amazon ECS cloud provider uses [legacy IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-legacy-iam-roles.html).  The provider uses the cloud provider account's assumed IAM role as both the [Service Scheduler IAM role](https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-legacy-iam-roles.html#service_IAM_role) and the [Service Auto Scaling IAM role](https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-legacy-iam-roles.html#autoscale_IAM_role) for the server group's Amazon ECS service.
 
 The IAM role for the cloud provider account associated with the Amazon ECS server group must allow both Amazon ECS and Application Auto Scaling to assume the role in its trust policy.
 
@@ -58,11 +58,11 @@ The IAM role for the cloud provider account associated with the Amazon ECS serve
 }
 ```
 
-For information on how to configure the IAM role associated with the cloud provider account, see the [AWS provider documentation](/docs/setup/install/providers/aws/aws-ec2/).  For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html){:target="\_blank"}.
+For information on how to configure the IAM role associated with the cloud provider account, see the [AWS provider documentation](/docs/setup/install/providers/aws/aws-ec2/).  For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html).
 
 ### Task Execution IAM Role
 
-Some Amazon ECS services require a [task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html){:target="\_blank"}, such as services running on AWS Fargate.  If you are using task definition artifacts in your Spinnaker pipeline, the task execution role can be specified in the artifact's task definition file.
+Some Amazon ECS services require a [task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html), such as services running on AWS Fargate.  If you are using task definition artifacts in your Spinnaker pipeline, the task execution role can be specified in the artifact's task definition file.
 
 If you are not using a task definition artifact (or if the artifact's task definition file does not specify a task execution role) for a server group running on Fargate, the Amazon ECS cloud provider will fallback to using the cloud provider account's assumed IAM role as the task execution role.  In that situation, the IAM role for the cloud provider account associated with the Amazon ECS server group must allow Amazon ECS to assume the role in its trust policy.
 
@@ -83,11 +83,11 @@ If you are not using a task definition artifact (or if the artifact's task defin
 }
 ```
 
-For information on how to configure the IAM role associated with the cloud provider account, see the [AWS provider documentation](/docs/setup/install/providers/aws/aws-ec2/).  For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html){:target="\_blank"}.
+For information on how to configure the IAM role associated with the cloud provider account, see the [AWS provider documentation](/docs/setup/install/providers/aws/aws-ec2/).  For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html).
 
 ### Optional: IAM Roles for Tasks
 
-You can create [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html){:target="\_blank"} and associate them to your Amazon ECS provider server group in Spinnaker, so that your application's containers have access to IAM role credentials.  The task role must allow Amazon ECS to assume the role in its trust policy.
+You can create [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) and associate them to your Amazon ECS provider server group in Spinnaker, so that your application's containers have access to IAM role credentials.  The task role must allow Amazon ECS to assume the role in its trust policy.
 
 ```json
 {
@@ -105,11 +105,11 @@ You can create [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/lates
 }
 ```
 
-For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html){:target="\_blank"}.
+For information on how to modify IAM roles in the AWS console, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html).
 
 ### Optional: Service Auto Scaling
 
-You can configure your Amazon ECS services to use [Service Auto Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html){:target="\_blank"}.  Service Auto Scaling policies adjust your Amazon ECS service's desired count up or down in response to CloudWatch alarms (e.g. tracking the CPU utilization of an Amazon ECS service, or tracking a custom metric) or on a schedule (e.g. scale up on Monday, scale down on Friday).
+You can configure your Amazon ECS services to use [Service Auto Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html).  Service Auto Scaling policies adjust your Amazon ECS service's desired count up or down in response to CloudWatch alarms (e.g. tracking the CPU utilization of an Amazon ECS service, or tracking a custom metric) or on a schedule (e.g. scale up on Monday, scale down on Friday).
 
 Configure scaling policies on your Amazon ECS services using the Application Auto Scaling APIs or in the Amazon ECS console, outside of Spinnaker.  When deploying a new server group in Spinnaker, you can copy these scaling policies from the previous service group by enabling the "copy the previous server group's autoscaling policies" option.
 

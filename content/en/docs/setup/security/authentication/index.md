@@ -49,7 +49,7 @@ Getting the authentication working rarely happens on the first try. Each login a
  repository. Re-using these sessions is undesirable when testing configuration changes.
 
 We highly recommend using Google Chrome's [Incognito
-mode](https://support.google.com/chrome/answer/95464?source=gsearch&hl=en){:target="\_blank"}
+mode](https://support.google.com/chrome/answer/95464?source=gsearch&hl=en)
 when working with configuration changes.
 
 1. Open a new Incognito window.

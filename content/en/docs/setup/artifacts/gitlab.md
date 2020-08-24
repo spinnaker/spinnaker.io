@@ -10,11 +10,11 @@ Spinnaker can download files from GitLab.
 
 ## Prerequisites
 
-* You need a [GitLab](https://gitlab.com){:target="\_blank"} account.
+* You need a [GitLab](https://gitlab.com) account.
 
 ### Downloading credentials
 
-Start by generating an [access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html){:target="\_blank"}
+Start by generating an [access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
 for GitLab.
 
 Place the token in a file (`$TOKEN_FILE`) readable by Halyard:

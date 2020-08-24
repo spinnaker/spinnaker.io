@@ -43,7 +43,7 @@ The certificates generated here only allow for the authentication of a user's id
 
 `roleOid` is used for this example.
 
-Client certificates with role information are parsed when roleOid is provided. This OID is configurable and is set via Halyard. The OID provided in the example below is defined [here](http://www.oid-info.com/cgi-bin/display?oid=1.2.840.10070.8.1&action=display){:target="\_blank"}.
+Client certificates with role information are parsed when roleOid is provided. This OID is configurable and is set via Halyard. The OID provided in the example below is defined [here](http://www.oid-info.com/cgi-bin/display?oid=1.2.840.10070.8.1&action=display).
 
 Encoding with any other OID can be done by editing the `openssl.conf`.
 
@@ -151,7 +151,7 @@ hal config security authn x509 edit --subject-principal-regex "EMAILADDRESS=(.*?
 By enabling X.509 on the main 8084 port, it causes the browser to ask the user to present their
 client certificate. Many end-users can get confused or annoyed by this message, so it is preferable to move this off of the main port.
 
-You can move the client certificate-enabled port by setting `default.apiPort` value to something other than 8084. This enables an additional port configuration that is [hardcoded](https://github.com/spinnaker/kork/blob/master/kork-web/src/main/groovy/com/netflix/spinnaker/config/TomcatConfiguration.groovy){:target="\_blank"} to _need_ a valid X.509 certificate before allowing the request to proceed.
+You can move the client certificate-enabled port by setting `default.apiPort` value to something other than 8084. This enables an additional port configuration that is [hardcoded](https://github.com/spinnaker/kork/blob/master/kork-web/src/main/groovy/com/netflix/spinnaker/config/TomcatConfiguration.groovy) to _need_ a valid X.509 certificate before allowing the request to proceed.
 
 ## Workflow
 

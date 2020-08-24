@@ -42,7 +42,7 @@ You need to set the `spinnaker.baseUrl` configuration value which is used by spi
 ## Email
 
 Email in spinnaker is provided by [Spring Boot Mail
-starter](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-email.html){:target="\_blank"}.
+starter](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-email.html).
 The following is an example of using hotmail to send notifications.
 
 in echo.yml
@@ -77,7 +77,7 @@ window.spinnakerSettings.notifications.email.enabled = true;
 ## Slack
 
 For slack, you need to [create a custom bot
-user](https://api.slack.com/bot-users#how_do_i_create_custom_bot_users_for_my_team){:target="\_blank"},
+user](https://api.slack.com/bot-users#how_do_i_create_custom_bot_users_for_my_team),
 then get the access token associated with that new bot user. Then...
 
 ```bash
@@ -89,7 +89,7 @@ Note: your users will need to invite the slack bot to private rooms that want to
 
 ## Twilio
 
-For Twilio, you need to add your account [credentials](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-how-to-change-them){:target="\_blank"}. Then...
+For Twilio, you need to add your account [credentials](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-how-to-change-them). Then...
 
 ```bash
 hal config notification twilio enable
@@ -235,7 +235,7 @@ You can access the hash of the build via expression ```${trigger.hash}```
 
 ## Add a listening webhook to spinnaker
 
-The [echo-rest](https://github.com/spinnaker/echo/tree/master/echo-rest){:target="\_blank"}
+The [echo-rest](https://github.com/spinnaker/echo/tree/master/echo-rest)
 module in spinnaker allows you to set downstream listeners keeping track of
 Spinnaker events.
 
