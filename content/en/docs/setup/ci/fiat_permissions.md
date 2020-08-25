@@ -1,11 +1,8 @@
 ---
 layout: single
 title:  "Fiat Permissions"
-sidebar:
-  nav: setup
+description: Igor, the Spinnaker service that connects to CI systems, requires READ and WRITE permissions, which are configured in Fiat.
 ---
-
-
 
 Unless you have set `fiat.legacyFallback` to `true` (defaults to `false`) you will need to configure 
 Igor CI services with Fiat `READ` and `WRITE` permissions.

@@ -1,8 +1,7 @@
 ---
 layout: single
 title:  "Configure Maven Artifact Credentials"
-sidebar:
-  nav: setup
+description: Spinnaker supports artifacts stored in a Maven repository.
 ---
 
 Spinnaker can be configured to deploy artifacts stored in a Maven repository.

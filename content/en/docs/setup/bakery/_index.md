@@ -2,12 +2,10 @@
 title: "Bakery"
 linkTitle: "Bakery"
 weight: 4
-description: >
-  The concept of Immutable Infrastructure is core to Spinnaker.
+description: Spinnaker includes Hashicorp's Packer as a default image bakery.
 ---
 
-Since the concept of Immutable Infrastructure is core to Spinnaker, we provide
-an image bakery powered by [Hashicorp's
+Since the concept of Immutable Infrastructure is core to Spinnaker, Spinnaker includes an image bakery powered by [Hashicorp's
 Packer](https://www.packer.io/intro/) to help you produce
 machine images.
 
@@ -19,8 +17,8 @@ pages will describe how to further configure the bakery.
 
 There are two types of configuration of the Bakery:
 
-1. [Packer templates](#packer-templates)
-2. [Image provider configuration](#image-provider-configuration)
+- [Packer Templates](#packer-templates)
+- [Image Provider Configuration](#image-provider-configuration)
 
 ## Packer Templates
 

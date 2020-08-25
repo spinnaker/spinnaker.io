@@ -1,9 +1,7 @@
 ---
-title: "Configuring the Script stage"
-linkTitle: "Configuring the Script stage"
+title: "Configuring the Script Stage"
 weight: 1
-description: >
-  Including a Slack support channel for an application
+description: Use a Script stage to configure Slack notifications.
 ---
 
 

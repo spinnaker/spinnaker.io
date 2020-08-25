@@ -2,8 +2,7 @@
 title: "Configure Artifacts"
 linkTitle: "Configure Artifacts"
 weight: 5
-description: >
-  Artifacts are remote, deployable resources in Spinnaker.
+description: Artifacts are remote, deployable resources in Spinnaker.
 ---
 
 Artifacts are remote, deployable resources in Spinnaker. Depending on

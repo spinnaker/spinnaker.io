@@ -2,8 +2,7 @@
 title: "Set up Canary Analysis Support"
 linkTitle: "Canary"
 weight: 6
-description: >
-  Setting up automated canary analysis in Spinnaker consists of running a bunch of Halyard commands.
+description: Set up Automated Canary Analysis to perform Canary deployments with Spinnaker.
 ---
 
 Setting up automated canary analysis in Spinnaker consists of running a bunch

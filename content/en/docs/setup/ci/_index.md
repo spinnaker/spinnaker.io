@@ -2,8 +2,7 @@
 title: "CI"
 linkTitle: "CI"
 weight: 7
-description: >
-  Spinnaker can listen to events, and collect artifacts produced by builds in external Continuous Integration (CI) systems.
+description: Spinnaker can listen to events and collect artifacts produced by external Continuous Integration (CI) systems.
 ---
 
 Spinnaker can listen to events, and collect artifacts produced by builds in

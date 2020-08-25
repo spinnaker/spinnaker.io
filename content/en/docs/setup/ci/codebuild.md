@@ -1,11 +1,8 @@
 ---
 layout: single
 title:  "AWS CodeBuild"
-sidebar:
-  nav: setup
+description: Spinnaker supports AWS CodeBuild as a continuous integration system.
 ---
-
-
 
 Setting up [AWS CodeBuild](https://aws.amazon.com/codebuild/) as a Continuous Integration (CI)
 system within Spinnaker allows you to:

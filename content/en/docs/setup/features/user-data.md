@@ -1,8 +1,7 @@
 ---
 layout: single
 title:  "User Data Files and Metadata"
-sidebar:
-  nav: setup
+description: You can inject data into instances started by Spinnaker.
 ---
 
 Spinnaker refers to data injected into instances started by Spinnaker as *user data*.

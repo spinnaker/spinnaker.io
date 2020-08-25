@@ -2,10 +2,8 @@
 title: "Oracle Cloud Infrastructure - Bakery"
 linkTitle: "Oracle Cloud Infrastructure"
 weight: 1
-description: >
-  Oracle Cloud Infrastructure (OCI) bakery configuration
+description: Configure the Oracle Cloud Infrastructure (OCI) bakery
 ---
-
 
 The Oracle Cloud Infrastructure (OCI) bakery configuration allows for setting the default availability domain, network, and instance shape of the VM used for baking the image:
 

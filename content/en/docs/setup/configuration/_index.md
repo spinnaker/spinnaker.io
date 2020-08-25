@@ -2,8 +2,7 @@
 title: "Configuration"
 linkTitle: "Configuration"
 weight: 1
-description: >
-  Describes Spinnaker's external configuration feature
+description: You can manage some of Spinnaker's configurations externally, which allows you to load them dynamically. Spinnaker supports several backends for configs.
 ---
 
 This page describes Spinnaker's external configuration feature. Using external configuration, you can manage account configuration (either complete account configuration, or only secrets such as account passwords) externally from Spinnaker.

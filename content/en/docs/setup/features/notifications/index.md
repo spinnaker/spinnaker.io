@@ -2,7 +2,7 @@
 title: "Notifications and Events Guide"
 linkTitle: "Notifications and Events Guide"
 weight: 1
-description: ""
+description: Spinnaker supports several types of notifications.
 ---
 
 

@@ -1,11 +1,8 @@
 ---
 layout: single
 title:  "Configure HTTP Artifact Credentials"
-sidebar:
-  nav: setup
+description: Spinnaker supports reading HTTP files directly for artifacts.
 ---
-
-Spinnaker stages that read data from artifacts can read HTTP files directly.
 
 If the files are hidden behind basic auth, you can configure an artifact
 account with the needed credentials to read your artifact. _If not_, no further

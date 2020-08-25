@@ -1,12 +1,11 @@
 ---
 layout: single
 title:  "Configuring GCS Artifact Credentials"
-sidebar:
-  nav: setup
+description: Spinnaker supports using GCS objects as artifacts.
 ---
 
 Spinnaker stages that read data from artifacts can consume
-[GCS](https://cloud.google.com/storage/){:target="\_blank"} objects as artifacts.
+[GCS](https://cloud.google.com/storage/) objects as artifacts.
 
 ## Prerequisites
 

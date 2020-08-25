@@ -2,11 +2,10 @@
 title: "Google Compute Engine - Bakery"
 linkTitle: "Google Compute Engine"
 weight: 1
-description: >
-  Oracle Cloud Infrastructure (OCI) bakery configuration
+description: Configure the Google Compute Engine (GCE) bakery to bake images.
 ---
 
-The GCE bakery configuration allows for setting the default network and zone and whether to use the public IP
+The GCE bakery configuration allows you to setg the default network and zone and whether to use the public IP
 address of the VM used for baking the image.
 
 For example, to set the default zone:

@@ -1,12 +1,9 @@
 ---
 layout: single
 title:  "Configure a GitLab artifact account"
-sidebar:
-  nav: setup
----
-
-These steps show you how to configure a GitLab artifact account so that
+description: Configure a GitLab artifact account so that
 Spinnaker can download files from GitLab.
+---
 
 ## Prerequisites
 

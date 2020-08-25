@@ -2,8 +2,7 @@
 title: "Enable Slack Support Channels"
 linkTitle: "Enable Slack Support Channels"
 weight: 1
-description: >
-  Including a Slack support channel for an application
+description: Connect Spinnaker applications to specific Slack channels with Slack's conversations API.
 ---
 
 You can [create an application](/guides/user/applications/create/) and configure it with relevant data—*application attributes*. 

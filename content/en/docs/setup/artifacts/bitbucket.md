@@ -1,11 +1,8 @@
 ---
 layout: single
 title:  "Configure Bitbucket Artifact Credentials"
-sidebar:
-  nav: setup
+description: Spinnaker supports reading data from Bitbucket artifacts directly.
 ---
-
-Spinnaker stages that read data from artifacts can read Bitbucket files directly.
 
 If the files are hidden behind basic auth, you can configure an artifact
 account with the needed credentials to read your artifact.

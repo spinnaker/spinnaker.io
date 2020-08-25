@@ -1,11 +1,8 @@
 ---
 layout: single
 title:  "Travis CI"
-sidebar:
-  nav: setup
+description: Spinnaker supports Travis as a continuou integration system.
 ---
-
-
 
 You can configure Spinnaker to use [Travis
 CI](https://travis-ci.org/){:target="\_blank"} as your Continuous Integration

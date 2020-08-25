@@ -1,14 +1,12 @@
 ---
 layout: single
 title:  "Configure a GitHub artifact account"
-sidebar:
-  nav: setup
+description: Configure a GitHub artifact account so that
+Spinnaker can download files from GitHub.
 ---
 
 Spinnaker can be configured to listen to changes to a repository in
-[GitHub](https://github.com){:target="\_blank"}.
-These steps show you how to configure a GitHub artifact account so that
-Spinnaker can download files from GitHub.
+[GitHub](https://github.com)
 
 ## Prerequisites
 

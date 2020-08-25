@@ -1,8 +1,7 @@
 ---
 layout: single
 title:  "Wercker"
-sidebar:
-  nav: setup
+description: Spinnaker supports Wercker as a continuous integration system.
 ---
 
 
