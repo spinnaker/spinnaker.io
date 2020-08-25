@@ -1,8 +1,7 @@
 ---
 layout: single
 title:  "Configure a GitHub artifact account"
-description: Configure a GitHub artifact account so that
-Spinnaker can download files from GitHub.
+description: Configure a GitHub artifact account so that Spinnaker can download files from GitHub.
 ---
 
 Spinnaker can be configured to listen to changes to a repository in
