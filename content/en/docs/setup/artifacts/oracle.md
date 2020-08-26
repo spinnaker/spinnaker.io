@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Configuring Oracle Object Storage Artifact Credentials"
 description: Spinnaker supports ORacle Object Storage as an artifact source.
 ---

@@ -1,8 +1,7 @@
 ---
-layout: single
+
 title:  "Set up Front50 to use SQL"
-sidebar:
-  nav: setup
+description: You can configure Front50 to use a MySQL compatible database for all of its persistence use cases. This provides more resiliency for your deployment.
 ---
 
 

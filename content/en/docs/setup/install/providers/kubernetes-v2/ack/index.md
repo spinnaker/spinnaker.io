@@ -1,8 +1,8 @@
 ---
-Layout: single
+
 title:  "Alibaba Cloud Container Service for Kubernetes (ACK) Setup"
 linkTitle: Alibaba Cloud for Kubernetes
-description: Deploy to Alibaba Cloud Container Service for Kubernetes (ACK) using the Kubernetes provider for Spinnaker.
+description: Deploy to ACK using the Kubernetes provider for Spinnaker.
 ---
 
 This page describes how to set up a Kubernetes cluster on

@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Configuring GCS Artifact Credentials"
 description: Spinnaker supports using GCS objects as artifacts.
 ---

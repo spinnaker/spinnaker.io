@@ -1,7 +1,6 @@
 ---
 title:  "Oracle Cloud"
-sidebar:
-  nav: setup
+description: Spinnaker supports OAuth 2.0 for authentication with Oracle Cloud OAuth.
 ---
 
 ## Configuring Oracle Cloud OAuth 2.0

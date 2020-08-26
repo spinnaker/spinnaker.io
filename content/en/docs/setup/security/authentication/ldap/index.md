@@ -1,10 +1,7 @@
 ---
 title:  "LDAP"
-sidebar:
-  nav: setup
+description: Spinnaker supports using LDAP for authentication. 
 ---
-
-
 
 Lightweight Directory Access Protocol (LDAP) is a standard way many organizations maintain user
 credentials and group memberships. Spinnaker uses the standard "*bind*" approach for user

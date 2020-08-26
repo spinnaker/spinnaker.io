@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Amazon AWS Pub/Sub"
 sidebar:
   nav: setup

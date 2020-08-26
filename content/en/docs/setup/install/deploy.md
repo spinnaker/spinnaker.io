@@ -1,16 +1,13 @@
 ---
-layout: single
+
 title:  "Deploy Spinnaker and Connect to the UI"
-sidebar:
-  nav: setup
+description: After you finish configuring Spinnaker, deploy it and connect to the Deck, the Spinnaker UI.
 aliases: 
    - /setup/install/upgrades/
 ---
 
-Now that we've enabled one or more [Cloud Providers](/docs/setup/providers/), picked
-a [Deployment Environment](/docs/setup/install/environment/), and configured
-[Persistent Storage](/docs/setup/install/storage/), we're ready to pick a version of
-Spinnaker, deploy it, and connect to it.
+Now that we've enabled one or more [Cloud Providers](/docs/setup/providers/), picked a [Deployment Environment](/docs/setup/install/environment/), and configured
+[Persistent Storage](/docs/setup/install/storage/), we're ready to pick a version of Spinnaker, deploy it, and connect to it.
 
 ## Pick a version
 

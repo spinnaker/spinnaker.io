@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "AWS CodeBuild"
 description: Spinnaker supports AWS CodeBuild as a continuous integration system.
 ---

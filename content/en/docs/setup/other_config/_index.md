@@ -1,9 +1,7 @@
 ---
 title: "Configure Everything Else"
-linkTitle: "Configure Everything Else"
 weight: 1
-description: >
-  A few other things to set up
+description: Once Spinnaker is configured, you can enable additional functionality. For example, connect Spinnaker to your continuous integration system.
 ---
 
 You've [installed and configured Spinnaker](/docs/setup/install/), but there are still a few other things to set up:

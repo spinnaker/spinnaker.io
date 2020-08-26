@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "DC/OS"
 sidebar:
   nav: setup

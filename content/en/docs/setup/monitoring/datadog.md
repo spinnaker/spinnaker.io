@@ -1,8 +1,7 @@
 ---
-layout: single
+
 title:  "Datadog"
-sidebar:
-  nav: setup
+description: Monitor Spinnaker's performance using Datadog. 
 ---
 
 

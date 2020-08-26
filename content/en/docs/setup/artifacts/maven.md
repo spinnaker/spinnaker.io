@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Configure Maven Artifact Credentials"
 description: Spinnaker supports artifacts stored in a Maven repository.
 ---

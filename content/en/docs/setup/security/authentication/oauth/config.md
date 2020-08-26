@@ -1,7 +1,6 @@
 ---
 title:  "OAuth 2.0 Configuration"
-sidebar:
-  nav: setup
+description: Configure your Spinnaker deployment to use OAuth 2.0 for authentication.
 ---
 
 ## Halyard config

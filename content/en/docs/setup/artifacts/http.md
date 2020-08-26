@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Configure HTTP Artifact Credentials"
 description: Spinnaker supports reading HTTP files directly for artifacts.
 ---

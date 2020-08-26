@@ -3,8 +3,7 @@ title: "Install and Configure Spinnaker"
 linkTitle: "Install"
 weight: 1
 description: >
-  Describes how to install and set up Spinnaker so that it can be configured for
-  use in production.
+  Describes how to install and set up Spinnaker so that it can be configured for use in production.
 ---
 
 This section describes how to install and set up Spinnaker so that it can be configured for

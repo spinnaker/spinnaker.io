@@ -1,15 +1,9 @@
 ---
 title:  "OAuth 2.0"
-sidebar:
-  nav: setup
+description: Use OAuth 2.0 to authenticate users and grant them access to Spinnaker.
 ---
 
-
-
-OAuth 2.0 is the preferred way to authenticate and authorize third parties access to your data guarded
-by the identity provider. To confirm your identity, Spinnaker requests access to your email address
-from your identity provider.  Please read ALL of the documentation on this page as just setting the provider
-may not work for your environment.
+OAuth 2.0 is the preferred way to authenticate and authorize third parties access to your data guarded by the identity provider. To confirm your identity, Spinnaker requests access to your email address from your identity provider.  Please read ALL of the documentation on this page as just setting the provider may not work for your environment.
 
 ## Configuration
 

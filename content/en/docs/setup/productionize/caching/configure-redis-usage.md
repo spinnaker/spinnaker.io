@@ -1,8 +1,7 @@
 ---
-layout: single
+
 title:  "Configure Spinnaker's Usage of Redis"
-sidebar:
-  nav: setup
+description: Several Spinnaker serves use Redis. Consider tuning them to meet your usage requirements.
 ---
 
 

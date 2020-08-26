@@ -1,7 +1,6 @@
 ---
 title:  "GitHub Teams"
-sidebar:
-  nav: setup
+description: Spinnaker supports OAuth 2.0 for authentication with GitHub teams.
 ---
 
 ## Get Client ID and Secret

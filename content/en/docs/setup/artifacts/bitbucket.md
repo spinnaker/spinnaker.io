@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Configure Bitbucket Artifact Credentials"
 description: Spinnaker supports reading data from Bitbucket artifacts directly.
 ---

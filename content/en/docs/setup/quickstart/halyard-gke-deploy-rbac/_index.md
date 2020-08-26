@@ -5,8 +5,6 @@ weight: 1
 description: 
 ---
 
-
-
 If you've deployed Spinnaker already using [this
 codelab](/docs/setup/quickstart/halyard-gke) you're left with a Spinnaker that can only deploy to the cluster that Spinnaker is deployed in.
 In many cases you want to deploy to clusters in another GCP project that has Kubernetes RBAC enabled.

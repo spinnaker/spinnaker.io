@@ -1,8 +1,7 @@
 ---
-layout: single
+
 title:  "Stackdriver"
-sidebar:
-  nav: setup
+description: Monitor Spinnaker using Stackdriver.
 ---
 
 

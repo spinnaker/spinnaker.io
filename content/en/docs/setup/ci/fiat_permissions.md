@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Fiat Permissions"
 description: Igor, the Spinnaker service that connects to CI systems, requires READ and WRITE permissions, which are configured in Fiat.
 ---

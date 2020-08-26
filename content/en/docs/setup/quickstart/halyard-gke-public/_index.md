@@ -1,15 +1,13 @@
 ---
 title: "Try out public Spinnaker on GKE"
-linkTitle: "Try out public Spinnaker on GKE"
+description: Make Spinnaker accessible on a public
+domain with OAuth2.0 enabled.
 weight: 1
 description: 
 ---
 
-
-
 If you've deployed Spinnaker already using [this
-codelab](/docs/setup/quickstart/halyard-gke) you're left with a Spinnaker that's
-accessible only with `hal deploy connect`. This is unwieldy, making Spinnaker
+codelab](/docs/setup/quickstart/halyard-gke) you're left with a Spinnaker that's accessible only with `hal deploy connect`. This is unwieldy, making Spinnaker
 difficult for other users in your organization to access.
 
 In this codelab, we will focus on making Spinnaker accessible on a public

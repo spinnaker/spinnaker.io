@@ -1,7 +1,7 @@
 ---
 title:  "G Suite"
-sidebar:
-  nav: setup
+description: Spinnaker supports OAuth 2.0 for authentication with G Suite.
+
 ---
 
 This page instructs you on how to obtain an OAuth 2.0 client ID and client secret for use with your G Suite organization

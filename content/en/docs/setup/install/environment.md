@@ -1,11 +1,8 @@
 ---
-layout: single
+
 title:  "Choose your Environment"
-sidebar:
-  nav: setup
+description: Based on your use case, choose how you want to install Spinnaker.
 ---
-
-
 
 In this step, you tell Halyard in what type of environment to install Spinnaker.
 
@@ -23,7 +20,7 @@ but all of these methods are supported:
   Spinnaker deployments, but Spinnaker will be unavailable when it's being
   updated.
 
-* [Local git installations](#local-git) from github
+* [Local git installations](#local-git) from GitHub
 
   This is for developers contributing to the Spinnaker project. If you're a
   contributor, you'll probably have two separate installations&mdash;a

@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "User Data Files and Metadata"
 description: You can inject data into instances started by Spinnaker.
 ---

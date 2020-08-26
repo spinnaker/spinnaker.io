@@ -1,7 +1,6 @@
 ---
-title:  "Microsoft Azure"
-sidebar:
-  nav: setup
+title:  "Azure"
+description: Spinnaker supports OAuth 2.0 for authentication with Azure.
 ---
 
 This page instructs you on how to obtain an OAuth 2.0 client ID and client secret for

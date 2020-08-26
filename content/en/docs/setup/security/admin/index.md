@@ -1,13 +1,12 @@
 ---
-layout: single
 title:  "Administrator functionality"
-sidebar:
-  nav: setup
+description: Administrators have complete control over your Spinnaker deployment.
 ---
 
 
 
 ## Introduction
+
 In Spinnaker, it is possible to define that users belonging to a certain role are considered "Administrators". This virtually removes all READ/WRITE restrictions to accounts and applications for these users.
 
 {% include
@@ -16,9 +15,6 @@ In Spinnaker, it is possible to define that users belonging to a certain role ar
 %}
 
 ## Enable and Configure Admin functionality
-
-### Halyard
-TBD
 
 ### Manually add configuration in Fiat
 

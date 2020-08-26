@@ -1,8 +1,7 @@
 ---
-layout: single
+
 title:  "Prometheus"
-sidebar:
-  nav: setup
+description: Monitor Spinnaker using Prometheus paired with Grafana dashboards.
 ---
 
 

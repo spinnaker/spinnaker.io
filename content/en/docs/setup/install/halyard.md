@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Install Halyard"
 sidebar:
   nav: setup

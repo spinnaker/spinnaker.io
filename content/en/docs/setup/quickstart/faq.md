@@ -1,13 +1,8 @@
 ---
-layout: single
+
 title:  "Halyard FAQ"
-sidebar:
-  nav: setup
+description: Common questions about Halyard. 
 ---
-
-
-
-Here are a few Q/A pairs that come up fairly frequently.
 
 ## I can't load the Applications screen
 

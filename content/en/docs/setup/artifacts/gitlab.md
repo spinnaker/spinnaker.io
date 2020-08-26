@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Configure a GitLab artifact account"
 description: Configure a GitLab artifact account so that Spinnaker can download files from GitLab.
 ---

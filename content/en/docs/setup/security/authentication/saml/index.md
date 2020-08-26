@@ -6,7 +6,6 @@ weight:
 description:
 ---
 
-
 Security Assertion Markup Language (SAML) is an XML based way to implement single sign-on (SSO). 
 
 A cryptographically signed XML document (known as a "SAML Assertion") is sent to the API gateway server (Gate) with 

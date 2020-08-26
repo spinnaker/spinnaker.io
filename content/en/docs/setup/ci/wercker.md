@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Wercker"
 description: Spinnaker supports Wercker as a continuous integration system.
 ---

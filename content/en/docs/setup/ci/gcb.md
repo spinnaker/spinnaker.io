@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Google Cloud Build"
 description: Spinnaker supports Google Cloud Build as a continuous integration system.
 ---

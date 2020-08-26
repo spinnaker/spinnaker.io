@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Google Cloud Pub/Sub"
 sidebar:
   nav: setup

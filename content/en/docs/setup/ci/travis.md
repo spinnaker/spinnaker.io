@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Travis CI"
 description: Spinnaker supports Travis as a continuou integration system.
 ---
