@@ -3,7 +3,7 @@ title: 'SAML 2.0'
 linkTitle: 'SAML 2.0'
 mermaid: true
 weight:
-description:
+description: Spinnaker supports using a SAML identity provider for single sign-on authentication.
 ---
 
 Security Assertion Markup Language (SAML) is an XML based way to implement single sign-on (SSO). 

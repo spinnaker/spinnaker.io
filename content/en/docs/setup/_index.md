@@ -3,7 +3,7 @@ title: "Set Up Spinnaker"
 linkTitle: "Setup"
 weight: 1
 description: >
-  Instructions for installing and setting up Spinnaker
+  Instructions for installing and setting up Spinnaker.
 ---
 
 These pages contain instructions for installing and setting up Spinnaker

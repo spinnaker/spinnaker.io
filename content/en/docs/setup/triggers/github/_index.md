@@ -2,12 +2,10 @@
 title: "Configuring GitHub Webhooks"
 linkTitle: "Configuring GitHub Webhooks"
 weight: 1
-description: 
+description: Spinnaker can be configured to listen to changes in GitHub repositories. Once configured, changes in a repository can trigger pipelines.
 ---
 
-Spinnaker can be configured to listen to changes to a repository in
-[GitHub](https://github.com){:target="\_blank"}. These steps show you how to
-configure webhook push events to send to Spinnaker from a single GitHub repository.
+These steps show you how to configure webhook push events to send to Spinnaker from a single GitHub repository.
 
 ## Prerequisites
 

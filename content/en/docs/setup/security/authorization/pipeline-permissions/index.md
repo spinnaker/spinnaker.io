@@ -2,12 +2,11 @@
 title: "Pipeline Permissions"
 linkTitle: "Pipeline Permissions"
 weight: 1
-description:
+description: Pipeline permissions enable automatically triggered pipelines to modify
+resources in protected accounts and applications. 
 ---
 
-Pipeline permissions enable automatically triggered pipelines to modify
-resources in protected accounts and applications. They are an alternative
-to manually managing [Fiat Service Accounts](/docs/setup/security/authorization/service-accounts/).
+You can use pipeline permissions as an alternative to manually managing [Fiat Service Accounts](/docs/setup/security/authorization/service-accounts/).
 
 Without pipeline permissions, a Spinnaker operator first has to create a
 Fiat Service account with the correct permissions. A user can then specify the

@@ -3,7 +3,7 @@ title: "Authorization (RBAC)"
 linkTitle: "Authorization (RBAC)"
 weight: 1
 description: >
-  Spinnaker has multiple options for both authentication and authorization
+  Spinnaker has multiple options for both authentication and authorization.
 ---
 
 ## Overview

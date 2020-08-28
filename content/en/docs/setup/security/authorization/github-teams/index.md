@@ -1,11 +1,10 @@
 ---
 title: "GitHub Teams"
 linkTitle: "GitHub Teams"
-weight: 1
-description:
+description: Spinnaker supports using GitHub teams for authorization. Roles from GitHub are mapped to the Teams under a specific GitHub organization.
 ---
 
-Roles from GitHub are mapped to the Teams under a specific GitHub organization.
+
 
 ## Personal Access Token
 

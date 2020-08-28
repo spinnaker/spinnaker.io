@@ -3,11 +3,10 @@ title: 'Authentication'
 linkTitle: 'Authentication'
 mermaid: true
 weight:
-description:
+description: Spinnaker's authentication mechanism supports a variety of different login sources.
 ---
 
-Spinnaker's authentication mechanism supports a variety of different login sources.  There are a lot of moving parts involved with
-getting this to work just right.  Here are some of the basics and tools that make setup easier to configure and test.  
+There are a lot of moving parts involved with getting authentication to work.  This page describes the basics and tools that make setup easier to configure and test.  
 
 ## Introduction
 

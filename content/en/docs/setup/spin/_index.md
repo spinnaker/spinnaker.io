@@ -1,8 +1,8 @@
 ---
 title: "Install and Configure Spin CLI"
-linkTitle: "Install and Configure Spin CLI"
+linkTitle: "Install Spin CLI"
 weight: 1
-description: 
+description: In addition to the UI and API, you can use the spin CLI to manage applications and pipelines 
 ---
 
 For more information, see the [spin CLI Guide](/guides/spin/)

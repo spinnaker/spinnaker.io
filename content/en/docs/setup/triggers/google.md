@@ -1,8 +1,7 @@
 ---
 
 title:  "Google Cloud Pub/Sub"
-sidebar:
-  nav: setup
+description: Spinnaker can be configured to trigger pipelines based on Google Pub/Sub messages.
 ---
 
 

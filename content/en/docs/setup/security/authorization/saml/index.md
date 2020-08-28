@@ -2,7 +2,7 @@
 title: "SAML"
 linkTitle: "SAML"
 weight: 1
-description:
+description: Spinnaker supports using SAML for authorization with certain conditions.
 ---
 
 The SAML use case is a special one - it's the only one where a user's roles cannot be dynamically 

@@ -1,8 +1,7 @@
 ---
 
 title:  "Amazon AWS Pub/Sub"
-sidebar:
-  nav: setup
+description: Spinnaker supports using Amazon SQS and SNS for queuing and 
 ---
 
 

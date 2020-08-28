@@ -2,13 +2,10 @@
 title: "LDAP"
 linkTitle: "LDAP"
 weight: 1
-description:
+description: Spinnaker supports using LDAP for authorization.
 ---
 
-
-
-
-Please note that LDAP is flexible enough to offer lots of other options and configuration possibilities.  Spinnaker
+Please note that LDAP is flexible enough to offer lots of other options and configuration possibilities. Spinnaker
 uses the Spring Security libraries, which solve a number of challenges.  
 
 
@@ -29,7 +26,7 @@ hal config security authz ldap edit \
  hal config security authz edit --type ldap
  hal config security authz enable
 ```
-The above is a sample.  See below for more information.
+The above is a sample. See below for more information.
 
 ## How Fiat determines group membership
 The LDAP provider works by querying the LDAP server utilizing a user as set by the 

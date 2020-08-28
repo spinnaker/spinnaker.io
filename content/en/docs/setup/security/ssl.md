@@ -1,13 +1,10 @@
 ---
 title:  "SSL"
-sidebar:
-  nav: setup
+description: Spinnaker supports using SSL to secure communication for the UI and API.
 aliases: 
   - /setup/security/authentication/ssl
 
 ---
-
-
 
 This section covers communication with Spinnaker from parties external to your
 Spinnaker instance. That is, any requests between...
@@ -23,8 +20,6 @@ Spinnaker instance. That is, any requests between...
 **Warning**: Many operators like to get authentication working before adding
 HTTPS, but experience bears out that the transition is not smooth. We recommend
 you implement at least a temporary SSL solution **first**.
-
-
 
 
 ## Load Balancer-terminated SSL

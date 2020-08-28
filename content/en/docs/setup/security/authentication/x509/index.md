@@ -1,10 +1,7 @@
 ---
 title:  "X.509 Client Certificates"
-sidebar:
-  nav: setup
+description: Spinnaker supports using x.509 certificates for authentication.
 ---
-
-
 
 X.509 client certificates utilize public-key infrastructure (PKI) in order to authenticate
 clients. X.509 can be used simultaneously with one of the other authentication methods or by
