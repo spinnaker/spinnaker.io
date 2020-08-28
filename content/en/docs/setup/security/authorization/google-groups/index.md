@@ -2,8 +2,7 @@
 title: "Google Groups"
 linkTitle: "Google Groups with G Suite"
 weight: 1
-description: Spinnaker supports G Suite accounts (formerly Google Apps for Work) and Google Groups
-to manage authorization.
+description: Spinnaker supports G Suite accounts (formerly Google Apps for Work) and Google Groups to manage authorization.
 ---
 
 ## Service account setup
