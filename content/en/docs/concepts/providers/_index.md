@@ -1,7 +1,6 @@
 ---
 title: "Providers"
 linkTitle: "Providers"
-weight: 2
 description: "In Spinnaker, a Cloud Provider is an interface to a set of virtual resources over which Spinnaker has control."
 ---
 
