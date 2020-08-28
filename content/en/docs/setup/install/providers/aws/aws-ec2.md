@@ -1,8 +1,7 @@
 ---
-layout: single
+
 title:  "Amazon EC2"
-sidebar:
-  nav: setup
+description: Deploy Spinnaker to Amazon EC2.
 ---
 
 

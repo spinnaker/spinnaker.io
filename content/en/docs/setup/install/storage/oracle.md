@@ -1,8 +1,8 @@
 ---
-layout: single
+
 title:  "Oracle Cloud Infrastructure Object Storage"
-sidebar:
-  nav: setup
+linkTitle: Oracle Object Storage
+description: Spinnaker supports using Oracle Object Storage for persisting your Application settings and configured Pipelines.
 ---
 
 Using [Oracle Object Storage](https://docs.cloud.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) as a storage source means that Spinnaker will store all of its persistent data in a

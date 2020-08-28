@@ -1,17 +1,14 @@
 ---
-layout: single
 title:  "Back Up Your Config"
-sidebar:
-  nav: setup
+description: Create a backup of your Halyard config so that you can redeploy Spinnaker any time with the same configurations.
+weight: 60
 ---
 
 Once you are happy with your configured Spinnaker, you probably want an easy
 way to reproduce/redeploy it that doesn't couple you to the VM that Halyard is
 installed on. 
 
-Most of Halyard's state is stored in the `~/.hal` directory for every deployment
-of Spinnaker that it's managing. However, things like credential files or paths
-to user data may appear in different folders on your file system. This makes
+Most of Halyard's state is stored in the `~/.hal` directory for every deployment of Spinnaker that it's managing. However, things like credential files or paths to user data may appear in different folders on your file system. This makes
 backing up the state of Spinnaker via Halyard tricky to do by hand... luckily,
 Halyard has a solution.
 

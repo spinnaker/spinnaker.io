@@ -1,7 +1,7 @@
 ---
 title: "Productionize Spinnaker"
 linkTitle: "Productionize Spinnaker"
-weight: 8
+weight: 30
 description: >
   Spinnaker is a large system, made of many microservices, each intended to be scaled, restarted, and configured independently.
 ---

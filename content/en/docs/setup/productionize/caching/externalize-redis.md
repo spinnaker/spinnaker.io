@@ -1,5 +1,5 @@
 ---
-layout: single
+
 title:  "Externalize Redis"
 sidebar:
   nav: setup

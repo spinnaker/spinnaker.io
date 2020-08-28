@@ -1,12 +1,10 @@
 ---
-layout: single
+
 title:  "Horizontally Scale Spinnaker Services"
-sidebar:
-  nav: setup
+description: You can improve Spinnaker's performance and reliability by scaling its microservces. 
 ---
 
-You can improve Spinnaker's performance and reliability by scaling its
-microservces. This page will explain under which circumstances it can help to
+This page will explain under which circumstances it can help to
 run more than one copy of any single service, and what considerations have to
 be made when doing so.
 

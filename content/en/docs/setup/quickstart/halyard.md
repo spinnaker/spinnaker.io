@@ -1,8 +1,9 @@
 ---
-layout: single
+
 title:  "Try out full installations using Halyard"
 sidebar:
   nav: setup
+draft: true
 ---
 
  > Note: we recommend that you install Spinnaker following the [standard setup directions](/docs/setup/) rather than the guides listed here.

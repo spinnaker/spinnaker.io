@@ -37,9 +37,9 @@ it to completion, closing it (and any others you've opened in support of it) onc
 
 1. [Install Halyard]({{< relref "/docs/setup/install/halyard#install-on-debianubuntu-and-macos" >}})
 1. [Set up a storage service]({{< relref "/docs/setup/install/storage/storage-overview" >}})
-1. [Set up your cloud provider of choice]({{< relref "/docs/setup/install/providers/providers-overview" >}})
-1. [Configure a LocalGit deployment]({{< relref "/docs/setup/install/environment#local-git" >}})
-1. Run `hal deploy apply`
+2. [Set up your cloud provider of choice]({{< relref "/docs/setup/install/providers/" >}})
+3. [Configure a LocalGit deployment]({{< relref "/docs/setup/install/environment#local-git" >}})
+4. Run `hal deploy apply`
 
 ## What does this do?
 

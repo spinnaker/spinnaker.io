@@ -1,8 +1,7 @@
 ---
-layout: single
+
 title:  "Amazon ECS"
-sidebar:
-  nav: setup
+description: Deploy Spinnaker to ECS.
 ---
 
 

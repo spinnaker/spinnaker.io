@@ -1,8 +1,7 @@
 ---
-layout: single
+
 title:  "Google Compute Engine"
-sidebar:
-  nav: setup
+description: Spinnaker supports deploying applications to Google Compute Engine (GCE).
 aliases: 
     - /setup/providers/gce/
 ---
