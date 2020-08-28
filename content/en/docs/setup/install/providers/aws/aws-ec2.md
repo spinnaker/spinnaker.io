@@ -11,16 +11,16 @@ sidebar:
 > worked on. In the meantime, please use the following
 > [AWS install tutorial](https://aws.amazon.com/blogs/opensource/continuous-delivery-spinnaker-amazon-eks/).
 
-In [AWS](https://aws.amazon.com/){:target="\_blank"}, an [__Account__](/concepts/providers/#accounts)
+In [AWS](https://aws.amazon.com/), an [__Account__](/concepts/providers/#accounts)
 maps to a credential able to authenticate against a given [AWS
-account](https://aws.amazon.com/account/){:target="\_blank"}.
+account](https://aws.amazon.com/account/).
 
 ## Option-1 : Use AWS Console to configure AWS
 
 Use this option to deploy Spinnaker, if you are familar with deployment using [AWS Console](https://console.aws.amazon.com/) .
 
 ### Managing Account
-1. Navigate to [Console](https://console.aws.amazon.com/){:target="\_blank"} > CloudFormation and [select](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) your preferred region.
+1. Navigate to [Console](https://console.aws.amazon.com/) > CloudFormation and [select](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) your preferred region.
 2. Download [the template](https://d3079gxvs8ayeg.cloudfront.net/templates/managing.yaml) locally to your workstation.
 
     2.a (Optional). Add additional managed account as shown on line 158 in the SpinnakerAssumeRolePolicy section of the downloaded template file.
@@ -34,7 +34,7 @@ Use this option to deploy Spinnaker, if you are familar with deployment using [A
 
 > These steps need to be carried out for the managing account as well.
 
-1. Navigate to [Console](https://console.aws.amazon.com/){:target="\_blank"} > CloudFormation and [select](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) your preferred region.
+1. Navigate to [Console](https://console.aws.amazon.com/) > CloudFormation and [select](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) your preferred region.
 2. Download [the template](https://d3079gxvs8ayeg.cloudfront.net/templates/managed.yaml) locally to your workstation.
 3. Creating the CloudFormation Stack
     * __Create Stack__ > __Upload a template to Amazon S3__ > __Browse to template you downloaded in Step-2 above__ > __Next__

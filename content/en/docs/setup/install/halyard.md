@@ -103,7 +103,7 @@ run the following command:
 > and write to it.
 
 1. Make sure you have [Docker CE
-installed](https://docs.docker.com/engine/installation/){:target="\_blank"}.
+installed](https://docs.docker.com/engine/installation/).
 
 1. On your current machine, make a local Halyard config directory.
 

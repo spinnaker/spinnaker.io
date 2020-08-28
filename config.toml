@@ -32,11 +32,11 @@ pygmentsStyle = "tango"
 blog = "/:section/:year/:month/:day/:slug/"
 
 ## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
-[blackfriday]
-plainIDAnchors = true
-hrefTargetBlank = true
-angledQuotes = false
-latexDashes = true
+# [blackfriday]
+# plainIDAnchors = true
+# hrefTargetBlank = true
+# angledQuotes = false
+# latexDashes = true
 
 # Image processing configuration.
 [imaging]
@@ -68,10 +68,35 @@ weight = 1
 # time_format_blog = "02.01.2006"
 
 [markup]
+defaultMarkdownHandler = "goldmark"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-
+      definitionList = true
+            footnote = true
+            linkify = true
+            strikethrough = true
+            table = true
+            taskList = true
+            typographer = true
+          [markup.goldmark.parser]
+            attribute = true
+            autoHeadingID = true
+            autoHeadingIDType = "github"
+        [markup.highlight]
+          codeFences = true
+          guessSyntax = false
+          hl_Lines = ""
+          lineNoStart = 1
+          lineNos = false
+          lineNumbersInTable = true
+          noClasses = true
+          style = "monokai"
+          tabWidth = 4
+        [markup.tableOfContents]
+          endLevel = 3
+          ordered = false
+          startLevel = 2
 # Everything below this are Site Params
 [params]
 copyright = 'Copyright © 2020 The Linux Foundation®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds.'

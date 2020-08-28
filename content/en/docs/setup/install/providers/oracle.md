@@ -8,8 +8,8 @@ aliases:
 ---
 
 
-In [Oracle Cloud](https://cloud.oracle.com/){:target="\_blank"}, a Spinnaker
-[__Account__](/concepts/providers/#accounts) maps to an [Oracle Cloud Infrastructure user]( https://cloud.oracle.com/en_US/tryit){:target="\_blank"}.
+In [Oracle Cloud](https://cloud.oracle.com/), a Spinnaker
+[__Account__](/concepts/providers/#accounts) maps to an [Oracle Cloud Infrastructure user]( https://cloud.oracle.com/en_US/tryit).
 
 When setting up your Oracle Cloud provider account, you will [use halyard to add
 the account](#add-an-oracle-cloud-account).
@@ -19,24 +19,24 @@ the account](#add-an-oracle-cloud-account).
 You will need the following to enable Oracle Cloud provider in Spinnaker:
 - A user in IAM for the person or system who will be using Spinnaker, and put that user in at 
 least one IAM group with any desired permissions. 
-See [Adding Users](https://docs.cloud.oracle.com/iaas/Content/GSG/Tasks/addingusers.htm#one){:target="\_blank"}. 
+See [Adding Users](https://docs.cloud.oracle.com/iaas/Content/GSG/Tasks/addingusers.htm#one). 
 - The user's home region. 
-See [Managing Regions](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingregions.htm){:target="\_blank"}. 
+See [Managing Regions](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingregions.htm). 
 (e.g. `--region us-ashburn-1`)
 - RSA key pair in PEM format (minimum 2048 bits).
-See [How to Generate an API Signing Key](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How){:target="\_blank"}. 
+See [How to Generate an API Signing Key](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How). 
 (e.g. `--ssh-private-key-file-path /home/ubuntu/.oci/myPrivateKey.pem`)
 - Fingerprint of the public key. 
-See [How to Get the Key's Fingerprint](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How3){:target="\_blank"}. 
+See [How to Get the Key's Fingerprint](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How3). 
 (e.g. `--fingerprint 11:22:33:..:aa`)
 - Tenancy's OCID and user's OCID.
-See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#Other){:target="\_blank"}. 
+See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#Other). 
 (e.g. `--tenancyId ocid1.tenancy.oc1..aa... --user-id ocid1.user.oc1..aa...`)
 - Compartment OCID: On Oracle Cloud Console, open the navigation menu. Under Governance and Administration, go to Identity and click Compartments. 
-See [Managing Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm){:target="\_blank"}. 
+See [Managing Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm). 
 (e.g. `--compartment-id ocid1.compartment.oc1..aa...`)
 - Upload the public key from the key pair in the Console. 
-See [How to Upload the Public Key](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How2){:target="\_blank"}. 
+See [How to Upload the Public Key](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How2). 
 
 ## Add an Oracle Cloud account
 

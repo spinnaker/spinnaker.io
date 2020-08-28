@@ -102,7 +102,7 @@ hal config security authn ldap enable
 You can also use `--user-search-base` (optional) and `--user-search-filter` if the simpler
 `--user-dn-pattern` does not match what your organization uses for `userDn`. We don't explore this
 use case here, but you can read up more on LDAP search filters
-[here](https://confluence.atlassian.com/kb/how-to-write-ldap-search-filters-792496933.html){:target="\_blank"}.
+[here](https://confluence.atlassian.com/kb/how-to-write-ldap-search-filters-792496933.html).
 
 
 ## Active Directory

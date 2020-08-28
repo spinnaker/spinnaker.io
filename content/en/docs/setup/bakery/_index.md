@@ -25,12 +25,12 @@ There are two types of configuration of the Bakery:
 ## Packer Templates
 
 Every time you initiate a bake using Spinnaker, Spinnaker invokes a [packer
-template](https://www.packer.io/docs/templates/index.html){:target="\_blank"}
-with a mix of [variables](https://www.packer.io/docs/templates/index.html){:target="\_blank"}
+template](https://www.packer.io/docs/templates/index.html)
+with a mix of [variables](https://www.packer.io/docs/templates/index.html)
 provided by you, the Pipeline you are currently executing, and Spinnaker itself.
 All of the default packer templates are versioned alongside Rosco, the image
 bakery service
-[here](https://github.com/spinnaker/rosco/tree/master/rosco-web/config/packer){:target="\_blank"}.
+[here](https://github.com/spinnaker/rosco/tree/master/rosco-web/config/packer).
 If want to override/include a new template, place it into
 `~/.hal/$DEPLOYMENT/profiles/rosco/packer/` (`$DEPLOYMENT` is
 typically `default`, read more [here](/reference/halyard/#deployments)). Any local
