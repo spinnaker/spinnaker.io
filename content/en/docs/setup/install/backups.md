@@ -1,6 +1,7 @@
 ---
 title:  "Back Up Your Config"
 description: Create a backup of your Halyard config so that you can redeploy Spinnaker any time with the same configurations.
+weight: 60
 ---
 
 Once you are happy with your configured Spinnaker, you probably want an easy

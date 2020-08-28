@@ -1,6 +1,7 @@
 ---
 
 title:  "Google Kubernetes Engine (GKE) Setup"
+linkTitle: GKE
 description: Deploy to GKE using the Kubernetes provider for Spinnaker. 
 ---
 

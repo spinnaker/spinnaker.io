@@ -1,7 +1,7 @@
 ---
 
 title:  "Amazon AWS Pub/Sub"
-description: Spinnaker supports using Amazon SQS and SNS for queuing and 
+description: Spinnaker supports using Amazon SQS and SNS to trigger pipelines.
 ---
 
 

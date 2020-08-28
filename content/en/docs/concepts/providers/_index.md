@@ -28,7 +28,7 @@ account and register the credentials with Halyard.
 Keep in mind that every Provider can have as many accounts added as desired -
 this will allow you to keep your environments (e.g. _staging_ vs. _prod_)
 separate, as well as restrict access to sets of resources using Spinnaker's
-[Authorization]({{< relref "/docs/setup/security/authorization" >}}) mechanisms.
+[Authorization]({{< relref "/docs/setup/other_config/security/authorization" >}}) mechanisms.
 
 ## Supported providers
 

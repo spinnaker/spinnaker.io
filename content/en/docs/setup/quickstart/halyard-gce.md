@@ -4,6 +4,7 @@
 title:  "Try out Halyard on GCE"
 sidebar:
   nav: setup
+draft: true
 ---
 
 

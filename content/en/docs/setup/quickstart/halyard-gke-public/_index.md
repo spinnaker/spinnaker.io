@@ -1,7 +1,8 @@
 ---
-title: "Try out public Spinnaker on GKE"
+title: "Try out Spinnaker on GKE"
 description: Make Spinnaker accessible on a public domain with OAuth2.0 enabled.
 weight: 1
+draft: true
 ---
 
 If you've deployed Spinnaker already using [this

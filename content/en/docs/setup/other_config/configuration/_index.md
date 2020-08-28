@@ -1,6 +1,5 @@
 ---
-title: "Configuration"
-linkTitle: "Configuration"
+title: "External Account Configuration"
 weight: 1
 description: You can manage some Spinnaker configurations externally, which allows you to load them dynamically.
 ---

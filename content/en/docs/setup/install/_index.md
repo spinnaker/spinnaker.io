@@ -1,7 +1,7 @@
 ---
 title: "Install and Configure Spinnaker"
 linkTitle: "Install"
-weight: 1
+weight: 10
 description: >
   Describes how to install and set up Spinnaker so that it can be configured for use in production.
 ---

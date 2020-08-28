@@ -2,6 +2,7 @@
 
 title:  "Choose your Environment"
 description: Based on your use case, choose how you want to install Spinnaker.
+weight: 30
 ---
 
 In this step, you tell Halyard in what type of environment to install Spinnaker.

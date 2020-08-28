@@ -1,6 +1,6 @@
 ---
 title: "Configure Everything Else"
-weight: 1
+weight: 20
 description: Once Spinnaker is configured, you can enable additional functionality. For example, connect Spinnaker to your continuous integration system.
 ---
 

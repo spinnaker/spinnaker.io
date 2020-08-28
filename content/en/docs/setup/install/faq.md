@@ -2,6 +2,7 @@
 
 title:  "Halyard FAQ"
 description: Common questions about Halyard. 
+weight: 70
 ---
 
 ## I can't load the Applications screen

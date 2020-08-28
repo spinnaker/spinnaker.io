@@ -1,6 +1,6 @@
 ---
 title:  "Set up the Kubernetes provider for Amazon EKS"
-linkTitle: "EKS K8s Provider Setup"
+linkTitle: "EKS"
 description: >
   Set up Spinnaker on AWS EKS using the Kubernetes-V2 provider
 ---
