@@ -1,7 +1,6 @@
 ---
 title: "Pipelines"
 linkTitle: "Pipelines"
-weight: 2
 description: "Pipelines are the essential tool in Spinnaker for controlling how to deploy your application. A pipeline is composed of a series of stages that can be combined in almost any order, which makes pipelines flexible, consistent and repeatable."
 ---
 

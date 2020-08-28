@@ -1,7 +1,6 @@
 ---
 title: "Clusters"
 linkTitle: "Clusters"
-weight: 2
 description: "Spinnaker acts as a single pane of glass from which to manage your global deployments across multiple clouds. The Clusters section of the UI acts as command and control base where we can increasingly layer on information relevant to deploying your applications."
 ---
 
