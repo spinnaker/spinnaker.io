@@ -1,0 +1,12 @@
+{{$id := .Get "id"}}
+{{$width := .Get "width"}}
+{{$height := .Get "height"}}
+{{ if gt (len $id) 0}}
+<div style="position: relative;{{if gt (len $height) 0}}height:{{$height}};{{ else }}padding-bottom:56.25%;height:0;{{ end}}{{if gt (len $width) 0}}width:{{$width}};{{ end}};overflow: hidden;">
+  <iframe style="position:absolute;top:0;left:0;border:0;{{if gt (len $width) 0}}width:{{$width}};{{ else }}width:100%;{{ end}}{{if gt (len $height) 0}}height:{{$height}};{{ else }}height:100%;{{ end}}" src="https://www.youtube.com/embed/{{$id}}" frameborder="0" allowfullscreen></iframe>
+</div>
+{{ else }}
+  <p>
+    <b>customyoutube shortcode:</b> You didn't provide a valid video id.
+  </p>
+{{ end }}

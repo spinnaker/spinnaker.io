@@ -3,11 +3,11 @@
 @import 'variables';
 @import 'support/mixins';
 
-@import '../vendor/bootstrap/scss/bootstrap';
+@import './../../themes/docsy/assets/vendor/bootstrap/scss/bootstrap';
 
-@import '../vendor/Font-Awesome/scss/fontawesome.scss';
-@import '../vendor/Font-Awesome/scss/solid.scss';
-@import '../vendor/Font-Awesome/scss/brands.scss';
+@import './../../themes/docsy/assets/vendor/Font-Awesome/scss/fontawesome.scss';
+@import './../../themes/docsy/assets/vendor/Font-Awesome/scss/solid.scss';
+@import './../../themes/docsy/assets/vendor/Font-Awesome/scss/brands.scss';
 
 @import 'support/utilities';
 @import 'colors';
