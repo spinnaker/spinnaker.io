@@ -15,16 +15,19 @@
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ end }}
 {{/* {{ if eq .Page.Layout "index" }} */}}
-  <script type="text/javascript" src="js/slick.min.js"></script>
+  <script type="text/javascript" src="/js/slick.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
-    // console.log('has carousel, document ready')
-    $('.init-carousel').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-    });
+    // console.log('Document ready.')
+    if ($('.init-carousel').length > 0) {
+      // console.log('Has carousel.')
+      $('.init-carousel').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      });
+    }
   });
   </script>
 {{/* {{ end }} */}}

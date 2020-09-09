@@ -139,7 +139,7 @@ github_project_repo = "https://github.com/spinnaker/spinnaker"
 algolia_docsearch = true
 
 # Enable Lunr.js offline search
-# offlineSearch = false
+offlineSearch = false
 
 # User interface configuration
 [params.ui]
