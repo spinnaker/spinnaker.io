@@ -16,6 +16,14 @@ This site is built using [Hugo](https://gohugo.io) and the [Docsy Theme](https:/
 
 At present, there is only one language in the `./content` directory. Docsy assumes lang-en and uses this language automatically, but you can add additional directories with different contents. There is also a langauge switcher in the navbar that can be enabled by adding that language to the `[languages]` map in `.config.toml`.
 
+## Theme Customization
+
+The Docsy theme is installed as a git submodule to this site. To update the theme, follow the Docsy documentation for git submodules. Make theme upgrades with care. Any changes to markup in the theme may render existing SCSS modifications ineffective.
+
+Overrides to the theme are in `./layouts`, `./assets`, and `./static`. In order to continue to use Docsy's color variables, the **entire** theme SCSS collection is has been copied to `./assets`. Some of these SCSS files have been further modified to alter the appearance of various site components. If something "breaks" on upgrade, a good first step is to compare the previous markup for that component and make sure old SCSS selectors are still valid.
+
+Dependencies are loaded into `./assets/scss` from `./themes/docsy`. If subsequent theme upgrades fail to load Bootstrap or Font Awesome assets, verify that the paths to these vendor dependencies within `./themes/docsy` are still valid. 
+
 ## Docs Frontmatter Variables
 
 `title`: Displayed on the content page  
