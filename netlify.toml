@@ -1,6 +1,7 @@
 [build]
 publish = "public"
-command = "hugo --minify"
+command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify" 
+# "hugo --minify"
 functions = "./functions"
 
 [context.production.environment]
@@ -9,21 +10,24 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.split1]
-command = "hugo --minify --enableGitInfo"
+command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --enableGitInfo" 
+# "hugo --minify --enableGitInfo"
 
 [context.split1.environment]
-HUGO_VERSION = "0.70.0"
+HUGO_VERSION = "0.74.2"
 HUGO_ENV = "production"
 
 [context.deploy-preview]
-command = "hugo --minify --buildFuture -b $DEPLOY_PRIME_URL"
+command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --buildFuture -b $DEPLOY_PRIME_URL"
+# "hugo --minify --buildFuture -b $DEPLOY_PRIME_URL"
 # functions = "./functions"
 
 [context.deploy-preview.environment]
 HUGO_VERSION = "0.74.2"
 
 [context.branch-deploy]
-command = "hugo --minify -b $DEPLOY_PRIME_URL"
+command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify -b $DEPLOY_PRIME_URL"
+# "hugo --minify -b $DEPLOY_PRIME_URL"
 # functions = "./functions"
 
 [context.branch-deploy.environment]
