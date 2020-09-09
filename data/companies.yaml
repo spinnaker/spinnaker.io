@@ -1,140 +1,784 @@
 - id: 001
-  name: 'name 001'
+  name: 'Adevinta'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: false
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/adevinta_logo.png'
+  case_study_title: 'Adevinta'
   case_study: >
     Ea eiusmod labore ex eiusmod labore cupidatat duis cillum nostrud tempor amet cupidatat cillum excepteur dolore. Ad nisi deserunt mollit laboris pariatur laboris id do deserunt et labore. Deserunt ex excepteur sit occaecat non est nisi occaecat labore nisi aliquip ad consequat irure. Consectetur consequat nisi sunt qui fugiat aliquip mollit ipsum id sit reprehenderit Lorem id non eiusmod laborum.
-  testimonial_title: 'title string'
+  testimonial_title: 'Adevinta'
   testimonial: >
     Dolor labore fugiat irure quis qui elit dolore cillum sunt sit duis elit consectetur consectetur elit. Consequat ea consectetur eiusmod laboris cillum sint laborum velit cillum consequat velit ea ullamco incididunt deserunt pariatur mollit. Cillum nisi cupidatat eu occaecat non deserunt et consectetur velit incididunt mollit occaecat enim nisi veniam proident. Velit reprehenderit occaecat ut excepteur proident commodo reprehenderit laborum nisi nulla voluptate amet.
 - id: 002
-  name: 'name 002'
+  name: 'airbnb'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: true
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/airbnb_logo.png'
+  case_study_title: 'airbnb'
   case_study: >
     Veniam eiusmod fugiat in velit mollit quis cillum enim magna minim magna non exercitation nulla in aute ullamco. Dolor in occaecat ex nostrud laboris eiusmod ea enim velit. Ullamco consequat cupidatat fugiat sint esse labore cupidatat nostrud ad sunt laboris amet labore. In Lorem tempor eu sit duis esse magna. Excepteur consectetur excepteur culpa fugiat nisi ex pariatur. Veniam culpa tempor nostrud irure quis cupidatat reprehenderit aliquip ea deserunt ullamco et amet officia id est. Dolor magna qui sit eiusmod Lorem incididunt dolor reprehenderit deserunt eiusmod aliquip nulla excepteur.
-  testimonial_title: 'title string'
+  testimonial_title: 'airbnb'
   testimonial: >
     Labore qui cillum excepteur tempor consectetur eu irure laborum culpa dolore esse non. Elit nulla occaecat mollit enim in et cupidatat dolore. Irure enim anim ut occaecat enim dolor magna adipisicing culpa reprehenderit aute elit laborum esse Lorem dolor occaecat. Do tempor fugiat est magna tempor nostrud nisi officia ut id dolor. Duis est magna mollit occaecat est consectetur commodo laboris consectetur incididunt officia duis nostrud occaecat commodo dolor. Ullamco laborum occaecat ut irure culpa consectetur occaecat exercitation dolor ea fugiat incididunt proident officia officia velit. Et amet magna ut Lorem voluptate nostrud aliquip mollit consequat sint velit officia ullamco. Exercitation aute fugiat reprehenderit Lorem officia Lorem id sit amet nisi esse enim aliqua duis ipsum.
 - id: 003
-  name: 'name 003'
+  name: 'alto'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: false
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/alto_logo.svg'
+  case_study_title: 'alto'
   case_study: >
     Deserunt ex consectetur reprehenderit consectetur ad elit non. Labore ipsum minim sint sunt aliqua veniam quis id sunt enim ex culpa officia elit voluptate. Est reprehenderit sit officia qui consequat laborum fugiat cillum irure do magna. Magna quis minim elit Lorem nostrud laborum amet in labore id. Cillum excepteur ea consectetur sunt magna laboris officia pariatur consequat aliquip excepteur proident occaecat labore elit laborum voluptate. In veniam ut veniam magna commodo sint duis ullamco quis officia ad voluptate. Cupidatat amet reprehenderit velit non deserunt pariatur in. Amet officia sit dolor ipsum excepteur sint velit adipisicing enim officia tempor labore ipsum esse.
-  testimonial_title: 'title string'
+  testimonial_title: 'alto'
   testimonial: >
     Do aliquip magna nisi velit eu nisi magna dolore nostrud anim minim adipisicing nulla reprehenderit nostrud. Deserunt duis irure cupidatat qui occaecat duis officia commodo magna mollit. Incididunt nulla magna aute cupidatat Lorem est magna aliquip in.
 - id: 004
-  name: 'name 004'
+  name: 'armory'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: true
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/armory_logo.png'
+  case_study_title: 'armory'
   case_study: >
     Nulla veniam aute sunt qui irure exercitation irure esse elit aliquip ea esse laboris aute consectetur duis. Quis aute elit excepteur adipisicing exercitation ut nostrud laboris laborum amet elit. Qui sit occaecat cupidatat magna deserunt fugiat reprehenderit culpa qui laborum sunt ex ex deserunt tempor minim. Eu elit sunt tempor voluptate tempor voluptate qui eu sint laboris amet. Amet enim ea amet tempor non laborum nisi magna mollit culpa. Qui mollit ut ex nulla duis cillum eu irure qui ipsum voluptate.
-  testimonial_title: 'title string'
+  testimonial_title: 'armory'
   testimonial: >
     Ullamco commodo mollit proident enim enim nostrud anim ut laboris. Occaecat anim esse non ex id duis elit. Duis excepteur do pariatur dolore exercitation enim culpa. Nulla occaecat nisi sunt nisi enim est occaecat anim dolore laboris incididunt eu incididunt.
 - id: 005
-  name: 'name 005'
+  name: 'avast'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: false
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/avast_logo.png'
+  case_study_title: 'avast'
   case_study: >
     Cupidatat cillum aliqua non do aute dolore occaecat pariatur ullamco labore. Nulla ut excepteur adipisicing veniam deserunt velit ut sunt id aute quis anim Lorem. Sunt aliquip enim commodo nostrud esse labore esse eu do excepteur occaecat. Cillum consectetur Lorem ad enim sit ex laboris laboris aliqua. Proident sunt labore velit velit esse tempor ipsum magna nisi laborum irure consequat qui. Veniam irure ut pariatur laboris commodo ut voluptate veniam qui. Aute mollit occaecat esse aliqua voluptate laborum ipsum. Pariatur mollit ex aliqua commodo elit magna minim elit cillum.
-  testimonial_title: 'title string'
+  testimonial_title: 'avast'
   testimonial: >
     Consequat mollit ea cillum minim do aliquip consectetur dolor esse. Quis occaecat dolor pariatur tempor do anim quis aute id ut est velit consectetur. Officia velit fugiat laboris proident ea commodo commodo minim in magna magna aute exercitation laborum. Ullamco id adipisicing consequat qui nostrud eiusmod qui aute ullamco sit pariatur veniam consequat.
 - id: 006
-  name: 'name 006'
+  name: 'box'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: true
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/box_logo.png'
+  case_study_title: 'box'
   case_study: >
     Commodo nisi ad sunt adipisicing et occaecat labore ad cupidatat tempor irure nulla eiusmod et. Sint esse laborum cupidatat et mollit nulla dolore esse nulla. Aliqua sint laborum nostrud mollit fugiat adipisicing quis laboris reprehenderit. Do tempor aute et officia dolore est excepteur voluptate occaecat quis Lorem irure. Irure eu ullamco irure et ut esse fugiat reprehenderit cupidatat ad.
-  testimonial_title: 'title string'
+  testimonial_title: 'box'
   testimonial: >
     Nisi commodo veniam nisi aute nostrud veniam ex deserunt ipsum ullamco labore dolor. Dolor duis veniam do anim ex nulla magna sint ad laboris ullamco incididunt eu pariatur magna. Amet non laborum quis magna ad cillum enim ea amet. Pariatur velit nisi dolore qui et id aliqua ut tempor occaecat laboris sit fugiat amet.
 - id: 007
-  name: 'name 007'
+  name: 'capsilon'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: false
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/capsilon_logo.png'
+  case_study_title: 'capsilon'
   case_study: >
     Voluptate id fugiat consectetur veniam qui mollit ut qui sunt nostrud. Ex consectetur voluptate aliquip ea eu aliqua occaecat ad magna reprehenderit consequat non culpa. Excepteur proident pariatur eiusmod nisi id occaecat laborum ut proident. Do minim pariatur aute magna tempor aute culpa ex ut pariatur nostrud.
-  testimonial_title: 'title string'
+  testimonial_title: 'capsilon'
   testimonial: >
     Duis labore aliquip sint ut occaecat est non ad. Aute magna non esse incididunt amet cupidatat nisi voluptate irure velit nisi ex do. Voluptate labore in officia esse officia ad commodo enim. Irure est velit irure qui adipisicing laboris anim ex aliquip adipisicing quis deserunt. Eu labore nostrud nulla magna magna non qui sunt magna aliqua quis laboris et.
 - id: 008
-  name: 'name 008'
+  name: 'centeredge'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: true
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/centeredge_logo.png'
+  case_study_title: 'centeredge'
   case_study: >
     Incididunt occaecat proident sunt consectetur dolor ut reprehenderit laborum. Tempor non dolore aute Lorem ea dolore quis duis. Commodo reprehenderit do ullamco nulla Lorem aliquip ad fugiat sint officia Lorem reprehenderit. Commodo mollit consequat ut mollit eu sunt esse proident anim ea nisi duis ipsum ea consectetur sint. Elit ex sit pariatur consequat veniam exercitation laboris esse id qui ullamco aute pariatur dolor ex. Voluptate sit dolor aliquip sit sunt quis pariatur voluptate.
-  testimonial_title: 'title string'
+  testimonial_title: 'centeredge'
   testimonial: >
     Ullamco consectetur magna minim eu aute mollit duis dolor cillum incididunt excepteur ad. Consequat reprehenderit irure reprehenderit ex labore aliquip et sint voluptate fugiat id nisi consectetur et. Enim labore tempor eiusmod ut cillum minim ad dolore in sint cillum consequat duis excepteur aliqua. Adipisicing aliquip ex ipsum dolore nulla minim ut velit laborum sunt nisi sunt dolor minim eiusmod nulla.
 - id: 009
-  name: 'name 009'
+  name: 'cerner'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: false
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'title string'
+  logo: '/images/companies/cerner_logo.png'
+  case_study_title: 'cerner'
   case_study: >
     In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
-  testimonial_title: 'title string'
+  testimonial_title: 'cerner'
   testimonial: >
     In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
 - id: 010
-  name: 'name 010'
+  name: 'chartboost'
   short_desc: 'short string description'
   hide: false
   is_featured: true
   is_case_study: true
   is_testimonial: false
-  logo: '/images/slack_logo.png'
-  case_study_title: 'Case study string'
+  logo: '/images/companies/chartboost_logo.png'
+  case_study_title: 'chartboost'
   case_study: >
     In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
-  testimonial_title: 'Testimonial title'
+  testimonial_title: 'chartboost'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 011
+  name: 'chime'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/chime_logo.png'
+  case_study_title: 'chime'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'chime'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 012
+  name: 'cisco'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/cisco_logo.png'
+  case_study_title: 'cisco'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'cisco'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 013
+  name: 'clarivate'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/clarivate_logo.svg'
+  case_study_title: 'clarivate'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'clarivate'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 014
+  name: 'cleartax'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/cleartax_in_logo.svg'
+  case_study_title: 'cleartax'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'cleartax'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 015
+  name: 'cloudera'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/cloudera_logo.svg'
+  case_study_title: 'cloudera'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'cloudera'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 016
+  name: 'comcast'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/comcast_logo.png'
+  case_study_title: 'comcast'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'comcast'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 017
+  name: 'contaazul'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/contaazul_logo.svg'
+  case_study_title: 'contaazul'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'contaazul'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 018
+  name: 'dins'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/dins_logo.png'
+  case_study_title: 'dins'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'dins'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 019
+  name: 'ep'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/ep_logo.jpg'
+  case_study_title: 'ep'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'ep'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 020
+  name: 'getyourguide'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/getyourguide_logo.jpg'
+  case_study_title: 'getyourguide'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'getyourguide'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 021
+  name: 'gogo'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/gogo_logo.png'
+  case_study_title: 'gogo'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'gogo'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 022
+  name: 'google'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/gogo_logo.svg'
+  case_study_title: 'google'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'google'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 023
+  name: 'glovo'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/glovo_logo.jpg'
+  case_study_title: 'glovo'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'glovo'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 024
+  name: 'grab'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/grab_logo.png'
+  case_study_title: 'grab'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'grab'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 025
+  name: 'groundtruth'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/groundtruth_logo.png'
+  case_study_title: 'groundtruth'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'groundtruth'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 026
+  name: 'grubhub'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/grubhub_logo.png'
+  case_study_title: 'grubhub'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'grubhub'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 027
+  name: 'informatica'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/informatica_logo.png'
+  case_study_title: 'informatica'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'informatica'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 028
+  name: 'jpmc'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/jpmc_logo.png'
+  case_study_title: 'jpmc'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'jpmc'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 029
+  name: 'kenzan'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/kenzan_logo.svg'
+  case_study_title: 'kenzan'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'kenzan'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 030
+  name: 'launchdarkly'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/launchdarkly_logo.png'
+  case_study_title: 'launchdarkly'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'launchdarkly'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 031
+  name: 'lookout'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/lookout_logo.png'
+  case_study_title: 'lookout'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'lookout'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 032
+  name: 'makerbot'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/makerbot_logo.png'
+  case_study_title: 'makerbot'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'makerbot'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 033
+  name: 'mercari'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/mercari_logo.png'
+  case_study_title: 'mercari'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'mercari'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 034
+  name: 'mulesoft'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/mulesoft_logo.png'
+  case_study_title: 'mulesoft'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'mulesoft'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 035
+  name: 'nearpod'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/nearpod_logo.svg'
+  case_study_title: 'nearpod'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'nearpod'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 036
+  name: 'nest'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/nest_logo.png'
+  case_study_title: 'nest'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'nest'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 037
+  name: 'netflix'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/netflix_logo.jpg'
+  case_study_title: 'netflix'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'netflix'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 038
+  name: 'opsmx'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/opsmx_logo.png'
+  case_study_title: 'opsmx'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'opsmx'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 039
+  name: 'optimizely'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/optimizely_logo.png'
+  case_study_title: 'optimizely'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'optimizely'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 040
+  name: 'patreon'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/patreon_logo.png'
+  case_study_title: 'patreon'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'patreon'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 041
+  name: 'plaid'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/plaid_logo.png'
+  case_study_title: 'plaid'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'plaid'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 042
+  name: 'plangrid'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/plangrid_logo.png'
+  case_study_title: 'plangrid'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'plangrid'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 043
+  name: 'purestorage'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/purestorage_logo.png'
+  case_study_title: 'purestorage'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'purestorage'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 044
+  name: 'redbox'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/redbox_logo.png'
+  case_study_title: 'redbox'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'redbox'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 045
+  name: 'smartthings'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/smartthings_logo.png'
+  case_study_title: 'smartthings'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'smartthings'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 046
+  name: 'sap'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/sap_logo.png'
+  case_study_title: 'sap'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'sap'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 047
+  name: 'schibsted'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/schibsted_logo.svg'
+  case_study_title: 'schibsted'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'schibsted'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 048
+  name: 'scopely'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/scopely_logo.png'
+  case_study_title: 'scopely'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'scopely'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 049
+  name: 'skuid'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/skuid_logo.png'
+  case_study_title: 'skuid'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'skuid'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 050
+  name: 'target'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/target_logo.png'
+  case_study_title: 'target'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'target'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 051
+  name: 'transunion'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/transunion_logo.png'
+  case_study_title: 'transunion'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'transunion'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 052
+  name: 'underarmour'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/underarmour_logo.png'
+  case_study_title: 'underarmour'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'underarmour'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 053
+  name: 'uneeq'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/uneeq_logo.png'
+  case_study_title: 'uneeq'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'uneeq'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 054
+  name: 'waze'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/waze_logo.jpg'
+  case_study_title: 'waze'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'waze'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 054
+  name: 'weatherbug'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/weatherbug_logo.png'
+  case_study_title: 'weatherbug'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'weatherbug'
+  testimonial: >
+    Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- id: 055
+  name: 'xiaohongshu'
+  short_desc: 'short string description'
+  hide: false
+  is_featured: true
+  is_case_study: true
+  is_testimonial: false
+  logo: '/images/companies/xiaohongshu_logo.png'
+  case_study_title: 'xiaohongshu'
+  case_study: >
+    In fugiat commodo proident Lorem quis sint Lorem sint eiusmod commodo consequat eiusmod. Qui dolor excepteur qui ea proident sit in ad ea aute. Amet irure labore reprehenderit commodo cupidatat esse consectetur velit nulla eu fugiat cillum. Irure eu dolor quis ex sit cillum voluptate esse nulla excepteur irure proident cillum. Consequat et ipsum in et amet non laborum pariatur esse nisi et ipsum aute sunt laboris. Laborum ullamco enim do et nisi in qui amet anim ipsum eu consectetur commodo exercitation reprehenderit laborum. In cillum nostrud nulla laborum esse sunt aliqua adipisicing minim duis do dolor minim sint laboris cillum aute. Consequat officia do minim enim ullamco est incididunt ad aliquip ullamco non pariatur nulla labore aute culpa non.
+  testimonial_title: 'xiaohongshu'
   testimonial: >
     Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
