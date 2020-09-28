@@ -2,7 +2,7 @@
 title: 'Spinnaker Architecture Overview'
 linkTitle: 'Overview'
 weight: 1
-description: "Spinnaker microservices, system dependencies, port mappings"
+description: "Spinnaker microservices, system dependencies, and port mappings"
 mermaid: true
 ---
 

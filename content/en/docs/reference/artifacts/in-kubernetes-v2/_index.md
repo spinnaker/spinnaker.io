@@ -1,7 +1,6 @@
 ---
-title: "Artifacts In Kubernetes"
+title: "Artifacts in Kubernetes"
 linkTitle: "In Kubernetes"
-weight: 
 description: 
 ---
 

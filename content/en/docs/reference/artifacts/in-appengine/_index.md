@@ -1,11 +1,8 @@
 ---
-title: "Artifacts In App Engine"
+title: "Artifacts in App Engine"
 linkTitle: "In App Engine"
-weight: 
 description: 
 ---
-
-
 
 Artifacts can be used for several things in the Google App Engine provider:
 

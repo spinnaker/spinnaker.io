@@ -1,15 +1,13 @@
 ---
 title: 'Life of a Deployment'
-linkTitle: 'LOAD'
 mermaid: true
-weight:
 description:
 ---
 
 {{< mermaid >}}
 sequenceDiagram
 
-Title: Life of a Deployment
+Title: Life of a deployment
 
 participant Deck
 participant Gate
@@ -56,7 +54,7 @@ end
 {{< mermaid >}}
 sequenceDiagram
 
-Title: Life of a Deployment
+Title: Life of a deployment
 
 participant Deck
 participant Gate

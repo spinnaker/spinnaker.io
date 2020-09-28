@@ -1,15 +1,13 @@
 ---
 title: "Artifacts In Pipelines"
 linkTitle: "In Pipelines"
-weight: 
-description: 
+description: An artifact arrives in a pipeline execution either from an external trigger (for example, a Docker image pushed to a registry) or by getting fetched by a stage. That artifact is then consumed by downstream stages based on pre-defined behavior.
 ---
 
-{{% alert color="warning" title="Warning" %}}Much of the behavior described here depends on looking up execution history in Redis. Deleting recent executions from Redis can cause unexpected behavior.
-{{% /alert %}}
+> Much of the behavior described here depends on looking up execution history in Redis. Deleting recent executions from Redis can cause unexpected behavior.
 
 Now that you have an idea of [what an artifact is](/reference/artifacts/) in Spinnaker, you need to
-understand how it's used within pipelines. An artifact arrives in a pipeline execution either from an external trigger (for example, a Docker image pushed to a registry) or by getting fetched by a stage. That artifact is then consumed by downstream stages based on pre-defined behavior.
+understand how it's used within pipelines. 
 
 Spinnaker uses an "expected artifact" to enable a stage to bind an artifact
 from another pipeline execution, stage output, or running environment. 

@@ -1,8 +1,5 @@
 ---
 title: "API"
-linkTitle: "API"
-weight:
-description:
 ---
 
 - [API documentation](/reference/api/docs.html)

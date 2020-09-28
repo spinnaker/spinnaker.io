@@ -1,7 +1,5 @@
 ---
 title: 'Life of a Bake'
-linkTitle: 'LOAB'
-weight:
 description:
 mermaid: true
 ---
