@@ -1,8 +1,8 @@
 ---
-title: "Embedded base64"
-linkTitle: "Embedded base64"
-description: Rather than refer to a resource by URI, you can embed the artifact's contents
-directly into the "reference" field in base64.
+title: Embedded base64
+linkTitle: Embedded base64
+description: >
+  Rather than refer to a resource by URI, you can embed the artifact's contents directly into the reference field in base64.
 ---
 
 ## Fields
