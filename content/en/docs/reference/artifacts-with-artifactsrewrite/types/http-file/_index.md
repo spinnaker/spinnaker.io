@@ -1,14 +1,9 @@
 ---
-layout: single
 title:  "HTTP File"
-sidebar:
-  nav: reference
+description: An HTTP file artifact is a reference to a file stored in plaintext and reachable via HTTP.
 ---
 
-
-
-An HTTP file artifact is a reference to a file stored in plaintext and
-reachable via HTTP. These artifacts are generally consumed by stages that read
+These artifacts are generally consumed by stages that read
 configuration from text files, such as a Deploy Manifest stage. 
 
 A file represented by an HTTP file artifact can be downloaded using HTTP Basic

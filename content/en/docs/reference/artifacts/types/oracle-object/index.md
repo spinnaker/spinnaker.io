@@ -1,13 +1,11 @@
 ---
 title: "Oracle Object"
-linkTitle: "Oracle Object"
-weight: 
-description: 
+description: Oracle Object Storage object artifacts are references to objects stored in Oracle Object Storage buckets.
 ---
 
 
 [Oracle Object Storage](https://docs.cloud.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) is an object store,
-and Oracle Object Storage object artifacts are references to objects stored in Oracle Object Storage buckets.
+and 
 These artifacts are generally consumed by stages that read configuration from text files, for example a Deploy Manifest stage.
 
 ## Fields

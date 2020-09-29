@@ -1,8 +1,6 @@
 ---
 title: "Component Configuration"
-linkTitle: "Component Configuration"
-weight: 
-description: 
+description: In addition to Halyard, you can also create custom profiles and service settings for Spinnaker services.
 ---
 
 While Halyard handles the majority of Spinnaker configuration, there will

@@ -1,14 +1,9 @@
 ---
 title: "Gitlab File"
-linkTitle: "Gitlab File"
-weight: 
-description: 
+description: Gitlab file artifacts are references to files stored in Gitlab.
 ---
 
-
-Gitlab file artifacts are references to files stored in
-[Gitlab](https://gitlab.com). They are generally consumed
-by stages that read configuration from text files, such as a Deploy Manifest
+They are generally consumed by stages that read configuration from text files, such as a Deploy Manifest
 stage.
 
 ## Fields

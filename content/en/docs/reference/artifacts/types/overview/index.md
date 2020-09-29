@@ -1,8 +1,7 @@
 ---
 title: "Types of Artifacts"
 linkTitle: "Types of Artifacts"
-weight: 
-description: 
+description: Spinnaker supports several different types of artifacts.
 ---
 
 While an artifact can reference any remote, deployable resource, we have

@@ -1,8 +1,6 @@
 ---
 title: "Commands"
-linkTitle: "Commands"
-weight: 
-description: 
+description: Halyard command reference
 ---
 
 

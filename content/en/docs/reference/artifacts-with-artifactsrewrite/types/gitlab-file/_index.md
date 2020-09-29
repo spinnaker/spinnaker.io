@@ -1,15 +1,9 @@
 ---
-layout: single
 title:  "GitLab File"
-sidebar:
-  nav: reference
+description: A GitLab file artifact is a reference to a file stored in GitLab.
 ---
 
-
-
-A GitLab file artifact is a reference to a file stored in
-[GitLab](https://gitlab.com). These artifacts are generally consumed by stages
-that read configuration from text files, such as a Deploy Manifest stage.
+These artifacts are generally consumed by stages that read configuration from text files, such as a Deploy Manifest stage.
 
 ## GitLab file artifact in the UI
 

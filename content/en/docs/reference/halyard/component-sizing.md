@@ -1,8 +1,6 @@
 ---
 title: "Component Sizing"
-linkTitle: "Component Sizing"
-weight: 
-description: 
+description: Use Halyard to size your Spinnaker services to meet your usage requirements.
 ---
 
 

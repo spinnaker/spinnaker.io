@@ -2,15 +2,10 @@
 title: "GitHub File"
 linkTitle: "GitHub File"
 weight: 
-description: 
+description: GitHub file artifacts are references to files stored in GitHub or GitHub Enterprise.
 ---
 
-
-GitHub file artifacts are references to files stored in
-[GitHub](https://github.com) or [GitHub
-Enterprise](https://enterprise.github.com/home). They are generally consumed
-by stages that read configuration from text files, such as a Deploy Manifest
-stage.
+They are generally consumed by stages that read configuration from text files, such as a Deploy Manifest stage.
 
 ## Fields
 

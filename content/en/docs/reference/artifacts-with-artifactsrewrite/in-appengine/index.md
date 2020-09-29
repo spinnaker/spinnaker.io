@@ -1,12 +1,11 @@
 ---
 title: "Artifacts In App Engine"
 linkTitle: "Artifacts In App Engine"
-weight: 
-description: 
+description: Spinnaker supports using Google App Engine artifacts several ways.
 ---
 
 
-Artifacts can be used for several things in the Google App Engine provider:
+Artifacts can be used for the following in the Google App Engine provider:
 
 1. They can be used to reference a GCS bucket that contains source code to be deployed on Google App Engine.
 2. They can be used to reference a docker image stored in Google Container Registry to be deployed on App Engine Flex.

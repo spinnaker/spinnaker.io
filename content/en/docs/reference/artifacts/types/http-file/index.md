@@ -1,13 +1,9 @@
 ---
 title: "HTTP File"
-linkTitle: "HTTP File"
-weight: 
-description: 
+description: HTTP file artifacts are references to files stored in plaintext reachable via HTTP. 
 ---
 
-
-HTTP file artifacts are references to files stored in plaintext reachable via
-HTTP. They are generally consumed by stages that read configuration from text
+They are generally consumed by stages that read configuration from text
 files, such as a Deploy Manifest stage. 
 
 These files can be downloaded using basic auth.

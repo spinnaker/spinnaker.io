@@ -1,13 +1,9 @@
 ---
-layout: single
 title:  "Maven Artifact"
-sidebar:
-  nav: reference
+description: A Maven artifact is a reference to a Maven artifact stored in a Maven repository. 
 ---
 
-
-
-[Maven](https://maven.apache.org) is a build automation tool, and a Spinnaker Maven artifact is a reference to a Maven artifact stored in a Maven repository. These artifacts are generally consumed by stages that deploy application artifacts, such as a Deploy stage.
+These artifacts are generally consumed by stages that deploy application artifacts, such as a Deploy stage.
 
 > The files stored in a Maven repository are typically called "artifacts", so on this page, "Maven artifact" may refer to a Spinnaker artifact of type `maven/file` or to a file (e.g. a JAR file) stored in a Maven repository.
 
