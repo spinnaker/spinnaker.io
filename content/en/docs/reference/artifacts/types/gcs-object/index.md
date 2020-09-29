@@ -1,15 +1,10 @@
 ---
 title: "GCS Object"
 linkTitle: "GCS Object"
-weight: 
-description: 
+description: Google Cloud Storage (GCS) object artifacts are references to objects stored in GCS buckets.
 ---
 
-
-[GCS](https://cloud.google.com/storage/) is an object store, and GCS object
-artifacts are references to objects stored in GCS buckets. These artifacts are
-generally consumed by stages that read configuration from text files, such as a
-Deploy Manifest or App Engine Deploy stage.
+These artifacts are generally consumed by stages that read configuration from text files, such as a Deploy Manifest or App Engine Deploy stage.
 
 ## Fields
 

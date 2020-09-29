@@ -1,14 +1,9 @@
 ---
 title: "Providers"
-weight:
-description:
+description: Information on how Spinnaker concepts map to those of the Cloud Provider, as well as how the various Spinnaker operations are performed at the Cloud Provider level.
 ---
 
-Once you're familiar with the definition and setup of a [Cloud
-Provider](/setup/providers/), you can read these reference pages for
-information on how Spinnaker concepts map to those of the Cloud Provider, as
-well as how the various Spinnaker operations are performed at the Cloud
-Provider level.
+> To setup a cloud provier, see [Cloud Provider](/setup/providers/).
 
 ## Supported providers
 

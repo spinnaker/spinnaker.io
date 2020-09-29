@@ -1,9 +1,6 @@
 ---
 title: "Secrets in S3"
-linkTitle: "Secrets in S3"
-weight: 
-description: >
-  This document describes how to set up Spinnaker secrets in an encrypted S3 bucket.
+description: This document describes how to set up Spinnaker secrets in an encrypted S3 bucket.
 ---
 
 

@@ -1,8 +1,7 @@
 ---
 title: "Cloud Foundry"
 linkTitle: "Cloud Foundry"
-weight: 
-description:
+description: Learn how Spinnaker features map to Cloud Foundry.
 ---
 
 If you are not familiar with Cloud Foundry (CF) or any of the terms used below, please consult [Cloud Foundry's reference documentation](https://docs.cloudfoundry.org).

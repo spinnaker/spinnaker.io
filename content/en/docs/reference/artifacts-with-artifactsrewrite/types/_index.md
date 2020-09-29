@@ -1,8 +1,7 @@
 ---
 title: "Types of Artifacts"
 linkTitle: "Types of Artifacts"
-weight: 
-description: 
+description: Artifacts are remote, deployable resources that Spinnaker can reference.
 ---
 
 While an artifact can reference any remote, deployable resource, we have

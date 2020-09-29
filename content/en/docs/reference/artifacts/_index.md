@@ -1,8 +1,6 @@
 ---
-title: "About Spinnaker Artifacts"
-linkTitle: "About Spinnaker Artifacts"
-weight: 
-description: 
+title: "(Legacy) About Spinnaker Artifacts"
+description: In Spinnaker, an artifact is an object that references an external resource. 
 ---
 
 > This section refers to the legacy artifacts UI, which is scheduled for removal
@@ -11,7 +9,7 @@ description:
 
 
 
-In Spinnaker, an artifact is an object that references an external resource. That resource could be…
+Artifacts can be...
 
 * a Docker image
 * a file stored in GitHub

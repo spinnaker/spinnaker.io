@@ -1,15 +1,10 @@
 ---
 title: "Authorization Architecture"
 linkTitle: "Authorization Architecture"
-weight: 
-description: 
+description: Fiat works closely with Front50 (apps permissions), Clouddriver (account permissions), and Igor (build services permissions).
 ---
 
-
-## Overview
-Fiat works closely with Front50 (apps permissions), Clouddriver (account permissions), and Igor (build services permissions).
-
-### Ingress
+## Ingress
 
 Ingress involves the following components: 
 
@@ -18,7 +13,7 @@ Ingress involves the following components:
 - Gate signs users in with externally provided roles (e.g. OpenID Connect, SAML). These roles are then merged with provider sourced roles (if any), tagged with the `EXTERNAL` source, and cached in Redis.
 - Igor gets the list of build systems and roles required to access them.
 
-### Egress
+## Egress
 
 Egress involves the following components: 
 
@@ -26,7 +21,7 @@ Egress involves the following components:
 - Clouddriver gets known accounts.
 - Front50 gets known apps.
 
-### Scaling
+## Scaling
 
 Fiat can be scaled by adding replicas. `fiat.writeMode.enabled` dictates if the Fiat instance will try to sync 
 roles. Fiat instances coordinate around locks (in Redis) to ensure that only one instance synchronizes roles at a time.

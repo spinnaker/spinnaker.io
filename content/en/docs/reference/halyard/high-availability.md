@@ -1,8 +1,6 @@
 ---
 title: 'High Availability'
-linkTitle: 'High Availability'
 mermaid: true
-weight:
 description:
 ---
 
@@ -37,12 +35,7 @@ Clouddriver benefits greatly from isolating its operations into separate service
 hal config deploy ha clouddriver enable
 ```
 
-When Spinnaker is deployed with this flag enabled, Clouddriver will be deployed as four different services, each only performing a subset of the base Clouddriver's operations:
-
-- [`clouddriver-caching`](#clouddriver-caching)
-- [`clouddriver-rw`](#clouddriver-rw)
-- [`clouddriver-ro`](#clouddriver-ro)
-- [`clouddriver-ro-deck`](#clouddriver-ro-deck)
+When Spinnaker is deployed with this flag enabled, Clouddriver will be deployed as four different services, each only performing a subset of the base Clouddriver's operations.
 
 Although by default the four Clouddriver services will communicate with the global Redis (all Spinnaker services speak to this Redis) provided by Halyard, it is recommended that the logical Clouddriver services be configured to communicate with an external Redis service. To be most effective, `clouddriver-ro` should be configured to speak to a Redis read replica, `clouddriver-ro-deck` should be configured to speak to a different Redis read replica, and the other two should be configured to speak to the master. This is handled automatically by Halyard if the user provides the two endpoints using this command:
 

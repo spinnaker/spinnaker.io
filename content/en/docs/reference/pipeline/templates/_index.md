@@ -1,7 +1,6 @@
 ---
 title: "Pipeline Templates"
 linkTitle: "Pipeline Templates"
-weight: 
 description: 
 ---
 

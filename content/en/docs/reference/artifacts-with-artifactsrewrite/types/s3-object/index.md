@@ -1,16 +1,9 @@
 ---
-layout: single
 title:  "S3 Object"
-sidebar:
-  nav: reference
+description: S3 object artifacts are references to objects stored in S3 buckets.
 ---
 
-
-
-[Amazon S3](https://aws.amazon.com/s3/) is an object store, and S3 object
-artifacts are references to objects stored in S3 buckets. These artifacts are
-generally consumed by stages that read configuration from text files, such as a
-Deploy Manifest or AWS Deploy stage.
+These artifacts are generally consumed by stages that read configuration from text files, such as a Deploy Manifest or AWS Deploy stage.
 
 ## S3 object artifact in the UI
 

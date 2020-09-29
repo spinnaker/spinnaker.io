@@ -1,22 +1,21 @@
 ---
 title: "Artifacts from Build Triggers"
-linkTitle: "Artifacts from Build Triggers"
-weight: 
-description: 
+description: When an external CI system triggers a pipeline, Spinnaker can use the CI build information to inject relevant artifacts into the pipeline. 
 ---
 
 ## Overview
-
-When an external CI system triggers a pipeline, Spinnaker can use the CI build information to
-inject relevant artifacts into the pipeline. The instructions here assume that you have
-[set up a CI system](/setup/ci/) and are familiar with using
-[property files](/guides/user/pipeline/expressions/#property-files) to pass variables from
-CI builds to Spinnaker pipelines.
 
 The extraction of artifacts from the build information is done via a Jinja template; the
 template uses the trigger as context and outputs a list of artifacts to inject into the
 pipeline. Spinnaker provides a set of [standard templates](#supplied-templates) to use for
 artifact extraction, which users can augment with custom templates.
+
+## Requirements
+
+The instructions here assume that you have
+[set up a CI system](/setup/ci/) and are familiar with using
+[property files](/guides/user/pipeline/expressions/#property-files) to pass variables from
+CI builds to Spinnaker pipelines.
 
 ## Select a template
 

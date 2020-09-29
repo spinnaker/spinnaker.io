@@ -1,14 +1,9 @@
 ---
 title: "Kubernetes Object"
-linkTitle: "Kubernetes Object"
-weight: 
-description: 
+description: Kubernetes Object artifacts are running, deployed Kubernetes Manifests.
 ---
 
-
-Kubernetes Object artifacts are _running_, _deployed_ Kubernetes Manifests.
-This is in contrast to something like a GitHub file that only contains the
-specification of a deployable Kubernetes Manifest.
+This is in contrast to something like a GitHub file that only contains the specification of a deployable Kubernetes Manifest.
 
 ## Fields
 

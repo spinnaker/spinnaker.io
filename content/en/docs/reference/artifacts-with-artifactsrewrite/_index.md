@@ -1,12 +1,8 @@
 ---
 title: "What is a Spinnaker Artifact?"
-linkTitle: "What is a Spinnaker Artifact?"
-weight: 
-description: 
+linkTitle: "Spinnaker Artifacts"
+description: A Spinnaker artifact is a named JSON object that refers to an external resource.
 ---
-
-
-A Spinnaker artifact is a named JSON object that refers to an external resource.
 
 Spinnaker supports a wide range of providers. An artifact can reference any of many different external resources, such as&#8230;
 

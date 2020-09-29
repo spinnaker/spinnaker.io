@@ -1,15 +1,7 @@
 ---
-layout: single
 title:  "Kubernetes Object"
-sidebar:
-  nav: reference
+description: Kubernetes Object artifacts are running, deployed Kubernetes manifests. This is in contrast to something like a GitHub file that only contains the specification of a deployable Kubernetes manifest.
 ---
-
-
-
-Kubernetes Object artifacts are _running_, _deployed_ Kubernetes manifests.
-This is in contrast to something like a GitHub file that only contains the
-specification of a deployable Kubernetes manifest.
 
 ## Kubernetes object artifact in the UI
 

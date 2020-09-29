@@ -1,21 +1,13 @@
 ---
 title: "Halyard"
 linkTitle: "Halyard"
-weight: 
-description: >
-  This is the reference documentation for Halyard, and will go into more detail than is needed to deploy most Spinnaker environments.
+description: Halyard is a tool for configuring, installing, and updating Spinnaker.
 ---
-
-
 
 This is the reference documentation for Halyard, and will go into more detail
 than is needed to deploy most Spinnaker environments. If you're a new user
 looking for instructions for how to use Halyard to deploy Spinnaker, checkout
 the [setup instructions](/setup/install/) first.
-
-## About
-
-Halyard is a tool for configuring, installing, and updating Spinnaker.
 
 ## Terminology
 

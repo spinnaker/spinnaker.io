@@ -1,18 +1,13 @@
 ---
 title: "Kubernetes"
 linkTitle: "Kubernetes"
-weight: 
-description:
+description: Learn how Spinnaker concepts map to Kubernetes.
 ---
 
 > ⚠️ Spinnaker's legacy Kubernetes provider (V1) is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
 > We recommend using the [standard provider (V2)](/reference/providers/kubernetes-v2) instead. 
 
-
-
-If you are not familiar with Kubernetes or some of the Kubernetes terminology
-used below, please read the [reference
-documentation](https://kubernetes.io/docs/home).
+If you are not familiar with Kubernetes or some of the Kubernetes terminology used below, please read the [reference documentation](https://kubernetes.io/docs/home).
 
 ## Resource mapping
 

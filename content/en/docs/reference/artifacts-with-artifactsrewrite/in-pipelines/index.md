@@ -1,8 +1,6 @@
 ---
-layout: single
 title:  "Artifacts In Pipelines"
-sidebar:
-  nav: reference
+description: Spinnaker uses artifacts several ways within a pipeline. 
 ---
 
 {{% alert color="warning" title="Warning" %}}Much of the behavior described here depends on looking up execution history in Redis. Deleting recent executions from Redis can cause unexpected behavior.

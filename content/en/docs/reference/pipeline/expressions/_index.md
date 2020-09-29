@@ -1,13 +1,11 @@
 ---
 title: "Pipeline Expression Reference"
-linkTitle: "Pipeline v"
-weight: 
-description: 
+linkTitle: "Pipeline Expressions"
+description: Pipeline expressions allow you to reference arbitrary values about the state of your system in the execution of your pipelines.
 ---
 
 
-Pipeline expressions allow you to reference arbitrary values about the
-state of your system in the execution of your pipelines. For more information
+ For more information
 about how pipeline expressions work, see the
 [overview](/guides/user/pipeline/expressions/).
 
