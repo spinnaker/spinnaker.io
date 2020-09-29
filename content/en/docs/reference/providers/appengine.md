@@ -1,12 +1,10 @@
 ---
 title: "Google App Engine"
 linkTitle: "Google App Engine"
-weight: 
-description:
+description: Learn how Spinnaker functionality maps to Google App Engine.
 ---
 
-If you are not familiar with App Engine or any of the terms used below, please consult
-App Engine's [reference documentation](https://cloud.google.com/appengine/docs).
+> If you are not familiar with App Engine or any of the terms used below, please consult App Engine's [reference documentation](https://cloud.google.com/appengine/docs).
 
 ## Resource mapping
 

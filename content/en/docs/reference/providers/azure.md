@@ -1,12 +1,11 @@
 ---
 title: "Azure"
 linkTitle: "Azure"
-weight: 
-description:
+description: Learn how Spinnaker features map to Azure.
 ---
 
 
-If you are not familiar with Azure or any of the terms used below, please consult the Azure [reference documentation](https://docs.microsoft.com/en-us/azure/).
+> If you are not familiar with Azure or any of the terms used below, please consult the Azure [reference documentation](https://docs.microsoft.com/en-us/azure/).
 
 ## Resource mapping
 

@@ -1,17 +1,10 @@
 ---
 title: "Pipeline Stages"
 linkTitle: "Pipeline Stages"
-weight: 
-description: 
+description: Supported stages in Spinnaker
 ---
 
-
-This article describes the currently-supported stages that you can add to your
-Spinnaker pipelines.
-
-Note that when you're creating a pipeline, you probably won't see every stage
-that's listed here: you'll only see the stages that Spinnaker supports on your
-provider.
+> Note that when you're creating a pipeline, you probably won't see every stage that's listed here. You'll only see the stages that Spinnaker supports on your provider.
 
 ## General
 

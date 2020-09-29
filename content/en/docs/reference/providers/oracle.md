@@ -1,8 +1,7 @@
 ---
 title: "Oracle Cloud"
 linkTitle: "Oracle Cloud"
-weight: 
-description:
+description: Learn how Spinnaker concepts map to Oracle Cloud."
 ---
 
 For more information about Oracle Cloud or any of the terms used below, please consult
