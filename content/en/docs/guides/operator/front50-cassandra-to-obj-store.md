@@ -3,7 +3,7 @@ title: "Front50: Cassandra to Object Store (S3, Azure, or GCS)"
 linkTitle: "Front50: Cassandra to Object Store"
 weight: 2
 description: >
-  Migrate from Cassandra to cloud-based persistent storage
+  Migrate from Cassandra to cloud-based persistent storage.
 ---
 
 

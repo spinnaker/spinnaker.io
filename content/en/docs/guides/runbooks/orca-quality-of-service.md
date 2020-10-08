@@ -2,7 +2,7 @@
 title: 'Orca: Quality of Service'
 linkTitle: 'Orca: QoS'
 weight: 2
-description: "Spinnaker ships with an optional Quality of Service (QoS) module that can be used to manage the amount of active executions running at any given time."
+description: "Spinnaker includes an optional Quality of Service (QoS) module you can use to manage how many active executions run simlutaneously."
 mermaid: true
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "Plugin Creators Overview"
-linkTitle: "Overview"
+linkTitle: "Plugin Creators Overview"
 weight: 1
-description: "Overview of plugin types"
+description: "This document is an overview of plugin types."
 ---
 
 
