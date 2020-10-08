@@ -2,7 +2,7 @@
 title: "GCE Source To Prod"
 linkTitle: "GCE Source To Prod"
 description: >
-  Create a cohesive workflow which takes source code and builds, tests, and promotes it to production.
+  Create a cohesive workflow that takes source code and builds, tests, and promotes it to production.
 ---
 
 

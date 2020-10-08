@@ -3,7 +3,7 @@ title: "Manage Pipelines"
 linkTitle: "Manage Pipelines"
 weight: 2
 description: >
-  Once you have `spin` installed and configured, you can use it to start managing your Spinnaker pipelines.
+  Use `spin` to manage your Spinnaker pipelines.
 ---
 
 

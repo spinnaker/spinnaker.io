@@ -3,7 +3,7 @@ title: "Manage Pipeline Templates"
 linkTitle: "Manage Pipeline Templates"
 weight: 2
 description: >
-  Once you have `spin` install and configured, you can use it to start managing your managed pipeline templates (MPT).
+  Use `spin` to manage your managed pipeline templates (MPT).
 ---
 
 

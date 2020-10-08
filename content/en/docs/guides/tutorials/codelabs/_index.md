@@ -3,7 +3,7 @@ title: "Codelabs"
 linkTitle: "Codelabs"
 weight: 2
 description: >
-  Use through these codelabs to get hands-on experience with Spinnaker in a guided manner.
+  Try some of these codelabs to get a guided, hands-on experience with Spinnaker.
 ---
 
 Each of these codelabs takes about one hour.
