@@ -7,8 +7,6 @@ aliases:
   - /setup/scaling/externalize-redis/
 ---
 
-
-
 One of the easiest ways to improve Spinnaker's reliability at scale is to use an
 external Redis. The Redis installed by Spinnaker (either locally, or in
 Kubernetes) isn't configured to be production-ready. If you have a hosted Redis
@@ -37,6 +35,14 @@ create the following file `~/.hal/$DEPLOYMENT/service-settings/redis.yml`:
 ```yaml
 overrideBaseUrl: $REDIS_ENDPOINT
 skipLifeCycleManagement: true
+```
+
+Additionally, create the following file in order to customize the gate service. `~/.hal/$DEPLOYMENT/profiles/gate-local.yml`:
+```yaml
+redis:
+    configuration:
+         secure:
+              true
 ```
 
 > `$DEPLOYMENT` is typically `default`. See [the

@@ -1,8 +1,3 @@
----
-title: "Component Configuration"
-description: In addition to Halyard, you can also create custom profiles and service settings for Spinnaker services.
----
-
 While Halyard handles the majority of Spinnaker configuration, there will
 always be feature flags and properties either too new or niche to be supported
 by Halyard. Furthermore, some users will be more comfortable forgoing Halyard's
@@ -169,6 +164,8 @@ Node selector annotations will put out `nodeSelector` values in the Pod specific
 
 ```
 kubernetes:
+  nodeSelectors:
+     exampleNodeKey: exampleNodeValue
   deploymentEnvironment:
     nodeSelectors:
       exampleNodeKey: exampleNodeValue

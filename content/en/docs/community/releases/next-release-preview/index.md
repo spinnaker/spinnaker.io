@@ -9,32 +9,38 @@ Please make a pull request to describe any changes you wish to highlight
 in the next release of Spinnaker. These notes will be prepended to the release
 changelog.
 
-## Coming Soon in Release 1.21
+## Coming Soon in Release 1.23
 
-### End of Support for the legacy Kubernetes Provider
+### (Breaking Change) Spinnaker Kubernetes manifest image overwriting with a bound artifact
 
-1.20 was the final release to include support for Spinnaker's legacy Kubernetes
-(V1) provider. Please migrate all Kubernetes accounts to the standard (V2)
-provider before upgrading to Spinnaker 1.21.
+Spinnaker will now overwrite images in a manifest with a bound artifact if the
+input manifest's image has a tag on it. The previous behavior was that Spinnaker
+would only overwrite images in a manifest if the image did not have a tag.
 
-### Suspension of Support for Alicloud, DC/OS, and Oracle Cloud Providers
+https://github.com/spinnaker/spinnaker/issues/5948
 
-The Alicloud, DC/OS, and Oracle cloud providers are excluded from 1.21 because
-they no longer meet Spinnaker's
-[cloud provider requirements](https://github.com/spinnaker/governance/blob/master/cloud-provider-requirements.md),
-which include the formation of a Spinnaker SIG. If you are interested in
-forming a SIG for one of these cloud providers, please comment on the
-appropriate GitHub issue:
+### Kubernetes accounts no longer use the liveManifestCalls flag
 
-* [Alicloud](https://github.com/spinnaker/governance/issues/122)
-* [DC/OS](https://github.com/spinnaker/governance/issues/125)
-* [Oracle](https://github.com/spinnaker/governance/issues/127)
+As of this release, Kubernetes accounts no longer read the value of the
+`liveManifestCalls` flag. Instead of using this flag, Spinnaker now decides
+whether to read from the cache or directly from the Kubernetes cluster based on
+the context of the request.
 
-### New release branch patch criteria
+From a practical perspective this means that:
 
-Previously, fixes were merged into release branches at the discretion of the
-release manager. To increase the transparency of the release process and the
-safety of the patch release upgrade process, we have documented more explicit
-[patch criteria](https://www.spinnaker.io/community/contributing/releasing/#release-branch-patch-criteria)
-to determine whether a change is appropriate to cherry-pick into a release
-branch.
+- Users who had `liveManifestCalls` enabled will see the same fast deploys as
+  always but will no longer experience
+  [bugs with dynamic target selection](https://github.com/spinnaker/spinnaker/issues/5607).
+- Users who had `liveManifestCalls` disabled will notice significantly faster
+  deployments.
+
+Users may wish to remove the `liveManifestCalls` flag from their account
+configuration, though this is not required and any configured value for this
+setting will be ignored by Spinnaker.
+
+### Java 11 is Required
+
+Spinnaker now requires a Java 11 (or greater) runtime:
+- If you use the community Docker containers, these have been using Java 11 for several releases now. No changes are required.
+- If you are using the community Debian packages, you need to make sure a Java 11 runtime is available on your system.
+- If you're building your own Spinnaker binaries from source, you will need to use a Java 11 JDK.

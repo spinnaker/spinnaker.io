@@ -55,7 +55,7 @@ both permissions to perform certain actions.
 * An external role provider from one of the following:
     * Google Groups via a G Suite Account
         * With access to the G Suite Admin console
-    * GitHub Team
+    * GitHub Organization
     * LDAP server
     * SAML Identity Provider (IdP) that includes groups in the assertion
         > SAML roles are fixed at login time, and cannot be changed until the user needs to
@@ -134,7 +134,7 @@ setting the following property in `fiat-local.yml`:
 In Spinnaker there are a few ways you can associate a role with a user:
 
 - With a [YAML file](https://github.com/spinnaker/fiat/blob/master/fiat-file/src/test/resources/fiat-test-permissions.yml): contains user ↔ role mapping. A YAML parseable map with structure [user]: list of roles
-- Via [GitHub teams](./github-teams/): roles are the teams a user belongs to in a configured Org
+- Via [GitHub Teams](./github-teams/): roles are the teams a user belongs to in a configured Org
 - Via [Google Groups](./google-groups/): roles are mapped (see settings) from the Google directory
 - Via [LDAP](./ldap/): roles are searched in LDAP from the user
 - Via [SAML Groups](./saml/) (also covers OAuth ONLY with OIDC): The authentication method can also bring its own roles. In this case, roles are referred
