@@ -2,7 +2,7 @@
 title: "Patch Kubernetes Manifests"
 linkTitle: "Patch Kubernetes Manifests"
 description: >
-  Update a Kubernetes resource in place using the Patch Manifest stage
+  Update a Kubernetes resource in place using the Patch Manifest stage.
 ---
 
 

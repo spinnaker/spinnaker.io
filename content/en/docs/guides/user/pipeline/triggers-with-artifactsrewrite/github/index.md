@@ -3,7 +3,9 @@ title: "Receiving artifacts from GitHub"
 linkTitle: "GitHub"
 weight:
 description: >
-  Configure Spinnaker to trigger pipelines based on commits to a [GitHub](https://github.com) repository and inject changed GitHub files as [artifacts](/docs/reference/artifacts) into a pipeline
+  Trigger pipelines based on commits to a [GitHub](https://github.com)
+  repository, and inject changed GitHub files as
+  [artifacts](/docs/reference/artifacts).
 ---
 
 ## Overview

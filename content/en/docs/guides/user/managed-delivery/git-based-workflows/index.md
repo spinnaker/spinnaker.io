@@ -3,7 +3,7 @@ title: "Git-Based Workflows"
 linkTitle: "Git-Based Workflows"
 weight: 10
 description: >
-  Create and update Managed Delivery configurations using a Git-based workflow
+  Create and update Managed Delivery configurations using a Git-based workflow.
 ---
 
 Spinnaker supports git-based workflows to create and update Managed Delivery configurations.

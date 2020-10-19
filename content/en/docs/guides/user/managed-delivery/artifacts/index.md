@@ -1,8 +1,8 @@
 ---
-title: "Artifacts"
+title: "Managed Delivery Artifacts"
 linkTitle: "Artifacts"
 weight: 10
-description: "Debians and Docker images"
+description: "Managed delivery with debians and Docker images."
 ---
 
 Managed Delivery supports two types of delivery artifacts: **debians** and **Docker images**.

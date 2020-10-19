@@ -3,7 +3,7 @@ title: "Getting Started"
 linkTitle: "Getting Started"
 weight:  5
 description: >
-  Onboard to Managed Delivery using EC2 or Titus
+  Get started with Managed Delivery using EC2 or Titus.
 ---
 
 Managed Delivery is currently in Alpha.

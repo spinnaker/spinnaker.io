@@ -3,5 +3,5 @@ title: "Configure a canary"
 linkTitle: "Config"
 weight: 2
 description: >
-  Before you can add a canary stage to a pipeline, you need to configure what the canary consists of.
+  Configure a canary before you create a canary pipeline stage.
 ---

@@ -2,7 +2,7 @@
 title: "Delete an application"
 linkTitle: "Delete an application"
 weight: 2
-description: 
+description: You can delete applications you don't need anymore.
 ---
 
 

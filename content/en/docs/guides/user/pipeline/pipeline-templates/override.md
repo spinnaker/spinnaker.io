@@ -3,7 +3,7 @@ title:  "Inherit from a Template or Override It"
 linkTitle: "Inherit from a Template"
 weight: 15
 description: >
-  Inherit or override template features in your pipeline
+  Inherit or override template features in your pipeline.
 ---
 
 In a pipeline that instantiates a template, besides providing values for

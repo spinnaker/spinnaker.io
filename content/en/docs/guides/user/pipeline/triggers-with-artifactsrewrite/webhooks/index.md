@@ -3,7 +3,7 @@ title: "Triggering on Webhooks"
 linkTitle: "Webhooks"
 weight:
 description: >
-  Use a webhook to trigger a pipeline
+  Use a webhook to trigger a pipeline.
 ---
 
 

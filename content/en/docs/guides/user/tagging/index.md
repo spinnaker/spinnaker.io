@@ -3,7 +3,7 @@ title: "General Purpose Tagging Guide"
 linkTitle: "General Purpose Tagging Guide"
 weight: 2
 description: >
-  Use Entity Tags, Spinnaker's provider-agnostic tagging capability
+  Use entity tags, Spinnaker's provider-agnostic tagging capability.
 ---
 
 

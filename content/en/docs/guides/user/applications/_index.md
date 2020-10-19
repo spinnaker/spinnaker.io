@@ -3,7 +3,8 @@ title: "About Applications"
 linkTitle: "About Applications"
 weight: 2
 description: >
-  A Spinnaker application is a construct that represents some service that you are going to deploy (typically a microservice).
+  A Spinnaker application represents a service that you are going to deploy
+  (typically a microservice).
 ---
 
 

@@ -3,7 +3,7 @@ title: "Triggering on Pub/Sub Messages"
 linkTitle: "Pub/Sub Messages"
 weight:
 description: >
-  Trigger pipelines based on messaging
+  Trigger pipelines from Pub/Sub messages.
 ---
 
 In order to programmatically trigger pipelines, you can configure Spinnaker to
