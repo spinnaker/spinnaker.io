@@ -2,8 +2,8 @@
 title: "Configure an application"
 linkTitle: "Configure an application"
 weight: 2
-description: Finish configuring your application before you add infrastructure
-and pipelines.
+description: >
+  Finish configuring your application before you add infrastructure and pipelines.
 ---
 
 
