@@ -2,8 +2,8 @@
 title: "Create an application"
 linkTitle: "Create an application"
 weight: 2
-description: Before you can create delivery pipelines, create an application
-for the service you will be deploying.
+description: >
+  Before you can create delivery pipelines, create an application for the service you will be deploying.
 ---
 
 You can't create a deployment pipeline unless you have an application to put it
