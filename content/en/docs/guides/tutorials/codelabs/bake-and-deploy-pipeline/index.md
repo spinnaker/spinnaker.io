@@ -2,7 +2,7 @@
 title: "Bake and Deploy Pipeline"
 linkTitle: "Bake and Deploy Pipeline"
 description: >
-  Set up a Spinnaker pipeline that bakes a virtual machine (VM) image containing redis, then deploys that image to a test cluster.
+  Set up a Spinnaker pipeline that bakes a VM image containing Redis, then deploys that image to a test cluster.
 ---
 
 

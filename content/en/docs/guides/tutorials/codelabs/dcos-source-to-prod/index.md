@@ -2,7 +2,7 @@
 title: "DC/OS: Source to Prod"
 linkTitle: "DC/OS: Source to Prod"
 description: >
-  Create a set of basic pipelines for deploying code from a Github repo to a DC/OS cluster
+  Create a set of basic pipelines for deploying code from a Github repo to a DC/OS cluster.
 ---
 
 ## 0. Setup

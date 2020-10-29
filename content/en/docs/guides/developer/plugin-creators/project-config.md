@@ -1,7 +1,7 @@
 ---
 title: "Plugin Project Configuration"
-linkTitle: "Project Config"
-description: "IDE configuration, gradle"
+linkTitle: "Plugin Project Config"
+description: "This article describes how to configure your IDE and Gradle for plugin projects."
 ---
 
 {{< alpha version="1.19.4" >}}

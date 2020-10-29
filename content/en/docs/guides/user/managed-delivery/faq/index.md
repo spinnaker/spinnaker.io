@@ -1,9 +1,9 @@
 ---
-title: "FAQ"
+title: "Managed Delivery FAQ"
 linkTitle: "FAQ"
 weight: 100
 description: >
-  Quick reference for Managed Delivery
+  Questions and answers about Managed Delivery.
 ---
 
 ### What is happening?

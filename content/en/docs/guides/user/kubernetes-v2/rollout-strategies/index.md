@@ -2,7 +2,7 @@
 title: "Rollout Strategies"
 linkTitle: "Rollout Strategies"
 description: >
-  Use the Kubernetes provider's dark, highlander, or red/black rollout strategies
+  Use a dark, Highlander, or red/black rollout strategy in the Kubernetes provider.
 ---
 
 This guide describes how to take advantage of the

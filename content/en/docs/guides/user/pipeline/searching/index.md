@@ -2,7 +2,7 @@
 title: "Search for Triggered Pipeline Executions"
 linkTitle: "Search for Triggered Pipeline Executions"
 weight: 25
-description:
+description: "Use an API to search for triggered pipeline executions."
 ---
 
 This guide describes how to use the `searchForPipelineExecutionsByTrigger` API to search for pipeline executions triggered by Pub/Sub messages or webhooks.

@@ -2,7 +2,7 @@
 title: "Deploy Kubernetes Manifests"
 linkTitle: "Deploy K8s Manifests"
 description: >
-  Deploy a Kubernetes manifest using the Kubernetes provider
+  Deploy a Kubernetes manifest using the Kubernetes provider.
 
 ---
 

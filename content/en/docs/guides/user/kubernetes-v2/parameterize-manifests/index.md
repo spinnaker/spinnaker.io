@@ -2,7 +2,7 @@
 title: "Parameterize Kubernetes Manifests"
 linkTitle: "Parameterize K8s Manifests"
 description: >
-  Inject parameters into your Kubernetes manifest as it is deployed
+  Inject parameters into your Kubernetes manifest as it is deployed.
 ---
 
 Spinnaker can inject context from the currently executing pipeline into your

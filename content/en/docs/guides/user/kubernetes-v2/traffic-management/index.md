@@ -2,7 +2,7 @@
 title: "Manage Traffic Using Kubernetes Manifests"
 linkTitle: "Manage Traffic"
 description: >
-  Manage traffic during deployments
+  Manage traffic during deployments.
 ---
 
 This guide shows the basics of how to manage traffic during deployments

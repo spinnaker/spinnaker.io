@@ -3,7 +3,7 @@ title:  "RandomWait Stage Plugin Deployment Walkthrough"
 linkTitle: "Deployment Walkthrough"
 weight: 10
 description: >
-  Add, configure, deploy, and troubleshoot the RandomWait Stage plugin 
+  Add, configure, deploy, and troubleshoot the RandomWait Stage plugin.
 ---
 
 {{< alpha version="1.20.6" >}}

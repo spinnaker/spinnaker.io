@@ -2,7 +2,7 @@
 title: "Oracle Cloud Infrastructure Source to Prod"
 linkTitle: "OCI Source to Prod"
 description: >
-  Create a cohesive workflow which takes source code and builds, tests, and promotes it to production on Oracle Cloud Infrastructure
+  Create a cohesive workflow that takes source code and builds, tests, and promotes it to production on Oracle Cloud Infrastructure.
 ---
 
 In this codelab, you will create a cohesive workflow which takes source code and builds, tests, and promotes it to production.

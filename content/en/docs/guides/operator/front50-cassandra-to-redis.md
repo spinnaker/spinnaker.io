@@ -2,7 +2,7 @@
 title: "Front50: Cassandra to Redis"
 linkTitle: "Front50: Cassandra to Redis"
 weight: 2
-description: "Migrate from Cassandra to Redis"
+description: "Migrate from Cassandra to Redis."
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 title:  "Orca Internals Overview"
-linkTitle: "Orca"
+linkTitle: "Orca Internals"
 description: >
-  Orca is a stateless, horizontally scalable service. Spinnaker's execution state is persisted to a backend store and work is distributed evenly through a work queue.
+  This article describes the internal workings of Orca, the Spinnaker pipeline orchestration service.
 ---
 
 Spinnaker is known and often loved for enabling accessible, highly configurable and composable workflows through its pipelines and tasks. This is largely thanks to the code that makes up Orca.

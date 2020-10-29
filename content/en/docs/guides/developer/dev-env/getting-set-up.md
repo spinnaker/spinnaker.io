@@ -3,7 +3,7 @@ title: "Getting Set Up for Spinnaker Development"
 linkTitle: "Getting Set Up"
 weight: 2
 description: >
-  Set up a development environment on your laptop
+  Set up a development environment on your local machine.
 ---
 
 ## Overview

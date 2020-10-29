@@ -2,7 +2,7 @@
 title: "Configure Automated Rollbacks in the Kubernetes Provider"
 linkTitle: "Automated Rollbacks"
 description: >
-  Create automated rollbacks
+  Create automated rollbacks.
 ---
 
 There are clear benefits to having your stored manifests (in Git, GCS, etc...)

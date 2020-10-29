@@ -3,7 +3,7 @@ title: "Managing Pipelines"
 linkTitle: "Managing Pipelines"
 weight: 5
 description: >
-  Configure and control pipelines, including creating, adding triggers to, or disabling pipelines
+  Configure and control pipelines, including creating, adding triggers, or disabling pipelines.
 ---
 
 Pipelines are the essential tool in Spinnaker for controlling how to deploy your

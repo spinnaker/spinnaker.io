@@ -2,7 +2,7 @@
 title: "Use Kustomize for Manifests"
 linkTitle: "Use Kustomize for Manifests"
 description: >
-  Use Kustomize to generate a custom manifest that you can use in your Deploy (Manifest) stage
+  Use Kustomize to generate a custom manifest to use in your Deploy (Manifest) stage.
 ---
 
 Kustomize is a tool that lets you create customized Kubernetes deployments without modifying underlying YAML configuration files. Since the files remain unchanged, others are able to reuse the same files to build their own customizations. Your customizations are stored in a file called `kustomization.yaml`. If configuration changes are needed, the underlying YAML files and `kustomization.yaml` can be updated independently of each other.

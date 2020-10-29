@@ -3,7 +3,7 @@ title: "Triggers Overview"
 linkTitle: "Triggers Overview"
 weight: 20
 description: >
-  A pipeline trigger defines when to automatically run a pipeline
+  A pipeline trigger defines when to automatically run a pipeline.
 ---
 
 There are many types of triggers available: Jenkins jobs, webhooks, CRON jobs,

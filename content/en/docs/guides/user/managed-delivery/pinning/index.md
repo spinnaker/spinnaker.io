@@ -3,7 +3,7 @@ title: "Pin an Environment"
 linkTitle: "Pin an Environment"
 weight: 10
 description: >
-  Pin an environment so it doesn't change
+  Pin an environment to an artifact version so that environment doesn't change.
 ---
 
 You can pin an environment to a specific artifact version to ensure that all resources in the environment stay on that version.

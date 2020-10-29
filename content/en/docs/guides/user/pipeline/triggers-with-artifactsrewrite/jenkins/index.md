@@ -3,7 +3,7 @@ title: "Triggering pipelines with Jenkins"
 linkTitle: "Jenkins"
 weight:
 description: >
-  Add a [Jenkins](https://jenkins.io/) trigger to your pipeline
+  Add a [Jenkins](https://jenkins.io/) trigger to your pipeline.
 ---
 
 

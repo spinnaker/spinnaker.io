@@ -3,7 +3,7 @@ title: "Manage Canary Configs"
 linkTitle: "Manage Canary"
 weight: 2
 description: >
-  You can use `spin` to manage the whole lifecycle of your canary configs.
+  Use `spin` to manage the whole lifecycle of your canary configs.
 ---
 
 ## Overview

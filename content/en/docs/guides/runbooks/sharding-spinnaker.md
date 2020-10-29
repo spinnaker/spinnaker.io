@@ -2,7 +2,7 @@
 title: "Sharding Spinnaker"
 linkTitle: "Sharding Spinnaker"
 weight: 2
-description: "This document shows you how to shard traffic to different areas of Spinnaker. A service may need to be sharded when it's no longer performant to serve all queries with a single instance of Orca or Clouddriver."
+description: "How to shard traffic to different areas of Spinnaker, in case a service doesn't efficiently serve all queries with a single instance of Orca or Clouddriver."
 ---
 
 ## Intro

@@ -2,7 +2,7 @@
 title: "Deployment Guide"
 weight: 5
 description: >
-  Add, configure, and deploy plugins
+  Add, configure, and deploy plugins.
 aliases:
   - /guides/user/plugin-users/
   - /guides/user/plugins/user-guide/

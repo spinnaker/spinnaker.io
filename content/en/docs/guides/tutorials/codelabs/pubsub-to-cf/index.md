@@ -1,8 +1,8 @@
 ---
-title: "Deploy GCS Pub/Sub Artifacts to CF"
+title: "Deploy GCS Pub/Sub Artifacts to Cloud Foundry"
 linkTitle: "Deploy GCS Pub/Sub Artifacts to CF"
 description: >
-  Deploy an artifact to Cloud Foundry via a Spinnaker pipeline that is triggered by JAR uploads to a Google Cloud Storage (GCS) bucket.
+  Trigger a pipeline from a JAR upload to a GCS bucket to deploy an artifact to Cloud Foundry.
 ---
 
 In this codelab, you will deploy an artifact to Cloud Foundry via a Spinnaker pipeline that is triggered by JAR uploads to a Google Cloud Storage (GCS) bucket.

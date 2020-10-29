@@ -2,7 +2,7 @@
 title: "Kubernetes Source to Prod"
 linkTitle: "K8s Source to Prod"
 description:
-   Create a set of basic pipelines for deploying code from a Github repo to a Kubernetes cluster in the form of a Docker container.
+   Create a set of basic pipelines to deploy code from a Github repo to a Kubernetes cluster in the form of a Docker container.
 ---
 
 ## Overview

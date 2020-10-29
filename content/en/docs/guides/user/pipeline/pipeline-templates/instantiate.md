@@ -2,7 +2,7 @@
 title:  "Create a Pipeline from a Template"
 weight: 20
 description: >
-  Create pipelines that reference a template
+  Create pipelines based on a template.
 ---
 
 Given a pipeline template that defines variables to be resolved per pipeline,

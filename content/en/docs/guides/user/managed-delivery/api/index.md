@@ -3,7 +3,7 @@ title: "API"
 linkTitle: "API"
 weight: 10
 description: >
-  Use the Managed Delivery API endpoints
+  Use the Managed Delivery API endpoints.
 ---
 
 The endpoints for managed delivery are located in the `managed-controller`.

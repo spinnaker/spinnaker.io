@@ -1,7 +1,7 @@
 ---
 title: "Pipeline Stage Plugin Walkthrough"
 linkTitle: "Stage Plugin Details"
-description: "Details of the RandomWait stage plugin (pf4jStagePlugin)"
+description: "This article illustrates a plugin stage, using the RandomWait stage plugin (pf4jStagePlugin) as an example."
 
 ---
 
