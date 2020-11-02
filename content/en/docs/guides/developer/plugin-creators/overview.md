@@ -54,21 +54,6 @@ Look through the code or ask in the [Spinnaker Slack](https://join.spinnaker.io/
 
 The [pf4jStagePlugin](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin) creates a custom pipeline stage that waits a specified number of seconds before signaling success. Consult the [Pipeline Stage Plugin Walkthrough](/docs/v1/guides/developer/plugin-creators/stage-plugin-walkthrough/) for a detailed explanation of this plugin.
 
-## Interface (Non-ExtensionPoint) plugins
-
-The second way you can create a plugin is to implement a regular Java interface that you find in a service. Your plugin uses the PF4J `@Extension` annotation but does not extend `org.pf4j.ExtensionPoint`.    
-
-Advantages:
-* Spinnaker loads the plugin in an isolated classpath
-
-Disadvantages:
-* Requires a moderate knowledge of Spinnaker's architecture and code
-* Plugin can break if the service's interface changes
-
-### Example Interface plugin
-
-The [pf4jPluginWithoutExtensionPoint](https://github.com/spinnaker-plugin-examples/pf4jPluginWithoutExtensionPoint) plugin extends the functionality of Kork's [SecretEngine](https://github.com/spinnaker/kork/blob/5c5bf12a54ca840b7c6c9f4a57cf3c445ddd910e/kork-secrets/src/main/java/com/netflix/spinnaker/kork/secrets/SecretEngine.java). SecretEngine is a regular Java interface that does not import any PF4J classes. pf4jPluginWithoutExtensionPoint's SillySecretEngine implements SecretEngine and uses the `@Extension` annotation to identify itself as a PF4J plugin. See the plugin project's [README](https://github.com/spinnaker-plugin-examples/pf4jPluginWithoutExtensionPoint) and code for details on how this plugin works.
-
 ## Spring plugins
 
 When you can't find an `org.pf4j.ExtensionPoint` to use or a Java interface to implement, you can create a plugin using Spring. This is should be done as a last resort, since the disadvantages outweigh the advantages.
