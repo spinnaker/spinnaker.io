@@ -103,7 +103,7 @@ API](https://console.developers.google.com/apis/api/cloudresourcemanager.googlea
    A [service account](https://cloud.google.com/compute/docs/access/service-accounts)
    is the preferred way to authenticate to GCR. Use the commands below to create
    and download a service account to be used as your password with the required
-   `roles/storage.admin` role, assuming the registry exists in your current
+   `roles/objectViewer` role, assuming the registry exists in your current
    `gcloud` project.
 
    (You can use an [access
@@ -131,7 +131,7 @@ API](https://console.developers.google.com/apis/api/cloudresourcemanager.googlea
 
    gcloud projects add-iam-policy-binding $PROJECT \
        --member serviceAccount:$SA_EMAIL \
-       --role roles/storage.admin
+       --role roles/objectViewer
 
    mkdir -p $(dirname $SERVICE_ACCOUNT_DEST)
 
@@ -147,13 +147,13 @@ API](https://console.developers.google.com/apis/api/cloudresourcemanager.googlea
    PASSWORD_FILE=$SERVICE_ACCOUNT_DEST
    ```
 
-1. Enable the provider.
+2. Enable the provider.
 
    ```bash
    hal config provider docker-registry enable
    ```
 
-1. Add the account.
+3. Add the account.
 
    > Note: if you're running Halyard [in a Docker
    > container](/docs/setup/install/halyard/#install-halyard-on-docker), you might

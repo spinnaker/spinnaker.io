@@ -31,7 +31,7 @@ Spinnaker's telemetry module collects the following bits of data:
   * Each stage's:
     * Final status
     * Type
-    * Cloud Provider (if whitelisted)
+    * Cloud Provider
 
 Spinnaker's telemetry project has been reviewed and approved as compliant with the [Linux Foundation's Telemetry Data Collection and Usage Policy](https://www.linuxfoundation.org/telemetry-data-policy/#completed).
 

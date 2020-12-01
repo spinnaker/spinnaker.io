@@ -36,10 +36,10 @@ way to approach this process is to open a step in its own browser tab and then w
 it to completion, closing it (and any others you've opened in support of it) once it's done.
 
 1. [Install Halyard]({{< relref "/docs/setup/install/halyard#install-on-debianubuntu-and-macos" >}})
-1. [Set up a storage service]({{< relref "/docs/setup/install/storage/storage-overview" >}})
-2. [Set up your cloud provider of choice]({{< relref "/docs/setup/install/providers/" >}})
-3. [Configure a LocalGit deployment]({{< relref "/docs/setup/install/environment#local-git" >}})
-4. Run `hal deploy apply`
+2. [Set up a storage service]({{< relref "/docs/setup/install/storage/" >}})
+3. [Set up your cloud provider of choice]({{< relref "/docs/setup/install/providers/" >}})
+4. [Configure a LocalGit deployment]({{< relref "/docs/setup/install/environment#local-git" >}})
+5. Run `hal deploy apply`
 
 ## What does this do?
 

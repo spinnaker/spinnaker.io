@@ -1,6 +1,6 @@
 ---
-title:  "GitHub Teams"
-description: Spinnaker supports OAuth 2.0 for authentication with GitHub teams.
+title:  "GitHub Organizations"
+description: Spinnaker supports OAuth 2.0 for authentication with GitHub organizations.
 ---
 
 ## Get Client ID and Secret
