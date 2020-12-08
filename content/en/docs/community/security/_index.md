@@ -58,6 +58,6 @@ Once a security issue has been confirmed and evaluated, the Security SIG will wo
 
 For general questions about Spinnaker security, feel free to join us in the [Spinnaker Slack](http://join.spinnaker.io) [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.  Questions or feedback regarding a security issue or vulnerability should be sent directly to [security@spinnaker.io](mailto://security@spinnaker.io).
 
-## I'd like to participatet in the [Security SIG](https://github.com/spinnaker/governance/tree/master/sig-security).  How do I join?
+## I'd like to participate in the [Security SIG](https://github.com/spinnaker/governance/tree/master/sig-security).  How do I join?
 
 We're thrilled that you're interested in supporting Spinnaker security!  The Security SIG, or _Special Interest Group_ meets bi-weekly to address security issues and provide input on security capabilities within the Spinnaker project.  You can get startetd by [requesting an invite](http://join.spinnaker.io) to the Spinnaker Slack team and joining the [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.
