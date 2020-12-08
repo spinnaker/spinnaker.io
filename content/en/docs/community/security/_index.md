@@ -11,7 +11,7 @@ We know that security is very important to the Spinnaker community.  We welcome 
 
 ### Where should I report security issues?
 
-If you would like to report a vulnerability in the Spinnaker open source code, please email us at [security@spinnaker.io](mailto://security@spinnaker.io) right away and a member of the [Security SIG](https://github.com/spinnaker/governance/tree/master/sig-security) will get back to you as soon as we are able.  We deeply appreciate your support in discovering and disclosing security issues in a responsible way.
+If you would like to report a vulnerability in the Spinnaker open source code, please email us at [security@spinnaker.io](mailto://security@spinnaker.io) right away, and a member of the [Security Special Interest Group (SIG)](https://github.com/spinnaker/governance/tree/master/sig-security) will get back to you as soon as we are able.  We deeply appreciate your support in discovering and disclosing security issues in a responsible way.
 
 ### What should I include in a security report?
 
@@ -44,11 +44,11 @@ As part of the Spinnaker community, members of the Security SIG have volunteered
 
 #### Step 2: Evaluating New Reports
 
-New security vulnerabilities will be assessed against our predefined security taxonomy which is explained in detail in our [Vulnerability Handling Process](https://docs.google.com/document/d/1dCJ17v2K-lEVBTEGsgS4xnuOZo30Ufd3gSoYrG6XZfA).  We will work with you _(the security researcher)_ to determine the scope and impact of the security issue, assign a severity rating, and reserve a [CVE ID](https://cve.mitre.org/cve/identifiers/) for newly discovered bugs.
+New security vulnerabilities will be assessed against our predefined security taxonomy, which is explained in detail in our [Vulnerability Handling Process](https://docs.google.com/document/d/1dCJ17v2K-lEVBTEGsgS4xnuOZo30Ufd3gSoYrG6XZfA).  We will work with you _(the security researcher)_ to determine the scope and impact of the security issue, assign a severity rating, and reserve a [CVE ID](https://cve.mitre.org/cve/identifiers/) for newly discovered bugs.
 
 #### Step 3: Tracking Vulnerabilities
 
-We track and monitor security vulnerabilities in Spinnaker open source code through non-public mechanisms available to all members of the Security SIG, and will review new security reports during the Security SIG bi-weekly meeting (or more frequently, as needed).
+We track and monitor security vulnerabilities in Spinnaker open source code through non-public mechanisms available to all members of the Security SIG and will review new security reports during the Security SIG bi-weekly meeting (or more frequently, as needed).
 
 #### Step 4: Mitigating Vulnerabilities
 
@@ -56,8 +56,8 @@ Once a security issue has been confirmed and evaluated, the Security SIG will wo
 
 ## I have another question not answered here.  Who should I talk to?
 
-For general questions about Spinnaker security, feel free to join us in the [Spinnaker Slack](http://join.spinnaker.io) [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.  Questions or feedback regarding a security issue or vulnerability should be sent directly to [security@spinnaker.io](mailto://security@spinnaker.io).
+For general questions about Spinnaker security, feel free to join us in the [Spinnaker Slack](http://join.spinnaker.io) [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.  Questions or feedback regarding a security issue or vulnerability should be sent directly to [security@spinnaker.io](mailto:security@spinnaker.io).
 
 ## I'd like to participate in the [Security SIG](https://github.com/spinnaker/governance/tree/master/sig-security).  How do I join?
 
-We're thrilled that you're interested in supporting Spinnaker security!  The Security SIG, or _Special Interest Group_ meets bi-weekly to address security issues and provide input on security capabilities within the Spinnaker project.  You can get startetd by [requesting an invite](http://join.spinnaker.io) to the Spinnaker Slack team and joining the [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.
+We're thrilled that you're interested in supporting Spinnaker security!  The Security SIG meets bi-weekly to address security issues and provide input on security capabilities within the Spinnaker project.  You can get startetd by [requesting an invite](http://join.spinnaker.io) to the Spinnaker Slack team and joining the [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.
