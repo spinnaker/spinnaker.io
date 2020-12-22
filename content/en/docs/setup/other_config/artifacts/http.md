@@ -29,7 +29,7 @@ config for this is hidden, and the single account is automatically used.
 1. Collect the `$USERNAME_PASSWORD_FILE` value returned from the
    [prerequisites](#prerequisites) section above.
 
-2. Enable [artifact support](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+2. Enable [artifact support](/reference/artifacts/#enabling-artifact-support).
 
 3. Enable the HTTP artifact provider:
 

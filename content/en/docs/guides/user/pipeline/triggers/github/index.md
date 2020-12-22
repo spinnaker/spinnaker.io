@@ -32,7 +32,7 @@ You need the following:
 * [A running Spinnaker instance](/setup/install/). This guide shows you how to
   update it to accept messages from GitHub.
 
-* Artifact support [enabled](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).  
+* Artifact support [enabled](/reference/artifacts/#enabling-artifact-support).  
 
 
 At this point, we will configure GitHub webhooks and a GitHub artifact account.

@@ -12,7 +12,7 @@ topic. This can be used to trigger pipelines during CI jobs, from the command li
 or from a third-party system. The message payload will be available in the
 Pipeline's execution.
 
-> __☞ Note__:  It's possible to configure multiple pipelines to trigger off of
+> **Note**:  It's possible to configure multiple pipelines to trigger off of
 > a single Pub/Sub message.
 
 Only Google Pub/Sub is supported. See the instructions
@@ -20,7 +20,7 @@ Only Google Pub/Sub is supported. See the instructions
 
 ## Prerequisites
 
-* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+* Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).
 
 ## Adding a Pub/Sub trigger to a pipeline
 

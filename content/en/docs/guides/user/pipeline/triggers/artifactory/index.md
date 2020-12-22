@@ -23,7 +23,7 @@ commands](/docs/reference/halyard/commands/#hal-config-repository-artifactory))
   config artifact maven` Halyard
 commands](/rdocs/reference/halyard/commands/#hal-config-artifact-maven))
 
-* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+* Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).
 
 ## Adding an Artifactory Trigger
 

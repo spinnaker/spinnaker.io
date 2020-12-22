@@ -1,4 +1,4 @@
-i---
+---
 title: "Deploy GCS Pub/Sub Artifacts to Google App Engine"
 linkTitle: "Deploy GCS Pub/Sub Artifacts to App Engine"
 description: >
@@ -88,7 +88,7 @@ We'll need this service account later, so keep these environment variables handy
 
 First, configure your GCS artifact provider.
 
-1. Enable [artifact support](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+1. Enable [artifact support](/reference/artifacts/#enabling-artifact-support).
 
 2. Enable the GCS artifact provider:
 `hal config artifact gcs enable`

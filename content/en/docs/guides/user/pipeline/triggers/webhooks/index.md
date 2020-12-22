@@ -19,9 +19,13 @@ you, will be available in the Pipeline's execution.
 If you're triggering from a *GitHub* webhook, see the instructions
 [here](/docs/setup/triggers/github/) to set up that webhook.
 
+If you're triggering to a Spinnaker with authentication, see the 
+instructions [here](/setup/security/authorization/#automated-pipeline-triggers) to set up the 
+automated trigger.
+
 ## Prerequisites
 
-* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+* Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).
 
 ## Adding a webhook trigger to a pipeline
 

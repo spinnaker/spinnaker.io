@@ -33,7 +33,7 @@ You need the following:
   to configure an existing one to accept GCS messages, and download the files
   referenced by the messages in your pipelines.
 
-* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).  
+* Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).  
 
 At this point, we will configure Pub/Sub, and a GCS artifact account. The
 Pub/Sub messages will be received by Spinnaker whenever a file is uploaded or

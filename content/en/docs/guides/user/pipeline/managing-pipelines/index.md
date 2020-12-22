@@ -35,7 +35,7 @@ Make sure that you are editing the **Configuration** stage of your pipeline.
 
 ![](images/configuration-stage.png)
 
-1. Select **Add trigger**.
+1. Select **Add Trigger**.
   ![](images/add-trigger.png)
 2. Choose your desired trigger type from the drop-down menu that appears, and
 input any further required configuration.
@@ -52,7 +52,7 @@ will take once it's configured.
   ![](images/add-stage.png)
 2. Set the stage type using the drop-down menu.
 3. If this isn't the first stage in your pipeline, make sure that this stage
-depends on the desired upstream stage(s) using the **Depends on** field.
+depends on the desired upstream stage(s) using the **Depends On** field.
   ![](images/stage-depends-on.png)
 
 You can add as many stages as your pipeline needs, in any order that makes sense
@@ -102,7 +102,7 @@ pipeline.
 2. Click **Pipeline actions** in the upper right corner, and select **Disable**.
   ![](images/pipeline-actions.png)
 
-In order to re-enable your disabled pipeline, select **Pipeline actions** and
+In order to re-enable your disabled pipeline, select **Pipeline Actions** and
 choose **Enable**.
 
 ## Delete a pipeline
@@ -115,7 +115,7 @@ pipeline.
 
 ## Edit a pipeline as JSON
 
-> **Warning**: the JSON you write here is not validated -- Edit as JSON
+> **Warning**: The JSON you write here is not validated -- Edit as JSON
 essentially allows you to modify the pipeline via a free-form textbox. **Be
 careful!** It's very easy to break the pipeline, although you can restore from
 revision history to roll back any changes.
@@ -133,7 +133,7 @@ In order to edit your pipeline as JSON:
 1. From the **Pipelines** tab, click **Configure** to modify an existing
 pipeline.
   ![](images/select-configure.png)
-2. Click **Pipeline actions** in the upper right corner, and select
+2. Click **Pipeline Actions** in the upper right corner, and select
 **Edit as JSON**.
   ![](images/pipeline-actions.png)
 
@@ -150,7 +150,7 @@ history because neither supports it.
 1. From the **Pipelines** tab, click **Configure** to modify an existing
 pipeline.
   ![](images/select-configure.png)
-2. Click **Pipeline actions** in the upper right corner, and select
+2. Click **Pipeline Actions** in the upper right corner, and select
 **View revision history**.
   ![](images/pipeline-actions.png)
 
@@ -186,7 +186,7 @@ Spinnaker UI. You can still update a locked pipeline via the API.
 1. From the **Pipelines** tab, click **Configure** to modify an existing
 pipeline.
   ![](images/select-configure.png)
-2. Click **Pipeline actions** in the upper right corner, and select
+2. Click **Pipeline Actions** in the upper right corner, and select
 **Lock**.
   ![](images/pipeline-actions.png)
 
@@ -194,6 +194,6 @@ pipeline.
 1. From the **Pipelines** tab, click **Configure** to modify an existing
 pipeline.
   ![](images/select-configure.png)
-2. Click **Pipeline actions** in the upper right corner, and select
+2. Click **Pipeline Actions** in the upper right corner, and select
 **Rename**.
   ![](images/pipeline-actions.png)

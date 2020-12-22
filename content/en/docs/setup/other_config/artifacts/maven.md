@@ -16,15 +16,15 @@ that reads the data.
 
 ## Edit your artifact settings
 
-1. Enable [artifact support](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+1. Enable [artifact support](/reference/artifacts/#enabling-artifact-support).
 
-1. Enable the Maven artifact provider:
+2. Enable the Maven artifact provider:
 
    ```bash
    hal config artifact maven enable
    ```
 
-1. Add an artifact account:
+3. Add an artifact account:
 
    ```bash
    hal config artifact maven account add my-maven-account \

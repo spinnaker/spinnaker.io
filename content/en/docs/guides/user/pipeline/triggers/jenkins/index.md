@@ -11,7 +11,7 @@ description: >
 
 * [Set up Jenkins](/docs/setup/ci/jenkins/) as a continuous integration system in
     your Spinnaker deployment.
-* Enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).  
+* Enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).  
 
 ## Adding a Jenkins trigger
 

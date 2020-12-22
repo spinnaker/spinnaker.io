@@ -22,16 +22,16 @@ account with the needed credentials to read your artifact.
 1. Collect the `$USERNAME_PASSWORD_FILE` value returned from the
    [prerequisites](#prerequisites) section above.
    
-2. Enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+2. Enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 
-2. Enable the Bitbucket artifact provider:
+3. Enable the Bitbucket artifact provider:
 
    ```bash
    hal config artifact bitbucket enable
    ```
 
-3. Add an artifact account:
+4. Add an artifact account:
 
    ```bash
    hal config artifact bitbucket account add my-bitbucket-account \

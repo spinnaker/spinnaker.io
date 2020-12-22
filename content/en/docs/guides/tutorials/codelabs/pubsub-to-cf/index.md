@@ -13,7 +13,7 @@ This codelab assumes you have the following:
 
 1. A billing-enabled Google Cloud Platform (GCP) project.
 1. The `gcloud` CLI tool (installed locally on your computer).
-1. Artifact support [enabled](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+1. Artifact support [enabled](/reference/artifacts/#enabling-artifact-support).
 
 ## 1. Create a GCS Bucket for Artifact Storage
 
