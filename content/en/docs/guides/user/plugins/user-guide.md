@@ -43,19 +43,30 @@ Spinnaker environment:
 
 ## How to add a plugin to Spinnaker
 
-- [Overview](#overview)
-- [Terms](#terms)
-- [Plugin requirements](#plugin-requirements)
-- [How to add a plugin to Spinnaker](#how-to-add-a-plugin-to-spinnaker)
-- [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
-- [List, edit, and delete repositories](#list-edit-and-delete-repositories)
-- [Add a plugin using Halyard](#add-a-plugin-using-halyard)
+- [- Plugin configuration without Halyard](#--plugin-configuration-without-halyard)
+  - [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
+  - [List, edit, and delete repositories](#list-edit-and-delete-repositories)
+  - [Add a plugin using Halyard](#add-a-plugin-using-halyard)
+    - [Plugin configuration without Halyard](#plugin-configuration-without-halyard)
+  - [List, edit, and delete repositories](#list-edit-and-delete-repositories-1)
+  - [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate)
+  - [Redeploy Spinnaker](#redeploy-spinnaker)
+  - [Deployment example](#deployment-example)
+  - [Resources](#resources)
+<<<<<<< HEAD
   - [Plugin configuration without Halyard](#plugin-configuration-without-halyard)
-- [List, edit, and delete repositories](#list-edit-and-delete-repositories-1)
-- [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate)
-- [Redeploy Spinnaker](#redeploy-spinnaker)
-- [Deployment example](#deployment-example)
-- [Resources](#resources)
+=======
+>>>>>>> 5fe74d7... wip
+- [- Plugin configuration without Halyard](#--plugin-configuration-without-halyard)
+  - [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
+  - [List, edit, and delete repositories](#list-edit-and-delete-repositories)
+  - [Add a plugin using Halyard](#add-a-plugin-using-halyard)
+    - [Plugin configuration without Halyard](#plugin-configuration-without-halyard)
+  - [List, edit, and delete repositories](#list-edit-and-delete-repositories-1)
+  - [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate)
+  - [Redeploy Spinnaker](#redeploy-spinnaker)
+  - [Deployment example](#deployment-example)
+  - [Resources](#resources)
 
 ## Add a plugin repository using Halyard
 
