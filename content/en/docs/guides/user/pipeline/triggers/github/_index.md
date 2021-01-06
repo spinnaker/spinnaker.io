@@ -12,7 +12,7 @@ description: >
 
 This functionality uses GitHub
 [Webhooks](https://developer.github.com/webhooks/) for delivering messages to
-Spinnaker, and must be configured to send messages to Spinnaker's event bus as
+Spinnaker and must be configured to send messages to Spinnaker's event bus as
 shown below.
 
 ## Prerequisites
@@ -23,7 +23,7 @@ skip this section.
 
 You need the following:
 
-* A GitHub repository either under your user, or in an organization or user's
+* A GitHub repository either under your user or in an organization or user's
   account that you have permission to publish commits to.
 
   This will be referred to as `$ORGANIZATION/$REPOSITORY` from now on (for

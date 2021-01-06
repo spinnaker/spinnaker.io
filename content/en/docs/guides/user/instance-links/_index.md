@@ -11,7 +11,7 @@ Spinnaker makes it easy to give users links to common features of their applicat
 
 ![](1.png)
 
-There are two basic approaches to customizing links: organization-wide links (i.e. links that apply to every instance managed by Spinnaker), and application-specific links (i.e. links that are common to every instance of your application).
+There are two basic approaches to customizing links: organization-wide links (links that apply to every instance managed by Spinnaker), and application-specific links (links that are common to every instance of your application).
 
 ## Default links
 
@@ -52,7 +52,9 @@ When users create a new application, these links are available in each instance 
 
 These links are customizable via the application's Config tab in Spinnaker. If configured in `settings.js`, the default links are displayed. Users can then customize the links for their particular application.
 
-Links support templating based on the instance's attributes by wrapping the value in two curly braces, e.g. `{{ "{{id"}}}}`. Common attributes available in templates are listed below. Note that templating only applies to the path portion of the link - the title must be a hard-coded value.
+Links support templating based on the instance's attributes by wrapping the value in two curly braces, e.g. `{{ "{{id"}}}}`. Common attributes available in templates are listed below. 
+
+> __Note__: Templating only applies to the path portion of the link - the title must be a hard-coded value.
 
 Most links will be endpoints on your running server. These will be resolved using the public IP address of the instance if available, falling back to the private IP address. If you've specified an instance port in the application attributes, that will be used to generate the link. If the link should point to a different port, the `path` should start with a colon, then the port.
 

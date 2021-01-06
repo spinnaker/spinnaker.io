@@ -25,8 +25,10 @@ There are two main steps:
 Depending on your needs, there is more than one way to specify the manifest
 that you want to deploy:
 
-* [Statically: directly in the pipeline](#specify-manifests-statically)
-* [Dynamically: bound at runtime using an artifact](#specify-manifests-dynamically)
+- [Specify your manifest](#specify-your-manifest)
+  - [Specify manifests statically](#specify-manifests-statically)
+  - [Specify manifests dynamically](#specify-manifests-dynamically)
+- [Override artifacts](#override-artifacts)
 
 In either case, start by selecting the __Deploy (Manifest)__ stage
 from the stage selector:
@@ -39,12 +41,12 @@ from the stage selector:
 ### Specify manifests statically
 
 If you know ahead of time what you expect to deploy using a certain manifest
-(even if you don't know what version of your Docker image it will run) you can
+(even if you don't know what version of your Docker image it will run), you can
 declare it directly in the pipeline by providing the manifest specification:
 
 {{< figure src="./in-pipeline.png" caption="Notice that by selecting __Text__ as the __Manifest Source__, we get to enter the manifest YAML by hand." >}}
 
-Of course, if you are _generating_ your pipeline definitions rather than entering
+If you are _generating_ your pipeline definitions rather than entering
 them into the UI, the stage definition would look more like this:
 
 ```json
@@ -72,7 +74,7 @@ resources. When referencing an artifact from a Deploy Manifest stage , that
 artifact must be a text file containing the Manifest specification.
 This can be stored in GitHub or an object store (like GCS).
 
-Changes to manifests can trigger pipelines. Here's some more information:
+Changes to manifests can trigger pipelines. For more information:
 
 * [Consuming GitHub Artifacts](/docs/guides/user/triggers/github)
 * [Consuming GCS Artifacts](/docs/guides/user/triggers/gcs)
@@ -82,7 +84,7 @@ manifest stage, you can reference it in the Deploy configuration:
 
 {{< figure src="./in-artifact.png" caption="Notice that by selecting __Artifact__ as the __Manifest Source__, we get to pick which upstream artifact to deploy." >}}
 
-> __☞ Note__: Make sure that the __Artifact Account__ field matches an account
+> __Note__: Make sure that the __Artifact Account__ field matches an account
 > with permission to download the manifest.
 
 Keep in mind that the artifact bound in the upstream stage can match multiple

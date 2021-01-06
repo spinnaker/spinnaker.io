@@ -7,7 +7,7 @@ description: >
 ---
 
 
-> Note: Automated canary analysis in Spinnaker is designed to support pluggable
+> __Note__: Automated canary analysis in Spinnaker is designed to support pluggable
 > judges. This document describes how the default judge (NetflixACAJudge) works.
 
 To assess the quality of a canary deployment against a baseline, metrics from

@@ -30,22 +30,12 @@ There are a few steps:
 
 2. To identify the Kubernetes resource to patch, specify the following required fields:
 
-* __Account__
-
-  The Spinnaker account that manages the Kubernetes cluster
-
-* __Namespace__
-
-  The Kubernetes namespace that your resource is located in
-
-* __Kind__
-
-  The Kubernetes Kind of your resource e.g. deployment, service etc
-
-* __Name__
-
-  The name of your Kubernetes resource
-
+| Field | Value |
+|-------|-------|
+| __Account__ | The Spinnaker account that manages the Kubernetes cluster |
+| __Namespace__ | The Kubernetes namespace that your resource is located in |
+| __Kind__ | The Kubernetes Kind of your resource e.g. deployment, service etc |
+| __Name__ | The name of your Kubernetes resource |
 
 ## Specify your patch content
 
@@ -82,7 +72,7 @@ Assuming you have declared an expected artifact upstream to your Patch (Manifest
 
 {{< figure src="./in-artifact.png" caption="Notice that by selecting __Artifact__ as the __Manifest Source__, we get to pick which upstream artifact to deploy." >}}
 
-> __☞ Note__: Make sure that the __Artifact Account__ field matches an account
+> __Note__: Make sure that the __Artifact Account__ field matches an account
 > with permission to download the manifest.
 
 
@@ -101,7 +91,7 @@ spec:
           image: gcr.io/my-project/my-image
 ```
 
-Now, if your pipeline was triggered due to a new Docker image tag being pushed to your Docker registry (say my-image:2.0), Spinnaker will override the version of the container image with the new version:
+If your pipeline was triggered due to a new Docker image tag being pushed to your Docker registry (say my-image:2.0), Spinnaker will override the version of the container image with the new version:
 
 ```yaml
 #...rest of manifest
@@ -109,6 +99,7 @@ containers:
   - name: my-container
     image: gcr.io/my-project/my-image:2.0
 ```
+
 For more information on how this works, check out the [binding artifacts docs](/docs/reference/artifacts/in-kubernetes-v2#binding-artifacts-in-manifests).
 
 
@@ -123,7 +114,7 @@ You can also specify the following options:
 
 * __Merge Strategy__
 
-  * _strategic_: This is the default. It is a [customized version of JSON merge patch](https://github.com/kubernetes/community/blob/master/contributors/devel/strategic-merge-patch.md) specific to Kubernetes that allows Kubernetes objects to be either replaced or merged based on the object struct tags. It is particularly useful when you want to add a new item to a list (e.g. a new annotation, label, or even a new container to a pod spec) instead of replacing the list.
+  * _strategic_: This is the default. It is a [customized version of JSON merge patch](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-api-machinery/strategic-merge-patch.md) specific to Kubernetes that allows Kubernetes objects to be either replaced or merged based on the object struct tags. It is particularly useful when you want to add a new item to a list (e.g. a new annotation, label, or even a new container to a pod spec) instead of replacing the list.
 
   * _json_: This will patch the manifest using a standard [RFC 6902 JSON patch](https://tools.ietf.org/html/rfc6902).
 

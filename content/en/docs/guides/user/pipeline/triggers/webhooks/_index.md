@@ -7,13 +7,13 @@ description: >
 ---
 
 
-In order to programmatically trigger pipelines you can send a `POST` call to
+In order to programmatically trigger pipelines, you can send a `POST` call to
 Spinnaker at a preconfigured endpoint. You can use this to trigger pipelines
 when a CI job finishes, from the command line, or from a third-party system.
-The payload, whether it is one you are able to write, or it is provided for
+The payload, whether it is one you are able to write or it is provided for
 you, will be available in the Pipeline's execution.
 
-> __☞ Note__:  You can configure multiple pipelines to trigger off of a single
+> **Note**:  You can configure multiple pipelines to trigger off of a single
 > webhook.
 
 If you're triggering from a *GitHub* webhook, see the instructions
@@ -58,7 +58,7 @@ arrives, you can provide __Payload Constraints__ in the trigger. These are
 key/value pairs where the key must be found in the incoming payload, and the
 value must match using regex.
 
-For example, if we had configured:
+For example, if we configured:
 
 {{< figure src="./constraints-webhook.png" caption="For clarity, the constraints are `mykey = myvalue` and `bing = b.*p`." >}}
 
@@ -107,7 +107,7 @@ following payload for example:
 }
 ```
 
-> __☞ Note__: If you select the __Required__ checkbox for a parameter without
+> **Note**: If you select the __Required__ checkbox for a parameter without
 > providing a default, the pipeline does not trigger if a parameter is not
 > present. The difference between this and the preconditions covered earlier is
 > that when a precondition isn't met, Spinnaker doesn't even try to run the

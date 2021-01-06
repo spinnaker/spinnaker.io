@@ -9,7 +9,7 @@ description: >
 
 This functionality uses Google's
 [Pub/Sub](https://cloud.google.com/pubsub/docs/overview) system for delivering
-messages to Spinnaker, and must be configured to send messages to
+messages to Spinnaker and must be configured to send messages to
 Spinnaker's event bus as shown below.
 
 ## Prerequisites
@@ -30,19 +30,19 @@ You need the following:
   auth login` if you have installed `gcloud` for the first time.
 
 * [A running Spinnaker instance](/docs/setup/install/). This guide shows you how
-  to configure an existing one to accept GCS messages, and download the files
+  to configure an existing one to accept GCS messages and download the files
   referenced by the messages in your pipelines.
 
 * Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).  
 
-At this point, we will configure Pub/Sub, and a GCS artifact account. The
+At this point, we will configure Pub/Sub and a GCS artifact account. The
 Pub/Sub messages will be received by Spinnaker whenever a file is uploaded or
 changed, and the artifact account will allow you to download these where
 necessary.
 
 ## 1. Configure Google Pub/Sub for GCS
 
-Follow the [Pub/Sub configuration](/docs/setup/triggers/google/), in particular, pay
+Follow the [Pub/Sub configuration](/docs/setup/triggers/google/). In particular, pay
 attention to the [GCS
 section](/setup/triggers/google/#receiving-messages-from-google-cloud-storage-gcs)
 since this is where we'll be publishing our files to.
@@ -77,14 +77,13 @@ Let's add a Pub/Sub trigger to run our pipeline.
 
 Next, we must configure the trigger:
 
-* __Type__ is "Pub/Sub".
-* __Pub/Sub System Type__ is "Google".
-* __Subscription Name__ depends on what you've configured in your Pub/Sub
-  configuration using Halyard.
-* __Attribute Constraints__ must be configured to include the pair `eventType`:
-  `OBJECT_FINALIZE` (see the
-  [docs](https://cloud.google.com/storage/docs/pubsub-notifications#events) for
-  an explanation).
+| Field | Value |
+|-------|-------|
+| __Type__ | "Pub/Sub" | 
+| __Pub/Sub System Type__ | "Google" |
+| __Subscription Name__  | Depends on your Pub/Sub configuration (from Halyard|
+| __Attribute Constraints__ | Must be configured to include the pair `eventType`:`OBJECT_FINALIZE` (See the [docs](https://cloud.google.com/storage/docs/pubsub-notifications#events)) |
+| __Expected Artifacts__ | Must reference the artifact defined previously |
 
 {{< figure src="./pubsub-config.png" >}}
 
@@ -94,7 +93,7 @@ Next, we must configure the trigger:
 Now we need to declare that the Pub/Sub trigger expects that a specific artifact
 matching some criteria is available before the pipeline starts executing. In
 doing so, you guarantee that an artifact matching your description is present in
-the pipeline's execution context; if no artifact for this description is present,
+the pipeline's execution context. If no artifact for this description is present,
 the pipeline won't start.
 
 To configure the artifact, go to the __Artifact Constraints__ dropdown for the

@@ -43,10 +43,18 @@ Spinnaker environment:
 
 ## How to add a plugin to Spinnaker
 
-1. [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
-1. [Add a plugin using Halyard](#add-a-plugin-using-halyard)
-1. [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate) (frontend plugins only)
-1. [Redeploy Spinnaker](#redeploy-spinnaker)
+- [Overview](#overview)
+- [Terms](#terms)
+- [Plugin requirements](#plugin-requirements)
+- [How to add a plugin to Spinnaker](#how-to-add-a-plugin-to-spinnaker)
+- [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
+- [List, edit, and delete repositories](#list-edit-and-delete-repositories)
+- [Add a plugin using Halyard](#add-a-plugin-using-halyard)
+- [List, edit, and delete repositories](#list-edit-and-delete-repositories-1)
+- [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate)
+- [Redeploy Spinnaker](#redeploy-spinnaker)
+- [Deployment example](#deployment-example)
+- [Resources](#resources)
 
 ## Add a plugin repository using Halyard
 
@@ -113,9 +121,11 @@ hal plugins repository add all-the-plugins \
     --url=https://raw.githubusercontent.com/aimeeu/all-the-plugins/master/repositories.json
 ```
 
-You can also list, edit, and delete repositories. See the command [reference](/reference/halyard/commands/#hal-plugins-repository) for a complete list of parameters.
-
 Don't forget to `hal deploy apply` to apply your configuration changes.
+
+## List, edit, and delete repositories
+
+See the command [reference](/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
 
 ## Add a plugin using Halyard
 
@@ -194,9 +204,11 @@ spinnaker:
               defaultMaxWaitTime: 60
 ```
 
-You can also list, edit, and delete plugins. See the Halyard [commands](https://spinnaker.io/reference/halyard/commands/#hal-plugins) for a complete list.
-
 Note: `hal plugins enable` and `hal plugins disable` enable or disable _all_ plugins, so use with caution.
+
+## List, edit, and delete repositories
+
+See the command [reference](/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
 
 ## Add a Deck proxy to Gate
 
