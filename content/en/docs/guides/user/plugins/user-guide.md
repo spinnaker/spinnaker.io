@@ -43,30 +43,10 @@ Spinnaker environment:
 
 ## How to add a plugin to Spinnaker
 
-- [- Plugin configuration without Halyard](#--plugin-configuration-without-halyard)
-  - [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
-  - [List, edit, and delete repositories](#list-edit-and-delete-repositories)
-  - [Add a plugin using Halyard](#add-a-plugin-using-halyard)
-    - [Plugin configuration without Halyard](#plugin-configuration-without-halyard)
-  - [List, edit, and delete repositories](#list-edit-and-delete-repositories-1)
-  - [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate)
-  - [Redeploy Spinnaker](#redeploy-spinnaker)
-  - [Deployment example](#deployment-example)
-  - [Resources](#resources)
-<<<<<<< HEAD
-  - [Plugin configuration without Halyard](#plugin-configuration-without-halyard)
-=======
->>>>>>> 5fe74d7... wip
-- [- Plugin configuration without Halyard](#--plugin-configuration-without-halyard)
-  - [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
-  - [List, edit, and delete repositories](#list-edit-and-delete-repositories)
-  - [Add a plugin using Halyard](#add-a-plugin-using-halyard)
-    - [Plugin configuration without Halyard](#plugin-configuration-without-halyard)
-  - [List, edit, and delete repositories](#list-edit-and-delete-repositories-1)
-  - [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate)
-  - [Redeploy Spinnaker](#redeploy-spinnaker)
-  - [Deployment example](#deployment-example)
-  - [Resources](#resources)
+1. [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
+2. [Add a plugin using Halyard](#add-a-plugin-using-halyard)
+3. [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate) (frontend plugins only)
+4. [Redeploy Spinnaker](#redeploy-spinnaker)
 
 ## Add a plugin repository using Halyard
 
