@@ -2,3 +2,9 @@
 <!-- stylesheet for algolia docsearch -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 {{ end }}
+{{ if .Page.Description }}
+  <meta name="description" content="{{ .Page.Description }}">
+{{ else }}
+  {{ $desc := (.Page.Content | safeHTML | truncate 150) }}
+  <meta name="description" content="{{ $desc }}">
+{{ end }}
