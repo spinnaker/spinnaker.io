@@ -64,10 +64,9 @@ spinnaker:
             enabled: true
             config:
               defaultMaxWaitTime: 60
-    repositories:
-      examplePluginsRepo:
-        id: examplePluginsRepo
-        url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
+     repositories:
+       examplePluginsRepo:
+         url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
 ```
 
 >Note: As of Spinnaker 1.23.0, listing extensions has been deprecated and configuration has been simplified. Plugin extension configurations have been moved and are now nested under the plugin itself. 
