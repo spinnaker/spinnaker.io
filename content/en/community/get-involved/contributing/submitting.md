@@ -1,35 +1,21 @@
 ---
 layout: single
-title:  "Submitting A Patch"
+title:  "Pull Requests and Changes"
 sidebar:
   nav: community
-aliases: 
-  - /docs/how-to-submit-a-patch
+aliases:
+  - /docs/how-to-submit-a-pr
 ---
 
-## Before you begin
+## Change Process
 
-We prefer small, well tested pull requests. Note that we are unlikely to accept
-pull requests that add features without prior discussion. The best way to
-propose a feature is to first [open an
-issue](https://github.com/spinnaker/spinnaker/issues/new), ping the [#dev
-channel](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) in slack and
-discuss your ideas before implementing them.
+Once you've implemented a bug fix or feature, it's time to submit a pull request to Spinnaker. We recommend small, well-tested pull requests as a starting point for new technical contributors. For information on the correct fork-and-PR GitHub workflows to follow when contributing, reference the [local clone](/community/contributing/local-clone) guide.
 
-It's possible that we'll encourage you to write an RFC if your change is large
-or impactful enough. There is an [RFC
-template](https://github.com/spinnaker/governance/blob/master/rfc/.template.md)
-to use for this. There are also several [already-submitted
-RFCs](https://github.com/spinnaker/governance/tree/master/rfc) you can use for
-reference.
+To work on bigger technical changes, follow the [feature proposal](#feature-proposals) or [RFC](#requests-for-change) processes.
 
-When your RFC is ready, add it to [the `spinnaker/governance/rfc`
-directory](https://github.com/spinnaker/governance/tree/master/rfc) by sending a
-pull request. Members of the community will review it.
+## Pull Request Tips
 
-## When you initiate a Pull Request from Github
-
-* Provide a descriptive title for your changes.
+* Check that your title describes your changes and adheres to our [message conventions](#commit-and-pr-message-conventions).
 * Add inline code comments to changes that might not be obvious.
 * Squash your commits into logically reviewable chunks when you first submit
   your PR. Address feedback in follow-up (unsquashed) commits. It's much easier
@@ -41,13 +27,14 @@ pull request. Members of the community will review it.
   series of dependency bumps across repositories.)
 * Squash your commits when merging to the branch.
 
-## Commit message conventions
+## Commit and PR message conventions
 
-Please follow the following conventions in your git commit messages.
+Please follow conventions below in your git commit messages. Since GitHub auto-fills Pull Request titles from the first commit message of the PR, following these conventions should help to title your PRs according to our community standards.
 
-Once you've implemented a bug fix or feature, it's time to submit a patch to Spinnaker. In order to track and summarize the changes happening in Spinnaker, we use a changelog automation tool called [clog](https://github.com/clog-tool/clog-cli) which scrapes information from commit messages. We follow the ['conventional'](https://github.com/conventional-changelog/conventional-changelog/blob/a5505865ff3dd710cf757f50530e73ef0ca641da/conventions/angular.md) commit message format.
+Note: In order to track and summarize the changes happening in Spinnaker, we use a changelog automation tool called [clog](https://github.com/clog-tool/clog-cli) which scrapes information from commit messages, which follow the ['conventional'](https://github.com/conventional-changelog/conventional-changelog/blob/a5505865ff3dd710cf757f50530e73ef0ca641da/conventions/angular.md) format.
 
-As a summary, messages should be formatted like:
+
+To summarize, messages should be formatted as follows:
 
 ```
 <type>(<scope>): <subject>
@@ -116,4 +103,27 @@ feat(provider/google): Added a very important and breaking feature.
 BREAKING CHANGE: More detail here if necessary.
 ```
 
-Note that at minimum, 'BREAKING CHANGE' must be specified on the last line. The extra detail is not mandatory.
+At minimum, 'BREAKING CHANGE' must be specified on the last line. The extra detail is not mandatory.
+
+
+### Feature Proposals
+
+The Spinnaker community has historically avoided accepting
+pull requests that add features without prior discussion. If you would like to
+propose a feature:
+- [Open an
+issue](https://github.com/spinnaker/spinnaker/issues/new) describing the desired functionality.
+- Share your issue link in the [#dev
+channel](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) in Slack.
+- Consider discussing your ideas with other contributors before implementing them, to avoid rework.
+
+### Requests For Change
+
+If your change is large or very impactful, we may encourage you to submit an RFC:
+- Use the [RFC
+template](https://github.com/spinnaker/governance/blob/master/rfc/.template.md).
+- Consult several [already-submitted RFCs](https://github.com/spinnaker/governance/tree/master/rfc) for
+reference.
+- When your RFC is ready, add it to [the `spinnaker/governance/rfc`
+directory](https://github.com/spinnaker/governance/tree/master/rfc) with a
+pull request. Approvers will see and review it.
