@@ -148,7 +148,7 @@ hugo server
 
    You can commit and push many times before you create your PR.
 
-## Create a pull request from your fork to spinnaker/spinnaker.github.io
+## Create a pull request from your fork to spinnaker/spinnaker.io
 
 1. In a web browser, go to the `spinnaker/spinnaker.io` [repository](https://github.com/spinnaker/spinnaker.io). You should see your recently pushed working branch with a **Compare & pull request** button.
 
