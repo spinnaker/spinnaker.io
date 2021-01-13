@@ -23,7 +23,7 @@ If the files are hidden behind basic auth, you can configure an artifact account
 1. Collect the `$USERNAME_PASSWORD_FILE` value returned from the
    [prerequisites](#prerequisites) section above.
 
-2. Enable [artifact support](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+2. Enable [artifact support](/reference/artifacts/#enabling-artifact-support).
 
 3. Enable the Helm artifact provider:
 
