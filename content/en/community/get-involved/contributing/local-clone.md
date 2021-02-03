@@ -5,11 +5,11 @@ sidebar:
   nav: community
 ---
 
-If you are going to make a lot of changes, you can fork the `spinnaker/spinnaker.github.io` repository and work from a local clone. Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your computer and have configured your GitHub account. See the [GitHub Help](https://help.github.com) for details.
+To make significant changes to a Spinnaker service or other repository, you can fork the repository and work from a local clone. The workflow below walks through a change to the `spinnaker/spinnaker.io` repository as an example, but a fork-and-pull-request workflow should be used for all Spinnaker contributions.  Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your computer and have configured your GitHub account. See the [GitHub Help](https://help.github.com) for details.
 
-## Fork the Spinnaker documentation repository
+## Fork the repository
 
-1. Navigate to the `spinnaker/spinnaker.github.io` [repository](https://github.com/spinnaker/spinnaker.github.io/) with a web browser.
+1. Navigate to the `spinnaker/spinnaker.io` [repository](https://github.com/spinnaker/spinnaker.io) with a web browser.
 1. Click **Fork**.
 
 ## Create a local repository and set the upstream repository
@@ -17,15 +17,15 @@ If you are going to make a lot of changes, you can fork the `spinnaker/spinnaker
 1. In a terminal window, clone your fork:
 
    ```bash
-   git clone git@github.com:<github-username>/spinnaker.github.io.git
+   git clone git@github.com:<github-username>/spinnaker.io.git
    ```
 
-1. Navigate to the new `spinnaker.github.io` directory. Set the `spinnaker/spinnaker.github.io` repository as the `upstream` remote:
+1. Navigate to the new `spinnaker.io` directory. Set the `spinnaker/spinnaker.io` repository as the `upstream` remote:
 
    ```bash
-   cd spinnaker.github.io
+   cd spinnaker.io
 
-   git remote add upstream https://github.com/spinnaker/spinnaker.github.io.git
+   git remote add upstream https://github.com/spinnaker/spinnaker.io.git
    ```
 
 1. Confirm your `origin` and `upstream` repositories:
@@ -37,15 +37,15 @@ If you are going to make a lot of changes, you can fork the `spinnaker/spinnaker
    Output is similar to:
 
    ```bash
-   origin	git@github.com:<github-username>/spinnaker.github.io.git (fetch)
-   origin	git@github.com:<github-username>/spinnaker.github.io.git (push)
-   upstream	https://github.com/spinnaker/spinnaker.github.io.git (fetch)
-   upstream	https://github.com/spinnaker/spinnaker.github.io.git (push)
+   origin	git@github.com:<github-username>/spinnaker.io.git (fetch)
+   origin	git@github.com:<github-username>/spinnaker.io.git (push)
+   upstream	https://github.com/spinnaker/spinnaker.io.git (fetch)
+   upstream	https://github.com/spinnaker/spinnaker.io.git (push)
    ```
 
 ## Update your local repository
 
-Make sure your local repository is current before you start making changes. Fetch commits from your fork's `origin/master` and `spinnaker/spinnaker.github.io`'s `upstream/master`:
+Make sure your local repository is current before you start making changes. Fetch commits from your fork's `origin/master` and `spinnaker/spinnaker.io`'s `upstream/master`:
 
    ```bash
    git fetch origin
@@ -83,23 +83,16 @@ branch. You can use `git branch` to see which branch you are in.
 
 Use the `git status` command at any time to see what files you've changed.
 
-## Preview your changes locally
+## Test or preview changes locally
 
-It's a good idea to preview your changes locally before opening a pull request (PR). A preview lets you catch build errors or markdown formatting problems. The easiest way to deploy the documentation site is with a Docker container built using the included `Dockerfile`. Make sure you have [Docker](https://www.docker.com/get-started) installed on your computer. Run the following commands from the `spinnaker.github.io` directory:
+Once you have made changes, the next step is to test your changes in action. How you do this will
+depend on the resource you changed and the resources it interacts with.
 
-```bash
-docker build --tag spinnaker/spinnaker.github.io-test .
-docker run -it --rm --mount "type=bind,source=$(pwd),target=/code" \
-    -p 4000:4000 spinnaker/spinnaker.github.io-test --incremental
+If you make changes to `spinnaker/spinnaker.io` and want to preview them locally, install [Hugo](https://gohugo.io/getting-started/installing/). Run this command from the repo root:
+
 ```
-
-Alternately, if you have [Jekyll](https://jekyllrb.com/) installed, you can generate the site by executing:
-
-```bash
-bundle exec jekyll serve --watch --incremental
+hugo server
 ```
-
-Navigate to `http://localhost:4000` to see your changes.
 
 ## Commit your changes
 
@@ -155,9 +148,9 @@ Navigate to `http://localhost:4000` to see your changes.
 
    You can commit and push many times before you create your PR.
 
-## Create a pull request from your fork to spinnaker/spinnaker.github.io
+## Create a pull request from your fork to spinnaker/spinnaker.io
 
-1. In a web browser, go to the `spinnaker/spinnaker.github.io` [repository](https://github.com/spinnaker/spinnaker.github.io). You should see your recently pushed working branch with a **Compare & pull request** button.
+1. In a web browser, go to the `spinnaker/spinnaker.io` [repository](https://github.com/spinnaker/spinnaker.io). You should see your recently pushed working branch with a **Compare & pull request** button.
 
    ![CompareAndPullRequest](/assets/images/community/contributing/docs/compare-and-pr.jpg)
 
@@ -178,7 +171,7 @@ Navigate to `http://localhost:4000` to see your changes.
 
 1. Click the **Create pull request** button.
 
-Congratulations! You can view your submitted pull request on the **Pull requests** [tab](https://github.com/spinnaker/spinnaker.github.io/pulls).
+Congratulations! You can view your submitted pull request on the **Pull requests** [tab](https://github.com/spinnaker/spinnaker.io/pulls).
 
 >Do not delete your working branch until your pull request has been merged! You may need to update your content based on reviewer feedback.
 
@@ -234,7 +227,7 @@ If another contributor commits changes to the same file in another PR, it can cr
    git push --force-with-lease origin <your-working-branch>
    ```
 
-1. Fetch changes from `spinnaker/spinnaker.github.io`'s `upstream/master` and rebase your branch:
+1. Fetch changes from `spinnaker/spinnaker.io`'s `upstream/master` and rebase your branch:
 
    ```bash
    git fetch upstream
