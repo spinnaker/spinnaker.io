@@ -1,7 +1,34 @@
-/*
+// News Banner
+.news {
+  margin-top: 50px;
+  margin-bottom: 0;
+  width: 100%;
+  justify-content: center;
+  background-color: $secondary;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 0;
+  img {
+    max-width: 200px;
+    padding-bottom: 25px;
+  }
+  h5 {
+    text-align: center;
+  }
+}
 
-Nothing defined here. The Hugo project that uses this theme can override Bootstrap by adding a file to:
+.alert {
+  margin-bottom: 0 !important;
+}
 
-assets/scss/_styles_project.scss
+.alert-dismissable {
+  padding-right: 0 !important;
+  padding-bottom: 0;
+}
 
-*/
+
+.intro-text-panel {
+    img {
+        width: 100%;
+    }
+}

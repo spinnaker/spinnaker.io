@@ -144,7 +144,7 @@ offlineSearch = false
 # User interface configuration
 [params.ui]
 # Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = false
+sidebar_menu_compact = true
 #  Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
 #  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
@@ -196,14 +196,9 @@ enable = false
   desc = "Spinnaker on Github"
 [[params.links.developer]]
 	name = "Slack"
-	url = "http://join.spinnaker.io/"
+	url = "https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
 	icon = "fab fa-slack"
   desc = "Spinnaker Community on Slack"
-[[params.links.developer]]
-	name = "Community Forums"
-  url = "https://community.spinnaker.io/"
-  icon = "fas fa-comments"
-  desc = "Spinnaker Community Forums"
 [[params.links.developer]]
 	name = "Stack Overflow"
   url = "https://stackoverflow.com/questions/tagged/spinnaker"
@@ -277,14 +272,9 @@ enable = false
 #   weight = 3
 #
 # [[menu.main]]
-#   name = "News"
-#   url = "/en/news/"
-#   weight = 4
-#
-# [[menu.main]]
 #   name = "Blog"
 #   url = "https://blog.spinnaker.io/"
-#   weight = 5
+#   weight = 4
 #
 # [permalinks]
 #   post = "/:year/:month/:day/:slug/"

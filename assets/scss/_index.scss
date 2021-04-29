@@ -1,7 +1,9 @@
 .layout-index {
+
   &.td-home {
     .row {
       &.hero {
+        margin-top: 0;
         .col {
           &.intro-text {
             display: flex;

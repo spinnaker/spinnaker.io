@@ -1,5 +1,5 @@
-- id: exec
-  name: Executive
+- id: captains_log
+  name: State of Spinnaker
   shortdesc: Aliquip excepteur velit cillum qui
   prompt: Enim veniam
   longdesc: >

@@ -1,30 +1,30 @@
 {{ define "main" }}
 <!-- Hero row -->
-<div class="row hero" style="background-image:url('{{ .Params.hero_image | relURL }}');background-size:cover;background-repeat:no-repeat;">
+
+<div class="row hero bg-gradient-primary">
   <div class="col intro-text col-10 offset-1 col-md-5">
       <div class="intro-text-panel">
-        <h2>
-          {{.Params.title}}
-        </h2>
+        <img src="/images/spinnaker-horizontal-color.png" alt="Spinnaker" />
         <p class="subtitle">
-          {{.Params.subtitle}}
+          {{.Params.subtitle}}<br />
+          {{.Params.subtitle_1}}
         </p>
         <p>
-          [recent news link]<br />
-          [recent news excerpt...]
-          <i class="fa fa-caret-right"></i>
+          <a href="https://events.linuxfoundation.org/spinnaker-summit/">
+          Register now for Spinnaker Summit | June 22-24, 2021
+          <i class="fa fa-caret-right"></i></a>
         </p>
       </div>
   </div>
 </div>
 <!-- Slack row -->
-<div class="row slack -bg-primary">
+<div class="row slack -bg-secondary">
   <div class="col col-10 offset-1">
     <div class="d-flex align-items-center">
       <p>
         {{.Params.join_slack_text}}
       </p>
-      <a href="https://join.spinnaker.io/" alt="Join Slack" class="join-slack">
+      <a href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg" alt="Join Slack" class="join-slack">
       </a>
     </div>
   </div>
@@ -44,37 +44,17 @@
   {{ end }}
 </div>
 <!-- Powered by spinnaker row -->
-<div class="row powered-by-spinnaker">
+<div class="row col col-10 powered-by-spinnaker">
   <p>
-    powered by spinnaker row
+   <h3>Powered By Spinnaker</h3>
   </p>
 </div>
 <!-- Case studies row -->
-<div class="row case-studies">
-  {{ range first 4 ( where $.Site.Data.companies "is_case_study" true ) }}
-    <div class="col-6 col-md-3" id="role_card_{{.id}}">
-      <div class="card">
-        <h5>{{.case_study_title}}, {{.name}}</h5>
-        <p class="shortdesc">
-          {{.short_desc}}
-        </p>
-        <div class="excerpt">
-          {{.case_study | truncate 130}}
-        </div>
-        <a href=".">{{ T "ui_read_more"}}</a>
-      </div>
-    </div>
-  {{ end }}
-</div>
+
 <!-- Logos row -->
-<div class="row logos">
-  <div class="col-10 offset-1 col-md-3 who-should-use">
-    <h5>{{.Params.who_should_use_header}}</h5>
-    <div class="who-should-use-text">
-      {{.Params.who_should_use_text | markdownify }}
-    </div>
-  </div>
-  <div class="col-10 offset-1 col-md-6 offset-md-0 logos-list">
+<div class="row logos col col-11  offset-1 d-flex align-content-center justify-content-center">
+
+  <div class="logos-list">
     {{ range $.Site.Data.companies }}
       {{ if gt ( len .logo ) 0 }}  
         <a href="/" alt="{{.name}}" id="logo_{{.id}}">
@@ -96,6 +76,13 @@
         </div>
       {{ end }}
     {{ end }}
+  </div>
+</div>
+
+<div class="col-10 offset-1 col-md-3 who-should-use">
+  <h5>{{.Params.who_should_use_header}}</h5>
+  <div class="who-should-use-text">
+    {{.Params.who_should_use_text | markdownify }}
   </div>
 </div>
 <!-- contributing row -->
