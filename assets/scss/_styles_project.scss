@@ -32,3 +32,24 @@
         width: 100%;
     }
 }
+
+
+// waves animation
+.waves{
+  width: 100vw;
+  background-image: url('/images/waves-background.svg');
+  background-size: cover;
+  svg{
+
+    animation-name: move-left;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  
+
+}
+
+
+

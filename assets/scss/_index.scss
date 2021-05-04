@@ -2,18 +2,28 @@
 
   &.td-home {
     .row {
+      
       &.hero {
-        margin-top: 0;
         .col {
+          
           &.intro-text {
+            
             display: flex;
             align-items: center;
             .intro-text-panel {
               padding: 1rem;
-              background: #fff;
+              color: $white;
+              background: transparentize($secondary, .5);
               border-radius: 10px;
               box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+              margin-top :2rem;
               overflow: hidden;
+              img {
+                max-width: 350px;
+              }
+              a {
+                color: $light;
+              }
             }
           }
         }
@@ -59,3 +69,4 @@
     padding: 15px;
   }
 }
+

@@ -1,19 +1,18 @@
 {{ define "main" }}
-<!-- Hero row -->
-
-<div class="row hero bg-gradient-primary">
-  <div class="col intro-text col-10 offset-1 col-md-5">
+<div class="row hero">
+  <div class="col intro-text col-10 offset-1 ">
+    
       <div class="intro-text-panel">
-        <img src="/images/spinnaker-horizontal-color.png" alt="Spinnaker" />
-        <p class="subtitle">
+        <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
+        <h3 class="subtitle">
           {{.Params.subtitle}}<br />
           {{.Params.subtitle_1}}
-        </p>
-        <p>
+        </h3>
+        
           <a href="https://events.linuxfoundation.org/spinnaker-summit/">
-          Register now for Spinnaker Summit | June 22-24, 2021
-          <i class="fa fa-caret-right"></i></a>
-        </p>
+          <h4>Register now for Spinnaker Summit | June 22-24, 2021
+          <i class="fa fa-caret-right"></i></h4></a>
+        
       </div>
   </div>
 </div>
@@ -45,14 +44,13 @@
 </div>
 <!-- Powered by spinnaker row -->
 <div class="row col col-10 powered-by-spinnaker">
-  <p>
    <h3>Powered By Spinnaker</h3>
-  </p>
+  
 </div>
 <!-- Case studies row -->
 
 <!-- Logos row -->
-<div class="row logos col col-11  offset-1 d-flex align-content-center justify-content-center">
+<div class="row logos col col-10  offset-1 d-flex align-content-center justify-content-center">
 
   <div class="logos-list">
     {{ range $.Site.Data.companies }}

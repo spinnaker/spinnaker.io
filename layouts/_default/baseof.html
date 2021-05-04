@@ -4,11 +4,11 @@
     {{ partial "head.html" . }}
   </head>
   <body class="td-{{ .Kind }} layout-{{.Layout}}">
-    {{ partial "news-banner.html" . }}
+    
     <header>
       {{ partial "navbar.html" . }}
     </header>
-    <div class="container-fluid td-default td-outer">
+    <div class="container-fluid td-default td-outer waves">
       <main role="main test-index" class="td-main">
         {{ block "main" . }}{{ end }}
       </main>
