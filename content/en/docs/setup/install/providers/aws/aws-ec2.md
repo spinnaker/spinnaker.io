@@ -444,7 +444,7 @@ the [Halyard command reference](/docs/reference/halyard/commands#hal-config-prov
 ### Additional feature config for AWS provider
 We recommend enabling [AWS Launch Templates](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html) for your autoscaling groups to get the latest EC2 features. You can learn how to enable this within the [Launch Template Setup Guide](/docs/setup/other_config/features/aws-launch-templates).
 =======
-the [Halyard command reference](/reference/halyard/commands#hal-config-provider-aws-account-add).
+the [Halyard command reference](/docs/reference/halyard/commands#hal-config-provider-aws-account-add).
 >>>>>>> master
 
 ## Next steps

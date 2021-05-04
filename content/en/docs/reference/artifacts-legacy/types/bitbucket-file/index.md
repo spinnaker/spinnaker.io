@@ -2,8 +2,6 @@
 title:  "Bitbucket File"
 ---
 
-{% include toc %}
-
 Bitbucket file artifacts are references to files stored in
 [Bitbucket](https://bitbucket.org). They are generally consumed
 by stages that read configuration from text files, such as a Deploy Manifest

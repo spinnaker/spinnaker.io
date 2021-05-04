@@ -30,7 +30,7 @@ messageFormat=JAR
 ```
 
 The recommended way to configure artifact templates is by using the `hal config artifact templates`
- [Halyard command](/reference/halyard/commands/#hal-config-artifact-templates):
+ [Halyard command](/docs/reference/halyard/commands/#hal-config-artifact-templates):
 ```
 hal config artifact templates add <name of template> --template-path <path to the template> 
 ```

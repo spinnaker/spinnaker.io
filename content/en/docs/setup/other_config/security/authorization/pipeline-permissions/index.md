@@ -74,11 +74,5 @@ The migration job will automatically create the new managed service users, and t
 new service user will get the same permissions as the manual service user that it
 replaces.
 
-{% include
-   warning
-   content="**Note:** If a pipeline has multiple triggers with different
-   `runAsUser` fields set, the new managed service user will get all of the roles
-   of the different manual service users (as you can only have one managed service
-   user per pipeline). This can potentially remove some users ability to edit or
-   execute affected pipelines."
-%}
+If a pipeline has multiple triggers with different `runAsUser` fields set, the new managed service user will get all of the roles of the different manual service users (as you can only have one managed service
+user per pipeline). This can potentially remove some users ability to edit or execute affected pipelines."

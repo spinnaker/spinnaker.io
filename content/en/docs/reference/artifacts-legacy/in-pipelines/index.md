@@ -5,7 +5,7 @@ title:  "Artifacts In Pipelines (Legacy)"
 
 > Much of the behavior described here depends on looking up execution history in Redis. Deleting recent executions from Redis can cause unexpected behavior.
 
-Now that you have an idea of [what an artifact is](/reference/artifacts/) in Spinnaker, you need to
+Now that you have an idea of [what an artifact is](/docs/reference/artifacts/) in Spinnaker, you need to
 understand how it's used within pipelines. An artifact arrives in a pipeline execution either from an external trigger (for example, a Docker image pushed to a registry) or by getting fetched by a stage. That artifact is then consumed by downstream stages based on pre-defined behavior.
 
 Spinnaker uses an "expected artifact" to enable a stage to bind an artifact
@@ -129,9 +129,7 @@ To allow you to promote artifacts between executions, you can make use of the
 "Find Artifact from Execution" stage. All that's required is the pipeline ID
 whose execution history to search, and an expected artifact to bind.
 
-{% include figure
-   image_path="./find-artifact-from-execution.png"
-%}
+{{< figure src="./find-artifact-from-execution.png" >}}
 
 A common use case would be to "promote" the image deployed to staging to a
 pipeline that's deploying to production.

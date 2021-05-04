@@ -207,10 +207,10 @@ hal config provider kubernetes account add my-k8s-account \
     --context $CONTEXT
 ```
 
-Finally, enable [artifact support](/reference/artifacts/#enabling-artifact-support).
+Finally, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 ## Advanced account settings
 
 If you're looking for more configurability, please see the other options listed
 in the [Halyard
-Reference](/reference/halyard/commands#hal-config-provider-kubernetes-account-add).
+Reference](/docs/reference/halyard/commands#hal-config-provider-kubernetes-account-add).

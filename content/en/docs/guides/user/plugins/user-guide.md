@@ -128,7 +128,7 @@ Don't forget to `hal deploy apply` to apply your configuration changes.
 
 ## List, edit, and delete repositories
 
-See the command [reference](/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
+See the command [reference](/docs/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
 
 ## Add a plugin using Halyard
 
@@ -241,7 +241,7 @@ The plugin developer should provide configuration details in YAML format. If not
 
 ## List, edit, and delete repositories
 
-See the command [reference](/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
+See the command [reference](/docs/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
 
 ## Add a Deck proxy to Gate
 
