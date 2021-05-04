@@ -28,7 +28,7 @@ and credentials.
    ```
 
 2. If you're using Spinnaker 1.19 or earlier, enable the Wercker stage by adding
-the following to your [Deck custom profile](/reference/halyard/custom/#custom-profile-for-deck):
+the following to your [Deck custom profile](/docs/reference/halyard/custom/#custom-profile-for-deck):
 
     ```js
      window.spinnakerSettings.feature.wercker = true;
@@ -48,15 +48,15 @@ the following to your [Deck custom profile](/reference/halyard/custom/#custom-pr
 
 ## Wercker as Pipeline Trigger
 When configuring a Spinnaker Pipeline, Wercker is available as one of the [automated
-trigger](/guides/user/pipeline/managing-pipelines/#add-a-trigger) type options. You can
+trigger](/docs/guides/user/pipeline/managing-pipelines/#add-a-trigger) type options. You can
 select a Wercker master that you configured earlier, and then choose from the applications and
 pipelines available for the configured master's credentials. When the selected Wercker pipeline
 completes, it will trigger the Spinnaker pipeline.
 
 ## Wercker as Pipeline Stage
-When [adding a pipeline stage](/guides/user/pipeline/managing-pipelines/#add-a-stage), Wercker is
+When [adding a pipeline stage](/docs/guides/user/pipeline/managing-pipelines/#add-a-stage), Wercker is
 available as one of the stage types in Spinnaker. For details, see the
-[pipeline stage reference](/reference/pipeline/stages/#wercker)
+[pipeline stage reference](/docs/reference/pipeline/stages/#wercker)
 
 ## Links
 [Main Wercker Site](https://app.wercker.com)

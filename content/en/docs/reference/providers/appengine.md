@@ -12,7 +12,7 @@ description: Learn how Spinnaker functionality maps to Google App Engine.
 A Spinnaker **account** maps to a single App Engine **application**, a top-level resource that contains 
 services, versions, and instances. Spinnaker authenticates itself with App Engine
 using service account credentials for a Google Cloud Platform project - 
-see the [setup guide](/setup/providers/appengine). 
+see the [setup guide](/docs/setup/providers/appengine). 
 
 ### Load Balancer
 A Spinnaker **load balancer** maps to an App Engine **service**. 

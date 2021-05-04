@@ -13,7 +13,7 @@ Run an AWS CodeBuild build by specifying the name of the project. The sources an
 used by the build can be from upstream stages. Artifacts produced by the build can
 be injected into the pipeline and used by downstream stages.
 
-See this [user guide](/setup/ci/codebuild/) for more information about configuring
+See this [user guide](/docs/setup/other_config/ci/codebuild/) for more information about configuring
 this stage.
 
 ### Bake
@@ -22,7 +22,7 @@ of creating a machine image. Spinnaker's bakery is backed by
 [Hashicorp's Packer](https://www.packer.io/intro/). Spinnaker provides default
 [Packer templates](https://www.packer.io/docs/templates/index.html) and base
 machine images in order to get you started, but see the
-[bakery configuration guide](/setup/bakery/) if you want to customize your bake
+[bakery configuration guide](/docs/setup/other_config/bakery/) if you want to customize your bake
 process.
 
 Note that Spinnaker skips the bake process if it detects that a new bake is
@@ -33,20 +33,20 @@ the default behavior and re-bake your image each time the pipeline runs, select
 **Rebake** in the **Bake Configuration** section.
 
 ### Canary Analysis
-Use [Kayenta](/reference/architecture/#spinnaker-microservices) to run
-[automated canary analysis](/guides/user/canary/) against the deployment
+Use [Kayenta](/docs/reference/architecture/#spinnaker-microservices) to run
+[automated canary analysis](/docs/guides/user/canary/) against the deployment
 before fully deploying. Note that this stage _only_ handles analysis; you're
 responsible for provisioning and cleaning up your canary instances. This is
 typically done within the same pipeline via stages surrounding the
 Canary Analysis stage.
 
 For a step-by-step explanation of how to set up a Canary Analysis stage see the
-[how-to guide](/guides/user/canary/stage/).
+[how-to guide](/docs/guides/user/canary/stage/).
 
 ### Check Preconditions
 Check for preconditions before continuing. For example, you can check that
 your cluster is a particular size, or add a pipeline expression. See the
-[pipeline expressions guide](/guides/user/pipeline-expressions/) for more
+[pipeline expressions guide](/docs/guides/user/pipeline-expressions/) for more
 information about creating and using pipeline expressions.
 
 ### Clone Server Group
@@ -114,11 +114,11 @@ region to search for the image.
 
 Run a Google Cloud Build build by specifing a build config as either an artifact or
 as inline YAML. Artifacts produced by the build can be injected into the pipeline
-and used by downstream stages. You must [configure Google Cloud Build](/setup/ci/gcb/)
+and used by downstream stages. You must [configure Google Cloud Build](/docs/setup/other_config/ci/gcb/)
 in order to use this stage.
 
 ### Jenkins
-Run the specified job in Jenkins. You must [set up Jenkins](/setup/ci/jenkins/)
+Run the specified job in Jenkins. You must [set up Jenkins](/docs/setup/other_config/ci/jenkins/)
 in order to use this stage. Once Jenkins is configured, your Jenkins master and
 available jobs are automatically populated in the respective drop-down menus.
 
@@ -158,7 +158,7 @@ Roll back one or more regions in a Cluster.
 
 ### Run Job
 Run a container. You need to
-[set up a docker registry](/setup/install/providers/docker-registry/) so that
+[set up a docker registry](/docs/setup/install/providers/docker-registry/) so that
 Spinnaker can access the images to run. Once you're set up correctly, placing
 your cursor in the the **Image** field displays a drop-down menu of available
 images.
@@ -170,9 +170,9 @@ size while the rest are scaled down.
 
 ### Script
 Execute an arbitrary script as part of your pipeline. Spinnaker uses Jenkins to
-sandbox your scripts, so you need to [set up Jenkins](/setup/ci/jenkins/) in
+sandbox your scripts, so you need to [set up Jenkins](/docs/setup/other_config/ci/jenkins/) in
 order to use it. If you already have Jenkins set up, make sure that you have
-[configured it to run scripts](/setup/features/script-stage/).
+[configured it to run scripts](/docs/setup/other_config/features/script-stage/).
 
 The only required field in this stage is **Command**, where you must specify the
 command to run the script. Otherwise, you can use any of the fields that are
@@ -204,7 +204,7 @@ response, fails on a 4XX, or retries on 5XX. The webhook URL, payload, status
 endpoint, and final status are all shown under the pipeline execution details in
 the Spinnaker UI.
 
-Note that you can use [pipeline expressions](/reference/pipeline/expressions/)
+Note that you can use [pipeline expressions](/docs/reference/pipeline/expressions/)
 in both the URL field and the payload. When the stage completes, the `webhook`
 field of the stage context contains the payload, which allows you to use it in
 future pipeline expressions. For example, you can reference the final status
@@ -240,16 +240,16 @@ the status:
     execution details.
 
 If you find yourself recreating the same webhook stage repeatedly, you can
-create a [custom webhook](/guides/operator/custom-webhook-stages/) stage. A
+create a [custom webhook](/docs/guides/operator/custom-webhook-stages/) stage. A
 custom webhook stage is a webhook stage specifically named and configured for
 your application's needs, which shows up in the standard pipeline stages
 dropdown menu.
 
-You can [add more certification authorities](/guides/operator/webhook-custom-trust-store/)
+You can [add more certification authorities](/docs/guides/operator/webhook-custom-trust-store/)
 to trust when making webhook calls over HTTPS.
 
 ### Wercker
-Run the specified Wercker pipeline. You must [set up Wercker](/setup/ci/wercker/)
+Run the specified Wercker pipeline. You must [set up Wercker](/docs/setup/other_config/ci/wercker/)
 in order to use this stage. Once Wercker has been configured, your Wercker
 masters and the applications and pipelines available for your master's
 credentials will be shown in the drop-down menus. When a Wercker pipeline stage
@@ -285,7 +285,7 @@ Set how much traffic a given version of your app can receive. You can specify
 versions by name — for example, `sample-cluster-v000` — or choose to send
 traffic to the newest, oldest, or previous (second-most-recently deployed)
 Server Group. For an example of how to do this, see the
-[App Engine Source to Prod codelab](/guides/tutorials/codelabs/appengine-source-to-prod/#edit-load-balancer-stage).
+[App Engine Source to Prod codelab](/docs/guides/tutorials/codelabs/appengine-source-to-prod/#edit-load-balancer-stage).
 
 Note that a Spinnaker Load Balancer maps to an App Engine service, as specified
 in a version's `app.yaml`. Your version will be deployed to the `default`
@@ -298,35 +298,40 @@ Suspend/resume scaling processes.
 
 ## Cloud Foundry
 
+### Bake CF Manifest
+Bake a manifest with 1 or more variables files.
+Similar to `cf push --vars-file vars.yml`. See the Cloud Foundry documentation about [Variable Substitution](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#variable-substitution).
+
 ### Create Service Key
-Generate credentials for a service instance. Similar to `cf create-service-key`; see the Cloud Foundry documentation about how to [Create a Service Key](https://docs.cloudfoundry.org/devguide/services/service-keys.html#create).
+Generate credentials for a service instance. Similar to `cf create-service-key`. See the Cloud Foundry documentation about how to [Create a Service Key](https://docs.cloudfoundry.org/devguide/services/service-keys.html#create).
 
 ### Delete Service Key
-Delete an existing service key. Similar to `cf delete-service-key`; see the Cloud Foundry documentation about how to [Delete a Service Key](https://docs.cloudfoundry.org/devguide/services/service-keys.html#delete).
+Delete an existing service key. Similar to `cf delete-service-key`. See the Cloud Foundry documentation about how to [Delete a Service Key](https://docs.cloudfoundry.org/devguide/services/service-keys.html#delete).
 
 ### Deploy Service
-Create a service instance. Similar to `cf create-service`; see the Cloud Foundry documentation about [Creating Service Instances](https://docs.cloudfoundry.org/devguide/services/managing-services.html#create).
+Create a service instance. Similar to `cf create-service`. See the Cloud Foundry documentation about [Creating Service Instances](https://docs.cloudfoundry.org/devguide/services/managing-services.html#create).
 
 ### Destroy Service
-Delete a service instance. Similar to `cf delete-service`; see the Cloud Foundry documentation about how to [Delete a Service Instance](https://docs.cloudfoundry.org/devguide/services/managing-services.html#delete).
+Delete a service instance. Similar to `cf delete-service`. See the Cloud Foundry documentation about how to [Delete a Service Instance](https://docs.cloudfoundry.org/devguide/services/managing-services.html#delete).
 
 ### Map Load Balancer
 Map a Load Balancer (a Cloud Foundry route) to a server group (Cloud Foundry app).
 The domain must already exist in the Cloud Foundry org.
 If the route does not already exist, it will be created.
-Similar to `cf map-route`; see the Cloud Foundry documentation about how to [Map a Route to Your App](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#map-route).
+Similar to `cf map-route`. See the Cloud Foundry documentation about how to [Map a Route to Your App](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#map-route).
 
 ### Share Service
 Share a service instance with a specific org / spaces.
-Similar to `cf share-service`; see the Cloud Foundry documentation about [Sharing a Service Instance](https://docs.cloudfoundry.org/devguide/services/sharing-instances.html#sharing).
+Similar to `cf share-service`. See the Cloud Foundry documentation about [Sharing a Service Instance](https://docs.cloudfoundry.org/devguide/services/sharing-instances.html#sharing).
 
 ### Unmap Load Balancer
 Unmap a Load Balancer (a Cloud Foundry route) from a server group (Cloud Foundry app).
-Similar to `cf unmap-route`; see the Cloud Foundry documentation about how to [Unmap a Route](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#unmap-route).
+Similar to `cf unmap-route`. See the Cloud Foundry documentation about how to [Unmap a Route](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#unmap-route).
 
 ### Unshare Service
 Unshare a service instance with a specific org / space.
-Similar to `cf unshare-service`; see the Cloud Foundry documentation about [Unsharing a Service Instance](https://docs.cloudfoundry.org/devguide/services/sharing-instances.html#unsharing).
+Similar to `cf unshare-service`. See the Cloud Foundry documentation about [Unsharing a Service Instance](https://docs.cloudfoundry.org/devguide/services/sharing-instances.html#unsharing).
+
 
 ## Kubernetes
 
@@ -360,7 +365,7 @@ strategy for Kubernetes by first deploying a new ReplicaSet and then patching
 the fronting service's selectors to point to the new ReplicaSet.
 
 When patching with a _strategic_ or _merge_ strategy, Spinnaker also supports [artifact substitution
-](/reference/artifacts/in-kubernetes-v2/#binding-artifacts-in-manifests) for the
+](/docs/reference/artifacts/in-kubernetes-v2/#binding-artifacts-in-manifests) for the
 patch content just like the resource manifest in the deploy stage.
 
 ### Scale (Manifest)
@@ -375,8 +380,8 @@ Rollback a manifest a target number of revisions.
 
 ### Custom Webhook
 
-Extend Spinnaker with [predefined Webhook stages](/guides/operator/custom-webhook-stages/).
+Extend Spinnaker with [predefined Webhook stages](/docs/guides/operator/custom-webhook-stages/).
 
 ### Custom Job
 
-Extend Spinnaker with [predefined Run Job stages](/guides/operator/custom-job-stages/).
+Extend Spinnaker with [predefined Run Job stages](/docs/guides/operator/custom-job-stages/).

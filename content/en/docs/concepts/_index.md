@@ -11,11 +11,11 @@ you release software changes with high velocity and confidence.
 
 Spinnaker provides two core sets of features:
 
-* [application management](#application-management)
+* [Application management](#application-management)
 
-* [application deployment](#application-deployment)
+* [Application deployment](#application-deployment)
 
-This article is an overview of these features:
+In addition, Spinnaker provides a higher-level experience that builds on top of the above features via [Managed delivery](#managed-delivery).
 
 ## Application management
 
@@ -47,7 +47,7 @@ You will typically create a different application for each service, though
 Spinnaker does not enforce that.
 
 Read more about applications, and how to create and configure them,
-[here](/guides/user/applications/).
+[here](/docs/guides/user/applications/).
 
 ### Cluster
 
@@ -73,7 +73,7 @@ A *Load Balancer* is associated with an ingress protocol and port range. It bala
 
 A *Firewall* defines network traffic access. It is effectively a set of firewall rules defined by an IP range (CIDR) along with a communication protocol (e.g., TCP) and port range.
 
-> Learn more about cluster management on the [Clusters](/concepts/clusters/) page.
+> Learn more about cluster management on the [Clusters](/docs/concepts/clusters/) page.
 
 ## Application deployment
 
@@ -98,11 +98,11 @@ pipeline start/complete/fail).
 
 A *Stage* in Spinnaker is a collection of sequential Tasks and composed Stages that
 describe a higher-level action the Pipeline will perform either linearly or in parallel.
-You can sequence [stages](/reference/pipeline/stages/) in a Pipeline in any order, though some
+You can sequence [stages](/docs/reference/pipeline/stages/) in a Pipeline in any order, though some
 stage sequences may be more common than others. Spinnaker provides a number of
 stages such as Deploy, Resize, Disable, Manual Judgment, and many more. You can
 see the full list of stages and read about implementation details for each
-provider in the [Reference](/reference/providers) section.
+provider in the [Reference](/docs/reference/providers) section.
 
 ### Task
 
@@ -114,4 +114,26 @@ A *Task* in Spinnaker is an automatic function to perform.
 
 Spinnaker treats cloud-native deployment strategies as first class constructs, handling the underlying orchestration such as verifying health checks, disabling old server groups and enabling new server groups. Spinnaker supports the red/black (a.k.a. blue/green) strategy, with rolling red/black and canary strategies in active development.
 
-> Learn more about deployment management on the [Pipelines](/concepts/pipelines/) page.
+> Learn more about deployment management on the [Pipelines](/docs/concepts/pipelines/) page.
+
+## Managed delivery
+Managed Delivery takes Spinnaker's infrastructure management and deployment capabilities
+to a new level by abstracting away many of the low-level details of configuring infrastructure
+and delivery workflows, and focusing on your application _requirements_, specified in a declarative
+format.
+
+It allows you to declare the _desired state_ of your application in terms of logical _environments_
+(think `test` and `prod`) where your cloud infrastructure resources exist (e.g. compute clusters),
+and where your _software artifacts_ (think Debian package or Docker image) are deployed. 
+Spinnaker automatically detects when a new version of your code is available for deployment and
+satisfies any deployment constraints you may have configured, or when your infrastructure resources
+diverge from the desired state, and acts upon that information to reconcile the current with the 
+desired state. 
+
+For more details on the inspiration and guiding principles behind
+Managed Delivery, check out [our blog](https://blog.spinnaker.io/managed-delivery-evolving-continuous-delivery-at-netflix-eb74877fb33c),
+or the talk below from Spinnaker Summit 2019.
+
+<iframe src="https://www.youtube.com/embed/mEgvOfmLnlY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+> _To get started with Managed Delivery, head on over to the [user guide](/docs/guides/user/managed-delivery/)._

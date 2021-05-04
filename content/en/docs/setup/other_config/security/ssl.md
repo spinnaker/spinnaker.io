@@ -2,7 +2,7 @@
 title:  "SSL"
 description: Spinnaker supports using SSL to secure communication for the UI and API.
 aliases: 
-  - /setup/security/authentication/ssl
+  - /setup/other_config/security/authentication/ssl
 
 ---
 
@@ -27,9 +27,9 @@ you implement at least a temporary SSL solution **first**.
 A common practice is to offload SSL-related bits to outside of the server in
 question. This is fully supported in Spinnaker, but it does affect the
 authentication configuration slightly. See your [authentication
-method](/docs/setup/security/authentication/) for specifics.
+method](/docs/setup/other_config/security/authentication/) for specifics.
 
-![SSL terminated at load balancer](/docs/setup/security/authentication/network-arch/lb-ssl-termination.png)
+![SSL terminated at load balancer](/docs/setup/other_config/security/authentication/network-arch/lb-ssl-termination.png)
 
 During certain authentication workflows, Gate makes an intelligent guess on how to assemble a URI to
 itself, called the **`redirect_uri`**. Sometimes this guess is wrong when Spinnaker is deployed
@@ -46,7 +46,7 @@ hal config security authn <authtype> edit --pre-established-redirect-uri https:/
 
 Additionally, some configurations make it necessary to "unwind" external proxy instances. This makes the request to 
 Gate look like the original request to the outermost proxy. Add this to your `gate-local.yml` file in your Halyard
-[custom profile](/reference/halyard/custom/#custom-profiles):
+[custom profile](/docs/reference/halyard/custom/#custom-profiles):
 
 ```
 server:
@@ -82,7 +82,7 @@ Terminating SSL within the Gate server is the de-facto way to enable SSL for
 Spinnaker. This works with or without a load balancer proxying traffic to this
 instance.  
 
-![SSL terminated at server through load balancer](/docs/setup/security/authentication/network-arch/server-ssl-termination.png)
+![SSL terminated at server through load balancer](/docs/setup/other_config/security/authentication/network-arch/server-ssl-termination.png)
 
 #### 1. Generate key and self-signed certificate
 
@@ -303,7 +303,7 @@ key and server certificate ready to be used by Spinnaker Deck!
 #### 3. Configure SSL for Gate and Deck
 
 With the above certificates and keys in hand, you can use Halyard to set up SSL
-for [Gate and Deck](/reference/architecture/).
+for [Gate and Deck](/docs/reference/architecture/).
 
 For Gate:
 
@@ -402,7 +402,7 @@ new trust/key store by default.
 
 Choose an authentication method:
 
-* [OAuth 2.0](/docs/setup/security/authentication/oauth/)
-* [SAML](/docs/setup/security/authentication/saml/)
-* [LDAP](/docs/setup/security/authentication/ldap/)
-* [X.509](/docs/setup/security/authentication/x509/)
+* [OAuth 2.0](/docs/setup/other_config/security/authentication/oauth/)
+* [SAML](/docs/setup/other_config/security/authentication/saml/)
+* [LDAP](/docs/setup/other_config/security/authentication/ldap/)
+* [X.509](/docs/setup/other_config/security/authentication/x509/)

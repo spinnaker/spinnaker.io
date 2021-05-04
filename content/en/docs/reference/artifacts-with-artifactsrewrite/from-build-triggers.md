@@ -13,8 +13,8 @@ artifact extraction, which users can augment with custom templates.
 ## Requirements
 
 The instructions here assume that you have
-[set up a CI system](/setup/ci/) and are familiar with using
-[property files](/guides/user/pipeline/expressions/#property-files) to pass variables from
+[set up a CI system](/docs/setup/other_config/ci/) and are familiar with using
+[property files](/docs/guides/user/pipeline/expressions/#property-files) to pass variables from
 CI builds to Spinnaker pipelines.
 
 ## Select a template
@@ -32,7 +32,7 @@ messageFormat=JAR
 ```
 
 The recommended way to configure artifact templates is by using the `hal config artifact templates`
- [Halyard command](/reference/halyard/commands/#hal-config-artifact-templates):
+ [Halyard command](/docs/reference/halyard/commands/#hal-config-artifact-templates):
 ```
 hal config artifact templates add <name of template> --template-path <path to the template> 
 ```

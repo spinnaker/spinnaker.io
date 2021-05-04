@@ -5,7 +5,7 @@ weight: 1
 description: Connect Spinnaker applications to specific Slack channels with Slack's conversations API.
 ---
 
-You can [create an application](/guides/user/applications/create/) and configure it with relevant data—*application attributes*. 
+You can [create an application](/docs/guides/user/applications/create/) and configure it with relevant data—*application attributes*. 
 
 Including a Slack support channel for an application is a configurable application attribute. This feature communicates with Slack's [conversations API](https://api.slack.com/docs/conversations-api) to expose a list of available Slack channels in your workspace. The Slack support channel feature is supported by all providers.
 

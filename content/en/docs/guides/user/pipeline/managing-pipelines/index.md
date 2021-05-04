@@ -144,7 +144,7 @@ history. You can use revision history to diff two versions of a pipeline or to
 restore an older version of a pipeline.
 
 > *Note*: If you are using Minio or Redis as your
-[storage service](/setup/install/storage/), you won't be able to use revision
+[storage service](/docs/setup/install/storage/), you won't be able to use revision
 history because neither supports it.
 
 1. From the **Pipelines** tab, click **Configure** to modify an existing

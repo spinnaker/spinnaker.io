@@ -123,7 +123,7 @@ configuration merely gives you a way to refresh those caches.
 
 ## Designate a traffic-guard cluster
 
-A traffic guard is a [cluster](/concepts/clusters/) which you have designated as
+A traffic guard is a [cluster](/docs/concepts/clusters/) which you have designated as
 always having at least one active instance.
 
 With traffic guard enabled, if a user or process tries to delete, disable, or

@@ -81,11 +81,11 @@ kubeconfig files [here](http://kubernetes.io/docs/user-guide/kubeconfig-file/).
 ## Configure Spinnaker
 
 We will be deploying Spinnaker to one of your Kubernetes clusters. To do so,
-start by [installing halyard](/setup/install/halyard).
+start by [installing halyard](/docs/setup/install/halyard).
 
 ### Choose a storage service
 
-Pick a storage service [here](/setup/install/storage), and run the required
+Pick a storage service [here](/docs/setup/install/storage), and run the required
 `hal` commands.
 
 ### Add your Kubernetes accounts
@@ -119,7 +119,7 @@ hal config provider kubernetes account add staging-demo \
 
 ### Configure GitHub artifact credentials
 
-Make sure to [add GitHub as an artifact account](/setup/artifacts/github). This
+Make sure to [add GitHub as an artifact account](/docs/setup/other_config/artifacts/github). This
 will allow us to fetch the manifests later.
 
 ### Deploy Spinnaker
@@ -153,7 +153,7 @@ happen respectively.
 > trigger pipelines. __Tear down Spinnaker once you're done with this
 > codelab, or remove any firewall changes to your Kubernetes cluster__.
 
-First, edit the [Gate](/reference/architecture) service to bind a node port.
+First, edit the [Gate](/docs/reference/architecture) service to bind a node port.
 This means every node in your Kubernetes cluster will forward traffic from that
 node port to your Spinnaker gate service. __Your nodes should not be accepting
 requests from external IPs__ by default, so making this change doesn't
@@ -196,7 +196,7 @@ Now pick any node in the cluster and record its IP as `$NODE_IP`; for the purpos
 this codelab, we'll be sending external webhooks to `$NODE_PORT` on that node. In
 order for these webhooks to work, for this codelab only, open your firewall
 on that node to all addresses for TCP connections on `$NODE_PORT`. If you
-were running Spinnaker in production with [authentication](/setup/security),
+were running Spinnaker in production with [authentication](/docs/setup/security),
 only webhooks would be allowed, which you can reject by header or payload.
 See [the webhook guide for more details](/docs/v1/guides/user/triggers/webhooks).
 
@@ -211,7 +211,7 @@ endpoint you configure must be
 ### Allow GitHub to post push events
 
 Follow the steps shown
-[here](/setup/triggers/github/#configuring-your-github-webhook), where
+[here](/docs/setup/other_config/triggers/github/#configuring-your-github-webhook), where
 `ENDPOINT=http://${NODE_IP}:${NODE_PORT}`. Keep track of what you pick as the
 `$SECRET`!
 
@@ -221,7 +221,7 @@ When you first open Spinnaker (if you've followed the above
 [prerequisites](#0-prerequisites)) it'll be running on `localhost:9000`) you'll
 be greeted with the following __Applications__ screen.
 
-{{< figure src="./app-screen.png" caption="By default, Spinnaker indexes your entire cluster, which explains why the screen is prepopulated with unrelated infrastructure. This can be changed by omiting namespaces as shown [here](/reference/halyard/commands/#hal-config-provider-kubernetes-account-edit)." >}}
+{{< figure src="./app-screen.png" caption="By default, Spinnaker indexes your entire cluster, which explains why the screen is prepopulated with unrelated infrastructure. This can be changed by omiting namespaces as shown [here](/docs/reference/halyard/commands/#hal-config-provider-kubernetes-account-edit)." >}}
 
 Select __Actions__ > __Create Application__, and fill out the form as shown
 (the owner email will of course be different):

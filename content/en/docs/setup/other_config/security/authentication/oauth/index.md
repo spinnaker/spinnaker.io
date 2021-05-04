@@ -26,7 +26,7 @@ below for specific instructions on configuring your provider:
 
 ## Network architecture and SSL termination
 
-During the OAuth [workflow](/reference/architecture/authz_authn/authentication/#workflow), Gate makes an intelligent 
+During the OAuth [workflow](/docs/reference/architecture/authz_authn/authentication/#workflow), Gate makes an intelligent 
 guess on how to assemble a URI to
 itself, called the *redirect URI*. Sometimes this guess is wrong when Spinnaker is deployed
 in concert with other networking components, such as an SSL-terminating load balancer, or in the
@@ -50,7 +50,7 @@ hal config security authn oauth2 edit --pre-established-redirect-uri https://my-
 
 Additionally, some configurations make it necessary to "unwind" external proxy instances. This makes the request to Gate
 look like the original request to the outer-most proxy. Add this to your `gate-local.yml` file in your Halyard
-[custom profile](/reference/halyard/custom/#custom-profiles):
+[custom profile](/docs/reference/halyard/custom/#custom-profiles):
 
 ```
 server:
@@ -114,13 +114,13 @@ hal config security authn oauth2 edit \
 
 ## Next steps
 
-Now that you've authenticated the user, proceed to setting up their [authorization](/docs/setup/security/authorization/).
+Now that you've authenticated the user, proceed to setting up their [authorization](/docs/setup/other_config/security/authorization/).
 
 ## Troubleshooting
 
-* Review the general [authentication workflow](/reference/architecture/authz_authn/authentication/#workflow).
+* Review the general [authentication workflow](/docs/reference/architecture/authz_authn/authentication/#workflow).
 
-* Use an [incognito window](/docs/setup/security/authentication#incognito-mode).
+* Use an [incognito window](/docs/setup/other_config/security/authentication#incognito-mode).
 
 * I'm getting an `Error: redirect_uri_mismatch` from my OAuth provider.
 

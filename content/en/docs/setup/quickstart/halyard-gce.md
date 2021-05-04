@@ -274,4 +274,4 @@ Finally, from your local workstation browser, navigate to your [brand new Spinna
 
 ## Next steps
 
-For more information on Halyard and managing Spinnaker, go to the [Setup](/docs/setup/install/halyard) section for an overview of how Halyard works, and the [Reference](/reference/halyard/) section for an exhaustive listing of Halyard commands.
+For more information on Halyard and managing Spinnaker, go to the [Setup](/docs/setup/install/halyard) section for an overview of how Halyard works, and the [Reference](/docs/reference/halyard/) section for an exhaustive listing of Halyard commands.

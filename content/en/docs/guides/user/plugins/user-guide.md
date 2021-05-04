@@ -12,7 +12,7 @@ aliases:
 
 ## Overview
 
-Spinnaker uses [PF4J-Update](https://github.com/pf4j/pf4j-update) to load and manage plugins. These plugins can implement a PF4J extension point or be Spring components. See the [Plugin Creators Guide](/guides/developer/plugin-creators/overview/) for details.
+Spinnaker uses [PF4J-Update](https://github.com/pf4j/pf4j-update) to load and manage plugins. These plugins can implement a PF4J extension point or be Spring components. See the [Plugin Creators Guide](/docs/guides/developer/plugin-creators/overview/) for details.
 
 ## Terms
 
@@ -113,13 +113,13 @@ hal plugins repository add all-the-plugins \
     --url=https://raw.githubusercontent.com/aimeeu/all-the-plugins/master/repositories.json
 ```
 
-You can also list, edit, and delete repositories. See the command [reference](/reference/halyard/commands/#hal-plugins-repository) for a complete list of parameters.
+You can also list, edit, and delete repositories. See the command [reference](/docs/reference/halyard/commands/#hal-plugins-repository) for a complete list of parameters.
 
 Don't forget to `hal deploy apply` to apply your configuration changes.
 
 ## Add a plugin using Halyard
 
-After you have added your plugin repository, you can add your plugin to Spinnaker. The Halyard [command](/reference/halyard/commands/#hal-plugins-add) is:
+After you have added your plugin repository, you can add your plugin to Spinnaker. The Halyard [command](/docs/reference/halyard/commands/#hal-plugins-add) is:
 
 ```bash
 hal plugins add <unique-plugin-id> --extensions=<extension-name> \
@@ -228,7 +228,7 @@ Remember to `hal deploy apply` after you have finished configuring your plugin.
 
 ## Deployment example
 
-See the [pf4jStagePlugin Deployment Example](/guides/user/plugins/deploy-example/) page for a walkthrough and troubleshooting.
+See the [pf4jStagePlugin Deployment Example](/docs/guides/user/plugins/deploy-example/) page for a walkthrough and troubleshooting.
 
 ## Resources
 

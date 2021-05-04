@@ -79,7 +79,7 @@ lot more you can do with Spinnaker.
 * [Configure and execute automated canary analysis](/docs/guides/user/canary/)
 for your deployments
 
-* [Choose a deployment strategy](/concepts/#deployment-strategies)
+* [Choose a deployment strategy](/docs/concepts/#deployment-strategies)
 
 * Get to know the [`spin` command-line interface](/docs/guides/spin/cli/)
 -->

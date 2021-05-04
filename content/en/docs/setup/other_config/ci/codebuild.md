@@ -113,7 +113,7 @@ Configure your pipeline to get triggered when an AWS CodeBuild build completes:
 set up a notification rule for your project. To trigger the pipeline on completion of the build,
 select **Succeeded** and **Failed** in the **Events that trigger notifications** section under **Build state**.
 
-2. Follow these [instructions](/docs/setup/triggers/amazon/) to create an Amazon Pub/Sub trigger. Keep the following guidelines in mind:
+2. Follow these [instructions](/docs/setup/other_config/triggers/amazon/) to create an Amazon Pub/Sub trigger. Keep the following guidelines in mind:
   - Skip the step to create SNS topic, as we will use the SNS topic created in step 1.
   - Create an SQS queue and subscribe the queue to the SNS topic.
   - Skip the step to create an S3 bucket, as the notification will be sent from CodeBuild instead of from S3.

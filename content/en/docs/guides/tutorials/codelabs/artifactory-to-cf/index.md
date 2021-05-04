@@ -11,7 +11,7 @@ In this codelab, you will deploy an artifact to Cloud Foundry via a Spinnaker pi
 
 This codelab assumes you have the following:
 
-* Artifact support [enabled](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
 * An Artifactory repository configured to accept a Maven artifact&mdash;the JAR for your application
 * A GitHub repository containing a manifest with which to deploy your application
 
@@ -46,7 +46,7 @@ b. Add an artifact account for Maven:
 
 ## 3. Add GitHub Account to Spinnaker
 
-See the documentation about how to [Configure a GitHub artifact account](https://www.spinnaker.io/setup/artifacts/github/).
+See the documentation about how to [Configure a GitHub artifact account](/docs/setup/other_config/artifacts/github/).
 
 a. After generating an access token with the `repo` scope, store that token in a token file (`TOKEN_FILE`).
 

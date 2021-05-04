@@ -12,7 +12,7 @@ but all of these methods are supported:
 
 * [Distributed installation](#distributed-installation) on Kubernetes
 
-  Halyard deploys each of Spinnaker's [microservices](/reference/architecture)
+  Halyard deploys each of Spinnaker's [microservices](/docs/reference/architecture)
   separately. __This is highly recommended for use in production.__
 
 * [Local installations](#local-debian) of Debian packages
@@ -34,7 +34,7 @@ Distributed installations are for development orgs with large resource
 footprints, and for those who can't afford downtime during Spinnaker updates.
 
 Spinnaker is deployed to a remote cloud, with each
-[microservice](/reference/architecture/) deployed independently. Halyard
+[microservice](/docs/reference/architecture/) deployed independently. Halyard
 creates a smaller, headless Spinnaker to update your Spinnaker and its
 microservices, ensuring zero-downtime updates.
 
@@ -123,7 +123,7 @@ The __Local Git__ installation is intended for developers who want to contribute
 to Spinnaker. It is not intended to be used to manage any production environment.
 
 For a short guide to getting up and running with developing Spinnaker, see the
-[developer setup guide](/guides/developer/getting-set-up).
+[developer setup guide](/docs/guides/developer/getting-set-up).
 
 ### Prerequisites
 
@@ -209,7 +209,7 @@ hal config version edit --version branch:upstream/master
 
 ## Further reading
 
-* [Spinnaker Architecture](/reference/architecture/) for a better understanding
+* [Spinnaker Architecture](/docs/reference/architecture/) for a better understanding
   of the Distributed installation.
 
 ## Next steps

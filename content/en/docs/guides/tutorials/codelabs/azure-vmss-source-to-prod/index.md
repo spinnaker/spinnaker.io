@@ -77,7 +77,7 @@ ssh -L 8080:localhost:8080 -L 9000:localhost:9000 -L 8084:localhost:8084 -L 8087
 
     ![New Application](images/3-create-application.png)
 
-    You can read more how the Spinnaker application matches to Azure resources in the [Azure reference for Spinnaker](/reference/providers/azure/)
+    You can read more how the Spinnaker application matches to Azure resources in the [Azure reference for Spinnaker](/docs/reference/providers/azure/)
 
 ### II. Create a firewall
 
@@ -98,7 +98,7 @@ ssh -L 8080:localhost:8080 -L 9000:localhost:9000 -L 8084:localhost:8084 -L 8087
 
   > Note: We are using westus for the region but you can select any other region that is closer to your location. Be careful to match the region in the following steps.
 
-  You can read more about the implementation of Network Security Groups in Azure in the [Azure reference for Spinnaker](/reference/providers/azure/)
+  You can read more about the implementation of Network Security Groups in Azure in the [Azure reference for Spinnaker](/docs/reference/providers/azure/)
 
 ### III. Create a load balancer
 
@@ -122,7 +122,7 @@ ssh -L 8080:localhost:8080 -L 9000:localhost:9000 -L 8084:localhost:8084 -L 8087
 
     The virtual network *devopsVnet* and the subnets *devopsSubnet#* were created for you by the script that you ran in the [Deploy Spinnaker and Jenkins on Azure](#1-deploy-spinnaker-and-jenkins-on-azure) step.
 
-    You can learn more about the implementation of the Spinnaler Load Balancer in the [Azure reference for Spinnaker](/reference/providers/azure/).
+    You can learn more about the implementation of the Spinnaler Load Balancer in the [Azure reference for Spinnaker](/docs/reference/providers/azure/).
 
 
 1. Repeat the above steps to create a second load balancer for production. Use the same parameters but the following change:

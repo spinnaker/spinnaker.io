@@ -24,6 +24,10 @@ pipeline editor (only the __Name__ is required):
 > See more details on how to provide parameters to pipelines programmatically in
 > the [webhooks](/docs/guides/user/triggers/webhooks) page.
 
+> Warning: there are several reserved parameter keys (names) that cause unexpected behavior and failures
+> if overwritten by a pipeline parameter definition.
+> See the [list of reserved parameter and evaluate variable key names](/docs/guides/user/pipeline/expressions#list-of-reserved-parameter-and-evaluate-variable-key-names).
+
 ## Configure your manifest
 
 In this scenario, we're using a parameter to specify the manifest's namespace.

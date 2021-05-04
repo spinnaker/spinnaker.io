@@ -8,7 +8,7 @@ description: >
 
 ## Overview
 
-[Webhook stages](/reference/pipeline/stages/#webhook) enable Spinnaker to make
+[Webhook stages](/docs/reference/pipeline/stages/#webhook) enable Spinnaker to make
 HTTP(S) calls to external web services. If the configured webhook URL has the
 `https://` scheme, Spinnaker will use TLS to communicate with the external
 server. Spinnaker will attempt to validate the certificate presented by the

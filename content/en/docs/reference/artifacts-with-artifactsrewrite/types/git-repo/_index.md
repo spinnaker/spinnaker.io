@@ -29,7 +29,7 @@ Don't forget to run `hal deploy apply` after making your changes.
 
 ## Git Repo artifact in the UI
 
-The pipeline UI exposes the following fields for the GitHub file artifact:
+The pipeline UI exposes the following fields for the Git Repo artifact:
 
 | Field | Explanation |
 | ------|--------------|

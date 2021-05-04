@@ -37,9 +37,9 @@ infrastructure in whatever accounts it manages, and opening it to the public is
 not a good idea without authentication enabled. With that in mind, there are
 two solutions.
 
-1. Once you enable an [authentication](/docs/setup/security/) mechanism, Spinnaker
+1. Once you enable an [authentication](/docs/setup/other_config/security/) mechanism, Spinnaker
    will bind the UI and API servers to `0.0.0.0` automatically. This is
-   [configurable](/reference/halyard/custom/) if you prefer to bind a specify
+   [configurable](/docs/reference/halyard/custom/) if you prefer to bind a specify
    address instead. Regardless, you still need to set the API &
    UI baseUrls so CORS and login redirects happen correctly, this is done with
    the commands `hal config security ui edit --override-base-url <full ui url>`
@@ -86,13 +86,13 @@ If this happens, there are one of two causes:
 
 ## I want to configure a service beyond what Halyard exposes
 
-First, please read the [custom configuration](/reference/halyard/custom/)
+First, please read the [custom configuration](/docs/reference/halyard/custom/)
 documentation. With that in mind, if you're configuring any of Spinnaker's
 [Spring-based](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)
 services (everything but deck and spinnaker-monitoring), you're
 best off providing a `-local.yml` profile for the service in mind. For example,
 say you are configuring the Halyard
-[deployment](/reference/halyard/#deployments) `default`, and the service
+[deployment](/docs/reference/halyard/#deployments) `default`, and the service
 `gate`, you can write the following file:
 
 `~/.hal/default/profiles/gate-local.yml`
@@ -111,7 +111,7 @@ wholesale overwrite the config in the `~/.hal/default/profiles` directory.
 
 You have two options here:
 
-1. Provide [custom configuration](/reference/halyard/custom) for any services
+1. Provide [custom configuration](/docs/reference/halyard/custom) for any services
    whose config you prefer to override.
 2. Deploy Spinnaker with the `--omit-config` flag. In the Local installation,
    this will pin & download validated debian packages at their respective
@@ -142,7 +142,7 @@ digestable log messages. `-q` suppresses the ANSI pretty-printing, and
 Anything in the `~/.hal/config` can be edited by hand at any time. You can
 validate what you provide there by running `hal config`, and deploy it as you
 would normally `hal deploy apply`. For more service-specific edits, please read
-the [custom configuration](/reference/halyard/custom/) docs.
+the [custom configuration](/docs/reference/halyard/custom/) docs.
 
 ## I only want to deploy a subset of Spinnaker's services
 

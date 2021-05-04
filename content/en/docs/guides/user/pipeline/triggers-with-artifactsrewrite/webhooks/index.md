@@ -17,7 +17,7 @@ you, will be available in the Pipeline's execution.
 > webhook.
 
 If you're triggering from a *GitHub* webhook, see the instructions
-[here](/docs/setup/triggers/github/) to set up that webhook.
+[here](/docs/setup/other_config/triggers/github/) to set up that webhook.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Notice that in the above image below the __Type__ dropdown, the webhook
 configuration points out that we can hit
 `http://localhost:8084/webhooks/webhook/demo` to trigger the pipeline. The
 endpoint depends on how you've configured your [Spinnaker
-endpoints](/setup/security) -- if you're running on a different endpoint, for
+endpoints](/docs/setup/security) -- if you're running on a different endpoint, for
 example `https://api.spinnaker-prod.net`, that'll be shown instead.
 
 Keeping track of that endpoint as `$ENDPOINT` (it will depend on where
@@ -85,6 +85,9 @@ same configuration screen as the webhook trigger:
 
 {{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline-expressions)." >}}
 
+> Warning: there are several reserved parameter keys (names) that cause unexpected behavior and failures
+> if overwritten by a pipeline parameter definition.
+> See the [list of reserved parameter and evaluate variable key names](/docs/guides/user/pipeline/expressions#list-of-reserved-parameter-and-evaluate-variable-key-names).
 
 If you were to manually execute this pipeline, you would be prompted with the
 following dialogue:

@@ -100,7 +100,7 @@ hal config metric-stores stackdriver enable
 There are further flags that can be provided if you would like to push metrics
 to a different project, or associate them with a different zone. Please refer
 to the [halyard command
-reference](/reference/halyard/commands/#hal-config-metric-stores-stackdriver-edit).
+reference](/docs/reference/halyard/commands/#hal-config-metric-stores-stackdriver-edit).
 
 Proceed to [install the dashboards](#installing-the-stackdriver-dashboards)
 

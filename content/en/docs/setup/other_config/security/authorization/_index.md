@@ -14,8 +14,8 @@ variety of pluggable authorization mechanisms.
 
 With Fiat, you can&hellip;
 
-* Restrict access to specific [_accounts_](#accounts).
-* Restrict access to specific [_applications_](#applications).
+* Restrict access to specific [accounts](#accounts).
+* Restrict access to specific [applications](#applications).
 * Run pipelines using [automated triggers](#automated-pipeline-triggers) against access-controlled applications.
 * Use and periodically update user roles from a backing [role provider](#role-providers).
 
@@ -26,7 +26,7 @@ Permissions can be attached to applications and (provider) accounts. A permissio
 
 Keep these in mind as you consider your authorization strategy:
 
-1) Fiat's authorization model is a whitelist that is open by default. In other words, when a resource does _not_ 
+1) Fiat's authorization model is an approve list that is open by default. In other words, when a resource does _not_ 
 define who is allowed to access it, it is considered unrestricted.  This means:
    * If an account is unrestricted, any user with access to Spinnaker can deploy a new application
    to that account.
@@ -35,7 +35,7 @@ define who is allowed to access it, it is considered unrestricted.  This means:
    instance names and counts within server groups.
 
 1)  Every permission in Spinnaker is granted to a role. Individual users cannot be granted permissions. You also grant
- [Super admin](/docs/setup/security/admin/) access to a role. You may see discussions of users in Fiat’s implementation but
+ [Super admin](/docs/setup/other_config/security/admin/) access to a role. You may see discussions of users in Fiat’s implementation but
   it’s just an optimization in the storage to not recompute user → roles → permissions.
 
 1)  Account and application access control can be confusing unless you understand the core
@@ -61,7 +61,7 @@ both permissions to perform certain actions.
         > SAML roles are fixed at login time, and cannot be changed until the user needs to
         reauthenticate.
 
-* Enable the [authorization](/reference/halyard/commands/#hal-config-security-authz-enable) feature.
+* Enable the [authorization](/docs/reference/halyard/commands/#hal-config-security-authz-enable) feature.
 
 * Patience&mdash;there are a lot of small details that must be _just_ right with anything related to
  authentication and authorization.
@@ -162,4 +162,4 @@ be done in two ways:
 * Using a Fiat [service account](./service-accounts/)
 
 ## Reference documentation
-[Deeper details on Authorization in Spinnaker](/reference/architecture/authz_authn/authorization/)
+[Deeper details on Authorization in Spinnaker](/docs/reference/architecture/authz_authn/authorization/)

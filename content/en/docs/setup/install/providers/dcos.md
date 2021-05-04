@@ -10,7 +10,7 @@ aliases:
 
 
 DC/OS configuration for Spinnaker consists of a set of DC/OS
-clusters and a set of [Accounts](/concepts/providers/#accounts) that have
+clusters and a set of [Accounts](/docs/concepts/providers/#accounts) that have
 credentials to authenticate to one or more of those clusters.
 Additionally, each account has a set of [Docker Registry](/docs/setup/providers/docker-registry)
 accounts to be used as a source of images.
@@ -89,9 +89,9 @@ under a group in Marathon named after the Spinnaker account name
 
 If you are looking for more configurability, please see the other options
 listed in the [Halyard
-Reference](/reference/halyard/commands/#hal-config-provider-dcos)
-for adding [accounts](/reference/halyard/commands/#hal-config-provider-dcos-account-add)
-and [clusters](/reference/halyard/commands/#hal-config-provider-dcos-cluster-add).
+Reference](/docs/reference/halyard/commands/#hal-config-provider-dcos)
+for adding [accounts](/docs/reference/halyard/commands/#hal-config-provider-dcos-account-add)
+and [clusters](/docs/reference/halyard/commands/#hal-config-provider-dcos-cluster-add).
 
 ## Next steps
 

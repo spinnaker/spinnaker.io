@@ -195,7 +195,7 @@ flow looks like:
 
     > Gate attempts to intelligently guess the `redirect_uri` value, but outside components like
     > SSL terminating load balancers can cause this guess to be wrong. See
-    > [SSL documentation](/setup/security/ssl/#network-configurations) for how to fix this.
+    > [SSL documentation](/docs/setup/other_config/security/ssl/#network-configurations) for how to fix this.
 
     - `response_type=code`: Indicating that we are performing the three-legged OAuth flow.
     - `scope`: What data or resources Gate would like access to. This is generally something like

@@ -70,7 +70,7 @@ as described
 [here](/docs/setup/quickstart/faq/#i-want-to-expose-the-distributed-kubernetes-hosted-spinnaker-publicly)
 (for Kubernetes).
 
-* You can [set up authentication](/docs/setup/security/authentication/).
+* You can [set up authentication](/docs/setup/other_config/security/authentication/).
 
 ## Troubleshooting
 
@@ -104,11 +104,11 @@ Now that Spinnaker is deployed and capable managing your cloud provider, you
 can...
 
 * Continue with additional configuration, such as your [image
-bakery](/docs/setup/bakery/)
+bakery](/docs/setup/other_config/bakery/)
 
 * If you're a Spinnaker end user, read how to [get started using
-Spinnaker](/guides/user/get-started)
+Spinnaker](/docs/guides/user/get-started)
 
-* Visit the [Guides](/guides/) pages to learn more
+* Visit the [Guides](/docs/guides/) pages to learn more
 
 You might also want to [back up your configuration](/docs/setup/install/backups/).

@@ -6,7 +6,7 @@ description: An artifact arrives in a pipeline execution either from an external
 
 > Much of the behavior described here depends on looking up execution history in Redis. Deleting recent executions from Redis can cause unexpected behavior.
 
-Now that you have an idea of [what an artifact is](/reference/artifacts/) in Spinnaker, you need to
+Now that you have an idea of [what an artifact is](/docs/reference/artifacts/) in Spinnaker, you need to
 understand how it's used within pipelines. 
 
 Spinnaker uses an "expected artifact" to enable a stage to bind an artifact

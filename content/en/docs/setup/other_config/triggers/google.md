@@ -200,4 +200,4 @@ hal config pubsub google subscription add $PUBSUB_NAME \
     --message-format $MESSAGE_FORMAT
 ```
 
-There are more options described [here](/reference/halyard/commands/#hal-config-pubsub-google-subscription-edit) if you need more control over your configuration.
+There are more options described [here](/docs/reference/halyard/commands/#hal-config-pubsub-google-subscription-edit) if you need more control over your configuration.

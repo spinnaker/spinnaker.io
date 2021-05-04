@@ -10,7 +10,7 @@ aliases:
 
 
 
-For the Kubernetes provider, a Spinnaker [Account](/concepts/providers/#accounts)
+For the Kubernetes provider, a Spinnaker [Account](/docs/concepts/providers/#accounts)
 maps to a credential that can authenticate against your Kubernetes Cluster. It
 also includes a set of one or more [Docker
 Registry](/docs/setup/providers/docker-registry) accounts that are used as a source
@@ -183,7 +183,7 @@ run the following `hal` command to add that to your list of Kubernetes accounts:
 ## Advanced account settings
 
 If you are looking for more configurability, see the available options in the
-[Halyard Reference](/reference/halyard/commands#hal-config-provider-kubernetes-account-add).
+[Halyard Reference](/docs/reference/halyard/commands#hal-config-provider-kubernetes-account-add).
 
 ## Next steps
 

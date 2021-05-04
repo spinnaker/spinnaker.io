@@ -29,7 +29,7 @@ There are two ways you can install Halyard:
 We recommend you install Halyard on a machine with at least 12GB of RAM.
 
 > **Note**: If you need to run Halyard without access to public internet, read
-> [Deploy Custom Spinnaker Builds](/guides/operator/custom-boms/).
+> [Deploy Custom Spinnaker Builds](/docs/guides/operator/custom-boms/).
 
 ## Install on Debian/Ubuntu and macOS
 
@@ -67,7 +67,7 @@ under `/var/log/spinnaker/halyard/halyard.log`.
 1. Run `. ~/.bashrc` to enable command completion.
 
 To get help with any `hal` command, append `-h`. Also, see the [Halyard command
-Reference](/reference/halyard/commands).
+Reference](/docs/reference/halyard/commands).
 
 ### Update Halyard on Debian/Ubuntu or macOS
 
@@ -122,7 +122,7 @@ installed](https://docs.docker.com/engine/installation/).
        --name halyard --rm \
        -v ~/.hal:/home/spinnaker/.hal \
        -it \
-       gcr.io/spinnaker-marketplace/halyard:stable
+       us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
    ```
 
    This runs as a foreground process in your current shell. This is useful
@@ -150,7 +150,7 @@ installed](https://docs.docker.com/engine/installation/).
    ```
 
 To get help with any `hal` command, append `-h`. Also, see the [Halyard command
-Reference](/reference/halyard/commands).
+Reference](/docs/reference/halyard/commands).
 
 
 ### Update Halyard on Docker
@@ -158,7 +158,7 @@ Reference](/reference/halyard/commands).
 1. Fetch the latest Halyard version.
 
    ```bash
-   docker pull gcr.io/spinnaker-marketplace/halyard:stable
+   docker pull us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
    ```
 
 1. Stop the running Halyard container.
@@ -172,7 +172,7 @@ Reference](/reference/halyard/commands).
        --name halyard --rm \
        -v ~/.hal:/home/spinnaker/.hal \
        -it \
-       gcr.io/spinnaker-marketplace/halyard:stable
+       us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
    ```
 
    This re-starts the container using the updated image you got in step 1.

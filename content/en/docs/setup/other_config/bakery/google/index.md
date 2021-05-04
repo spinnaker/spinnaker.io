@@ -29,4 +29,4 @@ These images are used to dynamically populate the bake stage UI:
 ![](bake_ui_base_images.png)
 
 The options are fully-described here:
-[here](/reference/halyard/commands/#hal-config-provider-google-bakery)
+[here](/docs/reference/halyard/commands/#hal-config-provider-google-bakery)

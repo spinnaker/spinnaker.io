@@ -4,7 +4,7 @@ description: In Spinnaker, an artifact is an object that references an external 
 ---
 
 > This section refers to the legacy artifacts UI, which is scheduled for removal
-> in release 1.21. Please refer to the [standard artifacts guide](/reference/artifacts-with-artifactsrewrite)
+> in release 1.21. Please refer to the [standard artifacts guide](/docs/reference/artifacts-with-artifactsrewrite)
 > instead.
 
 
@@ -121,7 +121,7 @@ within pipelines, or produced by pipelines.
 
 ### Example for providing artifacts with `spin` CLI
 
-When you execute a pipeline with the [`spin` CLI](/guides/spin/), the `-t, --artifacts-file` option expects a valid JSON file containing a top-level `artifacts` key that maps to an array of artifact definitions as mentioned [here](https://www.spinnaker.io/reference/artifacts/in-pipelines/#artifacts-in-trigger-payloads). For example, you can call...
+When you execute a pipeline with the [`spin` CLI](/docs/guides/spin/), the `-t, --artifacts-file` option expects a valid JSON file containing a top-level `artifacts` key that maps to an array of artifact definitions as mentioned [here](https://www.spinnaker.io/reference/artifacts/in-pipelines/#artifacts-in-trigger-payloads). For example, you can call...
 
 ```
 spin pipeline execute --application ${APPLICATION} --name ${PIPELINE} --parameter-file ${PARAMETER_FILE_PATH} --artifacts-file ${ARTIFACTS_FILE_PATH}

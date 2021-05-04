@@ -57,7 +57,7 @@ hal config storage azs edit \
   --storage-account-key $STORAGE_ACCOUNT_KEY
 ```
 
-There are more options described [here](/reference/halyard/commands#hal-config-storage-azs-edit) if you need more control over your configuration.
+There are more options described [here](/docs/reference/halyard/commands#hal-config-storage-azs-edit) if you need more control over your configuration.
 
 Finally, set the storage source to AZS:
 

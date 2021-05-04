@@ -39,5 +39,5 @@ account with the needed credentials to read your artifact.
    ```
 
 There are more options described
-[here](/reference/halyard/commands#hal-config-artifact-bitbucket-account-edit)
+[here](/docs/reference/halyard/commands#hal-config-artifact-bitbucket-account-edit)
 if you need more control over your configuration.

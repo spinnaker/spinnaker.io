@@ -62,7 +62,7 @@ The following MySQL configuration parameter may improve performance for large da
 
 ## Configure Clouddriver to use MySQL
 
-The following yaml-based parameters provide a Clouddriver configuration that entirely uses MySQL in place of Redis. [Halyard](/reference/halyard/) does not yet natively support Clouddriver SQL configuration. Halyard users can provide these as overrides via a `clouddriver-local.yml` file.
+The following yaml-based parameters provide a Clouddriver configuration that entirely uses MySQL in place of Redis. [Halyard](/docs/reference/halyard/) does not yet natively support Clouddriver SQL configuration. Halyard users can provide these as overrides via a `clouddriver-local.yml` file.
 
 ```yaml
 sql:

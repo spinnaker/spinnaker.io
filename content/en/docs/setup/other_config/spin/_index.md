@@ -5,7 +5,7 @@ weight: 1
 description: In addition to the UI and API, you can use the spin CLI to manage applications and pipelines 
 ---
 
-For more information, see the [spin CLI Guide](/guides/spin/)
+For more information, see the [spin CLI Guide](/docs/guides/spin/)
 
 ## Install `spin`
 
@@ -95,7 +95,7 @@ auth:
     <key>
 ```
 
-Follow the [ssl](https://www.spinnaker.io/setup/security/ssl/) and [x509](https://www.spinnaker.io/setup/security/authentication/x509/)
+Follow the [ssl](https://www.spinnaker.io/setup/other_config/security/ssl/) and [x509](https://www.spinnaker.io/setup/other_config/security/authentication/x509/)
 guides to generate the X.509 certificate and key files. Refer to [the example config](https://github.com/spinnaker/spin/blob/master/config/example.yaml)
 and the [README](https://github.com/spinnaker/spin/blob/master/README.md) for more information about X.509 in `spin`.
 
@@ -120,7 +120,7 @@ auth:
     - scope2
 ```
 
-Read [the OAuth setup instructions](https://www.spinnaker.io/setup/security/authentication/oauth/)
+Read [the OAuth setup instructions](https://www.spinnaker.io/setup/other_config/security/authentication/oauth/)
 to see examples for acquiring a clientId/clientSecret from your provider.
 
 This OAuth2 configuration method needs to be initialized once to authenticate with the provider before

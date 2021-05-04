@@ -11,7 +11,7 @@ is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/r
 
 ## Accounts
 
-A Spinnaker [Account](/concepts/providers/#accounts) maps to a
+A Spinnaker [Account](/docs/concepts/providers/#accounts) maps to a
 credential that can authenticate against your Kubernetes Cluster.
 
 ## Prerequisites
@@ -117,7 +117,7 @@ rules:
   resources: ["controllerrevisions", "statefulsets"]
   verbs: ["list"]
 - apiGroups: ["extensions", "apps"]
-  resources: ["deployments", "replicasets", "ingresses"]
+  resources: ["deployments", "deployments/scale", "replicasets", "ingresses"]
   verbs: ["create", "delete", "deletecollection", "get", "list", "patch", "update", "watch"]
 # These permissions are necessary for halyard to operate. We use this role also to deploy Spinnaker itself.
 - apiGroups: [""]
@@ -207,10 +207,10 @@ hal config provider kubernetes account add my-k8s-account \
     --context $CONTEXT
 ```
 
-Finally, enable [artifact support](/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+Finally, enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
 
 ## Advanced account settings
 
 If you're looking for more configurability, please see the other options listed
 in the [Halyard
-Reference](/reference/halyard/commands#hal-config-provider-kubernetes-account-add).
+Reference](/docs/reference/halyard/commands#hal-config-provider-kubernetes-account-add).

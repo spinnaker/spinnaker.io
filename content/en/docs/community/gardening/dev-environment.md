@@ -38,12 +38,12 @@ _Learn how to install Minnaker, set up remote SSH, and connect to the local VM i
 #### __Next steps IF your Minnaker instance is running in the cloud__
 
 5. [Install NGROK](https://ngrok.com/download), a tunneling service. Run it to create a tunnel from the service to the Spinnaker instance:
-   - Consult the [port mappings reference](/reference/architecture/#port-mappings) to determine which ports to forward. Create tunnels for the service(s) you're running locally.
+   - Consult the [port mappings reference](/docs/reference/architecture/#port-mappings) to determine which ports to forward. Create tunnels for the service(s) you're running locally.
    - Execute `ngrok http <service port number>` e.g. `ngrok http 8089` for echo.
    - Copy the URL in the `Forwarding` output lines.
 6. Configure your Spinnaker instance to use the forwarded NGROK address(es).
    - Create a `.hal/default/profiles/spinnaker-local.yml` file.
-   - Add service settings, or copy settings from `.hal/default/staging/spinnaker.yml` and delete unnecessary services. Read more on [custom service settings](/reference/halyard/custom/#custom-service-settings).
+   - Add service settings, or copy settings from `.hal/default/staging/spinnaker.yml` and delete unnecessary services. Read more on [custom service settings](/docs/reference/halyard/custom/#custom-service-settings).
    - Change the `baseURL` for the service to the copied NGROK endpoint.
 7. Configure the local service to communicate with the Spinnaker instance.
    - Copy the kubeconfig from Spinnaker `/etc/spinnaker/.kube/config` to your local machine (e.g. `/tmp/kubeconfig-minnaker`)
@@ -97,9 +97,9 @@ _Learn how to install Minnaker, set up remote SSH, and connect to the local VM i
     ```
 6. Configure your Minnaker instance to forward ports to your local machine (gateway) via spinnaker-local.yml configuration.
    - Create a `.hal/default/profiles/spinnaker-local.yml` file.
-   - Add service settings, or copy settings from `.hal/default/staging/spinnaker.yml` and delete unnecessary services. Read more on [custom service settings](/reference/halyard/custom/#custom-service-settings).
+   - Add service settings, or copy settings from `.hal/default/staging/spinnaker.yml` and delete unnecessary services. Read more on [custom service settings](/docs/reference/halyard/custom/#custom-service-settings).
    - Change the `baseURL` for the service to the default gateway IP Address including the port, e.g. `http://192.168.123.1:8083` for orca.
-   - Consult the [port mappings reference](/reference/architecture/#port-mappings) to determine which ports to forward.
+   - Consult the [port mappings reference](/docs/reference/architecture/#port-mappings) to determine which ports to forward.
 7. Configure the local service to communicate with the Spinnaker instance.
    - The `kubeconfig` you just created does part of the configuration.
    - Use `kubectl port-forward` to forward the services required. For example, if running Echo locally, you'll need it to communicate with Orca and Front50:
@@ -120,7 +120,7 @@ Follow the [Getting Set Up](https://www.spinnaker.io/guides/developer/getting-se
 _The instructions for this method are in beta. Pull requests welcome!_
 
 1. Install Spinnaker to a Kubernetes cluster. There are several ways to do this:
-   - [Install Halyard in Docker](/setup/install/halyard/#install-halyard-on-docker)
+   - [Install Halyard in Docker](/docs/setup/install/halyard/#install-halyard-on-docker)
      - In your `docker run` command, mount the `.kube` directory to the container to allow you to modify `.kube` config files on your local machine and persist the changes inside the container:
        ```
        docker run -p 8084:8084 -p 9000:9000 \
@@ -128,7 +128,7 @@ _The instructions for this method are in beta. Pull requests welcome!_
          -v ~/.hal:/home/spinnaker/.hal \
          -v ~/.kube:/home/spinnaker/.kube \
          -it \
-         gcr.io/spinnaker-marketplace/halyard:stable
+         us-docker.pkg.dev/spinnaker-community/docker/halyard:stable
        ```
    - Use the [Spinnaker for Google Cloud Engine](https://cloud.google.com/docs/ci-cd/spinnaker/spinnaker-for-gcp) solution, which installs Spinnaker to Google Kubernetes Engine.
    - Consult the installation guide for [Amazon Kubernetes Service](https://aws.amazon.com/blogs/opensource/continuous-delivery-spinnaker-amazon-eks/)

@@ -2,9 +2,5 @@
 title: "Set Up Triggers"
 linkTitle: "Set Up Triggers"
 weight: 1
-description: 
+description: "You can configure Spinnaker to automatically perform actions based on certain triggers."
 ---
-
-* [Google Pub/Sub](/docs/setup/triggers/google/)
-* [Amazon Pub/Sub](/docs/setup/triggers/amazon/)
-* [GitHub Webhook](/docs/setup/triggers/github/)

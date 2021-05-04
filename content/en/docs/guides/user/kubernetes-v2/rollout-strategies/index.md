@@ -6,7 +6,7 @@ description: >
 ---
 
 This guide describes how to take advantage of the
-[Kubernetes](/setup/install/providers/kubernetes-v2) provider's first-class support
+[Kubernetes](/docs/setup/install/providers/kubernetes-v2) provider's first-class support
 for common rollout strategies, including dark, highlander, and red/black rollouts.
 
 > **Note:** The implementation of these rollout strategies currently leverages Spinnaker's existing [traffic management strategy](/docs/guides/user/kubernetes-v2/traffic-management/) and so is [valid for ReplicaSets only](/docs/guides/user/kubernetes-v2/traffic-management/#you-must-use-replica-sets).

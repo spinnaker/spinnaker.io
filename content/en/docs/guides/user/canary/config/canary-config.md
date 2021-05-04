@@ -22,7 +22,7 @@ application set up to support canary, you create one or more configs.
 
 > Note: By default, all the canary configs you create are visible to all
 applications. But you can [change
-that](/setup/canary/#specify-the-scope-of-canary-configs).
+that](/docs/setup/other_config/canary/#specify-the-scope-of-canary-configs).
 
 The configuration you create here is available to canary stages in pipelines,
 but those [stages are defined separately](/docs/guides/user/canary/stage/).
@@ -34,9 +34,9 @@ By default, canary is not enabled for new applications. Several things need to
 happen before you see the __Canary__ tab in Deck:
 
 * The person or people setting up Spinnaker for you must [set up
-Canary](/docs/setup/canary/).
+Canary](/docs/setup/other_config/canary/).
 
-  This includes [specifying](/docs/setup/canary/#specify-the-scope-of-canary-configs)  whether all canary configs are available to all applications (the default) or
+  This includes [specifying](/docs/setup/other_config/canary/#specify-the-scope-of-canary-configs)  whether all canary configs are available to all applications (the default) or
   each application can have one or more configurations that are visible to that
   application only.
 

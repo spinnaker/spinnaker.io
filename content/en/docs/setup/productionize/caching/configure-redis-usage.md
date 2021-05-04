@@ -37,7 +37,7 @@ redis.poll.timeoutSeconds:
 ```
 
 > `$DEPLOYMENT` is typically `default`. See [the
-> documentation](/reference/halyard#deployments) for more details.
+> documentation](/docs/reference/halyard#deployments) for more details.
 
 ## Configure pipeline cleanup
 
@@ -59,4 +59,4 @@ tasks:
 ```
 
 > `$DEPLOYMENT` is typically `default`. See [the
-> documentation](/reference/halyard#deployments) for more details.
+> documentation](/docs/reference/halyard#deployments) for more details.
