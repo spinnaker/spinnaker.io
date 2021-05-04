@@ -1,7 +1,7 @@
 ---
 title: "Configure Artifacts"
 linkTitle: "Configure Artifacts"
-weight: 5
+weight: 1
 description: Artifacts are remote, deployable resources in Spinnaker.
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Monitoring"
 linkTitle: "Monitoring"
-weight: 1
+weight: 30
 description: >
   Each Spinnaker microservice is instrumented with numerous metrics exposed via a built in endpoint.
 ---

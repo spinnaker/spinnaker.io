@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes"
-linkTitle: "Kubernetes"
+title: "Kubernetes (Legacy)"
+linkTitle: "Kubernetes (Legacy)"
 description: Learn how Spinnaker concepts map to Kubernetes.
 ---
 

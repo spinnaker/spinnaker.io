@@ -1,7 +1,7 @@
 ---
 title: "Security"
 linkTitle: "Security"
-weight: 8
+weight: 10
 description: >
   Spinnaker has multiple options for both authentication and authorization
 ---

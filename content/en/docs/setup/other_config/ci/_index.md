@@ -1,7 +1,7 @@
 ---
 title: "CI"
 linkTitle: "CI"
-weight: 7
+weight: 25
 description: Spinnaker can listen to events and collect artifacts produced by external Continuous Integration (CI) systems.
 ---
 
