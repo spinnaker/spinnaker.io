@@ -3,7 +3,7 @@ title: "Using Pipeline Templates"
 linkTitle: "Using Pipeline Templates"
 weight: 15
 description: >
-  Standardize and distribute reusable pipelines across your team or among multiple teams
+  Standardize and distribute reusable pipelines across your team or among multiple teams.
 ---
 
 You can share these templates with your teams within a single application,

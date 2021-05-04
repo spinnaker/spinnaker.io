@@ -2,7 +2,7 @@
 title: "Parameterize Kubernetes Manifests"
 linkTitle: "Parameterize K8s Manifests"
 description: >
-  Inject parameters into your Kubernetes manifest as it is deployed
+  Inject parameters into your Kubernetes manifest as it is deployed.
 ---
 
 Spinnaker can inject context from the currently executing pipeline into your
@@ -16,7 +16,7 @@ pipeline parameter to specify the target namespace.
 
 ## Configure your pipeline parameters
 
-First we will register a pipeline parameter in the "configuration" tab of the
+First, register a pipeline parameter in the "configuration" tab of the
 pipeline editor (only the __Name__ is required):
 
 {{< figure src="./parameter.png" >}}

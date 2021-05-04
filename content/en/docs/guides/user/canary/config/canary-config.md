@@ -3,7 +3,7 @@ title: "Configure a canary"
 linkTitle: "Configure a canary"
 weight: 2
 description: >
-  Create and edit a canary.
+  Create and edit canary configuration for an application.
 ---
 
 

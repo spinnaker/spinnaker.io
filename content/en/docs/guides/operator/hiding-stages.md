@@ -3,7 +3,7 @@ title: "Hiding Stages"
 linkTitle: "Hiding Stages"
 weight: 2
 description: >
-  Stages can be hidden from end users using a property called hiddenStages in a custom profile for Deck.
+  Stages can be hidden from end users using a property called `hiddenStages` in a custom profile for Deck.
 ---
 
 If you're using Spinnaker 1.20 or later, stages that are not

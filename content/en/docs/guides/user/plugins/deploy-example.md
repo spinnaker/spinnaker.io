@@ -1,22 +1,24 @@
 ---
-title:  "RandomWait Stage Plugin Deployment Walkthrough"
-linkTitle: "Deployment Walkthrough"
+title:  "pf4jStage Plugin Deployment Example"
+linkTitle: "Plugin Deployment Example"
 weight: 10
 description: >
-  Add, configure, deploy, and troubleshoot the RandomWait Stage plugin 
+  Add, configure, deploy, and troubleshoot the RandomWait Stage plugin.
 ---
 
 {{< alpha version="1.20.6" >}}
 
+_Note: Spinnaker 1.20.6 and 1.21+ support plugins with both server and frontend components. Spinnaker 1.19.x does not support frontend plugins due to a bug in Deck._
+
 In this guide, you deploy the `pf4jStagePlugin` plugin from the [spinnaker-plugin-examples](https://github.com/spinnaker-plugin-examples/examplePluginRepository) repository.
 
-By implementing Orca's SimpleStage PF4J extension point, the `pf4jStagePlugin` creates a custom pipeline stage that waits a random number of seconds before signaling success. This plugin consists of a `random-wait-orca` Kotlin server component and a `random-wait-deck` React UI component that uses the rollup.js plugin library.
+ By implementing Orca's SimpleStage PF4J extension point, the `pf4jStagePlugin` creates a custom pipeline stage that waits a random number of seconds before signaling success. This plugin consists of a `random-wait-orca` Kotlin server component and a `random-wait-deck` React UI component that uses the rollup.js plugin library.
 
 ## Requirements
 
 This guide was tested with the following software versions:
 
-* Spinnaker 1.20.6 and 1.21.0
+* Spinnaker 1.20.6 and 1.21+
 * Halyard 1.36
 * pf4jStagePlugin 1.1.14
 
@@ -62,11 +64,13 @@ spinnaker:
             enabled: true
             config:
               defaultMaxWaitTime: 60
-    repositories:
-      examplePluginsRepo:
-        id: examplePluginsRepo
-        url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
+     repositories:
+       examplePluginsRepo:
+         url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
 ```
+
+>Note: As of Spinnaker 1.23.0, listing extensions has been deprecated and configuration has been simplified. Plugin extension configurations have been moved and are now nested under the plugin itself. 
+> See an example of the changes [here](../#plugin-v2-configuration-changes)
 
 
 ## Add `deck-proxy` to gate-local.yml
@@ -84,9 +88,9 @@ spinnaker:
          Armory.RandomWaitPlugin:
            enabled: true
            version: 1.1.14
-       repositories:
-         examplePluginsRepo:
-           url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
+     repositories:
+       examplePluginsRepo:
+         url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
 ```
 
 The plugin and repository information is a subset of the entries in your Halconfig.
@@ -101,10 +105,9 @@ hal deploy apply
 
 The RandomWait stage appears in the **Type** select list when you create a new Pipeline stage.
 
-{% include image-caption.html url="/assets/images/guides/user/plugins/deploy-example/randomWaitTypeUI.png" caption="Random Wait stage in Type select list" %}
+{{< figure src="./randomWaitTypeUI.png" caption="Random Wait stage in Type select list" >}}
 
-{% include image-caption.html url="/assets/images/guides/user/plugins/deploy-example/randomWaitStageUI.png" caption="Random Wait stage after it has been selected and the configuration panel is visible." %}
-
+{{< figure src="./randomWaitStageUI.png" caption="Random Wait stage after it has been selected and the configuration panel is visible." >}}
 
 ## Troubleshooting
 

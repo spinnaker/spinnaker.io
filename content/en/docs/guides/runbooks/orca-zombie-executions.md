@@ -2,7 +2,7 @@
 title: "Orca: Zombie Executions"
 linkTitle: "Orca: Zombie Executions"
 weight: 2
-description: "A zombie execution is one that has a status in the database of RUNNING but there are no messages in Orca's work queue or unacked set—the pipeline or task is not doing anything."
+description: "A zombie execution is one whose status is RUNNING, but there are no messages in Orca's work queue or unacked set."
 ---
 
 Aliases: `orphaned execution`

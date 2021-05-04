@@ -3,7 +3,7 @@ title: "Resource Status"
 linkTitle: "Resource Status"
 weight: 10
 description:
-  Status reference
+  Learn how to find resources' status.
 ---
 
 >If you're not sure what a managed resource is, check out our [Overview of Managed Delivery](/docs/guides/user/managed-delivery/managed-deliver-overview) first.

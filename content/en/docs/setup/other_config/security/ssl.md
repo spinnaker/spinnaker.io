@@ -179,6 +179,7 @@ Deck's eventual fully-qualified domain name (FQDN) as the Common Name (CN).
 
     ```bash
     openssl x509 \
+      -sha 256 \
       -req \
       -days 365 \
       -in deck.csr \
@@ -219,6 +220,7 @@ eventual fully-qualified domain name (FQDN) as the Common Name (CN).
 
     ```bash
     openssl x509 \
+      -sha 256 \
       -req \
       -days 365 \
       -in gate.csr \

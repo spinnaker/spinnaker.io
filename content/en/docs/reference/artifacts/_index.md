@@ -1,106 +1,60 @@
 ---
-title: "(Legacy) About Spinnaker Artifacts"
-description: In Spinnaker, an artifact is an object that references an external resource. 
+title: "What is a Spinnaker Artifact?"
+linkTitle: "Spinnaker Artifacts"
+description: A Spinnaker artifact is a named JSON object that refers to an external resource.
+aliases:
+  - /reference/artifacts-with-artifactsrewrite/
 ---
 
-> This section refers to the legacy artifacts UI, which is scheduled for removal
-> in release 1.21. Please refer to the [standard artifacts guide](/docs/reference/artifacts-with-artifactsrewrite)
-> instead.
+> The Legacy Artifacts UI has been removed. These pages refer to the newer Artifacts UI. For information about the legacy Artifacts UI, see this [page](/docs/reference/artifacts-legacy/).
 
+A Spinnaker artifact is a named JSON object that refers to an external resource.
 
-
-Artifacts can be...
+Spinnaker supports a wide range of providers. An artifact can reference any of many different external resources, such as&#8230;
 
 * a Docker image
 * a file stored in GitHub
 * an Amazon Machine Image (AMI)
-* a binary blob in S3, GCS, etc.
+* a binary blob in Amazon S3, Google Cloud Storage, etc.
 
-Any of these can be fetched using a [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier), and can be
-used within a Spinnaker pipeline.
+Each of these could be fetched using a URI and used within a pipeline, but a URI alone can omit other important information about the resource. You may wish to also fetch provenance information such as the commit that triggered the resource's build, or to store information about the account that has permission to download the resource.
 
-However, a URI alone isn't always enough. Take the following examples:
+To incorporate metadata such as this along with the resource's URI, Spinnaker artifacts follow a particular specification that includes the human-readable name of the artifact, its URI, and any other applicable metadata. This is called "artifact decoration". Every Spinnaker artifact--whether supplied to a pipeline, accessed within a pipeline, or produced by a pipeline--follows this specification.
 
-* You have a “Bake Image” stage that defines which packages are to be consumed,
-  which images are deployed into each environment, and which configuration files are mounted.
-  If each of these artifact types is just a URI, you have to write (and maintain) RegEx (or similar)
-  against URIs to match artifacts to stages.
+Keep in mind that the artifact in Spinnaker is a _reference_ to an external resource--it is not the resource itself. The resource itself could be of any type supported by Spinnaker; the artifact is the named JSON object that contains information about the resource.
 
-* Your build system produces provenance information about your Docker images
-  (for example, which commit triggered the build, which build steps were used).
-  This isn’t easy to store in or retrieve from the Docker image, but you want to trigger the
-  pipeline on the arrival of a new image. If all you capture is the URI
-  (for example, `gcr.io/your-project/your-image:v1.0.0`) you lose that provenance information.
+## Enabling artifact support
 
-* Your Spinnaker instance is used by many teams in your organization,
-  and your authorization policies isolate teams'
-  infrastructure and pipelines from each other. You probably want your
-  packages, configs, and images published and accessible only by the teams that need
-  them. You need a way to annotate a URI with an account that can fetch
-  it based on a user's permissions.
+If using a version of Spinnaker prior to 1.20, enable support for the standard artifacts UI:
 
-To address situations like these, Spinnaker includes a format for supplying
-URIs alongside pertinent metadata. We call this "artifact decoration".
-
-## Decorate your artifacts
-
-In Spinnaker, artifacts must match a specification. This specification is
-consistent among all artifacts, whether they're supplied to pipelines, accessed
-within pipelines, or produced by pipelines.
-
-> Every time we refer to an _Artifact_, we mean a JSON payload matching this
-> specification, not the actual artifact contents. The key distinction is that
-> the artifact is a reference or a pointer to a resource, not the resource
-> itself.
-
-## Format
-
-```js
-{
-  "type":       // How this artifact is classified. Allows for easy distinction
-                // between docker images and debian packages, for example.
-
-  "reference":  // The URI.
-
-  "artifactAccount": // The account configured within Spinnaker that has
-                // permission to download this resource.
-
-  "name":       // (Optional) A human-readable name that makes matching
-                // artifacts simpler.
-
-  "version":    // (Optional) The version of this artifact. By convention, the
-                // "version" should be compared against other artifacts with
-                // the same "type" and "name".
-
-  "provenance": // (Optional) A link to whatever produced this artifact. This
-                // is used for deep-linking into other systems from Spinnaker.
-
-  "metadata":   // (Optional) Arbitrary k/v metadata useful for scripting
-                // within stages.
-
-  "location":   // (Optional) The region/zone/namespace this artifact can be
-                // found in. This doesn't add information to the URI, but makes
-                // multi-regional deployments easier to configure.
-
-  "uuid":       // (Assigned by Spinnaker) Used for tracing artifacts within
-                // Spinnaker.
-}
+```bash
+hal config features edit --artifacts-rewrite true
 ```
 
-## Examples
+If using Spinnaker 1.20 or later, support for the standard artifacts UI is enabled by default.
 
-```js
-// A docker image
-{
-  "type": "docker/image",
-  "reference": "gcr.io/project/image@sha256:29fee8e284",
-  "name": "gcr.io/project/image",
-  "version": "sha256:29fee8e284"
-}
+## Transitioning from the legacy artifacts UI
+
+If you were using Spinnaker 1.19 or earlier with the legacy artifacts UI enabled,
+you will notice several changes upon upgrading to 1.20. For example, there is no
+longer a separate Expected Artifacts section when configuring a pipeline.
+Instead, you can add, edit, and remove expected artifacts from the Trigger
+Constraints section of each trigger. If an artifact is not associated with a
+trigger, it is no longer editable from the pipeline configuration view, and we
+recommend defining it inline in the stage that consumes it instead.
+
+For the 1.20 release only, you can add the following to your `settings-local.js`
+to revert to the legacy artifacts UI:
+
+```
+window.spinnakerSettings.feature.legacyArtifactsEnabled = true;
 ```
 
+## The artifact format
+
+As an example, an object stored in Google Cloud Storage (GCS) might be accessed using the following Spinnaker artifact:
+
 ```js
-// A GCS object
 {
   "type": "gcs/object",
   "reference": "gs://bucket/file.json#135028134000",
@@ -110,38 +64,88 @@ within pipelines, or produced by pipelines.
 }
 ```
 
-```js
-// An S3 object
-{
-  "type": "s3/object",
-  "name": "s3://bucket/file.json",
-  "location": "us-east-1"
-}
-```
-
-### Example for providing artifacts with `spin` CLI
-
-When you execute a pipeline with the [`spin` CLI](/docs/guides/spin/), the `-t, --artifacts-file` option expects a valid JSON file containing a top-level `artifacts` key that maps to an array of artifact definitions as mentioned [here](https://www.spinnaker.io/reference/artifacts/in-pipelines/#artifacts-in-trigger-payloads). For example, you can call...
-
-```
-spin pipeline execute --application ${APPLICATION} --name ${PIPELINE} --parameter-file ${PARAMETER_FILE_PATH} --artifacts-file ${ARTIFACTS_FILE_PATH}
-```
-
-...with the contents of the file at `${ARTIFACTS_FILE_PATH}` as follows:
+As another example, a Docker image might be accessed using the following artifact:
 
 ```js
 {
-  "artifacts" : [
-    {
-      "type": "s3/object",
-      "name": "s3://bucket/file.json",
-      "location": "us-east-1"
-    },
-    {
-      "type": "s3/object",
-      "name": "s3://bucket/file2.json",
-      "location": "us-east-1"
-    }
-  ]
+  "type": "docker/image",
+  "reference": "gcr.io/project/image@sha256:29fee8e284",
+  "name": "gcr.io/project/image",
+  "version": "sha256:29fee8e284"
 }
 ```
+
+The fields that make up a Spinnaker artifact are described below.
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:12%">Field</th>
+      <th style="width:69%">Explanation</th>
+      <th style="width:19%">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>type</code></td>
+      <td>How the external resource is classified. (This allows for easy distinction between Docker images and Debian packages, for example).</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>reference</code></td>
+      <td>The URI used to fetch the resource.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>artifactAccount</code></td>
+      <td>The Spinnaker artifact account that has permission to fetch the resource.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>version</code></td>
+      <td>The version of the resource. (By convention, <code>version</code> should only be compared between artifacts of the same <code>type</code> and <code>name</code>.)</td>
+      <td>Optional.</td>
+    </tr>
+    <tr>
+      <td><code>provenance</code></td>
+      <td>The relevant URI from the system that produced the resource. (This is used for deep-linking into other systems from Spinnaker.)</td>
+      <td>Optional.</td>
+    </tr>
+    <tr>
+      <td><code>metadata</code></td>
+      <td>Arbitrary key / value metadata pertaining to the resource. (This can be useful for scripting within pipeline stages.)</td>
+      <td>Optional.</td>
+    </tr>
+    <tr>
+      <td><code>location</code></td>
+      <td>The region, zone, or namespace of the resource. (This does not add information to the URI, but makes multi-regional deployments easier to configure.)</td>
+      <td>Optional.</td>
+    </tr>
+    <tr>
+      <td><code>uuid</code></td>
+      <td>Used for tracing the artifact within Spinnaker.</td>
+      <td>Assigned by Spinnaker.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Expected artifacts
+
+Within a pipeline trigger or stage, you can declare that the trigger or stage expects a particular artifact to be available. This artifact is called an _expected artifact_. Spinnaker compares an incoming artifact (for example, a manifest file stored in GitHub) to the expected artifact (for example, a manifest with the file path `path/to/my/manifest.yml`); if the incoming artifact matches the specified expected artifact, the incoming artifact is _bound_ to that expected artifact and used by the trigger or stage.
+
+{%
+  include
+  figure
+  image_path="./expected-artifact-github-file.png"
+  caption="Configuring GitHub file fields in a pipeline trigger's Expected
+           Artifact settings. The default Display Name value is
+           auto-generated."
+%}
+
+### Match artifact
+
+When declaring an expected artifact for a trigger, you can use fields under **Match Artifact** to specify metadata against which to compare the incoming artifact. This is how you can distinguish between similar artifacts coming from the same artifact account (for example, multiple manifest files stored in a single Git repository) and specify that the trigger should begin pipeline execution only if the incoming artifact matches the parameters that you provided.
+
+### Prior execution and default artifact
+
+In the fields under **If Missing**, you can provide fallback behavior for the expected artifact in case the trigger doesn't find the desired artifact. If you enable the **Use prior execution** checkbox, Spinnaker will fall back to the artifact used in the last execution. If you enable the **Use default artifact** checkbox, Spinnaker will use a default artifact, which you can specify in the form (this allows you to provide fallback behavior for the first time a trigger is used, when there is no previous execution yet).

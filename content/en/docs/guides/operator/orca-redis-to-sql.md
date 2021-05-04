@@ -3,7 +3,7 @@ title: "Orca: Redis to SQL Migration"
 linkTitle: "Orca: Redis to SQL"
 weight: 2
 description: >
-  Migrate Orca from Redis to SQL for resilience
+  Migrate Orca from Redis to SQL, for resilience.
 ---
 
 If you are not migrating an existing Orca deployment, refer to [Orca SQL Setup](/docs/setup/productionize/persistence/orca-sql/) instead.

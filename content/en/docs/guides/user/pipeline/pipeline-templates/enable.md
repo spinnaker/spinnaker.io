@@ -1,7 +1,7 @@
 ---
 title:  "Enable Pipeline Templates"
 weight: 5
-description: "Enable the pipeline templates feature in Spinnaker"
+description: "Enable the pipeline templates feature in Spinnaker."
 ---
 
 ```

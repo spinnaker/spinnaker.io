@@ -61,7 +61,7 @@ spring:
           port: 8200
           backend: secret
           kvVersion: 2
-          default-key: clouddriver
+          defaultKey: clouddriver
           token: [vault access token]
 ```
 

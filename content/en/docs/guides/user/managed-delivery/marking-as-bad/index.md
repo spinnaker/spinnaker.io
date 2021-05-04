@@ -3,7 +3,7 @@ title: "Mark an Artifact as Bad"
 linkTitle: "Mark an Artifact as Bad"
 weight: 10
 description: >
-  Mark an artifact "bad" so it doesn't get deployed
+  Mark an artifact "bad" so it doesn't get deployed.
 ---
 
 You can mark a version of an artifact in an environment as bad to ensure that that version never gets deployed to the environment.

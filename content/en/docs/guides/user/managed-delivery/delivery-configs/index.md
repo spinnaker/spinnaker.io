@@ -3,7 +3,7 @@ title: "Delivery Configs"
 linkTitle: "Delivery Configs"
 weight: 10
 description: >
-  Group resources together in a single file
+  Group resources together in a single file.
 ---
 
 >**Prerequisite:** read and complete the [Getting Started](/docs/guides/user/managed-delivery/getting-started/) document!

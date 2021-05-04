@@ -17,7 +17,7 @@ started.
 
 ### Operators (managing Spinnaker)
 
-* If you want to install Spinnaker, [instructions are here](/docs/setup/install/).
+* If you want to install Spinnaker, [see the instructions here](/docs/setup/install/).
 
 * If you want to find out more about tuning and maintaining Spinnaker, here are
 some things to check out:
@@ -27,14 +27,14 @@ some things to check out:
 
 ### Users (deploying with Spinnaker)
 
-* If you just want to try out Spinnaker, here are some
+* If you want to try out Spinnaker, here are some
 [quickstarts](/docs/setup/quickstart/).
 
 * If Spinnaker is already installed in your organization, and you want to practice it
-using some guided tutorials, [here are some
+using some guided tutorials, [here are 
 codelabs](/docs/guides/tutorials/codelabs/).
 
-* If you want a very basic overview of how to use Spinnaker, the high-level
+* If you want a basic overview of how to use Spinnaker, the high-level
 process is described below.
 
 ## Using Spinnaker: the high-level process
@@ -43,7 +43,7 @@ process is described below.
 
    Typically, you'll have one application per microservice.
 
-   Note that your application configuration affects what you can do with
+   > **Note**: Your application configuration affects what you can do with
    Spinnaker&mdash;you can enable or disable some Spinnaker features.
 
 1. Define the [infrastructure](/docs/concepts/) the service will run on
@@ -51,23 +51,23 @@ process is described below.
    You define infrastructure for each application. Your pipelines deploy
    services to the server groups you define.
 
-   > Note: this step is not a prerequisite for creating pipelines. In fact, you
+   > **Note**: This step is not a prerequisite for creating pipelines. In fact, you
    > can use pipelines to create infrastructure.
 
 1. [Create a pipeline](/docs/guides/user/pipeline/managing-pipelines/)
 
-   In fact, create all the pipelines you need to deploy the service or services
+   Create all the pipelines you need to deploy the service or services
    covered by the application, in whatever ways you want to deploy.
 
-   Learn more [here in the Managing pipelines
+   Learn more in the [Managing pipelines
    guide](/docs/guides/user/pipeline/managing-pipelines/).  
 
-1. [Run your pipeline](/docs/guides/user/pipeline/triggers/) to deploy your service
+2. [Run your pipeline](/docs/guides/user/pipeline/triggers/) to deploy your service
 
    You can run a pipeline manually, but most pipelines are [triggered
    automatically](/docs/guides/user/pipeline/triggers/).
 
-1. For practice, and to see some sample deployment scenarios, check out our
+3. For practice, and to see some sample deployment scenarios, check out our
 [codelabs](/docs/guides/tutorials/codelabs/).
 
 <!--

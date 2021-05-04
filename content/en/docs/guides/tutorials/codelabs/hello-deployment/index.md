@@ -2,7 +2,7 @@
 title: "An Introduction to Spinnaker: Hello Deployment"
 linkTitle: "Intro: Hello Deployment"
 description: >
-  Learn the workflow for setting up an example application deployment with Spinnaker.
+  Set up an example application deployment with Spinnaker.
 ---
 
 

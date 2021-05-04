@@ -5,8 +5,6 @@ description: "This shows how to configure a Git repo artifact account so that Sp
 
 ## Overview
 
-
-
 Each time a pipeline needs a Git repo artifact during execution, Clouddriver clones the entire repo, sends the repo artifact to the pipeline, and then deletes the cloned repo immediately.
 
 Spinnaker 1.26+ includes a feature for caching a Git repo artifact. Clouddriver clones the Git repo the first time a pipeline needs it and then caches the repo for a configured retention time. Each subsequent time the pipeline needs to use that Git repo artifact, Clouddriver does a `git pull` to fetch updates rather than cloning the entire repo again. This behavior is especially useful if you have a large repo. Clouddriver deletes the cloned Git repo when the configured retention time expires.  **This is an opt-in feature that is disabled by default.** See the [Enable `git pull` support](#enable-git-pull-support) section for details.

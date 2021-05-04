@@ -1,7 +1,7 @@
 ---
 title:  "Videos"
 description: >
-  An extensive collection of demonstration videos, covering many facets of Spinnaker use.
+  An extensive collection of demonstration videos, covering many facets of Spinnaker.
 ---
 
 Subscribe to the [Spinnaker YouTube

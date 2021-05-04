@@ -1,8 +1,8 @@
-i---
+---
 title: "Deploy GCS Pub/Sub Artifacts to Google App Engine"
-linkTitle: "Deploy GCS Pub/Sub Artifacts to GAE"
+linkTitle: "Deploy GCS Pub/Sub Artifacts to App Engine"
 description: >
-  Trigger a pipeline from a Pub/Sub message from GCS upon upload of a tarball to GAE.
+  Trigger a pipeline from a Pub/Sub message from GCS upon upload of a tarball to App Engine.
 ---
 
 The goal of this codelab is to trigger a Spinnaker pipeline with a Pub/Sub message from GCS upon upload of a tarball.

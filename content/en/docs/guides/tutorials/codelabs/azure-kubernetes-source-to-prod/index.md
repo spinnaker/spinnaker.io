@@ -2,7 +2,7 @@
 title: "Continuous Delivery to Kubernetes on Azure"
 linkTitle: "Continuous Delivery to Kubernetes on Azure"
 description: >
-  Deploy a Dev Ops VM with a sample source-to-prod pipeline targeting Kubernetes on Azure.
+  Deploy a DevOps VM with a sample source-to-prod pipeline targeting Kubernetes on Azure.
 ---
 
 

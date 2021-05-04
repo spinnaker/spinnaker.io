@@ -2,7 +2,7 @@
 title: "Deploy Helm Charts"
 linkTitle: "Deploy Helm Charts"
 description: >
-  Use Spinnaker to create Helm charts for your applications
+  Use Spinnaker to create Helm charts for your applications.
 ---
 
 Spinnaker surfaces a "Bake (Manifest)" stage to turn templates into manifests

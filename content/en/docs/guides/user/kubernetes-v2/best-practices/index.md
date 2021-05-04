@@ -2,7 +2,7 @@
 title: "Best Practices for the Kubernetes Provider"
 linkTitle: "Best Practices"
 description: >
-  Best practices for using the Kubernetes provider
+  Best practices for using the Kubernetes provider.
 ---
 
 The Kubernetes provider enables a wide variety of ways to deploy your

@@ -2,10 +2,9 @@
 title:  "Visualize a Hydrated Pipeline"
 weight: 25
 description: >
-  Visualize a pipeline created from a pipeline template without actually instantiating one
+  Visualize a pipeline created from a pipeline template without actually instantiating one.
 ---
-Y
-ou can use `spin` CLI to visualize a pipeline created from a pipeline template
+You can use `spin` CLI to visualize a pipeline created from a pipeline template
 without actually instantiating one.
 
 When you do this, you are creating JSON output that looks like regular pipeline

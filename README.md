@@ -1,5 +1,7 @@
 # Spinnaker.io Documentation and Community Site
 
+> This repo is a work in progress and will be the future home of spinnaker.io. The current live site uses the repo [spinnaker.github.io](https://github.com/spinnaker/spinnaker.github.io).
+
 This site is built using [Hugo](https://gohugo.io) and the [Docsy Theme](https://www.docsy.dev/).
 
 ## Contributing

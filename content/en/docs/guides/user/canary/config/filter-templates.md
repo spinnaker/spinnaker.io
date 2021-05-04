@@ -3,7 +3,7 @@ title: "Create and use filter templates"
 linkTitle: "Filter templates"
 weight: 2
 description: >
-  Filter templates allow you to compose and parameterize advanced queries against your telemetry provider.
+  Filter templates allow you to create advanced queries against your telemetry provider.
 aliases:
   - /user/canary/config/filter_templates/
 ---

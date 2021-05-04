@@ -3,7 +3,7 @@ title: "Getting Started"
 linkTitle: "Getting Started"
 weight:  5
 description: >
-  Onboard to Managed Delivery using EC2 or Titus
+  Get started with Managed Delivery using EC2 or Titus.
 ---
 
 This means that we support only EC2 and Titus, and that we have limited feature and UI support.

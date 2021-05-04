@@ -3,7 +3,7 @@ title: "Environment Constraints"
 linkTitle: "Env Constraints"
 weight: 10
 description: >
-  Environment constraints control how an artifact version flows through environments
+  Environment constraints control how an artifact version flows through environments.
 ---
 
 
