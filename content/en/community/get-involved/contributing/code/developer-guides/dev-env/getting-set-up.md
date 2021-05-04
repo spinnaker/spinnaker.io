@@ -62,7 +62,7 @@ Spinnaker. You can then access the Deck UI by visiting `http://localhost:9000`.
 > also worth knowing that Halyard configuration lives in the `~/.hal` directory and that the
 > configuration it generates for each service is placed in the `~/.spinnaker` directory. This
 > guide won't go into further detail on this but you can
-> [read more about Halyard configuration here](/reference/halyard/).
+> [read more about Halyard configuration here](/docs/reference/halyard/).
 
 ## Making Changes to Spinnaker
 

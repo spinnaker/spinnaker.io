@@ -16,7 +16,7 @@ Pipeline's execution.
 > a single Pub/Sub message.
 
 Only Google Pub/Sub is supported. See the instructions
-[here](/docs/setup/triggers/google/) to set up Google Pub/Sub.
+[here](/docs/setup/other_config/triggers/google/) to set up Google Pub/Sub.
 
 ## Prerequisites
 
@@ -70,6 +70,10 @@ deploy to), you can make this explicit by adding a pipeline parameter on the
 same configuration screen as the Pub/Sub trigger:
 
 {{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline-expressions)." >}}
+
+> Warning: there are several reserved parameter keys (names) that cause unexpected behavior and failures
+> if overwritten by a pipeline parameter definition.
+> See the [list of reserved parameter and evaluate variable key names](/docs/guides/user/pipeline/expressions#list-of-reserved-parameter-and-evaluate-variable-key-names).
 
 If you were to manually execute this pipeline, you would be prompted with the
 following dialogue:

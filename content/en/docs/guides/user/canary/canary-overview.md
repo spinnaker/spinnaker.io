@@ -36,7 +36,7 @@ Support is built in for [Stackdriver](https://cloud.google.com/stackdriver/docs/
 
 Before you can configure canary analysis and create canary stages for your
 pipelines, your Spinnaker administrator needs to [enable canary for your
-installation](/setup/canary/).
+installation](/docs/setup/other_config/canary/).
 
 ## How to make Canary work in Spinnaker&mdash;the high-level process
 

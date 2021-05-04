@@ -11,7 +11,7 @@ Pipelines, and the artifacts can be used by Spinnaker's image bakery to produce
 machine images. 
 
 For example, the [Source to
-Prod](/guides/tutorials/codelabs/gce-source-to-prod/) codelab configures a
+Prod](/docs/guides/tutorials/codelabs/gce-source-to-prod/) codelab configures a
 Jenkins Job to produce a Debian package as an artifact that is handed to
 Spinnaker to build a VM image which Spinnaker deploys.
 
@@ -22,10 +22,10 @@ independently of one-another, enumerated below.
 
 These are the CI systems currently supported by Spinnaker:
 
-* [AWS CodeBuild](/docs/setup/ci/codebuild/)
-* [Google Cloud Build](/docs/setup/ci/gcb/)
-* [Jenkins](/docs/setup/ci/jenkins/)
-* [Travis CI](/docs/setup/ci/travis/)
-* [Wercker](/docs/setup/ci/wercker/)
+* [AWS CodeBuild](/docs/setup/other_config/ci/codebuild/)
+* [Google Cloud Build](/docs/setup/other_config/ci/gcb/)
+* [Jenkins](/docs/setup/other_config/ci/jenkins/)
+* [Travis CI](/docs/setup/other_config/ci/travis/)
+* [Wercker](/docs/setup/other_config/ci/wercker/)
 
-See also [`hal config ci`](/reference/halyard/commands/#hal-config-ci).
+See also [hal config ci](/docs/reference/halyard/commands/#hal-config-ci).

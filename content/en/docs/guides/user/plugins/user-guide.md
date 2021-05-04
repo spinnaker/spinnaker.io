@@ -12,7 +12,7 @@ aliases:
 
 ## Overview
 
-Spinnaker uses [PF4J-Update](https://github.com/pf4j/pf4j-update) to load and manage plugins. These plugins can implement a PF4J extension point or be Spring components. See the [Plugin Creators Guide](/guides/developer/plugin-creators/overview/) for details.
+Spinnaker uses [PF4J-Update](https://github.com/pf4j/pf4j-update) to load and manage plugins. These plugins can implement a PF4J extension point or be Spring components. See the [Plugin Creators Guide](/docs/guides/developer/plugin-creators/overview/) for details.
 
 ## Terms
 
@@ -43,10 +43,19 @@ Spinnaker environment:
 
 ## How to add a plugin to Spinnaker
 
-1. [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
-2. [Add a plugin using Halyard](#add-a-plugin-using-halyard)
-3. [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate) (frontend plugins only)
-4. [Redeploy Spinnaker](#redeploy-spinnaker)
+- [Overview](#overview)
+- [Terms](#terms)
+- [Plugin requirements](#plugin-requirements)
+- [How to add a plugin to Spinnaker](#how-to-add-a-plugin-to-spinnaker)
+- [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
+- [List, edit, and delete repositories](#list-edit-and-delete-repositories)
+- [Add a plugin using Halyard](#add-a-plugin-using-halyard)
+  - [Plugin configuration without Halyard](#plugin-configuration-without-halyard)
+- [List, edit, and delete repositories](#list-edit-and-delete-repositories-1)
+- [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate)
+- [Redeploy Spinnaker](#redeploy-spinnaker)
+- [Deployment example](#deployment-example)
+- [Resources](#resources)
 
 ## Add a plugin repository using Halyard
 
@@ -113,17 +122,19 @@ hal plugins repository add all-the-plugins \
     --url=https://raw.githubusercontent.com/aimeeu/all-the-plugins/master/repositories.json
 ```
 
+You can also list, edit, and delete repositories. See the command [reference](/docs/reference/halyard/commands/#hal-plugins-repository) for a complete list of parameters.
+
 Don't forget to `hal deploy apply` to apply your configuration changes.
 
 ## List, edit, and delete repositories
 
-See the command [reference](/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
+See the command [reference](/docs/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
 
 ## Add a plugin using Halyard
 
 > Note: When Halyard adds a plugin to a Spinnaker installation, it adds the plugin repository information to each service. This means that when you restart Spinnaker, each service restarts, downloads the plugin, and checks if an extension exists for that service. Each service restarting is not ideal for large Spinnaker installations due to service restart times. Clouddriver can take an hour or more to restart if you have many accounts configured. Engineers are working to shorten restart times. See the [Plugin configuration without Halyard](#plugin-configuration-without-halyard) section for how to avoid each service restarting.
 
-After you have added your plugin repository, you can add your plugin to Spinnaker. The Halyard [command](/reference/halyard/commands/#hal-plugins-add) is:
+After you have added your plugin repository, you can add your plugin to Spinnaker. The Halyard [command](/docs/reference/halyard/commands/#hal-plugins-add) is:
 
 ```bash
 hal plugins add <unique-plugin-id> --extensions=<extension-name> \
@@ -230,7 +241,7 @@ The plugin developer should provide configuration details in YAML format. If not
 
 ## List, edit, and delete repositories
 
-See the command [reference](/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
+See the command [reference](/docs/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
 
 ## Add a Deck proxy to Gate
 
@@ -262,7 +273,7 @@ Remember to `hal deploy apply` after you have finished configuring your plugin.
 
 ## Deployment example
 
-See the [pf4jStagePlugin Deployment Example](/guides/user/plugins/deploy-example/) page for a walkthrough and troubleshooting.
+See the [pf4jStagePlugin Deployment Example](/docs/guides/user/plugins/deploy-example/) page for a walkthrough and troubleshooting.
 
 ## Resources
 

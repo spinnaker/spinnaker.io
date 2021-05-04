@@ -34,9 +34,9 @@ curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debia
 sudo bash InstallHalyard.sh -y
 ```
 
-* Set up Oracle Object Storage as your Spinnaker storage by following these steps: [Adding Oracle Object Storage to Spinnaker](/setup/install/storage/oracle/).
+* Set up Oracle Object Storage as your Spinnaker storage by following these steps: [Adding Oracle Object Storage to Spinnaker](/docs/setup/install/storage/oracle/).
 
-* Set up your Kubernetes Cloud provider by following these steps: [Setting up OKE](/setup/install/providers/kubernetes-v2/oke/).
+* Set up your Kubernetes Cloud provider by following these steps: [Setting up OKE](/docs/setup/install/providers/kubernetes-v2/oke/).
 
 * Set up Spinnaker version.  To complete this tutorial, Spinnaker version has to be at least 1.11.x.
 

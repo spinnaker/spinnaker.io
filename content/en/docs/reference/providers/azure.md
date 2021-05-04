@@ -10,9 +10,9 @@ description: Learn how Spinnaker features map to Azure.
 ## Resource mapping
 
 ### Account
-In [Azure](https://azure.microsoft.com/) (AZ), an [Account](/concepts/providers/#accounts)
+In [Azure](https://azure.microsoft.com/) (AZ), an [Account](/docs/concepts/providers/#accounts)
 maps to a credential able to authenticate against a given [Azure](https://azure.microsoft.com/) (AZ)
-project - see the [setup guide](/setup/providers/azure).
+project - see the [setup guide](/docs/setup/providers/azure).
 
 ### Load Balancer
 A Spinnaker **load balancer** maps to an Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/).

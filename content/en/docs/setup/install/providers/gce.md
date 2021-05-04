@@ -9,7 +9,7 @@ aliases:
 
 
 In [Google Compute Engine](https://cloud.google.com/compute)
-(GCE), an [__Account__](/concepts/providers/#accounts) maps to a credential able
+(GCE), an [__Account__](/docs/concepts/providers/#accounts) maps to a credential able
 to authenticate against a given [Google Cloud
 Platform](https://cloud.google.com/) (GCP) project.
 
@@ -112,7 +112,7 @@ TODO(lwander or duftler): Add a note about application default credentials.
 
 If you are looking for more configurability, please see the other options
 listed in the [Halyard
-Reference](/reference/halyard/commands#hal-config-provider-google-account-add).
+Reference](/docs/reference/halyard/commands#hal-config-provider-google-account-add).
 
 ## Next steps
 

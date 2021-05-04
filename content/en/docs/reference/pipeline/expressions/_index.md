@@ -7,7 +7,7 @@ description: Pipeline expressions allow you to reference arbitrary values about 
 
  For more information
 about how pipeline expressions work, see the
-[overview](/guides/user/pipeline/expressions/).
+[overview](/docs/guides/user/pipeline/expressions/).
 
 ## Syntax elements
 
@@ -115,7 +115,7 @@ String."
 
 ## Helper properties
 
-[Helper properties](/guides/user/pipeline/expressions/#helper-properties) are
+[Helper properties](/docs/guides/user/pipeline/expressions/#helper-properties) are
 attribute shortcuts that you can use in Spinnaker. The specific properties are:
 
 * `execution`: refers to the current pipeline execution.
@@ -200,7 +200,7 @@ access a property via `${#stage("Bake")["context"]["desiredProperty"]}`.
 
 ### #stageByRefId(String)
 
-A shortcut to get the stage by its `refId`. For example, `${#stage("3")}` allows
+A shortcut to get the stage by its `refId`. For example, `${#stageByRefId("3")}` allows
 you to access the stage with `refId = 3`.
 
 ### #currentStage()

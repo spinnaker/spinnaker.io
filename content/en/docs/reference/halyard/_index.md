@@ -7,7 +7,7 @@ description: Halyard is a tool for configuring, installing, and updating Spinnak
 This is the reference documentation for Halyard, and will go into more detail
 than is needed to deploy most Spinnaker environments. If you're a new user
 looking for instructions for how to use Halyard to deploy Spinnaker, checkout
-the [setup instructions](/setup/install/) first.
+the [setup instructions](/docs/setup/install/) first.
 
 ## Terminology
 
@@ -139,7 +139,7 @@ version: master-2017-05-26-393
 ```
 
 If you're curious how to deploy Spinnaker yourself using a validated BOM, read
-more in the [deployments](/reference/halyard/#deployments) section.
+more in the [deployments](/docs/reference/halyard/#deployments) section.
 
 ## Links
 

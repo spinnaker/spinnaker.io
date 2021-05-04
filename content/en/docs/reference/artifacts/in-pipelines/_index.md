@@ -1,30 +1,67 @@
 ---
-title:  "Artifacts In Pipelines"
-description: Spinnaker uses artifacts several ways within a pipeline. 
+title: "Artifacts In Pipelines"
+linkTitle: "In Pipelines"
+description: An artifact arrives in a pipeline execution either from an external trigger (for example, a Docker image pushed to a registry) or by getting fetched by a stage. That artifact is then consumed by downstream stages based on pre-defined behavior.
 ---
 
-{{% alert color="warning" title="Warning" %}}Much of the behavior described here depends on looking up execution history in Redis. Deleting recent executions from Redis can cause unexpected behavior.
-{{% /alert %}}
+> Much of the behavior described here depends on looking up execution history in Redis. Deleting recent executions from Redis can cause unexpected behavior.
 
-## Overview
-
-Now that you have an idea of [what an artifact is](/reference/artifacts/) in Spinnaker, you need to
-understand how it's used within pipelines. An artifact arrives in a pipeline execution either from an external trigger (for example, a Docker image pushed to a registry) or by getting fetched by a stage. That artifact is then consumed by downstream stages based on pre-defined behavior.
+Now that you have an idea of [what an artifact is](/docs/reference/artifacts/) in Spinnaker, you need to
+understand how it's used within pipelines. 
 
 Spinnaker uses an "expected artifact" to enable a stage to bind an artifact
 from another pipeline execution, stage output, or running environment. 
 
+## Expected artifacts
+
+An "expected artifact" is a specification of what properties (found in the URI decoration) against which to match when searching for the desired artifact, plus optional fallback behavior.
+
+Expected artifacts exist for two reasons:
+
+1. To declare what artifacts need to be present at a certain point during
+   execution
+2. To provide easy ways to reference those artifacts
+
+An expected artifact consists of an artifact to _match_
+(by name, type, etc...) plus, optionally, what to do if no artifact is
+matched.  When an artifact is matched, we say it's _bound_ to that expected
+artifact.
+
+The matching behavior is as follows: The artifact to match declared by the
+expected artifact has the same format as a regular artifact; however, its
+values are interpreted as regular expressions to match the corresponding values
+in the incoming artifact:
+- Normal strings must match exactly for the artifact to match because Spinnaker
+effectively treats them as regular expressions. For example, Spinnaker
+interprets `inputstring` as `^inputstring$`.
+- Explicit regular expressions are also valid. For example, Spinnaker
+ matches `.*inputstring.*` to any string including the substring `inputstring`.
+
+| Match Artifact | Incoming Artifact | Matches?  |
+|-|-|-|
+| `{"type": "docker/image"}` | `{"type": "docker/image", "reference: "gcr.io/image"}` | ✔ |
+| `{"type": "docker/image"}` | `{"type": "gce/image", "reference: "www.googleapis.com/compute/v1/projects..."}` | ✘ |
+| `{"type": "docker/image", "version": "v1"}` | `{"type": "docker/image", "reference: "gcr.io/image:test", "version": "v1"}` | ✔ |
+| `{"type": "docker/image", "version": "v1"}` | `{"type": "docker/image", "reference: "gcr.io/image:test", "version": "v1.2"}` | ✘ |
+| `{"type": "docker/image", "version": "v1\..*"}` | `{"type": "docker/image", "reference: "gcr.io/image:v1.2", "version": "v1.2"}` | ✔ |
+| `{"type": "docker/image", "version": "v1\..*"}` | `{"type": "docker/image", "reference: "gcr.io/image:test", "version": "test"}` | ✘ |
+
+> If an expected artifact matches anything other than a
+> single artifact (and no fallback behavior is defined), the execution fails.
+> Therefore it's always safe to say "use the artifact bound by
+> this upstream expected artifact" because if no artifact was bound, the pipeline
+> wouldn't be running this downstream stage.
+
 ## Triggers
 
-When configuring a pipeline trigger, you can declare which
-artifacts the trigger expects to have present before it begins a pipeline
-execution.
+In Pipeline Configuration, you can now declare which
+artifacts a pipeline expects to have present before the pipeline starts
+running.
 
-{{< figure src="./expected-artifact-github-file.png" caption="The UI provides short-hand for defining some types of artifacts&mdash;in this example a file stored in GitHub. This is optional, but helps quickly define common types of artifacts.">}}
-
+{{< figure src="./expected-artifact-trigger.png" caption="The UI provides short-hand for defining some types of artifacts&mdash;in this example a docker image. This is optional, but helps quickly define common types of artifacts." >}}
 
 You can define fallback behavior for when the artifact
-isn't bound at the start of the pipeline. The two options are evaluated in
+isn't bound at the start of the Pipeline. The two options are evaluated in
 order:
 
 1. __Use Prior Execution__
@@ -36,6 +73,11 @@ order:
 2. __Use Default Artifact__
 
    Specify exactly which artifact to bind.
+
+Once you have declared which artifacts are expected by this pipeline, you can
+assign expected artifacts to individual triggers.
+
+{{< figure src="./pubsub-trigger-artifact.png" caption="A pubsub subscription configured to listen to changes in one GCR registry. Since this registry can contain many repositories, we've assigned it an expected artifact to ensure only changes in one repository can run this pipeline." >}}
 
 When a trigger has one or more expected artifacts, it only runs when each
 expected artifact can bind to one of the artifacts in the trigger's payload.
@@ -79,7 +121,7 @@ To allow you to promote artifacts between executions, you can make use of the
 "Find Artifact from Execution" stage. All that's required is the pipeline ID
 whose execution history to search, and an expected artifact to bind.
 
-{{< figure src="./find-artifacts-from-execution.png" >}}
+{{< figure src="./find-artifact-from-execution.png" >}}
 
 A common use case would be to "promote" the image deployed to staging to a
 pipeline that's deploying to production.
@@ -112,10 +154,7 @@ Two concrete cases where artifacts can be passed are as follows:
 Stages can be configured to 'Produce' artifacts if they expose the following
 Stage configuration:
 
-{{< figure src="./produces-artifacts.png" caption="Produces Artifacts configuration in a Deploy (Manifest) stage." >}}
-
-{{< figure src="./produced-artifact.png"
-   caption="List of produced artifacts for a Deploy (Manifest) stage.">}}
+{{< figure src="./produced-artifact.png" >}}
 
 If you are configuring your stages using JSON, the expected artifacts are
 placed in a top-level `expectedArtifacts: []` list.
@@ -145,7 +184,7 @@ demo pipeline. To begin, here is the key:
 
 Say we've configured the following pipeline:
 
-{{< figure src="./configuration.svg" caption="The pipeline declares that it expects an artifact matching _1_ (perhaps a docker image) _when the pipeline starts_. This is done in the pipeline configuration tab. It also expects an artifact matching _2_ in pipeline stage _B_ (perhaps a **Find Artifact from Execution** stage)." >}}
+{{< figure src="./configuration.svg" caption="The pipeline declares that it expects an artifact matching _1_ (perhaps a docker image) _when the pipeline starts_. This is done in the pipeline configuration tab. It also expects an artifact matching _2_ in pipeline stage _B_ (perhaps a \"Find Artifact from Execution\" stage)." >}}
 
 The pipeline is triggered by some source (maybe a Webhook) supplying two
 artifacts:
@@ -176,6 +215,6 @@ here.
 
 If stages _C_ or _D_ needed to reference an upstream artifact, they would have
 different artifacts accessible to them, since they have different upstream
-stages. For example, stage _D_ does not have access to artifact _2_.
+stages. For examples, stage _D_ does not have access to artifact _2_.
 
 {{< figure src="./running-c-d.svg" >}}

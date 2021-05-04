@@ -9,7 +9,7 @@ description: >
 
 ## Prerequisites
 
-* [Set up Jenkins](/docs/setup/ci/jenkins/) as a continuous integration system in
+* [Set up Jenkins](/docs/setup/other_config/ci/jenkins/) as a continuous integration system in
     your Spinnaker deployment.
 * Enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).  
 

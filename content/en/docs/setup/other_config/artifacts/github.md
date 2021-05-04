@@ -30,7 +30,7 @@ TOKEN_FILE=
 ARTIFACT_ACCOUNT_NAME=my-github-artifact-account
 ```
 
-First, enable [artifact support](/reference/artifacts/#enabling-artifact-support).
+First, enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
 
 Next, enable the GitHub artifact provider:
 
@@ -46,5 +46,5 @@ hal config artifact github account add $ARTIFACT_ACCOUNT_NAME \
 ```
 
 There are more options described
-[here](/reference/halyard/commands#hal-config-artifact-github-account-edit)
+[here](/docs/reference/halyard/commands#hal-config-artifact-github-account-edit)
 if you need more control over your configuration.

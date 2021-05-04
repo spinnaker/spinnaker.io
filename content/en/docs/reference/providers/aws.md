@@ -7,4 +7,4 @@ description:
 
 Reference documentation coming soon! 
 
-See setup [here](/setup/install/providers/aws/)
+See setup [here](/docs/setup/install/providers/aws/)

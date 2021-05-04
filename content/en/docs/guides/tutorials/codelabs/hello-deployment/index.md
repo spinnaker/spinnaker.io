@@ -8,7 +8,7 @@ description: >
 
 This guide will run through the workflow of setting up an example application deployment with
 Spinnaker. It assumes you already have Spinnaker up and running on AWS or
-GCE. A guide for installation can be found [here](/setup/install/).
+GCE. A guide for installation can be found [here](/docs/setup/install/).
 
 Below is a diagram of the workflow we will set up.
 

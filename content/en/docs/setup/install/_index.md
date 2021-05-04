@@ -39,4 +39,4 @@ Installing a complete Spinnaker involves these steps:
 
 ## And then what?
 
-[Get started using Spinnaker](/guides/user/get-started)
+[Get started using Spinnaker](/docs/guides/user/get-started)

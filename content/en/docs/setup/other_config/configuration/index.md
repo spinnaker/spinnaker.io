@@ -24,7 +24,7 @@ The following table lists the Spinnaker services that currently incorporate exte
 
 To enable external configuration via the Config Server, add Spring Cloud Config configuration properties, which are under `spring.cloud.config.server`, and include settings for the backend you wish to use. 
 
-If you are deploying Spinnaker using Halyard, you can place this file under the `~/.hal/$DEPLOYMENT/profiles` directory in the machine on which Halyard is installed, as described in [Custom Profiles](/reference/halyard/custom/#custom-profiles) (`$DEPLOYMENT` is typically `default`). If you are deploying Spinnaker manually, you might place this configuration in a YAML file called `spinnakerconfig.yml`, alongside your `spinnaker.yml` file.
+If you are deploying Spinnaker using Halyard, you can place this file under the `~/.hal/$DEPLOYMENT/profiles` directory in the machine on which Halyard is installed, as described in [Custom Profiles](/docs/reference/halyard/custom/#custom-profiles) (`$DEPLOYMENT` is typically `default`). If you are deploying Spinnaker manually, you might place this configuration in a YAML file called `spinnakerconfig.yml`, alongside your `spinnaker.yml` file.
 
 ### Using a Git backend
 

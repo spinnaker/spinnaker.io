@@ -18,7 +18,7 @@ Spinnaker is composed of a number of independent microservices:
 
 - [Orca](https://github.com/spinnaker/orca) is the orchestration engine.
   It handles all ad-hoc operations and pipelines.
-  Read more on the [Orca Service Overview](/guides/developer/service-overviews/orca).
+  Read more on the [Orca Service Overview](/docs/guides/developer/service-overviews/orca).
 
 - [Clouddriver](https://github.com/spinnaker/clouddriver) is responsible for all
   mutating calls to the cloud providers and for indexing/caching all deployed
@@ -54,6 +54,8 @@ Spinnaker is composed of a number of independent microservices:
 
 - [Kayenta](https://github.com/spinnaker/kayenta) provides automated canary
   analysis for Spinnaker.
+
+- [Keel](https://github.com/spinnaker/keel) powers [Managed Delivery](/docs/guides/user/managed-delivery).
 
 - [Halyard](https://github.com/spinnaker/halyard) is Spinnaker's configuration
   service.
@@ -91,6 +93,14 @@ echo --> front50;
 gate --> echo;
 gate --> igor(Igor);
 igor(Igor) --> echo;
+
+ keel(Keel) --> clouddriver;
+ keel --> orca;
+ keel --> front50;
+ keel --> fiat;
+ keel --> echo;
+ keel --> igor;
+ gate --> keel;
 
 hal(Halyard CLI) --> halyard(Halyard Daemon);
 
@@ -131,3 +141,4 @@ By default Spinnaker binds ports according to the following table
 | Kayenta     | 8090 |
 | Orca        | 8083 |
 | Rosco       | 8087 |
+| Keel        | 8087              |

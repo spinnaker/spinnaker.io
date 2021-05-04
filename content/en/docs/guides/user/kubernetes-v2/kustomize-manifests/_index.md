@@ -89,7 +89,7 @@ You can now run your pipeline and get a Kustomize rendered manifest!
 
 ## Updating 1.16 "Bake (Manifest)" stage for 1.17
 
-As of 1.17, [git/repo](/reference/artifacts/types/git-repo/) is the only supported artifact type when configuring the `Bake (Manifest)` stage in the UI with `Kustomize`.
+As of 1.17, [git/repo](/docs/reference/artifacts/types/git-repo/) is the only supported artifact type when configuring the `Bake (Manifest)` stage in the UI with `Kustomize`.
 
 Pipelines configured to use Kustomize in 1.16 will continue to work in 1.17. However, editing a `Bake (Manifest)` stage in 1.17, which was originally created in 1.16, requires you to update the `Bake (Manifest) Configuration` to use the `git/repo` artifact type.  To do so, use the following instructions:
 

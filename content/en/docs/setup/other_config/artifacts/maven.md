@@ -16,7 +16,7 @@ that reads the data.
 
 ## Edit your artifact settings
 
-1. Enable [artifact support](/reference/artifacts/#enabling-artifact-support).
+1. Enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
 
 2. Enable the Maven artifact provider:
 
@@ -32,5 +32,5 @@ that reads the data.
    ```
 
 There are more options described
-[here](/reference/halyard/commands#hal-config-artifact-maven-account-edit)
+[here](/docs/reference/halyard/commands#hal-config-artifact-maven-account-edit)
 if you need more control over your configuration.

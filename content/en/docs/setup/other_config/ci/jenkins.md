@@ -89,7 +89,7 @@ To enable Spinnaker and Jenkins to share a crumb to protect against CSRF...
 
     a. Under __Manage Jenkins__ > __Plugin Manager__ > __Available__, search for __Strict Crumb Issuer Plugin__, select __Install__
 
-    ![](/docs/setup/ci/strict_crumb_issuer_plugin_install.png)
+    ![](/docs/setup/other_config/ci/strict_crumb_issuer_plugin_install.png)
 
 3. Enable CSRF protection in Jenkins:
 
@@ -100,19 +100,34 @@ To enable Spinnaker and Jenkins to share a crumb to protect against CSRF...
 
     c. Under __Strict Crumb Issuer__ > __Advanced__, deselect __Check the session ID__
 
-    ![](/docs/setup/ci/jenkins_enable_csrf_strict.png)
+    ![](/docs/setup/other_config/ci/jenkins_enable_csrf_strict.png)
+
+## Enabling Backlinks from Jenkins to Spinnaker
+
+You can configure `orca` such that it will update the description of a running Jenkins build and generate a suitable backlink.
+
+Add the following to your `orca` configuration:
+
+```
+spinnaker:
+  baseUrl:
+    www: https://spinnaker.ui.url
+```
+
+Jenkins backlinks will be generated as follows:
+`This build was triggered by '<a href=...>{Pipeline Name}</a>' in Spinnaker.`
 
 ## Next steps
 
 You can use Jenkins in your pipelines in one of three ways:
-*   As a [pipeline trigger](/guides/user/pipeline/triggers/jenkins/)
-*   Using the built-in [Jenkins stage](/reference/pipeline/stages/#jenkins)
-*   Using the [Script stage](/reference/pipeline/stages/#script)
+*   As a [pipeline trigger](/docs/guides/user/pipeline/triggers/jenkins/)
+*   Using the built-in [Jenkins stage](/docs/reference/pipeline/stages/#jenkins)
+*   Using the [Script stage](/docs/reference/pipeline/stages/#script)
 
 After you've completed the setup above, you're ready to trigger pipelines with
 Jenkins or run the Jenkins stage. This is sufficient for most use cases. See
-[Triggering Pipelines with Jenkins](/guides/user/pipeline/triggers/jenkins/)
+[Triggering Pipelines with Jenkins](/docs/guides/user/pipeline/triggers/jenkins/)
 for more information.
 
 Using the Script stage requires further configuration. See [Configuring
-the Script Stage](/docs/setup/features/script-stage/) to finish setting it up.
+the Script Stage](/docs/setup/other_config/features/script-stage/) to finish setting it up.

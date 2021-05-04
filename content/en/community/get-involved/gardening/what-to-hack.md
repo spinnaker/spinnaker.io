@@ -33,7 +33,7 @@ Not sure where to get started contributing to Spinnaker? May we suggest:
 
 * Update library version dependencies. Ask in the #gardening-ineedhelp channel on [Spinnaker Slack](https://join.spinnaker.io) for guidance.
 
-* Run through a [Spinnaker codelab](/guides/tutorials/codelabs/). Document and file any issues you encounter [here](https://github.com/spinnaker/spinnaker.github.io/issues/) when you come across them.
+* Run through a [Spinnaker codelab](/docs/guides/tutorials/codelabs/). Document and file any issues you encounter [here](https://github.com/spinnaker/spinnaker.github.io/issues/) when you come across them.
 
 * Drop in to `#sig-` channels and ask what they are working on to learn more.
 

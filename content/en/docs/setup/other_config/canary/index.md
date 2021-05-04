@@ -11,7 +11,7 @@ analysis service, you must configure at least one metrics service, and at least
 one storage service. The most common setup is to have one metrics service
 configured (e.g. Stackdriver, Atlas, Prometheus, Datadog or New Relic) and one storage
 service (e.g. S3, GCS or Minio) configured. For further details, [here's a
-comprehensive reference](/reference/halyard/commands/#hal-config-canary).
+comprehensive reference](/docs/reference/halyard/commands/#hal-config-canary).
 
 ## Quick start
 
@@ -70,7 +70,7 @@ hal config canary disable
 
 ## Specify the scope of canary configs
 
-By default, each [canary configuration](/guides/user/canary/config/) is
+By default, each [canary configuration](/docs/guides/user/canary/config/) is
 visible to all pipeline canary stages in all apps. But you can change that so
 each canary config can be used only within the Spinnaker application in which it
 was created:
@@ -84,7 +84,7 @@ Set it to `true` to revert to global visibility.
 ## Set the canary judge
 
 The current default judge is `NetflixACAJudge-v1.0`. The behavior of this judge
-is described [here](/guides/user/canary/judge/).
+is described [here](/docs/guides/user/canary/judge/).
 
 If there are any other judges available in your world, you can set Spinnaker to
 use it:
@@ -110,7 +110,7 @@ hal config canary edit --default-metrics-store STORE
 ## Provide the default metrics account
 
 Add the account name to use for your metrics provider. This default can be
-overridden in [canary configuration](/guides/user/canary/config/).
+overridden in [canary configuration](/docs/guides/user/canary/config/).
 
 ```
 hal config canary edit --default-metrics-account ACCOUNT
@@ -120,7 +120,7 @@ hal config canary edit --default-metrics-account ACCOUNT
 
 Add the account name for your [storage provider](/docs/setup/install/storage).
 This default can be overridden in [canary
-configuration](/guides/user/canary/config/).
+configuration](/docs/guides/user/canary/config/).
 
 ```
 hal config canary edit --default-storage-account ACCOUNT
@@ -151,7 +151,7 @@ hal config canary aws account add ACCOUNT --bucket --deployment --no-validate
 --root-folder
 ```
 
-See the [command reference](/reference/halyard/commands/#hal-config-canary)
+See the [command reference](/docs/reference/halyard/commands/#hal-config-canary)
 for more about these parameters.
 
 #### Enable S3 for your canary
@@ -194,7 +194,7 @@ hal config canary datadog disable
 
 You can add, edit, and delete multiple accounts for Datadog service integrations.
 For details on the parameters for these commands, see the [Halyard reference
-documentation](/reference/halyard/commands/#hal-config-canary).
+documentation](/docs/reference/halyard/commands/#hal-config-canary).
 
 #### Add an account to your Datadog service integration
 
@@ -203,7 +203,7 @@ hal config canary datadog account add ACCOUNT --api-key --application-key
 --base-url
 ```
 
-See the [command reference](/reference/halyard/commands/#hal-config-canary)
+See the [command reference](/docs/reference/halyard/commands/#hal-config-canary)
 for more about these parameters.
 
 #### Edit your Datadog account information
@@ -256,7 +256,7 @@ hal config canary google disable
 
 You can add, edit, and delete multiple accounts for Google service integrations.
 For details on the parameters for these commands, see the [Halyard reference
-documentation](/reference/halyard/commands/#hal-config-canary).
+documentation](/docs/reference/halyard/commands/#hal-config-canary).
 
 #### Add an account to your Google service integration
 
@@ -265,7 +265,7 @@ hal config canary google account add ACCOUNT --bucket --bucket-location
 --json-path --project --root-folder
 ```
 
-See the [command reference](/reference/halyard/commands/#hal-config-canary)
+See the [command reference](/docs/reference/halyard/commands/#hal-config-canary)
 for more about these parameters.
 
 #### Edit your Google account information
@@ -314,7 +314,7 @@ hal config canary prometheus disable
 
 You can add, edit, and delete multiple accounts for Prometheus service integrations.
 For details on the parameters for these commands, see the [Halyard reference
-documentation](/reference/halyard/commands/#hal-config-canary).
+documentation](/docs/reference/halyard/commands/#hal-config-canary).
 
 #### Add an account to your Prometheus service integration
 
@@ -323,7 +323,7 @@ hal config canary prometheus account add ACCOUNT --base-url
 ```
 
 See the [command
-reference](/reference/halyard/commands/#hal-config-canary)
+reference](/docs/reference/halyard/commands/#hal-config-canary)
 for more information.
 
 #### Edit your Prometheus account information
@@ -372,7 +372,7 @@ hal config canary newrelic disable
 
 You can add, edit, and delete multiple accounts for New Relic service integrations.
 For details on the parameters for these commands, see the [Halyard reference
-documentation](/reference/halyard/commands/#hal-config-canary).
+documentation](/docs/reference/halyard/commands/#hal-config-canary).
 
 #### Add an account to your New Relic service integration
 
@@ -381,7 +381,7 @@ hal config canary newrelic account add ACCOUNT --api-key --application-key
 --base-url
 ```
 
-See the [command reference](/reference/halyard/commands/#hal-config-canary)
+See the [command reference](/docs/reference/halyard/commands/#hal-config-canary)
 for more about these parameters.
 
 #### Edit your New Relic account information

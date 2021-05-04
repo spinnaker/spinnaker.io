@@ -3,7 +3,7 @@ title: "Manage Applications"
 linkTitle: "Manage Apps"
 weight: 2
 description: >
-  Use 'spin' to manage your Spinnaker application's lifecycle.
+  Once you have `spin` [installed and configured](/docs/spin/other_config/spin), you can use it to manage your Spinnaker application's lifecycle.
 ---
 
 

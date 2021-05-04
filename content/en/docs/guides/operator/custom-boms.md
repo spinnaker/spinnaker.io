@@ -11,7 +11,7 @@ description: "A BOM describes a specific release of Spinnaker, composed of many 
 Spinnaker is composed of many microservices, each of which has their own
 version. When Spinnaker is built, the microservices are tested together to
 ensure that they interoperate correctly, and then their versions are recorded
-in a [BOM](/reference/halyard/#bill-of-materials). The BOM also includes
+in a [BOM](/docs/reference/halyard/#bill-of-materials). The BOM also includes
 information on what commits for each service were built, what repositories they
 can be downloaded from, and where additional configuration lives. All together,
 a BOM describes a specific release of Spinnaker.
@@ -92,7 +92,7 @@ dependencies:
     version: 0.7.0
 artifactSources:
   debianRepository: https://dl.bintray.com/spinnaker-releases/debians
-  dockerRegistry: gcr.io/spinnaker-marketplace
+  dockerRegistry: us-docker.pkg.dev/spinnaker-community/docker
   gitPrefix: https://github.com/spinnaker
 ```
 

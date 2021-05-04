@@ -92,7 +92,7 @@ as the key, and a Java regular expression as the value.
 1. In the **Expected Artifacts** field, you can add any build artifacts as expected artifacts. For example,
 if the build produces a Docker image, you can add an expected artifact of type *Docker* with a value of
 `gcr.io/my-project-id/my-application` (replacing `my-project-id` and `my-application` with
-appropriate values). You can then [use the produced image](/reference/artifacts/in-pipelines/)
+appropriate values). You can then [use the produced image](/docs/reference/artifacts/in-pipelines/)
 in downstream stages.
 
 ## Configure a Google Cloud Build stage
@@ -103,7 +103,7 @@ To run a GCB build as part of a Spinnaker pipeline:
 
 2. Configure the stage by selecting the GCB account to use to run the build, and entering the
 [build configuration YAML](https://cloud.google.com/cloud-build/docs/build-config) in the provided text box:
-![](/docs/setup/ci/gcb_config.png)
+![](/docs/setup/other_config/ci/gcb_config.png)
 You may also provide the build definition YAML as an artifact.
 
 3. In the *Produces Artifacts* section, you may supply any artifacts that you expect the build to create in order to
@@ -113,7 +113,7 @@ will be converted to Spinnaker artifacts and injected into the pipeline on compl
 
 While your build is executing, the stage details will provide the current status of the build and a link to view
 the build logs in the Google Cloud Console:
-![](/docs/setup/ci/gcb_status.png)
+![](/docs/setup/other_config/ci/gcb_status.png)
 
 ## Configuration prior to Spinnaker 1.14
 

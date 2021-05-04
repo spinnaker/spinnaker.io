@@ -13,7 +13,7 @@ has, such as OAuth 2.0, SAML, or LDAP.
 For authorization, Spinnaker similarly leverages a role-provider that your organization may already
 have set up, including Google Groups, GitHub Teams, SAML Roles, or LDAP groups.  
 
-See also [`hal config security`](/reference/halyard/commands/#hal-config-security).
+See also [hal config security](/docs/reference/halyard/commands/#hal-config-security).
 
 ## Contents
 
@@ -39,7 +39,7 @@ See also [`hal config security`](/reference/halyard/commands/#hal-config-securit
 
 
 ## For reference...
-[Authorization & Authentication Architecture and workflow](/reference/architecture/authz_authn/)
+[Authorization and Authentication Architecture and workflow](/docs/reference/architecture/authz_authn/)
 
 ## Next steps
 

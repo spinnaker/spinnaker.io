@@ -4,7 +4,7 @@ linkTitle: "Canary stage"
 description: How to add a canary stage to your pipeline
 ---
 
-If you have [enabled canary for your application](/docs/setup/canary/) and have one
+If you have [enabled canary for your application](/docs/setup/other_config/canary/) and have one
 or more [canary configs prepared](/docs/guides/user/canary/config/), you can now add
 a canary stage to your pipeline and configure it to perform canary analysis for
 your deployment.

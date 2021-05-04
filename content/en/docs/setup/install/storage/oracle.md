@@ -57,7 +57,7 @@ If you have enabled [Oracle Cloud provider](/docs/setup/install/providers/oracle
 
 ## Add Oracle Object Storage to Spinnaker
 
-1. Run the following `hal` command to edit your storage settings. See [command reference](/reference/halyard/commands#hal-config-storage-oracle-edit).
+1. Run the following `hal` command to edit your storage settings. See [command reference](/docs/reference/halyard/commands#hal-config-storage-oracle-edit).
 
    ```bash
    hal config storage oracle edit \

@@ -63,5 +63,5 @@ You can also provide the same syntax in `*-local.yml` profile files or directly 
 ## Supported Secret Engines
 The secrets framework is extensible and support for new engines can easily be added. Currently the following is supported:
 
-* [S3](/reference/halyard/secrets/s3-secrets/)
-* [GCS](/reference/halyard/secrets/gcs-secrets/)
+* [S3](/docs/reference/halyard/secrets/s3-secrets/)
+* [GCS](/docs/reference/halyard/secrets/gcs-secrets/)

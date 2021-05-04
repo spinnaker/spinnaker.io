@@ -31,7 +31,7 @@ Here is an example of this configuration:
 deploymentEnvironment:
   customSizing:
     # This applies sizings to only the echo container and not to any sidecar 
-    # containers running with echo.
+    # containers running with echo. (Use spin-<service> to include sidecars)
     echo:
       limits:
         cpu: 250m
@@ -40,10 +40,10 @@ deploymentEnvironment:
         cpu: 100m
         memory: 128Mi
     # This applies sizings to the clouddriver container as well as any sidecar 
-    # containers running with clouddriver.
+    # containers running with clouddriver. (Use without spin- to only include the clouddriver container)
     spin-clouddriver:
       limits:
-        cpu: 1
+        cpu: 1000m
         memory: 1Gi
       requests:
         cpu: 250m
@@ -61,7 +61,7 @@ JAVA_OPTS=-XX:MaxRAMPercentage=50.0
 ```
 
 This sets the JVM's heap size to half the memory allocated per container. This can be overriden by specifying your own `JAVA_OPTS` 
-using the `env` key in [service-settings](/reference/halyard/custom/#tweakable-service-settings).
+using the `env` key in [service-settings](/docs/reference/halyard/custom/#tweakable-service-settings).
 
 As a starting point, the `-Xms` can be set to 80%-90% of the requests memory allotment and `-Xmx` can be set to 80-90% of the limits memory allotment. For the clouddriver example above, the `env` key is as follows:
 

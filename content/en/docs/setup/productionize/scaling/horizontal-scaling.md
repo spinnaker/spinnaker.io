@@ -13,7 +13,7 @@ microservices, and the mechanics of this are not covered here.
 
 > Keep in mind, if you are deploying Spinnaker to Kubernetes, you're more
 > likely to see benefits of horizontal scaling if you've already allocated
-> resource [requests & limits](/reference/halyard/component-sizing) for the
+> resource [requests & limits](/docs/reference/halyard/component-sizing) for the
 > services being scaled.
 
 ## Scaling Clouddriver

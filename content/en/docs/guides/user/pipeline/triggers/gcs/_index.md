@@ -3,8 +3,7 @@ title: "Receiving artifacts from GCS"
 linkTitle: "GCS"
 weight:
 description: >
-  Trigger pipelines based on changes in a [Google Cloud Storage](https://cloud.google.com/storage/)
-  (GCS) bucket, and inject changed objects as [artifacts](/reference/artifacts).
+  Configure Spinnaker to trigger pipelines based on changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS) bucket and inject changed GCS objects as [artifacts](/docs/reference/artifacts) into a pipeline.
 ---
 
 This functionality uses Google's
@@ -42,14 +41,14 @@ necessary.
 
 ## 1. Configure Google Pub/Sub for GCS
 
-Follow the [Pub/Sub configuration](/docs/setup/triggers/google/). In particular, pay
+Follow the [Pub/Sub configuration](/docs/setup/other_config/triggers/google/), in particular, pay
 attention to the [GCS
-section](/setup/triggers/google/#receiving-messages-from-google-cloud-storage-gcs)
+section](/docs/setup/other_config/triggers/google/#receiving-messages-from-google-cloud-storage-gcs)
 since this is where we'll be publishing our files to.
 
 ## 2. Configure a GCS artifact account
 
-Follow the [GCS artifact configuration](/docs/setup/artifacts/gcs/).
+Follow the [GCS artifact configuration](/docs/setup/other_config/artifacts/gcs/).
 
 ## 3. Apply your configuration changes
 

@@ -8,8 +8,8 @@ description: Reference documentation for the metrics reported by Spinnaker micro
 This page is intended for operators who need to monitor the services
 but cannot use the monitoring-daemon. If you're looking on instructions for
 how to install or setup monitoring, checkout the
-[Enable Monitoring](/setup/monitoring/) section in the
-[Spinnaker Setup Guide](/setup/).
+[Enable Monitoring](/docs/setup/other_config/monitoring/) section in the
+[Spinnaker Setup Guide](/docs/setup/).
 
 
 ## Metrics overview

@@ -80,7 +80,7 @@ hal config storage gcs edit --project $PROJECT \
 ```
 
 There are more options described
-[here](/reference/halyard/commands#hal-config-storage-gcs-edit)
+[here](/docs/reference/halyard/commands#hal-config-storage-gcs-edit)
 if you need more control over your configuration.
 
 Finally, set the storage source to GCS:

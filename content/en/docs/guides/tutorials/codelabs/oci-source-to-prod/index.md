@@ -41,11 +41,11 @@ curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debia
 sudo bash InstallHalyard.sh -y
 ```
 
-* Set up Oracle Object Storage as your Spinnaker storage by following these steps: [Adding Oracle Object Storage to Spinnaker](/setup/install/storage/oracle/).
+* Set up Oracle Object Storage as your Spinnaker storage by following these steps: [Adding Oracle Object Storage to Spinnaker](/docs/setup/install/storage/oracle/).
 
-* Set up your Oracle Cloud provider account by following these [Adding Oracle Cloud Provider Account to Spinnaker](/setup/install/providers/oracle/) steps.
+* Set up your Oracle Cloud provider account by following these [Adding Oracle Cloud Provider Account to Spinnaker](/docs/setup/install/providers/oracle/) steps.
 
-* Set up your Oracle Bakery by following these [Configuring Oracle Cloud Infrastructure Bakery](/setup/bakery/oracle/) steps.
+* Set up your Oracle Bakery by following these [Configuring Oracle Cloud Infrastructure Bakery](/docs/setup/other_config/bakery/oracle/) steps.
 
 <span class="begin-collapsible-section"></span>
 
