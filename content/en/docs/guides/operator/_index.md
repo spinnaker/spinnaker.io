@@ -1,6 +1,5 @@
 ---
-title: "Operator How-Tos"
-linkTitle: "Operator How-Tos"
+title: "Operator Guides"
 weight: 2
 description: "Operator guides for setting up, operating, and migrating Spinnaker components."
 ---

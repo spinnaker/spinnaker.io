@@ -6,7 +6,7 @@ description: >
   Add, configure, deploy, and troubleshoot the RandomWait Stage plugin.
 ---
 
-{{< alpha version="1.20.6" >}}
+## Overview
 
 _Note: Spinnaker 1.20.6 and 1.21+ support plugins with both server and frontend components. Spinnaker 1.19.x does not support frontend plugins due to a bug in Deck._
 
@@ -69,7 +69,7 @@ spinnaker:
          url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
 ```
 
->Note: As of Spinnaker 1.23.0, listing extensions has been deprecated and configuration has been simplified. Plugin extension configurations have been moved and are now nested under the plugin itself. 
+>Note: As of Spinnaker 1.23.0, listing extensions has been deprecated and configuration has been simplified. Plugin extension configurations have been moved and are now nested under the plugin itself.
 > See an example of the changes [here](../#plugin-v2-configuration-changes)
 
 
