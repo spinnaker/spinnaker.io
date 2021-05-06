@@ -15,7 +15,7 @@ in.
 Spinnaker supports the storage providers listed below. Whichever option you
 choose does not affect your choice of [Cloud Provider](/docs/setup/providers/).
 That is, you can use [Google Cloud
-Storage](https://cloud.google.com/storage/){:target="\_blank"} as a storage
+Storage](https://cloud.google.com/storage/) as a storage
 source but still deploy to [Microsoft Azure](https://azure.microsoft.com/).
 
 ## Supported storage solutions

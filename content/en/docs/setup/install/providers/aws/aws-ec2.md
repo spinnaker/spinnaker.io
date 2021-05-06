@@ -19,36 +19,23 @@ Spinnaker will use an [AWS IAM structure](https://aws.amazon.com/iam/) with user
 2. AWS CloudFormation templates deployed with AWS CLI
 3. Manually creating the IAM structure with the AWS IAM Console
 
-<<<<<<< HEAD
 In [AWS](https://aws.amazon.com/), an [__Account__](/docs/concepts/providers/#accounts)
-=======
-In [AWS](https://aws.amazon.com/){:target="\_blank"}, an [__Account__](/concepts/providers/#accounts)
->>>>>>> master
 maps to a credential able to authenticate against a given [AWS
-account](https://aws.amazon.com/account/){:target="\_blank"}.
+account](https://aws.amazon.com/account/).
 
 ## Option 1: Configure with AWS CloudFormation Console
 
 Use this option to deploy Spinnaker, if you are familar with deployment using [AWS Console](https://console.aws.amazon.com/).
 
 ### Managing Account
-<<<<<<< HEAD
 1. Navigate to [Console](https://console.aws.amazon.com/) > CloudFormation and [select](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) your preferred region.
 2. Download [the template](https://spinnaker.io/downloads/aws/managing.yaml) locally to your workstation.
-=======
-1. Navigate to [Console](https://console.aws.amazon.com/){:target="\_blank"} > CloudFormation and [select](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) your preferred region.
-2. Download [the template](https://www.spinnaker.io/downloads/aws/managing.yaml) locally to your workstation.
->>>>>>> master
 
     2.a (Optional). Add additional managed account as shown on line 158 in the SpinnakerAssumeRolePolicy section of the downloaded template file.
 3. Creating the CloudFormation Stack
     * __Create Stack__ > __Upload a template to Amazon S3__ > __Browse to template you downloaded in Step-2 above__ > __Next__
     * Enter __Stack Name__ as spinnaker-**managing**-infrastructure-setup and follow the prompts on screen to create the stack
-<<<<<<< HEAD
 4. Once the stack is created, select the stack you created in Step-3 > Outputs and note the values. You will need these values for subsequent configurations.
-=======
-4. Once the stack is select the stack you created in Step-3 > Outputs and note the values. You will need these values for subsequent configurations.
->>>>>>> master
 5. If you set UseAccessKeyForAuthentication to "true" for the stack, retrieve the access key credentials.
     * Navigate to the Secrets Manager console.
     * Select the secret created by your CloudFormation stack.  The name of the secret was shown in the __SpinnakerUserSecret__ output value for the stack.
@@ -58,13 +45,8 @@ Use this option to deploy Spinnaker, if you are familar with deployment using [A
 
 > These steps need to be carried out for the managing account as well.
 
-<<<<<<< HEAD
 1. Navigate to [Console](https://console.aws.amazon.com/)> CloudFormation and [select](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) your preferred region.
 2. Download [the template](https://spinnaker.io/downloads/aws/managed.yaml) locally to your workstation.
-=======
-1. Navigate to [Console](https://console.aws.amazon.com/){:target="\_blank"} > CloudFormation and [select](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) your preferred region.
-2. Download [the template](https://www.spinnaker.io/downloads/aws/managed.yaml) locally to your workstation.
->>>>>>> master
 3. Creating the CloudFormation Stack
     * __Create Stack__ > __Upload a template to Amazon S3__ > __Browse to template you downloaded in Step-2 above__ > __Next__
     * Enter __Stack Name__ as spinnaker-**managed**-infrastructure-setup and follow the prompts on screen to create the stack

@@ -68,7 +68,7 @@ The simplest way to get credentials is to use legacy authorization.
    ![](/docs/setup/install/providers/images/gke-enable-legacy-auth.png)
 
 1. Configure `gcloud` to populate the `kubeconfig` with
-[legacy credentials](https://cloud.google.com/kubernetes-engine/docs/how-to/iam-integration#using_legacy_cluster_certificate_or_user_credentials){:target=""\_blank"}:
+[legacy credentials](https://cloud.google.com/kubernetes-engine/docs/how-to/iam-integration#using_legacy_cluster_certificate_or_user_credentials):
 
    ```bash
    gcloud config set container/use_client_certificate true
