@@ -1,7 +1,7 @@
 ---
 title: "Set up Canary Analysis Support"
 linkTitle: "Canary"
-weight: 6
+weight: 35
 description: Set up Automated Canary Analysis to perform Canary deployments with Spinnaker.
 ---
 

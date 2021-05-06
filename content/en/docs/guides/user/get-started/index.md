@@ -32,7 +32,7 @@ some things to check out:
 
 * If Spinnaker is already installed in your organization, and you want to practice it
 using some guided tutorials, [here are 
-codelabs](/docs/guides/tutorials/codelabs/).
+[codelabs](/docs/guides/tutorials/codelabs/).
 
 * If you want a basic overview of how to use Spinnaker, the high-level
 process is described below.

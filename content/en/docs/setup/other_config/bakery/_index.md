@@ -1,7 +1,7 @@
 ---
 title: "Bakery"
 linkTitle: "Bakery"
-weight: 4
+weight: 5
 description: Spinnaker includes Hashicorp's Packer as a default image bakery.
 ---
 
