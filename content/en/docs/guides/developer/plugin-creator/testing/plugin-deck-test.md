@@ -1,10 +1,12 @@
 ---
 title: "Test a Pipeline Stage Plugin"
-summary: > 
-  Learn how to set up a local Spinnaker environment on your Mac or Windows environment so you can test the `pf4jStagePlugin`, which has both Orca and Deck components. Spinnaker services running locally communicate with the other Spinnaker services running in a local VM. Although this guide is specific to the `pf4jStagePlugin`, you can adapt its contents to test your own plugin.
+description: >
+  Learn how to set up a local Spinnaker environment on your Mac or Windows environment so you can test the `pf4jStagePlugin`.
 ---
 
-{% include alpha version="1.20.6" %}
+## Overview
+
+This guide explains how to set up a local Spinnaker environment on your Mac or Windows environment so you can test the `pf4jStagePlugin`, which has both Orca and Deck components. Spinnaker services running locally communicate with the other Spinnaker services running in a local VM. Although this guide is specific to the `pf4jStagePlugin`, you can adapt its contents to test your own plugin.
 
 Software for development:
 
@@ -29,9 +31,9 @@ Spinnaker setup used in this guide:
 * Deck running on `{my-workstation-ip}:9000`
 * All other services running in the VM on {my-vm-ip}
 
-## Prerequisites
+## Before you begin
 
-* You have read the [Plugin Creators Guide Overview](/guides/developer/plugin-creators/overview/)
+* You have read the [Plugin Creators Guide Overview]({{< ref "plugin-creator" >}})
 * Your workstation has at least 16GB of RAM and 30GB of available storage
 * You have installed JDK 11; see [AdoptOpenJDK](https://adoptopenjdk.net/installation.html#x64_mac-jdk) for installation instructions or install using [Homebrew](https://github.com/AdoptOpenJDK/homebrew-openjdk)
 * You have installed Groovy
