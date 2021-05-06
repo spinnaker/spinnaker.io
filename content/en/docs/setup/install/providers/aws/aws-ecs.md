@@ -4,13 +4,9 @@ title:  "Amazon ECS"
 description: Deploy Spinnaker to ECS.
 ---
 
-<<<<<<< HEAD
 
 
 In the Amazon ECS cloud provider, an [__Account__](/docs/concepts/providers/#accounts)
-=======
-In the Amazon ECS cloud provider, an [__Account__](/concepts/providers/#accounts)
->>>>>>> master
 maps to a Spinnaker AWS account, which itself is able to authenticate against a given [AWS
 account](https://aws.amazon.com/account/).
 
