@@ -65,8 +65,8 @@ Like the [Deploy (Manifest) stage](/docs/guides/user/kubernetes-v2/deploy-manife
 
 You can also set up the pipeline to trigger based on changes to the patch content:
 
-* [Consuming GitHub Artifacts](/docs/guides/user/triggers/github)
-* [Consuming GCS Artifacts](/docs/guides/user/triggers/gcs)
+* [Consuming GitHub Artifacts](/docs/guides/user/pipeline/triggers/github/)
+* [Consuming GCS Artifacts](/docs/guides/user/pipeline/triggers/gcs/)
 
 Assuming you have declared an expected artifact upstream to your Patch (Manifest) stage, you can reference it in the Patch configuration:
 

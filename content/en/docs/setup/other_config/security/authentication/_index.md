@@ -64,10 +64,10 @@ A common issue with Incognito windows is that they _all share the same cookie ja
 
 ## Available Options
 * Methods
-    * [OAuth 2.0/OIDC](./oauth/) - The main examples are Google & GitHub endpoints.  
-    * [SAML](./saml/) - Lots of examples on this with one of the most prevalent being Okta.  
-    * [LDAP](./ldap/) - This covers Active Directory and other LDAP servers, such as OpenLDAP.
-    * [X.509](./x509/) - Often used for client or application communications.  Can operate in conjunction with other authentication methods.  
+    * [OAuth 2.0/OIDC](/docs/setup/other_config/security/authentication/oauth/) - The main examples are Google & GitHub endpoints.  
+    * [SAML](/docs/setup/other_config/security/authentication/saml/) - Lots of examples on this with one of the most prevalent being Okta.  
+    * [LDAP](/docs/setup/other_config/security/authentication/ldap/) - This covers Active Directory and other LDAP servers, such as OpenLDAP.
+    * [X.509](/docs/setup/other_config/security/authentication/x509/) - Often used for client or application communications.  Can operate in conjunction with other authentication methods.  
 
 ## Next steps
 

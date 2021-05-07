@@ -106,7 +106,7 @@ analysis](#run-the-canary-for-enough-time) you have to wait a long time
 for the analysis to finish before you can refine it.
 
 Fortunately, a Canary Analysis stage can be configured to use a [retrospective
-analysis](/docs/v1/guides/user/canary/stage/#real-time-versus-retrospective-analysis)
+analysis](/docs/guides/user/canary/stage/#real-time-versus-retrospective-analysis)
 instead of a real-time analysis. This analysis is based on past monitoring data,
 without having to wait for the data points to be generated. With this mode, you
 can iterate more quickly on the development of the canary configuration.

@@ -55,7 +55,7 @@ If you've deployed your Spinnaker instance with Halyard, configuring Spinnaker r
 
 #### Enable Docker
 
-[Configure a docker registry with halyard](/docs/setup/providers/docker-registry/)
+[Configure a docker registry with halyard](/docs/setup/install/providers/docker-registry/)
 
 #### Set up the DC/OS provider
 

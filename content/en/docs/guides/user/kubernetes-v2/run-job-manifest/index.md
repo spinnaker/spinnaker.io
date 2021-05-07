@@ -105,7 +105,7 @@ If you source JSON from a file (`SPINNAKER_CONFIG_JSON=$(cat file.json)`), be su
 
 [Artifacts](/docs/reference/artifacts) are a mechanism within Spinnaker that enables pipelines to reference resources stored in external systems. Artifacts can be anything &mdash; Docker images, Kubernetes manifests, and in this case, data produced by the Run Job stage. As mentioned above, if your job is producing so many logs that parsing them for output data would be an expensive operation, utilizing artifacts would be the best solution.
 
-In order to use artifacts to capture output data, your job needs to push output to one of Spinnaker's [supported artifact stores](/docs/reference/artifacts/types/overview). This output is captured at the end of the job execution and injected into the pipeline for use in downstream stages via SpEL. Artifacts captured as output must be in JSON format.
+In order to use artifacts to capture output data, your job needs to push output to one of Spinnaker's [supported artifact stores](/docs/reference/artifacts/types/). This output is captured at the end of the job execution and injected into the pipeline for use in downstream stages via SpEL. Artifacts captured as output must be in JSON format.
 
 As an example, let's imagine you are running a job which pushes output into an S3 bucket at the end of its execution.
 

@@ -12,7 +12,7 @@ aliases:
 > for deploying Docker images.
 
 When configuring Docker Registries, an
-[__Account__](/docs/concepts/providers/#accounts) maps to a credential able to
+[Account](/docs/concepts/providers/#accounts) maps to a credential able to
 authenticate against a certain set of [Docker
 repositories](https://docs.docker.com/glossary/?term=repository).
 

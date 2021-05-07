@@ -12,7 +12,7 @@ aliases:
 DC/OS configuration for Spinnaker consists of a set of DC/OS
 clusters and a set of [Accounts](/docs/concepts/providers/#accounts) that have
 credentials to authenticate to one or more of those clusters.
-Additionally, each account has a set of [Docker Registry](/docs/setup/providers/docker-registry)
+Additionally, each account has a set of [Docker Registry](/docs/setup/install/providers/docker-registry/)
 accounts to be used as a source of images.
 
 ## Prerequisites
@@ -29,7 +29,7 @@ has not been extensively tested.
 
 ### Docker registries
 
-Follow the steps under the [Docker Registry](/docs/setup/providers/docker-registry)
+Follow the steps under the [Docker Registry](/docs/setup/install/providers/docker-registry/)
 provider to add any registries containing images you want to deploy. If
 you have already done so, you can verify that these accounts exist by running:
 

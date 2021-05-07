@@ -16,7 +16,7 @@ For more details, see `helm template --help`.
 > `helm install` once when
 > bootstrapping your Kubernetes cluster.
 
-> Note: Make sure that you have configured [artifact support](/docs/setup/artifacts)
+> Note: Make sure that you have configured [artifact support](/docs/setup/other_config/artifacts/)
 > in Spinnaker first. All Helm charts are fetched/stored as artifacts in
 > Spinnaker. Read more in the [reference pages](/docs/reference/artifacts).
 

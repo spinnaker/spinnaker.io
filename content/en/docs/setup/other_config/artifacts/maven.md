@@ -16,7 +16,7 @@ that reads the data.
 
 ## Edit your artifact settings
 
-1. Enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+1. Enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 2. Enable the Maven artifact provider:
 

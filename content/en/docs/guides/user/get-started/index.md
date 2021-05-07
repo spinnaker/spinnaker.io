@@ -23,7 +23,7 @@ started.
 some things to check out:
 
   - [Advanced configuration](/docs/setup/other_config/)
-  - [Productionize Spinnaker](/docs/etup/productionize/)
+  - [Productionize Spinnaker](/docs/setup/productionize/)
 
 ### Users (deploying with Spinnaker)
 

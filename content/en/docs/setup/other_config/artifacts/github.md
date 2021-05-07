@@ -30,7 +30,7 @@ TOKEN_FILE=
 ARTIFACT_ACCOUNT_NAME=my-github-artifact-account
 ```
 
-First, enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 Next, enable the GitHub artifact provider:
 

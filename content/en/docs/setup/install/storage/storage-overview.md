@@ -11,7 +11,7 @@ costly to lose, we recommend you use a hosted storage solution you are confident
 in.
 
 Spinnaker supports the storage providers listed below. Whichever option you
-choose does not affect your choice of [Cloud Provider](/docs/setup/providers/).
+choose does not affect your choice of [Cloud Provider](/docs/setup/install/providers/).
 That is, you can use [Google Cloud
 Storage](https://cloud.google.com/storage/) as a storage
 source but still deploy to [Microsoft Azure](https://azure.microsoft.com/).

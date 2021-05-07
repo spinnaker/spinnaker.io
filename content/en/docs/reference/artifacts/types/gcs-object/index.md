@@ -34,7 +34,7 @@ The pipeline UI exposes the following fields for the GCS object artifact:
 When configuring certain triggers (such as a Pub/Sub trigger with __Pub/Sub
 System Type__ "Google"), you can use a GCS object as an expected artifact.
 
-{{< figure src=="./expected-artifact-gcs-object.png" caption="Configuring GCS object fields in a pipeline trigger's expected artifact settings." >}}
+{{< figure src="./expected-artifact-gcs-object.png" caption="Configuring GCS object fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 

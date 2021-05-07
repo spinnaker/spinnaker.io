@@ -64,7 +64,7 @@ SERVICE_ACCOUNT_DEST=~/.gcp/gcs-artifacts-account.json
 ARTIFACT_ACCOUNT_NAME=my-gcs-artifact-account
 ```
 
-First, enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 Next, add an artifact account:
 

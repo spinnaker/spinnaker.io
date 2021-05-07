@@ -97,7 +97,7 @@ Spinnaker supports sending notifications to Microsoft Teams using Incoming Webho
 To create a custom incoming webhook in Teams, follow the instructions provided here: [Add an incoming webhook to a Teams channel](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#add-an-incoming-webhook-to-a-teams-channel)
 
 When configuring a Microsoft Teams notification, enter the full incoming webhook URL in the `Teams Webhook URL` text box.
-![](ms-teams.png)
+![In the Edit Notification window, specify Microsoft Teams in the Notify via field and provide your Teams webhook URL. Then, select what events trigger notifications.](ms-teams.png)
 
 
 ## Slack

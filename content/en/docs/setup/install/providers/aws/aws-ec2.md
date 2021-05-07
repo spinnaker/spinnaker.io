@@ -19,7 +19,7 @@ Spinnaker will use an [AWS IAM structure](https://aws.amazon.com/iam/) with user
 2. AWS CloudFormation templates deployed with AWS CLI
 3. Manually creating the IAM structure with the AWS IAM Console
 
-In [AWS](https://aws.amazon.com/), an [__Account__](/docs/concepts/providers/#accounts)
+In [AWS](https://aws.amazon.com/), an [Account](/docs/concepts/providers/#accounts)
 maps to a credential able to authenticate against a given [AWS
 account](https://aws.amazon.com/account/).
 
@@ -52,7 +52,7 @@ Use this option to deploy Spinnaker, if you are familar with deployment using [A
     * Enter __Stack Name__ as spinnaker-**managed**-infrastructure-setup and follow the prompts on screen to create the stack
     * Enter __AuthArn__ and __ManagingAccountId__ as the value noted above and follow the prompts on screen to create the stack
 
-![](../outputs_cloudformation.png)
+![Cloudformation](/docs/setup/install/providers/aws/outputs_cloudformation.png)
 
 ## Option 2: Configure with AWS CLI
 
@@ -116,7 +116,8 @@ For the example below, the AWS Account **spinnakerManaging** assumes the **spinn
 
 A great use case for this set up is to deploy pre-built AWS AMIs to AWS EC2.
 
-![Example AWS IAM structure for Spinnaker AWS Provider](/docs/setup/install/providers/images/example-aws-provider.svg)
+![Example AWS IAM structure for Spinnaker AWS Provider](/docs/setup/install/providers/aws/example-aws-provider.svg)
+
 
 Before you start, create a table that maps the account names to account IDs for your desired set up. An example table is shown:
 

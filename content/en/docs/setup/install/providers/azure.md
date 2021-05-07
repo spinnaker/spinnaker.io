@@ -9,7 +9,7 @@ aliases:
 
 
 In [Azure](https://azure.microsoft.com/), an
-[__Account__](/docs/concepts/providers/#accounts) maps to a credential able to
+[Account](/docs/concepts/providers/#accounts) maps to a credential able to
 authenticate against a given [Azure subscription](https://azure.microsoft.com/free/).
 
 ## Prerequisites

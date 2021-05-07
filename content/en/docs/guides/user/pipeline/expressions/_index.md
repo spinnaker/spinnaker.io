@@ -55,8 +55,7 @@ However, expressions can be used with Expected Artifacts, just enable "Use
 Default Artifact" and write the expression in the Object path.
 
 If you want to set the value of a field using a pipeline expression but there is
-no text box available, you can use the [Edit as
-JSON](/docs/guides/user/pipeline/managing-pipelines/#edit-a-pipeline-as-json)
+no text box available, you can use the [Edit as JSON](/docs/guides/user/pipeline/managing-pipelines/#edit-a-pipeline-as-json)
 pipeline feature.
 
 ### When are pipeline expressions evaluated?
@@ -77,7 +76,8 @@ runtime of the pipeline.
 > Warning: there are several reserved parameter keys (names) that cause unexpected behavior and failures
 > if overwritten by a pipeline parameter definition.
 > See the [list of reserved parameter and evaluate variable key names](#list-of-reserved-parameter-and-evaluate-variable-key-names).
-![](images/parameters.png)
+
+![](/docs/guides/user/pipeline/expressions/images/parameters.png)
 
 Any parameter set in the pipeline configuration can be accessed using one of the following pipeline expression syntax:
 
@@ -105,7 +105,8 @@ or values as the result of a pipeline expression.
 > Warning: there are several reserved parameter keys (names) that cause unexpected behavior and failures
 > if overwritten by a pipeline parameter definition.
 > See the [list of reserved parameter and evaluate variable key names](#list-of-reserved-parameter-and-evaluate-variable-key-names).
-![](images/evaluate-variables-stage.png)
+> 
+![](./images/evaluate-variables-stage.png)
 
 Any variable set in an Evaluate Variables stage can be accessed using one of the following pipeline expression syntax
 assuming the following scenario:

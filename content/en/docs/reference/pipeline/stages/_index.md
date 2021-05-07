@@ -46,7 +46,7 @@ For a step-by-step explanation of how to set up a Canary Analysis stage see the
 ### Check Preconditions
 Check for preconditions before continuing. For example, you can check that
 your cluster is a particular size, or add a pipeline expression. See the
-[pipeline expressions guide](/docs/guides/user/pipeline-expressions/) for more
+[pipeline expressions guide](/docs/guides/user/pipeline/expressions/) for more
 information about creating and using pipeline expressions.
 
 ### Clone Server Group

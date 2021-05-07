@@ -29,7 +29,7 @@ Refer to [AWS IAM Providing Access to multiple AWS Accounts](https://docs.aws.am
 
    __Example:__ AWS __Managing__ account `spinnakermanaging` can assume the __Managed__ role in the accounts __*accountdev*__, __*accountstaging*__, __*accountprod*__ and deploy a baked AMI in the pipeline.
 
-![Example diagram of managing and managed roles](concepts.png)
+![Example diagram of managing and managed roles](/docs/setup/install/providers/aws/concepts.png)
 
 
 There are several ways to configure the Amazon Web Services (AWS) Cloud Provider. Choose one or more based on your requirements:

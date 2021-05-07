@@ -119,7 +119,7 @@ Create a new pipeline by navigating to the PIPELINES tab and clicking the *New* 
 
 ### Set up Deploy stage
 
-There are multiple ways to deploy Kubernetes manifests using the Kubernetes provider.  More details can be found in this [Deploying Kubernetes Manifests](/docs/v1/guides/user/kubernetes-v2/deploy-manifest/) guide.
+There are multiple ways to deploy Kubernetes manifests using the Kubernetes provider.  More details can be found in this [Deploying Kubernetes Manifests](/docs/guides/user/kubernetes-v2/deploy-manifest/) guide.
 
 It is preferred to use artifacts as manifests.  However, in this tutorial, the manifest is supplied statically to a pipeline as text for simplicity.
 

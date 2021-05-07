@@ -6,7 +6,7 @@ description: In Spinnaker, providers are integrations to the Cloud platforms you
 aliases:
   - /docs/target-deployment-setup
   - /setup/providers/
-  - /docs/setup/providers/
+  - /docs/setup/install/providers/
 ---
 
 In this section, you'll register credentials for your Cloud platforms. Those

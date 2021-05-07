@@ -40,4 +40,4 @@ Webhook__. Here, provide the following values to the form shown below:
 
 You do not need to configure Spinnaker via Halyard at this point -- all that's
 needed is pipeline trigger configuration. An example of that can be found in
-[this guide](/docs/guides/user/artifacts/github).
+[this guide](/docs/guides/user/pipeline/triggers/github/).

@@ -124,7 +124,7 @@ will allow us to fetch the manifests later.
 
 ### Configure Docker Registry account
 
-Make sure to [add a Docker Registry provider account](/setup/install/providers/docker-registry).
+Make sure to [add a Docker Registry provider account](/docs/setup/install/providers/docker-registry).
 This will allow us to configure a Spinnaker pipeline to trigger on a Docker
 image update.
 
@@ -216,9 +216,9 @@ kubectl describe node $NODE_NAME
 For the purposes of this codelab, we'll be sending external webhooks to 
 `$NODE_PORT` on that node. In order for these webhooks to work, for this codelab 
 only, open your firewall on that node to all addresses for TCP connections on 
-`$NODE_PORT`. If you were running Spinnaker in production with [authentication](/setup/security), 
+`$NODE_PORT`. If you were running Spinnaker in production with [authentication](/docs/setup/other_config/security), 
 only webhooks would be allowed, which you can reject by header or payload. See 
-[the webhook guide for more details](/guides/user/triggers/webhooks).
+[the webhook guide for more details](/docs/guides/user/pipeline/triggers/).
 
 ### Allow Docker to post build events
 
@@ -520,7 +520,7 @@ At this point there are few things you can play with:
 * Roll back a "broken" change either in prod or staging using the "Undo
   Rollout" stage.
 
-* Insert [pipeline expressions](/docs/v1/guides/user/pipeline-expressions) into
+* Insert [pipeline expressions](/docs/guides/user/pipeline/expressions) into
   your manifest files.
 
 ## 10. Teardown

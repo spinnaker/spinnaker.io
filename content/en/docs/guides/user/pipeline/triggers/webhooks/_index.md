@@ -20,7 +20,7 @@ If you're triggering from a *GitHub* webhook, see the instructions
 [here](/docs/setup/other_config/triggers/github/) to set up that webhook.
 
 If you're triggering to a Spinnaker with authentication, see the 
-instructions [here](/setup/security/authorization/#automated-pipeline-triggers) to set up the 
+instructions [here](/docs/setup/other_config/security/authorization/#automated-pipeline-triggers) to set up the 
 automated trigger.
 
 ## Prerequisites
@@ -40,8 +40,7 @@ __Source__ field as shown here:
 Notice that in the above image below the __Type__ dropdown, the webhook
 configuration points out that we can hit
 `http://localhost:8084/webhooks/webhook/demo` to trigger the pipeline. The
-endpoint depends on how you've configured your [Spinnaker
-endpoints](/docs/setup/security) -- if you're running on a different endpoint, for
+endpoint depends on how you've configured your [Spinnaker endpoints](/docs/setup/other_config/security/) -- if you're running on a different endpoint, for
 example `https://api.spinnaker-prod.net`, that'll be shown instead.
 
 Keeping track of that endpoint as `$ENDPOINT` (it will depend on where
@@ -87,7 +86,7 @@ Say your pipeline accepted some parameters (for example, the desired stack to
 deploy to), you can make this explicit by adding a pipeline parameter on the
 same configuration screen as the webhook trigger:
 
-{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline-expressions)." >}}
+{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline/expressions)." >}}
 
 > Warning: there are several reserved parameter keys (names) that cause unexpected behavior and failures
 > if overwritten by a pipeline parameter definition.
