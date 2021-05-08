@@ -122,7 +122,7 @@ typical for services to resolve their dependencies via load balancers or
 discovery systems (for example [Eureka](https://github.com/Netflix/eureka) or
 [Consul](https://www.consul.io/)).
 
-![](graph.png)
+![](/docs/reference/architecture/graph.png)
 
 ## Port mappings
 

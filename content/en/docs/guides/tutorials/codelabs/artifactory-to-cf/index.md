@@ -11,7 +11,8 @@ In this codelab, you will deploy an artifact to Cloud Foundry via a Spinnaker pi
 
 This codelab assumes you have the following:
 
-* Artifact support [enabled](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+* Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).
+* 
 * An Artifactory repository configured to accept a Maven artifact&mdash;the JAR for your application
 * A GitHub repository containing a manifest with which to deploy your application
 

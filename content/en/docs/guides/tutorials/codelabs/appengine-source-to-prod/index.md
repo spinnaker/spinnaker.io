@@ -30,7 +30,7 @@ gcloud services enable compute.googleapis.com
 
 We're going to trigger our Spinnaker pipelines using Github webhooks. In order to do so,
 we will have to expose Spinnaker's API gateway to external traffic.
-If you are going to use this installation beyond this codelab, you should follow the [guides](/docs/setup/security) for securing Spinnaker.
+If you are going to use this installation beyond this codelab, you should follow the [guides](/docs/setup/other_config/security/) for securing Spinnaker.
 
 Create a new firewall rule for your GCP project.
 Github sends webhooks from IPs in the [CIDR ranges](https://help.github.com/articles/github-s-ip-addresses/#service-hook-ip-addresses) queried below.

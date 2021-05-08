@@ -56,7 +56,7 @@ which you will install Spinnaker.
    We recommend at least 4 cores and 16GB of RAM available in the cluster where
    you will deploy Spinnaker.
 
-1. Make sure [`kubectl` is installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+1. Make sure [kubectl is installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 on the machine running Halyard.
 
    After you install it, you might need to update the `$PATH` to ensure Halyard

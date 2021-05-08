@@ -13,12 +13,10 @@ aliases:
 For the Kubernetes provider, a Spinnaker [Account](/docs/concepts/providers/#accounts)
 maps to a credential that can authenticate against your Kubernetes Cluster. It
 also includes a set of one or more [Docker
-Registry](/docs/setup/providers/docker-registry) accounts that are used as a source
+Registry](/docs/setup/install/providers/docker-registry) accounts that are used as a source
 of images.
 
-When setting up your Kubernetes provider account, you will [use halyard to add
-the account](#add-a-kubernetes-account) and provide any Docker registries that
-you'll use.
+When setting up your Kubernetes provider account, you will [use halyard to add the account](#add-a-kubernetes-account) and provide any Docker registries that you'll use.
 
 ## Prerequisites
 
@@ -30,7 +28,7 @@ You need a running Kubernetes cluster, with corresponding credentials in a
 [kubeconfig file](https://kubernetes.io/docs/concepts/cluster-administration/authenticate-across-clusters-kubeconfig/).
 
 If you have these, and you have
-[`kubectl`](https://kubernetes.io/docs/user-guide/kubectl-overview/)
+[kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)
 installed on the machine where you have your `kubeconfig`, you can verify the
 credentials work by running this command:
 
@@ -90,7 +88,7 @@ However, [you can also use RBAC and a service account](#optional-configure-kuber
 
 To use the Kubernetes (legacy) provider, you need a Docker registry as a source
 of images. To enable this, [set up a Docker registry as another
-provider](/docs/setup/providers/docker-registry), and add any registries that
+provider](/docs/setup/install/providers/docker-registry), and add any registries that
 contain images you want to deploy.
 
 You can verify your Docker registry accounts using this command:

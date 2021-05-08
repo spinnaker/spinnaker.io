@@ -34,5 +34,5 @@ metrics.
 
 * __Metrics__
 
-  Follow the [monitoring setup instructions](/docs/setup/monitoring) to export
+  Follow the [monitoring setup instructions](/docs/setup/other_config/monitoring/) to export
   Spinnaker's metrics into a metric store of your choice.

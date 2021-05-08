@@ -15,29 +15,6 @@ have set up, including Google Groups, GitHub Teams, SAML Roles, or LDAP groups.
 
 See also [hal config security](/docs/reference/halyard/commands/#hal-config-security).
 
-## Contents
-
-* Overview (this page)
-* [SSL](./ssl)
-* Authentication
-  * [Overview](./authentication/)
-  * Methods
-    * [OAuth 2.0](./authentication/oauth/)
-    * [SAML](./authentication/saml/)
-    * [LDAP](./authentication/ldap/)
-    * [X.509](./authentication/x509/)
-* Authorization 
-  * [Overview](./authorization/)
-  * Role Providers
-      * [Google Groups](./authorization/google-groups/)
-      * [GitHub Teams](./authorization/github-teams/)
-      * [LDAP](./authorization/ldap/)
-      * [SAML](./authorization/saml/)
-  * [Service Accounts](./authorization/service-accounts/)
-  * [Pipeline Permissions](./authorization/pipeline-permissions/)
-* [Administrator functionality](./admin/)
-
-
 ## For reference...
 [Authorization and Authentication Architecture and workflow](/docs/reference/architecture/authz_authn/)
 

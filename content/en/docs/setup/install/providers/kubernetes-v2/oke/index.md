@@ -35,4 +35,4 @@ Enable the Kubernetes provider:
 hal config provider kubernetes enable
 ```
 
-Finally, enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+Finally, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).

@@ -9,7 +9,7 @@ aliases:
 
 
 In [Oracle Cloud](https://cloud.oracle.com/), a Spinnaker
-[__Account__](/docs/concepts/providers/#accounts) maps to an [Oracle Cloud Infrastructure user]( https://cloud.oracle.com/en_US/tryit).
+[Account](/docs/concepts/providers/#accounts) maps to an [Oracle Cloud Infrastructure user]( https://cloud.oracle.com/en_US/tryit).
 
 When setting up your Oracle Cloud provider account, you will [use halyard to add
 the account](#add-an-oracle-cloud-account).

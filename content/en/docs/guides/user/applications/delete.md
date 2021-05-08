@@ -16,4 +16,4 @@ first.
 1. Scroll to the bottom of the application configuration screen, and click
 **Delete Application**.
 
-![](/docs/v1/guides/user/applications/delete_application.png)
+![](/docs/guides/user/applications/delete_application.png)

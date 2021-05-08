@@ -88,7 +88,7 @@ We'll need this service account later, so keep these environment variables handy
 
 First, configure your GCS artifact provider.
 
-1. Enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+1. Enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 2. Enable the GCS artifact provider:
 `hal config artifact gcs enable`

@@ -69,7 +69,7 @@ Say your pipeline accepted some parameters (for example, the desired stack to
 deploy to), you can make this explicit by adding a pipeline parameter on the
 same configuration screen as the Pub/Sub trigger:
 
-{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline-expressions)." >}}
+{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline/expressions)." >}}
 
 > Warning: there are several reserved parameter keys (names) that cause unexpected behavior and failures
 > if overwritten by a pipeline parameter definition.

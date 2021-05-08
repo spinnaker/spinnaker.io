@@ -8,7 +8,7 @@ aliases:
 
 
 In [Google App Engine](https://cloud.google.com/appengine), an
-[__Account__](/docs/concepts/providers/#accounts) maps to a credential able to
+[Account](/docs/concepts/providers/#accounts) maps to a credential able to
 authenticate against a given [Google Cloud
 Platform](https://cloud.google.com) project.
 

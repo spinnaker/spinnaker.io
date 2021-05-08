@@ -14,7 +14,7 @@ Compute Engine's [reference documentation](https://cloud.google.com/compute).
 ### Account
 In [Google Compute Engine](https://cloud.google.com/compute) (GCE), an [Account](/docs/concepts/providers/#accounts)
 maps to a credential able to authenticate against a given [Google Cloud Platform](https://cloud.google.com/) (GCP)
-project - see the [setup guide](/docs/setup/providers/gce).
+project - see the [setup guide](/docs/setup/install/providers/gce).
 
 ### Load Balancer
 A Spinnaker **load balancer** maps to a GCE [load balancer](https://cloud.google.com/compute/docs/load-balancing/).

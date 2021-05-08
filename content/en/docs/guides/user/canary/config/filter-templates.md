@@ -61,6 +61,6 @@ Params__, click __Add Field__.
 this stage is using.
 
 3. Add the value you want for that variable. You can use any literal or
-   [pipeline expression](/docs/guides/user/pipeline-expressions/).
+   [pipeline expression](/docs/guides/user/pipeline/expressions/).
 
 ![](/docs/guides/user/canary/config/extended_params.png)

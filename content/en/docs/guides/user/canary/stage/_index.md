@@ -42,7 +42,7 @@ other permutations, like multiple stages? -->
 1. In the pipeline in which you will run the canary, click __Add stage__.
 
    This pipeline needs to be in an application that has access to the [canary
-   configuration](/docs/v1/guides/user/canary/config/) you want to use.
+   configuration](/docs/guides/user/canary/config/) you want to use.
 
 1. For __Type__ select __Canary__.
 
@@ -143,7 +143,7 @@ downstream of its dependencies.
      which can be used to refine the scope of the analysis. These parameters can
      provide variable bindings for use in the expansion of custom filter
      templates [specified in the canary
-     config](/docs/v1/guides/user/canary/config/filter_templates/).
+     config](/docs/guides/user/canary/config/filter-templates/).
 
    ![Canary stage declaration](/docs/guides/user/canary/stage/metric_scope.png)
 

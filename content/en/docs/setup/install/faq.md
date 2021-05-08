@@ -9,10 +9,10 @@ weight: 70
 
 After installing Spinnaker and navigating to the <em>Applications</em> screen, you may see one of
 following issues:
- * The loading indicator spins continuously (prior to release 1.9)
- * The following error message is displayed (release 1.9 and later):
- ![Error fetching applications. Check that your gate endpoint is accessible. Further information on troubleshooting this error is available here](applications-error.png)
-
+ * The following error message is displayed:
+ ```
+ Error fetching applications. Check that your gate endpoint is accessible. Further information on troubleshooting this error is available here
+```
  The most common cause of this error is that your browser can't communicate with your Gate endpoint.
  (This endpoint defaults to `http://localhost:8084`, but can be customized.)
 
@@ -49,16 +49,6 @@ two solutions.
    guide](https://blog.spinnaker.io/exposing-spinnaker-to-end-users-4808bc936698).
    This makes sense if you're running Spinnaker in a private network, or have
    another form of authentication fronting Spinnaker.
-
-## I want to expose the distributed, Kubernetes hosted Spinnaker publicly
-
-There is [a guide](/docs/setup/quickstart/halyard-gke-public/) for doing this using
-Google's authentication & domain registrar. If this doesn't match your
-environment, it may still be helpful to read. The key point is, Halyard does
-_not_ touch any of the Kubernetes Service objects once they are created. You
-can change their type to `NodePort`, or `LoadBalancer`, front them with Ingress
-resources, or manage them like any other Kubernetes service and expose them
-however you like.
 
 ## Halyard times out during a config change
 

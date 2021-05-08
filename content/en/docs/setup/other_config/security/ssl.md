@@ -402,9 +402,4 @@ new trust/key store by default.
 
 ## Next steps
 
-Choose an authentication method:
-
-* [OAuth 2.0](/docs/setup/other_config/security/authentication/oauth/)
-* [SAML](/docs/setup/other_config/security/authentication/saml/)
-* [LDAP](/docs/setup/other_config/security/authentication/ldap/)
-* [X.509](/docs/setup/other_config/security/authentication/x509/)
+Choose an [authentication method](/docs/setup/other_config/security/authentication/).

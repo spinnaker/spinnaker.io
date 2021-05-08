@@ -109,8 +109,7 @@ compared to the baseline.
 
    Or select __either__, in which case it fails on deviation in either direction.
 
-1. Optionally, choose a [filter
-template](/docs/v1/guides/user/canary/config/filter_templates/).
+1. Optionally, choose a [filter template](/docs/guides/user/canary/config/filter-templates/).
 
    This is only available  if your Spinnaker is
    [configured for it](/docs/reference/halyard/commands/#hal-config-canary-edit).
@@ -122,7 +121,7 @@ template](/docs/v1/guides/user/canary/config/filter_templates/).
    resource.labels.zone = starts_with("${zone}")
    ```
 
-1. Identify the specific metric you're including in the analysis configuration:
+2. Identify the specific metric you're including in the analysis configuration:
 
    * In the __Metric Type__ field type at least 3 characters to populate the
    field with available metrics.
@@ -132,7 +131,7 @@ template](/docs/v1/guides/user/canary/config/filter_templates/).
 
      ![List of available metrics](/docs/guides/user/canary/config/metric_type_list_cpu.png)
 
-1. Optionally, if your telemetry provider supports aggregation of results, click
+3. Optionally, if your telemetry provider supports aggregation of results, click
 __Group by__ and enter the metric metadata attribute by which to group and
 aggregate the data.
 
@@ -145,7 +144,7 @@ aggregate the data.
    > __Metric groups versus grouping metrics__
    >
    > When you create a canary configuration, you [create metric
-   > groups](/docs/v1/guides/user/canary/config/#create-metric-groups-and-add-metrics),
+   > groups](/docs/guides/user/canary/config/#create-metric-groups-and-add-metrics),
    > and scoring thresholds and weights are applied to groups (rather than to
    > specific metrics). But the grouping described in this step is for
    aggregating metrics before they're returned to Kayenta.
@@ -157,25 +156,23 @@ aggregate the data.
 
 ### Add filter templates
 
-If your telemetry provider is Stackdriver or Prometheus, you can add [filter
-templates](/docs/v1/guides/user/canary/config/filter_templates/) and then assign each
+If your telemetry provider is Stackdriver or Prometheus, you can add [filter templates](/docs/guides/user/canary/config/filter-templates/) and then assign each
 metric a filter template, if you want.
 
 1. Click __Add Template__.
 
-1. Provide a __Name__.
+2. Provide a __Name__.
 
    This is the name by which you can select it when configuring the specific
    metric.
 
-1. In the __Template__ field, enter an expression using the [FreeMarker](https://freemarker.apache.org/)
+3. In the __Template__ field, enter an expression using the [FreeMarker](https://freemarker.apache.org/)
    template language.
 
    See the interpolation syntax [here](https://freemarker.apache.org/docs/dgui_quickstart_template.html).
 
    The expression is expanded using the variable bindings specified via the __Extended
-   Params__ in any [canary
-   stage](/docs/v1/guides/user/canary/stage/#define-the-canary-stage) that uses this
+   Params__ in any [canary stage](/docs/guides/user/canary/stage/#define-the-canary-stage) that uses this
    configuration.
 
    These variable bindings are also implicitly available: `project`, `resourceType`, `scope`, `location`

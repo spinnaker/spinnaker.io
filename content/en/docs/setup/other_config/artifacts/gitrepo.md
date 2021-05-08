@@ -16,7 +16,7 @@ Spinnaker 1.26+ includes a feature for caching a Git repo artifact. Clouddriver 
 
 ## Enable Git Repo artifacts
 
-First, enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 Next, enable the Git Repo artifact provider:
 

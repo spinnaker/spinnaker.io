@@ -23,9 +23,9 @@ applications available, the first thing you're going to do is create one.
 
 1. Click **Actions**, then **Create Application**.
 
-   ![](/docs/v1/guides/user/applications/create_application.png)
+   ![](/docs/guides/user/applications/create_application.png)
 
-1. Provide the application attributes in the **New Application** dialog.
+2. Provide the application attributes in the **New Application** dialog.
 
    | Field | Required | Description |
    | --- | --- | --- |
@@ -38,11 +38,10 @@ applications available, the first thing you're going to do is create one.
    | Instance port | No | This field is used to generate links from Spinnaker instance details to a running instance. The instance port can be used or overridden for specific links configured for your application (via the Config screen). |
    | Enable restarting running pipelines | Bool, default=no | If enabled, users can restart pipeline stages while a pipeline is still running. This behavior is not recommended. |
 
-1. Click **Create**.
+3. Click **Create**.
 
 ## Next steps
 
 You now have an application in which to start adding infrastructure and creating
 pipelines. These application attributes are the minimum configuration, but you
-will probably want to [finish configuring the
-application](/docs/v1/guides/user/applications/configure/).
+will probably want to [finish configuring the application](/docs/guides/user/applications/configure/).

@@ -8,7 +8,7 @@ OAuth 2.0 is the preferred way to authenticate and authorize third parties acces
 ## Configuration
 
 All of the OAuth 2.0 fields that can be configured in Halyard are detailed
-[here](config.md). The documentation on this page frequently refers back to
+[here](./config). The documentation on this page frequently refers back to
 these fields.
 
 ## OAuth 2.0 providers

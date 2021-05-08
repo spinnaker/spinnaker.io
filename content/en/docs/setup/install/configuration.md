@@ -15,7 +15,7 @@ hal deploy apply
 
 ### Deploy to more environments
 
-[Documentation](/docs/setup/providers/) -- `hal config provider`
+[Documentation](/docs/setup/install/providers/) -- `hal config provider`
 
 You can add more Accounts to as many Providers as you want. There is nothing
 preventing you from deploying to two Kubernetes clusters, one Google Compute

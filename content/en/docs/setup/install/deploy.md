@@ -7,7 +7,7 @@ aliases:
 weight: 50
 ---
 
-Now that we've enabled one or more [Cloud Providers](/docs/setup/providers/), picked a [Deployment Environment](/docs/setup/install/environment/), and configured
+Now that we've enabled one or more [Cloud Providers](/docs/setup/install/providers/), picked a [Deployment Environment](/docs/setup/install/environment/), and configured
 [Persistent Storage](/docs/setup/install/storage/), we're ready to pick a version of Spinnaker, deploy it, and connect to it.
 
 ## Pick a version
@@ -59,18 +59,6 @@ kubernetes distributed installs. If you see errors such as `Connection refused`
 it may be that all of the containers are not yet available. You can either wait, 
 or check the status of all of the containers using the commands for your cloud
 provider (such as `kubectl get pods --namespace spinnaker`).
-
-
-### Alternatives
-
-* You can make Spinnaker publicly reachable without running this command,
-as described
-[here](/docs/setup/quickstart/faq//#i-want-to-expose-localdebian-spinnaker-on-a-public-ip-address-but-it-always-binds-to-localhost)
-(for local Debian) and
-[here](/docs/setup/quickstart/faq/#i-want-to-expose-the-distributed-kubernetes-hosted-spinnaker-publicly)
-(for Kubernetes).
-
-* You can [set up authentication](/docs/setup/other_config/security/authentication/).
 
 ## Troubleshooting
 

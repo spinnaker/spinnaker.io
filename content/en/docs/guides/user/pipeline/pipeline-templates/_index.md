@@ -13,7 +13,7 @@ Spinnaker itself.
 Templates can be managed using [spin](/docs/guides/spin/pipeline-templates/) or the UI. To manage templates through the UI, enable the requisite feature flag: `hal config features edit --managed-pipeline-templates-v2-ui true`
 
 > **Note**: You can use `spin` CLI to manage pipelines and pipeline templates,
-> but first you need to [install it](/docs/guides/spin/cli/).
+> but first you need to [install it](/docs/setup/other_config/spin/).
 
 > **Note**: You first need to [enable the feature](/docs/guides/user/pipeline/pipeline-templates/enable/) if you haven't done it yet.
 

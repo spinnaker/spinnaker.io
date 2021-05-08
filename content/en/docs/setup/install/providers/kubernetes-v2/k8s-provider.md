@@ -18,14 +18,14 @@ credential that can authenticate against your Kubernetes Cluster.
 
 The Kubernetes provider has two requirements:
 
-* A [`kubeconfig`](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file
+* A [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file
 
     The `kubeconfig` file allows Spinnaker to authenticate against your cluster
     and to have read/write access to any resources you expect it to manage. You
     can think of it as private key file to let Spinnaker connect to your cluster.
     You can request this from your Kubernetes cluster administrator.
 
-* [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/) CLI tool
+* [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) CLI tool
 
     Spinnaker relies on `kubectl` to manage all API access. It's installed
     along with Spinnaker.
@@ -186,7 +186,7 @@ For any V1 account you have running, you can add a V2 account following the
 steps [below](#adding-an-account). This will surface your infrastructure twice
 (once per account) helping your pipeline & operation migration.
 
-{{< figure src="./v1v2.png" caption="A V1 and V2 provider surfacing the same infrastructure" >}}
+![A V1 and V2 provider surfacing the same infrastructure](/docs/setup/install/providers/kubernetes-v2/v1v2.png)
 
 <span class="end-collapsible-section"></span>
 
@@ -207,7 +207,7 @@ hal config provider kubernetes account add my-k8s-account \
     --context $CONTEXT
 ```
 
-Finally, enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+Finally, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 ## Advanced account settings
 

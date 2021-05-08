@@ -260,7 +260,7 @@ authorization if necessary. Then re-run `hal deploy apply`.
 > :point_right: Halyard will warn you that you have deployed Spinnaker remotely
 > without configuring an authentication mechanism. This is OK, but cumbersome,
 > since we can connect via SSH tunnels. If you want to configure
-> authentication, read more in the [security documentation](/docs/setup/security).
+> authentication, read more in the [security documentation](/docs/setup/other_config/security/).
 
 Now, to connect to Spinnaker, run:
 

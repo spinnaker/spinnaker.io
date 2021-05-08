@@ -76,8 +76,8 @@ This can be stored in GitHub or an object store (like GCS).
 
 Changes to manifests can trigger pipelines. For more information:
 
-* [Consuming GitHub Artifacts](/docs/guides/user/triggers/github)
-* [Consuming GCS Artifacts](/docs/guides/user/triggers/gcs)
+* [Consuming GitHub Artifacts](/docs/guides/user/pipeline/triggers/github)
+* [Consuming GCS Artifacts](/docs/guides/user/pipeline/triggers/gcs)
 
 Assuming you have declared an expected artifact upstream to your Deploy
 manifest stage, you can reference it in the Deploy configuration:

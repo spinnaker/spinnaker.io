@@ -15,9 +15,9 @@ Use `spin` CLI to get the JSON of an existing pipeline that is close to what
 your template will be. Altenatively, you can create a new pipeline in the model
 of your intended template.
 
-1. [Install `spin` CLI](/docs/v1/guides/spin/cli/), if you haven't already done so.
+1. Install the [spin CLI](/docs/guides/spin/), if you haven't already done so.
 
-1. Get the pipeline.
+2. Get the pipeline.
 
    ```
    spin pipeline get --name <pipelineName> --application <appName>
@@ -156,7 +156,7 @@ spin pipeline-templates save --file my_template.txt
 
 Spinnaker uses the value of the `id` field in the JSON as the name of the
 pipeline template. That's the name you use when you [reference the template
-from a pipeline instance](/docs/v1/guides/user/pipeline/pipeline-templates/instantiate/),
+from a pipeline instance](/docs/guides/user/pipeline/pipeline-templates/instantiate/),
 and the name a user looks for when listing pipeline templates. So it's a good
 practice to give your templates descriptive names. You might also institute a
 naming convention for your team or teams that makes it even clearer what each
@@ -165,6 +165,6 @@ template is meant for.
 
 ## Next steps
 
-* [Visualize a hydrated pipeline](/docs/v1/guides/user/pipeline/pipeline-templates/plan/)
-* [Create a pipeline from the template](/docs/v1/guides/user/pipeline/pipeline-templates/instantiate/)
+* [Visualize a hydrated pipeline](/docs/guides/user/pipeline/pipeline-templates/plan/)
+* [Create a pipeline from the template](/docs/guides/user/pipeline/pipeline-templates/instantiate/)
 

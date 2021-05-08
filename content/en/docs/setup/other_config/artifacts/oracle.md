@@ -46,7 +46,7 @@ If you have enabled [Oracle Cloud provider](/docs/setup/install/providers/oracle
    
 ## Add Oracle Object Storage Artifact to Spinnaker
 
-First, enable [artifact support](/docs/reference/artifacts-with-artifactsrewrite//#enabling-artifact-support).
+First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 Next, add an artifact account:
 

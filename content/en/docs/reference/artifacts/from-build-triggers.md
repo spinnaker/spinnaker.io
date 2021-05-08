@@ -19,8 +19,8 @@ artifact extraction, which users can augment with custom templates.
 ## Requirements
 
 The instructions here assume that you have
-[set up a CI system](/setup/ci/) and are familiar with using
-[property files](/guides/user/pipeline/expressions/#property-files) to pass variables from
+[set up a CI system](/docs/setup/other_config/ci/) and are familiar with using
+[property files](/docs/guides/user/pipeline/expressions/#property-files) to pass variables from
 CI builds to Spinnaker pipelines.
 
 ## Select a template
