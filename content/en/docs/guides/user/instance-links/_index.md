@@ -1,7 +1,6 @@
 ---
 title: "Customizing Instance Links"
 linkTitle: "Instance Links"
-weight: 2
 description: >
   Give users links to common features of their apps
 ---
@@ -52,7 +51,7 @@ When users create a new application, these links are available in each instance 
 
 These links are customizable via the application's Config tab in Spinnaker. If configured in `settings.js`, the default links are displayed. Users can then customize the links for their particular application.
 
-Links support templating based on the instance's attributes by wrapping the value in two curly braces, e.g. `{{ "{{id"}}}}`. Common attributes available in templates are listed below. 
+Links support templating based on the instance's attributes by wrapping the value in two curly braces, e.g. `{{ "{{id"}}}}`. Common attributes available in templates are listed below.
 
 > __Note__: Templating only applies to the path portion of the link - the title must be a hard-coded value.
 

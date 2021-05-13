@@ -1,6 +1,6 @@
 ---
 title: "Deploy Kubernetes Manifests"
-linkTitle: "Deploy K8s Manifests"
+linkTitle: "Deploy Kubernetes Manifests"
 description: >
   Deploy a Kubernetes manifest using the Kubernetes provider.
 
@@ -35,8 +35,7 @@ from the stage selector:
 
 {{< figure src="./deploy-manifest.png" >}}
 
-> :warning: Don't select the regular __Deploy__ stage; it deploys more
-> opinionated "Server Groups" using other providers.
+>Don't select the regular __Deploy__ stage; it deploys more opinionated "Server Groups" using other providers.
 
 ### Specify manifests statically
 
