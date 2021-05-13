@@ -4,6 +4,8 @@ description:  >
   This guide explains how to add an integration to other CI providers, so that users leveraging those providers can enjoy the new features.
 ---
 
+## Overview
+
 At Netflix, we built CI integrations to enable features like the Builds view in Spinnaker, fetching artifact metadata and more. You can see the full list of CI features [here](/docs/guides/user/managed-delivery/CI-features).
 
 ## Viewing CI details in Spinnaker
@@ -32,7 +34,7 @@ If you wish to use it, this is what you'll need to do:
 ```
 These endpoints are called by the [CiController](https://github.com/spinnaker/igor/blob/master/igor-web/src/main/java/com/netflix/spinnaker/igor/ci/CiController.java).
 
-Once both of these endpoints are implemented, it should be possible for the installations using that implementation to show CI information in Spinnaker! 
+Once both of these endpoints are implemented, it should be possible for the installations using that implementation to show CI information in Spinnaker!
 If you contribute a new implementation to the project, make sure to include documentation for operators explaining how to enable and configure it in their installation.
 
 
@@ -42,8 +44,8 @@ You can read about how the CI integration enriches the Managed Delivery experien
 
 ### Detecting a new published artifact
 
-When a new artifact is published, `keel` gets notified by `echo` (for Debian packages) or by `igor` (for Docker images). Each artifact has a `metadata` section, which is populated by the corresponding artifact supplier implementation in `keel`. 
-For example, for `docker` artifacts, the `metadata` field is populated by querying `clouddriver`, which stores information from the docker registries configured in the Spinnaker installation. 
+When a new artifact is published, `keel` gets notified by `echo` (for Debian packages) or by `igor` (for Docker images). Each artifact has a `metadata` section, which is populated by the corresponding artifact supplier implementation in `keel`.
+For example, for `docker` artifacts, the `metadata` field is populated by querying `clouddriver`, which stores information from the docker registries configured in the Spinnaker installation.
 
 Here is an example of a Docker artifact event tracked by `keel` (this is a piece of a log statement):
 ```

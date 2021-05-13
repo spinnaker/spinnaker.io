@@ -34,8 +34,8 @@ contracts, which leads to a mixing of core service code and integrations. Over
 time, this extension pattern manifests itself in making the core services
 heavy and difficult to maintain.
 
-Realizing this, Netflix started an early initiative called [*Lean Core, Fat
-Ecosystem*](https://docs.google.com/document/d/1cgKBdT5xVFvMwut7Wji_-bC_12GoQtyZ2MQ958LDcOY/edit?usp=sharing).
+Realizing this, Netflix started an early initiative called [Lean Core, Fat
+Ecosystem](https://docs.google.com/document/d/1cgKBdT5xVFvMwut7Wji_-bC_12GoQtyZ2MQ958LDcOY/edit?usp=sharing).
 Plugins were the first major manifestation of this initiative: To take the
 already-built functionality in Spinnaker and start breaking it out into
 composable, separately distributable binaries.

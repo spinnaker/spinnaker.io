@@ -1,6 +1,5 @@
 ---
 title: "Plugin User Guide"
-weight: 5
 no_list: true
 description: >
   Add, configure, and deploy plugins.

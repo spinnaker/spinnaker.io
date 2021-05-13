@@ -1,7 +1,6 @@
 ---
-title: "About Applications"
-linkTitle: "About Applications"
-weight: 2
+title: "Application User Guide"
+linkTitle: "Application User Guide"
 description: >
   A Spinnaker application represents a service that you are going to deploy
   (typically a microservice).

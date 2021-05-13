@@ -1,6 +1,6 @@
 ---
 title: "Parameterize Kubernetes Manifests"
-linkTitle: "Parameterize K8s Manifests"
+linkTitle: "Parameterize Kubernetes Manifests"
 description: >
   Inject parameters into your Kubernetes manifest as it is deployed.
 ---
