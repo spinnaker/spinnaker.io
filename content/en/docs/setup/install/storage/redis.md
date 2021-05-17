@@ -6,22 +6,9 @@ aliases:
    - /setup/storage/redis/
 ---
 
-{% include
-   warning
-   content="We _highly_ recommend relying on [Minio](/docs/setup/storage/minio)
-   instead of Redis if you are looking for a local persistant storage solution
-   for Spinnaker. The Redis storage implementation is untested and unsupported
-   by anyone in the Spinnaker community."
-%}
+> We _highly_ recommend relying on [Minio](/docs/setup/install/storage/minio) instead of Redis if you are looking for a local persistant storage solution for Spinnaker. The Redis storage implementation is untested and unsupported by anyone in the Spinnaker community."
 
-{% include
-   warning
-   content="Redis can be used as Spinnaker's persistent storage source, but
-   it is unsupported and __not__ recommended for production use-cases because
-   it mixes fungible, short-lived cache entries with the Pipeline and Application
-   data that deploy all of your infrastructure. This means you will have to be
-   extra careful when clearing your Spinnaker Redis cache."
-%}
+> Redis can be used as Spinnaker's persistent storage source, but it is unsupported and __not__ recommended for production use-cases because it mixes fungible, short-lived cache entries with the Pipeline and Application data that deploy all of your infrastructure. This means you will have to be extra careful when clearing your Spinnaker Redis cache.
 
 
 ## Prerequisites

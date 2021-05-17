@@ -1,6 +1,5 @@
 ---
-title: "User How-Tos"
-linkTitle: "User How-Tos"
+title: "User Guides"
 weight: 2
 description: >
   Guides for everything from getting started to using pipelines, providers,

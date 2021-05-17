@@ -15,13 +15,9 @@ Artifactory](https://jfrog.com/artifactory/) trigger to your pipeline.
 
 This guide assumes you have the following:
 
-* An Artifactory search configured in Spinnaker (see the [documentation for the
-  `hal config repository artifactory` Halyard
-commands](/docs/reference/halyard/commands/#hal-config-repository-artifactory))
+* An Artifactory search configured in Spinnaker (see the documentation for the [hal config repository artifactory](/docs/reference/halyard/commands/#hal-config-repository-artifactory)  Halyard commands).
 
-* A Maven account configured in Spinnaker (see the [documentation for the `hal
-  config artifact maven` Halyard
-commands](/rdocs/reference/halyard/commands/#hal-config-artifact-maven))
+* A Maven account configured in Spinnaker (see the documentation for the [hal config artifact maven](/docs/reference/halyard/commands/#hal-config-artifact-maven)  Halyard commands).
 
 * Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).
 

@@ -1,28 +1,26 @@
 .layout-index {
-
   &.td-home {
     .row {
-      
       &.hero {
+
+        background: transparentize(#224488, 0.15);
         .col {
-          
           &.intro-text {
-            
             display: flex;
             align-items: center;
             .intro-text-panel {
               padding: 1rem;
               color: $white;
-              background: transparentize($secondary, .5);
+              background: transparentize($secondary, 0.75);
               border-radius: 10px;
               box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
-              margin-top :2rem;
               overflow: hidden;
               img {
                 max-width: 350px;
               }
+
               a {
-                color: $light;
+                color: $primary;
               }
             }
           }
@@ -47,6 +45,17 @@
           border-radius: 10px;
           box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
         }
+        @media (max-width: 991.98px) {
+          .slack-container {
+            margin: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            .join-slack {
+              margin: 20px 20px 20px 10px;
+            }
+          }
+        }
       }
       &.roles-appeal {
         // padding-top: 1rem;
@@ -66,7 +75,13 @@
 .logos-list {
   img {
     max-width: 150px;
+    min-width: 150px;
+    max-height: fit-content;
     padding: 15px;
+    margin: 10px;
   }
 }
 
+.powered-by-spinnaker {
+  justify-content: center;
+}

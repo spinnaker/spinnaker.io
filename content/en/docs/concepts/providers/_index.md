@@ -45,7 +45,7 @@ These are the cloud providers currently supported by Spinnaker:
 * <a href="https://kubernetes.io/" target="_blank">Kubernetes</a>
 * <a href="https://cloud.oracle.com/home" target="_blank">Oracle</a>
 
-Setup instructions for providers are [here](/setup/providers/)
+Setup instructions for providers are [here](/docs/setup/install/providers/)
 
 If you see a provider missing from this list that you feel Spinnaker should
 support, we gladly welcome your contributions. Please reach out to us on

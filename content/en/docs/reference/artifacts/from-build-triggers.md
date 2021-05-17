@@ -5,6 +5,12 @@ description: When an external CI system triggers a pipeline, Spinnaker can use t
 
 ## Overview
 
+When an external CI system triggers a pipeline, Spinnaker can use the CI build information to
+inject relevant artifacts into the pipeline. The instructions here assume that you have
+[set up a CI system](/docs/setup/other_config/ci/) and are familiar with using
+[property files](/docs/guides/user/pipeline/expressions/#property-files) to pass variables from
+CI builds to Spinnaker pipelines.
+
 The extraction of artifacts from the build information is done via a Jinja template; the
 template uses the trigger as context and outputs a list of artifacts to inject into the
 pipeline. Spinnaker provides a set of [standard templates](#supplied-templates) to use for
@@ -13,8 +19,8 @@ artifact extraction, which users can augment with custom templates.
 ## Requirements
 
 The instructions here assume that you have
-[set up a CI system](/setup/ci/) and are familiar with using
-[property files](/guides/user/pipeline/expressions/#property-files) to pass variables from
+[set up a CI system](/docs/setup/other_config/ci/) and are familiar with using
+[property files](/docs/guides/user/pipeline/expressions/#property-files) to pass variables from
 CI builds to Spinnaker pipelines.
 
 ## Select a template
@@ -32,7 +38,7 @@ messageFormat=JAR
 ```
 
 The recommended way to configure artifact templates is by using the `hal config artifact templates`
- [Halyard command](/reference/halyard/commands/#hal-config-artifact-templates):
+ [Halyard command](/docs/reference/halyard/commands/#hal-config-artifact-templates):
 ```
 hal config artifact templates add <name of template> --template-path <path to the template> 
 ```

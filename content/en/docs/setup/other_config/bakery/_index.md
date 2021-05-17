@@ -1,7 +1,7 @@
 ---
 title: "Bakery"
 linkTitle: "Bakery"
-weight: 4
+weight: 5
 description: Spinnaker includes Hashicorp's Packer as a default image bakery.
 ---
 
@@ -31,7 +31,7 @@ bakery service
 [here](https://github.com/spinnaker/rosco/tree/master/rosco-web/config/packer).
 If want to override/include a new template, place it into
 `~/.hal/$DEPLOYMENT/profiles/rosco/packer/` (`$DEPLOYMENT` is
-typically `default`, read more [here](/reference/halyard/#deployments)). Any local
+typically `default`, read more [here](/docs/reference/halyard/#deployments)). Any local
 scripts/artifacts required by that template can also be placed into that
 directory, and referenced relative to the `configDir` Packer variable that will
 automatically be set.
@@ -45,5 +45,5 @@ stage UI to refer to your custom template:
 
 The following providers support configuring their image bakery:
 
-* [Google Compute Engine](/docs/setup/bakery/google/)
-* [Oracle Cloud Infrastructure](/docs/setup/bakery/oracle/)
+* [Google Compute Engine](/docs/setup/other_config/bakery/google/)
+* [Oracle Cloud Infrastructure](/docs/setup/other_config/bakery/oracle/)

@@ -83,7 +83,7 @@ the ratio of "Pass" metrics out of the total number of metrics.
 
 For example, if 9 of 10 metrics are classified as “Pass,” the score is 90%. The
 threshold score for overall canary pass, marginal, or fail is specified in the
-[canary configuration](/docs/v1/guides/user/canary/config/).
+[canary configuration](/docs/guides/user/canary/config/).
 
 While there are more complex scoring methodologies, the default judge
 (NetflixACAJudge) is biased toward techniques that are simple to interpret and

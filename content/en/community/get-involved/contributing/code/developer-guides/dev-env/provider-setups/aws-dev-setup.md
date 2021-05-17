@@ -41,7 +41,7 @@ In this setup, Spinnaker runs on an EC2 instance. Code is edited on the machine 
     * On the "instance details" step:
         * select the default VPC for "Network"
         * select the previously created `SpinnakerDevInstanceRole` for "IAM role"
-        * under "Advanced Details", add the following user data which will install some dependencies for your [Local Git deployment](/setup/install/environment/#local-git):
+        * under "Advanced Details", add the following user data which will install some dependencies for your [Local Git deployment](/docs/setup/install/environment/#local-git):
 
         ```
         #!/bin/bash

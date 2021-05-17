@@ -9,10 +9,7 @@ description: Administrators have complete control over your Spinnaker deployment
 
 In Spinnaker, it is possible to define that users belonging to a certain role are considered "Administrators". This virtually removes all READ/WRITE restrictions to accounts and applications for these users.
 
-{% include
-   warning
-   content="This feature gives God Mode like capabilities to the users who are admins. Proceed with caution."
-%}
+> This feature gives admins an immense amount of power. Proceed with caution.
 
 ## Enable and Configure Admin functionality
 

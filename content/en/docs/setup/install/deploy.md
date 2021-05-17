@@ -7,7 +7,7 @@ aliases:
 weight: 50
 ---
 
-Now that we've enabled one or more [Cloud Providers](/docs/setup/providers/), picked a [Deployment Environment](/docs/setup/install/environment/), and configured
+Now that we've enabled one or more [Cloud Providers](/docs/setup/install/providers/), picked a [Deployment Environment](/docs/setup/install/environment/), and configured
 [Persistent Storage](/docs/setup/install/storage/), we're ready to pick a version of Spinnaker, deploy it, and connect to it.
 
 ## Pick a version
@@ -60,18 +60,6 @@ it may be that all of the containers are not yet available. You can either wait,
 or check the status of all of the containers using the commands for your cloud
 provider (such as `kubectl get pods --namespace spinnaker`).
 
-
-### Alternatives
-
-* You can make Spinnaker publicly reachable without running this command,
-as described
-[here](/docs/setup/quickstart/faq//#i-want-to-expose-localdebian-spinnaker-on-a-public-ip-address-but-it-always-binds-to-localhost)
-(for local Debian) and
-[here](/docs/setup/quickstart/faq/#i-want-to-expose-the-distributed-kubernetes-hosted-spinnaker-publicly)
-(for Kubernetes).
-
-* You can [set up authentication](/docs/setup/security/authentication/).
-
 ## Troubleshooting
 
 If this command fails, and it's the first time you've run this command please
@@ -104,11 +92,11 @@ Now that Spinnaker is deployed and capable managing your cloud provider, you
 can...
 
 * Continue with additional configuration, such as your [image
-bakery](/docs/setup/bakery/)
+bakery](/docs/setup/other_config/bakery/)
 
 * If you're a Spinnaker end user, read how to [get started using
-Spinnaker](/guides/user/get-started)
+Spinnaker](/docs/guides/user/get-started)
 
-* Visit the [Guides](/guides/) pages to learn more
+* Visit the [Guides](/docs/guides/) pages to learn more
 
 You might also want to [back up your configuration](/docs/setup/install/backups/).

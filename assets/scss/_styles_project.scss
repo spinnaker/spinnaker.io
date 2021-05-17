@@ -26,30 +26,70 @@
   padding-bottom: 0;
 }
 
-
 .intro-text-panel {
-    img {
-        width: 100%;
-    }
-}
-
-
-// waves animation
-.waves{
-  width: 100vw;
-  background-image: url('/images/waves-background.svg');
-  background-size: cover;
-  svg{
-
-    animation-name: move-left;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
-
   
 
+
+
+  h4 {
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+
+  }
+}
+.section-title {
+  padding: 1rem;
+  color: $white;
+
+  box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+  margin-top :2rem;
+  width: 100vw;
 }
 
+@media (max-width: 991.98px) {
+  .intro-text-panel {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    
+    img {
+      width: 75%;
+    }
 
+ 
+    width: fit-content;
+    height: calc(fit-content + 100px);
+    
+    h3 {
+      font-size: 1.1rem;
+    }
+    
+    
+  }
+}
+// waves animation
 
+.waves {
+  width: 100vw;
+  background-image: url(/images/waves-background.svg);
+  background-size: cover;
+  height: 1200px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+}
+@media (max-width: 991.98px) {
+  .row.hero {
+    margin-top: 117px;
+    background: url('/images/waves-background.svg') no-repeat;
+    background-attachment: fixed;
+    background-position: 100% 100%;
+    width: 100vw;
+  }
+}

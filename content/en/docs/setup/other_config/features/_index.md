@@ -1,6 +1,6 @@
 ---
-title: "Features"
-linkTitle: "Features"
-weight: 3
+title: "Additional Features"
+linkTitle: "Additional Features"
+weight: 40
 description: 
 ---

@@ -30,7 +30,7 @@ The above is a sample. See below for more information.
 
 ## How Fiat determines group membership
 The LDAP provider works by querying the LDAP server utilizing a user as set by the 
-[manager-dn and managerPassword](/reference/halyard/commands/#hal-config-security-authz-ldap-edit) and making a 
+[manager-dn and managerPassword](/docs/reference/halyard/commands/#hal-config-security-authz-ldap-edit) and making a 
 query that uses the logged-in user's username to filter results. 
 
 Fiat will use the "bound" account to do the following:

@@ -36,12 +36,12 @@ Support is built in for [Stackdriver](https://cloud.google.com/stackdriver/docs/
 
 Before you can configure canary analysis and create canary stages for your
 pipelines, your Spinnaker administrator needs to [enable canary for your
-installation](/setup/canary/).
+installation](/docs/setup/other_config/canary/).
 
 ## How to make Canary work in Spinnaker&mdash;the high-level process
 
 1. In Spinnaker, [create one or more canary
-configurations](/docs/v1/guides/user/canary/config/).
+configurations](/docs/guides/user/canary/config/).
 
    The configuration provides the set of metrics for use in all pipeline
    canary stages that reference it, plus default scoring thresholds and
@@ -57,7 +57,7 @@ configurations](/docs/v1/guides/user/canary/config/).
    your metric store.
 
 1. In any deployment pipeline that will use canary, [add one or more canary
-stages](/docs/v1/guides/user/canary/stage/).
+stages](/docs/guides/user/canary/stage/).
 
    The canary stage includes information that scopes the templated query (canary
      config) to a specified set of resources and time boundaries.

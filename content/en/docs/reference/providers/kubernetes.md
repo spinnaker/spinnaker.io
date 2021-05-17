@@ -1,11 +1,11 @@
 ---
-title: "Kubernetes"
-linkTitle: "Kubernetes"
+title: "Kubernetes (Legacy)"
+linkTitle: "Kubernetes (Legacy)"
 description: Learn how Spinnaker concepts map to Kubernetes.
 ---
 
 > ⚠️ Spinnaker's legacy Kubernetes provider (V1) is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
-> We recommend using the [standard provider (V2)](/reference/providers/kubernetes-v2) instead. 
+> We recommend using the [standard provider (V2)](/docs/reference/providers/kubernetes-v2) instead. 
 
 If you are not familiar with Kubernetes or some of the Kubernetes terminology used below, please read the [reference documentation](https://kubernetes.io/docs/home).
 
@@ -13,9 +13,9 @@ If you are not familiar with Kubernetes or some of the Kubernetes terminology us
 
 ### Account
 
-In Kubernetes, an [Account](/concepts/providers/#accounts) maps to a
+In Kubernetes, an [Account](/docs/concepts/providers/#accounts) maps to a
 credential able to authenticate against your desired Kubernetes Cluster, as
-well as a set of [Docker Registry](/setup/install/providers/docker-registry) accounts
+well as a set of [Docker Registry](/docs/setup/install/providers/docker-registry) accounts
 to be used as a source of images.
 
 ### Instance
@@ -45,7 +45,7 @@ template:
       ${SERVER-GROUP}: true
 ```
 
-Furthermore, using the [Docker Registry](/setup/install/providers/docker-registry/)
+Furthermore, using the [Docker Registry](/docs/setup/install/providers/docker-registry/)
 accounts associated with the Kubernetes Account being deployed to, a list of
 [Image Pull
 Secrets](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)

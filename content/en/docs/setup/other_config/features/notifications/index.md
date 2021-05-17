@@ -20,7 +20,7 @@ You can also set Spinnaker to stream all its events to a downstream listener. Se
 
 Additionally, Spinnaker is capable of handling cron-based triggers and detect changes in Jenkins builds and Docker images. This functionality will be documented at a later time.
 
-See also [`hal config notifications`](/reference/halyard/commands/#hal-config-notification).
+See also [`hal config notifications`](/docs/reference/halyard/commands/#hal-config-notification).
 
 ## Configuring notifications
 
@@ -30,7 +30,7 @@ Notification configurations are in echo.yml and settings-local.js. For changes t
 
 If you use Halyard to configure Spinnaker, put echo-local.yml  `~/.hal/{deployment}/profiles/`. 
 
-For settings-local.js, follow the [Custom Profile for Deck](/reference/halyard/custom/#custom-profile-for-deck) reference and place it in the following location `~/.hal/{deployment}/profiles/settings-local.js`.
+For settings-local.js, follow the [Custom Profile for Deck](/docs/reference/halyard/custom/#custom-profile-for-deck) reference and place it in the following location `~/.hal/{deployment}/profiles/settings-local.js`.
 
 If you don’t use Halyard, put echo-local.yml in the same place as the current echo.yml, in `/opt/spinnaker/config`, and put settings-local.js in `/opt/deck/html/`.
 
@@ -97,7 +97,7 @@ Spinnaker supports sending notifications to Microsoft Teams using Incoming Webho
 To create a custom incoming webhook in Teams, follow the instructions provided here: [Add an incoming webhook to a Teams channel](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#add-an-incoming-webhook-to-a-teams-channel)
 
 When configuring a Microsoft Teams notification, enter the full incoming webhook URL in the `Teams Webhook URL` text box.
-![](ms-teams.png)
+![In the Edit Notification window, specify Microsoft Teams in the Notify via field and provide your Teams webhook URL. Then, select what events trigger notifications.](ms-teams.png)
 
 
 ## Slack
@@ -362,7 +362,7 @@ Events have details, which will always be the same.
 
 The type of the event will outline where the event is coming from:
 
-* orca:[task type]:[status] - where task type is either 'pipeline', 'stage' or 'task' and status is 'starting', 'completed', 'failed'
+* orca:[task type]:[status] - where task type is either 'pipeline', 'stage' or 'task' and status is 'starting', 'complete', 'failed'
 * build - from igor Jenkins events
 * docker - from igor Docker events
 * git - from git web triggers

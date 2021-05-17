@@ -88,7 +88,7 @@ In the `udf.udfRoot` directory, create a file called `udf0`. The contents of thi
 
 ### Google
 
-The path to the template file is controlled by the `--user-data` flag with [Halyard](/reference/halyard/commands/#hal-config-provider-google-account-add).
+The path to the template file is controlled by the `--user-data` flag with [Halyard](/docs/reference/halyard/commands/#hal-config-provider-google-account-add).
 
 With Google, the user data file is set per account.
 It is best practice to use the same file for different accounts to ensure consistency,

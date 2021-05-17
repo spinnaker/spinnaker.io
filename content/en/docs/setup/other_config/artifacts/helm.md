@@ -23,7 +23,7 @@ If the files are hidden behind basic auth, you can configure an artifact account
 1. Collect the `$USERNAME_PASSWORD_FILE` value returned from the
    [prerequisites](#prerequisites) section above.
 
-2. Enable [artifact support](/reference/artifacts/#enabling-artifact-support).
+2. Enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 3. Enable the Helm artifact provider:
 
@@ -38,4 +38,4 @@ If the files are hidden behind basic auth, you can configure an artifact account
        --username-password-file $USERNAME_PASSWORD_FILE
    ```
 
-There are more options described [here](/reference/halyard/commands#hal-config-artifact-helm-account-edit) if you need more control over your configuration.
+There are more options described [here](/docs/reference/halyard/commands#hal-config-artifact-helm-account-edit) if you need more control over your configuration.

@@ -1,7 +1,6 @@
 ---
 title: "Kubernetes"
-linkTitle: "K8s"
-weight:
+linkTitle: "Kubernetes"
 description: >
   Guides to help you use the Kubernetes provider.
 ---

@@ -52,7 +52,7 @@ by examining the execution's "source" directly:
 ## Versioned Kubernetes objects
 
 According to the [Kubernetes reference
-documentation](/reference/providers/kubernetes-v2/#resource-management-policies),
+documentation](/docs/reference/providers/kubernetes-v2/#resource-management-policies),
 certain resources are "versioned," meaning anytime a change is made to an
 object's manifest and deployed using Spinnaker, it is redeployed with a
 new version suffix (`-vNNN`). This is critical to supporting immutable
@@ -67,7 +67,7 @@ Generally, artifacts represent resources that you update as a part of your
 deployment/delivery pipelines. Given that Docker images and ConfigMaps are what
 will likely be updated within a manifest, we provide easy, first-class ways of
 injecting them into your manifests. If you're familiar with [Pipeline
-Expressions](/guides/user/pipeline-expressions) and are curious why we don't
+Expressions](/docs/guides/user/pipeline/expressions) and are curious why we don't
 just rely on those, read [why not pipeline
 expressions](#why-not-pipeline-expressions) below.
 
@@ -174,7 +174,7 @@ spec:
 
 ## Why not pipeline expressions?
 
-[Pipeline Expressions](/guides/user/pipeline-expressions) offer a great way to
+[Pipeline Expressions](/docs/guides/user/pipeline/expressions) offer a great way to
 reference pipeline context programmatically using short snippets of code. Of
 course, it's possible to construct expressions that allow you to
 reference the Docker image's reference that triggered a pipeline, or the name

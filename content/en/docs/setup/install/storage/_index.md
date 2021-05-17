@@ -13,9 +13,9 @@ costly to lose, we recommend you use a hosted storage solution you are confident
 in.
 
 Spinnaker supports the storage providers listed below. Whichever option you
-choose does not affect your choice of [Cloud Provider](/docs/setup/providers/).
+choose does not affect your choice of [Cloud Provider](/docs/setup/install/providers/).
 That is, you can use [Google Cloud
-Storage](https://cloud.google.com/storage/){:target="\_blank"} as a storage
+Storage](https://cloud.google.com/storage/) as a storage
 source but still deploy to [Microsoft Azure](https://azure.microsoft.com/).
 
 ## Supported storage solutions
@@ -26,12 +26,12 @@ completed the section, return to this page.
 * [Azure Storage](/docs/setup/install/storage/azs)
 * [Google Cloud Storage](/docs/setup/install/storage/gcs)
 * [Minio](/docs/setup/install/storage/minio)
-* [Redis](/docs/setup/install/storage/redis) :warning: Unsupported and not recommended for production environments
+* [Redis](/docs/setup/install/storage/redis) (Not recommended for production environments)
 * [S3](/docs/setup/install/storage/s3)
 * [Oracle Object Storage](/docs/setup/install/storage/oracle)
 
 
-See also [`hal config storage`](/reference/halyard/commands/#hal-config-storage).
+See also [`hal config storage`](/docs/reference/halyard/commands/#hal-config-storage).
 
 ## Next steps
 

@@ -16,13 +16,14 @@ For more details, see `helm template --help`.
 > `helm install` once when
 > bootstrapping your Kubernetes cluster.
 
-> Note: Make sure that you have configured [artifact support](/setup/artifacts)
+> Note: Make sure that you have configured [artifact support](/docs/setup/other_config/artifacts/)
 > in Spinnaker first. All Helm charts are fetched/stored as artifacts in
-> Spinnaker. Read more in the [reference pages](/reference/artifacts).
+> Spinnaker. Read more in the [reference pages](/docs/reference/artifacts).
 
 ## Configure the "Bake (Manifest)" stage
 
-When configuring the "Bake (Manifest)" stage, you can specify the following:
+When configuring the "Bake (Manifest)" stage using a Helm (Helm2 or Helm3) render engine,
+you can specify the following:
 
 * __The release name__ (required)
 
@@ -51,7 +52,12 @@ When configuring the "Bake (Manifest)" stage, you can specify the following:
 metadata:
   namespace: {{ .Release.Namespace }}
 ```
+* __Helm chart file path__ (optional)
 
+  Helm chart file path is only relevant (and visible) when the template artifact
+  is a git/repo artifact.  It specifies the path to Chart.yaml in the git repo.
+  If absent, spinnaker looks for Chart.yaml in the root directory of the git
+  repo.
 
 * __Zero or more override artifacts__ (optional)
 
@@ -62,7 +68,7 @@ metadata:
 
 * __Statically specified overrides__
 
-  The set of static of key/value pairs that are passed as `--set` parameters to
+  The set of static key/value pairs that are passed as `--set` parameters to
   the `helm template` command.
 
 As an example, we have a fully configured Bake (Manifest) stage below:

@@ -12,7 +12,7 @@ aliases:
 > for deploying Docker images.
 
 When configuring Docker Registries, an
-[__Account__](/concepts/providers/#accounts) maps to a credential able to
+[Account](/docs/concepts/providers/#accounts) maps to a credential able to
 authenticate against a certain set of [Docker
 repositories](https://docs.docker.com/glossary/?term=repository).
 
@@ -261,7 +261,7 @@ hal config provider docker-registry account add my-docker-registry \
 
 If you are looking for more configurability, please see the other options
 listed in the [Halyard
-Reference](/reference/halyard/commands#hal-config-provider-docker-registry-account-add).
+Reference](/docs/reference/halyard/commands#hal-config-provider-docker-registry-account-add).
 
 ## Next Steps
 

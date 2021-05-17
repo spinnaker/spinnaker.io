@@ -58,13 +58,13 @@ that you establish.
 #### Pipeline configuration
 
 The same as the [configuration for a pipeline not created from a
-template](/guides/user/pipeline/managing-pipelines/#create-a-pipeline), plus
+template](/docs/guides/user/pipeline/managing-pipelines/#create-a-pipeline), plus
 variable bindings and a reference to the template.
 
 #### Pipeline
 
 Whether it's created from a template or not, an executable pipeline that can
-be visualized in the Deck UI, and can be run by [Orca](/reference/architecture/).
+be visualized in the Deck UI, and can be run by [Orca](/docs/reference/architecture/).
 
 #### Pipeline template variable
 

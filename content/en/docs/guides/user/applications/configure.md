@@ -7,7 +7,7 @@ description: >
 ---
 
 
-Once you've [created an application](/docs/v1/guides/user/applications/create/), you can
+Once you've [created an application](/docs/guides/user/applications/create/), you can
 finish configuring it before adding infrastructure and pipelines.
 
 ## Start configuring
@@ -15,8 +15,7 @@ finish configuring it before adding infrastructure and pipelines.
 1. From within the application, click **CONFIG** at the top right of the
 Spinnaker screen.
 
-   The application attributes you [defined when you created the
-   app](/docs/v1/guides/user/applications/create/) are shown at the top.
+   The application attributes you [defined when you created the app](/docs/guides/user/applications/create/) are shown at the top.
 
    > **Note** Spinnaker can infer applications based on existing infrastructure.
    > In these cases, there are no application attributes. For applications that
@@ -53,7 +52,7 @@ activity. These notifications are optional.
    "Congratulations, your pipeline has finished!" Custom notification text is
    optional.
 
-   ![](/docs/v1/guides/user/applications/event_notification_prefs.png)
+   ![](/docs/guides/user/applications/event_notification_prefs.png)
 
 1. Click Update
 
@@ -82,7 +81,7 @@ to information related to the instance, like logs, health, and so on.
 
 > **Note**: Custom instance links don't currently work for Kubernetes resources.
 
-![](/docs/v1/guides/user/applications/instance_with_links.png)
+![](/docs/guides/user/applications/instance_with_links.png)
 
 These links are resolved using the public IP address of the instance, if
 available, or the private IP otherwise. The default port is 80; if you want to
@@ -95,12 +94,12 @@ use a different port, begin the path with `:`.
 1. In the **Links** fields, type the text that you want to display, and the path
 to the link target.
 
-   You can reference [these specific instance attributes](/docs/v1/guides/user/instance-links/#available-template-fields)
+   You can reference [these specific instance attributes](/docs/guides/user/instance-links/#available-template-fields)
    by wrapping them in curly braces. For example, to include the region where
    the instance lives, for a GCE or AWS instance, use `{region}`. These are for
    the path only, not the link display text.
 
-   ![](/docs/v1/guides/user/applications/app_config_add_link.png)
+   ![](/docs/guides/user/applications/app_config_add_link.png)
 
 1. Click **Add Link** for each additional link you want displayed in this
 section.
@@ -114,7 +113,7 @@ section.
 1. Click **Save Changes** when you're finished.
 
 Note that you can set default links across all applications, as described
-[here](/docs/v1/guides/user/instance-links/#default-links).
+[here](/docs/guides/user/instance-links/#default-links).
 
 
 ## Refresh caches
@@ -124,7 +123,7 @@ configuration merely gives you a way to refresh those caches.
 
 ## Designate a traffic-guard cluster
 
-A traffic guard is a [cluster](/concepts/clusters/) which you have designated as
+A traffic guard is a [cluster](/docs/concepts/clusters/) which you have designated as
 always having at least one active instance.
 
 With traffic guard enabled, if a user or process tries to delete, disable, or

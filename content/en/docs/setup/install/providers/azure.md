@@ -9,7 +9,7 @@ aliases:
 
 
 In [Azure](https://azure.microsoft.com/), an
-[__Account__](/concepts/providers/#accounts) maps to a credential able to
+[Account](/docs/concepts/providers/#accounts) maps to a credential able to
 authenticate against a given [Azure subscription](https://azure.microsoft.com/free/).
 
 ## Prerequisites
@@ -106,7 +106,7 @@ Secret values of either the SSH public key or password are stored in the Azure k
 ## Advanced account settings
 
 You can view the available configuration flags for Azure within the
-[Halyard reference](/reference/halyard/commands#hal-config-provider-azure-account-add).
+[Halyard reference](/docs/reference/halyard/commands#hal-config-provider-azure-account-add).
 
 ## Next steps
 

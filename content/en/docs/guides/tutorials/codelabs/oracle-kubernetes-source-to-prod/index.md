@@ -34,9 +34,9 @@ curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debia
 sudo bash InstallHalyard.sh -y
 ```
 
-* Set up Oracle Object Storage as your Spinnaker storage by following these steps: [Adding Oracle Object Storage to Spinnaker](/setup/install/storage/oracle/).
+* Set up Oracle Object Storage as your Spinnaker storage by following these steps: [Adding Oracle Object Storage to Spinnaker](/docs/setup/install/storage/oracle/).
 
-* Set up your Kubernetes Cloud provider by following these steps: [Setting up OKE](/setup/install/providers/kubernetes-v2/oke/).
+* Set up your Kubernetes Cloud provider by following these steps: [Setting up OKE](/docs/setup/install/providers/kubernetes-v2/oke/).
 
 * Set up Spinnaker version.  To complete this tutorial, Spinnaker version has to be at least 1.11.x.
 
@@ -119,7 +119,7 @@ Create a new pipeline by navigating to the PIPELINES tab and clicking the *New* 
 
 ### Set up Deploy stage
 
-There are multiple ways to deploy Kubernetes manifests using the Kubernetes provider.  More details can be found in this [Deploying Kubernetes Manifests](/docs/v1/guides/user/kubernetes-v2/deploy-manifest/) guide.
+There are multiple ways to deploy Kubernetes manifests using the Kubernetes provider.  More details can be found in this [Deploying Kubernetes Manifests](/docs/guides/user/kubernetes-v2/deploy-manifest/) guide.
 
 It is preferred to use artifacts as manifests.  However, in this tutorial, the manifest is supplied statically to a pipeline as text for simplicity.
 

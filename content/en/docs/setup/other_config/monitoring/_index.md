@@ -1,7 +1,7 @@
 ---
 title: "Monitoring"
 linkTitle: "Monitoring"
-weight: 1
+weight: 30
 description: >
   Each Spinnaker microservice is instrumented with numerous metrics exposed via a built in endpoint.
 ---
@@ -16,7 +16,7 @@ informally browse depending on your needs.
 Spinnaker publishes internal metrics using a multi-dimensional data model
 based on "tags". The metrics, data-model, and usage are discussed further
 in the sections [Consuming Metrics](#consuming-metrics) and in the
-[Monitoring Reference document](/reference/monitoring/).
+[Monitoring Reference document](/docs/reference/monitoring/).
 
 Spinnaker currently supports three specific third-party systems:
 [Prometheus](https://prometheus.io/),
@@ -24,7 +24,7 @@ Spinnaker currently supports three specific third-party systems:
 and [Stackdriver](http://www.stackdriver.com/). The daemon is
 extensible so that it should be straightforward to add other systems as well.
 In fact, each of the supported systems was provided using the daemon's extension
-mechanisms -- there are not "native" systems.
+mechanisms -- there are no "native" systems.
 
 You can also use the microservice HTTP endpoint `/spectator/metrics`
 directly to scrape metrics yourself. The JSON document structure is
@@ -44,15 +44,15 @@ choice with each Spinnaker service's metrics. To do so, Halyard must be
 provided with third-party specific credentials and/or endpoints explained
 in each system's configuration below:
 
-* [Datadog](/docs/setup/monitoring/datadog/)
-* [Prometheus](/docs/setup/monitoring/prometheus/#configure-the-spinnaker-monitoring-daemon-for-prometheus)
-* [Stackdriver](/docs/setup/monitoring/stackdriver/#configure-the-spinnaker-monitoring-daemon-for-stackdriver)
+* [Datadog](/docs/setup/other_config/monitoring/datadog/)
+* [Prometheus](/docs/setup/other_config/monitoring/prometheus/#configure-the-spinnaker-monitoring-daemon-for-prometheus)
+* [Stackdriver](/docs/setup/other_config/monitoring/stackdriver/#configure-the-spinnaker-monitoring-daemon-for-stackdriver)
 
 Once this is complete and Spinnaker is deployed, you can optionally use the
 `spinnaker-monitoring-third-party` package to deploy pre-configured [Spinnaker
 dashboards](#supplied-dashboards) to your third-party system of choice.
 
-See also [`hal config metric-stores`](/reference/halyard/commands/#hal-config-metric-stores).
+See also [`hal config metric-stores`](/docs/reference/halyard/commands/#hal-config-metric-stores).
 
 ### Configuring metric filters
 
@@ -167,7 +167,7 @@ monitoring system can filter the successful from unsuccessful as you want
 depending on how you wish to abstract and interpret the data. In practice
 the metrics have many tags providing a lot of granularity and ways in
 which you can aggregate and interpret them. The data model is described
-further in [the Monitoring reference section](/reference/monitoring/).
+further in [the Monitoring reference section](/docs/reference/monitoring/).
 
 In practice there are relatively few distinct metric names (hundreds).
 However when considering all the distinct time-series streams from the

@@ -6,6 +6,10 @@ aliases:
   - /reference/artifacts-with-artifactsrewrite/
 ---
 
+> The Legacy Artifacts UI has been removed. These pages refer to the newer Artifacts UI. For information about the legacy Artifacts UI, see this [page](/docs/reference/artifacts-legacy/).
+
+A Spinnaker artifact is a named JSON object that refers to an external resource.
+
 Spinnaker supports a wide range of providers. An artifact can reference any of many different external resources, such as&#8230;
 
 * a Docker image
@@ -129,7 +133,14 @@ The fields that make up a Spinnaker artifact are described below.
 
 Within a pipeline trigger or stage, you can declare that the trigger or stage expects a particular artifact to be available. This artifact is called an _expected artifact_. Spinnaker compares an incoming artifact (for example, a manifest file stored in GitHub) to the expected artifact (for example, a manifest with the file path `path/to/my/manifest.yml`); if the incoming artifact matches the specified expected artifact, the incoming artifact is _bound_ to that expected artifact and used by the trigger or stage.
 
-{{< figure src="./expected-artifact-github-file.png" caption="Configuring GitHub file fields in a pipeline trigger's Expected Artifact settings. The default Display Name value is auto-generated." >}}
+{%
+  include
+  figure
+  image_path="./expected-artifact-github-file.png"
+  caption="Configuring GitHub file fields in a pipeline trigger's Expected
+           Artifact settings. The default Display Name value is
+           auto-generated."
+%}
 
 ### Match artifact
 

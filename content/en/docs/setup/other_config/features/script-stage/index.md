@@ -6,7 +6,7 @@ description: Use a Script stage to configure Slack notifications.
 
 
 ## Purpose
-The [Script stage](/reference/pipeline/stages/#script) lets you run an arbitrary
+The [Script stage](/docs/reference/pipeline/stages/#script) lets you run an arbitrary
 shell, Python, or Groovy script on a Jenkins instance as a first class stage in
 Spinnaker. For example, you can use it to launch a test suite from a pipeline
 instead of doing it manually. Using the Script stage requires some additional
@@ -19,7 +19,7 @@ To configure a Script stage, you need:
 *   A running Jenkins instance at `$JENKINS_HOST`, with a Jenkins user profile set up
     with access to create jobs
 *   A running Spinnaker instance, with access to configuration files, and in
-    which you have [set up Jenkins on Spinnaker](/docs/setup/ci/jenkins/)
+    which you have [set up Jenkins on Spinnaker](/docs/setup/other_config/ci/jenkins/)
 
 ## Configure Jenkins
 

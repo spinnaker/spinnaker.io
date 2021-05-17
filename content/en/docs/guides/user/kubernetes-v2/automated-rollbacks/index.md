@@ -67,11 +67,11 @@ And roll back by "1" revision, (Revision 4) will be active again. Roll back by
 It's worth mentioning that you can parameterize the target resource to
 roll back. It can point to something specified using pipeline parameters, and
 upstream deploy stage, or another stage's outputs. See more details in the
-[pipeline expressions guide](/docs/v1/guides/user/pipeline-expressions).
+[pipeline expressions guide](/docs/guides/user/pipeline/expressions).
 
 ## Pitfalls
 
 If the artifacts deployed in your manifest (Docker image, ConfigMap, Secret,
 ...) are not versioned, rolling back your manifest will likely not roll back
 your code or config changes. See more details
-[here](/docs/v1/guides/user/kubernetes-v2/best-practices#version-your-configmaps-and-secrets).
+[here](/docs/guides/user/kubernetes-v2/best-practices#version-your-configmaps-and-secrets).

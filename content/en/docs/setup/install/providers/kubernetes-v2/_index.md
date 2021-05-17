@@ -11,21 +11,21 @@ is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/r
 
 ## Accounts
 
-A Spinnaker [Account](/concepts/providers/#accounts) maps to a
+A Spinnaker [Account](/docs/concepts/providers/#accounts) maps to a
 credential that can authenticate against your Kubernetes Cluster.
 
 ## Prerequisites
 
 The Kubernetes provider has two requirements:
 
-* A [`kubeconfig`](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file
+* A [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file
 
     The `kubeconfig` file allows Spinnaker to authenticate against your cluster
     and to have read/write access to any resources you expect it to manage. You
     can think of it as private key file to let Spinnaker connect to your cluster.
     You can request this from your Kubernetes cluster administrator.
 
-* [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/) CLI tool
+* [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) CLI tool
 
     Spinnaker relies on `kubectl` to manage all API access. It's installed
     along with Spinnaker.
@@ -207,10 +207,10 @@ hal config provider kubernetes account add my-k8s-account \
     --context $CONTEXT
 ```
 
-Finally, enable [artifact support](/reference/artifacts/#enabling-artifact-support).
+Finally, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 ## Advanced account settings
 
 If you're looking for more configurability, please see the other options listed
 in the [Halyard
-Reference](/reference/halyard/commands#hal-config-provider-kubernetes-account-add).
+Reference](/docs/reference/halyard/commands#hal-config-provider-kubernetes-account-add).

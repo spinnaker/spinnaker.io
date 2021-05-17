@@ -10,7 +10,7 @@ is generally easier than dynamically obtaining an OAuth Bearer token or SAML ass
 
 ## Certificates
 
-If you followed the [SSL](/docs/setup/security/ssl) guide, you may already have generated a **certificate
+If you followed the [SSL](/docs/setup/other_config/security/ssl) guide, you may already have generated a **certificate
 authority**
 (CA). Using this CA, we can generate a client certificate using `openssl`.
 
@@ -92,9 +92,17 @@ Encoding with any other OID can be done by editing the `openssl.conf`.
     openssl req -nodes -newkey rsa:2048 -keyout key.out -out client.csr \
         -subj "/C=US/ST=CA/L=Oakland/O=Spinnaker/CN=example@example.com" -config openssl.conf
     ```
+1. Create extention config file `extension.conf` to apply roles when signing the server requests.
+    ```
+    [ v3_req ]
+    keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+    1.2.840.10070.8.1 = ASN1:UTF8String:spinnaker-example0\nspinnaker-example1
+    ```
+    The same rule for the roles definition applied to this section, as it's explained in the first step of this section.
+
 1. Use the CA to sign the server's request. (If using an external CA, they do this for you.)
     ```
-    openssl x509 -req -days 365 -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt
+    openssl x509 -req -days 365 -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt -extensions v3_req  -extfile ./extension.conf
     ```
 
 ![Example x509 certificate generated](two_roles_x509.png)
@@ -157,12 +165,12 @@ passing between Deck, Gate, and a third-party identity provider. Connections are
 
 ## Next steps
 
-Now that you've authenticated the user, proceed to setting up their [authorization](/docs/setup/security/authorization/).
+Now that you've authenticated the user, proceed to setting up their [authorization](/docs/setup/other_config/security/authorization/).
 
 ## Troubleshooting
 
-* Review the general [authentication guide](/docs/setup/security/authentication).
-* Review the authentication [reference guide](/reference/architecture/authz_authn/authentication).
+* Review the general [authentication guide](/docs/setup/other_config/security/authentication).
+* Review the authentication [reference guide](/docs/reference/architecture/authz_authn/authentication).
 
 
-* Use an [incognito window](/docs/setup/security/authentication#incognito-mode).
+* Use an [incognito window](/docs/setup/other_config/security/authentication#incognito-mode).

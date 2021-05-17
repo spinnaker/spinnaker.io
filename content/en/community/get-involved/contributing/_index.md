@@ -23,4 +23,4 @@ For more details about the patch submission process, look at [How to submit a pa
 
 Running Spinnaker locally on your machine is a great option for testing changes before submitting a pull request.
 
-Follow the [guide to setting up a dev environment](/guides/developer/getting-set-up/) to get up and running.
+Follow the [guide to setting up a dev environment](/docs/guides/developer/getting-set-up/) to get up and running.

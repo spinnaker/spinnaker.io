@@ -1,6 +1,6 @@
 ---
 title: "Parameterize Kubernetes Manifests"
-linkTitle: "Parameterize K8s Manifests"
+linkTitle: "Parameterize Kubernetes Manifests"
 description: >
   Inject parameters into your Kubernetes manifest as it is deployed.
 ---
@@ -22,7 +22,11 @@ pipeline editor (only the __Name__ is required):
 {{< figure src="./parameter.png" >}}
 
 > See more details on how to provide parameters to pipelines programmatically in
-> the [webhooks](/docs/guides/user/triggers/webhooks) page.
+> the [webhooks](/docs/guides/user/pipeline/triggers/webhooks) page.
+
+> Warning: there are several reserved parameter keys (names) that cause unexpected behavior and failures
+> if overwritten by a pipeline parameter definition.
+> See the [list of reserved parameter and evaluate variable key names](/docs/guides/user/pipeline/expressions#list-of-reserved-parameter-and-evaluate-variable-key-names).
 
 ## Configure your manifest
 
@@ -62,4 +66,4 @@ spec:
 
 ## More advanced parameterization
 
-Please read the [pipeline expressions guide](/docs/guides/user/pipeline-expressions).
+Please read the [pipeline expressions guide](/docs/guides/user/pipeline/expressions).

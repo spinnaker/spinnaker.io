@@ -8,7 +8,7 @@ aliases:
 
 
 In [Google App Engine](https://cloud.google.com/appengine), an
-[__Account__](/concepts/providers/#accounts) maps to a credential able to
+[Account](/docs/concepts/providers/#accounts) maps to a credential able to
 authenticate against a given [Google Cloud
 Platform](https://cloud.google.com) project.
 
@@ -107,7 +107,7 @@ authenticate with your repositories - many of the configuration flags for App En
 authentication.
 
 You can view the available configuration flags for App Engine within the
-[Halyard reference](/reference/halyard/commands#hal-config-provider-appengine-account-add).
+[Halyard reference](/docs/reference/halyard/commands#hal-config-provider-appengine-account-add).
 
 ### Deploying from storage
 

@@ -10,11 +10,11 @@ For more information about Oracle Cloud or any of the terms used below, please c
 ## Resource mapping
 
 ### Account
-The Oracle Cloud provider in Spinnaker maps a Spinnaker [__Account__](/concepts/providers/#accounts)
+The Oracle Cloud provider in Spinnaker maps a Spinnaker [Account](/docs/concepts/providers/#accounts)
 to an [Oracle Cloud Infrastructure user](https://docs.cloud.oracle.com/iaas/Content/GSG/Tasks/addingusers.htm) in 
 [Oracle Cloud Infrastructure](https://cloud.oracle.com/) (OCI). 
 Spinnaker authenticates itself with Oracle Cloud using OCI user credentials - 
-see the [setup guide](/setup/providers/oracle). 
+see the [setup guide](/docs/setup/install/providers/oracle). 
 
 ### Load Balancer
 A Spinnaker **load balancer** maps to an [OCI Load Balancer](https://docs.cloud.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).

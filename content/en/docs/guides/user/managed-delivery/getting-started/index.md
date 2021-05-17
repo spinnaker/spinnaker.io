@@ -6,7 +6,6 @@ description: >
   Get started with Managed Delivery using EC2 or Titus.
 ---
 
-Managed Delivery is currently in Alpha.
 This means that we support only EC2 and Titus, and that we have limited feature and UI support.
 This guide walks through onboarding to Managed Delivery assuming that you are using EC2 or Titus.
 

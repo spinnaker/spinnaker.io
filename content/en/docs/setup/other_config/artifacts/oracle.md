@@ -46,7 +46,7 @@ If you have enabled [Oracle Cloud provider](/docs/setup/install/providers/oracle
    
 ## Add Oracle Object Storage Artifact to Spinnaker
 
-First, enable [artifact support](/reference/artifacts/#enabling-artifact-support).
+First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 Next, add an artifact account:
 
@@ -67,5 +67,5 @@ hal config artifact oracle enable
 ```
 
 There are more options described
-[here](/reference/halyard/commands#hal-config-artifact-oracle-account-edit)
+[here](/docs/reference/halyard/commands#hal-config-artifact-oracle-account-edit)
 if you need more control over your configuration.

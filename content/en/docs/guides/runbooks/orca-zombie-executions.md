@@ -114,5 +114,5 @@ PUT /admin/forceCancelExecution?executionId=01CS076X85RX6MWBTQ0VGBF8VX&execution
 
 Zombie Executions can occur due to a loss of the Redis instance backing the Orca queue, or in prolonged unreliable networks.
 If you're using the `RedisExecutionRepository`, it's likely that when you lose the Redis backing the queue, you're also losing all running Executions.
-However, while using the [SQL backend for Orca](/setup/productionize/persistence/orca-sql/), losing the Redis means you're only losing the in-flight work queue state, not the state of the pipelines.
+However, while using the [SQL backend for Orca](/docs/setup/productionize/persistence/orca-sql/), losing the Redis means you're only losing the in-flight work queue state, not the state of the pipelines.
 In such a scenario, once Redis has been restored it will not have any messages to process and existing `RUNNING` Executions will sit unprocessed.

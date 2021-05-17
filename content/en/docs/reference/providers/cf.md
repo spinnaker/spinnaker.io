@@ -77,4 +77,4 @@ A Load Balancer is created as part of a Server Group definition.
 Deletes a CF route.
 
 ## See Also
-[Cloud Foundry specific Pipeline Stages](/reference/pipeline/stages/#cloud-foundry)
+[Cloud Foundry specific Pipeline Stages](/docs/reference/pipeline/stages/#cloud-foundry)

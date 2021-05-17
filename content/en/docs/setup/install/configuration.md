@@ -15,7 +15,7 @@ hal deploy apply
 
 ### Deploy to more environments
 
-[Documentation](/docs/setup/providers/) -- `hal config provider`
+[Documentation](/docs/setup/install/providers/) -- `hal config provider`
 
 You can add more Accounts to as many Providers as you want. There is nothing
 preventing you from deploying to two Kubernetes clusters, one Google Compute
@@ -31,27 +31,27 @@ you to migrate any data that you depend on.
 
 ### Secure your Spinnaker installation
 
-[Documentation](/docs/setup/security/) -- `hal config security`
+[Documentation](/docs/setup/other_config/security/) -- `hal config security`
 
 You can configure SSL, setup a login page, or apply role-based authorization.
 
 ### Setup continuous integration
 
-[Documentation](/docs/setup/ci/) -- `hal config ci`
+[Documentation](/docs/setup/other_config/ci/) -- `hal config ci`
 
 Configure Jenkins or Travis CI to trigger Pipelines or supply Spinnaker with
 build artifacts to build into images and deploy.
 
 ### Configure notifications
 
-[Documentation](/docs/setup/features/notifications/) -- ` `
+[Documentation](/docs/setup/other_config/features/notifications/) -- ` `
 
 Enable notifications to be sent on Spinnaker events, and allow external events
 to trigger Pipelines in Spinnaker.
 
 ### Monitor your Spinnaker installation
 
-[Documentation](/docs/setup/monitoring/) -- `hal config metric-stores`
+[Documentation](/docs/setup/other_config/monitoring/) -- `hal config metric-stores`
 
 Publish timeseries data from your Spinnaker installation to a variety of
 metric sources into curated dashboards. This is useful for understanding how

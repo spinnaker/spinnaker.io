@@ -10,15 +10,13 @@ aliases:
 
 
 
-For the Kubernetes provider, a Spinnaker [Account](/concepts/providers/#accounts)
+For the Kubernetes provider, a Spinnaker [Account](/docs/concepts/providers/#accounts)
 maps to a credential that can authenticate against your Kubernetes Cluster. It
 also includes a set of one or more [Docker
-Registry](/docs/setup/providers/docker-registry) accounts that are used as a source
+Registry](/docs/setup/install/providers/docker-registry) accounts that are used as a source
 of images.
 
-When setting up your Kubernetes provider account, you will [use halyard to add
-the account](#add-a-kubernetes-account) and provide any Docker registries that
-you'll use.
+When setting up your Kubernetes provider account, you will [use halyard to add the account](#add-a-kubernetes-account) and provide any Docker registries that you'll use.
 
 ## Prerequisites
 
@@ -30,7 +28,7 @@ You need a running Kubernetes cluster, with corresponding credentials in a
 [kubeconfig file](https://kubernetes.io/docs/concepts/cluster-administration/authenticate-across-clusters-kubeconfig/).
 
 If you have these, and you have
-[`kubectl`](https://kubernetes.io/docs/user-guide/kubectl-overview/)
+[kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)
 installed on the machine where you have your `kubeconfig`, you can verify the
 credentials work by running this command:
 
@@ -68,7 +66,7 @@ The simplest way to get credentials is to use legacy authorization.
    ![](/docs/setup/install/providers/images/gke-enable-legacy-auth.png)
 
 1. Configure `gcloud` to populate the `kubeconfig` with
-[legacy credentials](https://cloud.google.com/kubernetes-engine/docs/how-to/iam-integration#using_legacy_cluster_certificate_or_user_credentials){:target=""\_blank"}:
+[legacy credentials](https://cloud.google.com/kubernetes-engine/docs/how-to/iam-integration#using_legacy_cluster_certificate_or_user_credentials):
 
    ```bash
    gcloud config set container/use_client_certificate true
@@ -90,7 +88,7 @@ However, [you can also use RBAC and a service account](#optional-configure-kuber
 
 To use the Kubernetes (legacy) provider, you need a Docker registry as a source
 of images. To enable this, [set up a Docker registry as another
-provider](/docs/setup/providers/docker-registry), and add any registries that
+provider](/docs/setup/install/providers/docker-registry), and add any registries that
 contain images you want to deploy.
 
 You can verify your Docker registry accounts using this command:
@@ -183,7 +181,7 @@ run the following `hal` command to add that to your list of Kubernetes accounts:
 ## Advanced account settings
 
 If you are looking for more configurability, see the available options in the
-[Halyard Reference](/reference/halyard/commands#hal-config-provider-kubernetes-account-add).
+[Halyard Reference](/docs/reference/halyard/commands#hal-config-provider-kubernetes-account-add).
 
 ## Next steps
 

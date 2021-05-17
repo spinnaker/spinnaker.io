@@ -6,7 +6,7 @@ description:
   Learn how to find resources' status.
 ---
 
->If you're not sure what a managed resource is, check out our [Overview of Managed Delivery](/docs/guides/user/managed-delivery/managed-deliver-overview) first.
+>If you're not sure what a managed resource is, check out our [Overview of Managed Delivery](/docs/guides/user/managed-delivery/managed-delivery-overview) first.
 
 ## Overview
 
@@ -21,7 +21,7 @@ Managed resources always have a **status**, which describes the current state of
 On the Infrastructure views (Clusters, Load Balancers, Firewalls), you'll see a color-coded "M" logo attached to any resources that are managed by Spinnaker. Hovering over the logo reveals additional context about the current status and what it means.
 
 Example on a cluster:
-{{< figure src=="./cluster-resource-status-ui.png" >}}
+{{< figure src="./cluster-resource-status-ui.png" >}}
 
 
 ### API

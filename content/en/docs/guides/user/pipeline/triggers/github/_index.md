@@ -29,10 +29,10 @@ You need the following:
   This will be referred to as `$ORGANIZATION/$REPOSITORY` from now on (for
   example, `spinnaker/clouddriver`).
 
-* [A running Spinnaker instance](/setup/install/). This guide shows you how to
+* [A running Spinnaker instance](/docs/setup/install/). This guide shows you how to
   update it to accept messages from GitHub.
 
-* Artifact support [enabled](/reference/artifacts/#enabling-artifact-support).  
+* Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).  
 
 
 At this point, we will configure GitHub webhooks and a GitHub artifact account.
@@ -41,11 +41,11 @@ artifact account will allow you to download any pertinent files.
 
 ## 1. Configure GitHub webhooks
 
-Follow the [GitHub webhook configuration](/setup/triggers/github/).
+Follow the [GitHub webhook configuration](/docs/setup/other_config/triggers/github/).
 
 ## 2. Configure a GitHub artifact account
 
-Follow the [GitHub artifact configuration](/setup/artifacts/github/).
+Follow the [GitHub artifact configuration](/docs/setup/other_config/artifacts/github/).
 
 ## 3. Apply your configuration changes
 
@@ -76,7 +76,7 @@ Let's add a Git trigger to run our pipeline. To configure the trigger:
 | __Organization or User__  | `$ORGANIZATION` from above |
 | __Project__ | `$REPOSITORY` from above |
 | __Branch__ | (optional) Can be used (via regular expressions) to describe which branches to listen to changes one |
-| __Secret__ | (optional) _Strongly encouraged_ It must match the secret provided to the [webhook configuration](/setup/triggers/github/#configuring-your-github-webhook) |
+| __Secret__ | (optional) _Strongly encouraged_ It must match the secret provided to the [webhook configuration](/docs/setup/other_config/triggers/github/#configuring-your-github-webhook) |
 
 {{< figure src="./git-config.png" >}}
 

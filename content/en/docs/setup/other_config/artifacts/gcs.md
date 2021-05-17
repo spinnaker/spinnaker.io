@@ -64,7 +64,7 @@ SERVICE_ACCOUNT_DEST=~/.gcp/gcs-artifacts-account.json
 ARTIFACT_ACCOUNT_NAME=my-gcs-artifact-account
 ```
 
-First, enable [artifact support](/reference/artifacts/#enabling-artifact-support).
+First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
 Next, add an artifact account:
 
@@ -80,5 +80,5 @@ hal config artifact gcs enable
 ```
 
 There are more options described
-[here](/reference/halyard/commands#hal-config-artifact-gcs-account-edit)
+[here](/docs/reference/halyard/commands#hal-config-artifact-gcs-account-edit)
 if you need more control over your configuration.

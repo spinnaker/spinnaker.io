@@ -5,7 +5,7 @@ weight: 1
 description: Pipeline permissions enable automatically triggered pipelines to modify resources in protected accounts and applications. 
 ---
 
-You can use pipeline permissions as an alternative to manually managing [Fiat Service Accounts](/docs/setup/security/authorization/service-accounts/).
+You can use pipeline permissions as an alternative to manually managing [Fiat Service Accounts](/docs/setup/other_config/security/authorization/service-accounts/).
 
 Without pipeline permissions, a Spinnaker operator first has to create a
 Fiat Service account with the correct permissions. A user can then specify the
@@ -38,7 +38,7 @@ is added in the pipeline configuration page in the UI. You can add any of the
 roles that you currently have. Once you add a role to the pipeline, only users
 who have _all of the specified roles_ can edit or execute the pipeline.
 This is similar to the behavior of
-[Fiat service accounts](/docs/setup/security/authorization/service-accounts#service-account-roles).
+[Fiat service accounts](/docs/setup/other_config/security/authorization/service-accounts#service-account-roles).
 
 ![permissions selector from pipeline config in Deck](permissions-selector.png)
 
@@ -55,7 +55,7 @@ from your trigger, or enable the automatic migration (see next section).
 ### Automatic migration
 
 Front50 can automatically migrate all pipelines from using [Fiat Service
-Accounts](/docs/setup/security/authorization/service-accounts/) to use Pipeline Permissions and managed service
+Accounts](/docs/setup/other_config/security/authorization/service-accounts/) to use Pipeline Permissions and managed service
 accounts. The migrator is disabled by default, and can be enabled by adding the
 following flag to `front50-local.yml`:
 
@@ -74,11 +74,5 @@ The migration job will automatically create the new managed service users, and t
 new service user will get the same permissions as the manual service user that it
 replaces.
 
-{% include
-   warning
-   content="**Note:** If a pipeline has multiple triggers with different
-   `runAsUser` fields set, the new managed service user will get all of the roles
-   of the different manual service users (as you can only have one managed service
-   user per pipeline). This can potentially remove some users ability to edit or
-   execute affected pipelines."
-%}
+If a pipeline has multiple triggers with different `runAsUser` fields set, the new managed service user will get all of the roles of the different manual service users (as you can only have one managed service
+user per pipeline). This can potentially remove some users ability to edit or execute affected pipelines."
