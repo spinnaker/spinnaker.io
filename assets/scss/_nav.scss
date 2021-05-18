@@ -39,22 +39,25 @@
 
   @media (min-width: 991.98px) {
     height: 50px;
+    svg {
+      margin: 15px;
+    }
   }
 
   .navbar-brand {
+    display: flex;
+    flex-direction: column;
     text-transform: none;
     text-align: middle;
+    justify-content: end;
 
     .nav-link {
-      display: inline-block;
       margin-right: -30px;
     }
 
     svg {
-      display: inline-block;
-      margin: auto 20px;
-      height: 30px;
-      padding: auto;
+      margin-top: 15px;
+      max-height: 50px;
     }
   }
 

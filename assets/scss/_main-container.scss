@@ -3,14 +3,18 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    @media (max-width: 991.98px) {
+  
+    }
 }
 
 // The outer page container for the default base template.
 .td-default {
+    
     main {
         section:first-of-type {
             @include media-breakpoint-up(md) {
-                padding-top: 8rem;
+                
             }
         }
 

@@ -1,76 +1,85 @@
-// News Banner
-.news {
-  margin-top: 50px;
-  margin-bottom: 0;
-  width: 100%;
-  justify-content: center;
-  background-color: $secondary;
-  flex-direction: column;
-  align-items: center;
-  padding-right: 0;
-  img {
-    max-width: 200px;
-    padding-bottom: 25px;
-  }
-  h5 {
-    text-align: center;
-  }
-}
 
-.alert {
-  margin-bottom: 0 !important;
-}
-
-.alert-dismissable {
-  padding-right: 0 !important;
-  padding-bottom: 0;
-}
-
-.intro-text-panel {
+.card {
+  border-radius: 10px;
+  border: none;
+  background: white;
   
-
-
-
+  box-shadow: 10ppx 10px 20px #d9d9d9, -10px -10px 20px $light;
+  padding: 1rem;
+  margin: 1rem;
+  flex-grow: 1;
+}
+.intro-text-panel {
   h4 {
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     background-color: white;
     width: 100%;
     padding: 10px;
     text-align: center;
-
   }
 }
 .section-title {
   padding: 1rem;
   color: $white;
+  background: $secondary;
 
   box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
-  margin-top :2rem;
+  margin-top: none;
   width: 100vw;
+}
+.clear-header, .td-content{
+  padding-top: 50px;
+}
+.row.hero.home {
+  height: 500px;
+  margin-top: 50px;
+  
 }
 
 @media (max-width: 991.98px) {
-  .intro-text-panel {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    
-    img {
-      width: 75%;
-    }
+  .clear-header {
+    padding-top: 117px;
+  }
+  .row.hero.home {
+    margin-top: 117px;
 
- 
-    width: fit-content;
-    height: calc(fit-content + 100px);
     
-    h3 {
-      font-size: 1.1rem;
+    .intro-text {
+      div.intro-text-panel {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+        box-shadow: none;
+
+        width: 90vw;
+        margin: auto;
+        img {
+          width: 75%;
+          padding: 0.5rem;
+          @media (max-width: 575.98px) {
+            align-self: flex-start;
+          }
+        }
+
+        h3 {
+          font-size: 1.3rem;
+          padding: 0.5rem;
+        }
+      }
     }
-    
-    
+  }
+  .section-title {
+    margin-top: none;
+  }
+
+  .powered-by-spinnaker {
+    h3 {
+      margin-bottom: 0;
+      padding: 1rem;
+    }
   }
 }
 // waves animation
@@ -79,17 +88,13 @@
   width: 100vw;
   background-image: url(/images/waves-background.svg);
   background-size: cover;
-  height: 1200px;
-  background-repeat: no-repeat;
+  height: 1000px;
+  background-repeat: repeat-x;
   background-color: transparent;
-
-}
-@media (max-width: 991.98px) {
-  .row.hero {
-    margin-top: 117px;
-    background: url('/images/waves-background.svg') no-repeat;
-    background-attachment: fixed;
-    background-position: 100% 100%;
-    width: 100vw;
+  @media (max-width: 991.98px) {
+  background-position: bottom;
+  background-attachment: fixed;
+  height: 650px;
   }
+
 }

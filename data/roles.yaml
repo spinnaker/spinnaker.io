@@ -1,24 +1,20 @@
 - id: captains_log
   name: State of Spinnaker
-  shortdesc: Aliquip excepteur velit cillum qui
-  prompt: Enim veniam
-  longdesc: >
-    Aliquip excepteur velit cillum qui exercitation non velit ut enim aliqua nulla dolore eu nostrud ea. Dolore excepteur excepteur commodo consectetur dolore reprehenderit pariatur. Id id eiusmod id anim id consequat excepteur deserunt et ad ut enim voluptate. Enim veniam ipsum aute nulla dolor non labore est veniam incididunt ex sint labore mollit. Commodo non et et minim laboris ut eu fugiat eu. Consectetur ullamco quis consectetur commodo id laboris ea qui esse exercitation deserunt cillum esse amet veniam ipsum.
+  prompt: Visualize the story of the Spinnaker’s growth
+  link: /docs/guides/operator/
+
 - id: op
-  name: Operator
-  shortdesc: Aliquip excepteur velit cillum qui
-  prompt: Enim veniam
-  longdesc: >
-    Aliquip excepteur velit cillum qui exercitation non velit ut enim aliqua nulla dolore eu nostrud ea. Dolore excepteur excepteur commodo consectetur dolore reprehenderit pariatur. Id id eiusmod id anim id consequat excepteur deserunt et ad ut enim voluptate. Enim veniam ipsum aute nulla dolor non labore est veniam incididunt ex sint labore mollit. Commodo non et et minim laboris ut eu fugiat eu. Consectetur ullamco quis consectetur commodo id laboris ea qui esse exercitation deserunt cillum esse amet veniam ipsum.
-- id: appdev
-  name: App Developer
-  shortdesc: Aliquip excepteur velit cillum qui
-  prompt: Enim veniam
-  longdesc: >
-    Aliquip excepteur velit cillum qui exercitation non velit ut enim aliqua nulla dolore eu nostrud ea. Dolore excepteur excepteur commodo consectetur dolore reprehenderit pariatur. Id id eiusmod id anim id consequat excepteur deserunt et ad ut enim voluptate. Enim veniam ipsum aute nulla dolor non labore est veniam incididunt ex sint labore mollit. Commodo non et et minim laboris ut eu fugiat eu. Consectetur ullamco quis consectetur commodo id laboris ea qui esse exercitation deserunt cillum esse amet veniam ipsum.
-- id: contrib
-  name: Individual Contributor
-  shortdesc: Aliquip excepteur velit cillum qui
-  prompt: Enim veniam
-  longdesc: >
-    Aliquip excepteur velit cillum qui exercitation non velit ut enim aliqua nulla dolore eu nostrud ea. Dolore excepteur excepteur commodo consectetur dolore reprehenderit pariatur. Id id eiusmod id anim id consequat excepteur deserunt et ad ut enim voluptate. Enim veniam ipsum aute nulla dolor non labore est veniam incididunt ex sint labore mollit. Commodo non et et minim laboris ut eu fugiat eu. Consectetur ullamco quis consectetur commodo id laboris ea qui esse exercitation deserunt cillum esse amet veniam ipsum.
+  name: For Operators
+  prompt: Guides for setting up, operating, & migrating components
+  link: /docs/guides/operator/
+- id: users
+  name: For Users
+  prompt: From getting started to using pipelines, and more
+  link: /docs/guides/operator/
+
+- id: tutorials
+  name: Tutorials
+  prompt: Video tutorials and codelabs
+  link: /docs/guides/operator/
+
+

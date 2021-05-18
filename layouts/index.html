@@ -1,6 +1,6 @@
 {{ define "main" }}
-<div class="row hero">
-  <div class="col intro-text col-lg-10 offset-lg-1 align-items-center">
+<div class="row hero home ">
+  <div class="col intro-text col-lg-10 offset-lg-1 ">
     
       <div class="intro-text-panel">
         <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
@@ -29,15 +29,16 @@
   </div>
 </div>
 <!-- Roles appeal row -->
-<div class="row roles-appeal mr-10 ml-20">
+<div class="row roles-appeal ">
   {{ range $.Site.Data.roles }}
-    <div class="col-6 col-md-3" id="role_card_{{.id}}">
+    <div class="d-flex" id="role_card_{{.id}}">
       <div class="card">
         <h5>{{.name}}</h5>
         <p class="shortdesc">
-          {{.shortdesc}}
+         
+        
+        <a href="/docs/guides/operator/">{{.prompt}} <i class="fa fa-caret-right"></i></a>
         </p>
-        <a href=".">{{.prompt}}</a>
       </div>
     </div>
   {{ end }}
@@ -47,12 +48,10 @@
    <h3>Powered By Spinnaker</h3>
   
 </div>
-<!-- Case studies row -->
-
 <!-- Logos row -->
 <div class="row col col-10 offset-1 logos d-flex justify-content-center">
 
-  <div class="logos-list d-flex flex-wrap align-items-center justify-content-center">
+  <div class="logos-list d-flex ">
     {{ range $.Site.Data.companies }}
       {{ if gt ( len .logo ) 0 }}  
         <a href="/" alt="{{.name}}" id="logo_{{.id}}">
