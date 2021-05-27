@@ -1,20 +1,19 @@
 - id: captains_log
   name: State of Spinnaker
   prompt: Visualize the story of the Spinnaker’s growth
-  link: /docs/guides/operator/
+  link: /community/stay-informed/captains-log/
 
 - id: op
   name: For Operators
   prompt: Guides for setting up, operating, & migrating components
   link: /docs/guides/operator/
+
 - id: users
   name: For Users
   prompt: From getting started to using pipelines, and more
-  link: /docs/guides/operator/
+  link: /docs/guides/user/
 
 - id: tutorials
   name: Tutorials
   prompt: Video tutorials and codelabs
-  link: /docs/guides/operator/
-
-
+  link: /docs/guides/tutorials/
