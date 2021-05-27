@@ -23,7 +23,8 @@
   "devDependencies": {
     "autoprefixer": "^9.8.0",
     "postcss": "^7.0.32",
-    "postcss-cli": "^7.1.1"
+    "postcss-cli": "^7.1.1",
+    "prettier": "^2.3.0"
   },
   "browserslist": [
     "Android 2.3",

@@ -1,0 +1,9 @@
+<div class="row col col-10 logos d-flex ">
+  <div class="logos-list d-flex justify-content-start">
+    {{ range $.Site.Data.companies }} {{ if gt ( len .logo ) 0 }}
+    <a href="/" alt="{{.name}}" id="logo_{{.id}}">
+      <img src="{{.logo}}" />
+    </a>
+    {{ end }} {{ end }}
+  </div>
+</div>

@@ -203,10 +203,10 @@
     position: relative;
     color: $navbar-light-color !important;
   }
+  // end Navbar Styles
 
   .td-search-input {
     border: none;
-
     @include placeholder {
       color: $navbar-light-color;
     }
@@ -273,9 +273,11 @@
   margin-top: none;
   width: 100vw;
 }
-.clear-header,
-.td-content {
-  padding-top: 50px;
+@media (max-width: 767.98px) {
+  .clear-header,
+  .td-content {
+    padding-top: 50px;
+  }
 }
 .row.hero.home {
   height: 500px;

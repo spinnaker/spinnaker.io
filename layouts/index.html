@@ -1,78 +1,93 @@
 {{ define "main" }}
-<div class="row hero home ">
-  <div class="col intro-text col-lg-10 offset-lg-1 ">
-    
-      <div class="intro-text-panel">
-        <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
-        <h3 class="subtitle">
-          {{.Params.subtitle}}<br />
-          {{.Params.subtitle_1}}
-        </h3>
-        
-          <a href="https://events.linuxfoundation.org/spinnaker-summit/">
-          <h4>Register now for Spinnaker Summit | June 22-24, 2021
-          <i class="fa fa-caret-right"></i></h4></a>
-        
-      </div>
+<div class="row hero home">
+  <div class="col intro-text col-lg-10 offset-lg-1">
+    <div class="intro-text-panel">
+      <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
+      <h3 class="subtitle">
+        {{.Params.subtitle}}<br />
+        {{.Params.subtitle_1}}
+      </h3>
+
+      <a href="https://events.linuxfoundation.org/spinnaker-summit/">
+        <h4>
+          Register now for Spinnaker Summit | June 22-24, 2021
+          <i class="fa fa-caret-right"></i></h4
+      ></a>
+    </div>
   </div>
 </div>
 <!-- Slack row -->
 <div class="row slack -bg-secondary">
   <div class="col col-lg-10 offset-lg-1">
     <div class="d-flex align-items-center slack-container">
-      <p>
-        {{.Params.join_slack_text}}
-      </p>
-      <a href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg" alt="Join Slack" class="join-slack">
+      <p>{{.Params.join_slack_text}}</p>
+      <a
+        href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+        alt="Join Slack"
+        class="join-slack"
+      >
       </a>
     </div>
   </div>
 </div>
 <!-- Roles appeal row -->
-<div class="row roles-appeal ">
+<div class="row roles-appeal">
   {{ range $.Site.Data.roles }}
-    <div class="d-flex" id="role_card_{{.id}}">
-      <div class="card">
-        <h5>{{.name}}</h5>
-        <p class="shortdesc">
-         
-        
-        <a href="/docs/guides/operator/">{{.prompt}} <i class="fa fa-caret-right"></i></a>
-        </p>
-      </div>
+  <div class="d-flex" id="role_card_{{.id}}">
+    <div class="card">
+      <h5>{{.name}}</h5>
+      <p class="shortdesc">
+        <a href="/docs/guides/operator/"
+          >{{.prompt}} <i class="fa fa-caret-right"></i
+        ></a>
+      </p>
     </div>
+  </div>
   {{ end }}
 </div>
 <!-- Powered by spinnaker row -->
 <div class="row powered-by-spinnaker section-title -bg-secondary">
-   <h3>Powered By Spinnaker</h3>
-  
+  <h3>Powered By Spinnaker</h3>
 </div>
 <!-- Logos row -->
 <div class="row col col-10 offset-1 logos d-flex justify-content-center">
-
-  <div class="logos-list d-flex ">
-    {{ range $.Site.Data.companies }}
-      {{ if gt ( len .logo ) 0 }}  
-        <a href="/" alt="{{.name}}" id="logo_{{.id}}">
-          <img src="{{.logo}}" />
-        </a>
-      {{ end }}
-    {{ end }}
+  <div class="logos-list d-flex">
+    {{ range $.Site.Data.companies }} {{ if gt ( len .logo ) 0 }}
+    <a href="/" alt="{{.name}}" id="logo_{{.id}}">
+      <img src="{{.logo}}" />
+    </a>
+    {{ end }} {{ end }}
   </div>
 </div>
 <!-- Video carousel row -->
 <div class="row videos">
   <div class="col-10 offset-1 init-carousel">
-    {{ range $.Site.Data.videos }}
-      {{ if eq .display_landing true }}
-        <div class="vid">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-            <iframe src="https://www.youtube.com/embed/{{.id}}?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="{{.title}}"></iframe>
-          </div>
-        </div>
-      {{ end }}
-    {{ end }}
+    {{ range $.Site.Data.videos }} {{ if eq .display_landing true }}
+    <div class="vid">
+      <div
+        style="
+          position: relative;
+          padding-bottom: 56.25%;
+          height: 0;
+          overflow: hidden;
+        "
+      >
+        <iframe
+          src="https://www.youtube.com/embed/{{.id}}?autoplay=0"
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+          "
+          allowfullscreen
+          title="{{.title}}"
+        ></iframe>
+      </div>
+    </div>
+    {{ end }} {{ end }}
   </div>
 </div>
 
@@ -86,9 +101,7 @@
 <div class="row contributing">
   <div class="col col-10 offset-1">
     <h3 class="contrib-header">{{.Params.contrib_header}}</h3>
-    <div class="contrib-text">
-      {{.Params.contrib_text}}
-    </div>
+    <div class="contrib-text">{{.Params.contrib_text}}</div>
   </div>
 </div>
 {{ end }}
