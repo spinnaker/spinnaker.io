@@ -1,9 +1,254 @@
+.layout-index {
+  &.td-home {
+    .row {
+      &.hero {
+        background: transparentize(#224488, 0.15);
+
+        .col {
+          &.intro-text {
+            display: flex;
+            align-items: center;
+            .intro-text-panel {
+              padding: 1rem;
+              color: $white;
+              @media (min-width: 992px) {
+                background: transparentize($secondary, 0.75);
+                border-radius: 10px;
+                box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+              }
+              h3 {
+                padding: 1rem;
+              }
+
+              img {
+                max-width: 350px;
+                padding: 1rem 0;
+              }
+
+              a {
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+      &.slack {
+        padding: 1rem;
+        p {
+          margin-bottom: 0;
+          font-size: 1.2rem;
+        }
+        .join-slack {
+          background-color: #fff;
+          width: 280px;
+          min-width: 200px;
+          height: 80px !important;
+          max-height: 80px;
+          background-image: url('/images/slack_logo.png');
+          background-size: 120px;
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-left: 3rem;
+          border: 1px solid #ededed;
+          border-radius: 10px;
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 991.98px) {
+          .slack-container {
+            margin: 0;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            .join-slack {
+              margin: 20px 20px 20px 10px;
+            }
+          }
+        }
+      }
+      &.roles-appeal {
+        // padding-top: 1rem;
+        // padding-bottom: 1rem;
+        justify-content: center;
+        padding: 1rem;
+        background-color: $wave-background;
+        background: -webkit-linear-gradient(
+          to top,
+          $secondary,
+          $wave-background
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to top,
+          $secondary,
+          $wave-background
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        box-shadow: $box-shadow;
+
+        .card {
+          width: 20vw;
+        }
+        @media (max-width: 575.98px) {
+          .card {
+            flex: 1;
+          }
+        }
+        @media (max-width: 991.98px) {
+          flex-wrap: wrap;
+          .card {
+            width: 80vw;
+          }
+        }
+      }
+      &.videos {
+        .vid {
+          padding-right: 0.25rem;
+          padding-left: 0.25rem;
+        }
+      }
+    }
+  }
+}
+
+.logos-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 150px;
+    min-width: 150px;
+    max-height: fit-content;
+    padding: 15px;
+    margin: 10px;
+  }
+  @media (max-width: 575.98px) {
+    img {
+      max-width: 120px;
+      min-width: unset;
+      max-height: min-content;
+    }
+  }
+}
+.powered-by-spinnaker {
+  justify-content: center;
+}
+
+//
+// Main navbar
+//
+
+.td-navbar {
+  background: $white;
+  box-shadow: 0px 2px 1px lighten($navbar-light-color, 40%);
+  margin: auto 0;
+  height: 120px;
+  z-index: 32;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: fit-content;
+
+  @media (min-width: 991.98px) {
+    height: 50px;
+    svg {
+      margin-left: 15px;
+    }
+  }
+
+  .navbar-brand {
+    display: flex;
+    flex-direction: column;
+    text-transform: none;
+    text-align: middle;
+    justify-content: end;
+
+    .nav-link {
+      margin-right: -30px;
+    }
+
+    svg {
+      margin-top: 0;
+      max-height: 50px;
+    }
+  }
+
+  .nav-link:not(.dropdown-toggle) {
+    text-transform: none;
+    font-weight: $font-weight-medium;
+    font-size: 14px;
+    position: relative;
+    color: $navbar-light-color;
+    &.active,
+    &.visited,
+    &:hover {
+      color: $navbar-light-color !important;
+      &:after {
+        content: '';
+        background: $navbar-light-color;
+        border-radius: 3px 3px 0 0;
+        position: absolute;
+        bottom: -6px;
+        display: block;
+        height: 3px;
+        width: calc(100% - 20px);
+        left: 10px;
+        // right: 22px;
+      }
+    }
+  }
+  .nav-link.dropdown-toggle {
+    text-transform: none;
+    font-weight: $font-weight-medium;
+    font-size: 14px;
+    position: relative;
+    color: $navbar-light-color !important;
+  }
+
+  .td-search-input {
+    border: none;
+
+    @include placeholder {
+      color: $navbar-light-color;
+    }
+  }
+
+  .dropdown {
+    min-width: 100px;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-right: 0.5rem;
+    padding-left: 0.75rem;
+    margin: auto;
+    height: 117px;
+
+    .td-navbar-nav-scroll {
+      max-width: 100%;
+      margin-top: 0.25rem;
+      overflow: hidden;
+
+      .nav-link {
+        padding-right: 0.25rem;
+        padding-left: 0;
+      }
+      .navbar-brand {
+        padding: auto;
+      }
+
+      .navbar-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  }
+}
 
 .card {
   border-radius: 10px;
   border: none;
   background: white;
-  
+
   box-shadow: 10ppx 10px 20px #d9d9d9, -10px -10px 20px $light;
   padding: 1rem;
   margin: 1rem;
@@ -28,13 +273,13 @@
   margin-top: none;
   width: 100vw;
 }
-.clear-header, .td-content{
+.clear-header,
+.td-content {
   padding-top: 50px;
 }
 .row.hero.home {
   height: 500px;
   margin-top: 50px;
-  
 }
 
 @media (max-width: 991.98px) {
@@ -43,8 +288,8 @@
   }
   .row.hero.home {
     margin-top: 117px;
+    height: auto;
 
-    
     .intro-text {
       div.intro-text-panel {
         display: flex;
@@ -92,9 +337,245 @@
   background-repeat: repeat-x;
   background-color: transparent;
   @media (max-width: 991.98px) {
-  background-position: bottom;
-  background-attachment: fixed;
-  height: 650px;
+    background-position: bottom;
+    background-attachment: fixed;
+    height: 650px;
+  }
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
+  &:hover,
+  &:focus {
+    outline: none;
+    background: transparent;
+    color: transparent;
+    &:before {
+      opacity: $slick-opacity-on-hover;
+    }
+  }
+  &.slick-disabled:before {
+    opacity: $slick-opacity-not-active;
+  }
+  &:before {
+    font-family: $slick-font-family;
+    font-size: 20px;
+    line-height: 1;
+    color: $slick-arrow-color;
+    opacity: $slick-opacity-default;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.slick-prev {
+  left: -25px;
+  [dir='rtl'] & {
+    left: auto;
+    right: -25px;
+  }
+  &:before {
+    content: $slick-prev-character;
+    [dir='rtl'] & {
+      content: $slick-next-character;
+    }
+  }
+}
+
+.slick-next {
+  right: -25px;
+  [dir='rtl'] & {
+    left: -25px;
+    right: auto;
+  }
+  &:before {
+    content: $slick-next-character;
+    [dir='rtl'] & {
+      content: $slick-prev-character;
+    }
+  }
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+    button {
+      border: 0;
+      background: transparent;
+      display: block;
+      height: 20px;
+      width: 20px;
+      outline: none;
+      line-height: 0px;
+      font-size: 0px;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        outline: none;
+        &:before {
+          opacity: $slick-opacity-on-hover;
+        }
+      }
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: $slick-dot-character;
+        width: 20px;
+        height: 20px;
+        font-family: $slick-font-family;
+        font-size: $slick-dot-size;
+        line-height: 20px;
+        text-align: center;
+        color: $slick-dot-color;
+        opacity: $slick-opacity-not-active;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+    &.slick-active button:before {
+      color: $slick-dot-color-active;
+      opacity: $slick-opacity-default;
+    }
+  }
+}
+/* Slider */
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: none;
   }
 
+  &.dragging {
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  .slick-loading & {
+    visibility: hidden;
+  }
+}
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  [dir='rtl'] & {
+    float: right;
+  }
+  img {
+    display: block;
+  }
+  &.slick-loading img {
+    display: none;
+  }
+
+  display: none;
+
+  &.dragging img {
+    pointer-events: none;
+  }
+
+  .slick-initialized & {
+    display: block;
+  }
+
+  .slick-loading & {
+    visibility: hidden;
+  }
+
+  .slick-vertical & {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+  }
+}
+.slick-arrow.slick-hidden {
+  display: none;
 }

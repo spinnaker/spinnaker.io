@@ -220,6 +220,11 @@ enable = false
   name = "Docs"
   weight = 2
   url = "/docs/"
+
+[[menu.main]]
+  name = "Community"
+  weight = 3
+  url = "/docs/community"
   
 [[menu.main]]
   name = "GitHub"
