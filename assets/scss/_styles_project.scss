@@ -1,3 +1,17 @@
+.td-main {
+  .single-section {
+    padding: 0;
+  }
+}
+
+figure.captains-log {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 80vw;
+  }
+}
 .layout-index {
   &.td-home {
     .row {
@@ -273,12 +287,13 @@
   margin-top: none;
   width: 100vw;
 }
-@media (max-width: 767.98px) {
-  .clear-header,
-  .td-content {
-    padding-top: 50px;
-  }
+
+.clear-header,
+.td-content {
+  margin-top: 50px;
+  padding-top: 50px;
 }
+
 .row.hero.home {
   height: 500px;
   margin-top: 50px;
