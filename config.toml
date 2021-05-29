@@ -231,7 +231,6 @@ enable = false
   weight = 50
   url = "https://github.com/spinnaker"
   pre = "<i class='fab fa-github'></i>"
-
 # Add your release versions here
 
 

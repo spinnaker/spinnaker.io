@@ -1,14 +1,14 @@
 ---
-layout: blog/single
+layout: index
 title: "Captain's Log: The State of Spinnaker"
 name: 'captains_log'
 sidebar:
   nav: community
 ---
 
-{{< single-header title="Welcome to the Captain's Log!" >}}
+{{< heroWaves title="Welcome to the Captain's Log" >}}
+
 This report on the state of Spinnaker contains regularly updated project contribution and code repository metrics, to visualize the story of the Spinnaker's growth across its ecosystem.
-{{< /single-header >}}
 
 [Success stories](/success-stories/) from around the web tell of enterprises moving from brittle deployments to continuous delivery with Spinnaker:
 

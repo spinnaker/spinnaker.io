@@ -1,6 +1,10 @@
-.td-main {
+.td-default main section:first-of-type {
+  padding-top: 117px;
+}
+main {
   .single-section {
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -12,114 +16,121 @@ figure.captains-log {
     max-width: 80vw;
   }
 }
-.layout-index {
-  &.td-home {
-    .row {
-      &.hero {
-        background: transparentize(#224488, 0.15);
 
-        .col {
-          &.intro-text {
-            display: flex;
-            align-items: center;
-            .intro-text-panel {
-              padding: 1rem;
-              color: $white;
-              @media (min-width: 992px) {
-                background: transparentize($secondary, 0.75);
-                border-radius: 10px;
-                box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
-              }
-              h3 {
-                padding: 1rem;
-              }
+.row {
+  &.hero {
+    background: transparentize(#224488, 0.15);
 
-              img {
-                max-width: 350px;
-                padding: 1rem 0;
-              }
+    .col {
+      &.intro-text {
+        display: flex;
+        align-items: center;
+        .intro-text-panel {
+          padding: 1rem;
+          color: $white;
+          @media (min-width: 992px) {
+            background: transparentize($secondary, 0.75);
+            border-radius: 10px;
+            box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+          }
+          h3 {
+            padding: 1rem;
+          }
 
-              a {
-                color: $primary;
-              }
-            }
+          img {
+            max-width: 350px;
+            padding: 1rem 0;
+          }
+
+          a {
+            color: $primary;
           }
         }
       }
-      &.slack {
-        padding: 1rem;
-        p {
-          margin-bottom: 0;
-          font-size: 1.2rem;
-        }
-        .join-slack {
-          background-color: #fff;
-          width: 280px;
-          min-width: 200px;
-          height: 80px !important;
-          max-height: 80px;
-          background-image: url('/images/slack_logo.png');
-          background-size: 120px;
-          background-repeat: no-repeat;
-          background-position: center;
-          margin-left: 3rem;
-          border: 1px solid #ededed;
-          border-radius: 10px;
-          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-        }
-        @media (max-width: 991.98px) {
-          .slack-container {
-            margin: 0;
-            position: relative;
-            flex-direction: column;
-            justify-content: center;
-            align-items: left;
-            .join-slack {
-              margin: 20px 20px 20px 10px;
-            }
-          }
-        }
-      }
-      &.roles-appeal {
-        // padding-top: 1rem;
-        // padding-bottom: 1rem;
+    }
+  }
+  &.heading-with-text {
+    padding: 1rem;
+    p {
+      margin-bottom: 0;
+      font-size: 1.2rem;
+    }
+    .join-slack {
+      background-color: #fff;
+      width: 280px;
+      min-width: 200px;
+      height: 80px !important;
+      max-height: 80px;
+      background-image: url('/images/slack_logo.png');
+      background-size: 120px;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-left: 3rem;
+      border: 1px solid #ededed;
+      border-radius: 10px;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    }
+    @media (max-width: 991.98px) {
+      .slack-container {
+        margin: 0;
+        position: relative;
+        flex-direction: column;
         justify-content: center;
-        padding: 1rem;
-        background-color: $wave-background;
-        background: -webkit-linear-gradient(
-          to top,
-          $secondary,
-          $wave-background
-        ); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(
-          to top,
-          $secondary,
-          $wave-background
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-        box-shadow: $box-shadow;
-
-        .card {
-          width: 20vw;
-        }
-        @media (max-width: 575.98px) {
-          .card {
-            flex: 1;
-          }
-        }
-        @media (max-width: 991.98px) {
-          flex-wrap: wrap;
-          .card {
-            width: 80vw;
-          }
+        align-items: left;
+        .join-slack {
+          margin: 20px 20px 20px 10px;
         }
       }
-      &.videos {
-        .vid {
-          padding-right: 0.25rem;
-          padding-left: 0.25rem;
-        }
+    }
+  }
+  &.roles-appeal {
+    // padding-top: 1rem;
+    // padding-bottom: 1rem;
+    justify-content: space-evenly;
+    padding: 1rem;
+    background-color: $wave-background;
+    background: -webkit-linear-gradient(
+      to top,
+      $secondary,
+      $wave-background
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to top,
+      $secondary,
+      $wave-background
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    box-shadow: $box-shadow;
+    height: 30vh;
+    div {
+      justify-content: center;
+      align-items: center;
+      min-height: 150px;
+    }
+    .card {
+      flex-direction: column;
+
+      width: 20vw;
+      padding: 1rem;
+      margin: auto;
+      justify-content: center;
+    }
+    @media (max-width: 575.98px) {
+      .card {
+        flex: 1;
       }
+    }
+    @media (max-width: 991.98px) {
+      flex-wrap: wrap;
+      .card {
+        width: 80vw;
+      }
+    }
+  }
+  &.videos {
+    .vid {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem;
     }
   }
 }
@@ -138,13 +149,10 @@ figure.captains-log {
   @media (max-width: 575.98px) {
     img {
       max-width: 120px;
-      min-width: unset;
-      max-height: min-content;
+      min-width: 120px;
+      max-height: max-content;
     }
   }
-}
-.powered-by-spinnaker {
-  justify-content: center;
 }
 
 //
@@ -279,32 +287,48 @@ figure.captains-log {
   }
 }
 .section-title {
-  padding: 1rem;
+  padding: 1rem 0;
   color: $white;
   background: $secondary;
-
   box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
-  margin-top: none;
-  width: 100vw;
+  display: flex;
+  margin: 20px 0;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    margin-bottom: 0;
+    padding: 0.75rem 0;
+  }
 }
 
-.clear-header,
-.td-content {
+.clear-header {
   margin-top: 50px;
   padding-top: 50px;
 }
 
 .row.hero.home {
-  height: 500px;
+  height: 530px;
   margin-top: 50px;
+  padding-top: 25px;
 }
-
+@media (max-width: 575.98px) {
+  .td-main main {
+    padding-top: 2rem;
+  }
+}
+@media (min-width: 575.98px) and (max-width: 991.98px) {
+  .td-main main {
+    padding-top: 3.5rem;
+  }
+}
 @media (max-width: 991.98px) {
   .clear-header {
     padding-top: 117px;
   }
+
   .row.hero.home {
     margin-top: 117px;
+    min-height: 460px;
     height: auto;
 
     .intro-text {
@@ -333,16 +357,6 @@ figure.captains-log {
       }
     }
   }
-  .section-title {
-    margin-top: none;
-  }
-
-  .powered-by-spinnaker {
-    h3 {
-      margin-bottom: 0;
-      padding: 1rem;
-    }
-  }
 }
 // waves animation
 
@@ -350,14 +364,9 @@ figure.captains-log {
   width: 100vw;
   background-image: url(/images/waves-background.svg);
   background-size: cover;
-  height: 1000px;
   background-repeat: repeat-x;
   background-color: transparent;
-  @media (max-width: 991.98px) {
-    background-position: bottom;
-    background-attachment: fixed;
-    height: 650px;
-  }
+  background-position: bottom;
 }
 
 /* Arrows */
