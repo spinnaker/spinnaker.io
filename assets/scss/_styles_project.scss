@@ -1,4 +1,5 @@
 @import 'success-stories';
+@import 'spinnaker';
 
 .td-default main section:first-of-type {
   padding-top: 117px;
@@ -132,6 +133,26 @@ figure.captains-log {
   align-items: center;
   img {
     max-width: 150px;
+    min-width: 150px;
+    max-height: fit-content;
+    padding: 15px;
+    margin: 10px;
+  }
+  @media (max-width: 575.98px) {
+    img {
+      max-width: 120px;
+      min-width: 120px;
+      max-height: max-content;
+    }
+  }
+}
+
+.cloud-providers {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  img {
+    max-width: 300px;
     min-width: 150px;
     max-height: fit-content;
     padding: 15px;

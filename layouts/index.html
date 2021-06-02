@@ -50,60 +50,92 @@
     <p class="lead">{{.Params.who_should_use_text | markdownify }}</p>
   </div>
 </div>
+
 <!-- Powered by spinnaker row -->
 <div class="row jumbotron jumbotron-fluid -bg-white">
   <div class="container">
-    <div>
-      <h3 class="display-4">Powered By Spinnaker</h3>
+    <h3 class="display-4">Powered By Spinnaker</h3>
 
-      <!-- Logos row -->
-      <div class="row logos d-flex justify-content-center">
-        <div class="logos-list d-flex">
-          {{ range $.Site.Data.companies }} {{ if gt ( len .logo ) 0 }}
-          <a href="/" alt="{{.name}}" id="logo_{{.id}}">
-            <img src="{{.logo}}" />
-          </a>
-          {{ end }} {{ end }}
-        </div>
+    <!-- Logos row -->
+    <div class="row logos d-flex justify-content-center">
+      <div class="logos-list d-flex">
+        {{ range $.Site.Data.companies }} {{ if gt ( len .logo ) 0 }}
+        <a href="/" id="logo_{{.id}}">
+          <img src="{{.logo}}" alt="{{.name}}" />
+        </a>
+        {{ end }} {{ end }}
       </div>
     </div>
   </div>
 </div>
+<!-- Cloud Providers row -->
+<div class="row jumbotron jumbotron-fluid -bg-secondary">
+  <div class="container">
+    <h3 class="display-4">Supported Cloud Providers</h3>
+
+    <!-- Logos row -->
+    <div class="row logos d-flex justify-content-center">
+      <div class="cloud-providers d-flex">
+        {{ range $.Site.Data.cloud_providers }}
+
+        <img src="{{.image_path}}" alt="{{.alt}}" />
+
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About row -->
+<div class="row jumbotron jumbotron-fluid -bg-white">
+  <div class="container">
+    <h3 class="display-4">{{$.Site.Data.about_copy.spinnaker_row.title}}</h3>
+    <p class="lead">{{$.Site.Data.about_copy.spinnaker_row.excerpt}}</p>
+    <div class="card-deck">
+      {{ range $.Site.Data.about_copy }}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{.title}}</h5>
+          <div class="card-text">{{.excerpt}}</div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+
 <!-- Video carousel row -->
 <div class="row jumbotron jumbotron-fluid -bg-white">
   <div class="container">
-    <div>
-      <h3 class="display-4">Spinnaker Community on YouTube</h3>
+    <h3 class="display-4">Spinnaker Community on YouTube</h3>
 
-      <div class="row videos">
-        <div class="col-10 offset-1 init-carousel">
-          {{ range $.Site.Data.videos }} {{ if eq .display_landing true }}
-          <div class="vid">
-            <div
+    <div class="row videos">
+      <div class="col-10 offset-1 init-carousel">
+        {{ range $.Site.Data.videos }} {{ if eq .display_landing true }}
+        <div class="vid">
+          <div
+            style="
+              position: relative;
+              padding-bottom: 56.25%;
+              height: 0;
+              overflow: hidden;
+            "
+          >
+            <iframe
+              src="https://www.youtube.com/embed/{{.id}}?autoplay=0"
               style="
-                position: relative;
-                padding-bottom: 56.25%;
-                height: 0;
-                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
               "
-            >
-              <iframe
-                src="https://www.youtube.com/embed/{{.id}}?autoplay=0"
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  border: 0;
-                "
-                allowfullscreen
-                title="{{.title}}"
-              ></iframe>
-            </div>
+              allowfullscreen
+              title="{{.title}}"
+            ></iframe>
           </div>
-          {{ end }} {{ end }}
         </div>
+        {{ end }} {{ end }}
       </div>
     </div>
   </div>

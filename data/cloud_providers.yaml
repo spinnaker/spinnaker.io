@@ -1,0 +1,28 @@
+aws_provider:
+  image_path: /images/aws.png
+  alt: 'AWS Logo'
+  image_class: spin_cloud_provider__aws
+gcp_provider:
+  image_path: /images/gcp.png
+  alt: 'GCP Logo'
+  image_class: spin_cloud_provider__gcp
+k8s_provider:
+  image_path: /images/k8s.png
+  alt: 'Kubernetes Logo'
+  image_class: spin_cloud_provider__k8s
+azure_provider:
+  image_path: /images/azure.png
+  alt: 'Azure Logo'
+  image_class: spin_cloud_provider__azure
+appengine_provider:
+  image_path: /images/appengine.svg
+  alt: 'App Engine Logo'
+  image_class: spin_cloud_provider__appengine
+cf_provider:
+  image_path: /images/cf.png
+  alt: 'Cloud Foundry Logo'
+  image_class: spin_cloud_provider__cf
+oracle_provider:
+  image_path: /images/oracle.svg
+  alt: 'Oracle Cloud Infrastructure Logo'
+  image_class: spin_cloud_provider__oracle

@@ -65,6 +65,9 @@
     display: grid;
     grid-template-columns: repeat(3, calc(33% - 10px));
     justify-content: space-between;
+    .card {
+      margin: 15px;
+    }
   }
 
   article {

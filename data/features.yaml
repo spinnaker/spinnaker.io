@@ -1,0 +1,30 @@
+ci_integrations_feature:
+  title: CI Integrations
+  content: 'Listen to events, collect artifacts, and trigger pipelines from Jenkins or Travis CI. Triggers via git, cron, or a new image in a docker registry are also supported.'
+monitoring_integrations_feature:
+  title: Monitoring Integrations
+  content: 'Tie your releases to monitoring services Datadog, Prometheus, Stackdriver, SignalFx, or New Relic using their metrics for canary analysis.'
+cli_feature:
+  title: CLI for Setup and Admin
+  content: 'Install, configure, and update your Spinnaker instance with halyard, Spinnaker’s CLI tool.'
+deployment_strategies_feature:
+  title: Deployment Strategies
+  content: 'Configure pipelines with built-in deployment strategies such as highlander and red/black,  with rolling red/black and canary in active development, or define your own custom strategy.'
+vm_bakery_feature:
+  title: VM Bakery
+  content: 'Bake immutable VM images via Packer, which comes packaged with Spinnaker and offers support for Chef and Puppet templates.'
+notifications_feature:
+  title: Notifications
+  content: 'Set up event notifications for email, Slack, HipChat, or SMS (via Twilio).'
+access_control_feature:
+  title: Role-based Access Control
+  content: 'Restrict access to projects or accounts by hooking into your internal authentication system using OAuth, SAML, LDAP, X.509 certs, Google Groups, Azure Groups, or GitHub Teams.'
+manual_judgments_feature:
+  title: Manual Judgments
+  content: 'Require a manual approval prior to releasing an update with a manual judgement stage.'
+execution_windows_feature:
+  title: Restricted Execution Windows
+  content: 'Restrict the execution of stages to certain windows of time, making sure deployments happen during off-peak traffic or when the right people are on hand to monitor the roll-out.'
+chaos_monkey_feature:
+  title: Chaos Monkey Integration
+  content: 'Test that your application can survive instance failures by terminating them on purpose.'
