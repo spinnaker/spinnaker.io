@@ -1,3 +1,5 @@
+@import 'success-stories';
+
 .td-default main section:first-of-type {
   padding-top: 117px;
 }
@@ -13,7 +15,7 @@ figure.captains-log {
   justify-content: center;
   align-items: center;
   img {
-    max-width: 80vw;
+    max-width: 900px;
   }
 }
 
@@ -84,23 +86,12 @@ figure.captains-log {
     }
   }
   &.roles-appeal {
-    // padding-top: 1rem;
-    // padding-bottom: 1rem;
     justify-content: space-evenly;
     padding: 1rem;
     background-color: $wave-background;
-    background: -webkit-linear-gradient(
-      to top,
-      $secondary,
-      $wave-background
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to top,
-      $secondary,
-      $wave-background
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    box-shadow: $box-shadow;
+    background: -webkit-linear-gradient(to top, $secondary, $wave-background);
+    background: linear-gradient(to top, $secondary, $wave-background);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
     height: 30vh;
     div {
       justify-content: center;
@@ -266,16 +257,6 @@ figure.captains-log {
   }
 }
 
-.card {
-  border-radius: 10px;
-  border: none;
-  background: white;
-
-  box-shadow: 10ppx 10px 20px #d9d9d9, -10px -10px 20px $light;
-  padding: 1rem;
-  margin: 1rem;
-  flex-grow: 1;
-}
 .intro-text-panel {
   h4 {
     border-radius: 10px;
@@ -307,9 +288,18 @@ figure.captains-log {
 }
 
 .row.hero.home {
-  height: 530px;
+  height: 526px;
   margin-top: 50px;
   padding-top: 25px;
+}
+
+div.captains-log {
+  margin-bottom: 2rem;
+}
+@media (max-width: 575.98px) {
+  div.captains-log {
+    height: 404px;
+  }
 }
 @media (max-width: 575.98px) {
   .td-main main {
@@ -328,8 +318,7 @@ figure.captains-log {
 
   .row.hero.home {
     margin-top: 117px;
-    min-height: 460px;
-    height: auto;
+    height: 461px;
 
     .intro-text {
       div.intro-text-panel {

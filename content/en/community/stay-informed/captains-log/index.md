@@ -1,14 +1,15 @@
 ---
 layout: index
 title: "Captain's Log: The State of Spinnaker"
-name: 'captains_log'
+name: 'captains-log'
 sidebar:
   nav: community
 ---
 
-{{< heroWaves title="Welcome to the Captain's Log" >}}
+{{< heroWaves  name=".Params.name" >}}
+{{% contentContainer %}}
 
-This report on the state of Spinnaker contains regularly updated project contribution and code repository metrics, to visualize the story of the Spinnaker's growth across its ecosystem.
+Welcome to the Captain's Log! This report on the state of Spinnaker contains regularly updated project contribution and code repository metrics, to visualize the story of the Spinnaker's growth across its ecosystem.
 
 [Success stories](/success-stories/) from around the web tell of enterprises moving from brittle deployments to continuous delivery with Spinnaker:
 
@@ -55,3 +56,4 @@ Authors contribute pull requests to Spinnaker repositories each week, building t
 The data presented here comes from <a href="https://spinnaker.devstats.cd.foundation/">Spinnaker's DevStats Dashboard</a>, an awesome project growth [visualization and monitoring tool](https://devstats.cncf.io/) built by CNCF engineers in collaboration with Kubernetes and other CNCF project communities. DevStats defines a “contribution” as a review, comment, commit, PR, or issue. Big thanks to Lukasz Gryglicki and the CNCF!
 
 _Last updated February 2020_
+{{% /contentContainer %}}
