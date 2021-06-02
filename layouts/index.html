@@ -33,14 +33,14 @@
 <!-- Roles appeal row -->
 <div class="row roles-appeal">
   {{ range $.Site.Data.roles }}
-  <div class="d-flex role-card" id="role_card_{{.id}}">
-    <div class="card">
-      <h5>{{.name}}</h5>
-      <p class="shortdesc">
-        <a href="{{.link}}">{{.prompt}} <i class="fa fa-caret-right"></i></a>
-      </p>
-    </div>
+
+  <div class="card">
+    <h5>{{.name}}</h5>
+    <p class="shortdesc">
+      <a href="{{.link}}">{{.prompt}} <i class="fa fa-caret-right"></i></a>
+    </p>
   </div>
+
   {{ end }}
 </div>
 
@@ -88,8 +88,15 @@
 <!-- About row -->
 <div class="row jumbotron jumbotron-fluid -bg-white">
   <div class="container">
-    <h3 class="display-4">{{$.Site.Data.about_copy.spinnaker_row.title}}</h3>
-    <p class="lead">{{$.Site.Data.about_copy.spinnaker_row.excerpt}}</p>
+    <h3 class="display-4">
+      Spinnaker is an open source, multi-cloud continuous delivery platform for
+      releasing software changes with high velocity and confidence.
+    </h3>
+    <p class="lead">
+      Created at Netflix, it has been battle-tested in production by hundreds of
+      teams over millions of deployments. It combines a powerful and flexible
+      pipeline management system with integrations to the major cloud providers.
+    </p>
     <div class="card-deck">
       {{ range $.Site.Data.about_copy }}
       <div class="card">
@@ -100,6 +107,21 @@
       </div>
       {{end}}
     </div>
+  </div>
+</div>
+<!-- Features row -->
+<div class="row jumbotron jumbotron-fluid -bg-primary">
+  <div class="container">
+    <h3 class="display-4">Features List</h3>
+    <ul class="list-group">
+      {{ range $.Site.Data.features }}
+      <li class="list-group-item text-secondary">
+        <h5>{{.title}}</h5>
+        <p class="lead">{{.content}}</p>
+      </li>
+
+      {{end}}
+    </ul>
   </div>
 </div>
 

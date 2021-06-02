@@ -1,5 +1,4 @@
 @import 'success-stories';
-@import 'spinnaker';
 
 .td-default main section:first-of-type {
   padding-top: 117px;
@@ -93,21 +92,19 @@ figure.captains-log {
     background: -webkit-linear-gradient(to top, $secondary, $wave-background);
     background: linear-gradient(to top, $secondary, $wave-background);
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
-    height: 30vh;
-    div {
-      justify-content: center;
-      align-items: center;
-      min-height: 150px;
-    }
-    .card {
-      flex-direction: column;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    .card {
       width: 20vw;
       padding: 1rem;
       margin: auto;
-      justify-content: center;
     }
     @media (max-width: 575.98px) {
+      flex-direction: column;
+      justify-content: stretch;
       .card {
         flex: 1;
       }
@@ -115,7 +112,9 @@ figure.captains-log {
     @media (max-width: 991.98px) {
       flex-wrap: wrap;
       .card {
-        width: 80vw;
+        margin: 1rem;
+        flex: 1;
+        min-height: 250px;
       }
     }
   }
