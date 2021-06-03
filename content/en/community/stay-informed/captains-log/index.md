@@ -6,7 +6,7 @@ sidebar:
   nav: community
 ---
 
-{{< heroWaves  name=".Params.name" >}}
+{{< hero  name=".Params.name" >}}
 {{% contentContainer %}}
 
 Welcome to the Captain's Log! This report on the state of Spinnaker contains regularly updated project contribution and code repository metrics, to visualize the story of the Spinnaker's growth across its ecosystem.

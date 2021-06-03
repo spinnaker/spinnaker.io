@@ -92,29 +92,19 @@ figure.captains-log {
     background: -webkit-linear-gradient(to top, $secondary, $wave-background);
     background: linear-gradient(to top, $secondary, $wave-background);
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     .card {
-      width: 20vw;
       padding: 1rem;
-      margin: auto;
-    }
-    @media (max-width: 575.98px) {
-      flex-direction: column;
-      justify-content: stretch;
-      .card {
-        flex: 1;
-      }
+      margin: 1rem;
     }
     @media (max-width: 991.98px) {
-      flex-wrap: wrap;
-      .card {
-        margin: 1rem;
-        flex: 1;
-        min-height: 250px;
+      .card-deck {
+        flex-direction: column;
+        justify-content: stretch;
+        flex-wrap: wrap;
+        .card {
+          width: 80vw;
+        }
       }
     }
   }
@@ -366,16 +356,6 @@ div.captains-log {
       }
     }
   }
-}
-// waves animation
-
-.waves {
-  width: 100vw;
-  background-image: url(/images/waves-background.svg);
-  background-size: cover;
-  background-repeat: repeat-x;
-  background-color: transparent;
-  background-position: bottom;
 }
 
 /* Arrows */

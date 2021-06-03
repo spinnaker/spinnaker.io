@@ -9,28 +9,36 @@
         <figure>
           <img src="{{.logo}}" alt="{{.name}}" />
         </figure>
-        <div class="quote">
-          <p>{{.text}}</p>
+        <div class="card text-white">
+        <div class=" card-body">
+          <div class="card-title">Biden for President</div>
+          <p class="lead">{{.text}}</p>
           <p>{{.attribution}}</p>
         </div>
         {{ end }}
       </div>
+      </div>
     </div>
+
     <div class="success-stories-container">
+
       <h3>Case Studies</h3>
       <div class="success-stories-wrapper">
         {{ range $.Site.Data.success_stories.cases }}
-        <article>
-          <a href="{{.link}}" target="_blank">
-            <figure>
-              <img src="{{.logo}}" alt="{{.name}}" />
-            </figure>
-
-            <p class="text">{{.text}}</p>
-
-            <span>> Learn</span>
-          </a>
-        </article>
+        <div class="card text-white bg-secondary" >
+          <img class="card-img-top"src="{{.logo}}" alt="{{.name}}" />
+          <div class="card-body">
+           
+            <p class="card-text">{{.text}}</p>
+          </div>
+         
+          <div class="card-body">
+            <a href="{{.link}}" target="_blank" class="card-link text-light">Learn More</a>
+           
+          </div>
+        </div>
+        
+       
         {{end}}
       </div>
     </div>
@@ -39,12 +47,11 @@
       <h3>Testimonials</h3>
 
       <p>
-        Want to share your Spinnaker Success Story?
-        <a
-          href="https://spinnaker.formstack.com/forms/spinnaker_testimonials"
-          target="_blank"
-          >Click here!</a
-        >
+        Want to share your Spinnaker Success Story? Chat with us on the <a
+        href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+        target="_blank"
+        >Spinnaker community Slack workspace</a>
+        
       </p>
 
       <div class="testimonials-wrapper">
