@@ -18,10 +18,7 @@ Make sure you have the following tools installed:
 
 You also need access to a Spinnaker instance `>= 1.20.6` running in a Kubernetes cluster.
 
-This guide focuses on a frontend plugin, but if you need help configuring
-a backend plugin, see the [Plugin Project Configuration]({% link
-guides/developer/plugins/project-config.md %}) and [Backend Extension Points]({%
-link guides/developer/plugins/backend.md %}) guides.
+This guide focuses on a frontend plugin, but if you need help configuring a backend plugin, see the [Plugin Project Configuration]({{< ref "project-config.md" >}}) and [Backend Extension Points]({{< ref "plugin-backend.md" >}}) guides.
 
 ##  Plugin scaffolding
 
@@ -94,9 +91,7 @@ yarn && yarn build
 ### Gradle Configuration
 
 In order to build and release your plugin, you need to ensure that you have
-your Gradle environment configured correctly. Follow the advice in the [Plugin
-Project Configuration]({% link guides/developer/plugins/project-config.md %})
-document up to the `UI-extension build.gradle` section.
+your Gradle environment configured correctly. Follow the advice in the [Plugin Project Configuration]({{< ref "project-config.md" >}}) document up to the `UI-extension build.gradle` section.
 
 The development tooling uses this top-level Gradle file to create a simple
 plugin metadata file. See the [Build and release](#build-and-release)
@@ -250,7 +245,7 @@ include "my-plugin-deck"
 
 ### Create distribution files
 
-Spinnaker needs a `repositories.json` file and a `plugins.json` file to install a plugin. `repositories.json` represents a set of pointers to plugin files, and `plugins.json` lists all versions of a particular plugin. See the [Plugin Users Guide]({% link guides/user/plugins/index.md %}) for more information.
+Spinnaker needs a `repositories.json` file and a `plugins.json` file to install a plugin. `repositories.json` represents a set of pointers to plugin files, and `plugins.json` lists all versions of a particular plugin. See the [Plugin Users Guide](/docs/guides/user/plugins/index) for more information.
 
 The format of the `repositories.json` file looks like this:
 
@@ -325,8 +320,8 @@ profiles:
 
 ## Next steps
 
-* [Test your plugin locally using Minnaker]({% link guides/developer/plugins/testing/deck-plugin.md %})
-* [Plugin Compatibility Testing]({% link guides/developer/plugins/testing/compatibility-testing.md %})
-* [Deploy your plugin using Halyard]({% link guides/user/plugins/index.md %})
+* [Test your plugin locally using Minnaker]({{< ref "plugin-deck-test.md" >}})
+* [Plugin Compatibility Testing]({{< ref "compatibility-testing.md" >}})
+* [Deploy your plugin using Halyard](/docs/guides/user/plugins/)
 
-{% include plugins-spin-operator.md %}
+{{% include "plugins-spin-operator.md" %}}
