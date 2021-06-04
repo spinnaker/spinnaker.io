@@ -7,13 +7,16 @@
     
     <header>
       {{ partial "navbar.html" . }}
-    </header>
-    {{ if .IsHome }}
-    <div class="container-fluid td-default td-outer waves">
-      <main role="main">
+   
+    {{ if .IsHome }}{{ partial "hero-homepage.html" .}}
+
+  </header>
+    <div class=" td-default td-outer ">
+      <main role="main" >
         {{ else }}
-        <div class="container-fluid td-default td-outer clear-header">
-          <main role="main">
+      </header>
+        <div class=" td-default td-outer clear-header">
+          <main role="main " >
             {{ end }}
         {{ block "main" . }}{{ end }}
       </main>

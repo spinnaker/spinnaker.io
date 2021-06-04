@@ -1,21 +1,4 @@
 {{ define "main" }}
-<div class="row hero home">
-  <div class="col intro-text col-lg-10 offset-lg-1">
-    <div class="intro-text-panel">
-      <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
-      <h3 class="subtitle">
-        {{.Params.subtitle}}<br />
-        {{.Params.subtitle_1}}
-      </h3>
-
-      <a href="https://events.linuxfoundation.org/spinnaker-summit/">
-        <h4>
-          Register now for Spinnaker Summit | June 22-24, 2021
-          <i class="fa fa-caret-right"></i></h4
-      ></a>
-    </div>
-  </div>
-</div>
 <!-- Slack row -->
 <div class="row heading-with-text -bg-secondary">
   <div class="col col-lg-10 offset-lg-1">
@@ -45,34 +28,33 @@
     {{ end }}
   </div>
 </div>
+<!-- Who should use Spinnaker? row -->
 
-<div class="row jumbotron jumbotron-fluid -bg-primary">
-  <div class="container">
+<div class="jumbotron jumbotron-fluid -bg-primary">
+  <div>
     <h3 class="display-4">{{.Params.who_should_use_header}}</h3>
     <p class="lead">{{.Params.who_should_use_text | markdownify }}</p>
   </div>
 </div>
 
 <!-- Powered by spinnaker row -->
-<div class="row jumbotron jumbotron-fluid -bg-white">
-  <div class="container">
-    <h3 class="display-4">Powered By Spinnaker</h3>
+<div class="jumbotron jumbotron-fluid -bg-white">
+  <h3 class="display-4">Powered By Spinnaker</h3>
 
-    <!-- Logos row -->
-    <div class="row logos d-flex justify-content-center">
-      <div class="logos-list d-flex">
-        {{ range $.Site.Data.companies }} {{ if gt ( len .logo ) 0 }}
-        <a href="/" id="logo_{{.id}}">
-          <img src="{{.logo}}" alt="{{.name}}" />
-        </a>
-        {{ end }} {{ end }}
-      </div>
+  <!-- Logos row -->
+  <div class="logos d-flex justify-content-center">
+    <div class="logos-list d-flex">
+      {{ range $.Site.Data.companies }} {{ if gt ( len .logo ) 0 }}
+
+      <img src="{{.logo}}" alt="{{.name}}" />
+
+      {{ end }} {{ end }}
     </div>
   </div>
 </div>
 <!-- Cloud Providers row -->
-<div class="row jumbotron jumbotron-fluid -bg-secondary">
-  <div class="container">
+<div class="jumbotron jumbotron-fluid">
+  <div>
     <h3 class="display-4">Supported Cloud Providers</h3>
 
     <!-- Logos row -->
@@ -88,8 +70,8 @@
   </div>
 </div>
 <!-- About row -->
-<div class="row jumbotron jumbotron-fluid -bg-white">
-  <div class="container">
+<div class="jumbotron jumbotron-fluid -bg-white">
+  <div>
     <h3 class="display-4">
       Spinnaker is an open source, multi-cloud continuous delivery platform for
       releasing software changes with high velocity and confidence.
@@ -99,7 +81,7 @@
       teams over millions of deployments. It combines a powerful and flexible
       pipeline management system with integrations to the major cloud providers.
     </p>
-    <div class="card-deck">
+    <div class="about-cards">
       {{ range $.Site.Data.about_copy }}
       <div class="card">
         <div class="card-body">
@@ -112,24 +94,28 @@
   </div>
 </div>
 <!-- Features row -->
-<div class="row jumbotron jumbotron-fluid -bg-primary">
-  <div class="container">
+<div class="jumbotron jumbotron-fluid">
+  <div>
     <h3 class="display-4">Features List</h3>
-    <ul class="list-group">
-      {{ range $.Site.Data.features }}
-      <li class="list-group-item text-secondary">
-        <h5>{{.title}}</h5>
-        <p class="lead">{{.content}}</p>
-      </li>
+    <div>
+      <div class="cards">
+        {{ range $.Site.Data.features }}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{.title}}</h5>
+            <div class="card-text">{{.content}}</div>
+          </div>
+        </div>
 
-      {{end}}
-    </ul>
+        {{end}}
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- Video carousel row -->
-<div class="row jumbotron jumbotron-fluid -bg-white">
-  <div class="container">
+<div class="jumbotron jumbotron-fluid -bg-white">
+  <div>
     <h3 class="display-4">Spinnaker Community on YouTube</h3>
 
     <div class="row videos">
@@ -166,8 +152,8 @@
 </div>
 
 <!-- contributing row -->
-<div class="row jumbotron jumbotron-fluid -bg-primary">
-  <div class="container">
+<div class="jumbotron jumbotron-fluid -bg-primary">
+  <div>
     <h3 class="display-4">{{.Params.contrib_header}}</h3>
     <p class="lead">
       Engage in the community! Our

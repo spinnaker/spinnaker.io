@@ -199,11 +199,7 @@ enable = false
 	url = "https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
 	icon = "fab fa-slack"
   desc = "Spinnaker Community on Slack"
-[[params.links.developer]]
-	name = "Stack Overflow"
-  url = "https://stackoverflow.com/questions/tagged/spinnaker"
-  icon = "fab fa-stack-overflow"
-  desc = "Stack Overflow"
+
 [[params.links.developer]]
   name = "Twitter"
   url = "https://twitter.com/spinnakerio"

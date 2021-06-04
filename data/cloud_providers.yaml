@@ -11,13 +11,9 @@ k8s_provider:
   alt: 'Kubernetes Logo'
   image_class: spin_cloud_provider__k8s
 azure_provider:
-  image_path: /images/azure.png
+  image_path: /images/azure.svg
   alt: 'Azure Logo'
   image_class: spin_cloud_provider__azure
-appengine_provider:
-  image_path: /images/appengine.svg
-  alt: 'App Engine Logo'
-  image_class: spin_cloud_provider__appengine
 cf_provider:
   image_path: /images/cf.png
   alt: 'Cloud Foundry Logo'
