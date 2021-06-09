@@ -14,4 +14,34 @@
       ></a>
     </div>
   </div>
+  <!-- Roles appeal row -->
+  <div class="row roles-appeal">
+    <div class="card-deck">
+      {{ range $.Site.Data.roles }}
+
+      <div class="card">
+        <h5>{{.name}}</h5>
+        <p class="shortdesc">
+          <a href="{{.link}}">{{.prompt}} <i class="fa fa-caret-right"></i></a>
+        </p>
+      </div>
+
+      {{ end }}
+    </div>
+  </div>
+  <!-- Slack row -->
+  <div class="row heading-with-text">
+    <div class="col col-lg-10 offset-lg-1">
+      <div class="d-flex align-items-center slack-container">
+        <p>{{.Params.join_slack_text}}</p>
+        <a
+          href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+          alt="Join Slack"
+          class="join-slack"
+          name="join slack"
+        >
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

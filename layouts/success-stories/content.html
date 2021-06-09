@@ -7,7 +7,7 @@
         <figure>
           <img src="{{.logo}}" alt="{{.name}}" />
         </figure>
-        <div class="card text-white">
+        <div class="card ">
         <div class=" card-body">
           <div class="card-title">Biden for President</div>
           <p class="lead">{{.text}}</p>
@@ -22,7 +22,7 @@
       <h3>Case Studies</h3>
       <div class="success-stories-wrapper">
         {{ range $.Site.Data.success_stories.cases }}
-        <div class="card text-white bg-secondary" >
+        <div class="card" >
           <img class="card-img-top"src="{{.logo}}" alt="{{.name}}" />
           <div class="card-body">
            
@@ -30,7 +30,7 @@
           </div>
          
           <div class="card-body">
-            <a href="{{.link}}" target="_blank" class="card-link text-light">Learn More</a>
+            <a href="{{.link}}" target="_blank" class="card-link ">Learn More</a>
            
           </div>
         </div>
@@ -53,17 +53,17 @@
 
       <div class="testimonials-wrapper">
         {{ range $.Site.Data.success_stories.testimonials }}
-        <div class="card text-white bg-secondary">
+        <div class="card ">
           <article class="card-body">
             <header>
-              <figure>
+              <figure class="testimonials-image">
                 <img src="{{.logo}}" alt="{{.name}}" />
               </figure>
             </header>
         
       
             <div>
-              <q class="quote">{{.quote}}</q>
+              <p class="quote">{{.quote}}</p>
             </div>
           
 
@@ -91,7 +91,7 @@
       </h6>
 <div class="cards">
      
-        <div class="card text-white bg-secondary">
+        <div class="card ">
           <div class="card-body">
             <h5 class="card-title">Migrating AirBnb To Spinnaker</h5>
           </div>
@@ -105,7 +105,7 @@
             allowfullscreen
           ></iframe>
         </div>
-        <div class="card text-white bg-secondary">
+        <div class="card ">
           <div class="card-body">
             <h5 class="card-title">
               Cisco: On-Prem to Cloud Native & OSS Spinnaker
@@ -123,7 +123,7 @@
         </div>
      
     
-        <div class="card text-white bg-secondary">
+        <div class="card ">
           <div class="card-body">
             <h5 class="card-title">
               Overcoming Challenges in Adopting Spinnaker
@@ -139,7 +139,7 @@
             allowfullscreen
           ></iframe>
         </div>
-        <div class="card text-white bg-secondary">
+        <div class="card ">
           <div class="card-body">
             <h5 class="card-title">
               Adobe Deploys Critical Apps With Spinnaker
@@ -157,7 +157,7 @@
         </div>
    
     
-        <div class="card text-white bg-secondary">
+        <div class="card ">
           <div class="card-body">
             <h5 class="card-title">
               Spinnaker Canary Deployments, Istio & K8S
@@ -173,7 +173,7 @@
             allowfullscreen
           ></iframe>
         </div>
-        <div class="card text-white bg-secondary">
+        <div class="card ">
           <div class="card-body">
             <h5 class="card-title">Adopting Spinnaker Across Teams</h5>
           </div>

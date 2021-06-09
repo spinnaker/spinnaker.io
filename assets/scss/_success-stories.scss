@@ -21,9 +21,9 @@
     grid-template-columns: 1fr 2fr;
     justify-content: center;
     align-items: center;
-    border: 1px solid $wave-background;
+    border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 5px;
-    width: 80%;
+    width: 90%;
     margin: auto;
 
     @media (max-width: 991.98px) {
@@ -35,7 +35,6 @@
       width: 80%;
 
       .card {
-        background-color: $wave-background;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         margin: auto;
@@ -46,7 +45,6 @@
       margin: auto;
     }
     .card {
-      background-color: $wave-background;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
 
@@ -55,9 +53,8 @@
   }
 
   .quote {
-    p {
-      padding: 1.5rem 0;
-    }
+    padding: 1.5rem;
+
     p:nth-child(2) {
       text-align: right;
       margin: 23px 15px 15px;
@@ -73,6 +70,7 @@
       margin: auto;
       padding: 0;
       width: 100%;
+      max-width: 400px;
     }
   }
 }
@@ -87,22 +85,29 @@
 
   .success-stories-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, calc(33% - 10px));
-    justify-content: space-evenly;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: center;
+    column-gap: 10px;
+    row-gap: 10px;
     .card {
-      margin: 15px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-width: 300px;
+      }
     }
 
     @media (max-width: 767.98px) {
       display: flex;
       flex-direction: column;
     }
-    // Medium devices (tablets, 768px and up)
-    @media (min-width: 768px) and (max-width: 991.98px) {
-      display: grid;
-      grid-template-columns: repeat(2, calc(45% - 10px));
-      justify-content: space-evenly;
-    }
+    // // Medium devices (tablets, 768px and up)
+    // @media (min-width: 768px) and (max-width: 991.98px) {
+    //   display: grid;
+    //   grid-template-columns: repeat(2, calc(45% - 10px));
+    //   justify-content: space-evenly;
+    // }
   }
 
   article {
@@ -200,8 +205,9 @@
         img {
           margin: 0;
           border: none;
-          width: auto;
+
           height: 68px;
+          object-fit: contain;
         }
       }
     }
@@ -244,10 +250,8 @@
     .card {
       width: 49%;
       margin: 0.5rem 0;
-      @media (max-width: 1199.98px) {
+      @media (max-width: 991.98px) {
         width: 100%;
-      }
-      @media (max-width: 575.98px) {
       }
     }
   }
@@ -264,12 +268,15 @@
 
   iframe.card-img-bottom {
     width: 100%;
-
-    @media (max-width: 1199.98px) {
-      min-height: 300px;
+    @include media-breakpoint-only(xl) {
+      min-height: 400px;
     }
-    @media (min-width: 992px) {
-      min-height: 450px;
+    @media (min-width: 576px) {
+      min-height: 325px;
+    }
+
+    @media (max-width: 575.98px) {
+      min-height: 210px;
     }
   }
 }

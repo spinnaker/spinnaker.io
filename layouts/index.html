@@ -1,36 +1,8 @@
 {{ define "main" }}
-<!-- Slack row -->
-<div class="row heading-with-text -bg-secondary">
-  <div class="col col-lg-10 offset-lg-1">
-    <div class="d-flex align-items-center slack-container">
-      <p>{{.Params.join_slack_text}}</p>
-      <a
-        href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
-        alt="Join Slack"
-        class="join-slack"
-      >
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Roles appeal row -->
-<div class="row roles-appeal">
-  <div class="card-deck">
-    {{ range $.Site.Data.roles }}
 
-    <div class="card">
-      <h5>{{.name}}</h5>
-      <p class="shortdesc">
-        <a href="{{.link}}">{{.prompt}} <i class="fa fa-caret-right"></i></a>
-      </p>
-    </div>
-
-    {{ end }}
-  </div>
-</div>
 <!-- Who should use Spinnaker? row -->
 
-<div class="jumbotron jumbotron-fluid -bg-primary">
+<div class="jumbotron jumbotron-fluid">
   <div>
     <h3 class="display-4">{{.Params.who_should_use_header}}</h3>
     <p class="lead">{{.Params.who_should_use_text | markdownify }}</p>
@@ -119,27 +91,12 @@
     <h3 class="display-4">Spinnaker Community on YouTube</h3>
 
     <div class="row videos">
-      <div class="col-10 offset-1 init-carousel">
+      <div class="col init-carousel">
         {{ range $.Site.Data.videos }} {{ if eq .display_landing true }}
         <div class="vid">
-          <div
-            style="
-              position: relative;
-              padding-bottom: 56.25%;
-              height: 0;
-              overflow: hidden;
-            "
-          >
+          <div>
             <iframe
               src="https://www.youtube.com/embed/{{.id}}?autoplay=0"
-              style="
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border: 0;
-              "
               allowfullscreen
               title="{{.title}}"
             ></iframe>
@@ -152,7 +109,7 @@
 </div>
 
 <!-- contributing row -->
-<div class="jumbotron jumbotron-fluid -bg-primary">
+<div class="jumbotron jumbotron-fluid">
   <div>
     <h3 class="display-4">{{.Params.contrib_header}}</h3>
     <p class="lead">
