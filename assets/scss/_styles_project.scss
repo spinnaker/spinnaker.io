@@ -1,18 +1,20 @@
 @import 'success-stories';
 @import 'slick-theme';
 @import 'slick';
+@import 'docs';
+@import 'navbar';
 
 h3 {
   margin-bottom: 1.6rem;
 }
 .jumbotron > * {
   margin: 0 3rem;
-  width: calc(100% - 6rem);
 
   h3 {
     margin-bottom: 1.6rem;
   }
 }
+
 .about-cards {
   display: flex;
   flex-wrap: wrap;
@@ -46,10 +48,6 @@ h3 {
   margin-right: 0;
   margin-left: 0;
 }
-.row {
-  margin-right: 0;
-  margin-left: 0;
-}
 
 .td-default main section:first-of-type {
   padding-top: 117px;
@@ -70,117 +68,144 @@ figure.captains-log {
   }
 }
 
-.row {
-  &.hero {
-    background: transparentize(#224488, 0.15);
-
-    .col {
-      &.intro-text {
-        padding: 0 2rem 2rem 2.5rem;
-
-        display: flex;
-        align-items: center;
-        .intro-text-panel {
-          padding: 1rem;
-          color: $white;
-          @media (min-width: 992px) {
-            background: transparentize($secondary, 0.75);
-            border-radius: 10px;
-            box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
-          }
-
-          img {
-            max-width: 350px;
-            padding: 1rem 0;
-          }
-
-          a {
-            color: $primary;
-          }
-        }
-      }
-    }
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  margin: 50px 0 0 0;
+  padding-top: 110px;
+  background-color: $transparent-secondary;
+  .home {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
-  &.heading-with-text {
-    padding: 1rem;
-    background-color: #0c1d2d;
-    color: #fff;
-    p {
-      margin-bottom: 0;
-      font-size: 1.2rem;
-    }
-    .join-slack {
-      background-color: #fff;
-      width: 280px;
-      min-width: 200px;
-      height: 80px !important;
-      max-height: 80px;
-      background-image: url('/images/slack_logo.png');
-      background-size: 120px;
-      background-repeat: no-repeat;
-      background-position: center;
-      margin-left: 3rem;
-      border: 1px solid #ededed;
-      border-radius: 10px;
-      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-    }
-    @media (max-width: 991.98px) {
-      .slack-container {
-        margin: 0;
-        position: relative;
-        flex-direction: column;
-        justify-content: center;
+  .intro-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 
-        align-items: left;
-        .join-slack {
-          margin: 20px 20px 20px 10px;
-        }
-      }
-    }
-  }
-  &.roles-appeal {
-    justify-content: space-evenly;
-    padding: 1rem;
+    .intro-text-panel {
+      background: $transparent-secondary;
 
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem;
+      color: $white;
 
-    .card {
-      padding: 1rem;
-      margin: 1rem;
-    }
-    @media (max-width: 991.98px) {
-      .card-deck {
-        flex-direction: column;
-        justify-content: stretch;
-        flex-wrap: wrap;
-        .card {
-          width: 80vw;
-        }
+      @media (min-width: 992px) {
+        border-radius: 10px;
+        box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
       }
-    }
-  }
-  &.videos {
-    .vid {
-      padding-right: 0.25rem;
-      padding-left: 0.25rem;
-      div {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
+
+      img {
+        max-width: 350px;
+        padding: 1rem 0;
       }
-      iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
+
+      a {
+        color: $primary;
       }
     }
   }
 }
 
+.videos {
+  .vid {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    div {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}
+
+.heading-with-text {
+  background-color: $transparent-secondary;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  p {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    width: 50%;
+  }
+  .join-slack {
+    background-color: #fff;
+    width: 280px;
+    min-width: 200px;
+    height: 80px !important;
+    max-height: 80px;
+    background-image: url('/images/slack_logo.png');
+    background-size: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 3rem;
+    border: 1px solid #ededed;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  }
+  @media (max-width: 991.98px) {
+    p {
+      width: 100%;
+    }
+    .slack-container {
+      position: relative;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      width: 80%;
+
+      .join-slack {
+        margin: 20px 20px 20px 10px;
+      }
+    }
+  }
+}
+.roles-appeal {
+  margin: 2rem auto;
+  padding: 1rem;
+
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+
+  .card {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  @media (max-width: 991.98px) {
+    .card-deck {
+      background-color: $transparent-secondary;
+      border-radius: 5px;
+      flex-direction: column;
+      justify-content: stretch;
+      flex-wrap: wrap;
+      display: flex;
+      .card {
+        width: 80vw;
+        padding: 1rem;
+      }
+    }
+  }
+}
 .logos-list {
   flex-wrap: wrap;
   justify-content: center;
@@ -221,117 +246,6 @@ figure.captains-log {
   }
 }
 
-//
-// Main navbar
-//
-
-.td-navbar {
-  background: $white;
-  box-shadow: 0px 2px 1px lighten($navbar-light-color, 40%);
-  margin: auto 0;
-  height: 120px;
-  z-index: 32;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: fit-content;
-
-  @media (min-width: 991.98px) {
-    height: 50px;
-    svg {
-      margin-left: 15px;
-    }
-  }
-
-  .navbar-brand {
-    display: flex;
-    flex-direction: column;
-    text-transform: none;
-    text-align: middle;
-    justify-content: end;
-
-    .nav-link {
-      margin-right: -30px;
-    }
-
-    svg {
-      margin-top: 0;
-      max-height: 50px;
-    }
-  }
-
-  .nav-link:not(.dropdown-toggle) {
-    text-transform: none;
-    font-weight: $font-weight-medium;
-    font-size: 14px;
-    position: relative;
-    color: $navbar-light-color;
-    &.active,
-    &.visited,
-    &:hover {
-      color: $navbar-light-color !important;
-      &:after {
-        content: '';
-        background: $navbar-light-color;
-        border-radius: 3px 3px 0 0;
-        position: absolute;
-        bottom: -6px;
-        display: block;
-        height: 3px;
-        width: calc(100% - 20px);
-        left: 10px;
-        // right: 22px;
-      }
-    }
-  }
-  .nav-link.dropdown-toggle {
-    text-transform: none;
-    font-weight: $font-weight-medium;
-    font-size: 14px;
-    position: relative;
-    color: $navbar-light-color !important;
-  }
-  // end Navbar Styles
-
-  .td-search-input {
-    border: none;
-    @include placeholder {
-      color: $navbar-light-color;
-    }
-  }
-
-  .dropdown {
-    min-width: 100px;
-  }
-
-  @include media-breakpoint-down(md) {
-    padding-right: 0.5rem;
-    padding-left: 0.75rem;
-    margin: auto;
-    height: 117px;
-
-    .td-navbar-nav-scroll {
-      max-width: 100%;
-      margin-top: 0.25rem;
-      overflow: hidden;
-
-      .nav-link {
-        padding-right: 0.25rem;
-        padding-left: 0;
-      }
-      .navbar-brand {
-        padding: auto;
-      }
-
-      .navbar-nav {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    }
-  }
-}
-
 .intro-text-panel {
   h4 {
     border-radius: 10px;
@@ -342,29 +256,8 @@ figure.captains-log {
     text-align: center;
   }
 }
-.section-title {
-  padding: 1rem 0;
-  color: $white;
-  background: $secondary;
-  box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
-  display: flex;
-  margin: 20px 0;
-  justify-content: center;
-  align-items: center;
-  h3 {
-    margin-bottom: 0;
-    padding: 0.75rem 0;
-  }
-}
 
 .clear-header {
-  margin-top: 50px;
-  padding-top: 50px;
-}
-
-.row.hero.home {
-  background-image: url('/images/background.jpg');
-  background-size: cover;
   margin-top: 50px;
   padding-top: 50px;
 }
@@ -372,16 +265,13 @@ figure.captains-log {
 div.captains-log {
   margin-bottom: 2rem;
 }
-@media (max-width: 575.98px) {
-  div.captains-log {
-  }
-}
+
 @media (max-width: 575.98px) {
   .td-main {
     padding-top: 2rem;
   }
 }
-@include media-breakpoint-down(lg) {
+@include media-breakpoint-down(md) {
   .td-main {
     margin-top: 117px;
   }
@@ -391,24 +281,21 @@ div.captains-log {
     padding-top: 117px;
   }
 
-  .row.hero.home {
-    margin-top: 117px;
-    padding-top: 0;
+  .hero.home {
     flex-direction: column;
-
+    justify-content: center;
+    align-items: center;
     .intro-text {
-      padding: 2rem;
-
+      margin: auto;
       div.intro-text-panel {
         display: flex;
-        justify-content: space-evenly;
         flex-direction: column;
-        align-items: center;
+        align-items: start;
         background: none;
         box-shadow: none;
-
-        width: 90vw;
-        margin: auto;
+        background-color: $transparent-secondary;
+        border-radius: 5px;
+        width: 90%;
         img {
           width: 75%;
           padding: 0.5rem;
@@ -419,7 +306,6 @@ div.captains-log {
 
         h3 {
           font-size: 1.3rem;
-          padding: 0.5rem;
         }
       }
     }
