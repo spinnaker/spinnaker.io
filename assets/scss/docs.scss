@@ -1,0 +1,15 @@
+.td-main {
+  main {
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+      padding-top: 20px;
+    }
+  }
+}
+
+.td-sidebar {
+  @include media-breakpoint-up(md) {
+    padding-top: 20px;
+    margin-top: 0;
+  }
+}

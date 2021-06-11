@@ -1,6 +1,6 @@
 ---
-title: "Docs"
-linkTitle: "Docs"
+title: 'Docs'
+linkTitle: 'Docs'
 weight: 2
 description:
 ---
@@ -15,14 +15,14 @@ Bugs affecting more than one service commonly surface only when the whole system
 
 The **build cop** responsibilities include:
 
-* Triage integration test failures on `master` and the 3 most recent release branches
-* [Clean up](#cleaning-orphaned-resources) orphaned resources across target cloud providers
-* Route [new GitHub issues](https://github.com/spinnaker/spinnaker/issues) to the appropriate SIG
+- Triage integration test failures on `master` and the 3 most recent release branches
+- [Clean up](#cleaning-orphaned-resources) orphaned resources across target cloud providers
+- Route [new GitHub issues](https://github.com/spinnaker/spinnaker/issues) to the appropriate SIG
   (applying GitHub labels as appropriate). You can find the full list of SIGs in the
   [governance repo](https://github.com/spinnaker/governance/blob/master/sig-index.md)
-* Observe any systemic problems raised in the [#general](https://spinnakerteam.slack.com/messages/general/)
+- Observe any systemic problems raised in the [#general](https://spinnakerteam.slack.com/messages/general/)
   and [#dev](https://spinnakerteam.slack.com/messages/dev/) Slack channels
-* Log observations and corrective actions taken in the [rotation log](https://docs.google.com/document/d/1T0kifZ0C7zSIKOy2McKfmDnwvmRuU5Z3t81Tly6kH1M/edit#)
+- Log observations and corrective actions taken in the [rotation log](https://docs.google.com/document/d/1T0kifZ0C7zSIKOy2McKfmDnwvmRuU5Z3t81Tly6kH1M/edit#)
 
 ## Process Structure
 
@@ -40,12 +40,16 @@ As its name implies, `Flow_BuildAndValidate` builds and tests the whole Spinnake
 1. Constructs a BOM from the most recent commit on the target branch
 1. Builds a Docker container and a Debian package of each Spinnaker microservice.
 1. Builds additional supporting artifacts:
-  * `halyard`
-  * `spin-cli`
-  * Changelog
+
+- `halyard`
+- `spin-cli`
+- Changelog
+
 1. Publishes the BOM under the following names:
-  * _With the floating tag:_ `<branchName>-latest-unvalidated` (e.g. `master-latest-unvalidated`)
-  * _With a fixed tag:_ `<branchName>-<timestamp>` (e.g. `master-20191213154039`)
+
+- _With the floating tag:_ `<branchName>-latest-unvalidated` (e.g. `master-latest-unvalidated`)
+- _With a fixed tag:_ `<branchName>-<timestamp>` (e.g. `master-20191213154039`)
+
 1. Publishes the [changelog](https://gist.github.com/spinnaker-release/4f8cd09490870ae9ebf78be3be1763ee)
 
 ### 2. [Validate_BomAndReportMultiPlatform](https://builds.spinnaker.io/job/Validate_BomAndReportMultiPlatform/)
@@ -61,24 +65,25 @@ Spinnaker works whether deployed as a single VM or in a Kubernetes cluster, for 
 1. Connects to this instance and executes a series of `hal config` steps, including account setup for the managed cloud provider(s).
 1. Deploys the configuration with `hal deploy apply`.
 1. Invokes [`citest`](https://github.com/google/citest) integration tests against the new Spinnaker instance.
-    * `citest` invokes a command to Spinnaker, and then uses the underlying cloud provider's CLI to confirm the expected changes were made. For example, using `gcloud` to confirm a GCE server group was created or deleted.
+   - `citest` invokes a command to Spinnaker, and then uses the underlying cloud provider's CLI to confirm the expected changes were made. For example, using `gcloud` to confirm a GCE server group was created or deleted.
 
 ## Cleaning Orphaned Resources
 
 Occasionally, integration tests fail in a way that is either undesirable or difficult to automatically clean up. Build cops should periodically ensure these orphaned resources are deleted from the following locations:
 
-* [`spinnaker-community` GCP project](https://console.cloud.google.com/home/dashboard?organizationId=912934373776&project=spinnaker-community)
-  * [Instance Groups](https://console.cloud.google.com/compute/instanceGroups/list?organizationId=912934373776&project=spinnaker-community&instanceGroupsTablesize=50&instanceGroupsTablequery=%255B%257B_22k_22_3A_22name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22gcp*_5C_22_22%257D%255D) named `gcp<testName>-*`
-  * [VMs](https://console.cloud.google.com/compute/instances?organizationId=912934373776&project=spinnaker-community&instancessize=50&instancesquery=%255B%257B_22k_22_3A_22name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22jenkins-validate-bom*_5C_22_22%257D%255D) named `jenkins-validate-bom-*`
-  * [Load balancers](https://console.cloud.google.com/net-services/loadbalancing/loadBalancers/list?project=spinnaker-community&organizationId=912934373776&filter=%255B%257B_22k_22_3A_22Name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22gcp*_5C_22_22%257D%255D) named `gcp<testName>-*`
-  * [Managed certificates](https://console.cloud.google.com/net-services/loadbalancing/advanced/sslCertificates/list?project=spinnaker-community&organizationId=912934373776&sslCertificateTablesize=50&sslCertificateTablequery=%255B%257B_22k_22_3A_22domain_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22localhost_5C_22_22%257D%255D) that are _**not**_ `builds.spinnaker.io` (!)
+- [`spinnaker-community` GCP project](https://console.cloud.google.com/home/dashboard?organizationId=912934373776&project=spinnaker-community)
+  - [Instance Groups](https://console.cloud.google.com/compute/instanceGroups/list?organizationId=912934373776&project=spinnaker-community&instanceGroupsTablesize=50&instanceGroupsTablequery=%255B%257B_22k_22_3A_22name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22gcp*_5C_22_22%257D%255D) named `gcp<testName>-*`
+  - [VMs](https://console.cloud.google.com/compute/instances?organizationId=912934373776&project=spinnaker-community&instancessize=50&instancesquery=%255B%257B_22k_22_3A_22name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22jenkins-validate-bom*_5C_22_22%257D%255D) named `jenkins-validate-bom-*`
+  - [Load balancers](https://console.cloud.google.com/net-services/loadbalancing/loadBalancers/list?project=spinnaker-community&organizationId=912934373776&filter=%255B%257B_22k_22_3A_22Name_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22gcp*_5C_22_22%257D%255D) named `gcp<testName>-*`
+  - [Managed certificates](https://console.cloud.google.com/net-services/loadbalancing/advanced/sslCertificates/list?project=spinnaker-community&organizationId=912934373776&sslCertificateTablesize=50&sslCertificateTablequery=%255B%257B_22k_22_3A_22domain_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22localhost_5C_22_22%257D%255D) that are _**not**_ `builds.spinnaker.io` (!)
 
 ## Deleting Obsolete Artifacts
 
 The following jobs assist in removing old artifacts created during the build process:
-* [Admin_DailyJanitor](https://builds.spinnaker.io/view/5%20Admin/job/Admin_DailyJanitor/)
-* [Admin_AuditBoms](https://builds.spinnaker.io/view/5%20Admin/job/Admin_AuditBoms/)
-* [Admin_DeleteObsoleteArtifacts](https://builds.spinnaker.io/view/5%20Admin/job/Admin_DeleteObsoleteArtifacts/)
+
+- [Admin_DailyJanitor](https://builds.spinnaker.io/view/5%20Admin/job/Admin_DailyJanitor/)
+- [Admin_AuditBoms](https://builds.spinnaker.io/view/5%20Admin/job/Admin_AuditBoms/)
+- [Admin_DeleteObsoleteArtifacts](https://builds.spinnaker.io/view/5%20Admin/job/Admin_DeleteObsoleteArtifacts/)
 
 ## Troubleshooting Playbook
 
@@ -86,29 +91,29 @@ Check whether the failure happened during the _build_ or the _test_ phase:
 
 1. Click the failing Flow.
 
-    ![](troubleshooting - base - 10 - flow.png)
+   ![](troubleshooting - base - 10 - flow.png)
 
 1. Click for the most recent failing build.
 
-    ![](troubleshooting - base - 20 - mostRecent.png)
+   ![](troubleshooting - base - 20 - mostRecent.png)
 
 1. Click through to the failing phase.
 
-    ![](troubleshooting - base - 30 - phase.png)
+   ![](troubleshooting - base - 30 - phase.png)
 
 ### Build Failures
 
-1. The build phase uses many subshells to perform its work in parallel. Use the `Console Output`
-to help narrow down which step of the build has failed, and use the collected logs to view more information
-on what specificially went wrong.
+1.  The build phase uses many subshells to perform its work in parallel. Use the `Console Output`
+    to help narrow down which step of the build has failed, and use the collected logs to view more information
+    on what specificially went wrong.
 
-    ![](troubleshooting - build - 10 - consoleOutput.png)
+        ![](troubleshooting - build - 10 - consoleOutput.png)
 
-1. The Console Output prints out after each completion how much work is still remaining.
+1.  The Console Output prints out after each completion how much work is still remaining.
 
     ![](troubleshooting - build - 20 - buildSteps.png)
 
-1. Frequently, the build error will be printed out directly to the Console Output, but sometimes this output can be hard to read. View the raw file directly using the Build Artifacts link from Step 1.
+1.  Frequently, the build error will be printed out directly to the Console Output, but sometimes this output can be hard to read. View the raw file directly using the Build Artifacts link from Step 1.
 
     ![](troubleshooting - build - 30 - failedOutput.png)
 
@@ -128,15 +133,15 @@ Follow these steps to delete the artifact and resolve the issue:
    repository](https://bintray.com/beta/#/spinnaker-releases/jars?tab=packages)
 
 1. Click on the Spinnaker repository that had the failure. (If you don't see
-it, click to the next page; there are only 10 items per page for some reason.)
+   it, click to the next page; there are only 10 items per page for some reason.)
 
 1. Click on the specific version that had the issue.
 
-1. Click "Actions" in the upper right and select "Edit". 
+1. Click "Actions" in the upper right and select "Edit".
 
 1. On the next page, click the "Delete" link in the upper right. It
-will look like nothing happened, but after 10 seconds or so, the page will
-refresh and the version will be gone.
+   will look like nothing happened, but after 10 seconds or so, the page will
+   refresh and the version will be gone.
 
 Now that the conflict has been removed, you can restart the build.
 
@@ -144,19 +149,19 @@ Now that the conflict has been removed, you can restart the build.
 
 1. View the Test Results Overview.
 
-    ![](troubleshooting - test - 10 - testResultsOverview.png)
+   ![](troubleshooting - test - 10 - testResultsOverview.png)
 
 1. Identify the failing test.
 
-    ![](troubleshooting - test - 20 - failingTest.png)
+   ![](troubleshooting - test - 20 - failingTest.png)
 
 1. Identify which step in the test is failing.
 
-    ![](troubleshooting - test - 30 - failingStep.png)
+   ![](troubleshooting - test - 30 - failingStep.png)
 
 1. It can sometimes help to view the last call that was made prior to that stage failing.
 
-    ![](troubleshooting - test - 40 - failingDetails.png)
+   ![](troubleshooting - test - 40 - failingDetails.png)
 
 ### Connecting to the Jenkins VM
 

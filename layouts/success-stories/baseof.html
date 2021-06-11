@@ -4,7 +4,9 @@
     {{ partial "head.html" . }}
   </head>
   <body class="td-{{ .Kind }} ">
-    <header>{{ partial "navbar.html" . }} {{ partial "hero.html" . }}</header>
+    <header>
+      {{ partial "navbar.html" . }} {{ partialCached "hero.html" . }}
+    </header>
 
     <div class="td-default td-outer">
       <main role="main">{{ block "main" . }} {{ end }}</main>

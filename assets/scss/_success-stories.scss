@@ -1,19 +1,24 @@
 /* ==========================================================================
    PAGE SUCCESS STORIES
    ========================================================================== */
-
+.row.hero.home.success-stories {
+  @media (max-width: 991.98px) {
+    margin-top: 117px;
+  }
+  padding: 3rem;
+}
 .success-stories {
   margin: auto 5rem;
   @include media-breakpoint-down(sm) {
-    margin: auto 1rem;
+    margin: 1rem;
   }
 }
 .featured-quotes-container {
   overflow: hidden;
 
   h3 {
+    margin-top: 2rem;
     font-weight: 900;
-    margin: 3rem 0 2rem 0;
   }
 
   .featured-quotes-wrapper {
@@ -80,14 +85,12 @@
 
   h3 {
     font-weight: 900;
-    margin: 2rem 0;
   }
 
   .success-stories-wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 48%);
-    justify-content: center;
-    column-gap: 10px;
+    grid-template-columns: repeat(2, 49.5%);
+    justify-content: space-between;
     row-gap: 10px;
     .card {
       width: 100%;
@@ -102,12 +105,6 @@
       display: flex;
       flex-direction: column;
     }
-    // // Medium devices (tablets, 768px and up)
-    // @media (min-width: 768px) and (max-width: 991.98px) {
-    //   display: grid;
-    //   grid-template-columns: repeat(2, calc(45% - 10px));
-    //   justify-content: space-evenly;
-    // }
   }
 
   article {
@@ -174,13 +171,13 @@
   .testimonials-wrapper {
     display: grid;
     grid-template-columns: repeat(2, calc(50% - 10px));
-    justify-content: center;
+    justify-content: space-between;
 
     .card {
+      margin-bottom: 1rem;
       .card-body {
         padding: 0;
       }
-      margin: 15px;
       img.card-img-top {
         margin: 0;
         border: none;
@@ -246,6 +243,7 @@
 .videos-container {
   .cards {
     display: flex;
+    justify-content: space-between;
 
     .card {
       width: 49%;
@@ -259,9 +257,7 @@
   position: relative;
   h3 {
     font-weight: 900;
-    margin: 2rem 0;
   }
-
   h6 {
     font-weight: 400;
   }

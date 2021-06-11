@@ -1,8 +1,7 @@
 ---
 layout: single
-title:  "Pull Requests and Changes"
-sidebar:
-  nav: community
+title: 'Pull Requests and Changes'
+
 aliases:
   - /docs/how-to-submit-a-pr
 ---
@@ -15,24 +14,23 @@ To work on bigger technical changes, follow the [feature proposal](#feature-prop
 
 ## Pull Request Tips
 
-* Check that your title describes your changes and adheres to our [message conventions](#commit-and-pr-message-conventions).
-* Add inline code comments to changes that might not be obvious.
-* Squash your commits into logically reviewable chunks when you first submit
+- Check that your title describes your changes and adheres to our [message conventions](#commit-and-pr-message-conventions).
+- Add inline code comments to changes that might not be obvious.
+- Squash your commits into logically reviewable chunks when you first submit
   your PR. Address feedback in follow-up (unsquashed) commits. It's much easier
   to review incremental changes to feedback when the commits are kept separate.
-* All pull requests should get reviewed by at least one other [member of the
+- All pull requests should get reviewed by at least one other [member of the
   Spinnaker organization](https://github.com/orgs/spinnaker/people) before
   merging. (While some members of the organization have access to merge without
-  a review, this should *only* be done in an emergency or when merging a large
+  a review, this should _only_ be done in an emergency or when merging a large
   series of dependency bumps across repositories.)
-* Squash your commits when merging to the branch.
+- Squash your commits when merging to the branch.
 
 ## Commit and PR message conventions
 
 Please follow conventions below in your git commit messages. Since GitHub auto-fills Pull Request titles from the first commit message of the PR, following these conventions should help to title your PRs according to our community standards.
 
 Note: In order to track and summarize the changes happening in Spinnaker, we use a changelog automation tool called [clog](https://github.com/clog-tool/clog-cli) which scrapes information from commit messages, which follow the ['conventional'](https://github.com/conventional-changelog/conventional-changelog/blob/a5505865ff3dd710cf757f50530e73ef0ca641da/conventions/angular.md) format.
-
 
 To summarize, messages should be formatted as follows:
 
@@ -46,17 +44,17 @@ To summarize, messages should be formatted as follows:
 
 #### Type
 
-Type | Purpose
---------|------------
-feat | A new feature. Please also link to the issue (in the body) if applicable. Causes a minor version bump.
-fix | A bug fix. Please also link to the issue (in the body) if applicable.
-docs | A documentation change.
-style | A code change that does not affect the meaning of the code, (e.g. indentation).
-refactor | A code change that neither fixes a bug or add a feature.
-perf | A code change that improves performance.
-test | Adding missing tests.
-chore | Changes to build process or auxiliary tools or libraries such as documentation generation.
-config | Changes to configurations that have tangible effects on users, (e.g. renaming properties, changing defaults, etc).
+| Type     | Purpose                                                                                                            |
+| -------- | ------------------------------------------------------------------------------------------------------------------ |
+| feat     | A new feature. Please also link to the issue (in the body) if applicable. Causes a minor version bump.             |
+| fix      | A bug fix. Please also link to the issue (in the body) if applicable.                                              |
+| docs     | A documentation change.                                                                                            |
+| style    | A code change that does not affect the meaning of the code, (e.g. indentation).                                    |
+| refactor | A code change that neither fixes a bug or add a feature.                                                           |
+| perf     | A code change that improves performance.                                                                           |
+| test     | Adding missing tests.                                                                                              |
+| chore    | Changes to build process or auxiliary tools or libraries such as documentation generation.                         |
+| config   | Changes to configurations that have tangible effects on users, (e.g. renaming properties, changing defaults, etc). |
 
 The type of keyword affects the next semantic version bump. The `feat` keyword causes a minor version bump, while the rest of the keywords cause a patch version bump. Major version bumps are triggered by the presence of the words `BREAKING CHANGE` in the _commit message body_. This is covered more in [Body](#body).
 
@@ -81,7 +79,8 @@ fix(authN): Fixed session authentication coherence.
 The `scope` is purposefully left open-ended, but try to group similar changes using the same value. Changes that have the same `scope` will be grouped together during changelog generation:
 
 **Features**
-* Some_scope
+
+- Some_scope
   - First feature goes here.
   - Second feature goes here.
 
@@ -105,25 +104,26 @@ BREAKING CHANGE: More detail here if necessary.
 
 At minimum, 'BREAKING CHANGE' must be specified on the last line. The extra detail is not mandatory.
 
-
 ### Feature Proposals
 
 The Spinnaker community has historically avoided accepting
 pull requests that add features without prior discussion. If you would like to
 propose a feature:
+
 - [Open an
-issue](https://github.com/spinnaker/spinnaker/issues/new) describing the desired functionality.
+  issue](https://github.com/spinnaker/spinnaker/issues/new) describing the desired functionality.
 - Share your issue link in the [#dev
-channel](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) in Slack.
+  channel](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) in Slack.
 - Consider discussing your ideas with other contributors before implementing them, to avoid rework.
 
 ### Requests For Change
 
 If your change is large or very impactful, we may encourage you to submit an RFC:
+
 - Use the [RFC
-template](https://github.com/spinnaker/governance/blob/master/rfc/.template.md).
+  template](https://github.com/spinnaker/governance/blob/master/rfc/.template.md).
 - Consult several [already-submitted RFCs](https://github.com/spinnaker/governance/tree/master/rfc) for
-reference.
+  reference.
 - When your RFC is ready, add it to [the `spinnaker/governance/rfc`
-directory](https://github.com/spinnaker/governance/tree/master/rfc) with a
-pull request. Approvers will see and review it.
+  directory](https://github.com/spinnaker/governance/tree/master/rfc) with a
+  pull request. Approvers will see and review it.

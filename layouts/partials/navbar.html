@@ -25,18 +25,16 @@
     			</li>
         {{ end }}
 			{{ end }}
-			<ul>
 			{{ if  (gt (len .Site.Home.Translations) 0) }}
 			<li class="nav-item dropdown d-none d-lg-block">
 				{{ partial "navbar-lang-selector.html" . }}
 			</li>
 			{{ end }}
 		</ul>
-		</ul>
 	</div>
   {{ if eq .Site.Params.ui.nav_search_disable false }}
   
-      <div class="navbar-nav d-none d-lg-block">{{ partial "search-input.html" . }}</div>
+      <div class="navbar-nav d-none d-xl-block">{{ partial "search-input.html" . }}</div>
  
   {{ end }}
 </nav>

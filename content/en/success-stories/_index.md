@@ -4,6 +4,7 @@ title: 'Spinnaker Success Stories'
 subtitle: 'Real world use cases about the transformative power of Spinnaker'
 subtitle_1: 'See how developers are the key change agents in their companies'
 linkTitle: 'Success Stories'
+name: 'success-stories'
 
 menu:
   main:
