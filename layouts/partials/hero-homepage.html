@@ -1,4 +1,4 @@
-<div class="hero home">
+<div class="row hero home">
   <div class="intro-text">
     <div class="intro-text-panel">
       <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
@@ -31,17 +31,15 @@
   </div>
   <!-- Slack row -->
   <div class="heading-with-text">
-    <div class="col col-lg-10 offset-lg-1">
-      <div class="d-flex align-items-center slack-container">
-        <p>{{.Params.join_slack_text}}</p>
-        <a
-          href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
-          alt="Join Slack"
-          class="join-slack"
-          name="join slack"
-        >
-        </a>
-      </div>
+    <div class="slack-container">
+      <p>{{.Params.join_slack_text}}</p>
+      <a
+        href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+        alt="Join Slack"
+        class="join-slack"
+        name="join slack"
+      >
+      </a>
     </div>
   </div>
 </div>

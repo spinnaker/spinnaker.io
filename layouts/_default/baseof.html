@@ -5,7 +5,7 @@
   </head>
   <body class="td-{{ .Kind }} layout-{{.Layout}}">
     
-    <header>
+    <header  class="row">
       {{ partial "navbar.html" . }}
    
     {{ if .IsHome }}{{ partial "hero-homepage.html" .}}
@@ -14,7 +14,7 @@
     <div class=" td-default td-outer ">
       <main role="main" >
         {{ else }}
-      </header>
+      </header >
         <div class=" td-default td-outer clear-header">
           <main role="main " >
             {{ end }}

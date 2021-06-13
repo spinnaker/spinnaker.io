@@ -14,6 +14,9 @@ h3 {
     margin-bottom: 1.6rem;
   }
 }
+header {
+  margin: 0;
+}
 
 .about-cards {
   display: flex;
@@ -48,7 +51,12 @@ h3 {
   margin-right: 0;
   margin-left: 0;
 }
-
+.td-home {
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
 .td-default main section:first-of-type {
   padding-top: 117px;
 }
@@ -75,12 +83,13 @@ figure.captains-log {
   flex-direction: column;
   background-image: url('/images/background.jpg');
   background-size: cover;
-  margin: 50px 0 0 0;
-  padding-top: 110px;
+  @media (min-width: 992px) {
+    height: 100vh;
+    margin: auto;
+    padding-top: 0;
+  }
   background-color: $transparent-secondary;
   .home {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
   }
   .intro-text {
     display: flex;
@@ -149,20 +158,26 @@ figure.captains-log {
     font-size: 1.2rem;
     width: 50%;
   }
-  .join-slack {
-    background-color: #fff;
-    width: 280px;
-    min-width: 200px;
-    height: 80px !important;
-    max-height: 80px;
-    background-image: url('/images/slack_logo.png');
-    background-size: 120px;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-left: 3rem;
-    border: 1px solid #ededed;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  .slack-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a.join-slack {
+      display: block;
+      background-color: #fff;
+      width: 280px;
+      min-width: 200px;
+      height: 80px !important;
+      max-height: 80px;
+      background-image: url('/images/slack_logo.png');
+      background-size: 120px;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-left: 3rem;
+      border: 1px solid #ededed;
+      border-radius: 10px;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    }
   }
   @media (max-width: 991.98px) {
     p {
@@ -282,6 +297,8 @@ div.captains-log {
   }
 
   .hero.home {
+    padding-top: 117px;
+    margin-top: 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -293,7 +310,6 @@ div.captains-log {
         align-items: start;
         background: none;
         box-shadow: none;
-        background-color: $transparent-secondary;
         border-radius: 5px;
         width: 90%;
         img {
