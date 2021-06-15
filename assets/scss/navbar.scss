@@ -16,9 +16,6 @@
     svg {
       margin-left: 15px;
     }
-    .nav-item {
-      padding-right: 1rem;
-    }
   }
   .navbar-expand .navbar-nav .nav-link {
     padding-right: 1rem;
@@ -41,7 +38,7 @@
       max-height: 50px;
     }
   }
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     .td-navbar .navbar-brand svg {
       display: block;
       margin: auto;
@@ -93,9 +90,7 @@
     min-width: 100px;
   }
 
-  @include media-breakpoint-down(sm) {
-    padding-right: 0;
-    padding-left: 0;
+  @include media-breakpoint-between(xs, md) {
     margin: auto;
     height: 117px;
 
@@ -105,8 +100,8 @@
       overflow: hidden;
 
       .nav-link {
-        padding-right: 0.25rem;
-        padding-left: 0;
+        padding-right: 1rem;
+        padding-left: 1rem;
       }
       .navbar-brand {
         padding: auto;
@@ -116,7 +111,7 @@
         overflow-x: auto;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
-        justify-content: space-around;
+        justify-content: center;
       }
     }
   }

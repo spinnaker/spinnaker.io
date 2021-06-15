@@ -95,7 +95,8 @@ figure.captains-log {
   @include media-breakpoint-between(lg, xl) {
     height: 100vh;
     margin: auto;
-    margin-top: 0;
+    margin-top: 50px;
+    padding-top: 4rem;
   }
 }
 .hero {
@@ -104,6 +105,7 @@ figure.captains-log {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex-wrap: nowrap;
   background-image: url('/images/background.jpg');
   background-size: cover;
 
