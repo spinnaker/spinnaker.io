@@ -1,0 +1,30 @@
+<table >
+    <thead>
+        <tr style="width:100%;">
+            <th style="width:33%;">Service</th>
+            <th style="width:33%;">Status</th>
+            
+            {{ range $svc := $.Page.Params.services.supporting }} {{ $altTxt := string $svc}}
+</tr>
+    </thead>
+    <tbody>
+ <tr>
+
+  <td>
+      {{$svc | humanize}} </td>
+   <td> <a
+      href="https://github.com/spinnaker/{{$svc}}/actions?query=workflow%3A%22Branch+Build%22+branch%3Amaster"
+    >
+      <img
+        src="https://github.com/spinnaker/{{$svc}}/workflows/Branch%20Build/badge.svg"
+        alt="$altTxt"
+      />
+    </a>
+</td>
+  </td>
+
+
+</tr>
+{{end}}
+</tbody>
+</table>

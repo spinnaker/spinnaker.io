@@ -18,6 +18,22 @@ header {
   margin: 0;
 }
 
+table.core-services {
+  width: 100%;
+  td {
+    width: max-content;
+    img {
+      height: 25px;
+      object-fit: contain;
+    }
+  }
+}
+th.status-th {
+  @media (max-width: 575.98px) {
+    width: 50vw;
+  }
+}
+
 .about-cards {
   display: flex;
   flex-wrap: wrap;
@@ -89,8 +105,7 @@ figure.captains-log {
     padding-top: 0;
   }
   background-color: $transparent-secondary;
-  .home {
-  }
+
   .intro-text {
     display: flex;
     justify-content: center;

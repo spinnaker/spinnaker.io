@@ -1,0 +1,32 @@
+ <table class="core-services">
+    <thead>
+        <tr>
+            <th>Service</th>
+            <th>Branch</th>
+            <th class="status-th">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ $serviceName := newScratch }}
+{{ range $svc := $.Page.Params.services.core }}
+    {{ range $branch := $.Page.Params.branches }} 
+        {{ if eq $branch "master" }} 
+            {{ $serviceName.Set "name"  $svc }} 
+        {{ else }}
+            {{ $serviceName.Set "name" "" }}
+        {{end}}
+  
+    {{ $svcCol := $serviceName.Get "name" | humanize}}
+{{ $altTxt := string $svc | humanize}}     
+
+          <tr>
+            <td><strong>{{$svcCol}}</strong></td>
+            <td><code class="language-plaintext highlighter-rouge">{{$branch}}</code></td>
+            <td><a href="https://github.com/spinnaker/{{$svc}}/actions?query=workflow%3A%22Branch+Build%22+branch%3A{{$branch}}" target="_blank"><img src="https://github.com/spinnaker/{{$svc}}/workflows/Branch%20Build/badge.svg?branch={{$branch}}" alt="{{$altTxt}} Build Status" style="height:25px;"></a></td>
+          </tr>
+          {{ end }}
+          {{end}}
+          </tbody>
+ </table>
+
+ 
