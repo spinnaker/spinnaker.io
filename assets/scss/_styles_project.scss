@@ -93,10 +93,10 @@ figure.captains-log {
 }
 .hero.home {
   @include media-breakpoint-between(lg, xl) {
-    height: 100vh;
+    height: calc(100vh - 50px);
     margin: auto;
     margin-top: 50px;
-    padding-top: 4rem;
+    justify-content: space-evenly;
   }
 }
 .hero {
@@ -166,7 +166,7 @@ figure.captains-log {
 }
 
 .heading-with-text {
-  background-color: $transparent-secondary;
+  background-color: $secondary;
   color: #fff;
   display: flex;
   justify-content: center;
