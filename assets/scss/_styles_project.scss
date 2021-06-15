@@ -91,19 +91,22 @@ figure.captains-log {
     max-width: 60vw;
   }
 }
-
+.hero.home {
+  @include media-breakpoint-between(lg, xl) {
+    height: 100vh;
+    margin: auto;
+    margin-top: 0;
+  }
+}
 .hero {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-image: url('/images/background.jpg');
   background-size: cover;
-  @media (min-width: 992px) {
-    height: 100vh;
-    margin: auto;
-    padding-top: 0;
-  }
+
   background-color: $transparent-secondary;
 
   .intro-text {
@@ -317,6 +320,7 @@ div.captains-log {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     .intro-text {
       margin: auto;
       div.intro-text-panel {

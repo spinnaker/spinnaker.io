@@ -3,10 +3,9 @@
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body class="td-{{ .Kind }} ">
-    <header>
-      {{ partial "navbar.html" . }} {{ partialCached "hero.html" . }}
-    </header>
+  <body class="td-{{ .Kind }} layout-{{.Layout}}">
+    <header class="ss-header row">{{ partial "navbar.html" . }}</header>
+    {{ partial "hero.html" . }}
 
     <div class="td-default td-outer">
       <main role="main">{{ block "main" . }} {{ end }}</main>

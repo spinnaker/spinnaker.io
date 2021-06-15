@@ -1,5 +1,9 @@
 {{ $links := .Site.Params.links }}
+{{ if eq $.Page.Params.name "success-stories"}}
+<footer class="d-print-none">
+{{else}}
 <footer class="row d-print-none">
+  {{end}}
   <div class="container-fluid mx-sm-5">
     <div class="row row-divider">
       <div class="col pb-5">

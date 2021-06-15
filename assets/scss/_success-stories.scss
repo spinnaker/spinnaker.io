@@ -1,14 +1,34 @@
 /* ==========================================================================
    PAGE SUCCESS STORIES
    ========================================================================== */
-.row.hero.home.success-stories {
+header.ss-header {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+body,
+header,
+nav {
+  max-width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+.hero.success-stories {
+  width: 100%;
+  margin-top: 50px;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 3rem;
   @media (max-width: 991.98px) {
     margin-top: 117px;
   }
-  padding: 3rem;
 }
-.success-stories {
-  margin: auto 5rem;
+.ss-container .container {
+  // margin: auto 5rem;
+  width: 100%;
   @include media-breakpoint-down(sm) {
     margin: 1rem;
   }

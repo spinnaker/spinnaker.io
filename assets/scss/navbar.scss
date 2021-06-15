@@ -16,6 +16,13 @@
     svg {
       margin-left: 15px;
     }
+    .nav-item {
+      padding-right: 1rem;
+    }
+  }
+  .navbar-expand .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 
   .navbar-brand {
@@ -32,6 +39,13 @@
     svg {
       margin-top: 0;
       max-height: 50px;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .td-navbar .navbar-brand svg {
+      display: block;
+      margin: auto;
+      height: 30px;
     }
   }
 
@@ -79,14 +93,14 @@
     min-width: 100px;
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(sm) {
     padding-right: 0;
     padding-left: 0;
     margin: auto;
     height: 117px;
 
     .td-navbar-nav-scroll {
-      max-width: 100%;
+      width: 100%;
       margin-top: 0.25rem;
       overflow: hidden;
 
@@ -102,6 +116,7 @@
         overflow-x: auto;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
+        justify-content: space-around;
       }
     }
   }
