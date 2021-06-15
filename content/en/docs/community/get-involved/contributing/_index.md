@@ -1,6 +1,5 @@
 ---
 title: 'Contributing'
-linkTitle: 'Contributing'
 weight: 1
 description:
 ---
