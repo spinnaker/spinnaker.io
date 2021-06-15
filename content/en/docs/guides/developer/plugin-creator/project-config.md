@@ -1,16 +1,13 @@
 ---
 layout: single
-title: "Plugin Project Configuration"
+title: 'Plugin Project Configuration'
 sidebar:
   nav: guides
 redirect-from:
   - /guides/developer/plugin-creators/project-config/
 ---
 
-
-{% include toc %}
-
-Plugins are an evolving feature.  The easiest way to set up a new plugin
+Plugins are an evolving feature. The easiest way to set up a new plugin
 project is to copy one of the
 [spinnaker-plugin-examples](https://github.com/spinnaker-plugin-examples)
 projects that most closely resembles what you want to do.
@@ -84,6 +81,7 @@ String normalizedVersion() {
 ```
 
 **Notes:**
+
 1. The `plugins` block imports the node plugin but does not apply it. This
    plugin is needed by the ui-extension to build assets. It also imports
    the spinnaker-extensions gradle tooling.
@@ -146,6 +144,7 @@ spinnakerPlugin {
 ```
 
 **Notes:**
+
 1. The `io.spinnaker.plugin.service-extension` and `maven-publish` are used for plugin bundling
    and metadata generation.
 2. Spinnaker services require JDK 1.8 compatible bytecode.
@@ -199,6 +198,7 @@ When you build your plugin project with gradle, it will produce a `.plugin-ref` 
 Once you have that file generated, navigate to the `plugins` directory for the host service, wherever you are running it. You can then create a symlink to the `.plugin-ref` file, and this will cause the host service to see your plugin and load the classes from your development workspace when the host service starts up.
 
 For the example project:
+
 ```
 $ cd /path/to/orca/plugins
 $ ln -sf /path/to/dev/workspaces/spinnaker-plugin-helloworld/helloworld-orca/build/orca.plugin-ref
