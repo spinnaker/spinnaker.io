@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "Versions"
+title: 'Versions'
 sidebar:
   nav: community
 ---
@@ -23,34 +23,43 @@ subcomponent.
 
 ## Latest stable
 
+{{% pageinfo color="primary" %}}
 **Note**: In upcoming versions, Spinnaker will be migrating to Java 11 from Java 8. This should not affect Spinnaker users. If you extend Spinnaker, this may affect you. For more information about the current status of the migration, see the [Java 11 RFC](https://github.com/spinnaker/governance/blob/master/rfc/java11.md).
-{: .notice--info}
+{{% /pageinfo %}}
 
+{{% pageinfo color="primary" %}}
 **Note**: Spinnaker versions 1.18.0 and later require Halyard version 1.29.0 or later.
-{: .notice--info}
+{{% /pageinfo %}}
 
 {% assign reversed = site.changelogs | sort: 'date' | reverse  %}
 {% for post in reversed %}
-  {% unless post.tags contains 'deprecated' %}
+{% unless post.tags contains 'deprecated' %}
 {% if post.version == blank %}
+
 #### {{ post.changelog_title }}
+
 {% else %}
+
 #### Version {{ post.version }}
+
 {% endif %}
 Released: {{ post.date | date: '%Y-%m-%d %H:%M %Z' }}
 <a href="{{ post.url }}">Changelog</a>
-  {% endunless %}
+{% endunless %}
 {% endfor %}
 
 > To be notified when new Spinnaker versioned releases are available, please join the
-[spinnaker-announce](https://groups.google.com/forum/#!forum/spinnaker-announce) Google
-Group (requires a Google account).
+> [spinnaker-announce](https://groups.google.com/forum/#!forum/spinnaker-announce) Google
+> Group (requires a Google account).
 
 ## Deprecated Versions
+
 {% for post in reversed %}
-  {% if post.tags contains 'deprecated' %}
+{% if post.tags contains 'deprecated' %}
+
 #### {{ post.changelog_title }}
+
 Released: {{ post.date | date: '%Y-%m-%d %H:%M %Z' }}
 <a href="{{ post.url }}">Changelog</a>
-  {% endif %}
+{% endif %}
 {% endfor %}
