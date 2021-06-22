@@ -3,8 +3,8 @@
 {{ if not (in .Params.tags "deprecated" )}}{{  if isset  .Params "version" }}
 <div class="my-3">
 <h4>{{.Params.changelog_title}}</h4>
-<span>Released: {{.Date.UTC}}</span>
-<a href="{{.RelPermalink}}" target="_blank">Changelog</a>
+<span>Released: {{.Params.date}}</span>
+<a href="{{.RelPermalink}}">Changelog</a>
 </div>
 
 {{end}} {{ end }}{{end}}

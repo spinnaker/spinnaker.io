@@ -1,8 +1,9 @@
 ---
-layout: single
 title: 'Versions'
-sidebar:
-  nav: community
+linkTitle: 'Versions'
+menu:
+  main:
+    weight: 20
 ---
 
 The Spinnaker releases listed below are top-level versions tying together each
