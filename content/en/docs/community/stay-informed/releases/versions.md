@@ -31,6 +31,8 @@ subcomponent.
 **Note**: Spinnaker versions 1.18.0 and later require Halyard version 1.29.0 or later.
 {{% /pageinfo %}}
 
+{{< changelogs >}}
+
 {% assign reversed = site.changelogs | sort: 'date' | reverse  %}
 {% for post in reversed %}
 {% unless post.tags contains 'deprecated' %}

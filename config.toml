@@ -268,7 +268,7 @@ enable = false
 #
 # [[menu.main]]
 #   name = "Community"
-#   url = "/en/community/"
+#   url = "/en/docs/community/"
 #   weight = 3
 #
 # [[menu.main]]
