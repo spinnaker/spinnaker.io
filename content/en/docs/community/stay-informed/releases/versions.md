@@ -31,24 +31,7 @@ subcomponent.
 **Note**: Spinnaker versions 1.18.0 and later require Halyard version 1.29.0 or later.
 {{% /pageinfo %}}
 
-{{< changelogs >}}
-
-{% assign reversed = site.changelogs | sort: 'date' | reverse  %}
-{% for post in reversed %}
-{% unless post.tags contains 'deprecated' %}
-{% if post.version == blank %}
-
-#### {{ post.changelog_title }}
-
-{% else %}
-
-#### Version {{ post.version }}
-
-{% endif %}
-Released: {{ post.date | date: '%Y-%m-%d %H:%M %Z' }}
-<a href="{{ post.url }}">Changelog</a>
-{% endunless %}
-{% endfor %}
+{{< latest-stable >}}
 
 > To be notified when new Spinnaker versioned releases are available, please join the
 > [spinnaker-announce](https://groups.google.com/forum/#!forum/spinnaker-announce) Google
@@ -56,12 +39,4 @@ Released: {{ post.date | date: '%Y-%m-%d %H:%M %Z' }}
 
 ## Deprecated Versions
 
-{% for post in reversed %}
-{% if post.tags contains 'deprecated' %}
-
-#### {{ post.changelog_title }}
-
-Released: {{ post.date | date: '%Y-%m-%d %H:%M %Z' }}
-<a href="{{ post.url }}">Changelog</a>
-{% endif %}
-{% endfor %}
+{{< deprecated-versions >}}

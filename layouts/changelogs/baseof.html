@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" class="no-js">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="td-{{ .Kind }} layout-{{.Layout}}">
+    <header>{{ partial "navbar.html" . }}</header>
+
+    <div class="td-default td-outer container">
+      <main role="main" class="clear-header">
+        <h1>{{ .Params.title}}</h1>
+        {{ block "main" . }} {{ end }}
+      </main>
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partialCached "scripts.html" . }}
+  </body>
+</html>
