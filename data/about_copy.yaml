@@ -1,0 +1,16 @@
+multi_cloud_row:
+  title: Multi-Cloud
+  excerpt: 'Deploy across multiple cloud providers including AWS EC2, Kubernetes, Google Compute Engine, Google Kubernetes Engine, Google App Engine, Microsoft Azure, Openstack, Cloud Foundry, and Oracle Cloud Infrastructure, with DC/OS coming soon.'
+  image_path: assets/images/cloud.svg
+  alt: 'Multi-Cloud Logo'
+automated_releases_row:
+  title: Automated Releases
+  excerpt: 'Create deployment pipelines that run integration and system tests, spin up and down server groups, and monitor your rollouts. Trigger pipelines via git events, Jenkins, Travis CI, Docker, CRON, or other Spinnaker pipelines.'
+  image_path: assets/images/automated-releases.svg
+  alt: 'Automated Releases Logo'
+best_practices_row:
+  title: Built-in Deployment Best Practices
+  excerpt: 'Create and deploy immutable images for faster rollouts, easier rollbacks, and the elimination of hard to debug configuration drift issues. Leverage an immutable infrastructure in the cloud with built-in deployment strategies such as red/black and canary deployments.'
+  image_path: assets/images/best-practices.svg
+  image_class: best_practices_img
+  alt: 'Best Practices Logo'

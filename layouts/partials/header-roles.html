@@ -1,0 +1,15 @@
+<!-- Roles appeal row -->
+<section class="row roles-appeal">
+  <div class="card-deck">
+    {{ range $.Site.Data.roles }}
+
+    <div class="card">
+      <h5>{{.name}}</h5>
+      <p class="shortdesc">
+        <a href="{{.link}}">{{.prompt}} <i class="fa fa-caret-right"></i></a>
+      </p>
+    </div>
+
+    {{ end }}
+  </div>
+</section>

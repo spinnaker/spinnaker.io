@@ -1,0 +1,32 @@
+<div class="row hero home">
+  <div class="intro-text">
+    <div class="intro-text-panel">
+      <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
+      <h3 class="subtitle">
+        {{.Params.subtitle}}<br />
+        {{.Params.subtitle_1}}
+      </h3>
+
+      <a href="https://events.linuxfoundation.org/spinnaker-summit/">
+        <h4>
+          Register now for Spinnaker Summit | June 22-24, 2021
+          <i class="fa fa-caret-right"></i></h4
+      ></a>
+    </div>
+  </div>
+  <!-- Roles appeal row -->
+  <div class="roles-appeal">
+    <div class="card-deck">
+      {{ range $.Site.Data.roles }}
+
+      <div class="card">
+        <h5>{{.name}}</h5>
+        <p class="shortdesc">
+          <a href="{{.link}}">{{.prompt}} <i class="fa fa-caret-right"></i></a>
+        </p>
+      </div>
+
+      {{ end }}
+    </div>
+  </div>
+</div>

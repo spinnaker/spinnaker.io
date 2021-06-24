@@ -1,0 +1,10 @@
+{{ $changelogs := where $.Site.Pages "Section" "changelogs" }} 
+{{ range $changelogs.ByDate.Reverse }} {{ if (in .Params.tags "deprecated" )}}
+
+<div class="my-3">
+  <h4>{{.Params.changelog_title}}</h4>
+  <span>Released: {{.Date.UTC}}</span>
+  <a href="{{.RelPermalink}}" target="_blank">Changelog</a>
+</div>
+
+ {{ end }}{{end}}

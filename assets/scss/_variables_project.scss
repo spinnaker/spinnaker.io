@@ -1,7 +1,69 @@
-/*
+$primary: #1e8ebe;
+$secondary: rgba(34, 68, 136, 0.85);
+$transparent-secondary: transparentize($secondary, 0.5);
+$wave-background: rgba(34, 68, 136, 0.85);
+$box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+$success-stories-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+$navbar-light-color: #222;
+$water-background: url('/images/background.jpg');
 
-Nothing defined here. The Hugo project that uses this theme can override theme variables by adding a file to:
+// @charset "UTF-8";
 
-assets/scss/_variables_project.scss
+// Default Variables
 
-*/
+// Slick icon entity codes outputs the following
+// "\2190" outputs ascii character "←"
+// "\2192" outputs ascii character "→"
+// "\2022" outputs ascii character "•"
+
+$slick-font-path: '/webfonts/' !default;
+$slick-font-family: 'slick' !default;
+$slick-loader-path: '/' !default;
+$slick-arrow-color: $secondary !default; // white !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: '\2190' !default;
+$slick-next-character: '\2192' !default;
+$slick-dot-character: '\2022' !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+@function slick-image-url($url) {
+  @if function-exists(image-url) {
+    @return image-url($url);
+  } @else {
+    @return url($slick-loader-path + $url);
+  }
+}
+
+@function slick-font-url($url) {
+  @if function-exists(font-url) {
+    @return font-url($url);
+  } @else {
+    @return url($slick-font-path + $url);
+  }
+}
+
+/* Slider */
+
+.slick-list {
+  .slick-loading & {
+    background: #fff slick-image-url('ajax-loader.gif') center center no-repeat;
+  }
+}
+
+/* Icons */
+@if $slick-font-family == 'slick' {
+  @font-face {
+    font-family: 'slick';
+    src: slick-font-url('slick.eot');
+    src: slick-font-url('slick.eot?#iefix') format('embedded-opentype'),
+      slick-font-url('slick.woff') format('woff'),
+      slick-font-url('slick.ttf') format('truetype'),
+      slick-font-url('slick.svg#slick') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+}

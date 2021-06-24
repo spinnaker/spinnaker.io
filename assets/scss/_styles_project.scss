@@ -1,7 +1,350 @@
-/*
+@import 'success-stories';
+@import 'slick-theme';
+@import 'slick';
+@import 'docs';
+@import 'navbar';
 
-Nothing defined here. The Hugo project that uses this theme can override Bootstrap by adding a file to:
+h3 {
+  margin-bottom: 1.6rem;
+}
+.jumbotron > * {
+  margin: 0 3rem;
 
-assets/scss/_styles_project.scss
+  h3 {
+    margin-bottom: 1.6rem;
+  }
+}
+header {
+  margin: 0;
+}
 
-*/
+table.core-services {
+  width: 100%;
+  td {
+    width: max-content;
+    img {
+      height: 25px;
+      object-fit: contain;
+    }
+  }
+}
+th.status-th {
+  @media (max-width: 575.98px) {
+    width: 50vw;
+  }
+}
+
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .card {
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-between(lg, xl) {
+      width: 32%;
+    }
+  }
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .card {
+    margin-bottom: 1rem;
+    @include media-breakpoint-only(xl) {
+      width: 19%;
+    }
+    @include media-breakpoint-between(sm, lg) {
+      width: 49%;
+    }
+    @include media-breakpoint-between(xs, sm) {
+      width: 100%;
+    }
+  }
+}
+.card-deck {
+  margin-right: 0;
+  margin-left: 0;
+}
+.td-home {
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+.td-default main section:first-of-type {
+  padding-top: 117px;
+}
+main {
+  .single-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+figure.captains-log {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 60vw;
+  }
+}
+.hero.home {
+  @include media-breakpoint-between(lg, xl) {
+    height: calc(100vh - 50px);
+    margin: auto;
+    margin-top: 50px;
+    justify-content: space-evenly;
+  }
+}
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+
+  background-color: $transparent-secondary;
+
+  .intro-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .intro-text-panel {
+      background: $transparent-secondary;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem;
+      color: $white;
+
+      @media (min-width: 992px) {
+        border-radius: 10px;
+        box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+      }
+
+      img {
+        max-width: 350px;
+        padding: 1rem 0;
+      }
+
+      a {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.videos {
+  .vid {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    div {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}
+
+.heading-with-text {
+  background-color: $secondary;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  p {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    width: 50%;
+  }
+  .slack-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a.join-slack {
+      display: block;
+      background-color: #fff;
+      width: 280px;
+      min-width: 200px;
+      height: 80px !important;
+      max-height: 80px;
+      background-image: url('/images/slack_logo.png');
+      background-size: 120px;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-left: 3rem;
+      border: 1px solid #ededed;
+      border-radius: 10px;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+  @media (max-width: 991.98px) {
+    p {
+      width: 100%;
+    }
+    .slack-container {
+      position: relative;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      width: 80%;
+
+      .join-slack {
+        margin: 20px 20px 20px 10px;
+      }
+    }
+  }
+}
+.roles-appeal {
+  margin: 2rem auto;
+  padding: 1rem;
+
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+
+  .card {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  @media (max-width: 991.98px) {
+    .card-deck {
+      background-color: $transparent-secondary;
+      border-radius: 5px;
+      flex-direction: column;
+      justify-content: stretch;
+      flex-wrap: wrap;
+      display: flex;
+      .card {
+        width: 80vw;
+        padding: 1rem;
+      }
+    }
+  }
+}
+.logos-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 150px;
+    min-width: 150px;
+    max-height: fit-content;
+    padding: 15px;
+    margin: 10px;
+  }
+  @media (max-width: 575.98px) {
+    img {
+      max-width: 120px;
+      min-width: 120px;
+      max-height: max-content;
+    }
+  }
+}
+
+.cloud-providers {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  img {
+    max-width: 300px;
+    min-width: 150px;
+    max-height: fit-content;
+    padding: 15px;
+    margin: 10px;
+  }
+  @media (max-width: 575.98px) {
+    img {
+      max-width: 120px;
+      min-width: 120px;
+      max-height: max-content;
+    }
+  }
+}
+
+.intro-text-panel {
+  h4 {
+    border-radius: 10px;
+    font-size: 1.2rem;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.clear-header {
+  margin-top: 50px;
+  padding-top: 50px;
+}
+
+div.captains-log {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 575.98px) {
+  .td-main {
+    padding-top: 2rem;
+  }
+}
+@include media-breakpoint-down(md) {
+  .td-main {
+    margin-top: 117px;
+  }
+}
+@media (max-width: 991.98px) {
+  .clear-header {
+    padding-top: 117px;
+  }
+
+  .hero.home {
+    padding-top: 117px;
+    margin-top: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .intro-text {
+      margin: auto;
+      div.intro-text-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        background: none;
+        box-shadow: none;
+        border-radius: 5px;
+        width: 90%;
+        img {
+          width: 75%;
+          padding: 0.5rem;
+          @media (max-width: 575.98px) {
+            align-self: flex-start;
+          }
+        }
+
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<ul>
+{{ $job := newScratch }}
+{{ range $branch := $.Page.Params.branches }} 
+	{{ $subject := string $branch | humanize  }}
+	{{ if eq $branch "master" }} 
+		{{ $job.Set "name" "Flow_BuildAndValidate" }} 
+		<li>
+		<a href="https://builds.spinnaker.io/job/{{$job.Get "name"}}/">
+		<img src="https://builds.spinnaker.io/buildStatus/icon?job={{$job.Get "name"}}&subject={{$subject}}" style= "height: 25px; margin-bottom: 1rem" alt="{{$branch}} Build Status"/>
+		</a>
+		</li>
+	{{ else }} 
+
+	{{$jobName := string $branch | strings.TrimPrefix "release-" }}
+	 {{ $jobName := strings.Replace $jobName "." "_" }}
+	 {{ $job.Set "name" $jobName }}
+	 <li>
+		<a href="https://builds.spinnaker.io/job/Flow_BuildAndValidate_{{$job.Get "name"}}/">
+		<img src="https://builds.spinnaker.io/buildStatus/icon?job={{$job.Get "name"}}&subject={{$subject}}" style= "height: 25px; margin-bottom: 1rem" alt="{{$branch}} Build Status"/>
+		</a>
+		</li>
+		{{end}}
+
+{{end}}
+</ul>

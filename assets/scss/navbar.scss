@@ -1,0 +1,118 @@
+.td-navbar {
+  background: $white;
+  box-shadow: 0px 2px 1px lighten($navbar-light-color, 40%);
+  margin: auto 0;
+  height: 120px;
+  z-index: 32;
+  position: fixed;
+  top: 0;
+  height: fit-content;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    height: 50px;
+    min-height: 0;
+
+    svg {
+      margin-left: 15px;
+    }
+  }
+  .navbar-expand .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .navbar-brand {
+    display: flex;
+    flex-direction: column;
+    text-transform: none;
+    text-align: middle;
+    justify-content: end;
+
+    .nav-link {
+      margin-right: -30px;
+    }
+
+    svg {
+      margin-top: 0;
+      max-height: 50px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .td-navbar .navbar-brand svg {
+      display: block;
+      margin: auto;
+      height: 30px;
+    }
+  }
+
+  .nav-link:not(.dropdown-toggle) {
+    text-transform: none;
+    font-weight: $font-weight-medium;
+    font-size: 14px;
+    position: relative;
+    padding: 0 1rem;
+    color: $navbar-light-color;
+    &.active,
+    &.visited,
+    &:hover {
+      color: $navbar-light-color !important;
+      &:after {
+        content: '';
+        background: $navbar-light-color;
+        border-radius: 3px 3px 0 0;
+        position: absolute;
+        bottom: -6px;
+        display: block;
+        height: 3px;
+        width: calc(100% - 20px);
+        left: 10px;
+        // right: 22px;
+      }
+    }
+  }
+  .nav-link.dropdown-toggle {
+    text-transform: none;
+    font-weight: $font-weight-medium;
+    font-size: 14px;
+    position: relative;
+    color: $navbar-light-color !important;
+  }
+
+  .td-search-input {
+    border: none;
+    @include placeholder {
+      color: $navbar-light-color;
+    }
+  }
+
+  .dropdown {
+    min-width: 100px;
+  }
+
+  @include media-breakpoint-between(xs, md) {
+    margin: auto;
+    height: 117px;
+
+    .td-navbar-nav-scroll {
+      width: 100%;
+      margin-top: 0.25rem;
+      overflow: hidden;
+
+      .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+      .navbar-brand {
+        padding: auto;
+      }
+
+      .navbar-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        justify-content: center;
+      }
+    }
+  }
+}

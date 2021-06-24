@@ -1,110 +1,136 @@
 {{ define "main" }}
-<!-- Hero row -->
-<div class="row hero" style="background-image:url('{{ .Params.hero_image | relURL }}');background-size:cover;background-repeat:no-repeat;">
-  <div class="col intro-text col-10 offset-1 col-md-5">
-      <div class="intro-text-panel">
-        <h2>
-          {{.Params.title}}
-        </h2>
-        <p class="subtitle">
-          {{.Params.subtitle}}
-        </p>
-        <p>
-          [recent news link]<br />
-          [recent news excerpt...]
-          <i class="fa fa-caret-right"></i>
-        </p>
-      </div>
-  </div>
-</div>
 <!-- Slack row -->
-<div class="row slack -bg-primary">
-  <div class="col col-10 offset-1">
-    <div class="d-flex align-items-center">
-      <p>
-        {{.Params.join_slack_text}}
-      </p>
-      <a href="https://join.spinnaker.io/" alt="Join Slack" class="join-slack">
-      </a>
-    </div>
+<div class="heading-with-text">
+  <div class="slack-container">
+    <p>{{.Params.join_slack_text}}</p>
+    <a
+      href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+      alt="Join Slack"
+      class="join-slack"
+      name="join slack"
+    >
+    </a>
   </div>
 </div>
-<!-- Roles appeal row -->
-<div class="row roles-appeal mr-10 ml-20">
-  {{ range $.Site.Data.roles }}
-    <div class="col-6 col-md-3" id="role_card_{{.id}}">
-      <div class="card">
-        <h5>{{.name}}</h5>
-        <p class="shortdesc">
-          {{.shortdesc}}
-        </p>
-        <a href=".">{{.prompt}}</a>
-      </div>
-    </div>
-  {{ end }}
+
+<!-- Who should use Spinnaker? row -->
+
+<div class="jumbotron jumbotron-fluid">
+  <div>
+    <h3 class="display-4">{{.Params.who_should_use_header}}</h3>
+    <p class="lead">{{.Params.who_should_use_text | markdownify }}</p>
+  </div>
 </div>
+
 <!-- Powered by spinnaker row -->
-<div class="row powered-by-spinnaker">
-  <p>
-    powered by spinnaker row
-  </p>
+<div class="jumbotron jumbotron-fluid -bg-white">
+  <h3 class="display-4">Powered By Spinnaker</h3>
+
+  <!-- Logos row -->
+  <div class="logos d-flex justify-content-center">
+    <div class="logos-list d-flex">
+      {{ range $.Site.Data.companies }} {{ if gt ( len .logo ) 0 }}
+
+      <img src="{{.logo}}" alt="{{.name}}" />
+
+      {{ end }} {{ end }}
+    </div>
+  </div>
 </div>
-<!-- Case studies row -->
-<div class="row case-studies">
-  {{ range first 4 ( where $.Site.Data.companies "is_case_study" true ) }}
-    <div class="col-6 col-md-3" id="role_card_{{.id}}">
-      <div class="card">
-        <h5>{{.case_study_title}}, {{.name}}</h5>
-        <p class="shortdesc">
-          {{.short_desc}}
-        </p>
-        <div class="excerpt">
-          {{.case_study | truncate 130}}
-        </div>
-        <a href=".">{{ T "ui_read_more"}}</a>
+<!-- Cloud Providers row -->
+<div class="jumbotron jumbotron-fluid">
+  <div>
+    <h3 class="display-4">Supported Cloud Providers</h3>
+
+    <!-- Logos row -->
+    <div class="row logos d-flex justify-content-center">
+      <div class="cloud-providers d-flex">
+        {{ range $.Site.Data.cloud_providers }}
+
+        <img src="{{.image_path}}" alt="{{.alt}}" />
+
+        {{ end }}
       </div>
     </div>
-  {{ end }}
+  </div>
 </div>
-<!-- Logos row -->
-<div class="row logos">
-  <div class="col-10 offset-1 col-md-3 who-should-use">
-    <h5>{{.Params.who_should_use_header}}</h5>
-    <div class="who-should-use-text">
-      {{.Params.who_should_use_text | markdownify }}
+<!-- About row -->
+<div class="jumbotron jumbotron-fluid -bg-white">
+  <div>
+    <h3 class="display-4">
+      Spinnaker is an open source, multi-cloud continuous delivery platform for
+      releasing software changes with high velocity and confidence.
+    </h3>
+    <p class="lead">
+      Created at Netflix, it has been battle-tested in production by hundreds of
+      teams over millions of deployments. It combines a powerful and flexible
+      pipeline management system with integrations to the major cloud providers.
+    </p>
+    <div class="about-cards">
+      {{ range $.Site.Data.about_copy }}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{.title}}</h5>
+          <div class="card-text">{{.excerpt}}</div>
+        </div>
+      </div>
+      {{end}}
     </div>
   </div>
-  <div class="col-10 offset-1 col-md-6 offset-md-0 logos-list">
-    {{ range $.Site.Data.companies }}
-      {{ if gt ( len .logo ) 0 }}  
-        <a href="/" alt="{{.name}}" id="logo_{{.id}}">
-          <img src="{{.logo}}" />
-        </a>
-      {{ end }}
-    {{ end }}
-  </div>
 </div>
-<!-- Video carousel row -->
-<div class="row videos">
-  <div class="col-10 offset-1 init-carousel">
-    {{ range $.Site.Data.videos }}
-      {{ if eq .display_landing true }}
-        <div class="vid">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-            <iframe src="https://www.youtube.com/embed/{{.id}}?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="{{.title}}"></iframe>
+<!-- Features row -->
+<div class="jumbotron jumbotron-fluid">
+  <div>
+    <h3 class="display-4">Features List</h3>
+    <div>
+      <div class="cards">
+        {{ range $.Site.Data.features }}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{.title}}</h5>
+            <div class="card-text">{{.content}}</div>
           </div>
         </div>
-      {{ end }}
-    {{ end }}
-  </div>
-</div>
-<!-- contributing row -->
-<div class="row contributing">
-  <div class="col col-10 offset-1">
-    <h3 class="contrib-header">{{.Params.contrib_header}}</h3>
-    <div class="contrib-text">
-      {{.Params.contrib_text}}
+
+        {{end}}
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Video carousel row -->
+<div class="jumbotron jumbotron-fluid -bg-white">
+  <div>
+    <h3 class="display-4">Spinnaker Community on YouTube</h3>
+
+    <div class="row videos">
+      <div class="col init-carousel">
+        {{ range $.Site.Data.videos }} {{ if eq .display_landing true }}
+        <div class="vid">
+          <div>
+            <iframe
+              src="https://www.youtube.com/embed/{{.id}}?autoplay=0"
+              allowfullscreen
+              title="{{.title}}"
+            ></iframe>
+          </div>
+        </div>
+        {{ end }} {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- contributing row -->
+<div class="jumbotron jumbotron-fluid">
+  <div>
+    <h3 class="display-4">{{.Params.contrib_header}}</h3>
+    <p class="lead">
+      Engage in the community! Our
+      <a href="/docs/community">community section</a> has some great ways to get
+      engaged.
+    </p>
+  </div>
+</div>
+
 {{ end }}
