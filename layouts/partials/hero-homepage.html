@@ -2,16 +2,18 @@
   <div class="intro-text">
     <div class="intro-text-panel">
       <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
+     
       <h3 class="subtitle">
         {{.Params.subtitle}}<br />
-        {{.Params.subtitle_1}}
+       <small>{{.Params.subtitle_1}}</small> 
       </h3>
-
-      <a href="https://events.linuxfoundation.org/spinnaker-summit/">
+      {{ with .Params.news_banner }}
+      <a href="{{.Params.news_link}}">
         <h4>
-          Register now for Spinnaker Summit | June 22-24, 2021
+          {{.Params.news_text}}
           <i class="fa fa-caret-right"></i></h4
       ></a>
+      {{ end }}
     </div>
   </div>
   <!-- Roles appeal row -->

@@ -1,7 +1,6 @@
-$primary: #1e8ebe;
-$secondary: rgba(34, 68, 136, 0.85);
-$transparent-secondary: transparentize($secondary, 0.5);
-$wave-background: rgba(34, 68, 136, 0.85);
+$primary:rgba(34, 68, 136, 0.85);;
+$secondary: #061323;
+$transparent-secondary: transparentize($secondary, 0.2);
 $box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
 $success-stories-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 $navbar-light-color: #222;

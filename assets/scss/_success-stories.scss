@@ -23,11 +23,10 @@ nav {
   margin-left: 0;
   padding: 3rem;
   @media (max-width: 991.98px) {
-    margin-top: 117px;
+    margin-top: 104px;
   }
 }
 .ss-container .container {
-  // margin: auto 5rem;
   width: 100%;
   @include media-breakpoint-down(sm) {
     margin: 1rem;

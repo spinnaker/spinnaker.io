@@ -59,14 +59,6 @@ languageName ="English"
 # Weight used for sorting.
 weight = 1
 
-# [languages.no]
-# title = "Goldydocs"
-# description = "Docsy er operativsystem for skyen"
-# languageName ="Norsk"
-# contentDir = "content/no"
-# time_format_default = "02.01.2006"
-# time_format_blog = "02.01.2006"
-
 [markup]
 defaultMarkdownHandler = "goldmark"
   [markup.goldmark]
@@ -220,7 +212,7 @@ enable = false
 [[menu.main]]
   name = "Community"
   weight = 3
-  url = "/docs/community"
+  url = "/docs/community/"
   
 [[menu.main]]
   name = "GitHub"

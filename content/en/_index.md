@@ -7,6 +7,9 @@ type: 'en'
 is_index: true
 layout: 'index'
 has_carousel: true
+news_banner: false
+news_text: 
+news_link:
 
 join_slack_text: 'Join Spinnaker Slack, a place for the community to come together. Use this vibrant workspace to ask and answer questions, connect with other operators and users, discuss issues with SIGs, and learn about Spinnaker!'
 contrib_header: 'Interested in contributing?'
