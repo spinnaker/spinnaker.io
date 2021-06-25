@@ -117,7 +117,11 @@ HUGO_ENABLEGITINFO = "true"
 [[redirects]]
   from = "/guides/*"
   to = "/docs/guides/:splat"
-	@@ -47,4 +125,9 @@ HUGO_ENABLEGITINFO = "true"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/reference/*"
   to = "/docs/reference/:splat"
   status = 301
   force = false
@@ -127,5 +131,5 @@ HUGO_ENABLEGITINFO = "true"
   to = "/docs/releases/:splat"
   status = 301
   force = false
- 
+
 
