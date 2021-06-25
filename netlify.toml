@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify" 
+command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify"
 functions = "./functions"
 
 [context.production.environment]
@@ -9,7 +9,7 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.split1]
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --enableGitInfo" 
+command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --enableGitInfo"
 
 [context.split1.environment]
 HUGO_VERSION = "0.74.2"
@@ -31,9 +31,87 @@ HUGO_VERSION = "0.74.2"
 HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
-  from = "/setup/*"
-  to = "/docs/setup/:splat"
+  from = "/setup/productionize/*"
+  to = "/docs/setup/productionize/:splat"
   status = 301
+  force = false
+
+[[redirects]]
+ from = "/setup/install/*"
+ to = "/docs/setup/install/:splat"
+ status = 301
+ force = false
+
+[[redirects]]
+  from = "/setup/artifacts/*"
+  to = "/docs/setup/other_config/artifacts/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/bakery/*"
+  to = "/docs/setup/other_config/bakery/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/security/*"
+  to = "/docs/setup/other_config/security/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/triggers/*"
+  to = "/docs/setup/other_config/triggers/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/triggers/*"
+  to = "/docs/setup/other_config/triggers/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/spin/*"
+  to = "/docs/setup/other_config/spin/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/ci/*"
+  to = "/docs/setup/other_config/ci/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/monitoring/*"
+  to = "/docs/setup/other_config/monitoring/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/ci/*"
+  to = "/docs/setup/other_config/ci/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/canary/*"
+  to = "/docs/setup/other_config/canary/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/features/*"
+  to = "/docs/setup/other_config/features/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/configuration/*"
+  to = "/docs/setup/other_config/configuration/:splat"
+  tatus = 301
   force = false
 
 [[redirects]]
@@ -47,4 +125,9 @@ HUGO_ENABLEGITINFO = "true"
   to = "/docs/reference/:splat"
   status = 301
   force = false
-  
+
+[[redirects]]
+  from = "/community/releases/*"
+  to = "/docs/releases/:splat"
+  status = 301
+  force = false
