@@ -14,7 +14,21 @@
     "spinnaker",
     "documentation"
   ],
-  "author": "Lou Groshek, lou@lougroshek.com",
+  "contributors": 
+  [
+    {
+      "name": "Lou Groshek", 
+      "email": "lou@lougroshek.com"
+    },
+    { "name": "Brian Le" },
+    
+    {
+    "name" : "Nikema Prophet",
+    "email" : "3941856+prophen@users.noreply.github.com",
+    "url" : "https://nikemaprophet.com"
+    },
+    { "name": "Aimee Ukasick"}
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/spinnaker/spinnaker.io/issues"

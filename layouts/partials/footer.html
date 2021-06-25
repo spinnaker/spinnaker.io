@@ -5,11 +5,13 @@
 <footer class="row d-print-none">
   {{end}}
   <div class="container-fluid">
+    {{ if not .IsHome }}
     <div class="row row-divider">
       <div class="col pb-5">
         <hr />
       </div>
     </div>
+    {{ end }}
     <div class="row">
       <div class="col-6 d-flex align-items-center text-xs-center order-sm-2">
         {{ with $links }}
@@ -25,7 +27,7 @@
         {{ end }}
         {{ end }} */}}
         <a href="https://cd.foundation/" target="_blank">
-          <img src="https://www.spinnaker.io/assets/images/cdf-color.png" alt="CD Foundation logo">
+          <img src="/images/cdf-color.png" alt="CD Foundation logo">
         </a>
         <a href="https://www.netlify.com">
           <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" />

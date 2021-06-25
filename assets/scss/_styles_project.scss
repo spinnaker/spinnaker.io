@@ -16,6 +16,7 @@ h3 {
 }
 header {
   margin: 0;
+  background-color: $secondary;
 }
 
 table.core-services {
@@ -93,7 +94,7 @@ figure.captains-log {
 }
 .hero.home {
   @include media-breakpoint-between(lg, xl) {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 45px);
     margin: auto;
     margin-top: 50px;
     justify-content: space-evenly;
@@ -106,20 +107,18 @@ figure.captains-log {
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
-  background-image: url('/images/background.jpg');
   background-size: cover;
-
-  background-color: $transparent-secondary;
+  background-image: $water-background;
+  background-position: center bottom;
 
   .intro-text {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+  
 
     .intro-text-panel {
       background: $transparent-secondary;
-
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -197,6 +196,7 @@ figure.captains-log {
       border: 1px solid #ededed;
       border-radius: 10px;
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+      
     }
   }
   @media (max-width: 991.98px) {
@@ -207,11 +207,14 @@ figure.captains-log {
       position: relative;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       margin: auto;
-      width: 80%;
+      width: 90%;
 
-      .join-slack {
-        margin: 20px 20px 20px 10px;
+      a.join-slack {
+       margin: 2rem 0;
+        margin-left: 0;
+      
       }
     }
   }
@@ -325,24 +328,23 @@ div.captains-log {
 
     .intro-text {
       margin: auto;
+      width: 90%;
       div.intro-text-panel {
         display: flex;
         flex-direction: column;
-        align-items: start;
-        background: none;
-        box-shadow: none;
+        align-items: center;
+    
         border-radius: 5px;
         width: 90%;
         img {
           width: 75%;
-          padding: 0.5rem;
           @media (max-width: 575.98px) {
             align-self: flex-start;
           }
         }
 
         h3 {
-          font-size: 1.3rem;
+          font-size: 1.2rem;
         }
       }
     }
