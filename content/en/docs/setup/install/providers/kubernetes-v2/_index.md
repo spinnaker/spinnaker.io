@@ -7,11 +7,11 @@ description: The Kubernetes V2 Provider is the standard Kubernetes provider for 
 
 Spinnaker's Kubernetes provider fully supports Kubernetes-native, manifest-based deployments and is the recommended provider for deploying to Kubernetes with Spinnaker.
 [Spinnaker's legacy Kubernetes provider](https://www.spinnaker.io/setup/install/providers/kubernetes/)
-is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
+was [removed](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
 
 ## Accounts
 
-A Spinnaker [Account](/docs/concepts/providers/#accounts) maps to a
+A Spinnaker [Account]({{< ref "providers#accounts" >}}) maps to a
 credential that can authenticate against your Kubernetes Cluster.
 
 ## Prerequisites
@@ -207,10 +207,10 @@ hal config provider kubernetes account add my-k8s-account \
     --context $CONTEXT
 ```
 
-Finally, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
+Finally, enable [artifact support]({{< ref "artifacts#enabling-artifact-support" >}}).
 
 ## Advanced account settings
 
 If you're looking for more configurability, please see the other options listed
 in the [Halyard
-Reference](/docs/reference/halyard/commands#hal-config-provider-kubernetes-account-add).
+Reference]({{< ref "commands#hal-config-provider-kubernetes-account-add" >}}).
