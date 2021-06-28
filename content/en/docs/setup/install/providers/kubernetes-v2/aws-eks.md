@@ -1,12 +1,12 @@
 ---
-title:  "Set up the Kubernetes provider for Amazon EKS"
-linkTitle: "EKS"
+title: 'Set up the Kubernetes provider for Amazon EKS'
+linkTitle: 'EKS'
 description: >
   Set up Spinnaker on AWS EKS using the Kubernetes-V2 provider
 ---
 
 > Before you proceed further with this setup, we strongly recommend that you familiarize yourself with [Amazon EKS concepts](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html).
-Also, visit the [AWS global infrastructure region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for the most up-to-date information on Amazon EKS regional availability.
+> Also, visit the [AWS global infrastructure region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for the most up-to-date information on Amazon EKS regional availability.
 
 These instructions assume that you have AWS CLI [installed](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) and [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) on an Ubuntu machine running on AWS EC2.
 
@@ -135,7 +135,7 @@ CONTEXT=$(kubectl config current-context)
 Next, create a service account for the Amazon EKS cluster:
 
 ```
-kubectl apply --context $CONTEXT -f https://www.spinnaker.io/downloads/kubernetes/service-account.yml
+kubectl apply --context $CONTEXT -f {{< link "downloads/kubernetes/service-account.yml">}}
 ```
 
 See the [Kubernetes documentation for more details on service accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/).
@@ -240,7 +240,7 @@ kubectl -n ${NAMESPACE} expose service spin-gate --type LoadBalancer \
   --port 80 --target-port 8084 --name spin-gate-public
 
 kubectl -n ${NAMESPACE} expose service spin-deck --type LoadBalancer \
-  --port 80 --target-port 9000 --name spin-deck-public  
+  --port 80 --target-port 9000 --name spin-deck-public
 
 export API_URL=$(kubectl -n $NAMESPACE get svc spin-gate-public \
  -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
