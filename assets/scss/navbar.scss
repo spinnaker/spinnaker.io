@@ -5,8 +5,7 @@
   z-index: 32;
   position: fixed;
   top: 0;
-  height: fit-content;
-  margin: auto ;
+
   @include media-breakpoint-up(lg) {
     height: 50px;
     min-height: 0;
@@ -65,7 +64,6 @@
         height: 3px;
         width: calc(100% - 20px);
         left: 10px;
- 
       }
     }
   }
@@ -86,31 +84,5 @@
 
   .dropdown {
     min-width: 100px;
-  }
-
-  @include media-breakpoint-between(xs, md) {
-    margin: auto;
- 
-
-    .td-navbar-nav-scroll {
-      width: 100%;
-      margin-top: 0.25rem;
-      overflow: hidden;
-
-      .nav-link {
-        padding-right: 1rem;
-        padding-left: 1rem;
-      }
-      .navbar-brand {
-        padding: auto;
-      }
-
-      .navbar-nav {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-        justify-content: center;
-      }
-    }
   }
 }
