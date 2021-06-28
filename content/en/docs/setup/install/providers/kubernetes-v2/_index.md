@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes V2 Provider"
-linkTitle: "Kubernetes"
+title: 'Kubernetes V2 Provider'
+linkTitle: 'Kubernetes'
 weight: 2
 description: The Kubernetes V2 Provider is the standard Kubernetes provider for Spinnaker. You can use it to deploy applications to a Kubernetes cluster.
 ---
@@ -18,25 +18,24 @@ credential that can authenticate against your Kubernetes Cluster.
 
 The Kubernetes provider has two requirements:
 
-* A [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file
+- A [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file
 
-    The `kubeconfig` file allows Spinnaker to authenticate against your cluster
-    and to have read/write access to any resources you expect it to manage. You
-    can think of it as private key file to let Spinnaker connect to your cluster.
-    You can request this from your Kubernetes cluster administrator.
+  The `kubeconfig` file allows Spinnaker to authenticate against your cluster
+  and to have read/write access to any resources you expect it to manage. You
+  can think of it as private key file to let Spinnaker connect to your cluster.
+  You can request this from your Kubernetes cluster administrator.
 
-* [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) CLI tool
+- [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) CLI tool
 
-    Spinnaker relies on `kubectl` to manage all API access. It's installed
-    along with Spinnaker.
+  Spinnaker relies on `kubectl` to manage all API access. It's installed
+  along with Spinnaker.
 
-    Spinnaker also relies on `kubectl` to access your Kubernetes cluster; only
-    `kubectl` fully supports many aspects of the Kubernetes API, such as 3-way
-    merges on `kubectl apply`, and API discovery. Though this creates a
-    dependency on a binary, the good news is that any authentication method or
-    API resource that `kubectl` supports is also supported by Spinnaker. This
-    is an improvement over the original Kubernetes provider in Spinnaker.
-
+  Spinnaker also relies on `kubectl` to access your Kubernetes cluster; only
+  `kubectl` fully supports many aspects of the Kubernetes API, such as 3-way
+  merges on `kubectl apply`, and API discovery. Though this creates a
+  dependency on a binary, the good news is that any authentication method or
+  API resource that `kubectl` supports is also supported by Spinnaker. This
+  is an improvement over the original Kubernetes provider in Spinnaker.
 
 <span class="begin-collapsible-section"></span>
 
@@ -58,7 +57,7 @@ CONTEXT=$(kubectl config current-context)
 # This service account uses the ClusterAdmin role -- this is not necessary,
 # more restrictive roles can by applied.
 kubectl apply --context $CONTEXT \
-    -f https://www.spinnaker.io/downloads/kubernetes/service-account.yml
+    -f {{< link "downloads/kubernetes/service-account.yml" >}}
 
 TOKEN=$(kubectl get secret --context $CONTEXT \
    $(kubectl get serviceaccount spinnaker-service-account \
@@ -102,46 +101,84 @@ and specified namespaces, you will see deployment
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
- name: spinnaker-role
+  name: spinnaker-role
 rules:
-- apiGroups: [""]
-  resources: ["namespaces", "configmaps", "events", "replicationcontrollers", "serviceaccounts", "pods/log"]
-  verbs: ["get", "list"]
-- apiGroups: [""]
-  resources: ["pods", "services", "secrets"]
-  verbs: ["create", "delete", "deletecollection", "get", "list", "patch", "update", "watch"]
-- apiGroups: ["autoscaling"]
-  resources: ["horizontalpodautoscalers"]
-  verbs: ["list", "get"]
-- apiGroups: ["apps"]
-  resources: ["controllerrevisions", "statefulsets"]
-  verbs: ["list"]
-- apiGroups: ["extensions", "apps"]
-  resources: ["deployments", "replicasets", "ingresses"]
-  verbs: ["create", "delete", "deletecollection", "get", "list", "patch", "update", "watch"]
-# These permissions are necessary for halyard to operate. We use this role also to deploy Spinnaker itself.
-- apiGroups: [""]
-  resources: ["services/proxy", "pods/portforward"]
-  verbs: ["create", "delete", "deletecollection", "get", "list", "patch", "update", "watch"]
+  - apiGroups: ['']
+    resources:
+      [
+        'namespaces',
+        'configmaps',
+        'events',
+        'replicationcontrollers',
+        'serviceaccounts',
+        'pods/log',
+      ]
+    verbs: ['get', 'list']
+  - apiGroups: ['']
+    resources: ['pods', 'services', 'secrets']
+    verbs:
+      [
+        'create',
+        'delete',
+        'deletecollection',
+        'get',
+        'list',
+        'patch',
+        'update',
+        'watch',
+      ]
+  - apiGroups: ['autoscaling']
+    resources: ['horizontalpodautoscalers']
+    verbs: ['list', 'get']
+  - apiGroups: ['apps']
+    resources: ['controllerrevisions', 'statefulsets']
+    verbs: ['list']
+  - apiGroups: ['extensions', 'apps']
+    resources: ['deployments', 'replicasets', 'ingresses']
+    verbs:
+      [
+        'create',
+        'delete',
+        'deletecollection',
+        'get',
+        'list',
+        'patch',
+        'update',
+        'watch',
+      ]
+  # These permissions are necessary for halyard to operate. We use this role also to deploy Spinnaker itself.
+  - apiGroups: ['']
+    resources: ['services/proxy', 'pods/portforward']
+    verbs:
+      [
+        'create',
+        'delete',
+        'deletecollection',
+        'get',
+        'list',
+        'patch',
+        'update',
+        'watch',
+      ]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
- name: spinnaker-role-binding
+  name: spinnaker-role-binding
 roleRef:
- apiGroup: rbac.authorization.k8s.io
- kind: ClusterRole
- name: spinnaker-role
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: spinnaker-role
 subjects:
-- namespace: spinnaker
-  kind: ServiceAccount
-  name: spinnaker-service-account
+  - namespace: spinnaker
+    kind: ServiceAccount
+    name: spinnaker-service-account
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
- name: spinnaker-service-account
- namespace: spinnaker
+  name: spinnaker-service-account
+  namespace: spinnaker
 ```
 
 <span class="end-collapsible-section"></span>
@@ -157,29 +194,29 @@ metadata:
 There is no automatic pipeline migration from the V1 provider to V2, for a few
 reasons:
 
-* Unlike the V1 provider, the V2 provider encourages you to store your
+- Unlike the V1 provider, the V2 provider encourages you to store your
   Kubernetes Manifests outside of Spinnaker in some versioned, backing storage,
   such as Git or GCS.
 
-* The V2 provider encourages you to leverage the Kubernetes native deployment
+- The V2 provider encourages you to leverage the Kubernetes native deployment
   orchestration (e.g.
   [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/))
   instead of the Spinnaker red/black, where possible.
 
-* The initial operations available on Kubernetes manifests (e.g. scale, pause
+- The initial operations available on Kubernetes manifests (e.g. scale, pause
   rollout, delete) in the V2 provider don't map nicely to the operations in the
   V1 provider unless you contort Spinnaker abstractions to match those of
   Kubernetes. To avoid building dense and brittle mappings between Spinnaker's
   logical resources and Kubernetes's infrastructure resources, we chose to
   adopt the Kubernetes resources and operations more natively.
 
-* The V2 provider does __not__ use the [Docker Registry
+- The V2 provider does **not** use the [Docker Registry
   Provider](https://www.spinnaker.io/setup/install/providers/docker-registry/).
   You may still need Docker Registry accounts to trigger pipelines, but
   otherwise we encourage you to stop using Docker Registry accounts in Spinnaker.
   The V2 provider requires that you manage your private registry [configuration
   and authentication](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
-  yourself.  
+  yourself.
 
 However, you can easily migrate your _infrastructure_ into the V2 provider.
 For any V1 account you have running, you can add a V2 account following the
