@@ -86,17 +86,17 @@ will need to follow the below instructions.
 
 The following YAML creates the correct `ClusterRole`, `ClusterRoleBinding`, and
 `ServiceAccount`. If you limit Spinnaker to operating on an explicit list of
-namespaces (using the `namespaces` option), you need to use `Role` &
+namespaces (using the `namespaces` option), you need to use `Role` and 
 `RoleBinding` instead of `ClusterRole` and `ClusterRoleBinding`, and apply the
 `Role` and `RoleBinding` to each namespace Spinnaker manages. You can read
 about the difference between `ClusterRole` and `Role`
-[here](https://kubernetes.io/docs/admin/authorization/rbac/#rolebinding-and-clusterrolebinding).
+[in the Kubernetes docs](https://kubernetes.io/docs/admin/authorization/rbac/#rolebinding-and-clusterrolebinding).
 If you're using RBAC to restrict the Spinnaker service account to a particular namespace,
 you must specify that namespace when you add the account to Spinnaker.
 If you don't specify any namespaces, then Spinnaker will attempt to list all namespaces,
 which requires a cluster-wide role. Without a cluster-wide role configured
 and specified namespaces, you will see deployment
-[timeouts in the "Wait for Manifest to Stabilize" task](https://github.com/spinnaker/spinnaker/issues/3666#issuecomment-485001361).
+[timeouts in the Wait for Manifest to Stabilize task](https://github.com/spinnaker/spinnaker/issues/3666#issuecomment-485001361).
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -174,7 +174,7 @@ reasons:
   adopt the Kubernetes resources and operations more natively.
 
 * The V2 provider does __not__ use the [Docker Registry
-  Provider](https://www.spinnaker.io/setup/install/providers/docker-registry/).
+  Provider]({{< ref "docker-registry" >}}).
   You may still need Docker Registry accounts to trigger pipelines, but
   otherwise we encourage you to stop using Docker Registry accounts in Spinnaker.
   The V2 provider requires that you manage your private registry [configuration
