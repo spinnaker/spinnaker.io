@@ -11,7 +11,7 @@ was [removed](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubern
 
 ## Accounts
 
-A Spinnaker [Account]({{< ref "providers#accounts" >}}) maps to a
+A Spinnaker [Account]({{< ref "concepts-providers#accounts" >}}) maps to a
 credential that can authenticate against your Kubernetes Cluster.
 
 ## Prerequisites
@@ -86,7 +86,7 @@ will need to follow the below instructions.
 
 The following YAML creates the correct `ClusterRole`, `ClusterRoleBinding`, and
 `ServiceAccount`. If you limit Spinnaker to operating on an explicit list of
-namespaces (using the `namespaces` option), you need to use `Role` and 
+namespaces (using the `namespaces` option), you need to use `Role` and
 `RoleBinding` instead of `ClusterRole` and `ClusterRoleBinding`, and apply the
 `Role` and `RoleBinding` to each namespace Spinnaker manages. You can read
 about the difference between `ClusterRole` and `Role`
@@ -207,7 +207,7 @@ hal config provider kubernetes account add my-k8s-account \
     --context $CONTEXT
 ```
 
-Finally, enable [artifact support]({{< ref "artifacts#enabling-artifact-support" >}}).
+Finally, enable [artifact support]({{< ref "ref-artifacts#enabling-artifact-support" >}}).
 
 ## Advanced account settings
 
