@@ -301,14 +301,9 @@ div.captains-log {
   margin-bottom: 2rem;
 }
 
-@media (max-width: 575.98px) {
-  .td-main {
-    padding-top: 2rem;
-  }
-}
 @include media-breakpoint-down(md) {
   .td-main {
-    margin-top: 117px;
+    margin-top: 105px;
   }
 }
 @media (max-width: 991.98px) {
