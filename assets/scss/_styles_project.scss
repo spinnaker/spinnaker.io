@@ -115,7 +115,6 @@ figure.captains-log {
     display: flex;
     justify-content: center;
     align-items: center;
-  
 
     .intro-text-panel {
       background: $transparent-secondary;
@@ -196,7 +195,6 @@ figure.captains-log {
       border: 1px solid #ededed;
       border-radius: 10px;
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-      
     }
   }
   @media (max-width: 991.98px) {
@@ -212,9 +210,8 @@ figure.captains-log {
       width: 90%;
 
       a.join-slack {
-       margin: 2rem 0;
+        margin: 2rem 0;
         margin-left: 0;
-      
       }
     }
   }
@@ -304,14 +301,9 @@ div.captains-log {
   margin-bottom: 2rem;
 }
 
-@media (max-width: 575.98px) {
-  .td-main {
-    padding-top: 2rem;
-  }
-}
 @include media-breakpoint-down(md) {
   .td-main {
-    margin-top: 117px;
+    margin-top: 105px;
   }
 }
 @media (max-width: 991.98px) {
@@ -333,7 +325,7 @@ div.captains-log {
         display: flex;
         flex-direction: column;
         align-items: center;
-    
+
         border-radius: 5px;
         width: 90%;
         img {
