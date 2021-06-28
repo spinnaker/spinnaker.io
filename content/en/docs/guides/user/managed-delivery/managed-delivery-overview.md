@@ -7,13 +7,6 @@ description: >
 ---
 
 
-{{< alpha version="1.18" >}}
-
-> Managed Delivery is currently in Alpha and is not recommended for managing
-mission-critical production services. Only EC2 and Titus cloud providers are
-currently supported and many features are still in flux or pending.
-
-
 ## What is Managed Delivery?
 
 Managed Delivery is an initiative with two key goals.
