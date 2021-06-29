@@ -62,6 +62,8 @@ metadata:
   Given: A git repo where your `Chart.yaml` is in: `sub/folder/Chart.yml` \
   Then: `helmChartFilePath: "sub/folder/"`
 
+> Note: Leading slashes will not work in `helmChartFilePath`.
+
 * __Zero or more override artifacts__ (optional)
 
   The files passed to `--values` parameter in the `helm
