@@ -59,7 +59,8 @@ metadata:
   If absent, spinnaker looks for Chart.yaml in the root directory of the git
   repo.
 
-  Example: If Chart.yaml is a directory named helm `root/helm/` then `chartFilePath` would be `helm/`
+  Given: A git repo where your `Chart.yaml` is in: `sub/folder/Chart.yml` \
+  Then: `helmChartFilePath: "sub/folder/"`
 
 * __Zero or more override artifacts__ (optional)
 
