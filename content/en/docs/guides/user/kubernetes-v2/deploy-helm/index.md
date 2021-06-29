@@ -55,9 +55,11 @@ metadata:
 * __Helm chart file path__ (optional)
 
   Helm chart file path is only relevant (and visible) when the template artifact
-  is a git/repo artifact.  It specifies the path to Chart.yaml in the git repo.
+  is a git/repo artifact.  It specifies the directory path to Chart.yaml in the git repo.
   If absent, spinnaker looks for Chart.yaml in the root directory of the git
   repo.
+
+  Example: If Chart.yaml is a directory named helm `root/helm/` then `chartFilePath` would be `helm/`
 
 * __Zero or more override artifacts__ (optional)
 
