@@ -6,8 +6,6 @@ description: The Kubernetes V2 Provider is the standard Kubernetes provider for 
 ---
 
 Spinnaker's Kubernetes provider fully supports Kubernetes-native, manifest-based deployments and is the recommended provider for deploying to Kubernetes with Spinnaker.
-Spinnaker's legacy [Kubernetes provider](https://www.spinnaker.io/setup/install/providers/kubernetes/)
-was [removed](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
 
 ## Accounts
 
