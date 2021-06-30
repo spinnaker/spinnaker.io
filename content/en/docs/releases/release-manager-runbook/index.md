@@ -6,12 +6,11 @@ linkTitle: "Release Manager"
 
 ## Release process overview
 Here's a quick review of what the release process looks like from the community perspective:
-- [This is the expected release cadence](/community/releases/release-cadence/).
-- The [release calendar](/community/releases/release-cadence/#upcoming-releases) is awesome. It gives you an agenda with the expected duties.
-- Here's what the project expects all contributors to do for [backports/patches](/community/contributing/releasing/#release-branch-patch-criteria).
+- [This is the expected release cadence]({{< ref "release-cadence" >}}).
+- The [release calendar]({{< ref "release-cadence#upcoming-releases" >}}) is awesome. It gives you an agenda with the expected duties.
+- Here's what the project expects all contributors to do for [backports/patches]({{< ref "releasing#release-branch-patch-criteria" >}}).
 
-If the builds break, you can take a look at [some common issues](https://spinnaker.io/community/contributing/nightly-builds/#common-build-failures)
-to see if we've encountered them before.
+If the builds break, you can take a look at [some common issues]({{< ref "nightly-builds#common-build-failures" >}}) to see if we've encountered them before.
 
 
 ## Verify you have access
@@ -21,12 +20,12 @@ If you don't have access to any of the following, contact a member of the TOC or
 - You're a member of the [release-managers@spinnaker.io](https://groups.google.com/a/spinnaker.io/forum/#!forum/release-managers)
 group and a *manager* of the [spinnaker-announce@googlegroups.com](https://groups.google.com/forum/#!forum/spinnaker-announce)
 group. (You'll get a permissions error on those pages if you don't have access.
-- You've been invited to the [Bintray's spinnaker-releases](https://bintray.com/spinnaker-releases) org.
+- You've been invited to the [Bintray spinnaker-releases](https://bintray.com/spinnaker-releases) org.
 - You're a member of the [release-managers GitHub team](https://github.com/orgs/spinnaker/teams/release-managers).
 - You can access the [Jenkins UI](https://builds.spinnaker.io/) and you're able
 to run a job. Access is controlled by the `release-managers` GitHub team, but it
 may take some time for the permissions to propagate from GitHub to Jenkins.
-- You can [SSH into Jenkins](https://spinnaker.io/community/contributing/nightly-builds/#connecting-to-the-jenkins-vm).
+- You can [SSH into Jenkins]({{< ref "nightly-builds#connecting-to-the-jenkins-vm" >}}).
 - You're able to view our [GCP spinnaker-community cloudbuilds](https://console.cloud.google.com/cloud-build/builds?project=spinnaker-community). You should see a lot of builds.
 
 
@@ -67,7 +66,7 @@ job, which creates `latest-unvalidated` when it passes:
 
     1. Set **BASE_BRANCH** to `master`.
 
-    - If the builds fail, [Google Cloud Build](https://console.cloud.google.com/cloud-build/builds?project=spinnaker-community) is a helpful UI. 
+    - If the builds fail, [Google Cloud Build](https://console.cloud.google.com/cloud-build/builds?project=spinnaker-community) is a helpful UI.
     Make sure to enable tags to the service name.
         <details>
         <summary>Click to expand a GIF of how to view the tags</summary>
@@ -131,8 +130,7 @@ job, which creates `latest-unvalidated` when it passes:
     1. Copy the direct link to the changelog for this version by searching for the release branch. For example: `release-1.21.x`.
 
 1. Add the new `Flow_BuildAndValidate_${RELEASE}` job to the public
-[Build Statuses page](https://www.spinnaker.io/community/contributing/build-statuses/#nightly-and-release-integration-tests).
-Remove the oldest job.
+[Build Statuses page]({{< ref "build-statuses#nightly-and-release-integration-tests" >}}). Remove the oldest job.
 
 1. Ping [#dev](https://spinnakerteam.slack.com/messages/dev/) with some version of
 this message, including a link to the correct section of the changelog gist found above.
@@ -200,12 +198,11 @@ release candidate is now validated and can be tested.
 
         a. Copy the changes for this release from the [raw build changelog](https://gist.github.com/spinnaker-release/4f8cd09490870ae9ebf78be3be1763ee#file-release-1-21-x-raw-changelog-md) to the new 1.nn.0.md file. Change the anchor tag in the link for your release version.
 
-        b. Add the notes from the [curated changelog](/community/releases/next-release-preview)
+        b. Add the notes from the [curated changelog]({{< ref "next-release-preview" >}})
         to the top of the gist ([sample 1.nn.0 release notes](https://gist.github.com/spinnaker-release/cc4410d674679c5765246a40f28e3cad)).
 
-    1. Reset the [curated changelog](/community/releases/next-release-preview)
-    for the next release by removing all added notes and incrementing the version
-    number in the heading.
+    1. Reset the [curated changelog]({{< ref "next-release-preview" >}})
+    for the next release by removing all added notes and incrementing the version number in the heading.
 
 1. Run Publish_SpinnakerRelease:
 
@@ -269,7 +266,7 @@ channel to let them know that a new patch is available.
     ```
     ./swagger/generate_swagger.sh
     ```
-    
+
     1. From the `spin` repository, check out the release branch (release branches from `gate` and `spin` must match) and follow the [instructions](https://github.com/spinnaker/spin/blob/master/CONTRIBUTING.md#updating-the-gate-api) in that repo to update the gate client. This involves creating and merging a PR to `spin` release branch with the updated Gate Client API.
 
     1. If regenerating the Gate Client API produced any changes, kick off the
@@ -324,8 +321,7 @@ on Github.
 version you just released is listed, and the prior patch release for the minor
 version is no longer listed.
 
-1. Go to to [spinnaker.io](https://www.spinnaker.io/community/releases/versions/)
-and verify the following (leaving time for the site to rebuild):
+1. Go to to [Versions page]({{< ref "versions" >}}) and verify the following (leaving time for the site to rebuild):
 
    1. Verify the version you just released is listed.
 
@@ -418,17 +414,17 @@ Repeat weekly.
 [backport candidate](https://github.com/pulls?q=org%3Aspinnaker+is%3Apr+sort%3Aupdated-desc+label%3Abackport-candidate).
 
 1. If a candidate meets the
-[release branch patch criteria](/community/contributing/releasing#release-branch-patch-criteria):
+[release branch patch criteria]({{> ref "releasing#release-branch-patch-criteria" >}}):
 
     1. Remove the `backport-candidate` label from the PR.
 
-    1. Determine which versions the PR needs to be backported to. If it gets backported to an older version, all new versions should get the backport as well. Go only as far back as the supported [stable versions](https://spinnaker.io/community/releases/versions/#latest-stable).
-    
+    1. Determine which versions the PR needs to be backported to. If it gets backported to an older version, all new versions should get the backport as well. Go only as far back as the supported [stable versions]({{< ref "versions#latest-stable" >}}).
+
     1. Add a comment instructing
        [Mergify](https://doc.mergify.io/commands.html#backport) to create
        backport PRs against one or more release branches. For example, to
        create backport PRs against the 1.19, 1.20 and 1.21 release branches, comment:
-       
+
        > @Mergifyio backport release-1.19.x release-1.20.x release-1.21.x
 
     1. Approve and merge the backport PRs.
@@ -439,11 +435,11 @@ Repeat weekly.
        [cherry-picked](https://git-scm.com/docs/git-cherry-pick).
 
 1. If a candidate does not meet the
-[release branch patch criteria](/community/contributing/releasing#release-branch-patch-criteria),
+[release branch patch criteria]({{< ref "releasing#release-branch-patch-criteria" >}}),
 add an explanation to the contributor as a comment.
 
     1. If it's impossible for the candidate to meet the criteria (for example, it doesn't
        fix a regression), remove the `backport-candidate` label.
-       
+
     1. If the contributor can amend the candidate to meet the criteria (for example,
        add test coverage), don't remove the `backport-candidate` label.
