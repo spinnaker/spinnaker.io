@@ -7,11 +7,7 @@ description: >
 
 ## Overview
 
-<<<<<<< HEAD:content/en/docs/guides/user/plugins/user-guide.md
-Spinnaker uses [PF4J-Update](https://github.com/pf4j/pf4j-update) to load and manage plugins. These plugins can implement a PF4J extension point or be Spring components. See the [Plugin Creators Guide](/docs/guides/developer/plugin-creators/overview/) for details.
-=======
 Spinnaker uses [PF4J-Update](https://github.com/pf4j/pf4j-update) to load and manage plugins. These plugins can implement a PF4J extension point or be Spring components. See the [Plugin Creators Guide]({{< ref "plugin-creator" >}}) for details.
->>>>>>> b3e7770 (Port PR 2142):content/en/docs/guides/user/plugins-users/_index.md
 
 ## Terms
 
@@ -272,11 +268,7 @@ Remember to `hal deploy apply` after you have finished configuring your plugin.
 
 ## Deployment example
 
-<<<<<<< HEAD:content/en/docs/guides/user/plugins/user-guide.md
-See the [pf4jStagePlugin Deployment Example](/docs/guides/user/plugins/deploy-example/) page for a walkthrough and troubleshooting.
-=======
 See the [pf4jStagePlugin Deployment Example]({{< ref "plugin-deploy-example" >}}) page for a walkthrough and troubleshooting.
->>>>>>> b3e7770 (Port PR 2142):content/en/docs/guides/user/plugins-users/_index.md
 
 ## Resources
 

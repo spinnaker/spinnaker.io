@@ -26,7 +26,7 @@ Candidate".
 ### Running the Release Candidate
 
 > If you're brave enough to run the Release Candidate, please [file
-> bugs](https://github.com/spinnaker/spinnaker/issues) or alert us 
+> bugs](https://github.com/spinnaker/spinnaker/issues) or alert us
 > on [slack](http://join.spinnaker.io) if you find any problems!
 
 Once these release branches are cut, anyone can run the release candidate using
@@ -44,8 +44,7 @@ hal deploy apply
 {{% alert color="warning" title="Warning" %}}"Do not merge feature code into a release branch, only fixes are accepted.{{% /alert %}}
 
 If you've found a fix for a bug in the Release Candidate, follow the [patching
-procedure described
-here](/community/contributing/releasing/#merge-into-the-release-branch). If
+procedure]({{< ref "releasing" >}}). If
 your patch is merged before the [release candidate is marked
 stable](#marking-the-release-candidate-stable), it will be included in this
 release.
@@ -67,7 +66,7 @@ future patch releases (e.g. `M.N.1`).
 
 There's a public calendar you can subscribe to which includes important release dates.
 
-* If you use Google Calendar, [click here to subscribe](https://calendar.google.com/calendar?cid=c3Bpbm5ha2VyLmlvX3AybjhzZWd2bG5lbDRjYm83NzdlbTM1YjBjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20).
+* If you use Google Calendar, [subscribe](https://calendar.google.com/calendar?cid=c3Bpbm5ha2VyLmlvX3AybjhzZWd2bG5lbDRjYm83NzdlbTM1YjBjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20).
 * If you don't use Google Calendar or have trouble with the first link, you can copy this iCal URL to subscribe using your calendar app of choice (instructions for [Google](https://support.google.com/calendar/answer/37100), [Apple Calendar](https://support.apple.com/guide/calendar/subscribe-to-calendars-icl1022/mac)):
    ```
    https://calendar.google.com/calendar/ical/spinnaker.io_p2n8segvlnel4cbo777em35b0c%40group.calendar.google.com/public/basic.ics

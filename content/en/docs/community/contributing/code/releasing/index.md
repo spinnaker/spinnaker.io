@@ -13,14 +13,14 @@ Spinnaker you manage. You have a few options available:
 
 Any time we release a new minor version of Spinnaker (e.g. 1.16.0 or 1.17.0), we
 include all commits merged into `master` for each service. We do this on a
-[regular cadence](/community/releases/release-cadence).
+[regular cadence]({{< ref "release-cadence" >}}).
 
 # Release branch patch criteria
 
 In order to be considered safe to merge into a release branch, your patch must:
 
 * Fix a documented regression in a
-  [supported version of Spinnaker](https://spinnaker.io/community/releases/versions/#latest-stable).
+  [supported version of Spinnaker]({{< ref "versions#latest-stable" >}}).
   This means that the currently broken functionality must have worked as
   expected in a previous version of Spinnaker. If the regression is not already
   documented in a GitHub issue, please create one. Describe the difference
