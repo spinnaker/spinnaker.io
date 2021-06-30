@@ -16,6 +16,7 @@
   ],
   "contributors": 
   [
+    { "name": "Rosalind Benoit" },
     {
       "name": "Lou Groshek", 
       "email": "lou@lougroshek.com"
@@ -28,6 +29,7 @@
     "url" : "https://nikemaprophet.com"
     },
     { "name": "Aimee Ukasick"}
+    
   ],
   "license": "ISC",
   "bugs": {
