@@ -1,33 +1,38 @@
 ---
-
-title:  "Halyard FAQ"
-description: Common questions about Halyard. 
+title: 'Halyard FAQ'
+description: Common questions about Halyard.
 weight: 70
+aliases:
+  - /setup/quickstart/faq/
 ---
 
 ## I can't load the Applications screen
 
 After installing Spinnaker and navigating to the <em>Applications</em> screen, you may see one of
 following issues:
- * The following error message is displayed:
- ```
- Error fetching applications. Check that your gate endpoint is accessible. Further information on troubleshooting this error is available here
+
+- The following error message is displayed:
+
 ```
- The most common cause of this error is that your browser can't communicate with your Gate endpoint.
- (This endpoint defaults to `http://localhost:8084`, but can be customized.)
+Error fetching applications. Check that your gate endpoint is accessible. Further information on troubleshooting this error is available here
+```
 
- Check your browser console log and/or network for any failed requests to `<gate-endpoint>/applications`.
+The most common cause of this error is that your browser can't communicate with your Gate endpoint.
+(This endpoint defaults to `http://localhost:8084`, but can be customized.)
 
- Some things to check while troubleshooting:
- * If you are accessing Spinnaker via the default `http://localhost:9000`, check that you have
-   forwarded Gate's port (8084 by default) to the machine where your browser is running.
- * If you are accessing Spinnaker via a custom URL, ensure that you have set `override-base-url`
-   for both the UI (Deck) and API (Gate) services, as described in the
-   [question below](#i-want-to-expose-localdebian-spinnaker-on-a-public-ip-address-but-it-always-binds-to-localhost).
-   These settings will configure cross-origin resource sharing (CORS) between your Gate and Deck
-   endpoints; if this is not properly configured, your browser will reject requests from Deck to
-   Gate.
- * If you have a local deployment of Spinnaker, ensure that Redis is available at the configured address (localhost:6379 by default). If not, start redis by running `sudo systemctl enable redis-server && sudo systemctl start redis-server` and restart spinnaker by running `sudo systemctl restart spinnaker`.
+Check your browser console log and/or network for any failed requests to `<gate-endpoint>/applications`.
+
+Some things to check while troubleshooting:
+
+- If you are accessing Spinnaker via the default `http://localhost:9000`, check that you have
+  forwarded Gate's port (8084 by default) to the machine where your browser is running.
+- If you are accessing Spinnaker via a custom URL, ensure that you have set `override-base-url`
+  for both the UI (Deck) and API (Gate) services, as described in the
+  [question below](#i-want-to-expose-localdebian-spinnaker-on-a-public-ip-address-but-it-always-binds-to-localhost).
+  These settings will configure cross-origin resource sharing (CORS) between your Gate and Deck
+  endpoints; if this is not properly configured, your browser will reject requests from Deck to
+  Gate.
+- If you have a local deployment of Spinnaker, ensure that Redis is available at the configured address (localhost:6379 by default). If not, start redis by running `sudo systemctl enable redis-server && sudo systemctl start redis-server` and restart spinnaker by running `sudo systemctl restart spinnaker`.
 
 ## I want to expose LocalDebian Spinnaker on a public IP address, but it always binds to localhost
 
@@ -67,8 +72,7 @@ fully-qualified URI: `curl storage.googleapis.com/halconfig`.
 
 If this happens, there are one of two causes:
 
-1. The services that haven't become healthy are misconfigured. Run `hal deploy
-   collect-logs` to collect service logs, which will be placed in
+1. The services that haven't become healthy are misconfigured. Run `hal deploy collect-logs` to collect service logs, which will be placed in
    `~/.hal/default/service-logs`. Check for any obvious errors.
 2. You do not have enough resources in your environment to run Spinnaker, and
    the deployer is waiting for some to become available. This varies from
@@ -86,6 +90,7 @@ say you are configuring the Halyard
 `gate`, you can write the following file:
 
 `~/.hal/default/profiles/gate-local.yml`
+
 ```yaml
 example:
   property: value
@@ -151,42 +156,45 @@ In the file under `/opt/halyard/bin/halyard`, add the necessary proxy
 configuration to the variable `DEFAULT_JVM_OPTS` as described
 [here](https://developers.google.com/gdata/articles/proxy_setup)
 For example,
+
 ```bash
 DEFAULT_JVM_OPTS=-Dhttp.proxyHost=my.proxy.domain.com -Dhttp.proxyPort=3128
 ```
 
 ## I want to run a Spinnaker service (Clouddriver, Echo, etc) behind an HTTP proxy server
 
-For most Spinnaker service communication, this can be accomplished by setting appropriate 
+For most Spinnaker service communication, this can be accomplished by setting appropriate
 JVM options for the service you want to proxy. For example, if you wanted to proxy Echo
-communication for Slack notifications, you would add the following proxy settings to 
+communication for Slack notifications, you would add the following proxy settings to
 `~/.hal/default/service-settings/echo.yml`
 
 ```yaml
 env:
-  JAVA_OPTS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=2
-              -Dhttp.proxyHost=<proxy host> -Dhttp.proxyPort=<proxy port> -Dhttps.proxyHost=<proxy host>
-              -Dhttps.proxyPort=<proxy port> -Dhttp.nonProxyHosts='localhost|127.*|[::1]|*.spinnaker'"
+  JAVA_OPTS:
+    "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=2
+    -Dhttp.proxyHost=<proxy host> -Dhttp.proxyPort=<proxy port> -Dhttps.proxyHost=<proxy host>
+    -Dhttps.proxyPort=<proxy port> -Dhttp.nonProxyHosts='localhost|127.*|[::1]|*.spinnaker'"
 ```
 
 These settings will forward all external communication through the proxy server specified while
-keeping internal traffic non-proxied. Additional information can be found 
+keeping internal traffic non-proxied. Additional information can be found
 [here.](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html)
 
-The Kubernetes provider must be handled differently. Because the Kubernetes provider 
-uses `kubectl` (which uses curl), you must set environment variables if you want 
-Kubernetes traffic to be proxied. 
+The Kubernetes provider must be handled differently. Because the Kubernetes provider
+uses `kubectl` (which uses curl), you must set environment variables if you want
+Kubernetes traffic to be proxied.
 
 An example `clouddriver.yml` that will proxy Kubernetes traffic will look like:
+
 ```yaml
 env:
-  HTTP_PROXY: "proxyaddress:proxyport"
-  HTTPS_PROXY: "proxyaddress:proxyport"
-  NO_PROXY: "localhost,127.0.0.1,*.spinnaker" 
+  HTTP_PROXY: 'proxyaddress:proxyport'
+  HTTPS_PROXY: 'proxyaddress:proxyport'
+  NO_PROXY: 'localhost,127.0.0.1,*.spinnaker'
 ```
 
 ## What is the best way to delete a Spinnaker deployment?
 
-Run `hal deploy clean` to delete an existing Spinnaker deployment. Note that this command destroys all Spinnaker artifacts in your target deployment environment. So, use it with caution and back up your configuration in case you want to restore it. 
+Run `hal deploy clean` to delete an existing Spinnaker deployment. Note that this command destroys all Spinnaker artifacts in your target deployment environment. So, use it with caution and back up your configuration in case you want to restore it.
 
 After Spinnaker is deleted, delete Halyard by running `sudo ~/.hal/uninstall.sh`

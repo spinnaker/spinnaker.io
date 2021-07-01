@@ -1,13 +1,11 @@
 # Spinnaker.io Documentation and Community Site
 
-> This repo is a work in progress and will be the future home of spinnaker.io. The current live site uses the repo [spinnaker.github.io](https://github.com/spinnaker/spinnaker.github.io).
-
 This site is built using [Hugo](https://gohugo.io) and the [Docsy Theme](https://www.docsy.dev/).
 
 ## Contributing
 
-1. Start new development branches off of the `master` branch. 
-2. Create a pull request from your branch onto `master`. 
+1. Start new development branches off of the `master` branch.
+2. Create a pull request from your branch onto `master`.
 3. Netlify will spawn a preview branch which will verify build success.
 4. Branches merged back into `master` will deploy to the current active version-branch of the site.
 
@@ -18,7 +16,6 @@ You can run the website locally using Hugo (Extended version).
 ## Prerequisites
 
 - [Hugo (Extended version)](https://gohugo.io/); check the Hugo version specified in `netlify.toml`.
-
 
 Before you start, install the dependencies. Clone the repository and navigate to the directory:
 
@@ -48,7 +45,6 @@ This will start the local Hugo server on port 1313. Open up your browser to http
 
 ## Documentation Versioning
 
-
 ## Translation
 
 At present, there is only one language in the `./content` directory. Docsy assumes lang-en and uses this language automatically, but you can add additional directories with different contents. There is also a langauge switcher in the navbar that can be enabled by adding that language to the `[languages]` map in `.config.toml`.
@@ -59,7 +55,7 @@ The Docsy theme is installed as a git submodule to this site. To update the them
 
 Overrides to the theme are in `./layouts`, `./assets`, and `./static`. In order to continue to use Docsy's color variables, the **entire** theme SCSS collection is has been copied to `./assets`. Some of these SCSS files have been further modified to alter the appearance of various site components. If something "breaks" on upgrade, a good first step is to compare the previous markup for that component and make sure old SCSS selectors are still valid.
 
-Dependencies are loaded into `./assets/scss` from `./themes/docsy`. If subsequent theme upgrades fail to load Bootstrap or Font Awesome assets, verify that the paths to these vendor dependencies within `./themes/docsy` are still valid. 
+Dependencies are loaded into `./assets/scss` from `./themes/docsy`. If subsequent theme upgrades fail to load Bootstrap or Font Awesome assets, verify that the paths to these vendor dependencies within `./themes/docsy` are still valid.
 
 ## Docs Frontmatter Variables
 
@@ -67,7 +63,7 @@ Dependencies are loaded into `./assets/scss` from `./themes/docsy`. If subsequen
 `linkTitle`: displayed where a link to the page appears (in the docs menu)  
 `weight`: Determines the order of appearance in lists of content in the same directory, lowest first. To let all titles appear in alphabetical order, remove all weights.  
 `description`: Short description, appears in lists of directory contents and on content page.  
-`mermaid`: Boolean `true` indicates that MermaidJS should be loaded on the page.  
+`mermaid`: Boolean `true` indicates that MermaidJS should be loaded on the page.
 
 ## Mermaid
 

@@ -111,7 +111,13 @@ HUGO_ENABLEGITINFO = "true"
 [[redirects]]
   from = "/setup/configuration/*"
   to = "/docs/setup/other_config/configuration/:splat"
-  tatus = 301
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/setup/quickstart/*"
+  to = "/docs/setup/install/:splat"
+  status = 301
   force = false
 
 [[redirects]]
