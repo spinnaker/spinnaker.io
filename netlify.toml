@@ -131,5 +131,10 @@ HUGO_ENABLEGITINFO = "true"
   to = "/docs/releases/:splat"
   status = 301
   force = false
-
+  
+[[redirects]]
+  from = "/community/*"
+  to = "/docs/community/:splat"
+  status = 301
+  force = false
 
