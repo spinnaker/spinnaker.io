@@ -5,8 +5,6 @@ weight: 1
 description: An AWS EC2 Server Group offers a number of launch setting configurations that can enhance your experience with Spinnaker.
 ---
 
-## Overview
-An AWS EC2 Server Group offers a number of launch setting configurations that can enhance your experience with Spinnaker.
 
 ### Launch Settings
 An AWS Server Group can be set up with either a launch template or a launch configuration. However, <b>you must enable launch templates support for all of your applications if you want to use the latest AWS features.
