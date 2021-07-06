@@ -2,7 +2,6 @@
 title:  "AWS EC2 Launch Templates Setup"
 ---
 
-{% include toc %}
 
 > Please note that you should only proceed with this if you have [AWS EC2](/setup/install/providers/aws/aws-ec2) configured as a cloud provider. These features require 1.24 (although some features were launched in previous releases leading up to 1.24).
 
