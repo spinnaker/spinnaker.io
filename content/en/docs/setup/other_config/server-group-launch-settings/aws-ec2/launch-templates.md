@@ -1,14 +1,14 @@
 ---
-
 title: "AWS EC2 Launch Templates"
+linkTitle: "AWS EC2 Launch Templates"
+description: "AWS EC2 Launch Template Features, Use Cases and Sample API Requests"
 ---
 
-
 ## Enable launch template feature set in Spinnaker
-Follow guidelines [here](/features/server-group-launch-settings/aws-ec2/launch-templates-setup.md)
+Follow guidelines [here](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates-setup)
 
 Note: The features supported in Deck come with helpful tool tips that aid in learning about them quickly.
-Consider trying them out in Deck before using them in API, especially if you are new to them.
+Consider trying them out in Deck, especially if they are new to you.
 
 ## Launch Template Feature Configuration
 Once launch templates support is enabled in Clouddriver, a new set of features are unlocked.
@@ -186,9 +186,8 @@ Note that a number of these parameters complement each other. So, combining them
   </tbody>
 </table>
 
-## Use Cases & Sample Requests
+## Use Cases & Sample API Requests
 
-## Sample API request
 ### Create Server Group with launch template
 After enabling the launch template feature set is Clouddriver and/or Deck, set `setLaunchTemplate` to true in order to indicate Spinnaker to create your Server Group with an EC2 launch template.
 ```bash
