@@ -1,6 +1,6 @@
 ---
 title: "Server Group Launch Settings"
 linkTitle: "Server Group Launch Settings"
-weight: 40
+weight: 1
 description: Configure instance configuration for your server groups.
 ---
