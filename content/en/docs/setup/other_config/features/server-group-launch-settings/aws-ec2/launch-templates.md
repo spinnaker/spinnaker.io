@@ -3,7 +3,6 @@
 title: "AWS EC2 Launch Templates"
 ---
 
-{% include toc %}
 
 ## Enable launch template feature set in Spinnaker
 Follow guidelines [here](/features/server-group-launch-settings/aws-ec2/launch-templates-setup.md)
