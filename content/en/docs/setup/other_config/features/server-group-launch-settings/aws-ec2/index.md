@@ -2,6 +2,7 @@
 title:  "AWS EC2 Server Group Launch Settings"
 linkTitle:  "AWS EC2 Server Group Launch Settings"
 weight: 1
+description: An AWS EC2 Server Group offers a number of launch setting configurations that can enhance your experience with Spinnaker.
 ---
 
 ## Overview
