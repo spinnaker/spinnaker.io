@@ -1,7 +1,8 @@
 ---
 title:  "AWS EC2 Launch Templates Setup"
+linkTitle:  "AWS EC2 Launch Templates Setup"
+description:  "Setup and Rollout Guidelines for AWS EC2 Launch Templates"
 ---
-
 
 > Please note that you should only proceed with this if you have [AWS EC2](/setup/install/providers/aws/aws-ec2) configured as a cloud provider. These features require 1.24 (although some features were launched in previous releases leading up to 1.24).
 
@@ -20,7 +21,7 @@ If you are new to Spinnaker or even just new to AWS in Spinnaker, we recommend i
       aws.features.launch-templates.enabled: true
       aws.features.launch-templates.all-applications.enabled: true
     ```
-1. Read through the available launch template supported [features](#feature-configuration) to determine which features make sense for your users. 
+1. Read through the available launch template supported [features](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates) to determine which features make sense for your users. 
 1. Update AWS settings in Deck to enable launch templates and the features you identified. Ensure that `enableLaunchTemplates` is `true`. 
     ```js
       providers: {
@@ -46,7 +47,7 @@ If you already use AWS as a cloud provider in Spinnaker, we recommend migrating 
       aws.features.launch-templates.excluded-applications: "dangerousapp"
     ```
     Review the [rollout configurations](#rollout-configuration) and determine which of these you can *temporarily* utilize for your rollout. If you do not need to rollout, stop here and follow the [new AWS users](#new-to-aws) steps instead. 
-1. Read through the available launch template supported [features](#feature-configuration) to determine which features make sense for your users. 
+1. Read through the available launch template supported [features](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates) to determine which features make sense for your users. 
 1. Update AWS settings in Deck to enable launch templates and the features you identified. Ensure that `enableLaunchTemplates` is `true`. 
   	```js
     // enable launch templates for AWS
@@ -116,4 +117,4 @@ If you would prefer to **skip a rollout**, use the configuration in [New to AWS]
 </table>
 
 ## Feature Configuration
-Learn more about the feature set along with sample API requests [here](/features/server-group-launch-settings/aws-ec2/launch-templates.md#Launch-Template-Feature-Configuration).
+Learn more about the feature set along with sample API requests [here](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates).
