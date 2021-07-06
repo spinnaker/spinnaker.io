@@ -32,4 +32,4 @@ Here are some configuration parameters to consider:
 * Enable `capacityRebalance` to allow EC2 Auto Scaling to monitor and automatically respond to changes that affect availability of your Spot Instances. This feature works best with the `capacity-optimized` spotAllocationStrategy. 
   For more information about capacity rebalancing, see [Amazon EC2 Auto Scaling Capacity Rebalancing.](https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html)
 
-Learn more about [AWS recommended best practices.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html).
+Learn more about [AWS recommended best practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html).
