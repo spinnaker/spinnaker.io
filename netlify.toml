@@ -151,7 +151,7 @@ HUGO_ENABLEGITINFO = "true"
   force = false
 
 [[redirects]]
-  from = "/reference/artifacts-with-artifactsrewrite/ *"
+  from = "/reference/artifacts-with-artifactsrewrite/*"
   to = "/docs/reference/ref-artifacts/:splat"
   status = 301
   force = false
