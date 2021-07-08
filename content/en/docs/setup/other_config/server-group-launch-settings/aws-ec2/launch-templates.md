@@ -8,7 +8,7 @@ weight: 2
 > Launch Template Support must be enabled in order to use the features described in this page. 
 > Follow guidelines [here](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates-setup) to enable the feature set.
 
-> Note: The features supported in Deck come with helpful tool tips that aid in quick learning of the new features. 
+> Note: The features supported in the UI (Deck) come with tool tips that can help you learn the new features. 
 > Consider trying them out in Deck, especially if they are new to you.
 
 ## Feature Configuration
@@ -64,7 +64,7 @@ Users will see enabled features as options when configuring a Server Group.
 </table>
 
 ### Additional Features
-Enabling launch template support also unlocks additional features offered by Amazon EC2 Auto Scaling, that facilitate diversified server groups:
+Enabling launch template support also unlocks additional features offered by Amazon EC2 Auto Scaling that facilitate diversified server groups:
 
 * Multiple instance types
 * Multiple purchase options (On-Demand / Spot) with proportion control 
