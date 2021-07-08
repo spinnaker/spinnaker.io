@@ -150,11 +150,7 @@ hugo server
 
 1. In a web browser, go to the `spinnaker/spinnaker.io` [repository](https://github.com/spinnaker/spinnaker.io). You should see your recently pushed working branch with a **Compare & pull request** button.
 
-   ![CompareAndPullRequest](/assets/images/community/contributing/docs/compare-and-pr.jpg)
-
 1. Click **Compare & pull request**. This takes you to the **Open a pull request** screen.
-
-   ![OpenPullRequest](/assets/images/community/contributing/docs/github-open-pull-request.jpg)
 
    1. The **Title** defaults to the commit subject. Update the title so it follows the `<type>(<scope>): <subject>` format. Make sure you include a space after the colon. For example:
 
@@ -162,7 +158,7 @@ hugo server
       docs(plugins): add documentation for plugin creators
       ```
 
-      The Spinnaker repositories use a PR title checker, so your PR will fail if the title is not in the correct format. For more information, see [commit message conventions](/community/contributing/submitting/#commit-message-conventions).
+      The Spinnaker repositories use a PR title checker, so your PR will fail if the title is not in the correct format. For more information, see [commit message conventions]({{< ref "submitting#commit-message-conventions" >}}).
 
    2. The **Leave a comment** field defaults to the commit description. Pull request descriptions are the first step to helping reviewers and project maintainers understand why your change was made. Do not leave this field blank. Provide as much description as possible. A good description helps get your PR merged faster!
    3. Leave the **Allow edits from maintainers** checkbox selected.

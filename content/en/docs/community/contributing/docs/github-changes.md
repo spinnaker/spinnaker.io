@@ -10,12 +10,12 @@ sidebar:
 1. Click the **Suggest an Edit** link on the documentation page you want to update. This takes you to the page's source file in GitHub.
 1. Click the **Edit this file...** pencil icon to edit the file.
 
-   ![EditFileIcon](/assets/images/community/contributing/docs/github-edit-file-icon.jpg)
+   ![EditFileIcon](/images/community/contributing/docs/github-edit-file-icon.jpg)
 
 1. Make your changes in the GitHub markdown editor.
 1. Fill in the **Propose file change** form.
 
-   ![ProposeFileChange](/assets/images/community/contributing/docs/github-propose-file-change-form.jpg)
+   ![ProposeFileChange](/images/community/contributing/docs/github-propose-file-change-form.jpg)
 
    1. Explain what your file change is about in a short summary.
 
@@ -27,7 +27,7 @@ sidebar:
 
 1. Fill in the **Open a pull request** form.
 
-   ![OpenPullRequest](/assets/images/community/contributing/docs/github-open-pull-request.jpg)
+   ![OpenPullRequest](/images/community/contributing/docs/github-open-pull-request.jpg)
 
    1. The **Title** defaults to the file change summary. Update the title so it follows the `<type>(<scope>): <subject>` format. Make sure you include a space after the colon. For example:
 
@@ -35,14 +35,14 @@ sidebar:
       docs(plugins): add documentation for plugin creators
       ```
 
-      The Spinnaker repositories use a PR title checker, so your PR will fail if the title is not in the correct format. For more information, see [commit message conventions](/community/contributing/submitting/#commit-message-conventions).
+      The Spinnaker repositories use a PR title checker, so your PR will fail if the title is not in the correct format. For more information, see [commit message conventions]({{< ref "submitting#commit-message-conventions" >}}).
 
    2. The **Leave a comment** field defaults to the file change description. PR descriptions are the first step to helping reviewers and project maintainers understand why your change was made. Do not leave this field blank. Provide as much description as possible. A good description helps get your PR merged faster!
    3. Leave the **Allow edits from maintainers** checkbox selected.
 
 1. Click the **Create pull request** button.
 
-   Congratulations! You can view your submitted pull request on the **Pull requests** [tab](https://github.com/spinnaker/spinnaker.github.io/pulls).
+   Congratulations! You can view your submitted pull request on the **Pull requests** [tab](https://github.com/spinnaker/spinnaker.io/pulls).
 
 ## Address feedback in GitHub
 
