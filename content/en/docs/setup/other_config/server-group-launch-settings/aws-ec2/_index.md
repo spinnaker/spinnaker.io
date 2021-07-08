@@ -13,8 +13,8 @@ AWS strongly recommends using _launch templates_ over _launch configurations_ be
    However, defining a launch template instead of a launch configuration, you can:
    - create and maintain multiple versions of a launch template
    - access the launch-template-only AWS features like diversification of instances of a server group across instance type, purchase options (On-Demand / Spot), allocation strategies.
-     * <b>[Enable launch templates support](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates-setup)</b>
-     * <b>[Learn more about launch template features](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates)</b>
+     * [Enable launch templates support](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates-setup).
+     * Learn more about launch template features](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates).
 
 * (Older) [Launch configuration](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html) is an instance configuration template that an AWS Auto Scaling group uses to launch EC2 instances.
 
