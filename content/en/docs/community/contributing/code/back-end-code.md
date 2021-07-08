@@ -1,8 +1,5 @@
 ---
-layout: single
 title:  "Code Languages, Libraries, and Conventions "
-sidebar:
-  nav: community
 description: >
   This page introduces the foundations Spinnaker services are built on, and code conventions the community has adopted.
 ---
