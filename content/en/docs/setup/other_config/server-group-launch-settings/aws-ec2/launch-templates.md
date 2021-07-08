@@ -2,15 +2,16 @@
 title: "AWS EC2 Launch Templates"
 linkTitle: "AWS EC2 Launch Templates"
 description: "AWS EC2 Launch Template Features, Use Cases and Sample API Requests"
+weight: 2
 ---
 
-## Enable launch template feature set in Spinnaker
-Follow guidelines [here](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates-setup)
+> Launch Template Support must be enabled in order to use the features described in this page. 
+> Follow guidelines [here](/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates-setup) to enable the feature set.
 
-Note: The features supported in Deck come with helpful tool tips that aid in learning about them quickly.
-Consider trying them out in Deck, especially if they are new to you.
+> Note: The features supported in the UI (Deck) come with tool tips that can help you learn the new features. 
+> Consider trying them out in Deck, especially if they are new to you.
 
-## Launch Template Feature Configuration
+## Feature Configuration
 Once launch templates support is enabled in Clouddriver, a new set of features are unlocked.
 Some of them are tied to the EC2 launch template directly like `IMDSV2` and 
 others require a launch template to be used in order to support features like `SpotAllocationStrategy` ([MixedInstancesPolicy](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_MixedInstancesPolicy.html) features).
@@ -62,21 +63,23 @@ Users will see enabled features as options when configuring a Server Group.
   </tbody>
 </table>
 
-### Diversified Server Groups with Launch Templates
-Enabling launch templates in Clouddriver also unlocks additional features offered by Amazon EC2 Auto Scaling that could be helpful for use cases like:
-* create Server Groups with flexible instance configuration. For example, multiple instance types, a combination of purchase options (On-Demand / Spot) in order to tap into multiple Spot capacity pools.
-* use instance weighting to specify the relative weight of each instance type, to count towards the desired capacity of the group.
-* allow AWS to optimize instance allocation by using allocation strategies.
-* optimize by capacity but prioritize the list of instance types provided to indicate preference.
-* maintain a consistent baseline of On-Demand capacity and use Spot in remaining capacity for cost savings.
-* follow [AWS recommended best practices for EC2 Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html) for a better user experience.
+### Additional Features
+Enabling launch template support also unlocks additional features offered by Amazon EC2 Auto Scaling that facilitate diversified server groups:
 
-#### Motivation to diversify instances in your Server Group
-* Reduce probability of [InsufficientInstanceCapacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html#troubleshooting-launch-capacity) exceptions with flexible instance configuration.
+* Multiple instance types
+* Multiple purchase options (On-Demand / Spot) with proportion control 
+* Allocation strategies
+* Capacity rebalancing
+
+Follow [AWS recommended best practices for EC2 Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html) to improve your experience with EC2 Spot.
+
+Motivation to diversify instances in your Server Group:
+
 * Reduce costs by diversifying instances across purchase options and Spot allocation strategies. See AWS docs to learn more about [how to use Spot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html).
 * Reduce costs and optimize resources with instance weighting.
 * Enhance availability by deploying your application across multiple instance types running in multiple Availability Zones.
-* Maintain desired Spot capacity by proactively augmenting your fleet with a new Spot instance from an optimal pool before a running instance is interrupted by EC2, by enabling [capacity rebalance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html).
+* Enhance availability by proactively augmenting your fleet with a new Spot instance from an optimal pool, before a running instance is interrupted by EC2, by enabling [capacity rebalance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html).
+* Reduce probability of [InsufficientInstanceCapacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html#troubleshooting-launch-capacity) exceptions with flexible instance configuration.
 
 Using one or more parameters in the table below will automatically create Server Groups with the instance diversification configuration specified, and will use AWS defaults for the parameters not specified.
 Note that a number of these parameters complement each other. So, combining them can greatly enhance your AWS experience.
@@ -188,10 +191,10 @@ Note that a number of these parameters complement each other. So, combining them
 
 ## Use Cases & Sample API Requests
 
-### Create Server Group with launch template
+#### Create a Server Group with launch template
 After enabling the launch template feature set is Clouddriver and/or Deck, set `setLaunchTemplate` to true in order to indicate Spinnaker to create your Server Group with an EC2 launch template.
 ```bash
-curl -H 'Content-Type: application/json' -d '{ "job": [ 
+curl -H 'Content-Type: application/json' -d '{ "job": [
   {
     "type": "createServerGroup",
     "cloudProvider": "aws",
@@ -212,7 +215,7 @@ curl -H 'Content-Type: application/json' -d '{ "job": [
 Let's say, the Server Group created was named `myAwsApp-myStack-v005`. 
 It is backed by EC2 launch template with IMDSv2 enabled and unlimited CPU credits.
 
-### Convert a Server Group with launch template to use mixed instances policy, with multiple instance types and capacity weighting
+#### Convert a Server Group with launch template to use mixed instances policy, with multiple instance types and capacity weighting
 The Spinnaker operation, `modifyServerGroupLaunchTemplate`/ `updateLaunchTemplate` also supports 
 updating a Server Group backed by launch template to use mixed instances policy when one or more mixed instances policy parameters listed above is specified.
 
@@ -240,7 +243,7 @@ AWS docs:
 * [multiple instance types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html)
 * [instance weighting](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html)
 
-### Diversify instances in a Server Group across purchase options (On-Demand and Spot), multiple instance types with priority assignment:
+#### Diversify instances in a Server Group across purchase options (On-Demand and Spot), multiple instance types with priority assignment:
 ```bash
 curl -H 'Content-Type: application/json' -d '{ "job": [ 
   {
@@ -276,7 +279,7 @@ AWS docs:
 * [instance diversification in ASG](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html)
 * [allocation strategies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html#asg-allocation-strategies)
 
-### Create a Server Group with AWS recommended best practices for EC2 Spot
+#### Create a Server Group with AWS recommended best practices for EC2 Spot
 The best practices followed in the example:
 * use multiple instance types
 * use `capacity-optimized` Spot allocation strategy to indicate AWS to provision instances from the most-available Spot capacity pools
