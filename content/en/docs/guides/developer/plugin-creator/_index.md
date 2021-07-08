@@ -3,6 +3,8 @@ title: "Plugin Creator Guide"
 no_list: true
 description: >
   Plugins enable operators to extend Spinnaker with custom functionality.
+aliases:
+  - /docs/guides/developer/plugin-creators/overview/
 ---
 
 ## What plugins do
