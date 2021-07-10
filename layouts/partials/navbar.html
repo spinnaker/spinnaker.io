@@ -1,6 +1,6 @@
 {{ $cover := .HasShortcode "blocks/cover" }}
 
-<nav class=" js-navbar-scroll navbar navbar-expand navbar-light {{ if $cover}} td-navbar-cover {{ end }}flex-column flex-lg-row td-navbar">
+<nav class=" js-navbar-scroll navbar navbar-expand navbar-light flex-column flex-lg-row td-navbar">
         <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
 		<span class="navbar-logo">{{ if .Site.Params.ui.navbar_logo }}{{ with resources.Get "icons/spinnaker-text-white.svg" }}{{ ( . | minify).Content | safeHTML }}{{ end }}{{ end }}</span><span class="text-uppercase font-weight-bold sr-only">{{ .Site.Title }}</span>
 	</a>
