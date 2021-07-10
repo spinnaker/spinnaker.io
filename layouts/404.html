@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" class="no-js">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="td-{{ .Kind }} layout-{{.Layout}} ">
+    <header class="">{{ partial "navbar.html" . }}</header>
+    <div class="clear-header container">
+      {{ block "main" .}}
+      <main role="main">
+        <h1 id="title" class="text-center">Page Not Found</h1>
+        <div class="lead text-center">
+          Oops! We revamped the site recently and missed coding a redirect.
+        </div>
+        <p class="py-3">
+          Please use the site navigation or the search bar below to find
+          content. Or help us out by
+          <a href="/docs/community/contributing/docs/">
+            submitting a pull request</a
+          >
+          to fix the issue you encountered.
+        </p>
+        <span
+          class="mx-auto py-3"
+          style="display: block; width: 50%; max-width: 400px"
+          >{{ partial "search-input.html" . }}</span
+        >
+      </main>
+      {{ end }}
+    </div>
+    <div class="mx-3">{{ partial "footer.html" . }}</div>
+
+    {{ partialCached "scripts.html" . }}
+  </body>
+</html>

@@ -1,7 +1,5 @@
 ---
-layout: single
 title: 'Code Of Conduct'
-
 aliases:
   - /docs/code-of-conduct
 ---

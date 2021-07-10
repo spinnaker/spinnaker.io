@@ -7,7 +7,7 @@ sidebar:
 
 ## Review a Pull request
 
-Anyone can review a documentation pull request (PR). Visit the [**Pull requests**](https://github.com/spinnaker/spinnaker.github.io/pulls) section in the Spinnaker website repository to see a list of all currently open pull requests.
+Anyone can review a documentation pull request (PR). Visit the [Pull requests](https://github.com/spinnaker/spinnaker.io/pulls) section in the Spinnaker website repository to see a list of all currently open pull requests.
 
 Reviewing documentation pull requests is a great way to get started contributing to the Spinnaker community. It helps you to learn the code base and builds rapport with other contributors.
 
@@ -15,9 +15,9 @@ Reviewing documentation pull requests is a great way to get started contributing
 
 Before reviewing documentation, do the following:
 
-Read the [documentation style guide](/community/contributing/docs/docs-style-guide/) so that you can leave informed feedback.
+Read the [documentation style guide]({{< ref "docs-style-guide" >}}) so that you can leave informed feedback.
 
-1. Review the [code of conduct](https://github.com/spinnaker/spinnaker.github.io/blob/master/community/contributing/code-of-conduct.md) and ensure that you abide by it at all times.
+1. Review the [Code of Conduct]({{< ref "code-of-conduct" >}}) and ensure that you abide by it at all times.
 2. Be polite, helpful, and considerate of others.
 3. Comment on positive aspects of a PR, as well as changes.
 4. Be empathetic and mindful of how your changes or review may be received.
@@ -28,7 +28,7 @@ Read the [documentation style guide](/community/contributing/docs/docs-style-gui
 
 ## Start the review process
 
-1. Go to (<https://github.com/spinnaker/spinnaker.github.io/pulls>) to see a list of all current open PRs in the Spinnaker repository.
+1. Go to (<https://github.com/spinnaker/spinnaker.io/pulls>) to see a list of all current open PRs in the Spinnaker repository.
 
 2. Filter the open PRs using one or all of the following labels:
 
@@ -64,7 +64,7 @@ When reviewing a PR, use the following questions as a starting point:
 - Are there any obvious errors in grammar or language?
 - Is there a better way to phrase something?
 - Are there words, phrases, or terms that should be replaced with a non-discriminatory alternative?
-- Does the word choice, punctuation, and capitalization follow the [style guide](/community/contributing/docs/docs-style-guide/)?
+- Does the word choice, punctuation, and capitalization follow the [style guide]({{< ref "docs-style-guide" >}})?
 - Are there long sentences which could be shorter or made less complex?
 - Are there long paragraphs which would work better as a bulleted list or table?
 
