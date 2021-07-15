@@ -87,7 +87,7 @@ group in the canary configuration. That allows you to fail the whole canary
 analysis if there is a problem with one of those specific metrics. You can also
 use the criticality flag on the individual metric.
 
-## Create a set of standard, resusable canary configs
+## Create a set of standard, reusable canary configs
 
 Configuring a canary is difficult, and not every developer in your organization
 will be able to do so. Also, if you let all the teams in the org manage their
