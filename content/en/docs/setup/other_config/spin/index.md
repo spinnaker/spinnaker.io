@@ -165,8 +165,9 @@ a token is different for each provider. To do so using Google OAuth2 and `gcloud
 
 #### Google Service Account
 
-If using Google OAuth2, `spin` can also be configured with an [service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts). Generate a service account key in json format. For more information see the [relevant documentation](https://cloud.google.com/iam/docs/creating-managing-service-account-keys). The json file should look something like this:
-```
+If using Google OAuth2, `spin` can also be configured with a [service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts). Generate a service account key in JSON format. For more information, see the [Google docs](https://cloud.google.com/iam/docs/creating-managing-service-account-keys). The JSON file should look something like this:
+
+```json
 {
   "type": "service_account",
   "project_id": "project-id",
@@ -183,11 +184,12 @@ If using Google OAuth2, `spin` can also be configured with an [service account](
 
 The `spin` configuration looks like this:
 
-```
+```yaml
 auth:
   GoogleServiceAccount:
     file: /path/to/key/pair.json
 ```
+
 ### Basic
 
 `spin` can be configured with basic authentication credentials to authenticate calls against Spinnaker. The configuration
