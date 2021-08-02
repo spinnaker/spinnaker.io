@@ -5,13 +5,13 @@
   </head>
   <body class="td-{{ .Kind }} layout-{{.Layout}}">
     
-    <header  class="row">
+    <header class="row">
       {{ partial "navbar.html" . }}
    
     {{ if .IsHome }}{{ partial "hero-homepage.html" .}}
 
   </header>
-    <div class=" td-default td-outer ">
+    <div class="td-default td-outer">
       <main role="main" >
         {{ else }}
       </header >
