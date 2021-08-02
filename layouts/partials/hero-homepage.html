@@ -7,7 +7,7 @@
         {{.Params.subtitle}}<br />
        <small>{{.Params.subtitle_1}}</small> 
       </h3>
-      {{ with .Params.news_banner }}
+      {{ if .Params.news_banner }}
       <a href="{{.Params.news_link}}">
         <h4>
           {{.Params.news_text}}

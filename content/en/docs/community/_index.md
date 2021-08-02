@@ -1,7 +1,7 @@
 ---
 title: 'Community'
 linkTitle: 'Community'
-weight: 2
+weight: 7777
 description: >
   The Spinnaker OSS project was started at Netflix. Now, it thrives on the contributions of the broader DevOps community who have adopted it as their Continuous Delivery tool.
 ---

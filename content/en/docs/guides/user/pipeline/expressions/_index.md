@@ -4,6 +4,8 @@ linkTitle: "Pipeline Expressions Guide"
 weight: 10
 description: >
   Dynamically set and access variables during pipeline execution.
+aliases:
+  - /guides/user/pipeline-expressions/
 ---
 
 Pipeline expressions allow you to dynamically set and access variables during

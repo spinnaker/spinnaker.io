@@ -65,6 +65,39 @@ Dependencies are loaded into `./assets/scss` from `./themes/docsy`. If subsequen
 `description`: Short description, appears in lists of directory contents and on content page.  
 `mermaid`: Boolean `true` indicates that MermaidJS should be loaded on the page.
 
+## Homepage Frontmatter Page Params
+
+Edit the file `./content/en/_index.md` to change the homepage frontmatter variables.
+
+### Changing the News Link
+
+`news_banner`: Boolean `true` enables the news link in the hero info panel.  
+`news_text`: Sets the news link text.  
+`news_link`: Sets the news link target.
+
+Example news link:
+
+```
+---
+title: 'Spinnaker'
+subtitle: 'Cloud Native Continuous Delivery'
+subtitle_1: 'Fast, safe, repeatable deployments for every enterprise'
+date: '2020-06-04'
+type: 'en'
+is_index: true
+layout: 'index'
+has_carousel: true
+news_banner: true
+news_text: 'Testing news banner'
+news_link: 'https://google.com'
+...
+---
+```
+
+![desktop homepage hero](https://user-images.githubusercontent.com/70309473/125411287-9e818f80-e372-11eb-99eb-d24404e387e1.png)
+![tablet homepage hero](https://user-images.githubusercontent.com/70309473/125411010-582c3080-e372-11eb-83e4-7564097b3f2d.png)
+![mobile homepage hero](https://user-images.githubusercontent.com/70309473/125411499-d4bf0f00-e372-11eb-9ab0-1ecd6497c1ab.png)
+
 ## Mermaid
 
 Mermaid is loaded into content pages only when the boolean frontmatter variable `mermaid` is set to `true`.
