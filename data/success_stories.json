@@ -296,7 +296,7 @@
     {
       "name": "getir",
       "logo": "testimonials-logos/getir_logo.png",
-      "quote": "Spinnaker has provided my client...with more stability in their pipelines, speedier deliveries, and a strong understanding of the application delivery process.",
+      "quote": "Our entire continuous deployment process runs through Spinnaker",
       "questions": [
         {
           "question": "How did you discover Spinnaker?",
@@ -308,7 +308,7 @@
         },
         {
           "question": "Where are you today with Spinnaker? What benefits has it provided to your team?",
-          "answer": "We currently have 400+ applications and 2600+ pipelines. Our entire continues deployment process runs through Spinnaker. We recently switched from halyard to kleat and automate the deployment of the Spinnaker. We deploy Spinnaker via source control. We also generate our pipelines with code. We create all our pipelines automatically with Pipeline as code."
+          "answer": "We currently have 400+ applications and 2600+ pipelines. Our entire continuous deployment process runs through Spinnaker. We recently switched from halyard to kleat and automate the deployment of the Spinnaker. We deploy Spinnaker via source control. We also generate our pipelines with code. We create all our pipelines automatically with Pipeline as code."
         },
         {
           "question": "What is missing or could be improved in Spinnaker?",
