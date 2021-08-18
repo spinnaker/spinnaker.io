@@ -273,7 +273,7 @@
     {
       "name": "wescale",
       "logo": "testimonials-logos/wescale_logo.png",
-      "quote": "Spinnaker has provided my client...with more stability in their pipelines, speedier deliveries, and a strong understanding of the application delivery process.",
+      "quote": "Our entire continues deployment process runs through Spinnaker.",
       "questions": [
         {
           "question": "How did you discover Spinnaker?",
@@ -300,7 +300,7 @@
       "questions": [
         {
           "question": "How did you discover Spinnaker?",
-          "answer": "We had heard of spinnaker to keep track of Netflix's open source libraries. When we wanted to automate the continuous deployment process, it was the first tool that came to our mind. Because it is a feature proof tool, it has a large community, and we chose spinnaker because of its platfrom agnostic nature. Our platform consists of ECS and EKS"
+          "answer": "We had heard of Spinnaker to keep track of Netflix's open source libraries. When we wanted to automate the continuous deployment process, it was the first tool that came to our mind. Because it is a feature proof tool, it has a large community, and we chose Spinnaker because of its platfrom agnostic nature. Our platform consists of ECS and EKS"
         },
         {
           "question": "What was your experience getting started with Spinnaker?",
@@ -308,7 +308,7 @@
         },
         {
           "question": "Where are you today with Spinnaker? What benefits has it provided to your team?",
-          "answer": "We currently have 400+ applications and 2600+ pipelines. Our entire continues deployment process runs through spinnaker. We recently switched from halyard to kleat and automate the deployment of the spinnaker. We deploy spinnaker via source control. We also generate our pipelines with code. We create all our pipelines automatically with Pipeline as code."
+          "answer": "We currently have 400+ applications and 2600+ pipelines. Our entire continues deployment process runs through Spinnaker. We recently switched from halyard to kleat and automate the deployment of the Spinnaker. We deploy Spinnaker via source control. We also generate our pipelines with code. We create all our pipelines automatically with Pipeline as code."
         },
         {
           "question": "What is missing or could be improved in Spinnaker?",
