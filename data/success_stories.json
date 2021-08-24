@@ -179,6 +179,29 @@
       ]
     },
     {
+      "name": "Getir",
+      "logo": "testimonials-logos/getir_logo.png",
+      "quote": "Our entire continuous deployment process runs through the Spinnaker",
+      "questions": [
+        {
+          "question": "How did you discover Spinnaker?",
+          "answer": "We had heard of Spinnaker to keep track of Netflix's open source libraries. When we wanted to automate the continuous deployment process, it was the first tool that came to our mind. Because it is a feature proof tool, it has a large community, and we chose Spinnaker because of its platfrom agnostic nature. Our platform consists of ECS and EKS"
+        },
+        {
+          "question": "What was your experience getting started with Spinnaker?",
+          "answer": "To be honest it was pretty hard. It's a very complex tool. It takes effort to understand the microservice architecture. In our first attempts, we benefited a lot from the slack community and armory documents."
+        },
+        {
+          "question": "Where are you today with Spinnaker? What benefits has it provided to your team?",
+          "answer": "We currently have 400+ applications and 2600+ pipelines. Our entire continuous deployment process runs through Spinnaker. We recently switched from halyard to kleat and automate the deployment of the Spinnaker. We deploy Spinnaker via source control. We also generate our pipelines with code. We create all our pipelines automatically with Pipeline as code."
+        },
+        {
+          "question": "What is missing or could be improved in Spinnaker?",
+          "answer": "The absence of built-in pipeline as code, we have to parsing json. For large environments, The cloud driver cannot manage memory consumption. Troubleshooting can be made a lot easier. The plugin SDK doesn't support different languages."
+        }
+      ]
+    },
+    {
       "name": "Jamf",
       "logo": "testimonials-logos/jamf_logo.png",
       "quote": "The pipelines allow for easy auditing and ensuring all changes to pipelines are run through our controls for proper change control management.",
@@ -290,29 +313,6 @@
         {
           "question": "What is missing or could be improved in Spinnaker?",
           "answer": "My main concern or the missing link has always been a community-standardised way of doing pipeline as code with Spinnaker (PAC). This is something that has prevented Spinnaker adoption in some organisations."
-        }
-      ]
-    },
-    {
-      "name": "getir",
-      "logo": "testimonials-logos/getir_logo.png",
-      "quote": "Our entire continuous deployment process runs through Spinnaker",
-      "questions": [
-        {
-          "question": "How did you discover Spinnaker?",
-          "answer": "We had heard of Spinnaker to keep track of Netflix's open source libraries. When we wanted to automate the continuous deployment process, it was the first tool that came to our mind. Because it is a feature proof tool, it has a large community, and we chose Spinnaker because of its platfrom agnostic nature. Our platform consists of ECS and EKS"
-        },
-        {
-          "question": "What was your experience getting started with Spinnaker?",
-          "answer": "To be honest it was pretty hard. It's a very complex tool. It takes effort to understand the microservice architecture. In our first attempts, we benefited a lot from the slack community and armory documents."
-        },
-        {
-          "question": "Where are you today with Spinnaker? What benefits has it provided to your team?",
-          "answer": "We currently have 400+ applications and 2600+ pipelines. Our entire continuous deployment process runs through Spinnaker. We recently switched from halyard to kleat and automate the deployment of the Spinnaker. We deploy Spinnaker via source control. We also generate our pipelines with code. We create all our pipelines automatically with Pipeline as code."
-        },
-        {
-          "question": "What is missing or could be improved in Spinnaker?",
-          "answer": "The absence of built-in pipeline as code, we have to parsing json. For large environments, The cloud driver cannot manage memory consumption. Troubleshooting can be made a lot easier. The plugin SDK doesn't support different languages."
         }
       ]
     }
