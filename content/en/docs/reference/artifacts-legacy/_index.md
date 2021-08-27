@@ -3,7 +3,7 @@ title:  "Spinnaker Artifacts - Legacy UI"
 ---
 
 > This section refers to the legacy artifacts UI, which was removed
-> in release 1.21. Please refer to the [standard artifacts guide](/docs/reference/artifacts/)
+> in release 1.21. Please refer to the [standard artifacts guide](/docs/reference/ref-artifacts/)
 > instead.
 
 
