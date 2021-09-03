@@ -44,6 +44,7 @@ Email in spinnaker is provided by [Spring Boot Mail
 starter](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-email.html).
 
 The settings for some popular email providers are listed below:
+
 Email Provider | SMTP username | SMTP password | SMTP server address | SMTP port (TLS) | SMTP port (SSL) | SMTP TLS/SSL required 
 ------ | ------ | ------ | ------ | ------ | ------ | ------ 
 Gsuite/Gmail | Your email address | Your email password | smtp.gmail.com | 587 | 465 | yes 
