@@ -138,7 +138,7 @@ Next, create a service account for the Amazon EKS cluster:
 kubectl apply --context $CONTEXT -f {{< link "downloads/kubernetes/service-account.yml">}}
 ```
 
-A minimal example for `service-account.yaml` would look something like this:
+A minimal example for `service-account.yaml` looks like this:
 
 ```YAML
 apiVersion: v1
@@ -148,7 +148,7 @@ metadata:
   namespace: spinnaker
 ```
 
-Note that this requires an existing `spinnaker` namespace. For [RBAC](https://kubernetes.io/docs/admin/authorization/rbac/) bindings in addition to the service account, see [Optional: Configure Kubernetes roles (RBAC)](https://spinnaker.io/docs/setup/install/providers/kubernetes-v2/#optional-configure-kubernetes-roles-rbac). In general, see the [Kubernetes documentation for more details on service accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/).
+Note that this requires an existing `spinnaker` namespace. For [RBAC](https://kubernetes.io/docs/admin/authorization/rbac/) bindings in addition to the service account, see [Optional: Configure Kubernetes roles (RBAC)](https://spinnaker.io/docs/setup/install/providers/kubernetes-v2/#optional-configure-kubernetes-roles-rbac). See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) for more details on service accounts.
 
 Extract the secret token of the created `spinnaker-service-account`:
 
