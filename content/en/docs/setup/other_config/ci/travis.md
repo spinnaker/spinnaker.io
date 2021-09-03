@@ -1,7 +1,7 @@
 ---
 
 title:  "Travis CI"
-description: Spinnaker supports Travis as a continuou integration system.
+description: Spinnaker supports Travis as a continuous integration system.
 ---
 
 You can configure Spinnaker to use [Travis
