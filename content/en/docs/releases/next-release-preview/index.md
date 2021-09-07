@@ -29,6 +29,13 @@ changelog.
               retryableErrorMessages: # list of error strings
                 - TLS handshake timeout
         ```
+- The sharding configuration properties used for sql based implementation are updated to make it consistent with redis based implementation. Now, the following configuration applies to both the implementations.
+    ```
+    cache-sharding:
+      enabled: true
+      replicaTtlSeconds: 60  //current timestamp plus this value makes the ttl for the pod's heartbeat record, default is 60 
+      heartbeatIntervalSeconds: 30 //interval to refresh heartbeat records, default is 30
+    ``` 
 
 ### Orca
 
@@ -36,10 +43,10 @@ changelog.
     ```
     tasks:
       upsert-application:
-        backoff-ms : 10s (default: 10s)
+        backoff-ms: 10s (default: 10s)
         timeout-ms: 1 hr (default)
       delete-application:
-        backoff-ms : 10s (default)
+        backoff-ms: 10s (default)
         timeout-ms: 1 hr (default)
     ```
 
