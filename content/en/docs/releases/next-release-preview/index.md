@@ -49,7 +49,26 @@ changelog.
         backoff-ms: 10s (default)
         timeout-ms: 1 hr (default)
     ```
+  
+- Orca can now be configured to use shared managed service accounts. Unlike managed service accounts, which are created per pipeline, these are generated per unique combination of roles. This can significantly reduce the number of service accounts that Fiat needs to process during role sync and real-time auth calls, which can lead to errors when saving new pipelines or authenticating user requests if the sync or auth is slow enough. This introduces a new configurable option, `useSharedManagedServiceAccounts`, which defaults too false:
+    ```
+    orca:
+      tasks:
+        useSharedManagedServiceAccounts: true
+    ```
 
 ### Deck
 
 - A new property called `apiTimeoutMs` has been added to the configurable settings. This property specifies what the timeout should be when Deck makes API calls to other microservices. This property is not a required property.
+    
+### Front50
+
+- Front50 now supports migrations to migrate from managed service accounts to shared managed service accounts. [Check out the feature's PR for an example of using the new migrations](https://github.com/spinnaker/front50/pull/1022). This introduces two new configurable options:
+    ```
+    front50:
+      migrations:
+        migrateToSharedManagedServiceAccounts: true
+        deleteDanglingManagedServiceAccounts: true
+    ```
+        
+ 
