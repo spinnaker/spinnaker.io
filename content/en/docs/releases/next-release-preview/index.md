@@ -50,7 +50,7 @@ changelog.
         timeout-ms: 1 hr (default)
     ```
   
-- Orca can now be configured to use shared managed service accounts. Unlike managed service accounts, which are created per pipeline, these are generated per unique combination of roles. This can significantly reduce the number of service accounts that Fiat needs to process during role sync and real-time auth calls, which can lead to errors when saving new pipelines or authenticating user requests if the sync or auth is slow enough. This introduces a new configurable option, `useSharedManagedServiceAccounts`, which defaults too false:
+- Orca can now be configured to use shared managed service accounts. Unlike managed service accounts, which are created per pipeline, these are generated per unique combination of roles. This can significantly reduce the number of service accounts that Fiat needs to process during role sync and real-time auth calls, which can lead to errors when saving new pipelines or authenticating user requests if the sync or auth is slow enough. This introduces a new configurable option, `useSharedManagedServiceAccounts`, which defaults to false:
     ```
     orca:
       tasks:
