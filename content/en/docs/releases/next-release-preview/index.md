@@ -57,6 +57,8 @@ changelog.
         useSharedManagedServiceAccounts: true
     ```
 
+- Added the capability to use pipeline expressions within ECS task definitio Artifacts. This can be enabled by setting ```evaluateTaskDefinitionArtifactExpressions: true```. Task definition artifacts can have pipeline expressions and it will be evaluated at run time. Pipeline expressions has ```${expression here}``` syntax. he example of the pipeline expression evaluation is given ![here](content/en/docs/releases/next-release-preview/Screen_Shot_for_override_task_defintion_using_SpEL.png)
+
 ### Deck
 
 - A new property called `apiTimeoutMs` has been added to the configurable settings. This property specifies what the timeout should be when Deck makes API calls to other microservices. This property is not a required property.
