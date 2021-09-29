@@ -105,7 +105,7 @@ aws secretsmanager get-secret-value --secret-id FROM_ABOVE --region us-west-2
 
 curl -O -L https://spinnaker.io/downloads/aws/managed.yaml
 aws cloudformation deploy --stack-name spinnaker-managed-infrastructure-setup --template-file managed.yaml \
---parameter-overrides AuthArn=FROM_ABOVE ManagingAccountId=FROM_ABOVE --capabilities CAPABILITY_NAMED_IAM --region us-west-2
+--parameter-overrides AuthArn=FROM_ABOVE --capabilities CAPABILITY_NAMED_IAM --region us-west-2
 ```
 
 ## Option 3: Configure with AWS IAM Console

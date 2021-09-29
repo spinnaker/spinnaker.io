@@ -4,9 +4,6 @@ Parameters:
   AuthArn:
     Description: ARN which Spinnaker is using. It should be the ARN either of the IAM user or the EC2 Instance Role, which is used by Spinnaker in Managing Account
     Type: String
-  ManagingAccountId:
-    Description: AWS Account number, in which Spinnaker is running
-    Type: String
 
 Resources:
 
