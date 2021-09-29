@@ -57,7 +57,9 @@ changelog.
         useSharedManagedServiceAccounts: true
     ```
 
-- Added the capability to use pipeline expressions within ECS task definitio Artifacts. This can be enabled by setting ```evaluateTaskDefinitionArtifactExpressions: true```. Task definition artifacts can have pipeline expressions and it will be evaluated at run time. Pipeline expressions has ```${expression here}``` syntax. he example of the pipeline expression evaluation is given ![here](content/en/docs/releases/next-release-preview/Screen_Shot_for_override_task_defintion_using_SpEL.png)
+- Added the capability to use pipeline expressions within ECS task definition Artifacts. You can enable this by setting `evaluateTaskDefinitionArtifactExpressions: true`. Task definition artifacts can have pipeline expressions that are evaluated at run time. The Pipeline expression has `${expression here}` syntax. Here is an example of the Pipeline expression evaluation:
+
+   {{< figure src="Screen_Shot_for_override_task_defintion_using_SpEL.png" caption="<center>Override Task Definition Using SPEL</center>" alt="Override Task Definition Using SPEL">}}
 
 ### Deck
 
