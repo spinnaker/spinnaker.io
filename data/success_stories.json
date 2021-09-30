@@ -30,7 +30,7 @@
       "name": "Netflix",
       "link": "https://medium.com/netflix-techblog/global-continuous-delivery-with-spinnaker-2a6896c23ba7",
       "logo": "cases-logos/netflix.jpg",
-      "text": "The community uptake has been tremendous. Having a platform that has an extensible model, and accommodates multiple cloud providers out of the box, means that we are one large community rather than a bunch of micro-communities focused on various forks. This has the benefit of allowing everyone within the community to take advantage of various innovations."
+      "text": "The community uptake around Spinnaker since open sourcing in 2015 has been tremendous. Offering an extensible model with out-of-the-box support for multiple cloud providers brought a community together that spanned countries, companies, and clouds. This community remains focused on democratizing common patterns, be it blue/green deployments or canaries, and making them accessible to companies of any size.  More than six years later, Spinnaker remains a critical component of the software delivery ecosystem at Netflix."
     },
     {
       "name": "Waze",
