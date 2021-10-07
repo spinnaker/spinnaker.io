@@ -276,15 +276,14 @@ the microservices API.
 These metrics will have several time series, such as those with the
 following tag bindings:
 
-account | controller | method | status | statusCode | success
------------|--------------|------------|----------|-----------------|-----
-my-account | ClusterController | getForAccountAndNameAndType | 2xx | 200 | true
-my-account | ClusterController | getForAccountAndNameAndType | 4xx | 404 | false
-my-account | ClusterController | getForAccountAndNameAndType | 4xx | 400 | false
-                           | ApplicationsController | list | 2xx | 200 | true
-                           | ApplicationsController | get | 2xx | 200 | true
-                           | ApplicationsController | get | 4xx | 404 | false
-
+| account    | controller             | method                      | status | statusCode | success |
+|------------|------------------------|-----------------------------|--------|------------|---------|
+| my-account | ClusterController      | getForAccountAndNameAndType | 2xx    | 200        | true    |
+| my-account | ClusterController      | getForAccountAndNameAndType | 4xx    | 404        | false   |
+| my-account | ClusterController      | getForAccountAndNameAndType | 4xx    | 400        | false   |
+| None       | ApplicationsController | list                        | 2xx    | 200        | true    |
+| None       | ApplicationsController | get                         | 2xx    | 200        | true    |
+| None       | ApplicationsController | get                         | 4xx    | 404        | false   |
 
 You can aggregate over the success tag to count successful calls vs failures,
 perhaps breaking out by controller and/or method to see where the failures
