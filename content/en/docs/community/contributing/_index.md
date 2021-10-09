@@ -16,7 +16,7 @@ We'll probably end up doing something like this, but at the moment we're explori
 
 In the meantime, if you're really excited about contributing and don't want to wait until we have all of this worked out, please reach out to us on [Slack](http://join.spinnaker.io). We love accepting community patches!
 
-For more details about the patch submission process, look at [How to submit a patch](/docs/community/contributing/submitting/).
+For more details about the patch submission process, look at [How to submit a patch](https://spinnaker.io/docs/community/contributing/code/releasing/).
 
 ## How to run Spinnaker locally for development
 
