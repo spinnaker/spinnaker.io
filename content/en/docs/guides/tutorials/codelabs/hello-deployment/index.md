@@ -26,14 +26,16 @@ image. Spinnaker expects all applications to be deployed as deb packages.
 
 If you already have a Jenkins server, you can skip this step.
 
+Please refer to the instruction at http://pkg.jenkins-ci.org/debian/ for updated commands(In the event you run into issues )
+
 SSH into your instance and run the following:
 
 ```
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install openjdk-8-jdk
-wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
-sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
 sudo apt-get install jenkins git
 ```
@@ -88,6 +90,7 @@ Next edit the properties of your bucket and turn on static website hosting.
 
 
 We will now install deb-s3 on our Jenkins server.
+
 
 Log in to your Jenkins user (you may need to add it to your sudoers file) and install Ruby and
 bundler:
