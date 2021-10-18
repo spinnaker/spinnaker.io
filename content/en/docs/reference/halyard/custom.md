@@ -169,10 +169,10 @@ Node selector annotations will put out `nodeSelector` values in the Pod specific
 
 ```
 kubernetes:
-  nodeSelectors:
+  nodeSelector:
      exampleNodeKey: exampleNodeValue
   deploymentEnvironment:
-    nodeSelectors:
+    nodeSelector:
       exampleNodeKey: exampleNodeValue
 ```
 
