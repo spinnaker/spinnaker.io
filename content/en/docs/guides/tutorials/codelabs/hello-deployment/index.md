@@ -26,7 +26,7 @@ image. Spinnaker expects all applications to be deployed as deb packages.
 
 If you already have a Jenkins server, you can skip this step.
 
-Please refer to the instruction at http://pkg.jenkins-ci.org/debian/ for updated commands(In the event you run into issues )
+In the event you run into issues with these example commands, refer to the instructions at http://pkg.jenkins-ci.org/debian/ for updated commands.
 
 SSH into your instance and run the following:
 
