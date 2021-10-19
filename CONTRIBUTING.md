@@ -8,7 +8,7 @@ Relevant resources for Spinnaker contributors:
 - [Code of Conduct](https://spinnaker.io/docs/community/contributing/code-of-conduct/)
 - [Join Us on Slack](http://join.spinnaker.io) 
 - [Contributing](https://spinnaker.io/docs/community/contributing/)
-- [How to Submit a Patch](https://spinnaker.io/docs/community/contributing/submitting/) (includes commit and PR message conventions)
+- [How to Submit a Patch](https://spinnaker.io/docs/community/contributing/code/releasing/) (includes commit and PR message conventions)
 - [Make a Change Using a Local Clone](https://spinnaker.io/docs/community/contributing/local-clone/)
 - [Developer How-Tos](https://spinnaker.io/docs/community/contributing/code/developer-guides/)
 
