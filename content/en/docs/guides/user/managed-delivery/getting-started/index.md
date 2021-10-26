@@ -178,7 +178,7 @@ Commit the file you created earlier (`.spinnaker/spinnaker.yml`) and push it to 
 It's hard to get YAML right every time.
 We have an endpoint where you can check if your YAML is right and see if there is a diff between your desired state (in your YAML) and the current state of the resource.
 
-In the swagger api view of your Spinnaker intsance, scroll to the `managed-controller` and find the `/managed/delivery-configs/diff` endpoint.
+In the swagger api view of your Spinnaker instance, scroll to the `managed-controller` and find the `/managed/delivery-configs/diff` endpoint.
 
 Paste in your delivery config YAML file, choose `application/x-yaml` for the content type, and hit `execute`.
 If the resource YAML has an invalid format, you'll get an error back with the reason why.
