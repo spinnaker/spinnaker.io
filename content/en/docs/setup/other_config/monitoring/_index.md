@@ -6,148 +6,53 @@ description: >
   Each Spinnaker microservice is instrumented with numerous metrics exposed via a built in endpoint.
 ---
 
+
+> The Spinnaker Observability plugin replaces the spinnaker monitoring daemon
+ which was deprecated as of OSS 1.20.
+
 Each Spinnaker microservice is instrumented with numerous metrics exposed
 via a built in endpoint. Monitoring spinnaker typically involves the
-spinnaker-monitoring daemon, which collects metrics reported by each
+Spinnaker Observability plugin, which collects metrics reported by each
 microservice instance and reports them to a third-party monitoring system
 which you then use to view overview dashboards, receive alerts, and
 informally browse depending on your needs.
+
+The plugin currently supports two specific third-party systems:
+[Prometheus](https://prometheus.io/),
+and [New Relic](https://newrelic.com/). The plugin is
+extensible so that it should be straightforward to add other systems as well.
 
 Spinnaker publishes internal metrics using a multi-dimensional data model
 based on "tags". The metrics, data-model, and usage are discussed further
 in the sections [Consuming Metrics](#consuming-metrics) and in the
 [Monitoring Reference document](/docs/reference/monitoring/).
 
-Spinnaker currently supports three specific third-party systems:
-[Prometheus](https://prometheus.io/),
-[Datadog](https://www.datadoghq.com/),
-and [Stackdriver](http://www.stackdriver.com/). The daemon is
-extensible so that it should be straightforward to add other systems as well.
-In fact, each of the supported systems was provided using the daemon's extension
-mechanisms -- there are no "native" systems.
-
 You can also use the microservice HTTP endpoint `/spectator/metrics`
 directly to scrape metrics yourself. The JSON document structure is
 further documented in the Monitoring reference section.
 
-The daemon can be configured to control which collected metrics are forwarded
+The plugin can be configured to control which collected metrics are forwarded
 to the persistent metrics store. This can alleviate costs and pressure on the
 underlying metric stores depending on your situation.
 
 
-## Configuring Spinnaker monitoring
+To read more about the spinnaker monitoring daemon deprecation, check out the
+[announcement](https://blog.spinnaker.io/announcing-the-new-spinnaker-observability-plugin-d7fbb17e1e07).
 
-Halyard ensures that the Spinnaker monitoring daemon is installed on every
-host that runs a Spinnaker service capable of being monitored, and is provided
-with the necessary configuration to supply the third-party system of your
-choice with each Spinnaker service's metrics. To do so, Halyard must be
-provided with third-party specific credentials and/or endpoints explained
-in each system's configuration below:
 
-* [Datadog](/docs/setup/other_config/monitoring/datadog/)
-* [Prometheus](/docs/setup/other_config/monitoring/prometheus/#configure-the-spinnaker-monitoring-daemon-for-prometheus)
-* [Stackdriver](/docs/setup/other_config/monitoring/stackdriver/#configure-the-spinnaker-monitoring-daemon-for-stackdriver)
+## Configuring the Spinnaker Observability Plugin
 
-Once this is complete and Spinnaker is deployed, you can optionally use the
-`spinnaker-monitoring-third-party` package to deploy pre-configured [Spinnaker
-dashboards](#supplied-dashboards) to your third-party system of choice.
+The instructions on how to install and configure the plugin can be found on
+the [armory website](https://docs.armory.io/docs/armory-admin/prometheus-monitoring/#configure-monitoring-using-the-observability-plugin).
 
-See also [`hal config metric-stores`](/docs/reference/halyard/commands/#hal-config-metric-stores).
+Additional information on how to configure the plugin can be found below.
 
-### Configuring metric filters
+* [Prometheus](https://github.com/armory-plugins/armory-observability-plugin#condensed-prometheus-example)
+* [New Relic](https://github.com/armory-plugins/armory-observability-plugin#condensed-nr-example)
 
-*Experimental*: This is an experimental feature added into Spinnaker 1.10
-which will likely hang around for a few future versions but likely be
-obsoleted by a different longer term mechanism to control filtering
-metrics.
-
-The daemon has a "metric_filter_dir" property that can point to a directory containing
-metric filter specifications. The default directory is /opt/spinnaker-monitoring/filters.
-You can configure filters for all services in `default.yml`, and override the filters per
-service in <service>.yml. By default, all metrics will be forwarded.
-
-Halyard will automatically configure the metric_filter_dir and install the
-filters if you place the yaml files in the directory
-`~/.hal/default/profiles/monitoring-daemon/filters`.
-
-A filter specification is a collection of regular expressions indicating which meters
-to include and/or exclude. Internal to spinnaker, metrics are produced by meters where
-the name of the meter is the name of the metric. The specification is flexible to
-allow for general rules about what to include or exclude. Only the clauses of
-interest need to be present.
-
-```yaml
-meters:
-  # If this section is empty, then all meters are assumed to match.
-  #
-  # names in byLiteralName have highest precedence.
-  # Otherwise, the metric will not be included if it matches excludeNameRegex.
-  # Otherwise, the metric will be included if it matches byNameRegex.
-  #    If the name matches multiple byNameRegex then a random entry is taken.
-  byLiteralName:
-    # If the name appears here, it will be included
-    - <explicit metric name>:
-
-  byNameRegex:
-    # If the name matches a regex here, it will be included.
-    - <metric name regex>:
-
-  excludeNameRegex:
-    # If the name matches a regex here, it will not be included,
-    # unless it also appears in byLiteralName.
-    - <metric name regex>
-```
-
-### Example Filter configurations
-
-Only include two metrics:
-
-```yaml
-monitoring:
-  filters:
-    meters:
-      byLiteralName:
-        - controller.invocations
-        - jvm.memory.used
-```
-
-Exclude add jvm and redis metrics
-
-```yaml
-monitoring:
-  filters:
-    meters:
-      excludeNameRegex:
-        - redis.*
-        - jvm.*
-```
-
-Exclude all jvm metrics except for `jvm.memory.used`
-
-```yaml
-monitoring:
-  filters:
-    meters:
-      byLiteralName:
-        - jvm.memory.used
-
-      excludeNameRegex:
-        - jvm.*
-```
-
-Include all jvm metrics except for `jvm.memory.used`
-
-```yaml
-monitoring:
-  filters:
-    meters:
-      byNameRegex:
-        - jvm.*
-
-      excludeNameRegex:
-        - jvm.memory.used
-```
-
+Once this is complete, you can optionally use the
+[spinnaker-mixin](https://github.com/uneeq-oss/spinnaker-mixin) package to deploy pre-configured [Spinnaker
+dashboards](#supplied-dashboards) for Grafana.
 
 ## Consuming metrics
 
@@ -180,14 +85,6 @@ handy when it comes time to diagnose problems or investigate for deeper
 understanding of runtime behaviors but you can aggregate across dimensions
 (or parts of dimensions) when you dont care about that level of refinement.
 
-Each microservice defines and exports its own metrics. The
-`spinnaker-monitoring` daemon augments these by identifying which
-microservice they came from (how it does so depends on the backend
-metrics system you are using). There are no global "Spinnaker" metrics.
-There are only individual metrics on the individual instance of
-concrete microservices that, taken together, compose a "Spinnaker" deployment.
-
-
 ### Types of metrics
 
 There are two basic types of metrics currently supported,
@@ -202,7 +99,7 @@ There are two basic types of metrics currently supported,
     Counters are scoped to the process they are in. If you have a counter
     in each of two different microservice replicas (including a restart),
     those counters will be independent of one another. Each process only
-    knows about itself. The daemon adds a tag to each data point that
+    knows about itself. The plugin adds a tag to each data point that
     identifies which instance it came from so that you can drill down
     into individual instances if you need. However, typically you will
     use your monitoring system to aggregate counters across all replicas.
@@ -221,11 +118,6 @@ There are two basic types of metrics currently supported,
       Spinnaker, a Timer will have two complementary time series.
       One will have a tag "statistic" with the value "count" and
       the other a tag with a "statistic" with the value "totalTime".
-
-      The Monitoring Daemon transforms these into two distinct
-      counters and removes the "statistic" label entirely. The
-      "count" counter is named with the original metric name plus
-      a "__count" suffix. The "totalTime" with a "__totalTime" suffix.
 
       The "count" represents the number of measurements taken.
       The "totalTime" represents the number of nanoseconds measured
@@ -295,7 +187,7 @@ semantics. Some of these tags may be of more interest than others. In
 the case above, some of the tags are at different levels of abstraction
 and not actually independent. For example a 2xx status will always be
 success=true and a non-2xx status code will always be success=false.
-Which to use is a matter of convienence but given the status tag (which
+Which to use is a matter of convenience but given the status tag (which
 can distinguish 4xx from 5xx errors) the success tag does not add any
 additional time-series permutations since its value is not actually
 independent.
