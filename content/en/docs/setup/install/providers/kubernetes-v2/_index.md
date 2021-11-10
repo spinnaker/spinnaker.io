@@ -127,10 +127,10 @@ rules:
     resources: ['horizontalpodautoscalers']
     verbs: ['list', 'get']
   - apiGroups: ['apps']
-    resources: ['controllerrevisions', 'statefulsets']
+    resources: ['controllerrevisions']
     verbs: ['list']
   - apiGroups: ['extensions', 'apps']
-    resources: ['deployments', 'replicasets', 'ingresses']
+    resources: ['daemonsets', 'deployments', 'deployments/scale', 'ingresses', 'replicasets', 'statefulsets']
     verbs:
       [
         'create',

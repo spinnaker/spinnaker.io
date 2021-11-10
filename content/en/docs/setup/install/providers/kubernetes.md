@@ -134,10 +134,10 @@ rules:
   resources: ["horizontalpodautoscalers"]
   verbs: ["list", "get"]
 - apiGroups: ["apps"]
-  resources: ["controllerrevisions", "statefulsets"]
+  resources: ["controllerrevisions"]
   verbs: ["list"]
-- apiGroups: ["extensions", "app", "apps"]
-  resources: ["deployments", "replicasets", "ingresses", "daemonsets"]
+- apiGroups: ["extensions", "apps"]
+  resources: ["daemonsets", "deployments", "deployments/scale", "ingresses", "replicasets", "statefulsets"]
   verbs: ["*"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1

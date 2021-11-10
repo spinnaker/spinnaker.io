@@ -114,10 +114,10 @@ rules:
   resources: ["horizontalpodautoscalers"]
   verbs: ["list", "get"]
 - apiGroups: ["apps"]
-  resources: ["controllerrevisions", "statefulsets"]
+  resources: ["controllerrevisions"]
   verbs: ["list"]
 - apiGroups: ["extensions", "apps"]
-  resources: ["deployments", "deployments/scale", "replicasets", "ingresses"]
+  resources: ["daemonsets", "deployments", "deployments/scale", "ingresses", "replicasets", "statefulsets"]
   verbs: ["create", "delete", "deletecollection", "get", "list", "patch", "update", "watch"]
 # These permissions are necessary for halyard to operate. We use this role also to deploy Spinnaker itself.
 - apiGroups: [""]
