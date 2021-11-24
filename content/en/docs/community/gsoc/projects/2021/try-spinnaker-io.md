@@ -8,7 +8,7 @@ sidebar:
 
 **Status**: Active
 
-**Source Code**: https://github.com/ko28/try.spinnaker.io 
+**Source Code**: https://github.com/spinnaker/try.spinnaker.io 
 ## Team
 - Student: Daniel Ko
 - Mentor(s): Fernando Freire, Dan Johnston, Cameron Motevasselani
@@ -33,6 +33,9 @@ Key features include
   - Deploy demo web app
   - Deploy using [highlander][] strategy 
 
+## Demos
+- [Phase 1][]
+- [Phase 2][]
 
 [minnaker]: https://github.com/armory/minnaker
 [Go Playground]: https://play.golang.org/
@@ -40,3 +43,5 @@ Key features include
 [highlander]: https://spinnaker.io/docs/guides/user/kubernetes-v2/rollout-strategies/#highlander-rollouts
 [Spinnaker Operator]: https://github.com/armory/spinnaker-operator
 [portieris]: https://github.com/IBM/portieris
+[Phase 1]: https://youtu.be/-_MRDYxtOrs
+[Phase 2]: https://youtu.be/bBat90NUMsg?t=1865
