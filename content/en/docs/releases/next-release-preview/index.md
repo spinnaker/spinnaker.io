@@ -36,6 +36,7 @@ changelog.
       replicaTtlSeconds: 60  //current timestamp plus this value makes the ttl for the pod's heartbeat record, default is 60 
       heartbeatIntervalSeconds: 30 //interval to refresh heartbeat records, default is 30
     ``` 
+- Ability to convert EC2 server groups backed by launch template to use [mixed instances policy](https://spinnaker.io/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates/#additional-features). [Here](https://spinnaker.io/docs/setup/other_config/server-group-launch-settings/aws-ec2/launch-templates/#convert-a-server-group-with-launch-template-to-use-mixed-instances-policy-with-multiple-instance-types-and-capacity-weighting) is a sample API request.
 
 ### Orca
 
@@ -60,6 +61,7 @@ changelog.
 ### Deck
 
 - A new property called `apiTimeoutMs` has been added to the configurable settings. This property specifies what the timeout should be when Deck makes API calls to other microservices. This property is not a required property.
+- Support for configuring [EC2 Auto Scaling Capacity Rebalancing](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) under [`Advanced Settings`](https://github.com/spinnaker/deck/pull/9369).
     
 ### Front50
 
