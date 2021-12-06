@@ -21,16 +21,18 @@ anything you must enable at least one provider, with one Account added for it.
 
 Add as many of the following providers as you need. When you're done, return to this page.
 
-* [App Engine](/docs/setup/install/providers/appengine/)
-* [Amazon Web Services](/docs/setup/install/providers/aws/)
+* [AWS](/docs/setup/install/providers/aws/)
+* [Kubernetes](/docs/setup/install/providers/kubernetes-v2/)
 * [Azure](/docs/setup/install/providers/azure/)
 * [Cloud Foundry](/docs/setup/install/providers/cf/)
 * [DC/OS](/docs/setup/install/providers/dcos/)
+* [Docker Registry](/docs/setup/install/providers/docker-registry/)
+* [Google App Engine](/docs/setup/install/providers/appengine/)
 * [Google Compute Engine](/docs/setup/install/providers/gce/)
-* [Kubernetes](/docs/setup/install/providers/kubernetes-v2/)
+* [Kubernetes (legacy provider)](/docs/setup/install/providers/kubernetes/)
 * [Oracle](/docs/setup/install/providers/oracle/)
 
-See also [`hal config provider`](/docs/reference/halyard/commands/#hal-config-provider)
+See also [hal config provider](/docs/reference/halyard/commands/#hal-config-provider)
 for command reference documentation.
 
 ## Next steps
