@@ -15,8 +15,8 @@ Pipeline's execution.
 > **Note**:  It's possible to configure multiple pipelines to trigger off of
 > a single Pub/Sub message.
 
-Only Google Pub/Sub is supported. See the instructions
-[here](/docs/setup/other_config/triggers/google/) to set up Google Pub/Sub.
+Only Google and AWS Pub/Sub systems are supported. See the detailed instructions for 
+[Google Pub/Sub](/docs/setup/other_config/triggers/google/) and [AWS SQS/SNS](/docs/setup/other_config/triggers/amazon/).
 
 ## Prerequisites
 
