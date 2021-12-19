@@ -18,7 +18,7 @@ Spinnaker is composed of a number of independent microservices:
 
 - [Orca](https://github.com/spinnaker/orca) is the orchestration engine.
   It handles all ad-hoc operations and pipelines.
-  Read more on the [Orca Service Overview](/docs/guides/developer/service-overviews/orca).
+  Read more on the [Orca Service Overview](/docs/community/contributing/code/developer-guides/service-overviews/orca/).
 
 - [Clouddriver](https://github.com/spinnaker/clouddriver) is responsible for all
   mutating calls to the cloud providers and for indexing/caching all deployed
