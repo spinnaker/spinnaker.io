@@ -442,4 +442,4 @@ If you want to debug the backend component of the plugin without a working Deck 
 
 ## Resources
 
-You can ask for help with plugins in the [Spinnaker Slack's](https://join.spinnaker.io/) `#plugins` channel.
+You can ask for help with plugins in the [Spinnaker Slack](https://join.spinnaker.io/)'s `#plugins` channel.

@@ -193,6 +193,7 @@ Note that a number of these parameters complement each other. So, combining them
 
 #### Create a Server Group with launch template
 After enabling the launch template feature set is Clouddriver and/or Deck, set `setLaunchTemplate` to true in order to indicate Spinnaker to create your Server Group with an EC2 launch template.
+
 ```bash
 curl -H 'Content-Type: application/json' -d '{ "job": [
   {
@@ -202,6 +203,7 @@ curl -H 'Content-Type: application/json' -d '{ "job": [
     "application": "myAwsApp",
     "stack": "myStack",
     "credentials": "my_aws_account",
+    "subnetType": "public-subnet",
     "availabilityZones": {"us-west-1": ["us-west-1a","us-west-1b","us-west-1c"]},
     "amiName": "ami-12345",
     "capacity": {"desired": 5,"max": 7,"min": 5},
@@ -296,6 +298,7 @@ curl -H 'Content-Type: application/json' -d '{ "job": [
     "application": "myAwsApp",
     "stack": "myStack",
     "credentials": "my_aws_account",
+    "subnetType": "public-subnet",
     "availabilityZones": {"us-west-1": ["us-west-1a","us-west-1b","us-west-1c"]},
     "amiName": "ami-12345",
     "capacity": {"desired": 5,"max": 7,"min": 5},

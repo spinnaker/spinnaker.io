@@ -18,7 +18,7 @@ specific things to allow Spinnaker to authenticate against your cluster.
 
 If you don't already have a cluster for this purpose, you can create a
 Kubernetes cluster on GKE using either
-[`gcloud`](https://cloud.google.com/sdk/gcloud/) or the [the Cloud
+[gcloud](https://cloud.google.com/sdk/gcloud/) or the [the Cloud
 Console](https://console.cloud.google.com/) as shown in the [official
 documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster#creating_a_cluster).
 Third party tools like
