@@ -59,7 +59,7 @@ make the required fixes to allow them to merge. (You can ignore `keel` and
 
 1. Start with a [blue build on master](https://builds.spinnaker.io/job/Flow_BuildAndValidate/).
 
-1. Create the release branches by running the [**Admin_StartReleaseBranch**](https://builds.spinnaker.io/job/Admin_StartReleaseBranch/build?delay=0sec)
+1. Create the release branches by running the [Admin_StartReleaseBranch](https://builds.spinnaker.io/job/Admin_StartReleaseBranch/build?delay=0sec)
 job, which creates `latest-unvalidated` when it passes:
 
     1. Set **NEW_BRANCH_NAME** to `${RELEASE_BRANCH}` (e.g., `release-1.20.x`).

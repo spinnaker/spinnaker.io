@@ -61,11 +61,11 @@ changelog.
 ### Deck
 
 - A new property called `apiTimeoutMs` has been added to the configurable settings. This property specifies what the timeout should be when Deck makes API calls to other microservices. This property is not a required property.
-- Support for configuring [EC2 Auto Scaling Capacity Rebalancing](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) under [`Advanced Settings`](https://github.com/spinnaker/deck/pull/9369).
+- Support for configuring [EC2 Auto Scaling Capacity Rebalancing](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) under [Advanced Settings](https://github.com/spinnaker/deck/pull/9369).
     
 ### Front50
 
-- Front50 now supports migrations to migrate from managed service accounts to shared managed service accounts. [Check out the feature's PR for an example of using the new migrations](https://github.com/spinnaker/front50/pull/1022). This introduces two new configurable options:
+- Front50 now supports migrations to migrate from managed service accounts to shared managed service accounts. [Check out the PR of the feature for an example of using the new migrations](https://github.com/spinnaker/front50/pull/1022). This introduces two new configurable options:
     ```
     front50:
       migrations:
