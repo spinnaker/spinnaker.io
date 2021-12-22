@@ -27,10 +27,10 @@ See [Managing Regions](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks
 See [How to Generate an API Signing Key](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How). 
 (e.g. `--ssh-private-key-file-path /home/ubuntu/.oci/myPrivateKey.pem`)
 - Fingerprint of the public key. 
-See [How to Get the Key's Fingerprint](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How3). 
+See [How to Get the Fingerprint of the Key](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#How3). 
 (e.g. `--fingerprint 11:22:33:..:aa`)
 - Tenancy's OCID and user's OCID.
-See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#Other). 
+See [Where to Get the Tenancy and User OCIDs](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm#Other). 
 (e.g. `--tenancyId ocid1.tenancy.oc1..aa... --user-id ocid1.user.oc1..aa...`)
 - Compartment OCID: On Oracle Cloud Console, open the navigation menu. Under Governance and Administration, go to Identity and click Compartments. 
 See [Managing Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm). 

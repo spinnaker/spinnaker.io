@@ -28,9 +28,8 @@ First, determine the URL of your Redis installation. Some examples include:
 
 We will refer to this as `$REDIS_ENDPOINT`.
 
-Using [Halyard's custom
-configuration](/docs/reference/halyard/custom#custom-service-settings) we will
-create the following file `~/.hal/$DEPLOYMENT/service-settings/redis.yml`:
+Using Halyard's [custom configuration](/docs/reference/halyard/custom#custom-service-settings)
+we will create the following file `~/.hal/$DEPLOYMENT/service-settings/redis.yml`:
 
 ```yaml
 overrideBaseUrl: $REDIS_ENDPOINT
@@ -65,9 +64,8 @@ If your single Redis node is overloaded, you can configure Spinnaker's services
 to use different Redis endpoints. _You will need to manage these Redis
 installations yourself, Halyard does not create them for you_.
 
-Using [Halyard's custom
-configuration](/docs/reference/halyard/custom#custom-profiles) we will
-create the following file `~/.hal/$DEPLOYMENT/profiles/$SERVICE-local.yml`:
+Using Halyard's [custom configuration](/docs/reference/halyard/custom#custom-service-settings)
+we will create the following file `~/.hal/$DEPLOYMENT/profiles/$SERVICE-local.yml`:
 
 ```yaml
 services.redis.baseUrl: $REDIS_ENDPOINT

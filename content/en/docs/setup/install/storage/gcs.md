@@ -17,7 +17,7 @@ data in a [Bucket](https://cloud.google.com/storage/docs/json_api/v1/buckets).
 You need a [Google Cloud Platform](https://cloud.google.com/)
 (GCP) project to host your bucket in. The next steps assume you've already
 [created a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects),
-and installed [`gcloud`](https://cloud.google.com/sdk/downloads).
+and installed [gcloud](https://cloud.google.com/sdk/downloads).
 You can check that `gcloud` is installed and authenticated by running:
 
 ```bash

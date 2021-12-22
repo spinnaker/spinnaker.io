@@ -20,7 +20,7 @@ Install `kubectl` to manage Kubernetes and `aws-iam-authenticator` to manage clu
 
 ```
 # Download and install kubectl
-`curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
@@ -195,10 +195,10 @@ hal config deploy edit --type distributed --account-name eks-spinnaker
 You will need your AWS account access key and secret access key.
 
 ```
-export`` YOUR_ACCESS_KEY_ID``=<``access``-``key``>`
+export YOUR_ACCESS_KEY_ID=<access-key>
 
-`hal config storage s3 edit ``--``access``-``key``-``id $YOUR_ACCESS_KEY_ID \`
-` ``--``secret``-``access``-``key ``--``region us``-``west``-``2
+hal config storage s3 edit --access-key-id $YOUR_ACCESS_KEY_ID \
+   --secret-access-key --region us-west-2
 ```
 
 Enter your AWS account secret access key at the prompt.

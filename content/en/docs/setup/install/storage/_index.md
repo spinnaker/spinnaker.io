@@ -31,7 +31,7 @@ completed the section, return to this page.
 * [Oracle Object Storage](/docs/setup/install/storage/oracle)
 
 
-See also [`hal config storage`](/docs/reference/halyard/commands/#hal-config-storage).
+See also [hal config storage](/docs/reference/halyard/commands/#hal-config-storage).
 
 ## Next steps
 
