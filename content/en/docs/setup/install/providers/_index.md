@@ -29,7 +29,6 @@ Add as many of the following providers as you need. When you're done, return to 
 * [Docker Registry](/docs/setup/install/providers/docker-registry/)
 * [Google App Engine](/docs/setup/install/providers/appengine/)
 * [Google Compute Engine](/docs/setup/install/providers/gce/)
-* [Kubernetes (legacy provider)](/docs/setup/install/providers/kubernetes/)
 * [Oracle](/docs/setup/install/providers/oracle/)
 
 See also [hal config provider](/docs/reference/halyard/commands/#hal-config-provider)
