@@ -52,7 +52,7 @@ Look through the code or ask in the [Spinnaker Slack](https://join.spinnaker.io/
 
 ## Example ExtensionPoint plugin
 
-The [pf4jStagePlugin](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin) creates a custom pipeline stage that waits a specified number of seconds before signaling success. Consult the [Pipeline Stage Plugin Walkthrough](/docs/v1/guides/developer/plugin-creators/stage-plugin-walkthrough/) for a detailed explanation of this plugin.
+The [pf4jStagePlugin](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin) creates a custom pipeline stage that waits a specified number of seconds before signaling success. Consult the [Pipeline Stage Plugin Walkthrough](/docs/community/contributing/code/developer-guides/plugin-creators/stage-plugin-walkthrough/) for a detailed explanation of this plugin.
 
 ## Interface (Non-ExtensionPoint) plugins
 
