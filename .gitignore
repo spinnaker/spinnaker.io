@@ -22,3 +22,5 @@ themes/**
 
 # Local Netlify folder
 .netlify
+
+.idea/
