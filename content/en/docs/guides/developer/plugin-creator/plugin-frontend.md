@@ -245,7 +245,7 @@ include "my-plugin-deck"
 
 ### Create distribution files
 
-Spinnaker needs a `repositories.json` file and a `plugins.json` file to install a plugin. `repositories.json` represents a set of pointers to plugin files, and `plugins.json` lists all versions of a particular plugin. See the [Plugin Users Guide](/docs/guides/user/plugins/index) for more information.
+Spinnaker needs a `repositories.json` file and a `plugins.json` file to install a plugin. `repositories.json` represents a set of pointers to plugin files, and `plugins.json` lists all versions of a particular plugin. See the [Plugin Users Guide](/docs/guides/user/plugins-users/) for more information.
 
 The format of the `repositories.json` file looks like this:
 
@@ -322,6 +322,6 @@ profiles:
 
 * [Test your plugin locally using Minnaker]({{< ref "plugin-deck-test.md" >}})
 * [Plugin Compatibility Testing]({{< ref "compatibility-testing.md" >}})
-* [Deploy your plugin using Halyard](/docs/guides/user/plugins/)
+* [Deploy your plugin using Halyard](/docs/guides/user/plugins-users/plugin-deploy-example/)
 
 {{% include "plugins-spin-operator.md" %}}
