@@ -15,8 +15,8 @@ description: >
 ### Kork
 
 1. Make desired changes to `kork` module locally.
-2. Invoke `$ ./gradlew -PenablePublishing=true publishToMavenLocal`.
-3. Make note of the version printed:
+2. Invoke `$ ./gradlew -PenablePublishing=true -Pversion=0.1.0-SNAPSHOT publishToMavenLocal`.
+3. Make note of the version:
 
 ```
 $ ./gradlew -PenablePublishing=true publishToMavenLocal
@@ -39,7 +39,7 @@ repositories {
 
     ```
     eachDependency {
-      if (it.requested.group == 'com.netflix.spinnaker.kork') it.useVersion '0.1.0-SNAPSHOT'
+      if (it.requested.group == 'io.spinnaker.kork') it.useVersion '0.1.0-SNAPSHOT'
     }
     ```
 
