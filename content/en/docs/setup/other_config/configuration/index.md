@@ -229,7 +229,7 @@ encrypt:
   key: mykey
 ```
 
-For more information about using the Config Server's encryption and decryption features, see the [Spring Cloud Config Server documentation](https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.2.1.RELEASE/single/spring-cloud-config.html#_encryption_and_decryption). 
+For more information about using the Config Server's encryption and decryption features, see the [Spring Cloud Config Server documentation](https://docs.spring.io/spring-cloud-config/docs/2.2.4.RELEASE/reference/html/#_encryption_and_decryption). 
 
 ## External configuration refresh
 
