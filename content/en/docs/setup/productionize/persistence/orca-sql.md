@@ -1,7 +1,7 @@
 ---
 
 title:  "Set up Orca to use SQL"
-description: You can configure Clouddriver to use a MySQL compatible database in place of Redis for all of its persistence use cases. This provides more resiliency for your deployment.
+description: You can configure Orca to use a MySQL compatible database in place of Redis for all of its persistence use cases. This provides more resiliency for your deployment.
 ---
 
 Orca's execution state is stored in Redis by default, but can be configured for SQL. 
