@@ -24,14 +24,6 @@ subcomponent.
 
 ## Latest stable
 
-{{% pageinfo color="primary" %}}
-**Note**: In upcoming versions, Spinnaker will be migrating to Java 11 from Java 8. This should not affect Spinnaker users. If you extend Spinnaker, this may affect you. For more information about the current status of the migration, see the [Java 11 RFC](https://github.com/spinnaker/governance/blob/master/rfc/java11.md).
-{{% /pageinfo %}}
-
-{{% pageinfo color="primary" %}}
-**Note**: Spinnaker versions 1.18.0 and later require Halyard version 1.29.0 or later.
-{{% /pageinfo %}}
-
 {{< latest-stable >}}
 
 > To be notified when new Spinnaker versioned releases are available, please join the
