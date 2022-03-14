@@ -258,7 +258,7 @@ to merge outstanding changes ASAP:
     1. Each Spin CLI release is tied to a version of Gate. To ensure
        compatibility, regenerate the Gate Client API.
 
-    1. From the `gate` repository, check out the release branch and generate the `swagger/swagger.json` file (it's not under source control):
+    1. From the `gate` repository, check out the release branch at the new release tag and generate the `swagger/swagger.json` file (it's not under source control):
 
     ```
     ./swagger/generate_swagger.sh
@@ -266,23 +266,9 @@ to merge outstanding changes ASAP:
 
     1. From the `spin` repository, check out the release branch (release branches from `gate` and `spin` must match) and follow the [instructions](https://github.com/spinnaker/spin/blob/master/CONTRIBUTING.md#updating-the-gate-api) in that repo to update the gate client. This involves creating and merging a PR to `spin` release branch with the updated Gate Client API.
 
-    1. If regenerating the Gate Client API produced any changes, kick off the
-       Flow_BuildAndValidate_1.xx.x for the release branch and wait for a successful
-       completion. This will trigger a downstream Build_PrimaryArtifacts job that
-       we rely on later.
-
-    1. Run Publish_SpinRelease with the following parameters:
-
-       - SPIN_BUILD_VERSION_TO_RELEASE: This can be found in the build_spin files
-         written by the Build_PrimaryArtifacts job. Use the version found in the most
-         recent run of the Build_PrimaryArtifacts for the release branch. Note: The
-         major-minor part of this version number should match the Gate version for
-         the release branch. If it does not, double check that a tag for the previous
-         minor version of Spin CLI exists. The build auto increments new tags based
-         on the highest pre-existing minor tag.
-
-       - BOM_VERSION: This is the BOM to associate the Spin CLI release with. It is
-         the latest Spinnaker release number, 1.xx.x.
+    1. Ensure that the GitHub Action's for the above PR merge were successful
+       and then push a matching `git tag` to the `spin` repository. This will
+       kick off binary and container build & push to GCS and GAR.
 
 1.  Make a Sponnet [GitHub release](https://github.com/spinnaker/sponnet/releases/new). Give it the same version as the newly released Spinnaker, with the tag prefixed with "v" (for example, v${RELEASE}).
 
