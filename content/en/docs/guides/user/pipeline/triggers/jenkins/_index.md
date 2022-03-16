@@ -31,7 +31,7 @@ description: >
     property files.
 
 ## Build Artifacts
-Jenkins has the ability to save files from a build as a build artifacts. These objects could be compiled binaries or kubernetes manifests or any other outputs created as part of the build process.
+Jenkins has the ability to save files from a build as a build artifacts. These objects could be compiled binaries or kubernetes manifests or any other artifact created as part of the build process.
 
 Best practice dictates that these artifacts should be uploaded to a dedicated artifact repository such as GCR, DockerHub, Artifactory, Maven etc, however sometimes it's easier to store the artifact as part of the build output.
 
