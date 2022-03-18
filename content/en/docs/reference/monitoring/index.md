@@ -1,16 +1,12 @@
 ---
-title: "Monitoring"
-linkTitle: "Monitoring"
+title: 'Monitoring'
+linkTitle: 'Monitoring'
 description: Reference documentation for the metrics reported by Spinnaker microservices
 ---
 
-
-This page is intended for operators who need to monitor the services
-but cannot use the monitoring-daemon. If you're looking on instructions for
-how to install or setup monitoring, checkout the
+If you're looking on instructions for how to install or setup monitoring, checkout the
 [Enable Monitoring](/docs/setup/other_config/monitoring/) section in the
 [Spinnaker Setup Guide](/docs/setup/).
-
 
 ## Metrics overview
 
@@ -49,7 +45,6 @@ filter by some tags, then aggregate by or break out by each of the others
 so that you can view the measurements at the abstraction and granularity
 that makes sense for what your interest is (e.g. global failures,
 attempted modifications to a particular resource type, etc).
-
 
 Here is an example of the metric `controller.invocations` in Front50.
 
@@ -109,36 +104,32 @@ and only this instance. Each repilca has its own count, and the counts are
 reset each time the process restarts. It is up to the backing monitoring
 service to aggregate these counts across replicas.
 
-
 ## JSON document format
 
 Metrics are returned in the following format:
 
-
 ### Top-level document
 
-Key | Format | Description
-----|--------|------------
-applicationName | string | The name of the microservice.
-applicationVersion | string | The version number of the microservice.
-metrics | [See Metric Entry](#metric-entry) | The individual metric entries.
-startTime | int | Unix epoch time *milliseconds* that process started.
-
+| Key                | Format                            | Description                                          |
+| ------------------ | --------------------------------- | ---------------------------------------------------- |
+| applicationName    | string                            | The name of the microservice.                        |
+| applicationVersion | string                            | The version number of the microservice.              |
+| metrics            | [See Metric Entry](#metric-entry) | The individual metric entries.                       |
+| startTime          | int                               | Unix epoch time _milliseconds_ that process started. |
 
 ### Metric entry
 
 The metrics dictionary contains an entry for each reported metric name.
 The dictionary key is the name of the metric. The entry contains the data for the metric.
 
-Key | Format | Description
-----|--------|------------
-kind|String  | The type of metric. `Counter` is a numeric monotonically increasing numeric counter. `Gauge` is an instantaneous numeric value. `Timer` is a nanosecond counter.
-values| List of [Time-Series Data Point](#time-series-data-point) | A metric will have one or more time-series associated with it. The current value for each of these is in this list.
-
+| Key    | Format                                                    | Description                                                                                                                                                      |
+| ------ | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| kind   | String                                                    | The type of metric. `Counter` is a numeric monotonically increasing numeric counter. `Gauge` is an instantaneous numeric value. `Timer` is a nanosecond counter. |
+| values | List of [Time-Series Data Point](#time-series-data-point) | A metric will have one or more time-series associated with it. The current value for each of these is in this list.                                              |
 
 ### Time-series data point
 
-Key | Format | Description
-----|--------|------------
-tags | List of Tag Bindings | A tag-binding is a `key`, `value` pair expressed as a dictionary with two entries; `key` and `value`. Each of these has a string value. The value of the `key` is the name of the tag. The value of the `value` is the value for the tag. For example, `{"key": "success", "value": "true"}` is associating the tag `success=true` to the time-series. <br>In practice, each time-series usually has several different tags (i.e. the context used to tag a metric, has multiple dimensions to it, each of which described by a different tag).
-values | List of Timestamped Value | In practice this is a list of one element, which is only the most current value. The element is a dictionary with two keys. `v` for the value, which is a real, even for scalar values, and `t` for the timestamp as milliseconds since the Unix epoch.
+| Key    | Format                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------ | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tags   | List of Tag Bindings      | A tag-binding is a `key`, `value` pair expressed as a dictionary with two entries; `key` and `value`. Each of these has a string value. The value of the `key` is the name of the tag. The value of the `value` is the value for the tag. For example, `{"key": "success", "value": "true"}` is associating the tag `success=true` to the time-series. <br>In practice, each time-series usually has several different tags (i.e. the context used to tag a metric, has multiple dimensions to it, each of which described by a different tag). |
+| values | List of Timestamped Value | In practice this is a list of one element, which is only the most current value. The element is a dictionary with two keys. `v` for the value, which is a real, even for scalar values, and `t` for the timestamp as milliseconds since the Unix epoch.                                                                                                                                                                                                                                                                                         |

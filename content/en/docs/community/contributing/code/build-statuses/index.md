@@ -17,7 +17,6 @@ services:
     - kork
     - orca
     - rosco
-    - spinnaker-monitoring
   supporting:
     - halyard
     - keel

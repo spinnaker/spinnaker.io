@@ -83,7 +83,7 @@ If this happens, there are one of two causes:
 First, please read the [custom configuration](/docs/reference/halyard/custom/)
 documentation. With that in mind, if you're configuring any of Spinnaker's
 [Spring-based](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)
-services (everything but deck and spinnaker-monitoring), you're
+services (everything but deck), you're
 best off providing a `-local.yml` profile for the service in mind. For example,
 say you are configuring the Halyard
 [deployment](/docs/reference/halyard/#deployments) `default`, and the service
