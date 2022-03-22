@@ -99,6 +99,9 @@ applying the `io.spinnaker.plugin.ui-extension` plugin.
 ```gradle
 // file: my-plugin/my-plugin-deck/build.gradle
 apply plugin: "io.spinnaker.plugin.ui-extension"
+
+// override the path to the yarn executable by setting this property if necessary
+uiExtension.yarnCmd = "yarn"
 ```
 
 This plugin will provide tasks for assembling and creating release distributions
