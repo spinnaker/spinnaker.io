@@ -17,13 +17,13 @@ Welcome to the Captain's Log! This report on the state of Spinnaker contains reg
 
 ## Spinnaker's trajectory
 
-Our community began as a partnership between Netflix & Google, eager to share the benefits of Continuous Delivery. Now it's a vibrant OSS project, attracting hundreds of companies to participate as it evolves, integrating unique use cases and tools. Behold!
+Our community began as a partnership between Netflix and Google, eager to share the benefits of Continuous Delivery. Now it's a vibrant open source project, attracting hundreds of companies to participate as it evolves, integrating unique use cases and tools. Behold!
 
 {{< figure src="./stats-2020-02-05-with-logo.png" class="captains-log" >}}
 
 ### GitHub events in Spinnaker repositories
 
-After steadily building momentum since its first OSS release in 2015, Spinnaker activity takes off. In December 2019, significant events within a week achieved a recent high of more than 4 times the weekly average so far:
+After steadily building momentum since its first open source release in 2015, Spinnaker activity takes off. In December 2019, significant events within a week achieved a recent high of more than 4 times the weekly average so far:
 {{< figure src="./github_events.png" class="captains-log">}}
 
 ### Contributions per company

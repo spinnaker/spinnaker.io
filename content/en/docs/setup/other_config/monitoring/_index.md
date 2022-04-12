@@ -7,8 +7,8 @@ description: >
 ---
 
 
-> The Spinnaker Observability plugin replaces the spinnaker monitoring daemon
- which was deprecated as of OSS 1.20.
+> The Spinnaker Observability plugin replaces the Spinnaker monitoring daemon
+ which was deprecated as of Spinnaker release 1.20.
 
 Each Spinnaker microservice is instrumented with numerous metrics exposed
 via a built in endpoint. Monitoring spinnaker typically involves the

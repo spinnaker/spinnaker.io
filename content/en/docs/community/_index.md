@@ -3,12 +3,12 @@ title: 'Community'
 linkTitle: 'Community'
 weight: 7777
 description: >
-  The Spinnaker OSS project was started at Netflix. Now, it thrives on the contributions of the broader DevOps community who have adopted it as their Continuous Delivery tool.
+  The Spinnaker project was started at Netflix. Now, it thrives on the contributions of the broader DevOps community who have adopted it as their Continuous Delivery tool.
 ---
 
 ## Engage the community and get support
 
-Here are some ways to engage the Spinnaker community and find help&mdash;join us!
+Here are some ways to engage the Spinnaker community to find help or join us!
 
 ### [Slack](http://join.spinnaker.io)
 
@@ -33,7 +33,7 @@ You can file an issue [here](https://github.com/spinnaker/spinnaker/issues).
 
 ## Project Governance
 
-Spinnaker is an OSS project owned and run by the community, through a structure of appointed roles. One important goal of this governance model is to make it easier for everyone to figure out how to get involved. If you want to get involved, we want to help you get there! As the project grows and its needs evolve, we will - as a community - continue to revisit and shape this structure.
+Spinnaker is an open source project owned and run by the community, through a structure of appointed roles. One important goal of this governance model is to make it easier for everyone to figure out how to get involved. If you want to get involved, we want to help you get there! As the project grows and its needs evolve, we will - as a community - continue to revisit and shape this structure.
 
 You can read more about how you can get involved through project SIGs, roles, and standing committees in the [Governance](https://github.com/spinnaker/governance) section.
 

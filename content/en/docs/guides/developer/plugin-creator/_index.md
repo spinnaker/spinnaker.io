@@ -24,9 +24,9 @@ points for plugin developers to use.
 ## Why there is a plugin framework
 
 Spinnaker was originally written with extensibility in mind. Netflix
-wrote huge amounts of custom code atop OSS Spinnaker, decorating existing
+wrote huge amounts of custom code atop open source Spinnaker, decorating existing
 functionality or replacing entire areas to suit their needs. This was done either
-by consuming the OSS projects as libraries and laying custom code on top, or
+by consuming the open source projects as libraries and laying custom code on top, or
 wiring it together via Spring configuration (or something else in Deck-land).
 
 This is well and good, but by making the method of extension application
