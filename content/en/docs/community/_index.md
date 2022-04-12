@@ -8,7 +8,7 @@ description: >
 
 ## Engage the community and get support
 
-Here are some ways to engage the Spinnaker community and find help and join us!
+Here are some ways to engage the Spinnaker community to find help or join us!
 
 ### [Slack](http://join.spinnaker.io)
 
