@@ -46,7 +46,7 @@ In this AWS Open Source Blog post, Irshad Buchh outlines detailed instructions f
 
 ## [Install & Manage Spinnaker on GCP](https://cloud.google.com/docs/ci-cd/spinnaker/spinnaker-for-gcp)
 
-Google’s guide to installing OSS Spinnaker on GCP explains how it adds value with a Cloud Shell-integrated management console, sample applications, and best practices for installing and running Spinnaker on GCP. This guided method offers an easy path to a production-ready configuration.
+Google’s guide to installing Spinnaker on GCP explains how it adds value with a Cloud Shell-integrated management console, sample applications, and best practices for installing and running Spinnaker on GCP. This guided method offers an easy path to a production-ready configuration.
 
 
 ## [First Look: Community Gardening Days April 9-10](https://www.armory.io/blog/first-spinnaker-community-gardening-days-april-9-10-salesforce/)
