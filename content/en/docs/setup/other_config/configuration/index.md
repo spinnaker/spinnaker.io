@@ -80,7 +80,7 @@ To use an AWS S3 backend, enable the `awss3` profile and configure the settings 
 ```yml
 spring:
   profiles:
-    active: awss3
+    include: awss3
   cloud:
     config:
       server:
