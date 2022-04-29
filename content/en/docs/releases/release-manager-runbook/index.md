@@ -20,12 +20,7 @@ If you don't have access to any of the following, contact a member of the TOC or
 - You're a member of the [release-managers@spinnaker.io](https://groups.google.com/a/spinnaker.io/forum/#!forum/release-managers)
   group and a _manager_ of the [spinnaker-announce@googlegroups.com](https://groups.google.com/forum/#!forum/spinnaker-announce)
   group. (You'll get a permissions error on those pages if you don't have access.
-- You've been invited to the [Bintray spinnaker-releases](https://bintray.com/spinnaker-releases) org.
 - You're a member of the [release-managers GitHub team](https://github.com/orgs/spinnaker/teams/release-managers).
-- You can access the [Jenkins UI](https://builds.spinnaker.io/) and you're able
-  to run a job. Access is controlled by the `release-managers` GitHub team, but it
-  may take some time for the permissions to propagate from GitHub to Jenkins.
-- You can [SSH into Jenkins]({{< ref "nightly-builds#connecting-to-the-jenkins-vm" >}}).
 - You're able to view our [GCP spinnaker-community cloudbuilds](https://console.cloud.google.com/cloud-build/builds?project=spinnaker-community). You should see a lot of builds.
 
 ## One week before the branches are cut (Monday)
@@ -38,216 +33,101 @@ to merge outstanding changes by Monday:
 > please make sure they are merged by EOD next Monday. Once the branch is cut,
 > only fixes will be accepted into the release branches.
 
-## One day before the branches are cut (Monday)
-
-Ping [#dev](https://spinnakerteam.slack.com/messages/dev/) reminding everyone
-to merge outstanding changes ASAP:
-
-> The release manager will be cutting the $VERSION release branches tomorrow
-> morning, so if there are any outstanding PRs that you'd like to get into
-> $VERSION, please make sure they are merged ASAP. Once the branch is cut, only
-> fixes will be accepted into the release branches.
-
 ## The day the branches are cut (Tuesday)
 
 1.  If there are any [outstanding autobump PRs](https://github.com/pulls?q=is%3Apr+author%3Aspinnakerbot+is%3Aopen),
     make the required fixes to allow them to merge. (You can ignore `keel` and
     `swabbie`; those repositories aren't part of a Spinnaker release.)
 
-1.  Start with a [blue build on master](https://builds.spinnaker.io/job/Flow_BuildAndValidate/).
+1.  Tag repositories with their respective next semVer minor version:
 
-1.  Create the release branches by running the [Admin_StartReleaseBranch](https://builds.spinnaker.io/job/Admin_StartReleaseBranch/build?delay=0sec)
-    job, which creates `latest-unvalidated` when it passes:
+    1.  Tag `HEAD` of `master` in `kork` if required, merge autobump PRs.
+    1.  Tag `HEAD` of `master` in `fiat` with `v{major}.{minor}.0`, merge autobump PRs.
+    1.  Tag `HEAD` of `master` in `orca` with `v{major}.{minor}.0`, merge autobump PR in
+        `kayenta`.
+    1.  Tag `HEAD` of `master` in remaining repos with `{major}.{minor}.0`.
+    1.  Don't tag `spin` repository. We'll tag after branch cut.
 
-        1. Set **NEW_BRANCH_NAME** to `${RELEASE_BRANCH}` (e.g., `release-1.20.x`).
+    The BOM will become these tags.
 
-        1. Set **BASE_BRANCH** to `master`.
+1.  Create the release branches by running [`buildtool new_release_branch`](https://github.com/spinnaker/buildtool/blob/master/README.md#create-release-branches)
 
-        - If the builds fail, [Google Cloud Build](https://console.cloud.google.com/cloud-build/builds?project=spinnaker-community) is a helpful UI.
-        Make sure to enable tags to the service name.
-            <details>
-            <summary>Click to expand a GIF of how to view the tags</summary>
+    1. Create the [spin](https://github.com/spinnaker/spin) release branch at
+       HEAD of `master`. Later we will tag our new branch with the Spinnaker
+       Release version which creates our artifacts.
 
-            <img src="/assets/images/releases/gcp-cloudbuild-tags.gif" />
+1.  Ping [#dev](https://spinnakerteam.slack.com/messages/dev/)
+    with some version of this message.
 
-            </details>
-
-1.  Deactivate the now-oldest `Flow_BuildAndValidate_*` flow by removing the schedule:
-
-    1. Select the oldest flow.
-
-    1. Click **Configure** from the left hand side of the menu.
-
-    1. Scroll to the **Build Triggers** section.
-
-    1. Cut text out of **Schedule** box (you will need to paste this in the
-       following step).
-
-    1. Save.
-
-1.  Create a new `Flow_BuildAndValidate_*` flow for the release branch.
-
-    1. Click **New Item** on the left hand side of the main menu.
-
-    1. Set **Name** to `Flow_BuildAndValidate_${RELEASE}` (e.g., `1_18_x`). Note
-       that the newer versions of Jenkins seem to disallow the `.` character in the
-       job name, so will want to `s/./_`.
-
-    1. Set **Copy from** to Flow_BuildAndValidate.
-
-    1. Click **OK**.
-
-    1. In the **Build Triggers** section, paste cut text from the oldest flow.
-
-    1. Set **GITHUB_REPO BRANCH** to `${RELEASE_BRANCH}`.
-
-    1. Set **PROCESS_GITHUB_REPO_BRANCH** TO `${RELEASE_BRANCH}`.
-
-    1. Save.
-
-1.  At this point, the following `Flow_BuildAndValidate_*` jobs should exist:
-
-    - `Flow_BuildAndValidate_${RELEASE-3}` (DEACTIVATED)
-
-    - `Flow_BuildAndValidate_${RELEASE-2}` (BUILDING NIGHTLY)
-
-    - `Flow_BuildAndValidate_${RELEASE-1}` (BUILDING NIGHTLY)
-
-    - `Flow_BuildAndValidate_${RELEASE}` (BUILDING NIGHTLY)
-
-    - `Flow_BuildAndValidate` (master, BUILDING SEVERAL TIMES DAILY)
-
-1.  Run the `Flow_BuildAndValidate_${RELEASE}` job.
-
-    1. Select `stable` for **HALYARD_RELEASE_TRACK**.
-
-    1. This will automatically update the [changelog gist](https://gist.github.com/spinnaker-release/4f8cd09490870ae9ebf78be3be1763ee)
-       on GitHub.
-
-    1. Copy the direct link to the changelog for this version by searching for the release branch. For example: `release-1.21.x`.
-
-1.  Add the new `Flow_BuildAndValidate_${RELEASE}` job to the public
-    [Build Statuses page]({{< ref "build-statuses#nightly-and-release-integration-tests" >}}). Remove the oldest job.
-
-1.  Ping [#dev](https://spinnakerteam.slack.com/messages/dev/) with some version of
-    this message, including a link to the correct section of the changelog gist found above.
-
-        > The release branches for Spinnaker $VERSION have been cut from master!
-        > Those branches are only accepting fixes for existing features.  Please
-        > contact $YOUR_NAME (slack: $YOUR_SLACK_ID, github: $YOUR_GITHUB_ID, or
-        > email: $YOUR_EMAIL) if you would like a fix cherry-picked into the
-        > release. If you would like to highlight a specific fix or feature in the
-        > release’s changelog, please make a pull request against the
-        > [curated changelog](/community/releases/next-release-preview)
-        > by Friday. If you’d like to jog your memory of everything to be released
-        > with Spinnaker $VERSION, see the raw changelog here: $LINK_TO_CHANGELOG.
-
-1.  When the `Flow_BuildAndValidate_${RELEASE}` job passes, ping
-    [#dev](https://spinnakerteam.slack.com/messages/dev/) with a message that the
-    release candidate is now validated and can be tested.
-
-        > You are now welcome to test out the new release candidate for ${RELEASE} by running
-        > ```
-        > hal config version edit --version ${RELEASE_BRANCH}-latest-unvalidated
-        > ```
-        >
-        > If you'd like to see the BOM for this release, you can run
-        > ```
-        > hal version bom
-        > ```
+    > The release branches for Spinnaker $VERSION have been cut from master!
+    > Those branches are only accepting fixes for existing features. Please
+    > post in this channel and tag me @$YOUR_NAME if you would like a fix
+    > cherry-picked into the release.
+    > If you would like to highlight a specific fix or feature in the release’s
+    > changelog, please make a pull request against the
+    > [curated changelog](/community/releases/next-release-preview) by Friday.
 
 ## One week after branches are cut (Monday)
 
 1.  Audit [backport candidates](#audit-backport-candidates).
 
-1.  Rerun the `Flow_BuildAndValidate_${RELEASE}` job and get a blue build.
+1.  FIXME: Run [buildtool integration tests](https://github.com/spinnaker/buildtool/tree/master/testing/citest) in Google Cloud Build to validate artifacts
 
-1.  Create a new gist for this release.
+    TODO: We may need a BOM or at least a list of artifacts to run integration
+    tests with.
 
-    1.  Log into GitHub as spinnaker-release.
-        The release-manager@spinnaker.io group has access to the
-        [spinnaker-release GitHub account credentials](https://docs.google.com/document/d/1CFPP-QXV8lu9QR76B9V0W8TEtObOBv52UqohQ-ztH58/edit?usp=sharing).
+1.  Iterate until integration tests pass; fixing issues, tagging repositories
+    and running the integration tests.
 
-    1.  Create a new public gist to hold the
-        release notes for this release branch.
+1.  Build the BOM by running [buildtool build_bom](https://github.com/spinnaker/buildtool/blob/master/README.md#build-bom)
 
-    1.  The description should be “Spinnaker 1.nn.x Release Notes” (e.g.,
-        Spinnaker 1.18.x Release Notes). The gist will eventually have a separate
-        file with the release notes for each patch release on this branch.
+1.  Build the Changelog by running [buildtool build_changelog](https://github.com/spinnaker/buildtool/blob/master/README.md#build-changelog)
 
-    1.  Add a file 1.nn.0.md (e.g., `1.18.0.md`) to hold the release notes for
-        the new release.
+1.  Push the Changelog to a gist by running [buildtool push_changelog_to_gist](https://github.com/spinnaker/buildtool/blob/master/README.md#push-changelog-to-gist)
 
-            Use this template to build the file:
-            ```md
-            # Spinnaker Release ${nn.nn.nn}
-            **_Note: This release requires Halyard version ${nn.nn.nn} or later._**
+1.  Raise a PR for Changelog at spinnaker.io by running [buildtool publish_changelog](https://github.com/spinnaker/buildtool/blob/master/README.md#publish-changelog)
 
-            This release includes fixes, features, and performance improvements across a wide feature set in Spinnaker. This section provides a summary of notable improvements followed by the comprehensive changelog.
+1.  Add tag's to both `slim` and `ubuntu` containers - see [buildtool's release_helper.sh](https://github.com/spinnaker/buildtool/blob/master/release_helper.sh)
 
-            ${CURATED_CHANGE_LOG}
+    1. at `{tag}` WITHOUT `unvalidated`, For example: tag `orca:1.2.3-unvalidated` with `orca:1.2.3`.
+       Halyard expects container tags and debian packages to match the BOM.
 
-            # Changelog
+    1. at `release-{major}-{minor}-{patch}` - friendly tag for use by Spinnaker
+       users Kubernetes and other manifests. For example: `spinnaker-1.27.0`
 
-            ${RAW_CHANGE_LOG}
-            ```
+1.  Upload the BOM file as `1.{minor}.{patch}` to the GCS - https://console.cloud.google.com/storage/browser/halconfig/bom
 
-            a. Copy the changes for this release from the [raw build changelog](https://gist.github.com/spinnaker-release/4f8cd09490870ae9ebf78be3be1763ee#file-release-1-21-x-raw-changelog-md) to the new 1.nn.0.md file. Change the anchor tag in the link for your release version.
+1.  Update [versions.yml](https://console.cloud.google.com/storage/browser/_details/halconfig/versions.yml)
+    in place with the new version.
 
-            b. Add the notes from the [curated changelog]({{< ref "next-release-preview" >}})
-            to the top of the gist ([sample 1.nn.0 release notes](https://gist.github.com/spinnaker-release/cc4410d674679c5765246a40f28e3cad)).
+    1. **version** is `1.{minor}.{patch}`
 
-    1.  Reset the [curated changelog]({{< ref "next-release-preview" >}})
-        for the next release by removing all added notes and incrementing the version number in the heading.
+    1. **alias** is `v1.{minor}.{patch}`
 
-1.  Run Publish_SpinnakerRelease:
+    1. **changelog** is the URL to the gist you created earlier
 
-    1. **Spinnaker Version** is "1.nn.0" (replacing nn with the version number).
+    1. **minimumHalyardVersion** should remain unchanged unless you know of a
+       reason to change it
 
-    1. **Spinnaker Release Alias** should be the name of a Netflix original TV
-       show converted to an alphanumeric string
-       (e.g., "Gilmore Girls A Year in the Life").
-       The name must be unique among current active releases (releases returned by `hal version list`).
+    1. **lastUpdate** is the current Linux epoch plus `000` due to use of
+       millisecond resolution for timestamps in Halyard. For example:
 
-    1. **BOM version** is `release-1.nn.x-latest-unvalidated` (replace nn
-       with the version number).
+       ```
+       $ date +%s
+       1651632868
 
-    1. The **Gist URL** is the URL to the gist you just created.
-
-    1. **Minimum Halyard version** should remain unchanged unless you know of a
-       reason to change it (in which case, please also change the default for new
-       builds).
-
-1.  Approve the spinnaker-announce email (link will come in email).
-    You can approve the message in the [spinnaker-announce group](https://groups.google.com/forum/#!pendingmsg/spinnaker-announce).
+       # concatenate above with '000' becomes:
+       lastUpdate=1651632868000
+       ```
 
 1.  Deprecate the n-3 release (i.e. when releasing 1.18, deprecate 1.15).
 
-    1. From the Jenkins machine, run
-       `hal admin deprecate version --version ${VERSION_TO_DEPRECATE}`.
-
     1. Make a PR against the deprecated changelog
-       [here](https://github.com/spinnaker/spinnaker.github.io/tree/master/_changelogs),
+       [here](https://github.com/spinnaker/spinnaker.io/tree/master/content/en/changelogs),
        adding `deprecated` to the list of tags.
 
-    1. Delete the associated Jenkins project (e.g., Flow*BuildAndValidate*${RELEASE-3}).
-
-    1. Remove the changelog from the [master gist](https://gist.github.com/spinnaker-release/4f8cd09490870ae9ebf78be3be1763ee).
-       (While logged in as spinnaker-release, click "Edit", scroll to the file, and
-       click "Delete".)
-
-1.  At this point, the following `Flow_BuildAndValidate_*` jobs should exist:
-
-    - `Flow_BuildAndValidate_${RELEASE-2}` (BUILDING NIGHTLY)
-
-    - `Flow_BuildAndValidate_${RELEASE-1}` (BUILDING NIGHTLY)
-
-    - `Flow_BuildAndValidate_${RELEASE}` (BUILDING NIGHTLY)
-
-    - `Flow_BuildAndValidate` (master, BUILDING NIGHTLY)
-
 1.  Ping the [#spinnaker-releases](https://spinnakerteam.slack.com/messages/spinnaker-releases/)
-    channel to let them know that a new patch is available.
+    channel to let them know that a new release is available.
 
         > Hot Tip! You can use giphy to tell everyone it's released!
         >
@@ -258,19 +138,13 @@ to merge outstanding changes ASAP:
     1. Each Spin CLI release is tied to a version of Gate. To ensure
        compatibility, regenerate the Gate Client API.
 
-    1. From the `gate` repository, check out the release branch at the new release tag and generate the `swagger/swagger.json` file (it's not under source control):
-
-    ```
-    ./swagger/generate_swagger.sh
-    ```
-
-    1. From the `spin` repository, check out the release branch (release branches from `gate` and `spin` must match) and follow the [instructions](https://github.com/spinnaker/spin/blob/master/CONTRIBUTING.md#updating-the-gate-api) in that repo to update the gate client. This involves creating and merging a PR to `spin` release branch with the updated Gate Client API.
+    1. Follow the [instructions](https://github.com/spinnaker/spin/blob/master/CONTRIBUTING.md#updating-the-gate-api)
+       to update the gate client.
 
     1. Ensure that the GitHub Action's for the above PR merge were successful
-       and then push a matching `git tag` to the `spin` repository. This will
-       kick off binary and container build & push to GCS and GAR.
-
-1.  Make a Sponnet [GitHub release](https://github.com/spinnaker/sponnet/releases/new). Give it the same version as the newly released Spinnaker, with the tag prefixed with "v" (for example, v${RELEASE}).
+       and then push a git tag for the release version `1.{minor}.{patch}` to
+       the `spin` repository. This will kick off binary and container build &
+       push to GCS and GAR.
 
 ## Every subsequent Monday: Patch a previous Spinnaker version
 
@@ -281,9 +155,9 @@ Repeat weeklyish for each supported version.
     see the [changelog gist](https://gist.github.com/spinnaker-release/4f8cd09490870ae9ebf78be3be1763ee)
     on Github.
 
-1.  Rerun the `Flow_BuildAndValidate_${RELEASE}` job and get a blue build.
+1.  FIXME: Rerun the `Flow_BuildAndValidate_${RELEASE}` job and get a blue build.
 
-1.  Run Publish_SpinnakerPatchRelease:
+1.  FIXME: Run Publish_SpinnakerPatchRelease:
 
     1. Enter the major and minor version of the release you’re patching
        (ex: 1.18) in MAJOR_MINOR_VERSION.
@@ -326,26 +200,20 @@ Repeat weeklyish for each supported version.
 
 ## Release minor-version Halyard
 
-Repeat every 2-4 weeks as needed.
+Repeat as needed.
 
 1. Check for outstanding PRs.
 
-1. Run Flow_BuildAndValidate, selecting `nightly` Halyard. This will
-   automatically check the “build Halyard” checkbox in the downstream
-   Build_PrimaryArtifacts flow.
+1. Tag `master` with next `{minor}` tag. For Example `v1.45.0` next minor is
+   `v1.46.0`. This will result in a new debian package at `1.46.0` and a new
+   containers tagged `1.46.0-unvalidated(-ubuntu)`.
 
-1. After that passes, navigate to:
+1. Create `release-{major}-{minor}-x` branch at the new tag. This enables backports and
+   `{patch}` releases to be made.
 
-```
-https://builds.spinnaker.io/job/Build_PrimaryArtifacts/${JOB_NUMBER}/artifact/build_output/build_halyard/last_version_commit.yml/*view*/
-```
+1. TODO: Any validation?
 
-(insert correct JOB_NUMBER) and copy the version (it will be the entire string prior to the colon).
-
-1. Run Publish_HalyardRelease:
-
-   1. Set `HALYARD_BUILD_VERSION_TO_RELEASE` to the version copied from the
-      prior step.
+1. Re-tag Halyard container without `-unvalidated`. [halyard repository](https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker/halyard)
 
 1. Post in [#halyard](https://spinnakerteam.slack.com/messages/halyard/) that a
    new version of Halyard has been released.
@@ -361,17 +229,8 @@ Repeat as needed.
 1. Ensure you have [audited](#audit-backport-candidates) all
    [Halyard backport candidates](https://github.com/spinnaker/halyard/pulls?q=is%3Apr+sort%3Aupdated-desc+label%3Abackport-candidate).
 
-1. Run Build_Halyard:
-
-   1. Set **GITHUB_REPO_BRANCH** to the release branch of Halyard
-      (e.g., release-1.20.x).
-
-   1. Set **OVERRIDE_PROCESS_GITHUB_REPO_BRANCH** to `master`.
-
-1. Run Publish_HalyardRelease:
-
-   1. Set **HALYARD_BUILD_VERSION_TO_RELEASE** to pre-colon output from
-      `last_version_commit.yml` of the prior job.
+1. Tag `release-{major}-{minor}-x` branch with next `{patch}` tag. For example `v1.46.0` next
+   tag is `v1.46.1`
 
 1. Post in [#halyard](https://spinnakerteam.slack.com/messages/halyard/) that a
    new version of Halyard has been released.
