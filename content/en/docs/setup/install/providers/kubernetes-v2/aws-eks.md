@@ -34,7 +34,7 @@ mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 
 #Verify the installation of aws-iam-authenticator
-aws-iam-authenticator help`
+aws-iam-authenticator help
 ```
 
 The commands return the help information for `kubectl` and `aws-iam-authenticator` respectively. If the help for either tool does not get returned, verify that you have installed the tool.
