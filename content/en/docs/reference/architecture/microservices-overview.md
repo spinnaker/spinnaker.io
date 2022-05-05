@@ -141,4 +141,4 @@ By default Spinnaker binds ports according to the following table
 | Kayenta     | 8090 |
 | Orca        | 8083 |
 | Rosco       | 8087 |
-| Keel        | 8087              |
+| Keel        | 7010 |
