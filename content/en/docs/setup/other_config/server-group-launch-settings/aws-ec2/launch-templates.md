@@ -81,7 +81,7 @@ Motivation to diversify instances in your Server Group:
 * Enhance availability by proactively augmenting your fleet with a new Spot instance from an optimal pool, before a running instance is interrupted by EC2, by enabling [capacity rebalance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html).
 * Reduce probability of [InsufficientInstanceCapacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html#troubleshooting-launch-capacity) exceptions with flexible instance configuration.
 
-Using one or more parameters in the table below will automatically create Server Groups with the instance diversification configuration specified, and will use AWS defaults for the parameters not specified.
+Using one or more parameters in the table below will automatically create Server Groups with instances distribution configuration specified, and will use AWS defaults for the parameters not specified.
 Note that a number of these parameters complement each other. So, combining them can greatly enhance your AWS experience.
 
 <table>
@@ -107,8 +107,8 @@ Note that a number of these parameters complement each other. So, combining them
       <td>Instance Type to override</td>
       <td>no default</td>
       <td rowspan="2">v1.26</td>
-      <td rowspan="2">WIP</td>
-      <td rowspan="2">WIP</td>
+      <td rowspan="3">Instance Types / LaunchTemplate -> Instance Types</td>
+      <td rowspan="9">v1.28</td>
     </tr>
     <tr>
       <td><em>launchTemplateOverridesForInstanceType.weightedCapacity</em></td>
@@ -124,13 +124,11 @@ Note that a number of these parameters complement each other. So, combining them
      </td>
       <td>first to last in list</td>
       <td>v1.27</td>
-      <td rowspan="7">WIP</td>
-      <td rowspan="7">WIP</td>
     </tr>
     <tr>
       <td rowspan="3">On-Demand
          <br/><br/>AWS docs: 
-         <br/><a target="_blank" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Instance Diversification</a>
+         <br/><a target="_blank" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Instances Distribution</a>
       </td>
       <td><em>onDemandAllocationStrategy</em></td>
       <td>Indicates how to allocate instance types to fulfill On-Demand capacity. The only valid value is <em>prioritized</em>.
@@ -138,6 +136,7 @@ Note that a number of these parameters complement each other. So, combining them
           The first instance type in the list is prioritized higher than the last.</td>
       <td><em>prioritized</em></td>
       <td rowspan="6">v1.26</td>
+      <td rowspan="6">Instance Types -> Instances Distribution / Instances Distribution</td>
     </tr>
     <tr>
       <td><em>onDemandBaseCapacity</em></td>
@@ -153,7 +152,7 @@ Note that a number of these parameters complement each other. So, combining them
     <tr>
       <td rowspan="4">Spot
          <br/><br/>AWS docs: 
-         <br/>* <a target="_blank" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Instance Diversification</a>
+         <br/>* <a target="_blank" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Instance Distribution</a>
          <br/>* <a target="_blank" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html">ASG Capacity Rebalance</a>
          <br/>* <a target="_blank" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/rebalance-recommendations.html">EC2 Instance Rebalance Recommendations</a>
       </td>
@@ -183,7 +182,7 @@ Note that a number of these parameters complement each other. So, combining them
           Note: Enabling this feature could exceed the server group's max capacity for a brief period of time, leading to higher costs. Learn more in AWS docs.</td>
       <td>false <br/>i.e. disabled</td>
       <td>v1.27</td>
-      <td>Advanced Settings > capcity rebalance</td>
+      <td>Advanced Settings -> capcity rebalance</td>
       <td>v1.27</td>
     </tr>
   </tbody>
@@ -278,7 +277,7 @@ See capacity type for instances in Deck:
 </div>
 
 AWS docs:
-* [instance diversification in ASG](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html)
+* [instances distribution in ASG](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html)
 * [allocation strategies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html#asg-allocation-strategies)
 
 #### Create a Server Group with AWS recommended best practices for EC2 Spot
