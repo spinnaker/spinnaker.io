@@ -4,7 +4,7 @@ command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo
 functions = "./functions"
 
 [context.production.environment]
-HUGO_VERSION = "0.74.2"
+HUGO_VERSION = "0.90.1"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
@@ -12,20 +12,20 @@ HUGO_ENABLEGITINFO = "true"
 command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --enableGitInfo"
 
 [context.split1.environment]
-HUGO_VERSION = "0.74.2"
+HUGO_VERSION = "0.90.1"
 HUGO_ENV = "production"
 
 [context.deploy-preview]
 command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
-HUGO_VERSION = "0.74.2"
+HUGO_VERSION = "0.90.1"
 
 [context.branch-deploy]
 command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy.environment]
-HUGO_VERSION = "0.74.2"
+HUGO_VERSION = "0.90.1"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
@@ -137,7 +137,7 @@ HUGO_ENABLEGITINFO = "true"
   to = "/docs/releases/:splat"
   status = 301
   force = false
-  
+
 [[redirects]]
   from = "/community/*"
   to = "/docs/community/:splat"
