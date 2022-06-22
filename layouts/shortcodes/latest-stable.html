@@ -12,12 +12,7 @@ For example:
    These will never be the latest stable and make later steps hard.
 3. group by major.minor (eg: 1.26, 1.27) as defined in Page Title.
 -->
-{{ $versioned_changelogs := (
-where (
-where $.Site.RegularPages "Section" "changelogs"
-) "Params.version" "!=" nil
-).GroupBy "Title"
-}}
+{{ $versioned_changelogs := (where (where $.Site.RegularPages "Section" "changelogs") "Params.version" "!=" nil).GroupBy "Title" }}
 
 <!-- declare slice of latest patch versions for each major.minor -->
 {{ $latest_major_minors := slice }}
