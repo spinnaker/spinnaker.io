@@ -24,3 +24,5 @@ themes/**
 .netlify
 
 .idea/
+
+.hugo_build.lock
