@@ -1,10 +1,36 @@
-{{ $changelogs := where $.Site.Pages "Section" "changelogs" }} 
-{{ range $changelogs.ByDate.Reverse }} 
-{{ if not (in .Params.tags "deprecated" )}}{{  if isset  .Params "version" }}
-<div class="my-3">
-<h4>{{.Params.changelog_title}}</h4>
-<span>Released: {{.Params.date.UTC}}</span>
-<a href="{{.RelPermalink}}">Changelog</a>
-</div>
+<!--
+For example:
+1. consider there are 4 {major.minor} versions 1.24, 1.25, 1.26, 1.27
+2. take the latest three, 1.25, 1.26, 1.27
+3. take the latest patch version for each, eg: 1.27.0, 1.27.1 << choose 1.27.1
+4. this is our latest stable set, eg: 1.25.5, 1.26.7, 1.27.1
+-->
 
-{{end}} {{ end }}{{end}}
+<!--
+1. get all changelogs as defined in Section
+2. filter where version key not defined in frontmatter (very old versions).
+   These will never be the latest stable and make later steps hard.
+3. group by major.minor (eg: 1.26, 1.27) as defined in Page Title.
+-->
+{{ $versioned_changelogs := (where (where $.Site.RegularPages "Section" "changelogs") "Params.version" "!=" nil).GroupBy "Title" }}
+
+<!-- declare slice of latest patch versions for each major.minor -->
+{{ $latest_major_minors := slice }}
+
+<!-- add our latest major.minor to slice -->
+{{ range $versioned_changelogs }}
+{{ range first 1 (.Pages.ByParam "version").Reverse }}
+{{ $latest_major_minors = $latest_major_minors | append .Page }}
+{{ end }}
+{{ end }}
+
+{{ $latest_stables := first 3 (sort ($latest_major_minors).ByDate.Reverse) }}
+
+<!-- print out our template section for each stable version -->
+{{ range sort ($latest_stables).ByTitle.Reverse }}
+<div class="my-3">
+  <h4>{{.Params.changelog_title}}</h4>
+  <span>Released: {{.Params.date.UTC}}</span>
+  <a href="{{.RelPermalink}}">Changelog</a>
+</div>
+{{ end }}

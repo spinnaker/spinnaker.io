@@ -7,10 +7,13 @@ menu:
 ---
 
 The Spinnaker releases listed below are top-level versions tying together each
-Spinnaker subcomponents' versions. These have been validated together in an
-end-to-end integration test suite curated by the Spinnaker community, and
-represent a more maintainable, easy to upgrade Spinnaker. While
-it's still possible to install each Spinnaker subcomponent's versions
+Spinnaker subcomponents' versions.
+
+These have been validated together in an end-to-end integration test suite
+curated by the Spinnaker community, and represent a more maintainable, easy to
+upgrade Spinnaker.
+
+While it's still possible to install each Spinnaker subcomponent's versions
 independently, there is no guarantee that they will work together.
 
 If you want to see what each top-level version is comprised of, run
@@ -19,8 +22,9 @@ If you want to see what each top-level version is comprised of, run
 hal version bom <version>
 ```
 
-to see the commit hash and tag matching `version-<version>` of each
-subcomponent.
+to see the commit hash and tag matching `v-<version>` of each
+subcomponent. Prior to Spinnaker Release `1.27.0` the tag pattern was
+`version-<version>`.
 
 ## Latest stable
 
