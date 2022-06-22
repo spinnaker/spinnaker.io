@@ -26,7 +26,7 @@ For example:
 
 {{ $latest_stables := first 3 (sort ($latest_major_minors).ByDate.Reverse) }}
 
-{{ $all_changelogs := where $.Site.Pages "Section" "changelogs" }}
+{{ $all_changelogs := where $.Site.RegularPages "Section" "changelogs" }}
 {{ $deprecated := $all_changelogs | complement $latest_stables }}
 
 {{ range $deprecated }}
