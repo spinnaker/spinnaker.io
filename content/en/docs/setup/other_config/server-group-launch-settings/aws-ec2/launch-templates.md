@@ -188,6 +188,90 @@ Note that a number of these parameters complement each other. So, combining them
   </tbody>
 </table>
 
+
+### Feature and Release Tracker
+ASG Mixed Instances Policy allows:
+* Multiple instance types
+* Multiple purchase options (On-Demand / Spot) with proportion control
+* Allocation strategies
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th style="width=50%;">Version released</th>
+      <th>Released status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Modify CPU credit spec (API)</td>
+      <td>1.24</td>
+      <td><em>Yes</em></td>
+    </tr>
+    <tr>
+      <td>Modify CPU credit spec (UI)</td>
+      <td>1.24</td>
+      <td><em>Yes</em></td>
+    </tr>
+    <tr>
+    <td>Support more instance types in burstable performance families (UI)</td>
+      <td>1.24</td>
+      <td><em>Yes</em></td>
+    </tr>
+    <tr>
+    <td>ASG Mixed Instances Policy (API) - Create ASG</td>
+      <td>1.26</td>
+      <td><em>Yes</em></td>
+    </tr>
+    <tr>
+    <td>ASG Mixed Instances Policy (UI) - View ASG</td>
+      <td>1.26</td>
+      <td><em>Yes</em></td>
+    </tr>
+    <tr>
+    <td>ASG Mixed Instances Policy (API) - Clone / Modify /Delete ASG</td>
+      <td>1.27</td>
+      <td><em>No</em></td>
+    </tr>
+    <tr>
+    <td>ASG capacity rebalancing support (API/UI)</td>
+      <td>1.27</td>
+      <td><em>No</em></td>
+    </tr>
+    <tr>
+    <td>Modify ASGs with LT to use MIP (API)</td>
+      <td>1.27</td>
+      <td><em>No</em></td>
+    </tr>
+    <tr>
+    <td>ASG Mixed Instances Policy (UI) - Create / Clone/ Delete ASG</td>
+      <td>1.28</td>
+      <td><em>No</em></td>
+    </tr>
+    <tr>
+    <td>Validation of instance types against architecture type of AMI (API)</td>
+      <td>1.28</td>
+      <td><em>No</em></td>
+    </tr>
+     <tr>
+    <td>Display CPU credits for burstable performance instances types</td>
+      <td>1.28</td>
+      <td><em>No</em></td>
+    </tr>
+     <tr>
+    <td>AWS EC2 / Spot best practice recommendations via helper texts (Deck feature)</td>
+      <td>1.28</td>
+      <td><em>No</em></td>
+    </tr>
+     <tr>
+    <td>Filter out instance types in selector, after applying validation (UI) (includes prereq changes of EC2 API integration)</td>
+      <td>Currently in review</td>
+      <td><em>No</em></td>
+    </tr>
+  </tbody>
+</table>
+
 ## Use Cases & Sample API Requests
 
 #### Create a Server Group with launch template
