@@ -8,17 +8,15 @@ For example:
 
 <!--
 1. get all changelogs as defined in Section
-2. filter where version key not defined in frontmatter (very old versions).
-   These will never be the latest stable and make later steps hard.
-3. group by major.minor (eg: 1.26, 1.27) as defined in Page Title.
+2. group by major.minor (eg: 1.26, 1.27) as defined in major_minor param.
 -->
-{{ $versioned_changelogs := (where (where $.Site.RegularPages "Section" "changelogs") "Params.version" "!=" nil).GroupBy "Title" }}
+{{ $grouped_changelogs := (where $.Site.RegularPages "Section" "changelogs").GroupByParam "major_minor" }}
 
 <!-- declare slice of latest patch versions for each major.minor -->
 {{ $latest_major_minors := slice }}
 
 <!-- add our latest major.minor to slice -->
-{{ range $versioned_changelogs }}
+{{ range $grouped_changelogs }}
 {{ range first 1 (.Pages.ByParam "version").Reverse }}
 {{ $latest_major_minors = $latest_major_minors | append .Page }}
 {{ end }}
@@ -29,7 +27,7 @@ For example:
 <!-- print out our template section for each stable version -->
 {{ range sort ($latest_stables).ByTitle.Reverse }}
 <div class="my-3">
-  <h4>{{.Params.changelog_title}}</h4>
+  <h4>{{.Params.version}}</h4>
   <span>Released: {{.Params.date.UTC}}</span>
   <a href="{{.RelPermalink}}">Changelog</a>
 </div>
