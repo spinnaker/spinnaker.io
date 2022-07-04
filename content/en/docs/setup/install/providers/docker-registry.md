@@ -103,7 +103,7 @@ API](https://console.developers.google.com/apis/api/cloudresourcemanager.googlea
    A [service account](https://cloud.google.com/compute/docs/access/service-accounts)
    is the preferred way to authenticate to GCR. Use the commands below to create
    and download a service account to be used as your password with the required
-   `roles/objectViewer` role, assuming the registry exists in your current
+   `roles/storage.objectViewer` role, assuming the registry exists in your current
    `gcloud` project.
 
    (You can use an [access
@@ -131,7 +131,7 @@ API](https://console.developers.google.com/apis/api/cloudresourcemanager.googlea
 
    gcloud projects add-iam-policy-binding $PROJECT \
        --member serviceAccount:$SA_EMAIL \
-       --role roles/objectViewer
+       --role roles/storage.objectViewer
 
    mkdir -p $(dirname $SERVICE_ACCOUNT_DEST)
 
