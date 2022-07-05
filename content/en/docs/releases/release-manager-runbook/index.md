@@ -83,8 +83,6 @@ to merge outstanding changes by Monday:
 
 1.  Build the Changelog by running [buildtool build_changelog](https://github.com/spinnaker/buildtool/blob/master/README.md#build-changelog)
 
-1.  Push the Changelog to a gist by running [buildtool push_changelog_to_gist](https://github.com/spinnaker/buildtool/blob/master/README.md#push-changelog-to-gist)
-
 1.  Raise a PR for Changelog at spinnaker.io by running [buildtool publish_changelog](https://github.com/spinnaker/buildtool/blob/master/README.md#publish-changelog)
 
 1.  Add tag's to both `slim` and `ubuntu` containers - see [buildtool's release_helper.sh](https://github.com/spinnaker/buildtool/blob/master/release_helper.sh)
@@ -104,7 +102,7 @@ to merge outstanding changes by Monday:
 
     1. **alias** is `v1.{minor}.{patch}`
 
-    1. **changelog** is the URL to the gist you created earlier
+    1. **changelog** is the URL to the spinnaker.io changelog page you created earlier
 
     1. **minimumHalyardVersion** should remain unchanged unless you know of a
        reason to change it
@@ -119,12 +117,6 @@ to merge outstanding changes by Monday:
        # concatenate above with '000' becomes:
        lastUpdate=1651632868000
        ```
-
-1.  Deprecate the n-3 release (i.e. when releasing 1.18, deprecate 1.15).
-
-    1. Make a PR against the deprecated changelog
-       [here](https://github.com/spinnaker/spinnaker.io/tree/master/content/en/changelogs),
-       adding `deprecated` to the list of tags.
 
 1.  Ping the [#spinnaker-releases](https://spinnakerteam.slack.com/messages/spinnaker-releases/)
     channel to let them know that a new release is available.
@@ -151,9 +143,6 @@ to merge outstanding changes by Monday:
 Repeat weeklyish for each supported version.
 
 1.  Audit [backport candidates](#audit-backport-candidates).
-    To view what's been merged into each release branch since the last release,
-    see the [changelog gist](https://gist.github.com/spinnaker-release/4f8cd09490870ae9ebf78be3be1763ee)
-    on Github.
 
 1.  FIXME: Rerun the `Flow_BuildAndValidate_${RELEASE}` job and get a blue build.
 
