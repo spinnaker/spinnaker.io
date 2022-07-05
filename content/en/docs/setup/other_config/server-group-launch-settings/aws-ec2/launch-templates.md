@@ -189,6 +189,9 @@ Note that a number of these parameters complement each other. So, combining them
 </table>
 
 ## Use Cases & Sample API Requests
+NOTE: Replace placeholder values in:
+- parameters with custom values e.g. `account`, `credentials`, `amiName`, `iamRole`, etc. 
+- URL for Spinnaker Gate e.g. http://my-spinnaker-gate:8084/tasks
 
 #### Create a Server Group with launch template
 After enabling the launch template feature set is Clouddriver and/or Deck, set `setLaunchTemplate` to true in order to indicate Spinnaker to create your Server Group with an EC2 launch template.
