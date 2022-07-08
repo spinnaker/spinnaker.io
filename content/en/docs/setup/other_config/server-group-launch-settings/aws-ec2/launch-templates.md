@@ -189,32 +189,29 @@ Note that a number of these parameters complement each other. So, combining them
 </table>
 
 ## Use Cases & Sample API Requests
-NOTE: Replace placeholder values in:
-- parameters with custom values e.g. `account`, `credentials`, `amiName`, `iamRole`, etc. 
-- URL for Spinnaker Gate e.g. http://my-spinnaker-gate:8084/tasks
 
 #### Create a Server Group with launch template
-After enabling the launch template feature set is Clouddriver and/or Deck, set `setLaunchTemplate` to true in order to indicate Spinnaker to create your Server Group with an EC2 launch template.
+After enabling the launch template feature set in Clouddriver and/or Deck, set `setLaunchTemplate` to true in order to indicate Spinnaker to create your Server Group with an EC2 launch template.
 
 ```bash
 curl -H 'Content-Type: application/json' -d '{ "job": [
   {
     "type": "createServerGroup",
     "cloudProvider": "aws",
-    "account": "my_aws_account",
+    "account": "my-aws-account",
     "application": "myAwsApp",
     "stack": "myStack",
-    "credentials": "my_aws_account",
+    "credentials": "my-aws-account",
     "subnetType": "public-subnet",
     "availabilityZones": {"us-west-1": ["us-west-1a","us-west-1b","us-west-1c"]},
     "amiName": "ami-12345",
-    "capacity": {"desired": 5,"max": 7,"min": 5},
-    "iamRole":"BaseInstanceProfile",
+    "capacity": {"desired": 3,"max": 5,"min": 3},
+    "iamRole":"MyInstanceProfile",
     "instanceType":"t3.large",
     "setLaunchTemplate": true,
     "requireIMDSv2": true,
     "unlimitedCpuCredits": true
-  }], "application": "myAwsApp", "description": "Create New Server Group in cluster myAwsApp"}' -X POST http://localhost:8084/tasks
+  }], "application": "myAwsApp", "description": "Create New Server Group in cluster myAwsApp"}' -X POST http://my-spinnaker-gate:8084/tasks
 ```
 Let's say, the Server Group created was named `myAwsApp-myStack-v005`. 
 It is backed by EC2 launch template with IMDSv2 enabled and unlimited CPU credits.
@@ -228,10 +225,10 @@ curl -H 'Content-Type: application/json' -d '{ "job": [
   {
     "type": "updateLaunchTemplate",
     "cloudProvider": "aws",
-    "account": "my_aws_account",
+    "account": "my-aws-account",
     "application": "myAwsApp",
     "stack": "myStack",
-    "credentials": "my_aws_account",
+    "credentials": "my-aws-account",
     "region": "eu-central-1",
     "asgName": "myAwsApp-myStack-v005",
     "launchTemplateOverridesForInstanceType": [
@@ -239,7 +236,7 @@ curl -H 'Content-Type: application/json' -d '{ "job": [
       {"instanceType":"t3.large","weightedCapacity":"1"},
       {"instanceType":"t2.xlarge","weightedCapacity":"2"},
       {"instanceType":"t3.xlarge","weightedCapacity":"2"}] 
-  }], "application": "myAwsApp", "description": "Modify Server Group in cluster myAwsApp"}' -X POST http://localhost:8084/tasks
+  }], "application": "myAwsApp", "description": "Modify Server Group in cluster myAwsApp"}' -X POST http://my-spinnaker-gate:8084/tasks
 ```
 Note: instance weighting is requested by vCPUs.
 
@@ -253,24 +250,23 @@ curl -H 'Content-Type: application/json' -d '{ "job": [
   {
     "type": "createServerGroup",
     "cloudProvider": "aws",
-    "account": "my_aws_account",
+    "account": "my-aws-account",
     "application": "myAwsApp",
     "stack": "myStack",
-    "credentials": "my_aws_account",
+    "credentials": "my-aws-account",
     "availabilityZones": {"us-west-1": ["us-west-1a","us-west-1b","us-west-1c"]},
     "amiName": "ami-12345",
-    "capacity": {"desired": 5,"max": 7,"min": 5},
-    "iamRole":"BaseInstanceProfile",
+    "capacity": {"desired": 3,"max": 5,"min": 3},
+    "iamRole":"MyInstanceProfile",
     "instanceType":"m4.large",
     "setLaunchTemplate": true,
     "onDemandBaseCapacity":1,
     "onDemandPercentageAboveBaseCapacity":50,
-    "spotAllocationStrategy":"lowest-price",
-    "spotInstancePools": 2,
+    "spotAllocationStrategy":"capacity-optimized",
     "launchTemplateOverridesForInstanceType": [
       {"instanceType":"m5.large","weightedCapacity":"1","priority": 2},
       {"instanceType":"m5.xlarge","weightedCapacity":"2","priority": 1}] 
-  }], "application": "myAwsApp", "description": "Create New Server Group in cluster myAwsApp"}' -X POST http://localhost:8084/tasks
+  }], "application": "myAwsApp", "description": "Create New Server Group in cluster myAwsApp"}' -X POST http://my-spinnaker-gate:8084/tasks
 ```
 
 See capacity type for instances in Deck:
@@ -296,15 +292,15 @@ curl -H 'Content-Type: application/json' -d '{ "job": [
   {
     "type": "createServerGroup",
     "cloudProvider": "aws",
-    "account": "my_aws_account",
+    "account": "my-aws-account",
     "application": "myAwsApp",
     "stack": "myStack",
-    "credentials": "my_aws_account",
+    "credentials": "my-aws-account",
     "subnetType": "public-subnet",
     "availabilityZones": {"us-west-1": ["us-west-1a","us-west-1b","us-west-1c"]},
     "amiName": "ami-12345",
-    "capacity": {"desired": 5,"max": 7,"min": 5},
-    "iamRole":"BaseInstanceProfile",
+    "capacity": {"desired": 3,"max": 5,"min": 3},
+    "iamRole":"MyInstanceProfile",
     "instanceType":"m4.large",
     "setLaunchTemplate": true,
     "onDemandPercentageAboveBaseCapacity":50,
@@ -316,7 +312,7 @@ curl -H 'Content-Type: application/json' -d '{ "job": [
       {"instanceType":"m5.large","weightedCapacity":"1"},
       {"instanceType":"m4.xlarge","weightedCapacity":"2"},
       {"instanceType":"m5.xlarge","weightedCapacity":"2"}] 
-  }], "application": "myAwsApp", "description": "Create New Server Group in cluster myAwsApp"}' -X POST http://localhost:8084/tasks
+  }], "application": "myAwsApp", "description": "Create New Server Group in cluster myAwsApp"}' -X POST http://my-spinnaker-gate:8084/tasks
 ```
 Note: instance weighting requested by vCPUs
 
