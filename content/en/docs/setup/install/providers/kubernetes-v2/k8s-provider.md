@@ -6,7 +6,7 @@ description: >
 ---
 
 Spinnaker's Kubernetes provider fully supports Kubernetes-native, manifest-based deployments and is the recommended provider for deploying to Kubernetes with Spinnaker.
-[Spinnaker's legacy Kubernetes provider](https://www.spinnaker.io/setup/install/providers/kubernetes/)
+[Spinnaker\'s legacy Kubernetes provider](https://www.spinnaker.io/setup/install/providers/kubernetes/)
 is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
 
 ## Accounts
@@ -96,7 +96,7 @@ you must specify that namespace when you add the account to Spinnaker.
 If you don't specify any namespaces, then Spinnaker will attempt to list all namespaces,
 which requires a cluster-wide role. Without a cluster-wide role configured
 and specified namespaces, you will see deployment
-[timeouts in the "Wait for Manifest to Stabilize" task](https://github.com/spinnaker/spinnaker/issues/3666#issuecomment-485001361).
+timeouts in the [\"Wait for Manifest to Stabilize\" task](https://github.com/spinnaker/spinnaker/issues/3666#issuecomment-485001361).
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
