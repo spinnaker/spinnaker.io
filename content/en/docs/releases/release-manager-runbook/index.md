@@ -23,6 +23,18 @@ If you don't have access to any of the following, contact a member of the TOC or
 - You're a member of the [release-managers GitHub team](https://github.com/orgs/spinnaker/teams/release-managers).
 - You're able to view our [GCP spinnaker-community cloudbuilds](https://console.cloud.google.com/cloud-build/builds?project=spinnaker-community). You should see a lot of builds.
 
+## Build Artifact Table
+
+See the GitHub Action files in each service's git repository.
+
+| Type      | Location                                                                               | Built on merge `master` | merge `release-*` | git tag (manual + autobump) | other           |
+| --------- | -------------------------------------------------------------------------------------- | ----------------------- | ----------------- | --------------------------- | --------------- |
+| bom       | https://console.cloud.google.com/storage/browser/halconfig?project=spinnaker-community | N                       | N                 | N                           | Y (`buildtool`) |
+| container | https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker        | Y                       | Y                 | Y                           | N               |
+| deb       | https://console.cloud.google.com/artifacts/apt/spinnaker-community/us/apt              | N                       | N                 | Y                           | N               |
+| jar       | https://repo.maven.apache.org/maven2/io/spinnaker/                                     | N                       | N                 | Y                           | N               |
+| spin      | https://console.cloud.google.com/storage/browser/spinnaker-artifacts/spin              | Y                       | Y                 | Y                           | N               |
+
 ## One week before the branches are cut (Monday)
 
 Ping [#dev](https://spinnakerteam.slack.com/messages/dev/) reminding everyone
