@@ -4,10 +4,11 @@
     {{ partial "head.html" . }}
   </head>
   <body class="td-{{ .Kind }} layout-{{.Layout}}">
-    
-    <header class="row">
-      {{ partial "navbar.html" . }}
    
+    <header class="row">
+     
+      {{ partial "promo-banner.html" . }}
+      {{ partial "navbar.html" . }}
     {{ if .IsHome }}{{ partial "hero-homepage.html" .}}
 
   </header>
