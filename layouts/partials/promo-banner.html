@@ -1,3 +1,4 @@
+{{ if .Site.Params.promoBanner.show }}
 <div
   class="
     bg-light
@@ -23,15 +24,13 @@
             py-2
             bg-secondary
           "
-          >UPCOMING EVENT
+        >
+          {{ .Site.Params.promoBanner.label }}
         </span>
       </div>
       <div class="col-8">
         <div>
-          <p class="m-0">
-            Spinnaker Summit is co-located with KubeCon this year! Join us on
-            Oct 23-24 in Detroit.
-          </p>
+          <p class="m-0">{{ .Site.Params.promoBanner.text }}</p>
         </div>
       </div>
       <div class="col-2">
@@ -39,9 +38,10 @@
           <a
             target="_blank"
             class="btn btn-sm btn-info mr-3 px-3"
-            href="http://go.armory.io/ss22"
+            href="{{ .Site.Params.promoBanner.ctaLink }}"
           >
-            Register <i class="fas fa-arrow-alt-circle-right ml-1"></i>
+            {{ .Site.Params.promoBanner.ctaText }}
+            <i class="fas fa-arrow-alt-circle-right ml-1"></i>
           </a>
         </div>
       </div>
@@ -59,3 +59,4 @@
     </svg>
   </div>
 </div>
+{{ end }}
