@@ -133,6 +133,15 @@ algolia_docsearch = false
 # Enable Lunr.js offline search
 offlineSearch = true
 
+#  Promo Banner variables
+[params.promoBanner]
+  show = true
+  text = "Spinnaker Summit is co-located with KubeCon this year! Join us on Oct 23-24 in Detroit."
+  ctaLink = "http://go.armory.io/ss22"
+  ctaText = "Register"
+  label = "UPCOMING EVENT"
+
+
 # User interface configuration
 [params.ui]
 # Enable to show the side bar menu in its compact state.

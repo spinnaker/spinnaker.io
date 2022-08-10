@@ -14,22 +14,25 @@
     "spinnaker",
     "documentation"
   ],
-  "contributors": 
-  [
-    { "name": "Rosalind Benoit" },
+  "contributors": [
     {
-      "name": "Lou Groshek", 
+      "name": "Rosalind Benoit"
+    },
+    {
+      "name": "Lou Groshek",
       "email": "lou@lougroshek.com"
     },
-    { "name": "Brian Le" },
-    
     {
-    "name" : "Nikema Prophet",
-    "email" : "3941856+prophen@users.noreply.github.com",
-    "url" : "https://nikemaprophet.com"
+      "name": "Brian Le"
     },
-    { "name": "Aimee Ukasick"}
-    
+    {
+      "name": "Nikema Prophet",
+      "email": "3941856+prophen@users.noreply.github.com",
+      "url": "https://nikemaprophet.com"
+    },
+    {
+      "name": "Aimee Ukasick"
+    }
   ],
   "license": "ISC",
   "bugs": {

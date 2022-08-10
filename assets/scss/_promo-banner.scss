@@ -1,0 +1,27 @@
+.promo {
+    &-banner {
+        width: 100%;
+        height: 0;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+        &.active {
+            height: 50px;
+        }
+    }
+}
+
+.close {
+    &-banner {
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        width: 20px;
+        height: 100%;
+        margin-right: 20px;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
