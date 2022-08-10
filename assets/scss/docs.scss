@@ -13,3 +13,13 @@
     margin-top: 50px;
   }
 }
+.td-toc {
+  &.bumped {
+    top: 0;
+    .td-page-meta,
+    #TableOfContents {
+      position: relative;
+      top: 50px;
+    }
+  }
+}
