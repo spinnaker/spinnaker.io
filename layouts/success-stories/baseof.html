@@ -4,7 +4,9 @@
     {{ partial "head.html" . }}
   </head>
   <body class="td-{{ .Kind }} layout-{{.Layout}}">
-    <header class="ss-header row">{{ partial "navbar.html" . }}</header>
+    <header class="ss-header row">
+      {{ partial "promo-banner.html" . }}
+      {{ partial "navbar.html" . }}</header>
     {{ partial "hero.html" . }}
 
     <div class="td-default td-outer">
