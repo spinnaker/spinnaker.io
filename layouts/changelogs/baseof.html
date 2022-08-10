@@ -6,7 +6,10 @@
 </head>
 
 <body class="td-{{ .Kind }} layout-{{.Layout}}">
-  <header>{{ partial "navbar.html" . }}</header>
+  <header>
+     {{ partial "promo-banner.html" . }}
+     {{ partial "navbar.html" . }}
+  </header>
 
   <div class="td-default td-outer clear-header container">
     <main role="main">
