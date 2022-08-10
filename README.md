@@ -130,3 +130,14 @@ The internal YouTube embed template provided by Hugo does not allow for the sett
 ```
 {{< customyoutube id="b7BmMY1kR10" width="320px" height="240px" >}}
 ```
+
+## Promo Banner on homepage
+
+The promo bannder across the top of the home page is displayed depending on a parameter in config.toml and also configured there:
+
+[params.promoBanner]
+  show = true
+  text = "Spinnaker Summit is co-located with KubeCon this year! Join us on Oct 23-24 in Detroit."
+  ctaLink = "http://go.armory.io/ss22"
+  ctaText = "Register"
+  label = "UPCOMING EVENT"
