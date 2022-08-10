@@ -2,8 +2,7 @@ const promoBanner = document.getElementById('promo-banner')
 const closePromoBanner = document.getElementById('close-banner')
 const navbar = document.getElementById('navbar')
 const tdTocWrapper = document.querySelector('.td-toc')
-// const docsSidebarMeta = document.querySelector('.td-page-meta')
-console.log({ tdTocWrapper })
+
 if (promoBanner) {
   closePromoBanner.addEventListener('click', () => {
     // Close banner
@@ -12,13 +11,13 @@ if (promoBanner) {
     // Drop cookie to keep banner closed 24 hours for user
     createCookie('banner_closed', 1, 1)
     navbar.style.top = '0px'
-    tdTocWrapper.classList.remove('bumped')
+    if (tdTocWrapper) tdTocWrapper.classList.remove('bumped')
   })
 
   if (!readCookie('banner_closed')) {
     // Show promo banner if no "closed_banner" cookie
     promoBanner.classList.add('active')
-    tdTocWrapper.classList.add('bumped')
+    if (tdTocWrapper) tdTocWrapper.classList.add('bumped')
 
     // Adjust navbar position after promo banner appears
     setTimeout(() => {
