@@ -216,6 +216,9 @@ Repeat as needed.
 
 1. Re-tag Halyard container without `-unvalidated`. [halyard repository](https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker/halyard)
 
+1. Re-tag latest stable Halyard containers with `:stable` and `:stable-ubuntu`. [docs
+   usage](https://spinnaker.io/docs/setup/install/halyard/#install-halyard-on-docker)
+
 1. Post in [#halyard](https://spinnakerteam.slack.com/messages/halyard/) that a
    new version of Halyard has been released.
 
@@ -232,6 +235,13 @@ Repeat as needed.
 
 1. Tag `release-{major}-{minor}-x` branch with next `{patch}` tag. For example `v1.46.0` next
    tag is `v1.46.1`
+
+1. TODO: Any validation?
+
+1. Re-tag Halyard container without `-unvalidated`. [halyard repository](https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker/halyard)
+
+1. Re-tag latest stable Halyard containers with `:stable` and `:stable-ubuntu`. [docs
+   usage](https://spinnaker.io/docs/setup/install/halyard/#install-halyard-on-docker)
 
 1. Post in [#halyard](https://spinnakerteam.slack.com/messages/halyard/) that a
    new version of Halyard has been released.
