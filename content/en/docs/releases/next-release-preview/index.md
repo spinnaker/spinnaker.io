@@ -10,3 +10,15 @@ in the next release of Spinnaker. These notes will be prepended to the release
 changelog.
 
 ## Coming Soon in Release 1.29
+
+### Spring Boot 2.3
+
+Spinnaker 1.29 uses spring boot 2.3, where 1.28 uses spring boot 2.2.  Spring
+boot 2.3 considers session data cached by spring boot 2.2 invalid.  Therefore,
+users with cached sessions will be unable to log in until the invalid
+information is removed from the cache.  Open browser windows to spinnaker are
+unresponsive after the deployment until they’re reloaded.  Executing:
+
+    $ redis-cli keys "spring:session*" | xargs redis-cli del
+
+on gate's redis instance removes the cached session information.
