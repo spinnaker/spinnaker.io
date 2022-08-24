@@ -36,7 +36,7 @@ In this setup, Spinnaker runs on an EC2 instance. Code is edited on the machine 
 
 4. Provision a development instance that uses these resources with the following steps:
     * From the AWS Console, navigate to the EC2 [launch instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) wizard
-    * Select an _Ubuntu Server 16.04_ Amazon machine image
+    * Select an _Ubuntu Server 22.04_ Amazon machine image
     * Select an instance type with sufficient resources to run all the Spinnaker microservices, such as _m5.4xlarge_
     * On the "instance details" step:
         * select the default VPC for "Network"

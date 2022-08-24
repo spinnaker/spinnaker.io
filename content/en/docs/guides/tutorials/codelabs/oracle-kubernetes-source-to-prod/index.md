@@ -17,7 +17,7 @@ If you don't already have a cluster for this purpose, you can follow [this tutor
 
 ### Create a compute instance
 
-Create a compute instance on Oracle Cloud Infrastructure (OCI) to host Spinnaker by following [this instructions](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/launchinginstance.htm).  Spinnaker supports Ubuntu 16.04.
+Create a compute instance on Oracle Cloud Infrastructure (OCI) to host Spinnaker by following [these instructions](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/launchinginstance.htm).  Spinnaker supports Ubuntu 18.04 or higher.
 
 ### Install and configure Spinnaker
 

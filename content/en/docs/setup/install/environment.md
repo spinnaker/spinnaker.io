@@ -83,7 +83,7 @@ single machine Halyard is currently installed on.
 
 We recommend at least 4 cores and 16GB of RAM.
 
-> **Note**: Local Debian installation requires Ubuntu 14.04 or 16.04.
+> **Note**: Local Debian installation requires either Ubuntu 18.04 or higher or Debian 10 or higher.
 
 ### Intended use case
 
@@ -133,17 +133,16 @@ We recommend at least 4 cores and 16GB of RAM.
 
 Ensure that the following are installed on your system:
 
-##### Ubuntu
+##### Ubuntu/Debian
 
 * git: `sudo apt-get install git`
 * curl: `sudo apt-get install curl`
 * netcat: `sudo apt-get install netcat`
 * redis-server: `sudo apt-get install redis-server`
-* OpenJDK 8 - JDK (we're building from source, so a JRE is not sufficient)
+* OpenJDK 11 - JDK (we're building from source, so a JRE is not sufficient)
     ```
-    sudo add-apt-repository ppa:openjdk-r/ppa
     sudo apt-get update
-    sudo apt-get install openjdk-8-jdk
+    sudo apt-get install openjdk-11-jdk
     ```
 * node (version >=12.16.0, [can be installed via nvm](https://github.com/creationix/nvm#install-script), summarized below)
     ```

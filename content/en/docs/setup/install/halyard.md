@@ -35,8 +35,8 @@ We recommend you install Halyard on a machine with at least 12GB of RAM.
 
 Halyard runs on...
 
-* Ubuntu 14.04, 16.04 or 18.04 (Ubuntu 16.04 requires Spinnaker 1.6.0 or later)
-* Debian 8 or 9
+* Ubuntu 18.04 or higher
+* Debian 10 or higher
 * macOS (tested on 10.13 High Sierra only)
 
 1. Get the latest version of Halyard:

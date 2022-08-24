@@ -19,7 +19,7 @@ This guide assumes you have access to a machine with a minimum specification of:
 
 - 18 GB of RAM
 - A 4 core CPU
-- Ubuntu 14.04, 16.04 or 18.04
+- Either Ubuntu 18.04 or higher, or Debian 10 or higher
 
 > This guide has been tested against a machine with these specifications but it's feasible
 > to develop Spinnaker on different flavors of Linux and with fewer resources, depending on
