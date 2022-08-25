@@ -19,7 +19,7 @@ repositories](https://docs.docker.com/glossary/?term=repository).
 Perform the steps in this article in the same place where you have Halyard
 installed, whether [in a Docker
 container](/docs/setup/install/halyard/#install-halyard-on-docker) or [locally on
-Ubuntu/Debian or macOS](/docs/setup/install/halyard/#update-halyard-on-debianubuntu-or-macos).
+Ubuntu/Debian](/docs/setup/install/halyard/#update-halyard-on-debianubuntu).
 
 ## Prerequisites
 
