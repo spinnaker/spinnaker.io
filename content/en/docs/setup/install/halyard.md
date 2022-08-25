@@ -20,7 +20,7 @@ just going to tell you to use Halyard.
 
 There are two ways you can install Halyard:
 
-* [locally on Debian/Ubuntu or macOS](#install-on-debianubuntu-and-macos)
+* [locally on Debian/Ubuntu](#install-on-debianubuntu)
 
    This can be on a desktop or laptop computer, or on a VM.
    
@@ -31,24 +31,17 @@ We recommend you install Halyard on a machine with at least 12GB of RAM.
 > **Note**: If you need to run Halyard without access to public internet, read
 > [Deploy Custom Spinnaker Builds](/docs/guides/operator/custom-boms/).
 
-## Install on Debian/Ubuntu and macOS
+## Install on Debian/Ubuntu
 
 Halyard runs on...
 
 * Ubuntu 18.04 or higher
 * Debian 10 or higher
-* macOS (tested on 10.13 High Sierra only)
 
 1. Get the latest version of Halyard:
 
-   For Debian/Ubuntu:
    ```bash
    curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debian/InstallHalyard.sh
-   ```
-
-   For macOS:
-   ```bash
-   curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/macos/InstallHalyard.sh
    ```
 
 1. Install it:
@@ -69,13 +62,14 @@ under `/var/log/spinnaker/halyard/halyard.log`.
 To get help with any `hal` command, append `-h`. Also, see the [Halyard command
 Reference](/docs/reference/halyard/commands).
 
-### Update Halyard on Debian/Ubuntu or macOS
+### Update Halyard on Debian/Ubuntu
 
 ```bash
-sudo update-halyard
+sudo apt-get update
+sudo apt --only-upgrade install spinnaker-halyard
 ```
 
-### Uninstall Halyard from Debian/Ubuntu or macOS
+### Uninstall Halyard from Debian/Ubuntu
 
 > __Important__: uninstalling Halyard deletes the entire contents of your `~/.hal`
 directory. Don't do it unless you're prepared to lose your configuration.
