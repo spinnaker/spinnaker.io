@@ -45,7 +45,7 @@ Addition of instance type metadata/ information to API response. See before-afte
 
 ### Deck
 - Changes to adapt to Clouddriver API response modifications:
-  - Udpate to types and related code: AWS image, AWS instance type
+  - Update to types and related code: AWS image, AWS instance type
   - Improvements to validations between AWS instance type and AMI architecture (more information in #9793)
 
 - Improvements to AWS instance selector experience ([demo](https://github.com/spinnaker/deck/pull/9793#issue-1087931624)):
