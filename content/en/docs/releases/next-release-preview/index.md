@@ -43,3 +43,16 @@ Addition of instance type metadata/ information to API response. See before-afte
       new key: `com.netflix.spinnaker.clouddriver.aws.provider.AwsInfrastructureProvider:AmazonInstanceTypeCachingAgent/my-aws-devel-acct/eu-central-1:relationships`
      
 
+### Deck
+- Changes to adapt to Clouddriver API response modifications:
+  - Update to types and related code: AWS image, AWS instance type
+  - Improvements to validations between AWS instance type and AMI architecture (more information in #9793)
+
+- Improvements to AWS instance selector experience ([demo](https://github.com/spinnaker/deck/pull/9793#issue-1087931624)):
+  - Before, custom instance type selector displayed a huge list of 250+ instance types ([screen shot](https://user-images.githubusercontent.com/3614196/147279976-d93ac869-09bd-4a4d-a426-1b0a6117b38b.png)).
+    This was replaced with:      
+    1. drop down now shows basic information for each instance type ([screen shot](https://user-images.githubusercontent.com/3614196/147279046-da3e959c-7922-433e-babf-75d421ab0d08.png))
+    2. drop down allows filtering instance types by comma-separated list of information / metadata ([screen shot](https://user-images.githubusercontent.com/3614196/147279050-cc5837fa-0e02-4e17-b727-6b4a8baa6776.png))
+        See complete list of filters [here](https://github.com/spinnaker/deck/pull/9793)
+  - The instance type info is also displayed for selected instance types like [this](https://user-images.githubusercontent.com/3614196/147279050-cc5837fa-0e02-4e17-b727-6b4a8baa6776.png).
+
