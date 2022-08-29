@@ -56,3 +56,21 @@ Addition of instance type metadata/ information to API response. See before-afte
         See complete list of filters [here](https://github.com/spinnaker/deck/pull/9793)
   - The instance type info is also displayed for selected instance types like [this](https://user-images.githubusercontent.com/3614196/147279050-cc5837fa-0e02-4e17-b727-6b4a8baa6776.png).
 
+
+### Igor
+- New stop API endpoint
+
+  Reasoning: The current API endpoint `PUT /masters/{name}/jobs/{jobName}/stop/{queuedBuild}/{buildNumber}` is not working well when the job name has slashes (it happens when we have a folder structure in Jenkins).
+  Instead of matching the `stop` endpoint, Spring framework is matching the request to the build API definition `/masters/{name}/jobs/**`, which is, in the end, trying to start a non-existing job. The HTTP request is matched like this because the slash character is the URI standard path delimiter, and all that goes after it counts as a new level in the path hierarchy.
+    - a new endpoint has been created  (`PUT /masters/{master}/jobs/stop/{queuedBuild}/{buildNumber}`) which accepts the job name as a query parameter. See the changes [here](https://github.com/spinnaker/igor/pull/1038)
+
+
+### Orca
+- Changes to adapt Igor API changes:
+  - Introduce a feature flag in Orca to use the new Igor `stop` endpoint. By default, if not enabled the existing endpoint (`PUT /masters/{name}/jobs/{jobName}/stop/{queuedBuild}/{buildNumber}`) will be called  
+    ```
+    feature:
+      igor:
+        jobNameAsQueryParameter: true
+    ```
+    See the changes [here](https://github.com/spinnaker/orca/pull/4294)
