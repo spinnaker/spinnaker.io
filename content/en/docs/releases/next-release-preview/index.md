@@ -63,6 +63,24 @@ Addition of instance type metadata/ information to API response. See before-afte
   - The instance type info is also displayed for selected instance types like [this](https://user-images.githubusercontent.com/3614196/147279050-cc5837fa-0e02-4e17-b727-6b4a8baa6776.png).
 
 
+### Fiat
+- https://github.com/spinnaker/fiat/pull/972 introduces a way to control whether fiat queries clouddriver during a role sync.  The default is query.  To disable querying clouddriver for applications:
+    ```
+    resource:
+      provider:
+        clouddriver:
+           loadApplications: false
+    ```
+
+  The same PR also introduces another configuration property to set how frequently fiat refreshes its cache of clouddriver applications:
+    ```
+    resource:
+      provider:
+        clouddriver:
+          cacheRefreshIntervalMs: <> # defaults to 30s
+    ```
+
+
 ### Igor
 - New stop API endpoint
 
