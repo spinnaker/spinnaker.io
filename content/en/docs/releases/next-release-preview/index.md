@@ -64,7 +64,7 @@ Addition of instance type metadata/ information to API response. See before-afte
 
 
 ### Fiat
-- https://github.com/spinnaker/fiat/pull/972 introduces a way to control whether fiat queries clouddriver during a role sync.  The default is query.  To disable querying clouddriver for applications:
+- https://github.com/spinnaker/fiat/pull/972 introduces a way to control whether fiat queries clouddriver during a role sync.  The default is to query.  To disable querying clouddriver for applications:
     ```
     resource:
       provider:
