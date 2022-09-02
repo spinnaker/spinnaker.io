@@ -24,6 +24,12 @@ unresponsive after the deployment until they’re reloaded.  Executing:
 on gate's redis instance removes the cached session information.
 
 ### Clouddriver
+- https://github.com/spinnaker/clouddriver/pull/5777 introduces a mechanism to only cache applications known to front50, by setting the following configuration flag to true.  The default is false:
+    ```
+    kubernetes:
+      checkApplicationInFront50: true
+    ```
+
 - Improvements to AWS EC2 instance types API integration:
 The integration previously used AWS EC2 pricing docs to retrieve EC2 instance types and information. It was replaced with [AWS EC2 describe-instance-types API](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) instead.
 
