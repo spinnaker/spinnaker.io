@@ -95,10 +95,11 @@ figure.captains-log {
 }
 .hero.home {
   @include media-breakpoint-between(lg, xl) {
-    height: calc(100vh - 45px);
+    // height: calc(100vh - 45px);
+    padding: 60px 0;
     margin: auto;
     margin-top: 50px;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
   }
 }
 .hero {
@@ -315,9 +316,9 @@ div.captains-log {
   .hero.home {
     padding-top: 117px;
     margin-top: 2rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
 
     .intro-text {
       margin: auto;

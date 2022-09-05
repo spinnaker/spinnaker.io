@@ -1,6 +1,6 @@
 ---
 title: 'Spinnaker'
-subtitle: 'Cloud Native Continuous Delivery'
+subtitle: 'Multi-cloud continuous delivery for the enterprise'
 subtitle_1: 'Fast, safe, repeatable deployments for every enterprise'
 date: '2020-06-04'
 type: 'en'
@@ -8,7 +8,7 @@ is_index: true
 layout: 'index'
 has_carousel: true
 news_banner: false
-news_text: 
+news_text:
 news_link:
 
 join_slack_text: 'Join Spinnaker Slack, a place for the community to come together. Use this vibrant workspace to ask and answer questions, connect with other operators and users, discuss issues with SIGs, and learn about Spinnaker!'

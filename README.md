@@ -87,7 +87,7 @@ type: 'en'
 is_index: true
 layout: 'index'
 has_carousel: true
-news_banner: true
+news_banner: false
 news_text: 'Testing news banner'
 news_link: 'https://google.com'
 ...
@@ -136,8 +136,8 @@ The internal YouTube embed template provided by Hugo does not allow for the sett
 The promo bannder across the top of the home page is displayed depending on a parameter in config.toml and also configured there:
 
 [params.promoBanner]
-  show = true
-  text = "Spinnaker Summit is co-located with KubeCon this year! Join us on Oct 23-24 in Detroit."
-  ctaLink = "http://go.armory.io/ss22"
-  ctaText = "Register"
-  label = "UPCOMING EVENT"
+show = true
+text = "Spinnaker Summit is co-located with KubeCon this year! Join us on Oct 23-24 in Detroit."
+ctaLink = "http://go.armory.io/ss22"
+ctaText = "Register"
+label = "UPCOMING EVENT"
