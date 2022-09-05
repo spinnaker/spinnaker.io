@@ -4,28 +4,6 @@
       <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
 
       <h1 class="subtitle">{{.Params.subtitle}}</h1>
-      {{ if .Params.news_banner }}
-      <a href="{{.Params.news_link}}">
-        <h4>
-          {{.Params.news_text}}
-          <i class="fa fa-caret-right"></i></h4
-      ></a>
-      {{ end }}
-    </div>
-  </div>
-  <!-- Roles appeal row -->
-  <div class="roles-appeal">
-    <div class="card-deck">
-      {{ range $.Site.Data.roles }}
-
-      <div class="card">
-        <h5>{{.name}}</h5>
-        <p class="shortdesc">
-          <a href="{{.link}}">{{.prompt}} <i class="fa fa-caret-right"></i></a>
-        </p>
-      </div>
-
-      {{ end }}
     </div>
   </div>
 </div>
