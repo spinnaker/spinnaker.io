@@ -90,7 +90,7 @@ Addition of instance type metadata/ information to API response. See before-afte
 
 
 ### Orca
-- Changes to adapt Igor API changes:
+- Changes to adapt to Igor API changes:
   - Introduce a feature flag in Orca to use the new Igor `stop` endpoint. By default, if not enabled the existing endpoint (`PUT /masters/{name}/jobs/{jobName}/stop/{queuedBuild}/{buildNumber}`) will be called
     ```
     feature:
@@ -98,3 +98,17 @@ Addition of instance type metadata/ information to API response. See before-afte
         jobNameAsQueryParameter: true
     ```
     See the changes [here](https://github.com/spinnaker/orca/pull/4294)
+
+- https://github.com/spinnaker/orca/pull/4195 provides a way to limit the operations that orca performs, either globally, or for specific users.  For example:
+
+    ```
+    executions:
+      blockOrchestrationExecutions: true
+      allowedOrchestrationExecutions: # only applicable when blockOrchestrationExecutions: false
+        - name: updateApplication # eg. config to show how to set the name and allowAllUsers properties for an execution
+          allowAllUsers: true
+        - name: saveApplication # eg. config to show how to set just the name of an execution. It defaults to allowAllUsers: true
+        - name: savePipeline # eg. config to show how to set the name and permittedUsers properties for an execution
+          permittedUsers:
+           - "permitted-user@abc.com"
+   ```
