@@ -8,13 +8,15 @@
 h3 {
   margin-bottom: 1.6rem;
 }
-.jumbotron > * {
+
+.jumbotron>* {
   margin: 0 3rem;
 
   h3 {
     margin-bottom: 1.6rem;
   }
 }
+
 header {
   margin: 0;
   background-color: $secondary;
@@ -22,14 +24,17 @@ header {
 
 table.core-services {
   width: 100%;
+
   td {
     width: max-content;
+
     img {
       height: 25px;
       object-fit: contain;
     }
   }
 }
+
 th.status-th {
   @media (max-width: 575.98px) {
     width: 50vw;
@@ -40,6 +45,7 @@ th.status-th {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
   .card {
     margin-bottom: 1rem;
 
@@ -48,36 +54,45 @@ th.status-th {
     }
   }
 }
+
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
   .card {
     margin-bottom: 1rem;
+
     @include media-breakpoint-only(xl) {
       width: 19%;
     }
+
     @include media-breakpoint-between(sm, lg) {
       width: 49%;
     }
+
     @include media-breakpoint-between(xs, sm) {
       width: 100%;
     }
   }
 }
+
 .card-deck {
   margin-right: 0;
   margin-left: 0;
 }
+
 .td-home {
   .row {
     margin-right: 0;
     margin-left: 0;
   }
 }
+
 .td-default main section:first-of-type {
   padding-top: 117px;
 }
+
 main {
   .single-section {
     padding-top: 0;
@@ -89,10 +104,12 @@ figure.captains-log {
   display: flex;
   justify-content: center;
   align-items: center;
+
   img {
     max-width: 60vw;
   }
 }
+
 .hero.home {
   @include media-breakpoint-between(lg, xl) {
     // height: calc(100vh - 45px);
@@ -102,6 +119,7 @@ figure.captains-log {
     // justify-content: space-evenly;
   }
 }
+
 .hero {
   width: 100%;
   display: flex;
@@ -143,12 +161,14 @@ figure.captains-log {
   .vid {
     padding-right: 0.25rem;
     padding-left: 0.25rem;
+
     div {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
     }
+
     iframe {
       position: absolute;
       top: 0;
@@ -170,6 +190,7 @@ figure.captains-log {
     padding: 1rem;
     margin: 1rem;
   }
+
   @media (max-width: 991.98px) {
     .card-deck {
       background-color: $transparent-secondary;
@@ -178,6 +199,7 @@ figure.captains-log {
       justify-content: stretch;
       flex-wrap: wrap;
       display: flex;
+
       .card {
         width: 80vw;
         padding: 1rem;
@@ -185,10 +207,12 @@ figure.captains-log {
     }
   }
 }
+
 .logos-list {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
   img {
     max-width: 150px;
     min-width: 150px;
@@ -196,6 +220,7 @@ figure.captains-log {
     padding: 15px;
     margin: 10px;
   }
+
   @media (max-width: 575.98px) {
     img {
       max-width: 120px;
@@ -209,6 +234,7 @@ figure.captains-log {
   flex-wrap: wrap;
   justify-content: center;
   align-items: baseline;
+
   img {
     max-width: 300px;
     min-width: 150px;
@@ -216,6 +242,7 @@ figure.captains-log {
     padding: 15px;
     margin: 10px;
   }
+
   @media (max-width: 575.98px) {
     img {
       max-width: 120px;
@@ -250,6 +277,7 @@ div.captains-log {
     margin-top: 105px;
   }
 }
+
 @media (max-width: 991.98px) {
   .clear-header {
     padding-top: 117px;
@@ -261,10 +289,13 @@ div.captains-log {
 
     .intro-text {
       margin: auto;
+
       div.intro-text-panel {
         border-radius: 5px;
+
         img {
           width: 75%;
+
           @media (max-width: 575.98px) {
             align-self: flex-start;
           }
