@@ -114,16 +114,11 @@ figure.captains-log {
   background-position: center bottom;
 
   .intro-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     .intro-text-panel {
       background: $transparent-secondary;
-      display: flex;
+
       flex-direction: column;
       align-items: flex-start;
-      justify-content: center;
       padding: 2rem;
       color: $white;
 
@@ -165,59 +160,6 @@ figure.captains-log {
   }
 }
 
-.heading-with-text {
-  background-color: $secondary;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  width: 100%;
-  p {
-    margin-bottom: 0;
-    font-size: 1.2rem;
-    width: 50%;
-  }
-  .slack-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    a.join-slack {
-      display: block;
-      background-color: #fff;
-      width: 280px;
-      min-width: 200px;
-      height: 80px !important;
-      max-height: 80px;
-      background-image: url('/images/slack_logo.png');
-      background-size: 120px;
-      background-repeat: no-repeat;
-      background-position: center;
-      margin-left: 3rem;
-      border: 1px solid #ededed;
-      border-radius: 10px;
-      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-    }
-  }
-  @media (max-width: 991.98px) {
-    p {
-      width: 100%;
-    }
-    .slack-container {
-      position: relative;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: auto;
-      width: 90%;
-
-      a.join-slack {
-        margin: 2rem 0;
-        margin-left: 0;
-      }
-    }
-  }
-}
 .roles-appeal {
   margin: 2rem auto;
   padding: 1rem;
@@ -316,20 +258,11 @@ div.captains-log {
   .hero.home {
     padding-top: 117px;
     margin-top: 2rem;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
 
     .intro-text {
       margin: auto;
-      width: 90%;
       div.intro-text-panel {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
         border-radius: 5px;
-        width: 90%;
         img {
           width: 75%;
           @media (max-width: 575.98px) {
@@ -337,8 +270,8 @@ div.captains-log {
           }
         }
 
-        h3 {
-          font-size: 1.2rem;
+        h1 {
+          font-size: 1.5rem;
         }
       }
     }

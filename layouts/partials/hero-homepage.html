@@ -1,9 +1,51 @@
-<div class="row hero home">
-  <div class="intro-text">
+<div
+  class="
+    hero
+    home
+    p-5
+    position-relative
+    text-white
+    d-flex
+    justify-content-center
+    align-items-center
+    bg-secondary
+  "
+>
+  <div class="intro-text mb-4 d-flex justify-content-center align-items-center">
     <div class="intro-text-panel">
-      <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
+      <img
+        class="mx-auto d-inline-block"
+        src="/images/spinnaker-horizontal-white.png"
+        alt="Spinnaker Logo white"
+      />
 
-      <h1 class="subtitle">{{.Params.subtitle}}</h1>
+      <h1 class="subtitle text-center m-0">{{.Params.subtitle}}</h1>
     </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4 py-2">
+        <a
+          style="width: 100%"
+          class="btn btn-primary btn-lg ga-btn-track"
+          href="/docs/setup/install/"
+          role="button"
+        >
+          Install Spinnaker</a
+        >
+      </div>
+      <div class="col-md-4 py-2">
+        <a
+          style="width: 100%"
+          target="_blank"
+          class="btn btn-light btn-lg ga-btn-track"
+          href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+          role="button"
+        >
+          Join Slack</a
+        >
+      </div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex" style="width: 100%"></div>
   </div>
 </div>
