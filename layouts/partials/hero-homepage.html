@@ -1,34 +1,53 @@
-<div class="row hero home">
-  <div class="intro-text">
-    <div class="intro-text-panel">
-      <img src="/images/spinnaker-horizontal-white.png" alt="Spinnaker" />
-     
-      <h3 class="subtitle">
-        {{.Params.subtitle}}<br />
-       <small>{{.Params.subtitle_1}}</small> 
-      </h3>
-      {{ if .Params.news_banner }}
-      <a href="{{.Params.news_link}}">
-        <h4>
-          {{.Params.news_text}}
-          <i class="fa fa-caret-right"></i></h4
-      ></a>
-      {{ end }}
+<div
+  class="
+    hero
+    home
+    p-5
+    position-relative
+    text-white
+    d-flex
+    justify-content-center
+    align-items-center
+    bg-secondary
+  "
+>
+  <div class="intro-text mb-4 d-flex justify-content-center align-items-center">
+    <div class="intro-text-panel col-12 text-center">
+      <img
+        class="mx-auto d-inline-block"
+        src="/images/spinnaker-horizontal-white.png"
+        alt="Spinnaker Logo white"
+      />
+
+      <h1 class="subtitle text-center m-0">{{.Params.subtitle}}</h1>
     </div>
   </div>
-  <!-- Roles appeal row -->
-  <div class="roles-appeal">
-    <div class="card-deck">
-      {{ range $.Site.Data.roles }}
-
-      <div class="card">
-        <h5>{{.name}}</h5>
-        <p class="shortdesc">
-          <a href="{{.link}}">{{.prompt}} <i class="fa fa-caret-right"></i></a>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-6 col-md-4 py-2">
+        <a
+          style="width: 100%"
+          class="btn btn-primary btn-lg ga-btn-track"
+          href="/docs/setup/install/"
+          role="button"
+        >
+          Install Spinnaker</a
+        >
+      </div>
+      <div class="col-sm-6 col-md-4 py-2">
+        <a
+          style="width: 100%"
+          target="_blank"
+          class="btn btn-light btn-lg ga-btn-track mb-2"
+          href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+          role="button"
+        >
+          Join Slack</a
+        >
+        <p class="px-4 text-center">
+          Need help? Slack is the fastest way to get your questions answered
         </p>
       </div>
-
-      {{ end }}
     </div>
   </div>
 </div>
