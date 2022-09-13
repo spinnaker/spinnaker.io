@@ -1,5 +1,6 @@
 @import 'success-stories';
 @import 'promo-banner';
+@import 'homepage-hero';
 @import 'slick-theme';
 @import 'slick';
 @import 'docs';
@@ -9,7 +10,7 @@ h3 {
   margin-bottom: 1.6rem;
 }
 
-.jumbotron>* {
+.jumbotron > * {
   margin: 0 3rem;
 
   h3 {
