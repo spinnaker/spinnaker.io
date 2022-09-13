@@ -1,0 +1,51 @@
+.homepage-hero {
+  overflow: hidden;
+  margin-top: 50px;
+  @include media-breakpoint-between(xs, md) {
+    margin-top: 107px;
+  }
+  &-background {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    img {
+      object-fit: cover;
+    }
+  }
+
+  h1 {
+    font-size: 60px;
+
+    @include media-breakpoint-between(sm, lg) {
+      font-size: 48px;
+    }
+
+    @include media-breakpoint-between(xs, sm) {
+      font-size: 32px;
+    }
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+  &-btn {
+    &-group {
+      .btn-white {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      .help {
+        &-text {
+          font-weight: 300;
+          font-size: 14px;
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

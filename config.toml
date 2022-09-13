@@ -54,7 +54,7 @@ id = "UA-70174036-1"
 [languages]
 [languages.en]
 title = "Spinnaker"
-description = "Multi-cloud continuous delivery for the enterprise"
+description = "Multi-cloud continuous deliver for the enterprise"
 languageName ="English"
 # Weight used for sorting.
 weight = 1

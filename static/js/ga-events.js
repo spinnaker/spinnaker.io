@@ -3,6 +3,6 @@ const gaBtnTrack = Array.prototype.slice.call(
 )
 gaBtnTrack.forEach((btn) => {
   btn.addEventListener('click', (e) => {
-    ga('send', 'event', e.target.role, e.type, e.target.innerText)
+    ga('send', 'event', e.target.role, e.type, e.target.dataset.label)
   })
 })

@@ -1,52 +1,63 @@
-<div
-  class="
-    hero
-    home
-    p-5
-    position-relative
-    text-white
-    d-flex
-    justify-content-center
-    align-items-center
-    bg-secondary
-  "
->
-  <div class="intro-text mb-4 d-flex justify-content-center align-items-center">
-    <div class="intro-text-panel col-12 text-center">
-      <img
-        class="mx-auto d-inline-block"
-        src="/images/spinnaker-horizontal-white.png"
-        alt="Spinnaker Logo white"
-      />
-
-      <h1 class="subtitle text-center m-0">{{.Params.subtitle}}</h1>
-    </div>
+<div class="row bg-secondary position-relative  w-100 homepage-hero">
+  <div class="position-absolute w-100 h-100 top-0 start-0 homepage-hero-background">
+    <img
+    class="w-100 h-100 "
+    src="/images/hero-background.jpg"
+    alt="Hero background Image"
+  />
   </div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-6 col-md-4 py-2">
-        <a
-          style="width: 100%"
-          class="btn btn-primary btn-lg ga-btn-track"
-          href="/docs/setup/install/"
-          role="button"
-        >
-          Install Spinnaker</a
-        >
+    <div class="container mx-auto py-5">
+      <div class="row justify-content-center mb-2 align-items-center">
+        <div class="col-12 col-lg-1 "></div>
+        <div class="col-6 col-lg-3 mb-3">
+          <div>
+            <!-- Image -->
+            <img
+              class="mx-auto w-100"
+              src="/images/spinnaker-logo-stacked.png"
+              alt="Spinnaker Logo Stacked"
+            />
+          </div>
+        </div>
+        <div class="col-lg-8 col-xl-7">
+          <div class="text-white px-3">
+            <h1 class="m-0 ">{{.Params.subtitle}}</h1>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-6 col-md-4 py-2">
-        <a
-          style="width: 100%"
-          target="_blank"
-          class="btn btn-light btn-lg ga-btn-track mb-2"
-          href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
-          role="button"
-        >
-          Join Slack</a
-        >
-        <p class="px-4 text-center">
-          Need help? Slack is the fastest way to get your questions answered
-        </p>
+      <div class="row justify-content-center homepage-hero-btn-group">
+        <div class="col-sm-6 col-lg-5 col-xl-4 py-2">
+          <a
+            style="width: 100%"
+            class="btn btn-primary btn-lg ga-btn-track"
+            href="/docs/setup/install/"
+            role="button"
+            data-label="Install Spinnaker"
+          >
+            Install Spinnaker</a
+          >
+        </div>
+        <div class="col-sm-6 col-lg-5 col-xl-4 py-2">
+          <a
+          
+            target="_blank"
+            class="btn bg-white btn-lg ga-btn-track mb-2 w-100 btn-white"
+            href="https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+            role="button"
+            data-label="Join Slack"
+          >
+            <img
+              class="mx-auto "
+              src="/images/slack-logo-text.png"
+              alt="Slack logo horizontal"
+              width="142"
+            /></a
+          >
+          <p class="px-4 text-center text-white help-text">
+            <span>Need help?</span> Slack is the fastest way to get
+            your questions answered
+          </p>
+        </div>
       </div>
     </div>
   </div>
