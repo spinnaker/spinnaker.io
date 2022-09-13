@@ -37,7 +37,7 @@ az account set --subscription $SUBSCRIPTION_ID
 Next, create a Service Principal (where the name is unique in your subscription) and set environment variables based on the output:
 
 ```bash
-az ad sp create-for-rbac --name "Spinnaker"
+az ad sp create-for-rbac --name "Spinnaker" --role contributor --scopes /subscriptions/${SUBSCRIPTION_ID}
 APP_ID=<Insert App Id>
 TENANT_ID=<Insert Tenant Id>
 ```
