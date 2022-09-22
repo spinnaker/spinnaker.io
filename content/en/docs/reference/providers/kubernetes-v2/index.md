@@ -228,7 +228,7 @@ mechanisms&mdash;called [Custom Resource Definitions
 (CRDs)](https://kubernetes.io/docs/concepts/api-extension/custom-resources/)&mdash;make
 it easy to build new types of resources, and Spinnaker accommodates that by
 making it simple to [extend Spinnaker to support a user's 
-CRDs](https://www.spinnaker.io/guides/developer/crd-extensions/).
+CRDs](https://www.spinnaker.io/guides/developer/extending/crd-extensions/).
 
 ## Terminology mapping
 
