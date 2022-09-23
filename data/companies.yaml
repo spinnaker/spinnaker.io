@@ -40,20 +40,6 @@
   testimonial_title: 'alto'
   testimonial: >
     Do aliquip magna nisi velit eu nisi magna dolore nostrud anim minim adipisicing nulla reprehenderit nostrud. Deserunt duis irure cupidatat qui occaecat duis officia commodo magna mollit. Incididunt nulla magna aute cupidatat Lorem est magna aliquip in.
-- id: 057
-  name: 'answear'
-  short_desc: 'short string description'
-  hide: false
-  is_featured: true
-  is_case_study: true
-  is_testimonial: false
-  logo: '/images/companies/answear_logo.png'
-  case_study_title: 'armory'
-  case_study: >
-    Nulla veniam aute sunt qui irure exercitation irure esse elit aliquip ea esse laboris aute consectetur duis. Quis aute elit excepteur adipisicing exercitation ut nostrud laboris laborum amet elit. Qui sit occaecat cupidatat magna deserunt fugiat reprehenderit culpa qui laborum sunt ex ex deserunt tempor minim. Eu elit sunt tempor voluptate tempor voluptate qui eu sint laboris amet. Amet enim ea amet tempor non laborum nisi magna mollit culpa. Qui mollit ut ex nulla duis cillum eu irure qui ipsum voluptate.
-  testimonial_title: 'armory'
-  testimonial: >
-    Ullamco commodo mollit proident enim enim nostrud anim ut laboris. Occaecat anim esse non ex id duis elit. Duis excepteur do pariatur dolore exercitation enim culpa. Nulla occaecat nisi sunt nisi enim est occaecat anim dolore laboris incididunt eu incididunt.
 - id: 004
   name: 'armory'
   short_desc: 'short string description'
@@ -600,20 +586,6 @@
   testimonial_title: 'plangrid'
   testimonial: >
     Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
-- id: 056
-  name: 'plecto'
-  short_desc: 'short string description'
-  hide: false
-  is_featured: true
-  is_case_study: true
-  is_testimonial: false
-  logo: '/images/companies/plecto_logo.png'
-  case_study_title: 'plecto'
-  case_study: >
-    Nulla veniam aute sunt qui irure exercitation irure esse elit aliquip ea esse laboris aute consectetur duis. Quis aute elit excepteur adipisicing exercitation ut nostrud laboris laborum amet elit. Qui sit occaecat cupidatat magna deserunt fugiat reprehenderit culpa qui laborum sunt ex ex deserunt tempor minim. Eu elit sunt tempor voluptate tempor voluptate qui eu sint laboris amet. Amet enim ea amet tempor non laborum nisi magna mollit culpa. Qui mollit ut ex nulla duis cillum eu irure qui ipsum voluptate.
-  testimonial_title: 'plecto'
-  testimonial: >
-    Ullamco commodo mollit proident enim enim nostrud anim ut laboris. Occaecat anim esse non ex id duis elit. Duis excepteur do pariatur dolore exercitation enim culpa. Nulla occaecat nisi sunt nisi enim est occaecat anim dolore laboris incididunt eu incididunt.
 - id: 043
   name: 'purestorage'
   short_desc: 'short string description'
@@ -768,20 +740,6 @@
   testimonial_title: 'uneeq'
   testimonial: >
     Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
-- id: 058
-  name: 'viki-rakuten'
-  short_desc: 'short string description'
-  hide: false
-  is_featured: true
-  is_case_study: true
-  is_testimonial: false
-  logo: '/images/companies/viki-rakuten_logo.png'
-  case_study_title: 'viki-rakuten'
-  case_study: >
-    Nulla veniam aute sunt qui irure exercitation irure esse elit aliquip ea esse laboris aute consectetur duis. Quis aute elit excepteur adipisicing exercitation ut nostrud laboris laborum amet elit. Qui sit occaecat cupidatat magna deserunt fugiat reprehenderit culpa qui laborum sunt ex ex deserunt tempor minim. Eu elit sunt tempor voluptate tempor voluptate qui eu sint laboris amet. Amet enim ea amet tempor non laborum nisi magna mollit culpa. Qui mollit ut ex nulla duis cillum eu irure qui ipsum voluptate.
-  testimonial_title: 'armory'
-  testimonial: >
-    Ullamco commodo mollit proident enim enim nostrud anim ut laboris. Occaecat anim esse non ex id duis elit. Duis excepteur do pariatur dolore exercitation enim culpa. Nulla occaecat nisi sunt nisi enim est occaecat anim dolore laboris incididunt eu incididunt.
 - id: 054
   name: 'waze'
   short_desc: 'short string description'
