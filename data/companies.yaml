@@ -40,6 +40,8 @@
   testimonial_title: 'alto'
   testimonial: >
     Do aliquip magna nisi velit eu nisi magna dolore nostrud anim minim adipisicing nulla reprehenderit nostrud. Deserunt duis irure cupidatat qui occaecat duis officia commodo magna mollit. Incididunt nulla magna aute cupidatat Lorem est magna aliquip in.
+- name: 'answear'
+  logo: '/images/companies/answear_logo.png'
 - id: 004
   name: 'armory'
   short_desc: 'short string description'
@@ -264,6 +266,8 @@
   testimonial_title: 'ep'
   testimonial: >
     Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- name: 'getir'
+  logo: '/images/companies/getir_logo.png'
 - id: 020
   name: 'getyourguide'
   short_desc: 'short string description'
@@ -586,6 +590,8 @@
   testimonial_title: 'plangrid'
   testimonial: >
     Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- name: 'plecto'
+  logo: '/images/companies/plecto_logo.png'
 - id: 043
   name: 'purestorage'
   short_desc: 'short string description'
@@ -698,6 +704,8 @@
   testimonial_title: 'skuid'
   testimonial: >
     Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- name: 'stilingue'
+  logo: '/images/companies/stilingue_logo.png'
 - id: 058
   name: 'stuart'
   short_desc: 'short string description'
