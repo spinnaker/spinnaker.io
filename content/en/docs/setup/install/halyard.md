@@ -64,6 +64,10 @@ Reference](/docs/reference/halyard/commands).
 
 ### Update Halyard on Debian/Ubuntu
 
+> __Note__: This upgrade procedure only works with Halyard v1.45.0 and higher.
+If you are using a Halyard version prior to v1.45.0, follow the
+instructions above to [Install Halyard](#install-on-debianubuntu).
+
 ```bash
 sudo apt-get update
 sudo apt --only-upgrade install spinnaker-halyard
