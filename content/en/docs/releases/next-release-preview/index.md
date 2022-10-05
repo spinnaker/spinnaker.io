@@ -13,12 +13,12 @@ changelog.
 
 ### Spring Boot 2.3
 
-Spinnaker 1.30 uses spring boot 2.4, where 1.29 uses spring boot 2.3.  Spring
-boot 2.4 considers session data cached by spring boot 2.3 invalid.  Therefore,
+Spinnaker 1.30 uses Spring Boot 2.4, where 1.29 uses Spring Boot 2.3.  Spring
+Boot 2.4 considers session data cached by Spring Boot 2.3 invalid.  Therefore,
 users with cached sessions will be unable to log in until the invalid
-information is removed from the cache.  Open browser windows to spinnaker are
+information is removed from the cache.  Open browser windows to Spinnaker are
 unresponsive after the deployment until they’re reloaded.  Executing:
 
     $ redis-cli keys "spring:session*" | xargs redis-cli del
 
-on gate's redis instance removes the cached session information.
+on Gate's redis instance removes the cached session information.
