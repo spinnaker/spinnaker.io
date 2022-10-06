@@ -62,6 +62,17 @@ under `/var/log/spinnaker/halyard/halyard.log`.
 To get help with any `hal` command, append `-h`. Also, see the [Halyard command
 Reference](/docs/reference/halyard/commands).
 
+#### Setup spinnaker user
+The commands `hal` runs are managed by the `spinnaker` user. To create this user run the following commands:
+
+```
+sudo useradd spinnaker --create-home
+sudo mkdir -p /home/spinnaker/.hal
+sudo chown spinnaker: /home/spinnaker/.hal
+```
+
+When the time comes to run `hal` config commands, the config will be written to the `/home/spinnaker/.hal` directory. 
+
 ### Update Halyard on Debian/Ubuntu
 
 > __Note__: This upgrade procedure only works with Halyard v1.45.0 and higher.
