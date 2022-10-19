@@ -27,7 +27,7 @@ on Gate's redis instance removes the cached session information.
 
 The `doNotEval` SpEL helper makes it possible to skip SpEL evaluation in other SpEL helpers e.g. `toJson`.
 
-For example, in the evaluation context is defined only `fileMap` object:
+For example, if the evaluation context is defined only `fileMap` object:
 
 ```java
 Map<String, Object> fileMap = Collections.singletonMap("owner", "managed-by-${team}");
