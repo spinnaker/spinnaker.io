@@ -22,3 +22,36 @@ unresponsive after the deployment until they’re reloaded.  Executing:
     $ redis-cli keys "spring:session*" | xargs redis-cli del
 
 on Gate's redis instance removes the cached session information.
+
+### doNotEval SpEL helper
+
+The `doNotEval` SpEL helper makes it possible to skip SpEL evaluation in other SpEL helpers e.g. `toJson`.
+
+For example, if the evaluation context is defined only `fileMap` object:
+
+```java
+Map<String, Object> fileMap = Collections.singletonMap("owner", "managed-by-${team}");
+```
+
+An exception will be thrown in attempt to get JSON because of `fileMap` contains SpEL inside.
+
+```shell
+${#toJson(fileMap)}
+```
+
+In the given case `fileMap` contains SpEL for another tool e.g. Terraform. Use `doNotEval` to let Spinnaker know
+that this SpEL should be evaluated by a different tool. No exceptions are thrown this way.
+
+```shell
+${#toJson(#doNotEval(fileMap))}
+```
+
+Use a feature flag to enable.
+
+```yaml
+# orca-local.yml
+
+expression:
+  do-not-eval-spel:
+    enabled: true
+```
