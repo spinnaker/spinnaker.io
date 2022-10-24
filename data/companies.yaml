@@ -634,6 +634,8 @@
   testimonial_title: 'redbox'
   testimonial: >
     Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
+- name: 'redfin'
+  logo: '/images/companies/redfin_logo.png'
 - id: 046
   name: 'smartthings'
   short_desc: 'short string description'
@@ -722,8 +724,6 @@
   testimonial_title: 'stuart'
   testimonial: >
     Ut irure et excepteur sunt esse velit ad ea nostrud ipsum veniam ipsum voluptate elit magna. Eiusmod nisi ex commodo nostrud occaecat officia sit ea dolore sunt ex laborum eu exercitation adipisicing. Occaecat eiusmod cupidatat mollit ex sit enim Lorem ex excepteur voluptate commodo ut nulla. Sunt incididunt reprehenderit minim in quis cillum elit non sit officia minim. Eu aliqua exercitation culpa tempor exercitation exercitation fugiat ad officia exercitation reprehenderit labore mollit dolore fugiat sit. Veniam voluptate anim nisi nulla ipsum officia occaecat commodo do aute incididunt incididunt. Esse cupidatat fugiat est cupidatat do elit reprehenderit occaecat Lorem exercitation sit. Incididunt aute magna Lorem ex nostrud voluptate id nostrud pariatur magna culpa ex.
-- name: 'synchronoss'
-  logo: '/images/companies/synchronoss_logo.png'
 - id: 051
   name: 'target'
   short_desc: 'short string description'
