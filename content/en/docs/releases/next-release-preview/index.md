@@ -63,3 +63,9 @@ If you have a pipeline with multiple triggers using different artifact constrain
 ![Artifact constraints](artifact_constraints.png)
 
 In this example, even though each trigger has its own artifact(s) defined, when one of the artifacts is present, all of the defined artifact constraints on all triggers are evaluated. If _any_ of them is missing, the pipeline will not trigger. This is [fixed](https://github.com/spinnaker/orca/pull/4322) in Spinnaker 1.30 to only consider the artifacts that are defined on the triggered trigger. If you've relied on this bug, you'll need to add manually add all the artifact constraints to all triggers to replicate the previous behavior.
+
+### Clouddriver
+
+- Replace deprecated Azure SDK `com.microsoft.azure:azure` with the new Azure SDK `com.azure.resourcemanager:azure-resourcemanager`
+- Add a new `AzureManagedImageCachingAgent` which is caching managed images from the specified region and resource group
+- Update `AzureVMImageLookupController` to return the newly cached managed images when `managedImages` query parameter is set to `true`
