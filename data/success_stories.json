@@ -225,6 +225,24 @@
       ]
     },
     {
+      "name": "Plecto",
+      "logo": "testimonials-logos/plecto_logo.png",
+      "quote": "Spinnaker was the logical choice for us.": [
+        {
+          "question": "Why did you choose Spinnaker?",
+          "answer": "Early on in Plecto’s journey it was evident that we were growing out of Heroku in terms of the cost. We wanted to move to AWS, but still wanted the ease of automated builds and deployments that Heroku offered. That led us to Asgaard, which was also developed at Netflix, but later deprecated in favor of Spinnaker. So Spinnaker was the logical choice for us."
+        },
+        {
+          "question": "How is Spinnaker being used at your company today?",
+          "answer": "All of our production and staging workloads are managed and deployed using Spinnaker. We use Pipelines to enable easy one click, zero downtime deployments for our engineers."
+        },
+        {
+          "question": "What benefits has it provided to your team?",
+          "answer": "It means that anyone in the engineering team can safely deploy without having to worry about what’s happening behind the scenes. It also means we can easily manage auto scaling of our services so we don’t have to over provision resources, since the load varies a lot throughout the day."
+        }
+      ]
+    },
+    {
       "name": "SAP Customer Experience",
       "logo": "testimonials-logos/sap.png",
       "quote": "Our largest development projects are deploying 25 times in production (daily average).",
