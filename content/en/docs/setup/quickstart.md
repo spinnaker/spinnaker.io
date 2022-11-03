@@ -3,7 +3,7 @@ title: 'Demo/Evaluation Installations'
 linkTitle: 'Quickstart'
 weight: 1
 description: >
-  Quickstart solutions that you give you the ability to try Spinnaker out quickly. These are not meant for production use as is.
+  Quickstart solutions that gives you the ability to try Spinnaker out quickly. These are not meant for production use as is.
 aliases:
   - /setup/quickstart/
 ---
