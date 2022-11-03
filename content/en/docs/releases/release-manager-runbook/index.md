@@ -35,17 +35,17 @@ See the GitHub Action files in each service's git repository.
 | jar       | https://repo.maven.apache.org/maven2/io/spinnaker/                                     | N                       | N                 | Y                           | N               |
 | spin      | https://console.cloud.google.com/storage/browser/spinnaker-artifacts/spin              | Y                       | Y                 | Y                           | N               |
 
-## One week before the branches are cut (Monday)
+## One week before the branches are cut
 
 Ping [#dev](https://spinnakerteam.slack.com/messages/dev/) reminding everyone
-to merge outstanding changes by Monday:
+to merge outstanding changes by `<DAY>`:
 
-> The release manager will be cutting the $VERSION release branches next Tuesday,
+> The release manager will be cutting the $VERSION release branches next <DAY>,
 > so if there are any outstanding PRs that you'd like to get into $VERSION,
-> please make sure they are merged by EOD next Monday. Once the branch is cut,
+> please make sure they are merged by EOD next <DAY - 1>. Once the branch is cut,
 > only fixes will be accepted into the release branches.
 
-## The day the branches are cut (Tuesday)
+## The day the branches are cut
 
 1.  If there are any [outstanding autobump PRs](https://github.com/pulls?q=is%3Apr+author%3Aspinnakerbot+is%3Aopen),
     make the required fixes to allow them to merge. (You can ignore `keel` and
@@ -62,7 +62,7 @@ to merge outstanding changes by Monday:
 
     The BOM will become these tags.
 
-1.  Create the release branches by running [`buildtool new_release_branch`](https://github.com/spinnaker/buildtool/blob/master/README.md#create-release-branches)
+1.  Create the release branches by running [buildtool new_release_branch](https://github.com/spinnaker/buildtool/blob/master/README.md#create-release-branches)
 
     1. Create the [spin](https://github.com/spinnaker/spin) release branch at
        HEAD of `master`. Later we will tag our new branch with the Spinnaker
@@ -79,7 +79,7 @@ to merge outstanding changes by Monday:
     > changelog, please make a pull request against the
     > [curated changelog](/community/releases/next-release-preview) by Friday.
 
-## One week after branches are cut (Monday)
+## One week after branches are cut
 
 1.  Audit [backport candidates](#audit-backport-candidates).
 
@@ -91,13 +91,15 @@ to merge outstanding changes by Monday:
 1.  Iterate until integration tests pass; fixing issues, tagging repositories
     and running the integration tests.
 
-1.  Build the BOM by running [buildtool build_bom](https://github.com/spinnaker/buildtool/blob/master/README.md#build-bom)
+1.  Ensure bumpdeps have completed and gradle versions have propagated.
 
-1.  Build the Changelog by running [buildtool build_changelog](https://github.com/spinnaker/buildtool/blob/master/README.md#build-changelog)
+1.  Run [buildtool Release GitHub Action](https://github.com/spinnaker/buildtool/actions/workflows/release.yml), with dry run `true`.
 
-1.  Raise a PR for Changelog at spinnaker.io by running [buildtool publish_changelog](https://github.com/spinnaker/buildtool/blob/master/README.md#publish-changelog)
+1.  Inspect job, check `Cat output files for review` step, validate BOM, changelog, and versions.yml look correct.
 
-1.  Add tag's to both `slim` and `ubuntu` containers - see [buildtool's release_helper.sh](https://github.com/spinnaker/buildtool/blob/master/release_helper.sh)
+1.  Run [buildtool Release GitHub Action](https://github.com/spinnaker/buildtool/actions/workflows/release.yml), with dry run `false`.
+
+1.  Use `regctl` to add tag's to both `slim` and `ubuntu` containers - see [buildtool release_helper.sh](https://github.com/spinnaker/buildtool/blob/master/release_helper.sh)
 
     1. at `{tag}` WITHOUT `unvalidated`, For example: tag `orca:1.2.3-unvalidated` with `orca:1.2.3`.
        Halyard expects container tags and debian packages to match the BOM.
@@ -105,30 +107,9 @@ to merge outstanding changes by Monday:
     1. at `release-{major}-{minor}-{patch}` - friendly tag for use by Spinnaker
        users Kubernetes and other manifests. For example: `spinnaker-1.27.0`
 
-1.  Upload the BOM file as `1.{minor}.{patch}` to the GCS - https://console.cloud.google.com/storage/browser/halconfig/bom
+1.  Update Next Release Preview.
 
-1.  Update [versions.yml](https://console.cloud.google.com/storage/browser/_details/halconfig/versions.yml)
-    in place with the new version.
-
-    1. **version** is `1.{minor}.{patch}`
-
-    1. **alias** is `v1.{minor}.{patch}`
-
-    1. **changelog** is the URL to the spinnaker.io changelog page you created earlier
-
-    1. **minimumHalyardVersion** should remain unchanged unless you know of a
-       reason to change it
-
-    1. **lastUpdate** is the current Linux epoch plus `000` due to use of
-       millisecond resolution for timestamps in Halyard. For example:
-
-       ```
-       $ date +%s
-       1651632868
-
-       # concatenate above with '000' becomes:
-       lastUpdate=1651632868000
-       ```
+1.  Seek review and merge of the [spinnaker.io docs PR](https://github.com/spinnaker/spinnaker.io/pulls) created by buildtool.
 
 1.  Ping the [#spinnaker-releases](https://spinnakerteam.slack.com/messages/spinnaker-releases/)
     channel to let them know that a new release is available.
@@ -150,44 +131,17 @@ to merge outstanding changes by Monday:
        the `spin` repository. This will kick off binary and container build &
        push to GCS and GAR.
 
-## Every subsequent Monday: Patch a previous Spinnaker version
+## Patch a previous Spinnaker version
 
-Repeat weeklyish for each supported version.
+Repeat as needed for each supported version.
 
 1.  Audit [backport candidates](#audit-backport-candidates).
 
-1.  FIXME: Rerun the `Flow_BuildAndValidate_${RELEASE}` job and get a blue build.
+1.  Ensure all branches have tags at HEAD or a suitable point.
 
-1.  FIXME: Run Publish_SpinnakerPatchRelease:
+1.  The rest of the process is almost the same as above steps for releasing a new minor version.
 
-    1. Enter the major and minor version of the release you’re patching
-       (ex: 1.18) in MAJOR_MINOR_VERSION.
-
-    1. All other fields can be left as defaults/blank.
-
-    This looks for a currently active release with this major and minor version.
-    It copies all parameters from that release (name, changelog gist, minimum
-    Halyard version), increments the patch version, and triggers
-    Publish_SpinnakerRelease with these parameters. In general, this is exactly
-    the behavior we want, but if you need to override this behavior (such as to
-    increment the minimum Halyard version in a patch release), you can call
-    Publish_SpinnakerRelease directly and pass the exact parameters that you’d
-    like the new release to have.
-
-1.  After the job has completed, run `hal version list` and verify that the
-    version you just released is listed, and the prior patch release for the minor
-    version is no longer listed.
-
-1.  Go to to [Versions page]({{< ref "versions" >}}) and verify the following (leaving time for the site to rebuild):
-
-    1. Verify the version you just released is listed.
-
-    1. Verify the prior patch release for the minor version has been moved to the
-       “Deprecated Versions” section.
-
-    1. Verify the changelog for the new version looks correct. It should start with the
-       changelog for the specific patch release, then list the changelog for each
-       patch release of the minor version in reverse order.
+    Start with ensuring CI is passing on the branches, bumpdeps completed, do a GHA dry run, check output, etc.
 
 1.  Ping the [#spinnaker-releases](https://spinnakerteam.slack.com/messages/spinnaker-releases/)
     channel to let them know that the new patch is available.
