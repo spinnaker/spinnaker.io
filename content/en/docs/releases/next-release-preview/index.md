@@ -55,3 +55,11 @@ expression:
   do-not-eval-spel:
     enabled: true
 ```
+
+### Changes to the way artifact constraints on triggers work
+
+If you have a pipeline with multiple triggers using different artifact constraints/expected artifacts, these have for a while been evaluated in an unexpected matter.
+
+![Artifact constraints](artifact_constraints.png)
+
+In this example, even though each trigger has its own artifact(s) defined, when one of the artifacts is present, all of the defined artifact constraints on all triggers are evaluated. If _any_ of them is missing, the pipeline will not trigger. This is [fixed](https://github.com/spinnaker/orca/pull/4322) in Spinnaker 1.30 to only consider the artifacts that are defined on the triggered trigger. If you've relied on this bug, you'll need to add manually add all the artifact constraints to all triggers to replicate the previous behavior.
