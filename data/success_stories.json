@@ -225,25 +225,44 @@
       ]
     },
     {
-     "name": "Plecto",
-     "logo": "testimonials-logos/plecto_logo.png",
-     "quote": "Spinnaker was the logical choice for us.",
-     "questions": [
-       {
+      "name": "Plecto",
+      "logo": "testimonials-logos/plecto_logo.png",
+      "quote": "Spinnaker was the logical choice for us.",
+      "questions": [
+        {
           "question": "Why did you choose Spinnaker?",
           "answer": "Early on in Plecto’s journey it was evident that we were growing out of Heroku in terms of the cost. We wanted to move to AWS, but still wanted the ease of automated builds and deployments that Heroku offered. That led us to Asgaard, which was also developed at Netflix, but later deprecated in favor of Spinnaker. So Spinnaker was the logical choice for us."
-       },
-       {
+        },
+        {
           "question": "How is Spinnaker being used at your company today?",
           "answer": "All of our production and staging workloads are managed and deployed using Spinnaker. We use Pipelines to enable easy one click, zero downtime deployments for our engineers."
-       },
-       {
+        },
+        {
           "question": "What benefits has it provided to your team?",
           "answer": "It means that anyone in the engineering team can safely deploy without having to worry about what’s happening behind the scenes. It also means we can easily manage auto scaling of our services so we don’t have to over provision resources, since the load varies a lot throughout the day."
-       }
-     ]
+        }
+      ]
     },
-    
+    {
+      "name": "Quantum Metric",
+      "logo": "testimonials-logos/qm_logo.png",
+      "quote": "Spinnaker has allowed us to provide a seamless Continuous Delivery experience...",
+      "questions": [
+        {
+          "question": "Why did you choose Spinnaker?",
+          "answer": "We chose Spinnaker as our Continuous Delivery Platform because it allowed us to provide a consistent Continuous Delivery experience on top of otherwise fragmented infrastructure and workloads. Quantum Metric has grown quickly and not everything we have is running on Kubernetes yet. Spinnaker allows us to tap into a common workflow for promoting artifacts and automated canary analysis regardless of the infrastructure it is running on."
+        },
+        {
+          "question": "How is Spinnaker being used at your company today?",
+          "answer": "Spinnaker has managed thousands of deployments across several of our teams as well as provides the orchestration for our ephemeral environments. We are working towards standardizing the configuration of applications in order to lower complexity and increase adoption across more teams and workloads."
+        },
+        {
+          "question": "What benefits has it provided to your team?",
+          "answer": "Spinnaker has allowed us to provide a seamless Continuous Delivery experience by abstracting away the complexity of releasing and validating changes to our product. Automated Canary Analysis is being used in several critical and frequently deployed services and we are continuing to drive adoption across other teams through standardized tooling."
+        }
+      ]
+    },
+
     {
       "name": "SAP Customer Experience",
       "logo": "testimonials-logos/sap.png",
