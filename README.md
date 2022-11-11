@@ -133,7 +133,7 @@ The internal YouTube embed template provided by Hugo does not allow for the sett
 
 ## Promo Banner on homepage
 
-The promo bannder across the top of the home page is displayed depending on a parameter in config.toml and also configured there:
+The promo banner across the top of the home page is displayed depending on a parameter in config.toml and also configured there:
 
 [params.promoBanner]
 show = true
