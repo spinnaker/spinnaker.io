@@ -248,13 +248,6 @@ dropdown menu.
 You can [add more certification authorities](/docs/guides/operator/webhook-custom-trust-store/)
 to trust when making webhook calls over HTTPS.
 
-### Wercker
-Run the specified Wercker pipeline. You must [set up Wercker](/docs/setup/other_config/ci/wercker/)
-in order to use this stage. Once Wercker has been configured, your Wercker
-masters and the applications and pipelines available for your master's
-credentials will be shown in the drop-down menus. When a Wercker pipeline stage
-runs, a link to the Wercker run will be available, and the status of
-the Wercker run will be reported in Spinnaker.
 
 ## App Engine
 
