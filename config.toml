@@ -142,6 +142,7 @@ offlineSearch = true
   label = ""
 
 
+
 # User interface configuration
 [params.ui]
 # Enable to show the side bar menu in its compact state.
