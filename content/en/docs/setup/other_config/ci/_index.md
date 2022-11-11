@@ -26,6 +26,5 @@ These are the CI systems currently supported by Spinnaker:
 * [Google Cloud Build](/docs/setup/other_config/ci/gcb/)
 * [Jenkins](/docs/setup/other_config/ci/jenkins/)
 * [Travis CI](/docs/setup/other_config/ci/travis/)
-* [Wercker](/docs/setup/other_config/ci/wercker/)
 
 See also [hal config ci](/docs/reference/halyard/commands/#hal-config-ci).
