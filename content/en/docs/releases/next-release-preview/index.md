@@ -11,7 +11,7 @@ changelog.
 
 ## Coming Soon in Release 1.30
 
-### Spring Boot 2.3
+### Spring Boot 2.4
 
 Spinnaker 1.30 uses Spring Boot 2.4, where 1.29 uses Spring Boot 2.3.  Spring
 Boot 2.4 considers session data cached by Spring Boot 2.3 invalid.  Therefore,
