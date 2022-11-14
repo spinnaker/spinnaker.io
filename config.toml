@@ -139,7 +139,8 @@ offlineSearch = true
   text = "Spinnaker Summit 2022 keynotes and talks now available!"
   ctaLink = "https://www.youtube.com/playlist?list=PL2KXbZ9-EY9QW4vewD7Lk6Mm6PJbWECOM"
   ctaText = "Browse Playlist"
-  label = "Browse Videos"
+  label = ""
+
 
 
 # User interface configuration
