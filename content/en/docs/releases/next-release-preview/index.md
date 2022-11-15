@@ -63,3 +63,10 @@ If you have a pipeline with multiple triggers using different artifact constrain
 ![Artifact constraints](artifact_constraints.png)
 
 In this example, even though each trigger has its own artifact(s) defined, when one of the artifacts is present, all of the defined artifact constraints on all triggers are evaluated. If _any_ of them is missing, the pipeline will not trigger. This is [fixed](https://github.com/spinnaker/orca/pull/4322) in Spinnaker 1.30 to only consider the artifacts that are defined on the triggered trigger. If you've relied on this bug, you'll need to add manually add all the artifact constraints to all triggers to replicate the previous behavior.
+
+### Addition of includeEvents parameter
+`includeEvents` has been added as a configurable parameter in orca that enables users to fetch [Kubernetes Events](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/) from clouddriver. This parameter defaults to `false`.
+
+![includeEvents](includeEvents.png)
+
+This should be referenced in `pipeline.json` as `"includeEvents": "${parameters.includeEvents}"`. Once the parameter has been configured and the value is set to true then orca would retrieve the events back from clouddriver. This would however come with slight degradation in performance since the events would be retrieved with Manifest.
