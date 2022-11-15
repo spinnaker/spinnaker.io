@@ -3,7 +3,7 @@ title: "Secrets in Google Secret Manager"
 description: This document describes how to set up Spinnaker secrets in a Google Secret Manager.
 ---
 
-This example uses secrets - `mysecret1`, `mysecret2` - to store GitHub credentials and  secret - `mykubeconfig` - to store kubeconfig file.
+This example uses secrets - `mysecret1`, `mysecret2` - to store GitHub credentials and secret - `mykubeconfig` - to store kubeconfig file.
 
 
 ## Authorization
