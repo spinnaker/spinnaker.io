@@ -69,3 +69,10 @@ In this example, even though each trigger has its own artifact(s) defined, when 
 - Replace deprecated Azure SDK `com.microsoft.azure:azure` with the new Azure SDK `com.azure.resourcemanager:azure-resourcemanager`
 - Add a new `AzureManagedImageCachingAgent` which is caching managed images from the specified region and resource group
 - Update `AzureVMImageLookupController` to return the newly cached managed images when `managedImages` query parameter is set to `true`
+
+### Kubernetes
+Users coming to Spinnaker are now more familiar with Blue/Green industry terminology than the Netflix specific phrasing Red/Black
+
+- The Red/Black rollout strategy is marked as deprecated in the UI. Change done [here](https://github.com/spinnaker/deck/pull/9911)
+- A Blue/Green rollout strategy is added that is functionally equivalent to the Red/Black rollout strategy. Changes done in [clouddriver](https://github.com/spinnaker/clouddriver/pull/5811) and [orca](https://github.com/spinnaker/orca/pull/4332)
+- Introduce a pipeline validator in Front50 that validates if red/black is used when creating/updating a Kubernetes pipeline.  For now, it is logging a warning, but it will fail when we remove the red/black Kubernetes traffic management strategy. Change done [here](https://github.com/spinnaker/front50/pull/1176)
