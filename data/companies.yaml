@@ -712,6 +712,8 @@
   logo: '/images/companies/snappic_logo.png'
 - name: 'stilingue'
   logo: '/images/companies/stilingue_logo.png'
+- name: 'striim'
+  logo: '/images/companies/striim_logo.png'
 - id: 058
   name: 'stuart'
   short_desc: 'short string description'
