@@ -70,7 +70,14 @@ In this example, even though each trigger has its own artifact(s) defined, when 
 - Add a new `AzureManagedImageCachingAgent` which is caching managed images from the specified region and resource group
 - Update `AzureVMImageLookupController` to return the newly cached managed images when `managedImages` query parameter is set to `true`
 
+
+### Addition of includeEvents parameter
+`includeEvents` has been [added as a configurable parameter in orca](https://github.com/spinnaker/orca/pull/4301) that enables users to fetch [Kubernetes Events](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/) from clouddriver. This parameter defaults to `false` and is supported by `DeployManifestStage`, `ScaleManifestStage`, `DisableManifestStage`, `EnableManifestStage`, `PatchManifestStage`, `ResumeRolloutManifestStage` and `UndoRolloutManifestStage` stages.
+
+Once the parameter has been configured and the value is set to true then orca retrieves the events back from clouddriver. Be aware that the size of the pipeline execution context may (significantly) increase by including events.
+
 ### Kubernetes
+
 Users coming to Spinnaker are now more familiar with Blue/Green industry terminology than the Netflix specific phrasing Red/Black
 
 - The Red/Black rollout strategy is marked as deprecated in the UI. Change done [here](https://github.com/spinnaker/deck/pull/9911)
