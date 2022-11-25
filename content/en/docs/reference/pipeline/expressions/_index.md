@@ -155,6 +155,10 @@ Converts a JSON String into a Map that can then be processed further.
 
 Converts a YAML String into a Map that can then be processed further.
 
+### #readAllYaml(String)
+
+Converts a multi-document YAML String into a list of Maps that can then be processed further.
+
 ### #fromUrl(String)
 
 Returns the contents of the specified URL as a String. You can use this
