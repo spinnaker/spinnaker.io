@@ -1,7 +1,6 @@
 ---
 title: "Receiving artifacts from GitHub"
 linkTitle: "GitHub"
-weight:
 description: >
   Trigger pipelines based on commits to a [GitHub](https://github.com)
   repository, and inject changed GitHub files as

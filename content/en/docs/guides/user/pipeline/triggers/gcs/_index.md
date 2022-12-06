@@ -1,7 +1,6 @@
 ---
 title: "Receiving artifacts from GCS"
 linkTitle: "GCS"
-weight:
 description: >
   Configure Spinnaker to trigger pipelines based on changes in a [Google Cloud Storage](https://cloud.google.com/storage/) (GCS) bucket and inject changed GCS objects as [artifacts](/docs/reference/artifacts) into a pipeline.
 ---
@@ -78,7 +77,7 @@ Next, we must configure the trigger:
 
 | Field | Value |
 |-------|-------|
-| __Type__ | "Pub/Sub" | 
+| __Type__ | "Pub/Sub" |
 | __Pub/Sub System Type__ | "Google" |
 | __Subscription Name__  | Depends on your Pub/Sub configuration (from Halyard|
 | __Attribute Constraints__ | Must be configured to include the pair `eventType`:`OBJECT_FINALIZE` (See the [docs](https://cloud.google.com/storage/docs/pubsub-notifications#events)) |
