@@ -1,6 +1,6 @@
 ---
 title:  "Bitbucket File"
-description: A Bitbucket file artifact is a reference to a file stored in Bitbucket. 
+description: A Bitbucket file artifact is a reference to a file stored in Bitbucket.
 ---
 
 These artifacts are generally consumed by
@@ -35,13 +35,7 @@ The pipeline UI exposes the following fields for the Bitbucket file artifact:
 When configuring certain triggers, you can use a Bitbucket file as an expected
 artifact.
 
-{%
-  include
-  figure
-  image_path="./expected-artifact-bitbucket-file.png"
-  caption="Configuring Bitbucket file fields in a pipeline trigger's expected
-           artifact settings."
-%}
+{{< figure src="./expected-artifact-bitbucket-file.png" caption="Configuring Bitbucket file fields in a pipeline trigger's expected artifact settings." >}}
 
 ### In a pipeline stage
 
