@@ -109,7 +109,9 @@ to merge outstanding changes by `<DAY>`:
 
 1.  Update Next Release Preview.
 
-1.  Seek review and merge of the [spinnaker.io docs PR](https://github.com/spinnaker/spinnaker.io/pulls) created by buildtool.
+1.  Create PR from [spinnaker.io branch](https://github.com/spinnaker/spinnaker.io/branches) (e.g. 1.2.3-changelog) created by buildtool.
+
+1.  Seek review and merge of the [spinnaker.io docs PR](https://github.com/spinnaker/spinnaker.io/pulls) created above.
 
 1.  Ping the [#spinnaker-releases](https://spinnakerteam.slack.com/messages/spinnaker-releases/)
     channel to let them know that a new release is available.
