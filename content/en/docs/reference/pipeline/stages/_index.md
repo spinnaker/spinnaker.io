@@ -199,7 +199,7 @@ Make an API call to an external system as part of your pipeline.
 
 Supply the URL to send the request to and the desired HTTP method, as well as
 optionally any desired custom headers and a JSON payload to add to the request.
-At this point, this stage is marked successful as if it receives a 2XX or 3XX
+At this point, this stage is marked as successful if it receives a 2XX or 3XX
 response, fails on a 4XX, or retries on 5XX. The webhook URL, payload, status
 endpoint, and final status are all shown under the pipeline execution details in
 the Spinnaker UI.
