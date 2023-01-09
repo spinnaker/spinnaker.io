@@ -1,7 +1,6 @@
 ﻿---
 title: "Triggering pipelines with Jenkins"
 linkTitle: "Jenkins"
-weight:
 description: >
   Add a [Jenkins](https://jenkins.io/) trigger to your pipeline.
 ---
@@ -75,5 +74,5 @@ Finally to add the Jenkins build artifact as a Spinnaker artifact, do the follow
  3. Add a new HTTP file artifact to the pipeline replacing the build number with the BUILD field from the properties using the following variable - ``${trigger.properties['BUILD']}`` like this
 
  ![Manifest Configuration](https://github.com/dniasoff/spinnaker.io/raw/master/content/en/docs/guides/user/pipeline/triggers/jenkins/manifest-configuration.png)
- 
+
 

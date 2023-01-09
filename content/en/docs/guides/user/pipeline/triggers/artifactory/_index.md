@@ -1,7 +1,6 @@
 ---
 title: "Triggering pipelines with Artifactory"
 linkTitle: "JFrog Artifactory"
-weight:
 description: >
   Add a [JFrog Artifactory](https://jfrog.com/artifactory/) trigger to your pipeline.
 ---

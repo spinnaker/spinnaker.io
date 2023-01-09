@@ -1,7 +1,6 @@
 ---
 title: "Triggering on Pub/Sub Messages"
 linkTitle: "Pub/Sub Messages"
-weight:
 description: >
   Trigger pipelines from Pub/Sub messages.
 ---
@@ -15,7 +14,7 @@ Pipeline's execution.
 > **Note**:  It's possible to configure multiple pipelines to trigger off of
 > a single Pub/Sub message.
 
-Only Google and AWS Pub/Sub systems are supported. See the detailed instructions for 
+Only Google and AWS Pub/Sub systems are supported. See the detailed instructions for
 [Google Pub/Sub](/docs/setup/other_config/triggers/google/) and [AWS SQS/SNS](/docs/setup/other_config/triggers/amazon/).
 
 ## Prerequisites
