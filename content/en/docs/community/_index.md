@@ -10,7 +10,7 @@ description: >
 
 Here are some ways to engage the Spinnaker community to find help or join us!
 
-### [Slack](http://join.spinnaker.io)
+### [Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg)
 
 Start here! Many Spinnaker contributors and users are active on the Spinnaker Slack. It's a great place to get answers to questions or start a discussion about a feature or topic. Good places to begin on Slack include the following channels:
 
