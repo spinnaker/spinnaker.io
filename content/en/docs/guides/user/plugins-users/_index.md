@@ -263,4 +263,4 @@ See the [pf4jStagePlugin Deployment Example]({{< ref "plugin-deploy-example" >}}
 
 A central [repository for all Spinnaker plugins](https://github.com/spinnaker/plugins) has been initiated and any new plugins would be added going forward.  
 
-You can ask for help with plugins in the [Spinnaker Slack's](https://join.spinnaker.io/) `#plugins` channel.
+You can ask for help with plugins in the [Spinnaker Slack](https://join.spinnaker.io/) `#plugins` channel.
