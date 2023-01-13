@@ -2,7 +2,7 @@
 title: "Plugin User Guide"
 no_list: true
 description: >
-  Add, configure, and deploy plugins.
+  Add, configure, and deploy plugins to Spinnaker.
 ---
 
 ## Overview
@@ -38,19 +38,12 @@ Spinnaker environment:
 
 ## How to add a plugin to Spinnaker
 
-- [Overview](#overview)
-- [Terms](#terms)
-- [Plugin requirements](#plugin-requirements)
-- [How to add a plugin to Spinnaker](#how-to-add-a-plugin-to-spinnaker)
-- [Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard)
-- [List, edit, and delete repositories](#list-edit-and-delete-repositories)
-- [Add a plugin using Halyard](#add-a-plugin-using-halyard)
-  - [Plugin configuration without Halyard](#plugin-configuration-without-halyard)
-- [List, edit, and delete repositories](#list-edit-and-delete-repositories-1)
-- [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate)
-- [Redeploy Spinnaker](#redeploy-spinnaker)
-- [Deployment example](#deployment-example)
-- [Resources](#resources)
+Adding a plugin to Spinnaker consists of the following steps:
+
+1. [Add a plugin repository](#add-a-plugin-repository-using-halyard)
+1. [Add a plugin](#add-a-plugin-using-halyard)
+1. [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate) (Optional)
+1. [Redeploy Spinnaker](#redeploy-spinnaker)
 
 ## Add a plugin repository using Halyard
 
@@ -234,10 +227,6 @@ The plugin developer should provide configuration details in YAML format. If not
 1. [Delete](https://spinnaker.io/reference/halyard/commands/#hal-plugins-delete) the plugin by executing `hal plugins delete <unique-plugin-id>`.
 1. Restart Spinnaker
 
-## List, edit, and delete repositories
-
-See the command [reference](/docs/reference/halyard/commands/#hal-plugins-repository) to list, edit, or delete repositories.
-
 ## Add a Deck proxy to Gate
 
 If your plugin has a Deck component, you need to configure a `deck-proxy` so Gate knows where to find the plugin.
@@ -274,4 +263,4 @@ See the [pf4jStagePlugin Deployment Example]({{< ref "plugin-deploy-example" >}}
 
 A central [repository for all Spinnaker plugins](https://github.com/spinnaker/plugins) has been initiated and any new plugins would be added going forward.  
 
-You can ask for help with plugins in the [Spinnaker Slack's](https://join.spinnaker.io/) `#plugins` channel.
+You can ask for help with plugins in the [Spinnaker Slack](https://join.spinnaker.io/) `#plugins` channel.
