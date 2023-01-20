@@ -9,7 +9,7 @@ description: "How to shard traffic to different areas of Spinnaker, in case a se
 
 This document shows you how to shard traffic to different Spinnaker services based upon configured criteria. The general pattern is to define a selector class in your configuration. Endpoints will then be selected based upon the criteria specified in the selectors.
 
-As an example, Netflix create read-only shards for Clouddriver to better manage requests.
+As an example, Netflix creates read-only shards for Clouddriver to better manage requests.
 
 Selectors exist at these levels:
 
