@@ -7,11 +7,9 @@ description: "How to shard traffic to different areas of Spinnaker, in case a se
 
 ## Intro
 
-This document shows you how to shard traffic to different areas of Spinnaker:
+This document shows you how to shard traffic to different Spinnaker services based upon configured criteria. The general pattern is to define a selector class in your configuration. Endpoints will then be selected based upon the criteria specified in the selectors.
 
-The general pattern is that you define a selector class in your configuration. The requests will then be propagated to the defined selected shard.
-
-At Netflix, we create read-only shards for clouddriver to better manage requests. Each read-only shard is connected to a Redis replica.
+As an example, Netflix create read-only shards for Clouddriver to better manage requests.
 
 Selectors exist at these levels:
 
@@ -19,12 +17,14 @@ Selectors exist at these levels:
 * Execution type (i.e, Pipeline vs Orchestration)
 * Origin
 * Authenticated User
+* Deployment account
+* Cloud Provider
 
-You want to modify your deployment pipelines to ensure the infrastructure for each shard is correctly created.
+You will need to modify your Spinnaker deployment pipelines to ensure the infrastructure for each shard is correctly created, otherwise traffic could be sent to non-existent shards.
 
-If no selector is specified, the default request will be used.
+If no selector is specified, the default endpoint will be used.
 
-There is a special additional dynamicEndpoints configuration in gate.yml to send all requests from Deck to that particular shard.
+Additionally, there is a special dynamicEndpoints configuration in gate.yml to send all requests from Deck to that particular shard.
 
 ## Sharding Orca Requests
 
@@ -88,4 +88,39 @@ clouddriver:
           - horseman.*
           - bojack.*
     - baseUrl: https://clouddriver-readonly-orca-5.example.com
+```
+
+## Clouddriver Write-only Shards
+
+orca.yml
+
+```
+clouddriver:
+  writeonly:
+    baseUrls:
+    - baseUrl: https://clouddriver-write-kubernetes.example.com
+      priority: 10
+      config:
+        selectorClass: com.netflix.spinnaker.kork.web.selector.ByCloudProviderServiceSelector
+        cloudProviders: 
+          - kubernetes
+    - baseUrl: https://clouddriver-write-cloudfoundry.example.com
+      priority: 20
+      config:
+        selectorClass: com.netflix.spinnaker.kork.web.selector.ByCloudProviderServiceSelector
+        cloudProviders: 
+          - cloudfoundry
+    - baseUrl: https://clouddriver-write-heavy-account.example.com
+      priority: 30
+      config:
+        selectorClass: com.netflix.spinnaker.kork.web.selector.ByAccountServiceSelector
+        accountPattern: heavyUsageAccount.*|.*app2.*
+    - baseUrl: https://clouddriver-write-heavy-users.example.com
+      priority: 40
+      config:
+        selectorClass: com.netflix.spinnaker.orca.clouddriver.config.ByAuthenticatedUserServiceSelector
+        users:
+          - horseman.*
+          - bojack.*
+    - baseUrl: https://clouddriver-write.example.com
 ```
