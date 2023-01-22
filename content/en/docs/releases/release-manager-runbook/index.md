@@ -99,14 +99,6 @@ to merge outstanding changes by `<DAY>`:
 
 1.  Run [buildtool Release GitHub Action](https://github.com/spinnaker/buildtool/actions/workflows/release.yml), with dry run `false`.
 
-1.  Use `regctl` to add tag's to both `slim` and `ubuntu` containers - see [buildtool release_helper.sh](https://github.com/spinnaker/buildtool/blob/master/release_helper.sh)
-
-    1. at `{tag}` WITHOUT `unvalidated`, For example: tag `orca:1.2.3-unvalidated` with `orca:1.2.3`.
-       Halyard expects container tags and debian packages to match the BOM.
-
-    1. at `release-{major}-{minor}-{patch}` - friendly tag for use by Spinnaker
-       users Kubernetes and other manifests. For example: `spinnaker-1.27.0`
-
 1.  Update Next Release Preview.
 
 1.  Create PR from [spinnaker.io branch](https://github.com/spinnaker/spinnaker.io/branches) (e.g. 1.2.3-changelog) created by buildtool.
@@ -170,10 +162,15 @@ Repeat as needed.
 
 1. TODO: Any validation?
 
-1. Re-tag Halyard container without `-unvalidated`. [halyard repository](https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker/halyard)
+1. Use [regctl](https://github.com/regclient/regclient) to add tag's to both `slim` and `ubuntu` containers. [halyard repository](https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker/halyard)
 
-1. Re-tag latest stable Halyard containers with `:stable` and `:stable-ubuntu`. [docs
-   usage](https://spinnaker.io/docs/setup/install/halyard/#install-halyard-on-docker)
+   Example: `regctl image copy "${registry}/${service}:${tag}-unvalidated" "${registry}/${service}:${tag}"`
+
+   1. at `{tag}` WITHOUT `unvalidated`, For example: tag `halyard:1.2.3-unvalidated` with `halyard:1.2.3`.
+      Halyard expects container tags and debian packages to match the BOM.
+
+   1. if latest stable then with `:stable` and `:stable-ubuntu`. [docs
+      usage](https://spinnaker.io/docs/setup/install/halyard/#install-halyard-on-docker)
 
 1. Post in [#halyard](https://spinnakerteam.slack.com/messages/halyard/) that a
    new version of Halyard has been released.
@@ -194,10 +191,15 @@ Repeat as needed.
 
 1. TODO: Any validation?
 
-1. Re-tag Halyard container without `-unvalidated`. [halyard repository](https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker/halyard)
+1. Use [regctl](https://github.com/regclient/regclient) to add tag's to both `slim` and `ubuntu` containers. [halyard repository](https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker/halyard)
 
-1. Re-tag latest stable Halyard containers with `:stable` and `:stable-ubuntu`. [docs
-   usage](https://spinnaker.io/docs/setup/install/halyard/#install-halyard-on-docker)
+   Example: `regctl image copy "${registry}/${service}:${tag}-unvalidated" "${registry}/${service}:${tag}"`
+
+   1. at `{tag}` WITHOUT `unvalidated`, For example: tag `halyard:1.2.3-unvalidated` with `halyard:1.2.3`.
+      Halyard expects container tags and debian packages to match the BOM.
+
+   1. if latest stable then with `:stable` and `:stable-ubuntu`. [docs
+      usage](https://spinnaker.io/docs/setup/install/halyard/#install-halyard-on-docker)
 
 1. Post in [#halyard](https://spinnakerteam.slack.com/messages/halyard/) that a
    new version of Halyard has been released.
