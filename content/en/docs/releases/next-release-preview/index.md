@@ -83,3 +83,17 @@ Users coming to Spinnaker are now more familiar with Blue/Green industry termino
 - The Red/Black rollout strategy is marked as deprecated in the UI. Change done [here](https://github.com/spinnaker/deck/pull/9911)
 - A Blue/Green rollout strategy is added that is functionally equivalent to the Red/Black rollout strategy. Changes done in [clouddriver](https://github.com/spinnaker/clouddriver/pull/5811) and [orca](https://github.com/spinnaker/orca/pull/4332)
 - Introduce a pipeline validator in Front50 that validates if red/black is used when creating/updating a Kubernetes pipeline.  For now, it is logging a warning, but it will fail when we remove the red/black Kubernetes traffic management strategy. Change done [here](https://github.com/spinnaker/front50/pull/1176)
+
+### Gate
+
+https://github.com/spinnaker/gate/pull/1610 expands support for adding request headers to the response header.  Previously limited to `X-SPINNAKER-REQUEST-ID`, it's now possible to specify any fields with a `X-SPINNAKER` prefix via the new `interceptors.responseHeader.fields` configuration property.  The default value is `X-SPINNAKER-REQUEST-ID` to preserve the previous functionality.
+
+```yaml
+#gate.yml
+
+interceptors:
+  responseHeader:
+    fields:
+      - X-SPINNAKER-REQUEST-ID
+      - X-SPINNAKER-USER
+```
