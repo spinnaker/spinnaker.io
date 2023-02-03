@@ -86,7 +86,7 @@ Users coming to Spinnaker are now more familiar with Blue/Green industry termino
 
 ### Gate
 
-Expand support of adding request header fields to response header - previously defaulting and limited to `X-SPINNAKER-REQUEST-ID` - to all fields with `X-SPINNAKER` prefix. A new configuration property `interceptors.responseHeader.fields` is added to allow specifying which fields to be included.
+https://github.com/spinnaker/gate/pull/1610 expands support for adding request headers to the response header.  Previously limited to `X-SPINNAKER-REQUEST-ID`, it's now possible to specify any fields with a `X-SPINNAKER` prefix via the new `interceptors.responseHeader.fields` configuration property.  The default value is `X-SPINNAKER-REQUEST-ID` to preserve the previous functionality.
 
 ```yaml
 #gate.yml
@@ -97,5 +97,3 @@ interceptors:
       - X-SPINNAKER-REQUEST-ID
       - X-SPINNAKER-USER
 ```
-
-Change done [here](https://github.com/spinnaker/gate/pull/1610)
