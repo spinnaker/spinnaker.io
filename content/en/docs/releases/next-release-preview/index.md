@@ -99,10 +99,12 @@ interceptors:
 ```
 
 ### dynamicRollbackTimeout
-To make the dynamic timeout available you need to enable the feature flag in:
 
-#### Orca 
- https://github.com/spinnaker/orca/pull/4383 overrides the default value rollback timeout - 5min - with an UI input from the user.
+To make the dynamic timeout available, you need to enable the feature flag in Orca and Deck.
+
+**Orca** 
+ 
+https://github.com/spinnaker/orca/pull/4383 overrides the default value rollback timeout - 5min - with a UI input from the user.
 
 ``` yaml
 #orca.yml
@@ -112,9 +114,10 @@ rollback:
     enabled: true
 ```
 
-#### Deck
-  https://github.com/spinnaker/deck/pull/9937 enhances the Rollback Cluster stage UI with timeout input.
+**Deck**
+
+https://github.com/spinnaker/deck/pull/9937 enhances the Rollback Cluster stage UI with timeout input.
 
 `window.spinnakerSettings.feature.dynamicRollbackTimeout = true;`
 
-If there is no value set in the UI, the default will be used.
+The default is be used if there is no value set in the UI.
