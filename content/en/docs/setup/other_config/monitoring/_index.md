@@ -43,7 +43,7 @@ To read more about the spinnaker monitoring daemon deprecation, check out the
 ## Configuring the Spinnaker Observability Plugin
 
 The instructions on how to install and configure the plugin can be found on
-the [armory website](https://docs.armory.io/docs/armory-admin/prometheus-monitoring/#configure-monitoring-using-the-observability-plugin).
+the [Armory website](https://docs.armory.io/continuous-deployment/armory-admin/observe/prometheus-monitoring/).
 
 Additional information on how to configure the plugin can be found below.
 
