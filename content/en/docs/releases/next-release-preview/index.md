@@ -64,12 +64,26 @@ If you have a pipeline with multiple triggers using different artifact constrain
 
 In this example, even though each trigger has its own artifact(s) defined, when one of the artifacts is present, all of the defined artifact constraints on all triggers are evaluated. If _any_ of them is missing, the pipeline will not trigger. This is [fixed](https://github.com/spinnaker/orca/pull/4322) in Spinnaker 1.30 to only consider the artifacts that are defined on the triggered trigger. If you've relied on this bug, you'll need to add manually add all the artifact constraints to all triggers to replicate the previous behavior.
 
-### Clouddriver
+### Azure image baking improvements
+
+#### Deck
+
+- Select an Azure account and bake per account.
+  ![bake_azure_account_dropdown.png](bake_azure_account_dropdown.png)
+- You can bake an image using a Managed Image from your Azure account as a base image in the Bake stage.
+  ![bake_azure_managed_image_stage.png](bake_azure_managed_image_stage.png)
+- You can bake an image using a Custom Image as a base by specifying the `Publisher`, `Offer`, and `SKU`.
+  ![bake_azure_custom_image_stage.png](bake_azure_custom_image_stage.png)
+
+#### Clouddriver
 
 - Replace deprecated Azure SDK `com.microsoft.azure:azure` with the new Azure SDK `com.azure.resourcemanager:azure-resourcemanager`
 - Add a new `AzureManagedImageCachingAgent` which is caching managed images from the specified region and resource group
 - Update `AzureVMImageLookupController` to return the newly cached managed images when `managedImages` query parameter is set to `true`
 
+#### Rosco
+
+[Upgraded CentOS base image](https://github.com/spinnaker/rosco/pull/916) to version `7.5`.
 
 ### Addition of includeEvents parameter
 `includeEvents` has been [added as a configurable parameter in orca](https://github.com/spinnaker/orca/pull/4301) that enables users to fetch [Kubernetes Events](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/) from clouddriver. This parameter defaults to `false` and is supported by `DeployManifestStage`, `ScaleManifestStage`, `DisableManifestStage`, `EnableManifestStage`, `PatchManifestStage`, `ResumeRolloutManifestStage` and `UndoRolloutManifestStage` stages.
