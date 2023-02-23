@@ -90,6 +90,10 @@ In this example, even though each trigger has its own artifact(s) defined, when 
 
 Once the parameter has been configured and the value is set to true then orca retrieves the events back from clouddriver. Be aware that the size of the pipeline execution context may (significantly) increase by including events.
 
+### Kubectl output
+
+With https://github.com/spinnaker/clouddriver/pull/5846 and https://github.com/spinnaker/orca/pull/4374, it's now possible to include kubectl output in the pipeline execution context, by setting `kubernetes.jobExecutor.persistTaskOutput` to true and then setting `kubernetes.jobExecutor.enableTaskOutputForAllAccounts` to true to include it for all accounts, or setting the debug property to true for individual accounts.
+
 ### Kubernetes
 
 Users coming to Spinnaker are now more familiar with Blue/Green industry terminology than the Netflix specific phrasing Red/Black
@@ -116,8 +120,8 @@ interceptors:
 
 To make the dynamic timeout available, you need to enable the feature flag in Orca and Deck.
 
-**Orca** 
- 
+**Orca**
+
 https://github.com/spinnaker/orca/pull/4383 overrides the default value rollback timeout - 5min - with a UI input from the user.
 
 ``` yaml
