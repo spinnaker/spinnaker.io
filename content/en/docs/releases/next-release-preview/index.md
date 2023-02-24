@@ -90,6 +90,16 @@ In this example, even though each trigger has its own artifact(s) defined, when 
 
 Once the parameter has been configured and the value is set to true then orca retrieves the events back from clouddriver. Be aware that the size of the pipeline execution context may (significantly) increase by including events.
 
+### Waiting executions with branches following FIFO order
+If the Pipeline execution has branches and concurrent executions disabled.
+When one branch completes and the running Pipeline execution is waiting for other branches to complete, the sequence of waiting executions is not following FIFO order. This is [fixed](https://github.com/spinnaker/orca/pull/4356) in Spinnaker 1.30 to follow waiting executions in FIFO order.
+
+In the screenshot below, Started Manual Executions for every half a minute, so that the executions are waiting in the same line they arrived from top to bottom and they should run in the same order after the two branches of the execution are completed.
+![Waiting executions with branches](Waiting_Executions_with_Branches.png)
+
+As shown below, the execution with longest wait time has triggered when the first execution with two branches has completed after a Minute.
+![Executions following FIFO order](Executions_Following_FIFO.png)
+
 ### Kubernetes
 
 Users coming to Spinnaker are now more familiar with Blue/Green industry terminology than the Netflix specific phrasing Red/Black
