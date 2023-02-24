@@ -73,7 +73,7 @@ If you are using a pipeline stage to trigger other pipelines, and those pipeline
 
 When defining an inline artifact, e.g. a deploy manifest, Spinnaker will now resolve it in the same way as it does with artifacts that are defined on triggers. Before you could only use SPeL to resolve version numbers etc. ([#4397](https://github.com/spinnaker/orca/pull/4397/files#diff-b25c50ecaceee2f8b0ae1ddc77fc92d48d16fb7ff9d15d27612685f1985b2a1eR146-R147))
 
-![Inline artifact](https://user-images.githubusercontent.com/155558/221140125-86bdb96c-dcfb-4ef2-b0e2-de41730aee0e.png)
+![Inline artifact](inline_artifact.png)
 
 ### Azure image baking improvements
 
