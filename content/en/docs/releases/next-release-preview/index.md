@@ -100,6 +100,10 @@ In the screenshot below, Started Manual Executions for every half a minute, so t
 As shown below, the execution with longest wait time has triggered when the first execution with two branches has completed after a Minute.
 ![Executions following FIFO order](Executions_Following_FIFO.png)
 
+### Kubectl output
+
+With https://github.com/spinnaker/clouddriver/pull/5846 and https://github.com/spinnaker/orca/pull/4374, it's now possible to include kubectl output in the pipeline execution context, by setting `kubernetes.jobExecutor.persistTaskOutput` to true and then setting `kubernetes.jobExecutor.enableTaskOutputForAllAccounts` to true to include it for all accounts, or setting the debug property to true for individual accounts.
+
 ### Kubernetes
 
 Users coming to Spinnaker are now more familiar with Blue/Green industry terminology than the Netflix specific phrasing Red/Black
@@ -126,8 +130,8 @@ interceptors:
 
 To make the dynamic timeout available, you need to enable the feature flag in Orca and Deck.
 
-**Orca** 
- 
+**Orca**
+
 https://github.com/spinnaker/orca/pull/4383 overrides the default value rollback timeout - 5min - with a UI input from the user.
 
 ``` yaml
