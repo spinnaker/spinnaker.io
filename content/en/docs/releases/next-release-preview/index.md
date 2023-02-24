@@ -55,14 +55,25 @@ expression:
   do-not-eval-spel:
     enabled: true
 ```
+### Artifact handling
 
-### Changes to the way artifact constraints on triggers work
+#### Changes to the way artifact constraints on triggers work
 
 If you have a pipeline with multiple triggers using different artifact constraints/expected artifacts, these have for a while been evaluated in an unexpected matter.
 
 ![Artifact constraints](artifact_constraints.png)
 
-In this example, even though each trigger has its own artifact(s) defined, when one of the artifacts is present, all of the defined artifact constraints on all triggers are evaluated. If _any_ of them is missing, the pipeline will not trigger. This is [fixed](https://github.com/spinnaker/orca/pull/4322) in Spinnaker 1.30 to only consider the artifacts that are defined on the triggered trigger. If you've relied on this bug, you'll need to add manually add all the artifact constraints to all triggers to replicate the previous behavior.
+In this example, even though each trigger has its own artifact(s) defined, when one of the artifacts is present, all of the defined artifact constraints on all triggers are evaluated. If _any_ of them is missing, the pipeline will not trigger. This is [fixed](https://github.com/spinnaker/orca/pull/4322) in Spinnaker 1.30 to only consider the artifacts that are defined on the triggered trigger (there's [an exeption](https://github.com/spinnaker/orca/pull/4397/files#diff-b25c50ecaceee2f8b0ae1ddc77fc92d48d16fb7ff9d15d27612685f1985b2a1eR241-R243) for artifacts that have defined a default artifact or use prior execution; they will always be considered). If you've relied on this bug, you'll need to add manually add all the artifact constraints to all triggers to replicate the previous behavior.
+
+#### Artifacts in pipelines triggered from a pipeline stage
+
+If you are using a pipeline stage to trigger other pipelines, and those pipelines doesn't have any triggers defined on their own, Spinnaker will now copy any expected artifacts from the parent pipeline to the child pipeline. This is to make it possible to use artifact binding in the child pipeline. ([#4397](https://github.com/spinnaker/orca/pull/4397/files#diff-57186eac390b3c98b69727875b371b4f55988243e44346845da22054b7f9546a))
+
+#### Binding inline artifacts
+
+When defining an inline artifact, e.g. a deploy manifest, Spinnaker will now resolve it in the same way as it does with artifacts that are defined on triggers. Before you could only use SPeL to resolve version numbers etc. ([#4397](https://github.com/spinnaker/orca/pull/4397/files#diff-b25c50ecaceee2f8b0ae1ddc77fc92d48d16fb7ff9d15d27612685f1985b2a1eR146-R147))
+
+![Inline artifact](https://user-images.githubusercontent.com/155558/221140125-86bdb96c-dcfb-4ef2-b0e2-de41730aee0e.png)
 
 ### Azure image baking improvements
 
