@@ -146,3 +146,15 @@ https://github.com/spinnaker/deck/pull/9937 enhances the Rollback Cluster stage 
 `window.spinnakerSettings.feature.dynamicRollbackTimeout = true;`
 
 The default is be used if there is no value set in the UI.
+
+### send job name as query parameter to Igor
+
+#### Orca
+- The feature flag introduced in Orca (1.29 release) to use the new Igor `stop` endpoint will be enabled by default when Orca starts
+    ```
+    feature:
+      igor:
+        jobNameAsQueryParameter: true
+    ```
+    See the changes [here](https://github.com/spinnaker/orca/pull/4412)
+- Pending any issues uncovered this release the flag will be removed and behavior defaulted in an upcoming release
