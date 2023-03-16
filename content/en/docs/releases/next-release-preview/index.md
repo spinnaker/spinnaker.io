@@ -141,8 +141,11 @@ rollback:
 
 **Deck**
 
+- Rollback Cluster stage UI with timeout input 
 https://github.com/spinnaker/deck/pull/9937 enhances the Rollback Cluster stage UI with timeout input.
-
 `window.spinnakerSettings.feature.dynamicRollbackTimeout = true;`
+The default is used if there is no value set in the UI.
 
-The default is be used if there is no value set in the UI.
+
+- Parent pipeline by default changes color to indicate that child pipeline waits for manual judgement 
+https://github.com/spinnaker/deck/pull/9954 
