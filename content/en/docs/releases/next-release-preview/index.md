@@ -46,15 +46,19 @@ that this SpEL should be evaluated by a different tool. No exceptions are thrown
 ${#toJson(#doNotEval(fileMap))}
 ```
 
-Use a feature flag to enable.
+The feature flag introduced in Kork (1.28/29 releases) to use `doNotEval` SPeL expression helper will be enabled by default.
 
-```yaml
-# orca-local.yml
+- This feature is disabled only when the flag is set explicitly to false.
 
-expression:
-  do-not-eval-spel:
-    enabled: true
-```
+  ```yaml
+    # orca-local.yml
+  
+  expression:
+    do-not-eval-spel:
+    enabled: false
+  ```
+See the changes [here](https://github.com/spinnaker/kork/pull/1028)
+
 ### Artifact handling
 
 #### Changes to the way artifact constraints on triggers work
