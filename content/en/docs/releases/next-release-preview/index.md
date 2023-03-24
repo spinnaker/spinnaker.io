@@ -58,7 +58,7 @@ The toJson method (and others in the future) will not evaluate expressions and w
     do-not-eval-spel:
       enabled: false
   ```
-See the changes [here](https://github.com/spinnaker/kork/pull/1028)
+See the changes [here](https://github.com/spinnaker/kork/pull/978)
 
 ### Artifact handling
 
