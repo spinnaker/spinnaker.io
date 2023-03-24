@@ -46,8 +46,9 @@ that this SpEL should be evaluated by a different tool. No exceptions are thrown
 ${#toJson(#doNotEval(fileMap))}
 ```
 
-The feature flag introduced in Kork (1.28/29 releases) to use `doNotEval` SPeL expression helper will be enabled by default.
-
+This feature introduces a new SpEL `doNotEval` method that includes the received JSON object with the NotEvaluableExpression class. 
+The toJson method (and others in the future) will not evaluate expressions and will not throw exceptions for instances of the NotEvaluableExpression class.
+- The feature flag introduced in Kork (1.28/29 releases) to use `doNotEval` SPeL expression helper will be enabled by default.
 - This feature is disabled only when the flag is set explicitly to false.
 
   ```yaml
@@ -55,7 +56,7 @@ The feature flag introduced in Kork (1.28/29 releases) to use `doNotEval` SPeL e
   
   expression:
     do-not-eval-spel:
-    enabled: false
+      enabled: false
   ```
 See the changes [here](https://github.com/spinnaker/kork/pull/1028)
 
