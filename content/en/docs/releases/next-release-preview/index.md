@@ -124,8 +124,7 @@ interceptors:
 ```
 
 ### dynamicRollbackTimeout
-
-To make the dynamic timeout available, you need to enable the feature flag in Orca and Deck.
+By default this feature is enabled. To **disable** it, you need to enable the feature flag in Orca and Deck.
 
 **Orca**
 
