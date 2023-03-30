@@ -11,6 +11,6 @@ changelog.
 
 ## Coming Soon in Release 1.31
 
-### [doNotEval SpEL helper](https://github.com/spinnaker/spinnaker.io/blob/40557c30515d159abb636a965ff3ea5b6eeb7846/content/en/changelogs/1.30.0-changelog.md?plain=1#L26)
+### [doNotEval SpEL helper](https://spinnaker.io/changelogs/1.30.0-changelog/#donoteval-spel-helper)
 This feature is now enabled by default
 
