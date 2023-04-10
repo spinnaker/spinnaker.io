@@ -166,7 +166,7 @@ command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 * `strategy.spinnaker.io/replace`
 
   As of Spinnaker 1.14, you can force Spinnaker to use `replace` instead of
-  of `apply` while deploying a Kubernetes resource. This may be useful for resources
+  `apply` while deploying a Kubernetes resource. This may be useful for resources
   such as `ConfigMap` which may exceed the annotation size limit of 262144 characters.
 
   When set to `'true'` for a versioned resource, this will update your resources using
