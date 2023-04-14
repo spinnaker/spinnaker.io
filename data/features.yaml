@@ -9,7 +9,7 @@ cli_feature:
   content: 'Install, configure, and update your Spinnaker instance with halyard, Spinnaker’s CLI tool.'
 deployment_strategies_feature:
   title: Deployment Strategies
-  content: 'Configure pipelines with built-in deployment strategies such as highlander and red/black,  with rolling red/black and canary in active development, or define your own custom strategy.'
+  content: 'Configure pipelines with built-in deployment strategies such as highlander and blue/green,  with rolling blue/green and canary in active development, or define your own custom strategy.'
 vm_bakery_feature:
   title: VM Bakery
   content: 'Bake immutable VM images via Packer, which comes packaged with Spinnaker and offers support for Chef and Puppet templates.'

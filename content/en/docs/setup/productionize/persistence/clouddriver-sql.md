@@ -70,7 +70,7 @@ sql:
   # read-only boolean toggles `SELECT` or `DELETE` health checks for all pools.
   # Especially relevant for clouddriver-ro and clouddriver-ro-deck which can
   # target a SQL read replica in their default pools.
-  read-only: false 
+  read-only: false
   taskRepository:
     enabled: true
   cache:
@@ -83,7 +83,7 @@ sql:
     writeBatchSize: 300
   scheduler:
     enabled: true
-  # Enable clouddriver-caching's clean up agent to periodically purge old 
+  # Enable clouddriver-caching's clean up agent to periodically purge old
   # clusters and accounts. Set to true when using the Kubernetes provider.
   unknown-agent-cleanup-agent:
     enabled: false
@@ -243,5 +243,5 @@ The following steps were taken to live migrate Clouddriver in the Netflix produc
     dualTaskRepository:
       enabled: false
     ```
-7. The disabled Redis-backed Clouddriver instances were verified as idle and the new configuration deployed via a red/black.
+7. The disabled Redis-backed Clouddriver instances were verified as idle and the new configuration deployed via a blue/green.
 8. The temporary migration clusters were disabled and then terminated 5 minutes later.

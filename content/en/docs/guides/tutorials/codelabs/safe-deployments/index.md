@@ -31,7 +31,7 @@ Clone this server group:
 
 1. Select the server group
 1. Click on _actions_, then select _clone server_ group in the dropdown.
-1. In the new dialog, select _Red/Black push_ as the strategy.
+1. In the new dialog, select _Red/Black push_ (or Blue/Green push) as the strategy. (Note: Blue/Green replaces Red/Black in Spinnaker v1.30+.)
 1. Click _CREATE_.
 
 ![](images/rollback2.png)

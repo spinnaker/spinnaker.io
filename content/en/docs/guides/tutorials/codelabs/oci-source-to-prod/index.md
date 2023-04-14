@@ -293,7 +293,9 @@ The second pipeline, named “Validate Test”, is a simple one-stage placeholde
 ![](2-workflow.png)
 
 
-Furthermore, we configure the prod deployment to implement the red/black strategy (a.k.a. blue/green), which means that upon verifying health of the new server group it will immediately disable the previous server group in the same cluster. Here we disable rather than destroy, so that rollbacks can be quickly accomplished simply by re-enabling the old server group.
+Furthermore, you configure the prod deployment to implement the red/black (blue/green) strategy, which means that upon verifying health of the new server group, Spinnaker immediately disables the previous server group in the same cluster. Here you disable rather than destroy, so that rollbacks can be quickly accomplished simply by re-enabling the old server group.
+
+Note: Blue/Green replaces Red/Black in Spinnaker v1.30+.
 
 ### Set up pipeline: “Validate Test”
 

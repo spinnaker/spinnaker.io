@@ -10,7 +10,7 @@ automated_releases_row:
   alt: 'Automated Releases Logo'
 best_practices_row:
   title: Built-in Deployment Best Practices
-  excerpt: 'Create and deploy immutable images for faster rollouts, easier rollbacks, and the elimination of hard to debug configuration drift issues. Leverage an immutable infrastructure in the cloud with built-in deployment strategies such as red/black and canary deployments.'
+  excerpt: 'Create and deploy immutable images for faster rollouts, easier rollbacks, and the elimination of hard to debug configuration drift issues. Leverage an immutable infrastructure in the cloud with built-in deployment strategies such as blue/green and canary deployments.'
   image_path: assets/images/best-practices.svg
   image_class: best_practices_img
   alt: 'Best Practices Logo'
