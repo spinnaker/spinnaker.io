@@ -141,3 +141,4 @@ text = "Spinnaker Summit is co-located with KubeCon this year! Join us on Oct 23
 ctaLink = "http://go.armory.io/ss22"
 ctaText = "Register"
 label = "UPCOMING EVENT"
+
