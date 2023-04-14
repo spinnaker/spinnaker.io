@@ -14,8 +14,8 @@ Templates can be managed using [spin](/docs/guides/spin/pipeline-templates/) or 
 
 **Before you begin:**
 
-* [Install the Spin CLI]({{< ref "docs/setup/other_config/spin/" >}}) so you can manage pipelines and pipeline templates.
-* [Enable pipelines templates]({{< ref "docs/guides/user/pipeline/pipeline-templates/enable/" >}}).
+* [Install the Spin CLI]({{< ref "/docs/setup/other_config/spin/index" >}}) so you can manage pipelines and pipeline templates.
+* [Enable pipelines templates]({{< ref "/docs/guides/user/pipeline/pipeline-templates/enable" >}}).
 
 ## Structure of a pipeline template
 
@@ -25,17 +25,17 @@ about the variables the template uses.
 
 ## The things you can do with pipeline templates
 
-* [Create a template](/docs/guides/user/pipeline/pipeline-templates/create/) based on an existing pipeline.
+* [Create a template]({{< ref "/docs/guides/user/pipeline/pipeline-templates/create" >}}) based on an existing pipeline.
 
 * Share the template with one or more teams of developers using Spinnaker.
 
-  [Save a pipeline template](/docs/guides/user/pipeline/pipeline-templates/create/#4-save-the-template) to Spinnaker to make it available to developers.
+  [Save a pipeline template]({{< ref "/docs/guides/user/pipeline/pipeline-templates/create#4-save-the-template" >}}) to Spinnaker to make it available to developers.
 
-* [Use the `spin` CLI to plan how to parameterize the
-template](/docs/guides/user/pipeline/pipeline-templates/plan/) by visualizing a hydrated pipeline.
+* [Use the Spin CLI to plan how to parameterize the
+template]({< ref "/docs/guides/user/pipeline/pipeline-templates/plan" >}}) by visualizing a hydrated pipeline.
 
-* [Create a pipeline based on a template](/docs/guides/user/pipeline/pipeline-templates/instantiate/).
+* [Create a pipeline based on a template]({{< ref "/docs/guides/user/pipeline/pipeline-templates/instantiate" >}}).
 
-* [Override](/docs/guides/user/pipeline/pipeline-templates/override/) template definitions in your pipeline.
+* [Override]({{< ref "/docs/guides/user/pipeline/pipeline-templates/override" >}}) template definitions in your pipeline.
 
-* [List and get pipeline templates](/docs/guides/spin/pipeline-templates/).
+* [List and get pipeline templates]({{< ref "/docs/guides/spin/pipeline-templates" >}}).
