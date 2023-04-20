@@ -14,7 +14,13 @@ changelog.
 ### [doNotEval SpEL helper](https://spinnaker.io/changelogs/1.30.0-changelog/#donoteval-spel-helper)
 This feature is now enabled by default
 
+### Orca
+
+https://github.com/spinnaker/orca/pull/4448 adds a new configuration flag: `front50.useTriggeredByEndpoint` that defaults to false.  When false, orca queries front50 for all pipelines each time a pipeline execution completes.  When true, orca only queries for pipelines triggered when a specific pipeline completes which is potentially a very small subset of all pipelines.
+
 ### Front50
+
+https://github.com/spinnaker/front50/pull/1251 adds a new GET /pipelines/triggeredBy/{id:.+}/{status} endpoint.
 
 https://github.com/spinnaker/front50/pull/1249 adds three new configuration flags for [each object type under service-storage](https://github.com/spinnaker/front50/blob/568743732dcb47cc576a178795b6a992923f1d3c/front50-core/src/main/java/com/netflix/spinnaker/front50/config/StorageServiceConfigurationProperties.java#L8).
 
