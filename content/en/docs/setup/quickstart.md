@@ -12,7 +12,7 @@ If you want to install Spinnaker on Lightweight Kubernetes (K3s) for proofs of c
 
 Options for installing Spinnaker in Kubernetes:
 
-- [Spinnaker Helm Chart](https://github.com/OpsMx/spinnaker-helm) is an open source helm chart to install/configure spinnaker in GitOps/Non-GitOps style
+- [Spinnaker Helm Chart](https://github.com/OpsMx/spinnaker-helm) is an open source helm chart to install/configure spinnaker.
 - [Spinnaker Operator for Kubernetes](https://github.com/armory/spinnaker-operator) is an open source Kubernetes Operator for deploying and managing Spinnaker. You can install a basic version of Spinnaker or use Kustomize files for advanced configuration.
 - [Kubernetes Helm Chart](https://github.com/kubernetes/charts/tree/master/stable/spinnaker) **As of Nov 13, 2020, charts in this repo are no longer updated. **
 
