@@ -115,15 +115,16 @@ to merge outstanding changes by `<DAY>`:
 1.  Publish a Spin CLI minor version.
 
     1. Each Spin CLI release is tied to a version of Gate. To ensure
-       compatibility, regenerate the Gate Client API.
+       compatibility, regenerate the Gate Client API using the 
+       [instructions](https://github.com/spinnaker/spin/blob/master/CONTRIBUTING.md#updating-the-gate-api).
 
-    1. Follow the [instructions](https://github.com/spinnaker/spin/blob/master/CONTRIBUTING.md#updating-the-gate-api)
-       to update the gate client.
-
-    1. Ensure that the GitHub Action's for the above PR merge were successful
-       and then push a git tag for the release version `1.{minor}.{patch}` to
-       the `spin` repository. This will kick off binary and container build &
-       push to GCS and GAR.
+    1. Ensure that the GitHub Action's for the above PR merge were successful.
+  
+    1. Tag `master` with next `{minor}` tag. For Example `v1.45.0` next minor is
+       `v1.46.0`. This will kick off binary and container build & push to GCS and GAR.
+    
+    1. Create `release-{major}-{minor}-x` branch at the new tag. This enables backports and
+      `{patch}` releases to be made.
 
 ## Patch a previous Spinnaker version
 
