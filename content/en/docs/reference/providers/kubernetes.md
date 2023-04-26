@@ -5,7 +5,7 @@ description: Learn how Spinnaker concepts map to Kubernetes.
 ---
 
 > ⚠️ Spinnaker's legacy Kubernetes provider (V1) is [scheduled for removal](https://github.com/spinnaker/governance/blob/master/rfc/eol_kubernetes_v1.md) in Spinnaker 1.21.
-> We recommend using the [standard provider (V2)](/docs/reference/providers/kubernetes-v2) instead. 
+> We recommend using the [standard provider (V2)](/docs/reference/providers/kubernetes-v2) instead.
 
 If you are not familiar with Kubernetes or some of the Kubernetes terminology used below, please read the [reference documentation](https://kubernetes.io/docs/home).
 
@@ -75,7 +75,7 @@ There are two things to take note of here:
    mechanism, this is an apt mapping.
 2. This mapping is optional because Spinnaker's orchestration capabilities do
    not require Deployment objects to exist to handle updates. In fact, one
-   __should not__ attempt to let Spinnaker's orchestration (Red/Black,
+   __should not__ attempt to let Spinnaker's orchestration (Blue/Green,
    Highlander) manage Server Groups handled by Kubernetes' orchestration
    (Rolling Update), since they do not, and are not intended to work together.
 
@@ -205,7 +205,7 @@ When deploying a Replica Set, Spinnaker sets all labels as described in the
 [Server Group](#server-group) and [Load Balancer](#load-balancer) sections
 above, adds the necessary `ImagePullSecrets` for your desired docker
 containers, and then creates the Replica Set with all properties you've
-specified. 
+specified.
 
 When deploying a Replica Set with a Deployment, and the Deployment doesn't
 exist, Spinnaker first creates the Replica Set with `replicas: 0`, and then

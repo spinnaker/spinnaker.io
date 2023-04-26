@@ -109,7 +109,7 @@ A *Task* in Spinnaker is an automatic function to perform.
 
 ![](deployment-strategies.png)
 
-Spinnaker treats cloud-native deployment strategies as first class constructs, handling the underlying orchestration such as verifying health checks, disabling old server groups and enabling new server groups. Spinnaker supports the red/black (a.k.a. blue/green) strategy, with rolling red/black and canary strategies in active development.
+Spinnaker treats cloud-native deployment strategies as first class constructs, handling the underlying orchestration such as verifying health checks, disabling old server groups and enabling new server groups. Spinnaker supports the blue/green strategy, with rolling blue/green and canary strategies in active development.
 
 > Learn more about deployment management on the [Pipelines](/docs/concepts/pipelines/) page.
 
@@ -121,11 +121,11 @@ format.
 
 It allows you to declare the _desired state_ of your application in terms of logical _environments_
 (think `test` and `prod`) where your cloud infrastructure resources exist (e.g. compute clusters),
-and where your _software artifacts_ (think Debian package or Docker image) are deployed. 
+and where your _software artifacts_ (think Debian package or Docker image) are deployed.
 Spinnaker automatically detects when a new version of your code is available for deployment and
 satisfies any deployment constraints you may have configured, or when your infrastructure resources
-diverge from the desired state, and acts upon that information to reconcile the current with the 
-desired state. 
+diverge from the desired state, and acts upon that information to reconcile the current with the
+desired state.
 
 For more details on the inspiration and guiding principles behind
 Managed Delivery, check out [our blog](https://blog.spinnaker.io/managed-delivery-evolving-continuous-delivery-at-netflix-eb74877fb33c),

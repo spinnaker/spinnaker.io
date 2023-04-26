@@ -6,7 +6,7 @@ description: >
 ---
 
 
-In this codelab, you will create a cohesive workflow which takes source code and builds, tests and promotes it to production. You can also watch a video of this codelab in this [Youtube playlist](https://www.youtube.com/watch?v=N9VnJlKn734&list=PL4yLrwUObNkttE526AAj_ykc5UlIPjz8m&index=1).
+In this codelab, you create a cohesive workflow which takes source code and builds, tests and promotes it to production. You can also watch a video of this codelab in this [Youtube playlist](https://www.youtube.com/watch?v=N9VnJlKn734&list=PL4yLrwUObNkttE526AAj_ykc5UlIPjz8m&index=1).
 
 This will be accomplished via 3 pipelines:
 
@@ -311,7 +311,7 @@ We deploy the image that was picked, to the prod cluster.
 * In the *Server group* section, click *Add server group*.
 * In the dialog that appears, click *Continue without a template*.
 * In the Basic Settings section, enter "prod" in the *Stack* field.
-* For Strategy, select “Red/Black”.
+* For Strategy, select “Red/Black”. Note: Blue/Green replaces Red/Black in Spinnaker v1.30+.
 * Enter "2" as the *Maximum number of server groups to leave*
 * In the Load Balancers section, add your load balancer ("codelab-prod").
 * and click the *Instance Type* tab on the left.
@@ -340,13 +340,13 @@ In the CLUSTERS tab, you can see that a server group has been deployed to the pr
 
 ![](2-clusters.png)
 
-Because we selected the red/black deployment strategy for the deployment, there should always be only one enabled/active server group resident in the prod cluster cluster, with previous ones disabled (grey), even after successive runs of this pipeline. Try it out by manually invoking the promotion pipeline again.
+Because we selected the red/black (blue/green) deployment strategy for the deployment, there should always be only one enabled/active server group resident in the prod cluster cluster, with previous ones disabled (grey), even after successive runs of this pipeline. Try it out by manually invoking the promotion pipeline again.
 
 ## Extra stuff
 
 ### Roll back
 
-Sometimes things go wrong and you need to roll prod back to the previous release. We employed the red/black strategy, which disables the previous server group. In practice, this is disassociating the server group from the load balancer so it takes no traffic, while keeping the nodes in the server group up, standing by.
+Sometimes things go wrong and you need to roll prod back to the previous release. We employed the red/black (blue/green) strategy, which disables the previous server group. In practice, this is disassociating the server group from the load balancer so it takes no traffic, while keeping the nodes in the server group up, standing by.
 
 To roll back back to the previous server group, first kick off another instance of the Promote to Prod pipeline so that you have a previous disabled server group in the PROD cluster to roll back to. When this pipeline completes, navigate to the CLUSTERS tab and click the active server group.
 

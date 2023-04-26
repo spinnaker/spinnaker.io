@@ -19,13 +19,13 @@ You can view pipeline execution history, which serves as a means to introspect d
 
 ![](pipelines.png)
 
-Automation does not end with orchestrating only the high-level steps of your release process. Each of these operational steps often corresponds to a sequence of calls to the cloud platform, each of which needs to be remediated in failure scenarios. The red/black Deploy stage is an example of how Spinnaker fully supports this notion:
+Automation does not end with orchestrating only the high-level steps of your release process. Each of these operational steps often corresponds to a sequence of calls to the cloud platform, each of which needs to be remediated in failure scenarios. The Blue/Green Deploy stage is an example of how Spinnaker fully supports this notion:
 
 ![](pipeline-tasks.png)
 
-* The Red/Black Deploy stage in Spinnaker actually entails a sequence of steps
+* The Blue/Green Deploy stage in Spinnaker actually entails a sequence of steps
 
-* Each given step is actually a set of tasks that need polling, remediation to ensure requisite state is reached prior to proceeding
+* Each given step is actually a set of tasks that need polling; remediation to ensure requisite state is reached prior to proceeding
 
 * A given task often entails multiple API calls to the specific cloud platform, cognizant of expected response codes and remediating actions in failure
 

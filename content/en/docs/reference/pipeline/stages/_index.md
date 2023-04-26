@@ -56,10 +56,7 @@ any of the properties of the original Server Group when creating the new one.
 
 ### Deploy
 Deploy the previously baked or found image using the specified deployment
-strategy. Spinnaker provides built-in support for both red/black (also known as
-blue/green) and Highlander deployment strategies. You can also choose to deploy
-with no impact on existing Server Groups, or build your own custom deployment
-strategy.
+strategy. Spinnaker provides built-in support for both blue/green (formerly known as red/black) and Highlander deployment strategies. You can also choose to deploy with no impact on existing Server Groups, or build your own custom deployment strategy.
 
 ### Destroy Server Group
 Delete a Server Group and its resources from the specified Cluster. You must

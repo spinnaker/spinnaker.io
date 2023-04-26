@@ -2,14 +2,13 @@
 title: "Rollout Strategies"
 linkTitle: "Rollout Strategies"
 description: >
-  Use a dark, Highlander, or red/black rollout strategy in the Kubernetes provider.
+  Use a dark, Highlander, or blue/green rollout strategy in the Kubernetes provider.
 ---
 
 This guide describes how to take advantage of the
-[Kubernetes](/docs/setup/install/providers/kubernetes-v2) provider's first-class support
-for common rollout strategies, including dark, highlander, and red/black rollouts.
+[Kubernetes](/docs/setup/install/providers/kubernetes-v2) provider's first-class support for common rollout strategies, including dark, highlander, and blue/green rollouts.
 
-> **Note:** The implementation of these rollout strategies currently leverages Spinnaker's existing [traffic management strategy](/docs/guides/user/kubernetes-v2/traffic-management/) and so is [valid for ReplicaSets only](/docs/guides/user/kubernetes-v2/traffic-management/#you-must-use-replica-sets).
+>The implementation of these rollout strategies currently leverages Spinnaker's existing traffic management strategy and is valid for ReplicaSets only. See [traffic management]({{< ref "docs/guides/user/kubernetes-v2/traffic-management/index.md" >}}) for more information.
 
 ## Rollout Strategy Options
 
@@ -65,18 +64,17 @@ Example configuration:
 
 {{< figure src="./highlander.png" >}}
 
-### Red/Black Rollouts
+### Red/Black (Blue/Green) Rollouts
 
-Use a red/black rollout to deploy a new version of your application alongside the existing
-version(s), send client traffic to the new version, and then disable existing versions
-in the cluster.
+Use a red/black (blue/green) rollout to deploy a new version of your application alongside the existing version(s), send client traffic to the new version, and then disable existing versions in the cluster.
 
 Optionally, add subsequent Destroy (Manifest) stages to clean up any unwanted workloads in the
 cluster.
 
-Alternately, easily roll back to a previous version by configuring an Enable (Manifest) stage or
-using an ad-hoc Enable operation from the Clusters tab.
+Alternately, easily roll back to a previous version by configuring an Enable (Manifest) stage or using an ad-hoc Enable operation from the Clusters tab.
 
 Example configuration:
 
 {{< figure src="./redblack.png" >}}
+
+>Blue/Green replaces Red/Black in Spinnaker v1.30+.
