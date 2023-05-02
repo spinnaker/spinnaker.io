@@ -73,45 +73,11 @@ which are only ran when configuring Spinnaker.
 {{< mermaid >}}
 graph TB
 
-deck(Deck) --> gate;
-api(Custom Script/API Caller) --> gate(Gate);
-gate --> kayenta(Kayenta);
-gate --> orca(Orca);
-gate --> clouddriver(Clouddriver);
-orca --> clouddriver;
-gate --> rosco(Rosco);
 orca --> front50;
-orca --> rosco;
-gate --> front50(Front50);
-gate --> fiat(Fiat);
-orca --> kayenta;
-clouddriver --> fiat;
-orca --> fiat;
-front50 --> fiat;
-echo(Echo) --> orca;
 echo --> front50;
-gate --> echo;
-gate --> igor(Igor);
-igor(Igor) --> echo;
-
- keel(Keel) --> clouddriver;
- keel --> orca;
- keel --> front50;
- keel --> fiat;
- keel --> echo;
- keel --> igor;
- gate --> keel;
-
-hal(Halyard CLI) --> halyard(Halyard Daemon);
 
 classDef default fill:#d8e8ec,stroke:#39546a;
 linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
-
-classDef halStyle fill:#eebb3c,stroke:#39546a;
-class halyard,hal halStyle;
-
-classDef external fill:#c0d89d,stroke:#39546a;
-class deck,api external;
 
 {{< /mermaid >}}
 
