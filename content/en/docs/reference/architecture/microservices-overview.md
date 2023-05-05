@@ -73,7 +73,9 @@ which are only ran when configuring Spinnaker.
 {{< mermaid >}}
 graph TB
 
+orca --> clouddriver;
 orca --> front50;
+clouddriver --> front50;
 echo --> front50;
 
 classDef default fill:#d8e8ec,stroke:#39546a;
