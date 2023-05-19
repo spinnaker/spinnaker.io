@@ -19,9 +19,13 @@ The Kubernetes provider has two requirements:
 - A [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file
 
   The `kubeconfig` file allows Spinnaker to authenticate against your cluster
-  and to have read/write access to any resources you expect it to manage. You
-  can think of it as private key file to let Spinnaker connect to your cluster.
-  You can request this from your Kubernetes cluster administrator.
+  and to have read/write access to any resources you expect it to manage. 
+  You can request this from your Kubernetes cluster administrator.  Deployment systems
+  will copy your kubeconfig file into your spinnaker iinstallation so anything
+  you add to the kubeconfig must work remotely in a target environment WITHOUT needing your
+  local settings or permisisons
+  - Example:  You may use very different permissions in EKS using Node IAM permissions where locally you may use aws-iam-authenticator and your
+  personal AWS permissions.
 
 - [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) CLI tool
 
@@ -35,51 +39,14 @@ The Kubernetes provider has two requirements:
   API resource that `kubectl` supports is also supported by Spinnaker. This
   is an improvement over the original Kubernetes provider in Spinnaker.
 
-<span class="begin-collapsible-section"></span>
+### Create a Kubernetes Service Account
 
-### Optional: Create a Kubernetes Service Account
-
-If you want, you can associate Spinnaker with a [Kubernetes Service
+See the kubernetes docs on creating [Kubernetes Service
 Account](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/),
-even when managing multiple Kubernetes clusters. This can be useful if you need
-to grant Spinnaker certain roles in the cluster later on, or you typically
-depend on an authentication mechanism that doesn't work in all environments.
+It's recommended that you create dedicated permissions in your target environments
+for spinnaker to access resources.  
 
-Given that you want to create a Service Account in existing context `$CONTEXT`,
-the following commands will create `spinnaker-service-account`, and add its
-token under a new user called `${CONTEXT}-token-user` in context `$CONTEXT`.
-
-```bash
-CONTEXT=$(kubectl config current-context)
-
-# This service account uses the ClusterAdmin role -- this is not necessary,
-# more restrictive roles can by applied.
-kubectl apply --context $CONTEXT \
-    -f {{< link "downloads/kubernetes/service-account.yml" >}}
-
-TOKEN=$(kubectl get secret --context $CONTEXT \
-   $(kubectl get serviceaccount spinnaker-service-account \
-       --context $CONTEXT \
-       -n spinnaker \
-       -o jsonpath='{.secrets[0].name}') \
-   -n spinnaker \
-   -o jsonpath='{.data.token}' | base64 --decode)
-
-kubectl config set-credentials ${CONTEXT}-token-user --token $TOKEN
-
-kubectl config set-context $CONTEXT --user ${CONTEXT}-token-user
-```
-
-<span class="end-collapsible-section"></span>
-
-<span class="begin-collapsible-section"></span>
-
-### Optional: Configure Kubernetes roles (RBAC)
-
-If your Kubernetes cluster supports
-[RBAC](https://kubernetes.io/docs/admin/authorization/rbac/)
-and you want to restrict permissions granted to your Spinnaker account, you
-will need to follow the below instructions.
+### Configure Kubernetes roles (RBAC)
 
 The following YAML creates the correct `ClusterRole`, `ClusterRoleBinding`, and
 `ServiceAccount`. If you limit Spinnaker to operating on an explicit list of
@@ -93,6 +60,7 @@ you must specify that namespace when you add the account to Spinnaker.
 If you don't specify any namespaces, then Spinnaker will attempt to list all namespaces,
 which requires a cluster-wide role.
 
+<span class="begin-collapsible-section"></span>
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -179,53 +147,21 @@ metadata:
 
 <span class="end-collapsible-section"></span>
 
-<span class="begin-collapsible-section"></span>
+## Create a kubeconfig file 
 
-## Migrating from Spinnaker's legacy Kubernetes provider
+Creating the correct kubeconfig for deployment to kubernetes is out of scope of these docs.  It's
+recommended that you work with kubernetes admins or kubernetes experts to correctly generate
+a kubeconfig for spinnaker to access from one kubernetes cluster to your target cluster.  
 
-> Prior to the deprecation of Spinnaker's legacy (V1) Kubernetes provider, the
-> standard provider was often referred to as the V2 provider. For clarity, this
-> section refers to the providers as the V1 and V2 providers.
+When using Halyard, this kubeconfig is used to deploy spinnaker to a target cluster but can ALSO
+be used by spinnaker IN your target cluster to connect to that Provider as well.  
 
-There is no automatic pipeline migration from the V1 provider to V2, for a few
-reasons:
-
-- Unlike the V1 provider, the V2 provider encourages you to store your
-  Kubernetes Manifests outside of Spinnaker in some versioned, backing storage,
-  such as Git or GCS.
-
-- The V2 provider encourages you to leverage the Kubernetes native deployment
-  orchestration (e.g.
-  [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/))
-  instead of the Spinnaker blue/green (red/black), where possible.
-
-- The initial operations available on Kubernetes manifests (e.g. scale, pause
-  rollout, delete) in the V2 provider don't map nicely to the operations in the
-  V1 provider unless you contort Spinnaker abstractions to match those of
-  Kubernetes. To avoid building dense and brittle mappings between Spinnaker's
-  logical resources and Kubernetes's infrastructure resources, we chose to
-  adopt the Kubernetes resources and operations more natively.
-
-
-* The V2 provider does __not__ use the [Docker Registry
-  Provider]({{< ref "docker-registry" >}}).
-
-  You may still need Docker Registry accounts to trigger pipelines, but
-  otherwise we encourage you to stop using Docker Registry accounts in Spinnaker.
-  The V2 provider requires that you manage your private registry [configuration
-  and authentication](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
-  yourself.
-
-However, you can easily migrate your _infrastructure_ into the V2 provider.
-For any V1 account you have running, you can add a V2 account following the
-steps [below](#adding-an-account). This will surface your infrastructure twice
-(once per account) helping your pipeline & operation migration.
-
-{{< figure src="./v1v2.png" caption="A V1 and V2 provider surfacing the same infrastructure" >}}
-
+When using operator based deploys or kustomize based deploys, you will not need this kubeconfig file for 
+deploying into a cluster.  Instead, the kubeconfig  would be used for spinnaker pipelines to deploy 
+to a provider.
 <span class="end-collapsible-section"></span>
 
-## Adding an account
+## Add your kubernetes cluster as a provider
 
 First, make sure that the provider is enabled:
 
@@ -237,9 +173,8 @@ Then add the account:
 
 ```bash
 CONTEXT=$(kubectl config current-context)
-
-hal config provider kubernetes account add my-k8s-account \
-    --context $CONTEXT
+SPINNAKER_ACCOUNT_NAME=my-k8s-account
+hal config provider kubernetes account add $SPINNAKER_ACCOUNT_NAME --context $CONTEXT
 ```
 
 Finally, enable [artifact support]({{< ref "ref-artifacts#enabling-artifact-support" >}}).
@@ -247,5 +182,5 @@ Finally, enable [artifact support]({{< ref "ref-artifacts#enabling-artifact-supp
 ## Advanced account settings
 
 If you're looking for more configurability, please see the other options listed
-in the [Halyard
-Reference]({{< ref "commands#hal-config-provider-kubernetes-account-add" >}}).
+in the [Halyard Reference]({{< ref "commands#hal-config-provider-kubernetes-account-add" >}}) or
+docs in the supported deployment method.

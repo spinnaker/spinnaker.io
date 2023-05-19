@@ -3,18 +3,16 @@ title: 'Demo/Evaluation Installations'
 linkTitle: 'Quickstart'
 weight: 1
 description: >
-  Quickstart solutions that gives you the ability to try Spinnaker out quickly. These are not meant for production use as is.
+Quickstart solutions that gives you the ability to try Spinnaker out quickly. These are not meant for production use as is.
 aliases:
-  - /setup/quickstart/
+- /setup/quickstart/
 ---
 
-If you want to install Spinnaker on Lightweight Kubernetes (K3s) for proofs of concept, see the open source project [Minnaker](https://github.com/armory/minnaker). You can install Spinnaker in about 10 minutes in a local or cloud VM.
+There are several simple options to trying spinnaker.  Note that even testing spinnaker does require a fair bit of resources.  Below references are examples only and are not official spinnaker projects but included for ease of use.
 
-Options for installing Spinnaker in Kubernetes:
+- [Minnaker](https://github.com/armory/minnaker). THough this project is not maintained, it can provide basic guidance on setting up spinnaker on a simple VM.
+- [Vagrant Based local Spinnaker](https://github.com/ashleykleynhans/vagrant-jenkins-spinnaker/) is a project a member of the commmunity put together on installing spinnaker using vagrant, ansible and some scripts.
 
-- [Spinnaker Operator for Kubernetes](https://github.com/armory/spinnaker-operator) is an open source Kubernetes Operator for deploying and managing Spinnaker. You can install a basic version of Spinnaker or use Kustomize files for advanced configuration.
-- [Spinnaker Operator](https://operatorhub.io/operator/spinnaker-operator) is an open source Helm chart for installing Spinnaker.
-- [Kubernetes Helm Chart](https://github.com/kubernetes/charts/tree/master/stable/spinnaker) **As of Nov 13, 2020, charts in this repo are no longer updated. **
 
 Guides for installing Spinnaker in specific cloud environments:
 

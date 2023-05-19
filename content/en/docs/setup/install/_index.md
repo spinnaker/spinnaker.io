@@ -6,35 +6,72 @@ description: >
   Describes how to install and set up Spinnaker so that it can be configured for use in production.
 ---
 
-This section describes how to install and set up Spinnaker so that it can be configured for
-use in production. If you just want to evaluate Spinnaker without much work, one of the options
-in [Quickstart](/docs/setup/quickstart/) might be a better choice.
+This section describes how to install and set up Spinnaker so that it can be use in production. If
+you just want to evaluate Spinnaker without much work, one of the options in
+[Quickstart](/docs/setup/quickstart/) or a [Local installation](/docs/setup/install/local/) might be
+a better choice.  It's recommended that you review the  [spinnaker architecture](/docs/reference/architecture) 
+to understand how spinnaker operates before installation.
+
+* [Distributed installation](#distributed-installation) on Kubernetes
+
+  Halyard deploys each of Spinnaker's 
+  separately. __This is highly recommended for use in production.__
+
 
 ## What you'll need
 
-* A machine on which to install Halyard
+* A [SQL Databaase](/docs/setup/install/storage/)
+  * MariaDB/MySQL are supported.  This includes various cloud provided databases like AWS RDS & Google's 
+  * Postgresql is an option but not documented at this time (PRs welcome)
 
-  This can be a local machine or VM (Ubuntu 18.04 or higher,
-  Debian 10 or higher), or it can be a Docker container.
-  Make sure it has at least 12GB of memory.
+* An [external Redis server](/docs/setup/install/redis/)
+  * The default install will include a local redis.  IT IS NOT recommended to use this but to externalize your redis to a more persistent solution.  Redis data does need to be persisted in production environments.
 
-* A Kubernetes cluster on which to install Spinnaker itself
+* A [Kubernetes cluster](/docs/setup/install/providers/kubernetes-v2/) on which to install Spinnaker
+  * It's recommended to have at least 8 cores and 32GB of RAM available in the cluster. 
+  * It's recommended to use SSDs or high IO disks (GP3) due to spinanker using kubectl for operations
+  * You can deploy to k3s/microk8s or similar for on-prem but keep in mind avaialble capacity
 
-  We recommend at least 4 cores and 16GB of RAM available in the cluster. 
+* Supoprting infrastructure not all of which is documented here, but should be considered
+  * DNS
+  * Load balancers (ALB/Traefik/etc.)
+  * SSL and certificates
+  * Backups
+  * ETC
 
-You can also install [on a single local machine](https://www.spinnaker.io/setup/install/environment/#local-debian), or [for Spinnaker development](https://www.spinnaker.io/setup/install/environment/#local-git), making sure you have the 4 cores and 16GB in each case. 
+>  Other installation targets may work but are not supported.  For large scale production Kubernetes is recommended:
+>  * [Local development](https://www.spinnaker.io/setup/install/environment/#local-git)
+>  * [Debian local](https://www.spinnaker.io/setup/install/environment/#local-debian) 
+>  * [Vagrant example (uses local debian)](hhttps://github.com/ashleykleynhans/vagrant-jenkins-spinnaker/)
+
+## Installation tools
+There are several solutions around deploying spinnaker to kubernetes.  Please note that not all these solutions are officially supported at this time though several are well maintained by the community.
+- [halyard](/docs/setup/install/halyard) Is a command line tool that has a CLI and API component.  Halyard creates a small, 
+ headless Spinnaker to update Spinnaker and its microservices, ensuring zero-downtime updates.  This is the default 
+ installation method.  This takes care of creating Kubernetes objects from halyard configuration files.  The community
+ would like to replace this tool, but it's still the default installation method that works for most users.
+- [Armory Spinnaker Operator for Kubernetes](https://github.com/armory/spinnaker-operator) is an open source Kubernetes
+Operator for deploying and managing Spinnaker. You can install a basic version of Spinnaker or use Kustomize files for
+advanced configuration.  There's a [configuration reference](https://docs.armory.io/continuous-deployment/installation/armory-operator/op-manifest-reference/)
+that documents a large part of the available configuration of spinnaker. 
+- [Kustomize native install](https://github.com/karlskewes/spinnaker-kustomize/) is a minimal install that provides
+a native kubernetes deployment experience for the spinnaker microservices.  This provides a more native k8s deployment
+without the need for helm or an operator or halyard CLI tooling.
+- [OpsMx Operator](https://operatorhub.io/operator/spinnaker-operator) is an open source Helm chart for 
+ installing Spinnaker.  
+- [OpsMx Helm Chart](https://github.com/kubernetes/charts/tree/master/stable/spinnaker) **As of Nov 13, 2020,
+charts in this repo are no longer updated. **
 
 ## The process
-
-Installing a complete Spinnaker involves these steps:
+Installing a complete Spinnaker involves these steps (documented using Halyard):
 1. [Install Halyard](/docs/setup/install/halyard/)
-1. [Choose a cloud provider](/docs/setup/install/providers/)
-1. [Choose an environment](/docs/setup/install/environment/)
-1. [Choose a storage service](/docs/setup/install/storage/)
+1. [Add a kubernetes Provider](/docs/setup/install/providers/kubernetes-v2/)
+1. [Basic Settings](/docs/setup/install/install-config/)
+1. [Configure storage(SQL & Redis)](/docs/setup/install/storage/)
 1. [Deploy Spinnaker](/docs/setup/install/deploy/)
 1. [Back up your config](/docs/setup/install/backups/)
 1. [Configure everything else](/docs/setup/other_config/) (which includes a lot of
-  stuff you need before you can use Spinnaker in production)
+  stuff you need before you can use Spinnaker in production LIKE authentication and authorization)
 1. [Productionize Spinnaker](/docs/setup/productionize/) (which mainly helps you
   configure Spinnaker to scale for production)
 
