@@ -49,3 +49,26 @@ https://github.com/spinnaker/front50/pull/1249 adds three new configuration flag
       pipeline:
         optimizeCacheRefreshes: true
         synchronizeCacheRefresh: true
+
+### Fiat
+
+https://github.com/spinnaker/fiat/pull/1058 adds support for handling DN based multiloading of roles. Adds pagination support while fetching group memberships. Support for user IDs to user DNs mapping provided using batched LDAP queries. 
+
+This is an opt-in feature using the below configuration: 
+```yaml
+auth:
+  groupMembership:
+    ldap:
+      enableDnBasedMultiLoad: true
+```
+
+To enable pagination, below configuration is also needed:
+```yaml
+auth:
+  groupMembership:
+    ldap:
+      enablePagingForGroupMembershipQueries: true
+```
+
+
+
