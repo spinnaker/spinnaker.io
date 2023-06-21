@@ -10,7 +10,7 @@ description: >
 
 This page describes the steps a Developer should take to fetch Spinnaker's codebase and get set up to work on it.
 
-Follow the [contributing guidelines](/community/contributing/submitting/)
+Follow the [contributing guidelines](/community/contributing/code/submitting/)
 if you plan to submit your work as a patch to the open source project.
 
 ## System Requirements
