@@ -13,9 +13,9 @@ changelog.
 
 ### Fiat
 
-https://github.com/spinnaker/fiat/pull/1058 adds support for handling DN based multiloading of roles. Adds pagination support while fetching group memberships. Support for user IDs to user DNs mapping provided using batched LDAP queries. 
+https://github.com/spinnaker/fiat/pull/1058 adds support for handling DN based multiloading of roles. Adds pagination support while fetching group memberships. Support for user IDs to user DNs mapping provided using batched LDAP queries.
 
-This is an opt-in feature using the below configuration: 
+This is an opt-in feature using the below configuration:
 ```yaml
 auth:
   groupMembership:
@@ -41,3 +41,7 @@ resource:
     application:
       suppressDetails: true
 ```
+
+### Front50
+
+https://github.com/spinnaker/front50/pull/1275 adds the `sql.healthIntervalMillis` property that controls the interval to refresh information that the /health endpoint provides.  It defaults to 30 seconds, the value before it was configurable.
