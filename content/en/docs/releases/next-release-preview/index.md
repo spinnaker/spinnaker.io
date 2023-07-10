@@ -46,7 +46,7 @@ resource:
 
 https://github.com/spinnaker/front50/pull/1275 adds the `sql.healthIntervalMillis` property that controls the interval to refresh information that the /health endpoint provides.  It defaults to 30 seconds, the value before it was configurable.
 
-### Kork
+### Artifact Store
 
 https://github.com/spinnaker/kork/pull/1069 adds support for artifact storage with AWS S3. This compresses `embedded/base64` types to `remote/base64` reducing the artifact size in the context. The size of the context had a reduction of 70% for larger pipelines, and 30% for smaller pipelines.
 
