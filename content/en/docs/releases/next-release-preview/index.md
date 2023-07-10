@@ -67,4 +67,4 @@ https://github.com/spinnaker/deck/pull/10011
 https://github.com/spinnaker/orca/pull/4481
 https://github.com/spinnaker/rosco/pull/998
 
-For more information please see the README, https://github.com/spinnaker/kork/blob/master/kork-artifacts/src/main/java/com/netflix/spinnaker/kork/artifacts/README.md
+For more information please see [the README](https://github.com/spinnaker/kork/blob/18d1c6e88597a9147851b37412ea38b3fd7032d5/kork-artifacts/src/main/java/com/netflix/spinnaker/kork/artifacts/README.md).
