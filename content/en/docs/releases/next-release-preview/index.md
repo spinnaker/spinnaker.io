@@ -45,3 +45,26 @@ resource:
 ### Front50
 
 https://github.com/spinnaker/front50/pull/1275 adds the `sql.healthIntervalMillis` property that controls the interval to refresh information that the /health endpoint provides.  It defaults to 30 seconds, the value before it was configurable.
+
+### Kork
+
+https://github.com/spinnaker/kork/pull/1069 adds support for artifact storage with AWS S3. This compresses `embedded/base64` types to `remote/base64` reducing the artifact size in the context. The size of the context had a reduction of 70% for larger pipelines, and 30% for smaller pipelines.
+
+Sample configuration to enable artifact storage
+```yaml
+# spinnaker-local.yml since clouddriver, rosco, and orca all need this configuration
+artifact-store:
+  enabled: true
+  s3:
+    enabled: true
+    region: us-west-2
+    bucket: some-artifact-store-bucket
+```
+
+Other related PRs are:
+https://github.com/spinnaker/clouddriver/pull/5976
+https://github.com/spinnaker/deck/pull/10011
+https://github.com/spinnaker/orca/pull/4481
+https://github.com/spinnaker/rosco/pull/998
+
+For more information please see the README, https://github.com/spinnaker/kork/blob/master/kork-artifacts/src/main/java/com/netflix/spinnaker/kork/artifacts/README.md
