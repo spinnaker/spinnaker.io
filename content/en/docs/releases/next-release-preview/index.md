@@ -64,6 +64,7 @@ artifact-store:
 Other related PRs are:
 https://github.com/spinnaker/clouddriver/pull/5976
 https://github.com/spinnaker/deck/pull/10011
+https://github.com/spinnaker/gate/pull/1674
 https://github.com/spinnaker/orca/pull/4481
 https://github.com/spinnaker/rosco/pull/998
 
