@@ -61,6 +61,8 @@ artifact-store:
     bucket: some-artifact-store-bucket
 ```
 
+Due to the new addition of the artifact type, `remote/base64`, deploying services all at once could result in errors due to some services not knowing what the new type is. To bypass this, it is recommended first to deploy `clouddriver`, followed by `orca`, then lastly `rosco`.
+
 Other related PRs are:
 https://github.com/spinnaker/clouddriver/pull/5976
 https://github.com/spinnaker/deck/pull/10011
