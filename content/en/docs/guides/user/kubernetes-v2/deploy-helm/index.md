@@ -125,7 +125,7 @@ of the same stage from above:
 
 ### Helmfile
 
-In addition to standard helm deployments, Spinnaker supports [Helmfile](https://helmfile.readthedocs.io/en/latest/) as a templating engine. 
+In addition to standard helm deployments, Spinnaker supports [Helmfile](https://helmfile.readthedocs.io/) as a templating engine. Current supported version can be found [here](https://github.com/spinnaker/rosco/blob/master/Dockerfile.slim#L7).
 
 Configuring a Helmfile deployment follows the specification for standard helm chart deployments (defined above) with one exception - `helmChartFilePath` is substituted for `helmfileFilePath` and is specified as follows:
 
