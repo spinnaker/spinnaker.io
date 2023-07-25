@@ -160,7 +160,7 @@ the helper functions that are available.
 
 ### Helper properties
 
-[_Helper properties_](/docs/reference/pipeline/expressions/#helper-properties)
+[Helper properties](/docs/reference/pipeline/expressions/#helper-properties)
 are variables which refer to global information about the current pipeline
 execution. For example, `execution` is a variable which refers to the current
 pipeline execution, whereas `trigger` lets you access information
