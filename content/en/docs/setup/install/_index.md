@@ -54,13 +54,10 @@ There are several solutions around deploying spinnaker to kubernetes.  Please no
 Operator for deploying and managing Spinnaker. You can install a basic version of Spinnaker or use Kustomize files for
 advanced configuration.  There's a [configuration reference](https://docs.armory.io/continuous-deployment/installation/armory-operator/op-manifest-reference/)
 that documents a large part of the available configuration of spinnaker. 
-- [Kustomize native install](https://github.com/karlskewes/spinnaker-kustomize/) is a minimal install that provides
+- [Kustomize native install](https://github.com/spinnaker/spinnaker-kustomize/) is a minimal install that provides
 a native kubernetes deployment experience for the spinnaker microservices.  This provides a more native k8s deployment
-without the need for helm or an operator or halyard CLI tooling.
-- [OpsMx Operator](https://operatorhub.io/operator/spinnaker-operator) is an open source Helm chart for 
- installing Spinnaker.  
-- [OpsMx Helm Chart](https://github.com/kubernetes/charts/tree/master/stable/spinnaker) **As of Nov 13, 2020,
-charts in this repo are no longer updated. **
+without the need for helm or an operator or halyard CLI tooling.  Caution:  This uses things LIKE a mariadb driver which
+is not currently available in the project by default.  
 
 ## The process
 Installing a complete Spinnaker involves these steps (documented using Halyard):
