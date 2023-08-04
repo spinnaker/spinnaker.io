@@ -9,43 +9,86 @@ Please make a pull request to describe any changes you wish to highlight
 in the next release of Spinnaker. These notes will be prepended to the release
 changelog.
 
-## Coming Soon in Release 1.31
+## Coming Soon in Release 1.32
 
-### [doNotEval SpEL helper](https://spinnaker.io/changelogs/1.30.0-changelog/#donoteval-spel-helper)
-This feature is now enabled by default.
+### Java 17
 
-### Echo
+Front50 and Igor containers now default to running with the Java 17 JRE. In an upcoming release (likely 1.33) all other services will default to the Java 17 JRE. If you encounter issues with these containers you can opt-out and use the Java 11 JRE containers. Users of Halyard can do this by specying `imageVariant: java11-slim` or `imageVariant: java11-slim-ubuntu` in their halconfig.
 
-https://github.com/spinnaker/echo/pull/1292 adds a new configuration flag: `pipelineCache.filterFront50Pipelines` that defaults to false.  When false, Echo caches all pipelines Front50.  When true, it only caches enabled pipelines with enabled triggers of specific types -- the types that echo knows how to trigger, along with some changes to the logic for handling manual executions so they continue to function.  This is typically a very small subset of all pipelines.
+Please report any problems by creating a GitHub issue [here](https://github.com/spinnaker/spinnaker/issues/new). You can read more about the Java 17 migration plan [here](https://github.com/spinnaker/governance/pull/335).
 
-### Orca
+### Gradle 7
 
-https://github.com/spinnaker/orca/pull/4448 adds a new configuration flag: `front50.useTriggeredByEndpoint` that defaults to false.  When false, Orca queries Front50 for all pipelines each time a pipeline execution completes.  When true, Orca only queries for pipelines triggered when a specific pipeline completes which is potentially a very small subset of all pipelines.
+Builds have been upgraded from Gradle 6 to Gradle 7. We do not anticipate any issues with this upgrade. Plugin developers are encouraged to upgrade to Gradle 7 to ensure compatibility.
 
-### Clouddriver
+### Fiat
 
-https://github.com/spinnaker/clouddriver/pull/5949 changes the validation Clouddriver runs before performing operations for the Kubernetes provider. The `kinds` and `omitKinds` fields on a Kubernetes account definition no longer restrict what Kubernetes kinds can be deployed by Clouddriver; instead, these fields will now only control what kinds Clouddriver caches. Spinnaker operators should ensure that Kubernetes RBAC controls are used to restrict what kinds Spinnaker can deploy.
+https://github.com/spinnaker/fiat/pull/1058 adds support for handling DN based multiloading of roles. Adds pagination support while fetching group memberships. Support for user IDs to user DNs mapping provided using batched LDAP queries.
+
+This is an opt-in feature using the below configuration:
+```yaml
+auth:
+  groupMembership:
+    ldap:
+      enableDnBasedMultiLoad: true
+```
+
+To enable pagination, below configuration is also needed:
+```yaml
+auth:
+  groupMembership:
+    ldap:
+      enablePagingForGroupMembershipQueries: true
+```
+
+
+https://github.com/spinnaker/fiat/pull/1060 allows skipping additional details of applications fetched from Front50 and clouddriver while caching the UserPermission.
+
+Below configuration enables this feature:
+```yaml
+resource:
+  provider:
+    application:
+      suppressDetails: true
+```
 
 ### Front50
 
-https://github.com/spinnaker/front50/pull/1252 adds optional query parameters for enabledPipelines (boolean),  enabledTriggers (boolean), and triggerTypes (string) to the GET /pipelines endpoint and a new GET /pipelines/{application:.+}/name/{name:.+} endpoint to get one pipeline by application and name.
+https://github.com/spinnaker/front50/pull/1275 adds the `sql.healthIntervalMillis` property that controls the interval to refresh information that the /health endpoint provides.  It defaults to 30 seconds, the value before it was configurable.
 
-https://github.com/spinnaker/front50/pull/1251 adds a new GET /pipelines/triggeredBy/{id:.+}/{status} endpoint.
+### Artifact Store
 
-https://github.com/spinnaker/front50/pull/1249 adds three new configuration flags for [each object type under service-storage](https://github.com/spinnaker/front50/blob/568743732dcb47cc576a178795b6a992923f1d3c/front50-core/src/main/java/com/netflix/spinnaker/front50/config/StorageServiceConfigurationProperties.java#L8).
+https://github.com/spinnaker/kork/pull/1069 adds support for artifact storage with AWS S3. This compresses `embedded/base64` types to `remote/base64` reducing the artifact size in the context. The size of the context had a reduction of 70% for larger pipelines, and 30% for smaller pipelines.
 
-* storage-service.*.cacheHealthCheckTimeoutSeconds: The cache is considered healthy if it's been refreshed in `cacheHealthCheckTimeoutSeconds` seconds.  The default is 90.
+Sample configuration to enable artifact storage
+```yaml
+# spinnaker-local.yml since clouddriver, rosco, and orca all need this configuration
+artifact-store:
+  enabled: true
+  s3:
+    enabled: true
+    region: us-west-2
+    bucket: some-artifact-store-bucket
+```
 
-* storage-service.*.synchronizeCacheRefresh: When true, if multiple threads attempt to refresh the cache in StorageServiceSupport simultaneously, only one actually does the refresh. The others wait until it's complete. This reduces load on the data store.  The default is false.
+Due to the new addition of the artifact type, `remote/base64`, deploying services all at once could result in errors due to some services not knowing what the new type is. To bypass this, it is recommended first to deploy `clouddriver`, followed by `orca`, then lastly `rosco`.
 
-* storage-service.*.optimizeCacheRefreshes: Only implemented for sql data stores.  When true, for objects that support versioning, cache refreshes only query the data store for objects modified (or deleted) since the last refresh.  The default is false.
+Other related PRs are:
+https://github.com/spinnaker/clouddriver/pull/5976
+https://github.com/spinnaker/deck/pull/10011
+https://github.com/spinnaker/gate/pull/1674
+https://github.com/spinnaker/orca/pull/4481
+https://github.com/spinnaker/rosco/pull/998
 
-`synchronizeCacheRefresh` and `optimizeCacheRefreshes` improve the performance of keeping front50's in-memory cache up to date.  Here's an example of setting them to true for both applications and pipelines.
+For more information please see [the README](https://github.com/spinnaker/kork/blob/18d1c6e88597a9147851b37412ea38b3fd7032d5/kork-artifacts/src/main/java/com/netflix/spinnaker/kork/artifacts/README.md).
 
-    storage-service:
-      application:
-        optimizeCacheRefreshes: true
-        synchronizeCacheRefresh: true
-      pipeline:
-        optimizeCacheRefreshes: true
-        synchronizeCacheRefresh: true
+### Rosco
+https://github.com/spinnaker/rosco/pull/986 adds in support for [Helmfile](https://helmfile.readthedocs.io/) as a bake manifest templating engine to Rosco. 
+
+For configuration please refer to the [deploy-helm user guide](/docs/guides/user/kubernetes-v2/deploy-helm/)
+
+Other related PRs are:
+https://github.com/spinnaker/orca/pull/4460
+https://github.com/spinnaker/deck/pull/9998
+
+For more information please see the [proposal issue](https://github.com/spinnaker/spinnaker/issues/6837).

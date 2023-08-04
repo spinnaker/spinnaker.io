@@ -109,4 +109,4 @@ __example__: `examples/wordpress/mysql/kustomization.yaml`
 
 ## Other Templating Engines
 
-In addition to Kustomize, Spinnaker also supports Helm as a templating engine. For more information, see [Deploy Helm Charts](/docs/guides/user/kubernetes-v2/deploy-helm/).
+In addition to Kustomize, Spinnaker also supports Helm (and Helmfile) as templating engines. For more information, see [Deploy Helm Charts](/docs/guides/user/kubernetes-v2/deploy-helm/).

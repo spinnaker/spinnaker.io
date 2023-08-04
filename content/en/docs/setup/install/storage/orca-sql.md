@@ -4,7 +4,7 @@ title:  "Set up Orca to use SQL"
 description: You can configure Orca to use a MySQL compatible database in place of Redis for all of its persistence use cases. This provides more resiliency for your deployment.
 ---
 
-Orca's execution state is stored in Redis by default, but can be configured for SQL. 
+Orca's execution state is stored in Redis by default, but can be configured for SQL.
 In this topology, Redis is still required for the work queue.
 Using SQL for execution state will make your Spinnaker installation more durable.
 
@@ -16,7 +16,7 @@ If you already have an Orca deployment, you should also refer to the [Redis to S
 
 Orca ships with MySQL drivers by default, but you can include your own JDBC drivers on the classpath if you need to connect to a different database.
 
-Orca has been developed and tested targeting MySQL 5.7. As part of this, setting MySQL's `tx_isolation` value to `READ-COMMITTED` is essential to successfully running Orca in SQL. 
+Orca has been developed and tested targeting MySQL 5.7. As part of this, setting MySQL's `tx_isolation` value to `READ-COMMITTED` is essential to successfully running Orca in SQL.
 While Orca will attempt to set this on connection sessions, it is better to have it set on the database itself.
 
 The SQL integration is configured to support a `migration` user and a `service` user.
@@ -33,18 +33,18 @@ set tx_isolation = 'READ-COMMITTED';
 ```
 
 2. Setup the schema and database users
-  
+
   ```sql
   CREATE SCHEMA `orca` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-  GRANT 
+  GRANT
     SELECT, INSERT, UPDATE, DELETE, CREATE, EXECUTE, SHOW VIEW
-  ON `orca`.* 
+  ON `orca`.*
   TO 'orca_service'@'%'; -- IDENTIFIED BY "password" if using password based auth
 
-  GRANT 
-    SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, LOCK TABLES, EXECUTE, SHOW VIEW 
-  ON `orca`.* 
+  GRANT
+    SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, LOCK TABLES, EXECUTE, SHOW VIEW
+  ON `orca`.*
   TO 'orca_migrate'@'%'; -- IDENTIFIED BY "password" if using password based auth
   ```
 
@@ -62,8 +62,8 @@ sql:
     jdbcUrl: jdbc:mysql://localhost:3306/orca
     user: orca_service
     password: hunter2
-    connectionTimeout: 5000
-    maxLifetime: 30000
+    connectionTimeoutMs: 5000
+    maxLifetimeMs: 30000
     # MariaDB-specific:
     maxPoolSize: 50
   migration:
@@ -113,8 +113,8 @@ Read more about profiles and service-settings [here](/docs/reference/halyard/cus
 
 The default MySQL Connector for Aurora MySQL 5.7 should be fine, but you may also setup Orca to use the MariaDB JDBC driver over MySQL Connector.
 
-The MariaDB driver is Aurora clustering aware, which takes care of automatic master failover operations. 
-Due to licensing issues, Orca cannot ship with the MariaDB driver. 
+The MariaDB driver is Aurora clustering aware, which takes care of automatic master failover operations.
+Due to licensing issues, Orca cannot ship with the MariaDB driver.
 
 An example of wiring up MariaDB into Orca can be found here: [robzienert/orca-mariadb-extension](https://github.com/robzienert/orca-mariadb-extension).
 

@@ -123,6 +123,22 @@ of the same stage from above:
 }
 ```
 
+### Helmfile
+
+In addition to standard helm deployments, Spinnaker supports [Helmfile](https://helmfile.readthedocs.io/) as a templating engine. Current supported version can be found [here](https://github.com/spinnaker/rosco/blob/master/Dockerfile.slim#L7).
+
+Configuring a Helmfile deployment follows the specification for standard helm chart deployments (defined above) with one exception - `helmChartFilePath` is substituted for `helmfileFilePath` and is specified as follows:
+
+* __helmfile file path (optional)__
+
+  helmfile file path is only relevant (and visible) when the template artifact is a git/repo artifact. It specifies the directory path to helmfile.yaml in the git repo. If absent, spinnaker looks for helmfile.yaml in the root directory of the git repo. 
+
+  Given: A git repo where your `helmfile.yaml` is in: `sub/folder/helmfile.yml` \
+  Then: `helmfileFilePath: "sub/folder/"`
+
+> Note: Leading slashes will not work in `helmfileFilePath`.
+
+
 ## Configure a downstream deployment
 
 Now that your manifest set has been baked by Helm, configure a downstream stage
