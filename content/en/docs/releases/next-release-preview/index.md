@@ -92,3 +92,41 @@ https://github.com/spinnaker/orca/pull/4460
 https://github.com/spinnaker/deck/pull/9998
 
 For more information please see the [proposal issue](https://github.com/spinnaker/spinnaker/issues/6837).
+
+### Circuit Breaker in Rest Events
+
+https://github.com/spinnaker/echo/pull/1315
+
+You can now configure multiple circuit breakers and associate them to individual REST endpoints.
+
+To use this feature, it is required to map the service `eventName` with the circuit breaker's `instance` name and set
+the flag `circuitBreakerEnabled` as `true` in each individual endpoint.
+
+Sample configuration:
+
+```yaml
+# echo.yml
+rest:
+  enabled: true
+  endpoints:
+    - url: "https://my-service.com"
+      eventName: "my-service"
+      circuitBreakerEnabled: true
+    - url: "https://my-other-service.com"
+      eventName: "my-other-service"
+      circuitBreakerEnabled: true
+
+resilience4j.circuitbreaker:
+  instances:
+    my-service:
+      slow-call-rate-threshold: 25
+      slow-call-duration-threshold: 3s
+      failure-rate-threshold: 25
+      minimum-number-of-calls: 2
+      automatic-transition-from-open-to-half-open-enabled: true
+      wait-duration-in-open-state: 30s
+      permitted-number-of-calls-in-half-open-state: 1
+    my-other-service:
+      baseConfig: my-service
+      waitDurationInOpenState: 9000
+```
