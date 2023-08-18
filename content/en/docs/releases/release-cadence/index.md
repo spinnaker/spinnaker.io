@@ -74,3 +74,5 @@ There's a public calendar you can subscribe to which includes important release 
 * If you don't want to subscribe directly, you can check the calendar below:
 
 <iframe src="https://calendar.google.com/calendar/embed?src=spinnaker.io_p2n8segvlnel4cbo777em35b0c%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+Alternatively, join the [spinnaker-announce](https://groups.google.com/forum/#!forum/spinnaker-announce) Google Group (requires a Google account) or the [spinnaker-releases](https://app.slack.com/client/T091CRSGH/CHD4ATAMV) Slack channel for updates.
