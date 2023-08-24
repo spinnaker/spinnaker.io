@@ -82,8 +82,15 @@ https://github.com/spinnaker/rosco/pull/998
 
 For more information please see [the README](https://github.com/spinnaker/kork/blob/18d1c6e88597a9147851b37412ea38b3fd7032d5/kork-artifacts/src/main/java/com/netflix/spinnaker/kork/artifacts/README.md).
 
+### Expressions
+
+https://github.com/spinnaker/orca/pull/4508 updates the [`#manifestLabelValue()` SpEL helper function](https://spinnaker.io/docs/reference/pipeline/expressions/#manifestlabelvaluestring-stagename-string-manifestkind-string-labelkey) to fetch labels from the manifest deployed by Clouddriver rather than the manifest provided to Clouddriver. This change means labels added by Clouddriver during deployment (for example the `moniker.spinnaker.io/*` labels) can now be retrieved using this helper function.
+
+This change also includes a minor fix enabling labels with special characters (such as `.`) in their keys to be retrieved.
+
 ### Rosco
-https://github.com/spinnaker/rosco/pull/986 adds in support for [Helmfile](https://helmfile.readthedocs.io/) as a bake manifest templating engine to Rosco. 
+
+https://github.com/spinnaker/rosco/pull/986 adds support for [Helmfile](https://helmfile.readthedocs.io/) as a bake manifest templating engine to Rosco. 
 
 For configuration please refer to the [deploy-helm user guide](/docs/guides/user/kubernetes-v2/deploy-helm/)
 
