@@ -12,7 +12,7 @@ news_text:
 news_link:
 
 join_slack_text: 'Join Spinnaker Slack, a place for the community to come together. Use this vibrant workspace to ask and answer questions, connect with other operators and users, discuss issues with SIGs, and learn about Spinnaker!'
-contrib_header: 'Interested in contributing?'
+contrib_header: 'Need help? Book office hours with a Spinnaker expert'
 contrib_text:
 
 who_should_use_header: 'Who should use Spinnaker?'

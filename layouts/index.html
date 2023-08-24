@@ -108,11 +108,7 @@
         {{ range $.Site.Data.videos }} {{ if eq .display_landing true }}
         <div class="vid">
           <div>
-            <iframe
-              src="https://www.youtube.com/embed/{{.id}}?autoplay=0"
-              allowfullscreen
-              title="{{.title}}"
-            ></iframe>
+            <iframe src="https://www.youtube.com/embed/{{.id}}?autoplay=0" allowfullscreen title="{{.title}}"></iframe>
           </div>
         </div>
         {{ end }} {{ end }}
@@ -123,14 +119,17 @@
 
 <!-- contributing row -->
 <div class="jumbotron jumbotron-fluid">
-  <div>
-    <h3 class="display-4">{{.Params.contrib_header}}</h3>
-    <p class="lead">
-      Engage in the community! Our
-      <a href="/docs/community">community section</a> has some great ways to get
-      engaged.
-    </p>
+  <div class="d-flex flex-wrap align-items-start justify-content-start">
+    <h3 class="display-4 mr-3">{{.Params.contrib_header}}</h3>
+    <a class="btn btn-primary btn-sm" href="https://calendly.com/spinnaker-office-hours/support-session" target="_blank"
+      rel="noopener noreferrer" data-label="Book Office Hours">
+      Book Office Hours
+    </a>
   </div>
+  <p class="lead mt-3">
+    Engage in the community! Our
+    <a href="/docs/community">community section</a> has some great ways to get engaged.
+  </p>
 </div>
 
 {{ end }}
