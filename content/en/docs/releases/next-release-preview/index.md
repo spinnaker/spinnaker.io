@@ -143,9 +143,4 @@ There are several minor updates to the CLIs in use by clouddriver for both slim 
 * Kubectl to 1.22
 * AWS CLI to 1.22
 
-### FUTURE BREAKING CHANGE:
-kubectl in the latest releases have removed support for token aquisition using the `apiVersion: client.authentication.k8s.io/v1alpha1` exec API.  The aws cli version 1.22 does not support this new beta1 syntax yet but the aws-iam-authenticator supports both v1alpha1 and v1beta1 exec APIs.  It's recommended that
-to migrate to the v1beta1 exec API and use aws-iam-authenticator instead of the aws cli.  The next Spinnaker release will further bump the AWS CLI to 1.24 if this is not an option.  Kubectl still supports both api versions at this time but a future release will remove this support
 
-
-Please see https://github.com/aws/aws-cli/pull/6940 for more information
