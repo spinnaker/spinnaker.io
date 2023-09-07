@@ -13,10 +13,17 @@
   {{- template "_internal/google_news.html" . -}}
   {{- template "_internal/schema.html" . -}}
   {{- template "_internal/twitter_cards.html" . -}}
-  {{ if eq (getenv "HUGO_ENV") "production" }}
-  {{ template "_internal/google_analytics.html" . }}
-  {{ end }}
   {{ partialCached "head-css.html" . "asdf" }}
+{{ if eq (getenv "HUGO_ENV") "production" }}
+<!--This function is from tagmanager.google.com's installation instructions -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.google_tag_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', "{{ .Site.Params.google_tag_id }}");
+</script>
+{{end}}
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
