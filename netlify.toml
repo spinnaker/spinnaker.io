@@ -1,161 +1,64 @@
+# Hugo build configuration for Netlify
+# (https://gohugo.io/hosting-and-deployment/hosting-on-netlify/#configure-hugo-version-in-netlify)
+# Default build settings
 [build]
 publish = "public"
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify"
+command = "hugo --gc"
 functions = "./functions"
 
 [context.production.environment]
-HUGO_VERSION = "0.74.2"
-HUGO_ENV = "production"
+GO_VERSION = "1.18"
+HUGO_VERSION = "0.110.0"
+HUGO_ENV = "production"  
 HUGO_ENABLEGITINFO = "true"
 
 [context.split1]
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --enableGitInfo"
+command = "hugo --gc"
 
 [context.split1.environment]
-HUGO_VERSION = "0.74.2"
+GO_VERSION = "1.18"
+HUGO_VERSION = "0.110.0"
 HUGO_ENV = "production"
 
 [context.deploy-preview]
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --buildFuture -b $DEPLOY_PRIME_URL"
+command = "hugo --gc --buildFuture -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
-HUGO_VERSION = "0.74.2"
+GO_VERSION = "1.18"
+HUGO_VERSION = "0.110.0"
 
 [context.branch-deploy]
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify -b $DEPLOY_PRIME_URL"
+command = "hugo --gc -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy.environment]
-HUGO_VERSION = "0.74.2"
+GO_VERSION = "1.18"
+HUGO_VERSION = "0.110.0"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
 
-[[redirects]]
-  from = "/setup/productionize/*"
-  to = "/docs/setup/productionize/:splat"
-  status = 301
-  force = false
+# https://github.com/netlify-labs/netlify-plugin-sitemap
+[[plugins]]
+package = "@netlify/plugin-sitemap"
 
-[[redirects]]
- from = "/setup/install/*"
- to = "/docs/setup/install/:splat"
- status = 301
- force = false
+[plugins.inputs]
+buildDir = "public"
+exclude =[
+  './public/includes/',
+  './public/categories/',
+  './public/tags/',
+  './public/favicons/',
+  './public/404.html'
+]
+# set baseURL because we aren't configuring a custom domain in Netlify
+# Although the above is called base URL this actually ends up being the hostname in the sitemap and as such trying to use a URL like http://example.com/en/ will results in http://example.com/
+# https://github.com/netlify-labs/netlify-plugin-sitemap
+baseUrl = "https://spinnaker.io/"
 
-[[redirects]]
-  from = "/setup/artifacts/*"
-  to = "/docs/setup/other_config/artifacts/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/bakery/*"
-  to = "/docs/setup/other_config/bakery/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/security/*"
-  to = "/docs/setup/other_config/security/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/triggers/*"
-  to = "/docs/setup/other_config/triggers/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/triggers/*"
-  to = "/docs/setup/other_config/triggers/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/spin/*"
-  to = "/docs/setup/other_config/spin/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/ci/*"
-  to = "/docs/setup/other_config/ci/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/monitoring/*"
-  to = "/docs/setup/other_config/monitoring/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/ci/*"
-  to = "/docs/setup/other_config/ci/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/canary/*"
-  to = "/docs/setup/other_config/canary/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/features/*"
-  to = "/docs/setup/other_config/features/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/configuration/*"
-  to = "/docs/setup/other_config/configuration/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/setup/quickstart/*"
-  to = "/docs/setup/install/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/guides/*"
-  to = "/docs/guides/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/reference/*"
-  to = "/docs/reference/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/community/releases/*"
-  to = "/docs/releases/:splat"
-  status = 301
-  force = false
-  
-[[redirects]]
-  from = "/community/*"
-  to = "/docs/community/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/docs/reference/artifacts/*"
-  to = "/docs/reference/artifacts-legacy/:splat"
-  status = 301
-  force = false
-
-[[redirects]]
-  from = "/docs/reference/artifacts-with-artifactsrewrite/*"
-  to = "/docs/reference/ref-artifacts/:splat"
-  status = 301
-  force = false
-
+# append missing trailing slash to prettyURL
+trailingSlash = true
+changeFreq = "daily"
+priority = 0.5
 
 # headers  https://docs.netlify.com/routing/headers/#syntax-for-the-headers-file
 # https://cloud-armory.slack.com/archives/CH4RVCCTS/p1608572781420500
