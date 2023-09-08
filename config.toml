@@ -1,10 +1,10 @@
 baseURL = "/"
-title = "Spinnaker"
 
 enableRobotsTXT = true
+enableInlineShortcodes = true
+# Will give values to .Lastmod etc.
+enableGitInfo = true
 
-# Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["github.com/google/docsy", "github.com/google/docsy/dependencies"]
 # Language configuration
 [languages]
 [languages.en]
@@ -67,8 +67,6 @@ proxy = "direct"
   [[module.mounts]]
   source = "content/en"
   target = "content"
-# Will give values to .Lastmod etc.
-enableGitInfo = true
 
 # Language settings
 contentDir = "content/en"
@@ -78,6 +76,15 @@ defaultContentLanguageInSubdir = false
 enableMissingTranslationPlaceholders = true
 
 disableKinds = ["taxonomy", "taxonomyTerm"]
+
+# Google Analytics configuration
+# https://gohugo.io/templates/internal/#configure-google-analytics
+# https://www.docsy.dev/docs/adding-content/feedback/#adding-analytics
+googleAnalytics = "G-H0XE7ESBFR"
+
+# Configure how URLs look like per section.
+[permalinks]
+blog = "/:section/:year/:month/:day/:slug/"
 
 # Highlighting config (copied from the docsy example site, tag v0.7.1)
 pygmentsCodeFences = true
@@ -127,23 +134,16 @@ pygmentsStyle = "dracula"
 
 
 
-# Configure how URLs look like per section.
-[permalinks]
-blog = "/:section/:year/:month/:day/:slug/"
-
 # Image processing configuration.
 [imaging]
 resampleFilter = "CatmullRom"
 quality = 75
 anchor = "smart"
 
-# Google Analytics configuration
-# https://gohugo.io/templates/internal/#configure-google-analytics
-# https://www.docsy.dev/docs/adding-content/feedback/#adding-analytics
-googleAnalytics = "G-H0XE7ESBFR"
-# Comment out the next line to disable GA tracking.
-# This Tag ID can be found in Google Analytics -> Admin Panel -> Data Streams -> Spinnaker Website - GA4 -> Configure Tag Settings
-# google_tag_id="GT-W6BN9SN"  this was for a custom fix in the site with the older theme version
+
+
+
+
 
 # Everything below this are Site Params
 [params]
@@ -166,7 +166,7 @@ archived_version = false
 # The version number for the version of the docs represented in this doc set.
 # Used in the "version-banner" partial to display a version number for the
 # current doc set.
-version = "latest"
+version = "Latest"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
@@ -176,6 +176,9 @@ url_latest_version = "https://spinnaker.io/docs/"
 github_repo = "https://github.com/spinnaker/spinnaker.io"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 github_project_repo = "https://github.com/spinnaker/spinnaker"
+
+# Enable Algolia DocSearch
+algolia_docsearch = false
 
 # Enable Lunr.js offline search
 offlineSearch = true
@@ -194,6 +197,8 @@ offlineSearchSummaryLength = 200
 [params.ui]
 # Enable to show the side bar menu in its compact state.
 sidebar_menu_compact = true
+sidebar_menu_foldable= true
+sidebar_cache_limit = 10
 #  Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
 #  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)

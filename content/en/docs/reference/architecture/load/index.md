@@ -4,7 +4,7 @@ mermaid: true
 description:
 ---
 
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
 
 Title: Life of a deployment
@@ -49,4 +49,4 @@ Deck->>Gate: Poll until orchestration completion
 Gate->>Orca: Query orchestration status
 Orca->>Redis: Query execution status
 end
-{{< /mermaid >}}
+```

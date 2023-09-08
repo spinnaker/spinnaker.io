@@ -115,7 +115,7 @@ IdP for login, and redirected back to Spinnaker. Some SAML providers will allow 
 first_, and click a link to be taken to Spinnaker.
 
 
-{{< mermaid >}}
+```mermaid
     sequenceDiagram
     
     participant Deck
@@ -127,7 +127,7 @@ first_, and click a link to be taken to Spinnaker.
     
     Deck->>+IdentityProvider: GET https://idp.url/?SAMLRequest=...
     IdentityProvider->>-Deck: Returns login page
-{{< /mermaid >}}
+```
 
 1. User attempts to access a protected resource.
 
@@ -140,7 +140,7 @@ first_, and click a link to be taken to Spinnaker.
     [here](#network-architecture-and-ssl-termination) for how to override this value.
     
 1. SAML provider prompts user for username & password.
-    {{< mermaid >}}
+    ```mermaid
         sequenceDiagram
         
         participant Deck
@@ -153,7 +153,7 @@ first_, and click a link to be taken to Spinnaker.
         Note right of Gate: User identity verified
         Note right of Gate: Gate extracts data based on userInfoMapping
         Gate->>-Deck: HTTP 302 /something/protected
-    {{< /mermaid >}}
+    ```
 
 1. A SAML response must be POSTed to `/saml/SSO`, and most browsers won't re-POST when given an HTTP 302. Instead, 
 providers sometimes return a page (with HTTP 200) that has a self-submitting HTML form to POST to Gate's `/saml/SSO` 

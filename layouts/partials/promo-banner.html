@@ -14,7 +14,7 @@
   <div class="container-fluid container-xl mx-auto">
     <div class="row align-items-center">
       <div class="col-3">
-        {{ if .Site.Params.promoBanner.label }}
+        {{ if .Site.Params.promoBanner.label  | markdownify }}
 
         <span
           class="
@@ -27,13 +27,13 @@
             bg-secondary
           "
         >
-          {{ .Site.Params.promoBanner.label }}
+          {{ .Site.Params.promoBanner.label  | markdownify }}
         </span>
         {{ end }}
       </div>
       <div class="col-6">
         <div>
-          <p class="m-0">{{ .Site.Params.promoBanner.text }}</p>
+          <p class="m-0">{{ .Site.Params.promoBanner.text  | markdownify }}</p>
         </div>
       </div>
       <div class="col-3">
@@ -43,7 +43,7 @@
             class="btn btn-sm btn-info mr-3 px-3"
             href="{{ .Site.Params.promoBanner.ctaLink }}"
           >
-            {{ .Site.Params.promoBanner.ctaText }}
+            {{ .Site.Params.promoBanner.ctaText | markdownify }}
             <i class="fas fa-arrow-alt-circle-right ml-1"></i>
           </a>
         </div>

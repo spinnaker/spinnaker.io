@@ -70,7 +70,7 @@ boxes represent "external" components, including the Deck UI, a single-page
 JavaScript application that runs in your browser. The gold boxes represent Halyard components
 which are only ran when configuring Spinnaker.
 
-{{< mermaid >}}
+```mermaid
 graph TB
 
 deck(Deck) --> gate;
@@ -113,7 +113,7 @@ class halyard,hal halStyle;
 classDef external fill:#c0d89d,stroke:#39546a;
 class deck,api external;
 
-{{< /mermaid >}}
+```
 
 In the table below, A filled cell indicates that the system listed in the
 heading of that column has a dependency on the system listed in the heading of
