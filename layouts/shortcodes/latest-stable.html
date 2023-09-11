@@ -22,7 +22,17 @@ For example:
 {{ end }}
 {{ end }}
 
-{{ $latest_stables := first 3 (sort ($latest_major_minors).ByDate.Reverse) }}
+<!--
+Hugo doesn't have a semVer sort method so 1.9.0 appears "higher|later" than 1.30.0:
+1. sort by Date as a proxy for the latest versions, reverse order to have latest first
+2. take the first (latest) 6 versions. Arbitrary number, but if we release a patch
+   version that is 4 behind then the 6 *should* include semVer latest 3.
+   e.g 1.29.7 just released and newest by date, but 1.30.4, 1.31.2, 1.32.0 are
+   latest semVer 3.
+3. sort by Title which achieves semVer sort. Reverse so latest first.
+4. take the first 3.
+-->
+{{ $latest_stables := first 3 (sort (first 6 (sort ($latest_major_minors).ByDate.Reverse)).ByTitle.Reverse) }}
 
 <!-- print out our template section for each stable version -->
 {{ range sort ($latest_stables).ByTitle.Reverse }}
