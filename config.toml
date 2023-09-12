@@ -46,7 +46,7 @@ anchor = "smart"
 
 [services]
 [services.googleAnalytics]
-# Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
+# Comment out the id to disable the feature described in [params.ui.feedback].
 # This ID can be found in Google Analytics -> Admin Panel -> Data Streams -> Spinnaker Website - GA4 -> Measurement ID
 id = "G-H0XE7ESBFR"
 
@@ -95,6 +95,10 @@ defaultMarkdownHandler = "goldmark"
 copyright = 'Copyright © 2020 The Linux Foundation®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds.'
 privacy_policy = "http://www.linuxfoundation.org/privacy"
 terms_of_use = "http://www.linuxfoundation.org/terms"
+
+# Comment out the next line to disable GA tracking.
+# This Tag ID can be found in Google Analytics -> Admin Panel -> Data Streams -> Spinnaker Website - GA4 -> Configure Tag Settings
+google_tag_id="GT-W6BN9SN"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]

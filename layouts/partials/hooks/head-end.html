@@ -8,3 +8,6 @@
   {{ $desc := (.Page.Content | safeHTML | truncate 150) }}
   <meta name="description" content="{{ $desc }}">
 {{ end }}
+{{ if eq (getenv "HUGO_ENV") "production" }}
+  {{ partial "google-analytics.html" . }}
+{{end}}
