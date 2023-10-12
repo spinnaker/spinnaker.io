@@ -39,6 +39,40 @@ you can specify the following:
   `.tar.gz` archive. You can produce this by running `helm package
   /path/to/chart`. For more details, `helm package --help`.
 
+> Note: This guide is designed to help you set up API versions and Kubernetes version in your `Bake (Manifest)` stage
+> when using Helm as a templating engine.
+
+To begin, you must set an essential environment variable in Deck. This variable is `API_VERSIONS_ENABLED`, and you need to set it to `true`.
+This enables the functionality necessary to work with API versions and Kubernetes version in your CD pipeline.
+
+* __The capabilities apiVersions__ (optional)
+
+  The `apiVersions` field in the `Capabilities` object represents a set of API versions that are dependent
+  on the Kubernetes version.
+  You can pass these API versions as argument to the `--api-versions` parameter in the `helm template` command.
+  This allows you to specify which Kubernetes API versions should be used when rendering your Helm templates.
+
+
+* __The release kubeVersion__ (optional)
+
+  The `kubeVersion` field in the `Capabilities` object signifies the Kubernetes version itself.
+  You can pass this Kubernetes version as argument to the `--kube-version` parameter in the `helm template` command.
+  It specifies the exact Kubernetes version you want to use when rendering your Helm templates.
+
+
+> Note: Not all Helm charts contain apiVersions and kubeVersion definitions in their manifests.
+> Make sure that your manifests contain the following code:
+
+```yaml
+data: 
+  apiVersions: {{ .Capabilities.ApiVersions }}
+  kubeVersion: {{ .Capabilities.KubeVersion }}
+```
+
+As an example, we have a fully configured Bake (Manifest) stage below, including the apiVersions and kubeVersion fields:
+
+{{< figure src="./api-versions.png" >}}
+
 * __The release namespace__ (optional)
 
   The Kubernetes namespace to install release into. If parameter is not
