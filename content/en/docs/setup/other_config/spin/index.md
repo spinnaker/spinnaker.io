@@ -38,7 +38,7 @@ sudo mv spin /usr/local/bin/spin
 ```powershell
 New-Item -ItemType Directory $env:LOCALAPPDATA\spin -ErrorAction SilentlyContinue
 
-Invoke-WebRequest -OutFile $env:LOCALAPPDATA\spin\spin.exe -UseBasicParsing "https://storage.googleapis.com/spinnaker-artifacts/spin/$([System.Text.Encoding]::ASCII.GetString((Invoke-WebRequest https://storage.googleapis.com/spinnaker-artifacts/spin/latest).Content))/windows/amd64/spin.exe"
+Invoke-WebRequest -OutFile $env:LOCALAPPDATA\spin\spin.exe -UseBasicParsing "https://storage.googleapis.com/spinnaker-artifacts/spin/$([System.Text.Encoding]::ASCII.GetString((Invoke-WebRequest https://storage.googleapis.com/spinnaker-artifacts/spin/latest).Content) -replace "`n")/windows/amd64/spin.exe"
 
 Unblock-File $env:LOCALAPPDATA\spin\spin.exe
 
