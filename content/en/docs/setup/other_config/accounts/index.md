@@ -17,7 +17,14 @@ Note that the type discriminator is used as the value for the key `@type` in the
 
 ## Enabling account management
 
-As an alpha API and feature, this must be explicitly enabled in your `clouddriver-local.yml` configuration by adding `account.storage.enabled: true`.
+As an alpha API and feature, this must be explicitly enabled in your `clouddriver-local.yml` configuration by adding:
+
+```yml
+account:
+  storage:
+    enabled: true
+```
+
 Note that credentials polling must be enabled for each cloud provider type being managed by this API.
 For example, to enable credentials polling for Kubernetes with a polling period of one minute, add the following configuration to your `clouddriver-local.yml` configuration.
 
