@@ -133,7 +133,7 @@ If you are programatically generating stages, here is the JSON representation of
 
 ### Helmfile
 
-In addition to standard helm deployments, Spinnaker supports [Helmfile](https://helmfile.readthedocs.io/) as a templating engine. Current supported version can be found [here](https://github.com/spinnaker/rosco/blob/master/Dockerfile.slim#L7).
+In addition to standard Helm deployments, Spinnaker supports [Helmfile](https://helmfile.readthedocs.io/) as a templating engine. You can find the supported version in [Rosco's Dockerfile](https://github.com/spinnaker/rosco/blob/master/Dockerfile.slim#L7).
 
 Configuring a Helmfile deployment follows the specification for standard helm chart deployments (defined above) with one exception - `helmChartFilePath` is substituted for `helmfileFilePath` and is specified as follows:
 
@@ -149,9 +149,7 @@ Configuring a Helmfile deployment follows the specification for standard helm ch
 ## Configure a downstream deployment
 
 Now that your manifest set has been baked by Helm, configure a downstream stage
-(in the same pipeline or in one triggered by this pipeline) your "Deploy
-(Manifest)" stage to deploy the artifact produced by the **Bake (Manifest)**
-stage as shown here:
+(in the same pipeline or in one triggered by this pipeline) your **Deploy (Manifest)** stage to deploy the artifact produced by the **Bake (Manifest)** stage:
 
 {{< figure src="./expected-artifact.png" >}}
 
@@ -159,8 +157,7 @@ stage as shown here:
 > your base64 manifest set. This is required to translate the manifest set into
 > the format required by the deploy stage.
 
-When this stage runs, you can see every resource in your Helm chart get
-deployed at once:
+When this stage runs, you can see every resource in your Helm chart get deployed at once:
 
 {{< figure src="./result.png" >}}
 
