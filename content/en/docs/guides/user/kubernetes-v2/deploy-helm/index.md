@@ -30,7 +30,7 @@ When configuring the **Bake (Manifest)** stage using a Helm (Helm 2 or Helm 3) r
   The Helm chart that you deploy, stored remotely as a `.tar.gz` archive. You can produce this by running `helm package
   /path/to/chart`. For more details, `helm package --help`.
 
->This guide is designed to help you set up API versions and a Kubernetes version in your `Bake (Manifest)` stage when using Helm as a templating engine.
+### Configure API versions and a Kubernetes version
 
 To begin, you must set `API_VERSIONS_ENABLED` to `true`. This is an essential Deck environment variable that enables the functionality necessary to work with API versions and a Kubernetes version in your CD pipeline.
 
@@ -39,7 +39,6 @@ To begin, you must set `API_VERSIONS_ENABLED` to `true`. This is an essential De
   The `apiVersions` field in the `Capabilities` object represents a set of API versions that are dependent
   on the Kubernetes version. You can pass these API versions as an argument to the `--api-versions` parameter in the `helm template` command.
   This enables you to specify which Kubernetes API versions should be used when rendering your Helm templates.
-
 
 * __The release kubeVersion__ (optional)
 
