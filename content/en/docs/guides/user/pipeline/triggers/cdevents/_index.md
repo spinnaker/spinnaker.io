@@ -31,7 +31,7 @@ Trigger__ and make its type selector __CDEvents__.
 To assign an endpoint that must be hit, you can provide a value to the
 __Source__ field as shown here:
 
-{{< figure src="./trigger_source.png" >}}
+![trigger_source.png](./trigger_source.png)
 
 Notice that in the above image below the __Type__ dropdown, the endpoint
 configuration points out that we can send CDEvent to
@@ -51,7 +51,9 @@ curl $ENDPOINT -X POST -H "Ce-Id: 123456789" -H "Ce-Specversion: 1.0" -H "Ce-Typ
 If you want to trigger the pipeline only when the specific headers are matching from the CDEvents webhook request, you can provide __Attribute constraints__ in the trigger configuration.
 
 For example, If we configure the pipeline as below,
-{{< figure src="./attribute_constraints.png" caption="The attribute constraints used here `ce-type = dev.cdevents.artifact.published.0.1.0, ce-source = https://ci-build.est.tech`from the request." >}}
+![attribute_constraints.png ](./attribute_constraints.png )
+The attribute constraints used here `ce-type = dev.cdevents.artifact.published.0.1.0` and `ce-source = https://ci-build.est.tech` from the request.
+
 
 ### Payload constraints
 
@@ -62,7 +64,8 @@ value must match using regex.
 
 For example, if we configured:
 
-{{< figure src="./payload_constraints.png" caption="The payload constraints used here `context.source = https://ci-build.est.tech, customData.mykey = myvalue, customData.bing = b.*p and subject.type = ARTIFACT`." >}}
+![payload_constraints.png ](./payload_constraints.png )
+The payload constraints used here `context.source = https://ci-build.est.tech`, `customData.mykey = myvalue`, `customData.bing = b.*p` and `subject.type = ARTIFACT`."
 
 The following `$CDEVENTDATA` payload would be accepted:
 
@@ -118,7 +121,8 @@ Say your pipeline accepted some parameters (for example, the desired stack to
 deploy to), you can make this explicit by adding a pipeline parameter on the
 same configuration screen as the CDEvents Automated trigger:
 
-{{< figure src="./parameters.png" caption="For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline/expressions)." >}}
+![parameters.png ](./parameters.png )
+For more information on how to use pipeline parameters, see the [pipeline expressions guide](/docs/guides/user/pipeline/expressions)."
 
 > Warning: there are several reserved parameter keys (names) that cause unexpected behaviour and failures
 > if overwritten by a pipeline parameter definition.
@@ -127,7 +131,7 @@ same configuration screen as the CDEvents Automated trigger:
 If you were to manually execute this pipeline, you would be prompted with the
 following dialogue:
 
-{{< figure src="./manual-execution.png" >}}
+![manual-execution.png ](./manual-execution.png )
 
 If instead you were to trigger this pipeline with a CDEvents Webhook request, you could supply each parameter a value inside a key/value map called `parameters` with in the `customData` of a `$CDEVENTDATA` payload. Take the
 following payload for example:
@@ -163,9 +167,8 @@ following payload for example:
 If your pipeline requires artifacts (for example, a custom artifact stored in a specific location), you can make this explicit by defining an __Expected Artifact__
 and assigning it to the CDEvents Webhook as shown below:
 
-{{< figure src="./assign_artifact.png" >}}
-
-{{< figure src="./expected_artifact.png" >}}
+![assign_artifact.png ](./assign_artifact.png )
+![expected_artifact.png ](./expected_artifact.png )
 
 In order to run this pipeline, you will need to supply the required artifact in the `customData` of a `$CDEVENTDATA` payload under a list of `artifacts`:
 
@@ -181,6 +184,7 @@ In order to run this pipeline, you will need to supply the required artifact in 
         "type": "custom/object",
         "name": "image-cdevents",
         "version": "1.0.1",
+        "location": "localhost:5000/cdevent/image-cdevents:v1.0.1"
         "reference": "custom/object/artifact"
       }
     ]
