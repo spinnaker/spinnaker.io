@@ -11,6 +11,7 @@ Out of the box, Spinnaker allows you to configure the following types of notific
 * [Microsoft Teams](#microsoft-teams)
 * [Slack](#slack)
 * [SMS](#twilio) via Twilio
+* [CDEvents](#cdevents)
 
 This is discussed in the Configuring Notifications section below.
 
@@ -122,6 +123,23 @@ For Twilio, you need to add your account [credentials](https://support.twilio.co
 hal config notification twilio enable
 echo $TWILIO_AUTH_TOKEN | hal config notification twilio edit --account $TWILIO_ACCOUNT_SID --from $TWILIO_PHONE_NUMBER --token
 ```
+
+
+## CDEvents
+
+To enable CDEvents notification support, add the following statement to the `echo-local.yml` file:
+
+```yaml
+cdevents:
+  enabled: true
+```
+
+Spinnaker supports sending CDEvents to [Message Broker](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBroker.html)
+
+When configuring a CDEvents notification, In the Edit Notification window, specify CDEvents in the Notify via field and enter the full Message Broker URL in the `Events Broker URL` text box.
+
+To send a specific type of CDEvents, enter the CDEvents Type in the `CDEvents Type` text box. Different types of CDEvents can be found in the [CDEvents Specification](https://github.com/cdevents/spec). 
+![](cdevents.png)
 
 ## Using notifications
 
