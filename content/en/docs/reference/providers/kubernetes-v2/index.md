@@ -175,6 +175,25 @@ command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
   The default behavior is `'false'`.
 
+* `strategy.spinnaker.io/server-side-apply`
+
+  As of Spinnaker 1.33, you can force Spinnaker to use server-side apply instead of the default client-side apply
+  while deploying a Kubernetes resource. Server-side apply is a new merging algorithm, which allows calculating
+  the final patch to update resources in the Kubernetes api-server instead of the client.
+  This may be useful for `CustomResourceDefinition` or `ConfigMap` which  may exceed the annotation size limit and cannot
+  tolerate the `replace` strategy. Additionally, it will better identify and handle conflicts during merge by
+  analyzing the `managedFields` annotation instead of the `last-applied-configuration` annotation.
+
+  When set to `'true'` for a resource, this will update your resources using
+  server-side apply. Refer to [Kubernetes Server Side Apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/) for more details.
+
+  When set to `'force-conflicts'` for a resource, this will update your resources using server-side apply and becomes the sole manager. Refer to [Conflicts](https://kubernetes.io/docs/reference/using-api/server-side-apply/#conflicts) for more details.
+
+  Server-side apply feature was introduced as [beta in Kubernetes 1.18](https://kubernetes.io/blog/2020/04/01/kubernetes-1.18-feature-server-side-apply-beta-2/)
+  and graduated to [GA in Kubernetes 1.22](https://kubernetes.io/blog/2021/08/06/server-side-apply-ga/).
+
+  The default behavior is `'false'`.
+
 ## Traffic
 
 * `traffic.spinnaker.io/load-balancers`
