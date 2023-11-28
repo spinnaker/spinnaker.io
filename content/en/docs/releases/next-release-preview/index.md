@@ -11,6 +11,12 @@ changelog.
 
 ## Coming Soon in Release 1.33
 
+### Java 17
+
+Following the changes to use JRE 17 for Front50 and Igor in [1.32](/changelogs/1.32.0-changelog), all other services (Clouddriver, Orca, Gate, Echo, Fiat, Rosco, and Kayenta) have now been upgraded. Java 11 variants of all services continue to be published. Please report any problems by creating a GitHub issue. 
+
+In future releases, services will be gradually updated to compile using JDK 17 in order to complete the migration to Java 17.
+
 ### Artifact Store
 
 - https://github.com/spinnaker/kork/pull/1120 changes the configuration flags for the artifact store.  Before this PR, the way to enable the artifact store for s3 was:
