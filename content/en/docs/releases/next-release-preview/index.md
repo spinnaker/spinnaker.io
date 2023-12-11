@@ -11,6 +11,20 @@ changelog.
 
 ## Coming Soon in Release 1.33
 
+### Lambda changes
+
+In 1.33, several changes were made to allow full exposure of Lambda timeouts to operations.  Further, the duplicate retry behavior (between custom retry code and SDK retry behavior) has been removed entirely for favor of SDK retry behavior.  This means pipeline retries are no longer applicable at this time.  Future enhancements could restore custom retry per operation configurations.  To set retries and timeouts for Lambda operations, you can set a clouddriver profile like so:
+```
+aws:
+  features:
+    lambda:
+      enabled: true
+  lambda:
+    invokeTimeoutMs: 4000000
+    retries: 1
+```
+See: https://github.com/spinnaker/clouddriver/pull/6077
+
 ### Java 17
 
 Following the changes to use JRE 17 for Front50 and Igor in [1.32](/changelogs/1.32.0-changelog), all other services (Clouddriver, Orca, Gate, Echo, Fiat, Rosco, and Kayenta) have now been upgraded. Java 11 variants of all services continue to be published. Please report any problems by creating a GitHub issue. 
