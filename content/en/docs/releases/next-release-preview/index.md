@@ -13,7 +13,7 @@ changelog.
 
 ### Lambda changes
 
-In 1.33, several changes were made to allow full exposure of Lambda timeouts to operations.  Further, the duplicate retry behavior (between custom retry code and SDK retry behavior) has been removed entirely for favor of SDK retry behavior.  This means pipeline retries are no longer applicable at this time.  Future enhancements could restore custom retry per operation configurations.  To set retries and timeouts for Lambda operations, you can set a clouddriver profile like so:
+In 1.33, several changes were made to allow full exposure of Lambda timeouts to operations.  Previously the SDK would restrict timeouts despite any configuration to 55 seconds - you can now change this for things like long running lambda invocations.  Further the duplicate retry behavior (between custom retry code and SDK retry behavior) has been removed entirely in favor of SDK retry behavior.  This means pipeline retries no longer work at this time.  Future enhancements could restore custom retry per operation configurations.  To set retries and timeouts for Lambda operations you can set a clouddriver profile like so:
 ```
 aws:
   features:
@@ -23,7 +23,7 @@ aws:
     invokeTimeoutMs: 4000000
     retries: 1
 ```
-See: https://github.com/spinnaker/clouddriver/pull/6077
+See PR for more information: https://github.com/spinnaker/clouddriver/pull/6077
 
 ### Java 17
 
