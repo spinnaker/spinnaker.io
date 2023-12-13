@@ -72,3 +72,13 @@ This makes it possible to disable storage of new artifacts, while retaining the 
 Other related PRs are:
 https://github.com/spinnaker/orca/pull/4546
 https://github.com/spinnaker/rosco/pull/1020
+
+### Groovy 3
+
+All Groovy based implementations and tests have been upgraded to use Groovy 3 in place of Groovy 2. Supporting Spock test framework has been upgraded from 1.3-groovy-2.5 to 2.0-groovy-3.0. Removed the support of junit-vintage-engine. Groovy dependency has been unpinned and bring version from Spring Boot dependencies transitively. 
+
+### Spring Boot 2.5.15
+As part of the continued effort to upgrade Spring Boot, Spinnaker 1.33.0 now uses Spring Boot 2.5.15, an upgrade from Spinnaker 1.32.0's use of Spring Boot 2.5.14.
+
+### Kotlin 1.5
+In order to sync and upgrade the compatible version of Kotlin with Spring Boot, Kotlin based implementations and tests have been upgraded to use Kotlin 1.5.32 in place of 1.4.32. Now Spinnaker 1.33.0 uses this version for all services.
