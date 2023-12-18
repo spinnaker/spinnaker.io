@@ -70,7 +70,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/google_samples/gb-frontend:v3
+        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
 ```
 
 {{< figure src"create-sg.png" >}}
@@ -182,7 +182,7 @@ spec:
         app: myapp
     spec:
       containers:
-        - image: 'gcr.io/google_samples/gb-frontend:v3'
+        - image: 'us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5' 
           name: frontend
 ```
 
