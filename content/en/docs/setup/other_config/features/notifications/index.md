@@ -133,9 +133,7 @@ To enable CDEvents notification support, add the following statement to the `ech
 cdevents:
   enabled: true
 ```
-
-Spinnaker supports sending CDEvents to a [Message Broker](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBroker.html).
-The Message Broker is defined in the notification trigger itself.
+Spinnaker supports sending CDEvents to a configured [Message Broker](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBroker.html). The Message Broker is defined within the notification itself.
 
 For example, [Knative Eventing](https://knative.dev/docs/getting-started/) can be configured as a Message Broker to receive CDEvents.
 
