@@ -134,12 +134,18 @@ cdevents:
   enabled: true
 ```
 
-Spinnaker supports sending CDEvents to [Message Broker](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBroker.html)
+Spinnaker supports sending CDEvents to a [Message Broker](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBroker.html).
+The Message Broker is defined in the notification trigger itself.
+
+For example, [Knative Eventing](https://knative.dev/docs/getting-started/) can be configured as a Message Broker to receive CDEvents.
 
 When configuring a CDEvents notification, In the Edit Notification window, specify CDEvents in the Notify via field and enter the full Message Broker URL in the `Events Broker URL` text box.
 
-To send a specific type of CDEvents, enter the CDEvents Type in the `CDEvents Type` text box. Different types of CDEvents can be found in the [CDEvents Specification](https://github.com/cdevents/spec). 
+To send a specific type of CDEvents, enter the CDEvents Type in the `CDEvents Type` text box. Different types of CDEvents can be found in the [CDEvents Specification](https://github.com/cdevents/spec).
+ 
 ![](cdevents.png)
+
+Note: Currently Spinnaker supports sending [Continuous Delivery Core Events](https://cdevents.dev/docs/core/)
 
 ## Using notifications
 
