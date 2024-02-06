@@ -41,7 +41,7 @@
   "homepage": "https://github.com/spinnaker/spinnaker.io#readme",
   "devDependencies": {
     "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.32",
+    "postcss": "^8.4.31",
     "postcss-cli": "^7.1.1",
     "prettier": "^2.3.0"
   },
