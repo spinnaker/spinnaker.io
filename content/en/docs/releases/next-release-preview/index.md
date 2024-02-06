@@ -37,3 +37,10 @@ execution-repository:
       bodyCompressionThreshold: 1024 # bytes above which compression happens
       compressionType: "ZLIB" # GZIP also valid, defaults to ZLIB
 ```
+
+### (Breaking change) Springfox 3.0.0
+
+API documentation implementing swagger has been upgraded to use Springfox 3.0.0.
+
+Breaking Change:
+Swagger-ui endpoint changed from `/swagger-ui.html` to `/swagger-ui/index.html`.
