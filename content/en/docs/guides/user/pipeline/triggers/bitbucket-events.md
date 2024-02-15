@@ -19,7 +19,7 @@ Spinnaker supports the following Bitbucket Server webhook events:
 
 ## Before you begin
 
-* You are familiar with [creating and triggering webhooks](https://confluence.atlassian.com/bitbucketserver/manage-webhooks-938025878.html) in Bithucket Server.
+* You are familiar with [creating and triggering webhooks](https://confluence.atlassian.com/bitbucketserver/manage-webhooks-938025878.html) in Bitbucket Server.
 * You have configured [Bitbucket notifications (webhooks)]({{< ref "docs/setup/other_config/features/notifications/index.md#bitbucket-cloud" >}}) in Spinnaker and enabled the desired webhook events in your Bitbucket repository.
 
 ## Add a Bitbucket webhook event as a pipeline trigger
