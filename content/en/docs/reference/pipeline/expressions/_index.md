@@ -142,22 +142,23 @@ recently executed Jenkins stage.
 Returns the alphanumerical value of the passed-in string. That is, the input
 string with all characters aside from A-Z and 0-9 stripped out.
 
+### #cfServiceKey(String stageName)
+
+A shortcut to refer to a service key which has been created in a previous stage.  Remember that the
+stage's name is case-sensitive.  Note also that the values for the service key are contained in a
+map, so one may access a property via `${#cfServiceKey("stageName")["desiredProperty"]}`.
+For example, `${#cfServiceKey("Create MySQL Service Key")["username"]}` will retrieve the `username`
+field of a service key which has been created for a MySQL service in a `Create Service Key` stage named
+"Create MySQL Service Key".
+
+### #currentStage()
+
+Returns the current stage.
+
 ### #deployedServerGroups(String)
 
 Takes the name of a deploy stage as an argument and returns the Server Group
 that was created by the specified stage.
-
-### #readJson(String)
-
-Converts a JSON String into a Map that can then be processed further.
-
-### #readYaml(String)
-
-Converts a YAML String into a Map that can then be processed further.
-
-### #readAllYaml(String)
-
-Converts a multi-document YAML String into a list of Maps that can then be processed further.
 
 ### #fromUrl(String)
 
@@ -168,11 +169,6 @@ to fetch information from unauthenticated URL endpoints.
 
 Retrieves the contents of the given URL and converts it into either a map or a
 list. It uses the #fromUrl(String) helper function underneath.
-
-### #yamlFromUrl(String)
-
-Retrieves the contents of the given URL and converts it into a map. It uses
-the #fromUrl(String) helper function underneath.
 
 ### #judgment(String)
 
@@ -185,14 +181,38 @@ spelling `#judgement`.
 ### #manifestLabelValue(String stageName, String manifestKind, String labelKey)
 
 Returns the value of a label with key `labelKey` from a Kubernetes
-Deployment or ReplicaSet manifest of kind `manifestKind`, deployed by a 
+Deployment or ReplicaSet manifest of kind `manifestKind`, deployed by a
 stage of type `deployManifest` and name `stageName`.
+
+### #pipelineId(String)
+
+This function looks up the pipeline id given a pipeline name (within the same Spinnaker application).
+This is useful if you generate pipelines programmatically and don't want to modify pipelines to reference a new id
+when a dependent pipeline is automatically regenerated.
+For example, `${#pipelineId("Deploy to prod")}` might return `9b2395dc-7a2b-4845-b623-838bd74d059b`.
+
+### #pipelineIdInApplication(String pipelineName, String applicationName)
+
+This function looks up the pipeline id for the given pipeline name and Spinnaker application. This is helpful to
+retrieve the pipeline id for an existing pipeline within any application in Spinnaker.
 
 ### #propertiesFromUrl(String)
 
 Retrieves the contents of a [Java properties file](https://docs.oracle.com/javase/tutorial/essential/environment/properties.html)
 at the given URL and converts it into a map. You can use this to fetch
 information from Jenkins properties files or other similar endpoints.
+
+### #readAllYaml(String)
+
+Converts a multi-document YAML String into a list of Maps that can then be processed further.
+
+### #readJson(String)
+
+Converts a JSON String into a Map that can then be processed further.
+
+### #readYaml(String)
+
+Converts a YAML String into a Map that can then be processed further.
 
 ### #stage(String)
 
@@ -207,29 +227,13 @@ access a property via `${#stage("Bake")["context"]["desiredProperty"]}`.
 A shortcut to get the stage by its `refId`. For example, `${#stageByRefId("3")}` allows
 you to access the stage with `refId = 3`.
 
-### #currentStage()
-
-Returns the current stage.
-
 ### #stageExists(String)
 
 Checks if a given stage exists. You can search by `name` or `id`.
-Returns `true` if at least one stage is found with the `name` or `id` given.  
+Returns `true` if at least one stage is found with the `name` or `id` given.
 Since the `id` is generated at runtime, most of the time it will make sense to search by `name` instead.
-Note that stage names are set by default so if you create a Webhook stage it will be called Webhook; 
+Note that stage names are set by default so if you create a Webhook stage it will be called Webhook;
 giving the stage a unique name when you create it makes it easier to find when using this helper function.
-
-### #pipelineId(String)
-
-This function looks up the pipeline id given a pipeline name (within the same Spinnaker application). 
-This is useful if you generate pipelines programmatically and don't want to modify pipelines to reference a new id
-when a dependent pipeline is automatically regenerated.    
-For example, `${#pipelineId("Deploy to prod")}` might return `9b2395dc-7a2b-4845-b623-838bd74d059b`.
-
-### #pipelineIdInApplication(String pipelineName, String applicationName)
-
-This function looks up the pipeline id for the given pipeline name and Spinnaker application. This is helpful to 
-retrieve the pipeline id for an existing pipeline within any application in Spinnaker.
 
 ### #toBoolean(String)
 
@@ -247,15 +251,6 @@ Converts a value to an integer.
 
 Converts an arbitrary JSON object into a JSON string.
 
-### #cfServiceKey(String stageName)
-
-A shortcut to refer to a service key which has been created in a previous stage.  Remember that the
-stage's name is case-sensitive.  Note also that the values for the service key are contained in a
-map, so one may access a property via `${#cfServiceKey("stageName")["desiredProperty"]}`.
-For example, `${#cfServiceKey("Create MySQL Service Key")["username"]}` will retrieve the `username`
-field of a service key which has been created for a MySQL service in a `Create Service Key` stage named
-"Create MySQL Service Key".
-
 ### #triggerResolvedArtifact(String name)
 
 A shortcut to look up the resolved artifact in execution trigger by its name. If multiple artifacts are found, only 1 will be returned.
@@ -265,6 +260,11 @@ For example, `${#triggerResolvedArtifact("my-image")["reference"]}` might return
 
 A shortcut to look up the resolved artifact in execution trigger by its type. If multiple artifacts are found, only 1 will be returned.
 For example, `${#triggerResolvedArtifactByType("docker/image")["reference"]}` might return `gcr.io/spinnaker-marketplace/orca@sha256:b48dbe7d7cb580db8512e4687d31f3710185b08afcf3cb53c0203025f93f9091`.
+
+### #yamlFromUrl(String)
+
+Retrieves the contents of the given URL and converts it into a map. It uses
+the #fromUrl(String) helper function underneath.
 
 ## Allowed Java classes
 
