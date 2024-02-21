@@ -160,6 +160,10 @@ Returns the current stage.
 Takes the name of a deploy stage as an argument and returns the Server Group
 that was created by the specified stage.
 
+### #fromBase64(String)
+
+Decodes a base64 string.
+
 ### #fromUrl(String)
 
 Returns the contents of the specified URL as a String. You can use this
@@ -234,6 +238,10 @@ Returns `true` if at least one stage is found with the `name` or `id` given.
 Since the `id` is generated at runtime, most of the time it will make sense to search by `name` instead.
 Note that stage names are set by default so if you create a Webhook stage it will be called Webhook;
 giving the stage a unique name when you create it makes it easier to find when using this helper function.
+
+### #toBase64(String)
+
+Encodes the input string to base64.
 
 ### #toBoolean(String)
 
