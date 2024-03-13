@@ -44,3 +44,21 @@ API documentation implementing swagger has been upgraded to use Springfox 3.0.0.
 
 Breaking Change:
 Swagger-ui endpoint changed from `/swagger-ui.html` to `/swagger-ui/index.html`.
+
+
+### Spring Boot 2.6.15
+
+As part of the continued effort to upgrade Spring Boot, Spinnker 1.34.0 now uses Spring Boot 2.6.15, an upgrade from Spinnaker 1.33.0`s use of Spring Boot 2.5.15. Spring Boot 2.6 considers session data cached by Spring Boot 2.5 invalid.  Therefore, users with cached sessions will be unable to log in until the invalid information is removed from the cache. Open browser windows to Spinnaker are unresponsive after the deployment until they’re reloaded. Executing:
+
+    $ redis-cli keys "spring:session*" | xargs redis-cli del
+
+on Gate's redis instance removes the cached session information.
+
+
+### Spring Cloud 2021.0.8 (Jubilee)
+
+As per the compatibility matrix of Spring Cloud Release document, Spring Boot 2.6.x and 2.7.x supports Spring Cloud 2021.0.
+
+https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions#supported-releases
+
+In order to use compatible Spring Cloud version along with Spring Boot, upgrade Spring Cloud from 2020.0.6 used in Spinnaker 1.33.0 to 2021.0.8 as part of Spinnaker 1.34.0. 
