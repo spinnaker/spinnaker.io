@@ -12,7 +12,7 @@ template JSON.
 ## 1. Get a pipeline's JSON
 
 Use `spin` CLI to get the JSON of an existing pipeline that is close to what
-your template will be. Altenatively, you can create a new pipeline in the model
+your template will be. Alternatively, you can create a new pipeline in the model
 of your intended template.
 
 1. Install the [spin CLI](/docs/guides/spin/), if you haven't already done so.
