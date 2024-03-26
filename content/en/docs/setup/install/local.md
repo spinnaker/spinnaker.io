@@ -1,19 +1,14 @@
 ---
 
-title:  "Choose your Environment"
-description: Based on your use case, choose how you want to install Spinnaker.
+title:  "Run Spinnaker Locally"
+description: Run spinnaker locally for testing or small installations
 weight: 30
 ---
 
-In this step, you tell Halyard in what type of environment to install Spinnaker.
-
 The recommended path is a distributed installation onto a Kubernetes cluster,
-but all of these methods are supported:
-
-* [Distributed installation](#distributed-installation) on Kubernetes
-
-  Halyard deploys each of Spinnaker's [microservices](/docs/reference/architecture)
-  separately. __This is highly recommended for use in production.__
+but these may work for basic setups and local testing.  Note that not all of these
+work all the time and may break as they are not as well tested as kubernetes 
+based deployments.
 
 * [Local installations](#local-debian) of Debian packages
 
@@ -30,32 +25,12 @@ but all of these methods are supported:
 
 ## Distributed installation
 
-Distributed installations are for development orgs with large resource
-footprints, and for those who can't afford downtime during Spinnaker updates.
-
-Spinnaker is deployed to a remote cloud, with each
-[microservice](/docs/reference/architecture/) deployed independently. Halyard
-creates a smaller, headless Spinnaker to update your Spinnaker and its
-microservices, ensuring zero-downtime updates.
-
 1. Run the following command, using the `$ACCOUNT` name you created when you
 configured the provider:
 
    ```
    hal config deploy edit --type distributed --account-name $ACCOUNT
    ```
-
-1. If you haven't already done so, configure a provider for the environment in
-which you will install Spinnaker.
-
-   This must be on a Kubernetes cluster. It does not have to be the same
-   provider as the one you're using to deploy your applications.
-
-   * [Kubernetes](/docs/setup/install/providers/kubernetes-v2)
-
-   We recommend at least 4 cores and 16GB of RAM available in the cluster where
-   you will deploy Spinnaker.
-
 1. Make sure [kubectl is installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 on the machine running Halyard.
 
