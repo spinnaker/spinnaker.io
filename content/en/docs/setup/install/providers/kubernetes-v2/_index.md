@@ -39,15 +39,19 @@ The Kubernetes provider has two requirements:
 
 ### Optional: Create a Kubernetes Service Account
 
-If you want, you can associate Spinnaker with a [Kubernetes Service
+You can associate Spinnaker with a [Kubernetes Service
 Account](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/),
 even when managing multiple Kubernetes clusters. This can be useful if you need
 to grant Spinnaker certain roles in the cluster later on, or you typically
 depend on an authentication mechanism that doesn't work in all environments.
 
-Given that you want to create a Service Account in existing context `$CONTEXT`,
-the following commands will create `spinnaker-service-account`, and add its
+The following example assumes you want to create a Service Account in an existing context `$CONTEXT`.
+In this example, the commands create the `spinnaker-service-account`, and add its
 token under a new user called `${CONTEXT}-token-user` in context `$CONTEXT`.
+
+{{% alert color="info" title="Tip" %}}For more information about creating a Service Account, see [Creating service accounts](https://spinnaker.io/docs/setup/other_config/security/authorization/service-accounts/#creating-service-accounts).{{% /alert %}}
+
+```bash
 
 ```bash
 CONTEXT=$(kubectl config current-context)
