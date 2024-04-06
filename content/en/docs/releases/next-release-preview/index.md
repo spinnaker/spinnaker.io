@@ -63,6 +63,11 @@ https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions#sup
 
 In order to use compatible Spring Cloud version along with Spring Boot, upgrade Spring Cloud from 2020.0.6 used in Spinnaker 1.33.0 to 2021.0.8 as part of Spinnaker 1.34.0. 
 
+
+### Kotlin 1.6
+In order to sync and upgrade the compatible version of Kotlin with Spring Boot, Kotlin based implementations and tests have been upgraded to use Kotlin 1.6.21 in place of 1.5.32. Now Spinnaker 1.34.0 uses this version for all services.
+
+
 ### UPCOMING BREAKING CHANGE:
 
 kubectl in the latest releases has removed support for external auth flows using the `apiVersion: client.authentication.k8s.io/v1alpha1` exec API.  1.34 includes an aws cli (version 1.24) which supports both old and new exec api versions.  Additionally the aws-iam-authenticator binary also supports both exec api versions.   1.34 is the last release that will support v1alpha1 exec APIs in kubeconfig files.  Please update your kubeconfig files to use the v1beta1 api version.  Please see the upcoming [PR that will remove support for these after this release.](https://github.com/spinnaker/clouddriver/pull/6156)
