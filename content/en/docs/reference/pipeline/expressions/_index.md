@@ -75,7 +75,7 @@ pipeline.
 Note that `stages` is mostly referenced here for illustration purposes. The
 value of `stages[i]` depends on the order in which your stages execute, which
 makes it fragile. The recommended way to access a specific stage is to use the
-[`#stage("Stage Name")` helper function](#stagestring).
+`#stage("Stage Name")` [helper function](#stagestring).
 
 ### Maps
 
