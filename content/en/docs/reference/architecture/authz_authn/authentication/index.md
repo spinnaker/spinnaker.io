@@ -8,7 +8,7 @@ mermaid: true
 
 There are three basic players in Spinnaker's authentication workflow:
 
-{{< mermaid >}}
+```mermaid
 graph LR
 classDef default fill:#d8e8ec,stroke:#7a8288;
 linkStyle default stroke:#7a8288, stroke-width:2px, fill:none;
@@ -22,7 +22,7 @@ gate-->deck
 deck-->idp
 idp-->deck
 
-{{< /mermaid >}}
+```
 
 1. **Deck**: Spinnaker's UI. Consists of a set of static HTML, JavaScript, and CSS files. Generally
    served from an Apache server, but there is nothing special about Apache that makes Deck work.
@@ -41,7 +41,7 @@ Deck is a Javascript Single Page Application (SPA). This means that when a user 
 process below involves numerous redirects between the three parties (Deck, Gate, and the
 Identity Provider).
 
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
 
     participant Apache
@@ -56,7 +56,7 @@ sequenceDiagram
     Note right of Gate: No or expired session cookie.
     Gate->>-Deck: Returns empty response
 
-{{< /mermaid >}}
+```
 
 1.  Browser requests Deck's landing page: `https://deck.url:9000/`
 
@@ -68,7 +68,7 @@ sequenceDiagram
 
 1.  Without a user logged in, Deck requests a _protected_ URL: `https://gate.url:8084/auth/redirect?to=https://deck.url:9000`.
 
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
 participant Deck
 participant Gate
@@ -85,13 +85,13 @@ participant IdentityProvider
         Deck->>+IdentityProvider: GET https://idp.url/?redirect_uri=gate.url/login
         IdentityProvider->>-Deck: Login Page
 
-{{< /mermaid >}}
+```
 
 1.  Given that the URL is protected, Gate sees that there is no logged-in user, so it issues an HTTP 302
     redirect to an authentication-method-specific page. It saves the requested URL
     (`https://gate.url:8084/auth/redirect?to=https://deck.url:9000`) in the session state.
 
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
 participant Deck
 participant Gate
@@ -107,7 +107,7 @@ participant IdentityProvider
         	IdentityProvider->>-Gate: .
         	deactivate Gate
 
-{{< /mermaid >}}
+```
 
 1.  In the case of LDAP, the `/login` page is hosted in Gate and is a basic form asking for credentials. Gate attempts to
     establish a session (preferably over SSL) with the LDAP server, sending the username and password. If successful,
@@ -122,7 +122,7 @@ participant IdentityProvider
 1.  Gate processes the received data. This can include making additional requests to confirm the
     user's identity.
 
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
 participant Deck
 participant Gate
@@ -135,13 +135,13 @@ Gate->>-Deck: HTTP 302 /auth/redirect?to=deck.url
 Deck->>+Gate: GET /auth/redirect?to=deck.url
 Note right of Gate: URL is protected, but user is authenticated. Proceed!
 Gate->>-Deck: HTTP 302 to deck.url
-{{< /mermaid >}}
+```
 
 1)  Upon successful processing, the user is now considered logged in. Gate retrieves the originally requested URL from the session state. It issues an HTTP 302 to that URL (`https://gate.url:8084/auth/redirect?to=https://deck.url:9000`).
 
 1)  The request from the browser hits the API gateway, along with the session cookie from the newly logged in user. The `to` query parameter is validated to be the associated Deck instance, and a final HTTP 302 is sent, directing the user to the `https://deck.url:9000`.
 
-{{< mermaid >}}
+```mermaid
     	sequenceDiagram
     	participant Apache
     	participant Deck
@@ -156,7 +156,7 @@ Gate->>-Deck: HTTP 302 to deck.url
         activate Deck
         Note right of Deck: User logged in! Huzzah!
         deactivate Deck
-{{< /mermaid >}}
+```
 
 1)  Repeat this process from step 1. Now, the response from `https://gate.url:8084/auth/user` will contain a proper JSON object and the rest of the application will proceed to load.
 
@@ -167,7 +167,7 @@ The OAuth specification defines numerous flows for various scenarios. Spinnaker 
 OAuth
 flow looks like:
 
-{{< mermaid >}}
+```mermaid
     sequenceDiagram
 
     participant Deck
@@ -183,7 +183,7 @@ flow looks like:
     Deck->>+IdentityProvider: GET https://idp.url/userLogin?client_id=foo...
     IdentityProvider->>-Deck: Returns login page
 
-{{< /mermaid >}}
+```
 
 1.  User attempts to access a protected resource.
 
@@ -202,7 +202,7 @@ flow looks like:
       `email profile` to access the user's email address.
 
 1.  OAuth provider prompts user for username & password.
-{{< mermaid >}}
+```mermaid
         sequenceDiagram
 
         participant Deck
@@ -215,14 +215,14 @@ flow looks like:
         Deck->>+IdentityProvider: User confirms
         IdentityProvider->>-Deck: HTTP 302 to https://gate.url/login?code=abcdef
 
-{{< /mermaid >}}
+```
 
 1.  OAuth provider confirms that the user is granting Gate access to their profile.
 
 1.  Using the `redirect_uri`, the OAuth provider redirects the user to this address, providing an
     additional `code` parameter.
 
-{{< mermaid >}}
+```mermaid
             sequenceDiagram
 
             participant Deck
@@ -237,7 +237,7 @@ flow looks like:
             ResourceServer->>-Gate: Respondes with JSON of user profile information
             Note left of Gate: Gate extracts data based on userInfoMapping
             Gate->>-Deck: HTTP 302 to originally requested URL
-{{< /mermaid >}}
+```
 
 1.  Gate uses this `code` parameter to request an _access token_ from the OAuth provider's token
     server.
