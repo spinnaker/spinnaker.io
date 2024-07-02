@@ -37,12 +37,12 @@ Spring Boot 2.7 brings with it the following changes:
 
 ## RetrofitExceptionHandler Removed
 
-https://github.com/spinnaker/orca/pull/4716 removed RetrofitExceptionHandler from orca.  There's an ongoing effort to upgrade to retrofit2.  One step along the way is to adjust error handling code based on RetrofitError (a retrofit1 class not available in retrofit2) to use [SpinnakerServerException](https://github.com/spinnaker/kork/blob/v7.231.0/kork-retrofit/src/main/java/com/netflix/spinnaker/kork/retrofit/exceptions/SpinnakerServerException.java) and its children, by using [SpinnakerRetrofitErrorHandler](https://github.com/spinnaker/kork/blob/v7.231.0/kork-retrofit/src/main/java/com/netflix/spinnaker/kork/retrofit/exceptions/SpinnakerRetrofitErrorHandler.java#L52).  That's been done in orca, so there isn't any code left to throw RetrofitError exceptions.  If your instance of Spinnaker has plugins or other code that still does throw RetrofitError, adjust it to use SpinnakerRetrofitErrorHandler by adding, e.g.:
+https://github.com/spinnaker/orca/pull/4716 removed RetrofitExceptionHandler from orca.  There's an ongoing effort to upgrade to retrofit2.  One step along the way is to adjust error handling code based on RetrofitError (a retrofit1 class not available in retrofit2) to use [SpinnakerServerException](https://github.com/spinnaker/kork/blob/v7.231.0/kork-retrofit/src/main/java/com/netflix/spinnaker/kork/retrofit/exceptions/SpinnakerServerException.java) and its children, by using [SpinnakerRetrofitErrorHandler](https://github.com/spinnaker/kork/blob/v7.231.0/kork-retrofit/src/main/java/com/netflix/spinnaker/kork/retrofit/exceptions/SpinnakerRetrofitErrorHandler.java#L52).  That's been done in orca, so there isn't any code left to throw RetrofitError exceptions.  If your instance of Spinnaker has plugins or other code that still relies on RetrofitError, adjust it to use SpinnakerRetrofitErrorHandler by adding, e.g.:
 
 
     .setErrorHandler(SpinnakerRetrofitErrorHandler.getInstance())
 
-to the RestAdapter.Builder call.  See [here](https://github.com/spinnaker/orca/blob/9898ae1a673f0481abe082f4b681dbc314682c3f/orca-front50/src/main/groovy/com/netflix/spinnaker/orca/front50/config/Front50Configuration.groovy#L82) for an example.
+to the RestAdapter.Builder call, and change the corresponding exception handling.  See [here](https://github.com/spinnaker/orca/blob/9898ae1a673f0481abe082f4b681dbc314682c3f/orca-front50/src/main/groovy/com/netflix/spinnaker/orca/front50/config/Front50Configuration.groovy#L82) for an example.
 
 ## Label Selector Support in Deploy Manifest Stages
 
