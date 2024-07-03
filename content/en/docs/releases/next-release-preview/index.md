@@ -71,7 +71,6 @@ It's possible that none of the manifests may satisfy the label selectors. In tha
             enabled: true
     ```
   For details on the changes, please visit [this link](https://github.com/spinnaker/orca/pull/4749)
-- PipelineRefTrigger now stores only the executionId instead of the entire execution context.
-- When retrieving, we locate the parentExecutionId in PipelineRefTrigger to obtain the complete context.
-- If the feature flag is disabled, executions containing pipelineRef will be processed as usual.
+- When enabled, child pipeline execution ids are stored in sql instead of the entire child pipeline execution context.  
+- The in-memory representation of pipelines doesn't change whether this feature is enabled or not.  As well, pipelines stored with child pipeline execution ids are processed properly when the feature is disabled.
 - Barring any issues discovered in this release, the flag will be removed, and the behavior will become default in an upcoming release.
