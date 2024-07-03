@@ -67,7 +67,7 @@ It's possible that none of the manifests may satisfy the label selectors. In tha
     executionRepository:
       sql:
         enabled: true
-      pipelineRef:
+        pipelineRef:
         enabled: true
     ```
   For details on the changes, please visit [this link](https://github.com/spinnaker/orca/pull/4749)
