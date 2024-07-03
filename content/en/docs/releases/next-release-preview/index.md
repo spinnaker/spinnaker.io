@@ -68,7 +68,7 @@ It's possible that none of the manifests may satisfy the label selectors. In tha
       sql:
         enabled: true
         pipelineRef:
-        enabled: true
+            enabled: true
     ```
   For details on the changes, please visit [this link](https://github.com/spinnaker/orca/pull/4749)
 - PipelineRefTrigger now stores only the executionId instead of the entire execution context.
