@@ -66,7 +66,7 @@ It's possible that none of the manifests may satisfy the label selectors. In tha
     ```
     executionRepository:
       sql:
-      enabled: true
+        enabled: true
       pipelineRef:
         enabled: true
     ```
