@@ -67,3 +67,19 @@ See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ an
 Note that `kubectl replace` doesn't support label selectors, so KubernetesDeployManifestOperation throws an exception if a deploy manifest stage that specifies (non-empty) label selectors has a manifest with a `strategy.spinnaker.io/replace: "true"` annotation.
 
 It's possible that none of the manifests may satisfy the label selectors. In that case, a new pipeline configuration property named `allowNothingSelected` determines the behavior. If false (the default), KubernetesDeployManifestOperation throws an exception. If true, the operation succeeds even though nothing was deployed.
+
+## maxExpressionLength to set maximum expression length for SpEL evaluation 
+
+Spring Expression Lanuage (SpEL) has a default limit of 10,000 characters. Springframework provides the feature to configure the limit. This feature allows to configure the limit of characters for SpEL expressions.
+
+Use this feature as given below:
+
+```
+# orca-local.yml
+# echo-local.yml
+
+expression:
+  max-expression-length: <required limit> 
+
+```
+
