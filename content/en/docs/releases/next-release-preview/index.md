@@ -67,3 +67,19 @@ See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ an
 Note that `kubectl replace` doesn't support label selectors, so KubernetesDeployManifestOperation throws an exception if a deploy manifest stage that specifies (non-empty) label selectors has a manifest with a `strategy.spinnaker.io/replace: "true"` annotation.
 
 It's possible that none of the manifests may satisfy the label selectors. In that case, a new pipeline configuration property named `allowNothingSelected` determines the behavior. If false (the default), KubernetesDeployManifestOperation throws an exception. If true, the operation succeeds even though nothing was deployed.
+
+### Feature Flag: SQL PipelineRef
+
+#### Orca
+- Orca introduced a feature flag in its 1.35 release aimed at reducing execution size by converting PipelineTrigger to PipelineRefTrigger:
+    ```
+    executionRepository:
+      sql:
+        enabled: true
+        pipelineRef:
+            enabled: true
+    ```
+  For details on the changes, please visit [this link](https://github.com/spinnaker/orca/pull/4749)
+- When enabled, child pipeline execution ids are stored in sql instead of the entire child pipeline execution context.  
+- The in-memory representation of pipelines doesn't change whether this feature is enabled or not.  As well, pipelines stored with child pipeline execution ids are processed properly when the feature is disabled.
+- Barring any issues discovered in this release, the flag will be removed, and the behavior will become default in an upcoming release.
