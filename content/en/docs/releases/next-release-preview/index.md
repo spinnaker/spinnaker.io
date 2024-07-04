@@ -19,6 +19,10 @@ Version 1.31 of Spinnaker introduced two features that were disabled by default:
 
 Both of these features are now enabled by default.
 
+### Java 17
+
+All Spinnaker services are now compiled by JDK 17, transpiling to Java 11 bytecode. Published images run JRE 17. In 1.36, compilation will switch to Java 17, completing our migration to Java 17. Please continue to report issues by opening an issue in the `spinnaker` [repository](https://github.com/spinnaker/spinnaker).
+
 ### Spring Boot 2.7.18
 
 As part of the continued effort to upgrade Spring Boot, Spinnaker 1.35.0 now uses Spring Boot 2.7.18, an upgrade from Spinnaker 1.34.0`s use of Spring Boot 2.6.15. Spring Boot 2.7 considers session data cached by Spring Boot 2.6 invalid.  Therefore, users with cached sessions will be unable to log in until the invalid information is removed from the cache. Open browser windows to Spinnaker are unresponsive after the deployment until they’re reloaded.
