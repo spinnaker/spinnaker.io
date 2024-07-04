@@ -21,7 +21,7 @@ Both of these features are now enabled by default.
 
 ### Java 17
 
-All Spinnaker services are now compiled by JDK 17, transpiling to Java 11 bytecode. Published images run JRE 17. In 1.36, compilation will switch to Java 17, completing our migration to Java 17. Please continue to report issues by opening an issue in the `spinnaker` [repository](https://github.com/spinnaker/spinnaker).
+All Spinnaker services are now compiled by JDK 17, transpiling to Java 11 bytecode. Published images run JRE 17. In 1.36, compilation will switch to Java 17 bytecode, completing our migration to Java 17. Please continue to report issues by opening an issue in the `spinnaker` [repository](https://github.com/spinnaker/spinnaker).
 
 ### Spring Boot 2.7.18
 
