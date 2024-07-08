@@ -23,6 +23,12 @@ Both of these features are now enabled by default.
 
 All Spinnaker services are now compiled by JDK 17, transpiling to Java 11 bytecode. Published images run JRE 17. In 1.36, compilation will switch to Java 17 bytecode, completing our migration to Java 17. Please continue to report issues by opening an issue in the `spinnaker` [repository](https://github.com/spinnaker/spinnaker).
 
+Note that JDK 17 enforces [Strong Encapsulation](https://docs.oracle.com/en/java/javase/17/migrate/migrating-jdk-8-later-jdk-releases.html#GUID-7BB28E4D-99B3-4078-BDC4-FC24180CE82B).  Evaluation of some SpEL expressions uses reflection that JDK no longer permits by default, for example:
+
+    ${ {"foo": "bar"}.toString() }
+
+For this evaluation to succeed, add `--add-opens=java.base/java.util=ALL-UNNAMED` to JAVA_OPTS for orca.
+
 ### Spring Boot 2.7.18
 
 As part of the continued effort to upgrade Spring Boot, Spinnaker 1.35.0 now uses Spring Boot 2.7.18, an upgrade from Spinnaker 1.34.0`s use of Spring Boot 2.6.15. Spring Boot 2.7 considers session data cached by Spring Boot 2.6 invalid.  Therefore, users with cached sessions will be unable to log in until the invalid information is removed from the cache. Open browser windows to Spinnaker are unresponsive after the deployment until they’re reloaded.
@@ -72,7 +78,7 @@ Note that `kubectl replace` doesn't support label selectors, so KubernetesDeploy
 
 It's possible that none of the manifests may satisfy the label selectors. In that case, a new pipeline configuration property named `allowNothingSelected` determines the behavior. If false (the default), KubernetesDeployManifestOperation throws an exception. If true, the operation succeeds even though nothing was deployed.
 
-## maxExpressionLength to set maximum expression length for SpEL evaluation 
+## maxExpressionLength to set maximum expression length for SpEL evaluation
 
 Spring Expression Lanuage (SpEL) has a default limit of 10,000 characters. Springframework provides the feature to configure the limit. This feature allows to configure the limit of characters for SpEL expressions.
 
@@ -83,7 +89,6 @@ Use this feature as given below:
 # echo-local.yml
 
 expression:
-  max-expression-length: <required limit> 
+  max-expression-length: <required limit>
 
 ```
-
