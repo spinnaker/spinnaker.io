@@ -23,11 +23,11 @@ Both of these features are now enabled by default.
 
 All Spinnaker services are now compiled by JDK 17, transpiling to Java 11 bytecode. Published images run JRE 17. In 1.36, compilation will switch to Java 17 bytecode, completing our migration to Java 17. Please continue to report issues by opening an issue in the `spinnaker` [repository](https://github.com/spinnaker/spinnaker).
 
-Note that JDK 17 enforces [Strong Encapsulation](https://docs.oracle.com/en/java/javase/17/migrate/migrating-jdk-8-later-jdk-releases.html#GUID-7BB28E4D-99B3-4078-BDC4-FC24180CE82B).  Evaluation of some SpEL expressions uses reflection that JDK no longer permits by default, for example:
+Note that JDK 17 enforces [Strong Encapsulation](https://docs.oracle.com/en/java/javase/17/migrate/migrating-jdk-8-later-jdk-releases.html#GUID-7BB28E4D-99B3-4078-BDC4-FC24180CE82B).  Evaluation of some SpEL expressions uses reflection that the JDK no longer permits by default, for example:
 
     ${ {"foo": "bar"}.toString() }
 
-For this evaluation to succeed, add `--add-opens=java.base/java.util=ALL-UNNAMED` to JAVA_OPTS for orca.
+For this evaluation to succeed, add `--add-opens=java.base/java.util=ALL-UNNAMED` to JAVA_OPTS for orca and echo.
 
 ### Spring Boot 2.7.18
 
