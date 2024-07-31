@@ -92,3 +92,25 @@ expression:
   max-expression-length: <required limit>
 
 ```
+
+## skipSpecTemplateLabels to skip applying labels to a manifest's .spec.template.metadata.labels
+
+Deployments fail for certain Kubernetes resources (e.g., Karpenter Nodepools) when Spinnaker applies the [Reserved labels](https://spinnaker.io/docs/reference/providers/kubernetes-v2/#reserved-labels) to the manifest's `spec.template.metadata.labels`.
+
+This can be avoided by setting the `skipSpecTemplateLabels` to `true` in your pipeline's `deploy-manifest` [stage](https://spinnaker.io/docs/reference/pipeline/stages/#deploy-manifest). This configuration was introduced with [this PR](https://github.com/spinnaker/clouddriver/pull/6254) and is set to `false` by default.
+
+Use this feature as given below:
+
+```json
+{
+  "name": "Deploy my manifest",
+  "type": "deployManifest",
+  "skipSpecTemplateLabels": true,
+  "account": "nudge",
+  "cloudProvider": "kubernetes",
+  "source": "text",
+  "manifest": {
+    
+  }
+}
+```
