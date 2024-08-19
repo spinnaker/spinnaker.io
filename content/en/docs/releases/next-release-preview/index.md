@@ -33,3 +33,4 @@ Batch update call now responds with a status of succeeded and failed pipelines i
     "failed_pipelines"            : <List<Map<String, Object>>> 
 ]
 ```
+Here the value for `successful_pipelines` is the list of successful pipeline names whereas the value for `failed_pipelines` is the list of failed pipelines expressed as maps. 
