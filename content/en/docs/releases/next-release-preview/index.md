@@ -9,55 +9,34 @@ Please make a pull request to describe any changes you wish to highlight
 in the next release of Spinnaker. These notes will be prepended to the release
 changelog.
 
-## Coming Soon in Release 1.35
+## Coming Soon in Release 1.36
 
-Version 1.31 of Spinnaker introduced two features that were disabled by default:
+### Enhanced pipeline batch update feature
 
-[echo: pipelineCache.filterFront50Pipelines](https://spinnaker.io/changelogs/1.31.0-changelog/#echo)
+Batch update operation is now atomic. Deserialization issues are addressed. 
 
-[orca: front50.useTriggeredByEndpoint](https://spinnaker.io/changelogs/1.31.0-changelog/#orca)
-
-Both of these features are now enabled by default.
-
-### Spring Boot 2.7.18
-
-As part of the continued effort to upgrade Spring Boot, Spinnaker 1.35.0 now uses Spring Boot 2.7.18, an upgrade from Spinnaker 1.34.0`s use of Spring Boot 2.6.15. Spring Boot 2.7 considers session data cached by Spring Boot 2.6 invalid.  Therefore, users with cached sessions will be unable to log in until the invalid information is removed from the cache. Open browser windows to Spinnaker are unresponsive after the deployment until they’re reloaded.
-Executing:
-
-    $ redis-cli keys "spring:session*" | xargs redis-cli del
-
-on Gate's redis instance removes the cached session information.
-
-
-Spring Boot 2.7 brings with it the following changes:
-
-* Groovy upgrade from 3.0.17 to 3.0.19
-* Replaces mysql connector coordinate from `mysql:mysql-connector-java` to `com.mysql:mysql-connector-j` with version 8.0.33.
-* Changes to Auto-configuration
-
-## Label Selector Support in Deploy Manifest Stages
-
-https://github.com/spinnaker/clouddriver/pull/6220 adds support for label selectors in deploy manifest stages.  For example:
-
-```
-"labelSelectors": {
-  "selectors": [
-    {
-      "kind": "EQUALS",
-      "key": "my-label-key",
-      "values": [
-        "my-value"
-      ],
-    }
-  ]
-}
+Configurable controls are added to decide whether cache should be refreshed while checking for duplicate pipelines:
+```yaml
+controller:
+   pipeline:
+      save:
+         refreshCacheOnDuplicatesCheck: false // default is true 
 ```
 
-See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ and [KubernetesSelector](https://github.com/spinnaker/clouddriver/blob/ad1a8efc214264276e3a22d30af179b825145cab/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/security/KubernetesSelector.java#L59) for more. Multiple selectors combine with AND (i.e. must all be satisfied).
-
-Note that `kubectl replace` doesn't support label selectors, so KubernetesDeployManifestOperation throws an exception if a deploy manifest stage that specifies (non-empty) label selectors has a manifest with a `strategy.spinnaker.io/replace: "true"` annotation.
+Batch update call now responds with a status of succeeded and failed pipelines info. The response will be a map containing information in the following format:
 
 It's possible that none of the manifests may satisfy the label selectors. In that case, a new pipeline configuration property named `allowNothingSelected` determines the behavior. If false (the default), KubernetesDeployManifestOperation throws an exception. If true, the operation succeeds even though nothing was deployed.
+
+``` 
+[
+    "successful_pipelines_count"  : <int>,
+    "successful_pipelines"        : <List<String>>,
+    "failed_pipelines_count"      : <int>,
+    "failed_pipelines"            : <List<Map<String, Object>>> 
+]
+```
+Here the value for `successful_pipelines` is the list of successful pipeline names whereas the value for `failed_pipelines` is the list of failed pipelines expressed as maps. 
+
 
 ### Feature Flag: SQL PipelineRef
 
