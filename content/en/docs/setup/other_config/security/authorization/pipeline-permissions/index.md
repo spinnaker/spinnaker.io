@@ -36,7 +36,7 @@ window.spinnakerSettings.feature.managedServiceAccounts = true;
 The permissions selector will show up automatically when an automated trigger
 is added in the pipeline configuration page in the UI. You can add any of the
 roles that you currently have. Once you add a role to the pipeline, only users
-who have _all of the specified roles_ can edit or execute the pipeline.
+who have _all of the specified roles_ can edit the pipeline.
 This is similar to the behavior of
 [Fiat service accounts](/docs/setup/other_config/security/authorization/service-accounts#service-account-roles).
 
@@ -75,4 +75,4 @@ new service user will get the same permissions as the manual service user that i
 replaces.
 
 If a pipeline has multiple triggers with different `runAsUser` fields set, the new managed service user will get all of the roles of the different manual service users (as you can only have one managed service
-user per pipeline). This can potentially remove some users ability to edit or execute affected pipelines."
+user per pipeline). This can potentially remove some users ability to edit affected pipelines.
