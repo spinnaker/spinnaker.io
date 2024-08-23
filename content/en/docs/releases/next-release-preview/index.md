@@ -12,8 +12,35 @@ changelog.
 ## Coming Soon in Release 1.36
 
 ### Enhanced pipeline batch update feature
+#### Gate
+Adds a new enpdoint, POST /pipelines/bulksave, which can take a list of pipeline configurations to save. The endpoint will return a response that indicates how many of the saves were successful, how many failed, and what the failures are. The structure is
 
-Batch update operation is now atomic. Deserialization issues are addressed. 
+```
+[
+   "successful_pipelines_count"  : <int>,
+   "successful_pipelines"        : <List<String>>,
+   "failed_pipelines_count"      : <int>,
+   "failed_pipelines"            : <List<Map<String, Object>>>
+]
+```
+
+There are a few config knobs which control some bulk save functionality. The gate endpoint invokes an orca asynchronous process to manage saving the pipelines and polls until the orca operations are complete.
+
+```yaml
+controller:
+  pipeline:
+    bulksave:
+      # the max number of times gate will poll orca to check for task status
+      max-polls-for-task-completion: <int>
+      # the interval at which gate will poll orca.
+      taskCompletionCheckIntervalMs: <int>
+```
+
+#### Orca
+Updates Orca's SavePipelineTask to support bulk saves using the updated functionality in the front50 bulk save endpoint.
+
+#### Front50
+Batch update operation in front50 is now atomic. Deserialization issues are addressed.
 
 Configurable controls are added to decide whether cache should be refreshed while checking for duplicate pipelines:
 ```yaml
