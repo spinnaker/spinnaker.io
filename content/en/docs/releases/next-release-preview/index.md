@@ -39,6 +39,37 @@ controller:
 #### Orca
 Updates Orca's SavePipelineTask to support bulk saves using the updated functionality in the front50 bulk save endpoint.
 
+With https://github.com/spinnaker/orca/pull/4781, keys from the stage context's outputs section can now be removed (there by reducing the context size significantly). 
+At present the following tasks support this feature:
+* PromoteManifestKatoOutputsTask
+* WaitOnJobCompletionTask
+* ResolveDeploySourceManifestTask
+* BindProducedArtifactsTask
+
+Here is a sample configuration to exclude some of the keys from the above tasks:
+```yaml
+tasks:
+  clouddriver:
+    promoteManifestKatoOutputsTask:
+      excludeKeysFromOutputs:
+      - outputs.createdArtifacts
+      - outputs.manifests
+      - outputs.boundArtifacts
+    waitOnJobCompletionTask:
+      excludeKeysFromOutputs:
+      - jobStatus
+      - completionDetails
+    resolveDeploySourceManifestTask:
+      excludeKeysFromOutputs:
+      - manifests
+      - requiredArtifacts
+      - optionalArtifacts
+  core:
+    bindProducedArtifactsTask:
+      excludeKeysFromOutputs:
+      - artifacts
+```
+
 #### Front50
 Batch update operation in front50 is now atomic. Deserialization issues are addressed.
 
