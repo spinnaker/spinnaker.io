@@ -70,6 +70,48 @@ tasks:
       - artifacts
 ```
 
+The PR https://github.com/spinnaker/orca/pull/4788 introduced a new CheckIfApplicationExists task that is added to various pipeline stages to check if the application defined in the pipeline stage context is known to front50 and/or clouddriver.
+The following config knobs are provided so that all of these stages can be individually configured to not perform this check if needed. Default value is set to false for all of them.
+```yaml
+stages:
+# server group stages
+  bulk-destroy-server-group-stage:
+    check-if-application-exists.enabled: true
+  create-server-group-stage:
+    check-if-application-exists.enabled: true
+  clone-server-group-stage:
+    check-if-application-exists.enabled: true
+  resize-server-group-stage:
+    check-if-application-exists.enabled: true
+    
+# cluster stages
+  disable-cluster-stage:
+    check-if-application-exists.enabled: true
+  scale-down-cluster-stage:
+    check-if-application-exists.enabled: true
+  shrink-cluster-stage:
+    check-if-application-exists.enabled: true
+
+ # k8s manifest stages
+  deploy-manifest-stage:
+    check-if-application-exists.enabled: true
+```
+Separate config knobs are also provided at the AbstractCheckIfApplicationExistsTask level to determine if clouddriver needs to be queried for the application or not. It is by default set to true, so it is an opt-out capability. the config property is:
+```yaml
+tasks:
+  clouddriver:
+    checkIfApplicationExistsTask:
+      checkClouddriver: false   # default is true
+```
+This feature runs in audit mode by default which means if checkIfApplicationExistsTask finds no application, a warning message is logged. But when audit mode is disabled through the following property, pipelines fail if application is not found:
+```yaml
+tasks:
+    clouddriver:
+      checkIfApplicationExistsTask:
+        auditModeEnabled: false  # default is true
+```
+
+
 #### Front50
 Batch update operation in front50 is now atomic. Deserialization issues are addressed.
 
