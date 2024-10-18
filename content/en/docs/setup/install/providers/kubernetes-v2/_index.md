@@ -61,7 +61,7 @@ TOKEN=$(kubectl get secret --context $CONTEXT \
    $(kubectl get serviceaccount spinnaker-service-account \
        --context $CONTEXT \
        -n spinnaker \
-       -o jsonpath='{.secrets[0].name}') \
+       -o jsonpath='{.metadata.name}') \
    -n spinnaker \
    -o jsonpath='{.data.token}' | base64 --decode)
 
