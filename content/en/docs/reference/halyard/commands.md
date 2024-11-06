@@ -416,6 +416,16 @@ Published: 2020-04-30 21:10:29
 - [hal config provider cloudfoundry account list](#hal-config-provider-cloudfoundry-account-list)
 - [hal config provider cloudfoundry disable](#hal-config-provider-cloudfoundry-disable)
 - [hal config provider cloudfoundry enable](#hal-config-provider-cloudfoundry-enable)
+- [hal config provider cloudrun](#hal-config-provider-cloudrun)
+- [hal config provider cloudrun account](#hal-config-provider-cloudrun-account)
+- [hal config provider cloudrun account add](#hal-config-provider-cloudrun-account-add)
+- [hal config provider cloudrun account delete](#hal-config-provider-cloudrun-account-delete)
+- [hal config provider cloudrun account edit](#hal-config-provider-cloudrun-account-edit)
+- [hal config provider cloudrun account get](#hal-config-provider-cloudrun-account-get)
+- [hal config provider cloudrun account list](#hal-config-provider-cloudrun-account-list)
+- [hal config provider cloudrun disable](#hal-config-provider-cloudrun-disable)
+- [hal config provider cloudrun edit](#hal-config-provider-cloudrun-edit)
+- [hal config provider cloudrun enable](#hal-config-provider-cloudrun-enable)
 - [hal config provider dcos](#hal-config-provider-dcos)
 - [hal config provider dcos account](#hal-config-provider-dcos-account)
 - [hal config provider dcos account add](#hal-config-provider-dcos-account-add)
@@ -9296,6 +9306,242 @@ Set the cloudfoundry provider as enabled
 
 ```
 hal config provider cloudfoundry enable [parameters]
+```
+
+#### Parameters
+
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+
+---
+
+## hal config provider cloudrun
+
+The Cloud Run provider is used to deploy resources to any number of Cloud Run applications. To get started with Cloud Run, visit [https://cloud.google.com/run/docs/](https://cloud.google.com/run/docs/). For more information on how to configure individual accounts, please read the documentation under `hal config provider cloudrun account -h`.
+
+#### Usage
+
+```
+hal config provider cloudrun [parameters] [subcommands]
+```
+
+#### Parameters
+
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+
+#### Subcommands
+
+- `account`: Manage and view Spinnaker configuration for the cloudrun provider's account
+- `disable`: Set the cloudrun provider as disabled
+- `edit`: Edit Spinnaker's cloud run configuration.
+- `enable`: Set the cloudrun provider as enabled
+
+---
+
+## hal config provider cloudrun account
+
+An account in the Cloud Run provider refers to a single Cloud Run application. Spinnaker assumes that your Cloud Run application already exists. You can create an application in your Google Cloud Platform project by running `gcloud app create --region <region>`.
+
+#### Usage
+
+```
+hal config provider cloudrun account ACCOUNT [parameters] [subcommands]
+```
+
+#### Parameters
+
+`ACCOUNT`: The name of the account to operate on.
+
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+
+#### Subcommands
+
+- `add`: Add an account to the cloudrun provider.
+- `delete`: Delete a specific cloudrun account by name.
+- `edit`: Edit an account in the cloudrun provider.
+- `get`: Get the specified account details for the cloudrun provider.
+- `list`: List the account names for the cloudrun provider.
+
+---
+
+## hal config provider cloudrun account add
+
+Add an account to the cloudrun provider.
+
+#### Usage
+
+```
+hal config provider cloudrun account add ACCOUNT [parameters]
+```
+
+#### Parameters
+
+`ACCOUNT`: The name of the account to operate on.
+
+- `--caching-interval-seconds`: The interval in seconds at which Spinnaker will poll for updates in your CloudRun clusters.
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--environment`: The environment name for the account. Many accounts can share the same environment (e.g. dev, test, prod)
+- `--gcloud-release-track`: The gcloud release track (ALPHA, BETA, or STABLE) that Spinnaker will use when deploying to Cloud Run.
+- `--json-path`: The path to a JSON service account that Spinnaker will use as credentials. This is only needed if Spinnaker is not deployed on a Google Compute Engine VM, or needs permissions not afforded to the VM it is running on. See [https://cloud.google.com/compute/docs/access/service-accounts](https://cloud.google.com/compute/docs/access/service-accounts) for more information.
+- `--local-repository-directory`: (_Default_: `/var/tmp/clouddriver`) A local directory to be used to stage source files for Cloud Run deployments within Spinnaker's Clouddriver microservice.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+- `--omit-services`: A list of regular expressions. Any service matching one of these regexes will be ignored by Spinnaker.
+- `--omit-versions`: A list of regular expressions. Any version matching one of these regexes will be ignored by Spinnaker.
+- `--project`: (_Required_) The Google Cloud Platform project this Spinnaker account will manage.
+- `--read-permissions`: (_Default_: `[]`) A user must have at least one of these roles in order to view this account's cloud resources.
+- `--required-group-membership`: (_Default_: `[]`) A user must be a member of at least one specified group in order to make changes to this account's cloud resources.
+- `--services`: A list of regular expressions. Any service matching one of these regexes will be indexed by Spinnaker.
+- `--ssh-known-hosts-file-path`: The path to a known_hosts file to be used when connecting with a remote git repository over SSH.
+- `--ssh-private-key-file-path`: The path to an SSH private key to be used when connecting with a remote git repository over SSH.
+- `--ssh-private-key-passphrase`: (_Sensitive data_ - user will be prompted on standard input) The passphrase to an SSH private key to be used when connecting with a remote git repository over SSH.
+- `--ssh-trust-unknown-hosts`: (_Default_: `false`) Enabling this flag will allow Spinnaker to connect with a remote git repository over SSH without verifying the server's IP address against a known_hosts file.
+- `--versions`: A list of regular expressions. Any version matching one of these regexes will be indexed by Spinnaker.
+- `--write-permissions`: (_Default_: `[]`) A user must have at least one of these roles in order to make changes to this account's cloud resources.
+
+---
+
+## hal config provider cloudrun account delete
+
+Delete a specific cloudrun account by name.
+
+#### Usage
+
+```
+hal config provider cloudrun account delete ACCOUNT [parameters]
+```
+
+#### Parameters
+
+`ACCOUNT`: The name of the account to operate on.
+
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+
+---
+
+## hal config provider cloudrun account edit
+
+Edit an account in the cloudrun provider.
+
+#### Usage
+
+```
+hal config provider cloudrun account edit ACCOUNT [parameters]
+```
+
+#### Parameters
+
+`ACCOUNT`: The name of the account to operate on.
+
+- `--add-read-permission`: Add this permission to the list of read permissions.
+- `--add-required-group-membership`: Add this group to the list of required group memberships.
+- `--add-write-permission`: Add this permission to the list of write permissions.
+- `--caching-interval-seconds`: The interval in seconds at which Spinnaker will poll for updates in your CloudRun clusters.
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--environment`: The environment name for the account. Many accounts can share the same environment (e.g. dev, test, prod)
+- `--gcloud-release-track`: The gcloud release track (ALPHA, BETA, or STABLE) that Spinnaker will use when deploying to Cloud Run.
+- `--json-path`: The path to a JSON service account that Spinnaker will use as credentials. This is only needed if Spinnaker is not deployed on a Google Compute Engine VM, or needs permissions not afforded to the VM it is running on. See [https://cloud.google.com/compute/docs/access/service-accounts](https://cloud.google.com/compute/docs/access/service-accounts) for more information.
+- `--local-repository-directory`: A local directory to be used to stage source files for Cloud Run deployments within Spinnaker's Clouddriver microservice.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+- `--omit-services`: A list of regular expressions. Any service matching one of these regexes will be ignored by Spinnaker.
+- `--omit-versions`: A list of regular expressions. Any version matching one of these regexes will be ignored by Spinnaker.
+- `--project`: The Google Cloud Platform project this Spinnaker account will manage.
+- `--read-permissions`: A user must have at least one of these roles in order to view this account's cloud resources.
+- `--remove-read-permission`: Remove this permission from the list of read permissions.
+- `--remove-required-group-membership`: Remove this group from the list of required group memberships.
+- `--remove-write-permission`: Remove this permission to from list of write permissions.
+- `--required-group-membership`: A user must be a member of at least one specified group in order to make changes to this account's cloud resources.
+- `--services`: A list of regular expressions. Any service matching one of these regexes will be indexed by Spinnaker.
+- `--ssh-known-hosts-file-path`: The path to a known_hosts file to be used when connecting with a remote git repository over SSH.
+- `--ssh-private-key-file-path`: The path to an SSH private key to be used when connecting with a remote git repository over SSH.
+- `--ssh-private-key-passphrase`: (_Sensitive data_ - user will be prompted on standard input) The passphrase to an SSH private key to be used when connecting with a remote git repository over SSH.
+- `--ssh-trust-unknown-hosts`: Enabling this flag will allow Spinnaker to connect with a remote git repository over SSH without verifying the server's IP address against a known_hosts file.
+- `--versions`: A list of regular expressions. Any version matching one of these regexes will be indexed by Spinnaker.
+- `--write-permissions`: A user must have at least one of these roles in order to make changes to this account's cloud resources.
+
+---
+
+## hal config provider cloudrun account get
+
+Get the specified account details for the cloudrun provider.
+
+#### Usage
+
+```
+hal config provider cloudrun account get ACCOUNT [parameters]
+```
+
+#### Parameters
+
+`ACCOUNT`: The name of the account to operate on.
+
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+
+---
+
+## hal config provider cloudrun account list
+
+List the account names for the cloudrun provider.
+
+#### Usage
+
+```
+hal config provider cloudrun account list [parameters]
+```
+
+#### Parameters
+
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+
+---
+
+## hal config provider cloudrun disable
+
+Set the cloudrun provider as disabled
+
+#### Usage
+
+```
+hal config provider cloudrun disable [parameters]
+```
+
+#### Parameters
+
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+
+---
+
+## hal config provider cloudrun edit
+
+Edit Spinnaker's cloud run configuration.
+
+#### Usage
+
+```
+hal config provider cloudrun edit [parameters]
+```
+
+#### Parameters
+
+- `--deployment`: If supplied, use this Halyard deployment. This will _not_ create a new deployment.
+- `--gcloudPath`: The path to the gcloud executable on the machine running clouddriver.
+- `--no-validate`: (_Default_: `false`) Skip validation.
+
+---
+
+## hal config provider cloudrun enable
+
+Set the cloudrun provider as enabled
+
+#### Usage
+
+```
+hal config provider cloudrun enable [parameters]
 ```
 
 #### Parameters
