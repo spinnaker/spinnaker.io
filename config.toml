@@ -141,8 +141,8 @@ offlineSearch = true
 #  Promo Banner variables
 [params.promoBanner]
   show = true
-  text = "Spinnaker Summit 2023 keynotes and talks now available!"
-  ctaLink = "https://www.youtube.com/playlist?list=PLwV5P7PgiYTXpyqBXOFjm36k4nl7g6NXq"
+  text = "Spinnaker talks from cdCon 2024 now available!"
+  ctaLink = "https://www.youtube.com/playlist?list=PL6dxiOR6v_7K9CWX2ni_bo-rcFShytL65"
   ctaText = "Browse Playlist"
   label = ""
 
