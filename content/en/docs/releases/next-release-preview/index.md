@@ -12,7 +12,7 @@ changelog.
 ## Coming Soon in Release 1.36
 
 ## Java upgrades
-Java 17 is now the default source, target and java 11 support has been removed entirely. 
+Java 17 is now the default source and target.  Java 11 support has been removed entirely. 
 
 ### Enhanced pipeline batch update feature
 #### Gate
