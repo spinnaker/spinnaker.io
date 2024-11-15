@@ -11,6 +11,9 @@ changelog.
 
 ## Coming Soon in Release 1.36
 
+## Java upgrades
+Java 17 is now the default source, target and java 11 support has been removed entirely. 
+
 ### Enhanced pipeline batch update feature
 #### Gate
 Adds a new enpdoint, POST /pipelines/bulksave, which can take a list of pipeline configurations to save. The endpoint will return a response that indicates how many of the saves were successful, how many failed, and what the failures are. The structure is
