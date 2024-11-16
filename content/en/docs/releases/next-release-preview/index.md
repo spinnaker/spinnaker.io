@@ -11,6 +11,12 @@ changelog.
 
 ## Coming Soon in Release 1.36
 
+## Java upgrades
+Java 17 is now the default source and target.  Java 11 support has been removed entirely. 
+
+## Kleat is deprecated
+Kleat as an initial attempt to replace halyard is being deprecated and no longer updated or supported.  It's recommended to look at [spinnaker-kustomize](https://github.com/spinnaker/spinnaker-kustomize/) repo as an alternative or stay with halyard at this time. 
+
 ### Enhanced pipeline batch update feature
 #### Gate
 Adds a new enpdoint, POST /pipelines/bulksave, which can take a list of pipeline configurations to save. The endpoint will return a response that indicates how many of the saves were successful, how many failed, and what the failures are. The structure is
