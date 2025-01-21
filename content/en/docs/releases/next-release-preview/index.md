@@ -16,7 +16,7 @@ With https://github.com/spinnaker/orca/pull/4804, the api `/applications/{applic
 Orca's queries to its sql db are optimized while handling the data obtained from front50.
 TaskController is refactored to support externalized config properties.
 
-https://github.com/spinnaker/orca/pull/4825 adds a new configuration property to orca: `echo.events.ignoreTaskEvents` that defaults to false.  When true, orca doesn't send task events.
+https://github.com/spinnaker/orca/pull/4825 adds a new configuration property to orca: `echo.events.ignoreTaskEvents` that defaults to false.  When true, orca doesn't send events whose type is "task".  See <https://spinnaker.io/docs/setup/other_config/features/notifications/#add-a-listening-webhook-to-spinnaker> and <https://spinnaker.io/docs/setup/other_config/features/notifications/#detailstype> for details.
 
 ### Igor
 With https://github.com/spinnaker/igor/pull/1301, GCB CI supports private pool within the same project, addressing the issue in https://github.com/spinnaker/spinnaker/issues/6600 .
