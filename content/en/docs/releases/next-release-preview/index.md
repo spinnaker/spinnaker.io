@@ -80,3 +80,11 @@ tasks:
       max-number-of-pipeline-executions-to-process:
       execution-retrieval-timeout-seconds:
 ```
+
+### retrofit2 upgrade
+
+All retrofit clients are upgraded to retrofit2 and any references to retrofit1 dependencies are removed in the following services.
+- Echo - https://github.com/spinnaker/echo/pull/1466
+- Fiat - https://github.com/spinnaker/fiat/pull/1195
+- Clouddriver - https://github.com/spinnaker/clouddriver/pull/6340 
+
