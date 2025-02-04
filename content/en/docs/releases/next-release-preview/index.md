@@ -27,7 +27,7 @@ https://github.com/spinnaker/orca/pull/4819 adds the following:
          controller:
             excludeExecutionsOfDisabledPipelines: false|true  # Defaults to false
       ```
-    - When enabled, Orca will call Front50 with the `enabledPipelines=true` query parameter, which returns only the 
+    - When enabled, Orca will call Front50 with the `enabledPipelines=true` query parameter, which returns only the
       enabled pipelines for an application (Front50 change https://github.com/spinnaker/front50/pull/1520). This helps reduce
       load for applications with numerous pipelines, especially when obsolete, disabled pipelines are retained for historical reasons.
 
@@ -60,6 +60,10 @@ options:
 ```
 BuildClient uses location information from the `pool.name` parameter to find the correct worker pool which resulted in 404 earlier.
 Depending on the permission setup, it may be able to use build pools outside the project but it does not support other operation, So it is advised not to use build pools outside the project.
+
+### Rosco
+
+https://github.com/spinnaker/rosco/pull/1135 adds a new configuration property to rosco: `helm.overridesFileThreshold` to help in situations where the overrides in a helm bake manifest stage are long enough to exceed the command line length limit when helm invokes `helm template`. If the total length of override values exceeds `helm.overridesFileThreshold`, rosco writes the overrides to a file and uses the --values option when invoking Helm. The default behaviour (threshold of 0)o retains the current approach of not using a file, regardless of the length of the overrides.
 
 #### Breaking changes:
 These configuration properties:
