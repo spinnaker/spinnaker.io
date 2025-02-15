@@ -11,6 +11,27 @@ changelog.
 
 ## Coming Soon in Release 1.37
 
+### Clouddriver
+
+https://github.com/spinnaker/clouddriver/pull/6342 adds retry logic to AWS credential parsing, controlled wih these new configuration properties and their defaults:
+```yaml
+aws:
+  loadAccounts:
+    maxRetries: 10
+    backOffInMs: 5000
+    exponentialBackoff: false
+    exponentialBackoffMultiplier: 2
+    exponentialBackOffIntervalMs: 10000
+```
+
+https://github.com/spinnaker/clouddriver/pull/6344 makes the duration of assume role sessions configurable via a new per-account propery `sessionDurationSeconds` and
+```
+aws:
+  defaultSessionDurationSeconds: (no default value)
+```
+
+The per-account property takes precedence.  If neither `aws.defaultSessionDurationSeconds` nor a per-account `sessionDurationSeconds` is set, the duration of assume role sessions is the default provided by the aws sdk. In version 1.12.261, that's 900 seconds.
+
 ### Orca
 With https://github.com/spinnaker/orca/pull/4804, the api `/applications/{application}/pipelines?expand=false&limit=2` performance is improved when using sql as the backend.
 Orca's queries to its sql db are optimized while handling the data obtained from front50.
@@ -90,5 +111,4 @@ tasks:
 All retrofit clients are upgraded to retrofit2 and any references to retrofit1 dependencies are removed in the following services.
 - Echo - https://github.com/spinnaker/echo/pull/1466
 - Fiat - https://github.com/spinnaker/fiat/pull/1195
-- Clouddriver - https://github.com/spinnaker/clouddriver/pull/6340 
-
+- Clouddriver - https://github.com/spinnaker/clouddriver/pull/6340
