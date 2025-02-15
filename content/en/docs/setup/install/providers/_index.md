@@ -25,7 +25,6 @@ Add as many of the following providers as you need. When you're done, return to 
 * [Kubernetes](/docs/setup/install/providers/kubernetes-v2/)
 * [Azure](/docs/setup/install/providers/azure/)
 * [Cloud Foundry](/docs/setup/install/providers/cf/)
-* [DC/OS](/docs/setup/install/providers/dcos/)
 * [Docker Registry](/docs/setup/install/providers/docker-registry/)
 * [Google App Engine](/docs/setup/install/providers/appengine/)
 * [Google Compute Engine](/docs/setup/install/providers/gce/)
