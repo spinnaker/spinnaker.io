@@ -12,7 +12,7 @@ There are a lot of moving parts involved with getting authentication to work.  T
 
 There are three basic systems involved with Spinnaker's authentication workflow: your identity provider, Gate, and Deck.  The changes will primarily be made to either your identity provider or Gate.  Deck itself will not require changes or updates, but it's useful to understand how all three parts interact.
 
-{{< mermaid >}}
+```mermaid
 graph LR
 classDef default fill:#d8e8ec,stroke:#7a8288;
 linkStyle default stroke:#7a8288, stroke-width:2px, fill:none;
@@ -25,7 +25,7 @@ deck-->gate
 gate-->deck
 deck-->idp
 idp-->deck
-{{< /mermaid >}}
+```
 
 1. **Deck**: Spinnaker's UI. Consists of a set of static HTML, JavaScript, and CSS files. Generally
  served from an Apache server, but there is nothing special about Apache that makes Deck work.
