@@ -74,7 +74,7 @@ This makes it possible for pipeline authors to, for example, control the delay b
 - `tasks.<cloud provider>.backOffPeriod`
 - `tasks.<cloud provider>.<account name>.backOffPeriod`
 
-There are also a number of aadditions to webhook stages:
+There are also a number of additions to webhook stages:
 
 https://github.com/spinnaker/orca/pull/4833 adds an allow list with the following properties:
 ```
