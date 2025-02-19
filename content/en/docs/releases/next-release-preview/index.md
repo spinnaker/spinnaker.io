@@ -65,6 +65,43 @@ https://github.com/spinnaker/orca/pull/4819 adds the following:
           dryRun: false | true  # default: true. When true an info is logged about the intention to disable a pipelineConfigId in the application evaluated
       ```
 
+https://github.com/spinnaker/orca/pull/4841 adds support for a new pipeline stage configuration property `backoffPeriodMs`.  Before this, pipeline authors had no control over the backoff period. It came from either spinnaker configuration properties or implementations of RetryableTask.getDynamicBackoffPeriod.
+
+This makes it possible for pipeline authors to, for example, control the delay between attempts when webhook stages retry. The actual backoff used is the largest of:
+
+- `backoffPeriodMs` in the stage
+- `tasks.global.backOffPeriod`
+- `tasks.<cloud provider>.backOffPeriod`
+- `tasks.<cloud provider>.<account name>.backOffPeriod`
+
+There are also a number of aadditions to webhook stages:
+
+https://github.com/spinnaker/orca/pull/4833 adds an allow list with the following properties:
+```
+webhook.allowedRequestsEnabled (default: false)
+webhook.allowedRequests: (default: empty list)
+  - httpMethods: list of strings, e.g. [ "GET" ]
+    urlPrefix: "https://my-url:port/path/starts/with"
+   ```
+Note, if allowRequestsEnabled is true, and allowedRequests is empty, no requests are allowed.
+
+https://github.com/spinnaker/orca/pull/4837 adds request and response size limits via new config properties `webhook.maxRequestBytes` and `webhook.maxResponseBytes`. The default value for both is 0.
+When greater than 0, only requests/responses whose header + body size is less than or equal to the max are allowed.
+
+https://github.com/spinnaker/orca/pull/4838 adds a new `webhook.followRedirects` property that defaults to true.  When false, webhook stages don't follow redirects.
+
+https://github.com/spinnaker/orca/pull/4839 adds webhook-specific configuration properties for read and connect timeout with these defaults:
+
+```
+webhook:
+  readTimeoutMs: 20000
+  connectTimeoutMs: 15000
+```
+
+If not present, fall back to `ok-http-client.readTimeoutMs` and `ok-http-client.connectTimeoutMs` (same defaults) to mantain behavior where those ok-http-client properties are set.
+
+https://github.com/spinnaker/orca/pull/4840 adds a new `webhook.auditLoggingEnabled` config property which defaults to false.  When true, log information about each webhook request and response.
+
 ### Igor
 With https://github.com/spinnaker/igor/pull/1301, GCB CI supports private pool within the same project, addressing the issue in https://github.com/spinnaker/spinnaker/issues/6600 .
 With CloudBuild Options in GCB Manifest
