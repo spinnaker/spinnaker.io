@@ -149,3 +149,4 @@ All retrofit clients are upgraded to retrofit2 and any references to retrofit1 d
 - Echo - https://github.com/spinnaker/echo/pull/1466
 - Fiat - https://github.com/spinnaker/fiat/pull/1195
 - Clouddriver - https://github.com/spinnaker/clouddriver/pull/6340
+- Gate - https://github.com/spinnaker/gate/pull/1866
