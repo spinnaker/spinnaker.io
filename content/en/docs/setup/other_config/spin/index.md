@@ -26,11 +26,7 @@ sudo mv spin /usr/local/bin/spin
 ### On MacOS
 
 ```bash
-curl -LO https://storage.googleapis.com/spinnaker-artifacts/spin/$(curl -s https://storage.googleapis.com/spinnaker-artifacts/spin/latest)/darwin/amd64/spin
-
-chmod +x spin
-
-sudo mv spin /usr/local/bin/spin
+brew install spin
 ```
 
 ### On Windows
@@ -147,8 +143,8 @@ auth:
     - scope1
     - scope2
     cachedToken:
-      accesstoken: ${ACCESS_TOKEN} # Note the key capitalization
-      refreshtoken: ${REFRESH_TOKEN} # Note the key capitalization
+      access_token: ${ACCESS_TOKEN} # Note the key capitalization
+      refresh_token: ${REFRESH_TOKEN} # Note the key capitalization
 ```
 
 This method is OAuth2-provider specific since the workflow to acquire
