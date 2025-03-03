@@ -26,6 +26,9 @@ sudo mv spin /usr/local/bin/spin
 ### On MacOS
 
 ```bash
+# Apple Silicon
+curl -LO https://storage.googleapis.com/spinnaker-artifacts/spin/$(curl -s https://storage.googleapis.com/spinnaker-artifacts/spin/latest)/darwin/arm64/spin
+# Intel
 curl -LO https://storage.googleapis.com/spinnaker-artifacts/spin/$(curl -s https://storage.googleapis.com/spinnaker-artifacts/spin/latest)/darwin/amd64/spin
 
 chmod +x spin
