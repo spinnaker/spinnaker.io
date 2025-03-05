@@ -36,3 +36,8 @@ metrics.
 
   Follow the [monitoring setup instructions](/docs/setup/other_config/monitoring/) to export
   Spinnaker's metrics into a metric store of your choice.
+
+
+## Scaling and Tuning
+* [Horizontally Scale Spinnaker](/docs/setup/productionize/horizontal-scaling/)
+* [Configure Redis Usage](/docs/setup/productionize/configure-redis-usage/)
