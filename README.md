@@ -100,28 +100,9 @@ news_link: 'https://google.com'
 
 ## Mermaid
 
-Mermaid is loaded into content pages only when the boolean frontmatter variable `mermaid` is set to `true`.
+The Docsy theme supports Mermaid diagrams. See https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid
 
-1. Use the `mermaid` shortcode to make sure your graph isn't processed as markdown:
 
-```
-{{< mermaid >}}
-graph TB
-
-clouddriver(Clouddriver) --> clouddriver-caching(Clouddriver-Caching);
-clouddriver --> clouddriver-rw(Clouddriver-RW);
-clouddriver --> clouddriver-ro(Clouddriver-RO);
-clouddriver --> clouddriver-ro-deck(Clouddriver-RO-Deck)
-
-classDef default fill:#d8e8ec,stroke:#39546a;
-linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
-
-classDef split fill:#42f4c2,stroke:#39546a;
-class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
-{{< /mermaid >}}
-```
-
-2. Add the frontmatter variable to the page: `mermaid: true`.
 
 ## Custom YouTube Shortcode
 
