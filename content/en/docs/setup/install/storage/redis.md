@@ -1,32 +1,67 @@
 ---
 
-title:  "Redis"
-description: Spinnaker supports using Azure for persisting your Application settings and configured Pipelines.
+title:  "Externalize Redis"
+sidebar:
+  nav: setup
 aliases: 
-   - /setup/storage/redis/
+  - /setup/scaling/externalize-redis/
 ---
 
-> We _highly_ recommend relying on [Minio](/docs/setup/install/storage/minio) instead of Redis if you are looking for a local persistant storage solution for Spinnaker. The Redis storage implementation is untested and unsupported by anyone in the Spinnaker community."
+One of the easiest ways to improve Spinnaker's reliability at scale is to use an
+external Redis. The Redis installed by Spinnaker (either locally, or in
+Kubernetes) isn't configured to be production-ready. If you have a hosted Redis
+alternative, or a database team managing a Redis installation, we highly
+recommend using that.
 
-> Redis can be used as Spinnaker's persistent storage source, but it is unsupported and __not__ recommended for production use-cases because it mixes fungible, short-lived cache entries with the Pipeline and Application data that deploy all of your infrastructure. This means you will have to be extra careful when clearing your Spinnaker Redis cache.
+## Configure a Spinnaker-wide Redis
 
+First, determine the URL of your Redis installation. Some examples include:
 
-## Prerequisites
+* `redis://some.redis.url:6379`: Redis running at `some.redis.url` on port
+  `6379`.
 
-Currently, Halyard only allows you to use the Redis instance that Halyard
-provisions/installs on your behalf. While this is likely to change, for you
-don't need to preconfigure anything to get this storage source working.
+* `redis://admin:passw0rd@some.redis.url:6379`: Same as above, but with
+  a username/password pair.
 
+* `redis://admin:passw0rd@some.redis.url:6379/1`: Same as above, but using
+  database 1. See [SELECT documentation](https://redis.io/commands/select).
 
-## Editing your storage settings
+* `rediss://some.redis.url:6379`: Using Encryption
 
-All that's needed is the following command:
+We will refer to this as `$REDIS_ENDPOINT`.
 
+Using Halyard's [custom configuration](/docs/reference/halyard/custom#custom-service-settings)
+we will create the following file `~/.hal/$DEPLOYMENT/service-settings/redis.yml`:
+
+```yaml
+overrideBaseUrl: $REDIS_ENDPOINT
+skipLifeCycleManagement: true
 ```
-hal config storage edit --type redis
+
+> __note__: by setting `skiplifecyclemanagement` we are telling halyard to stop
+> deploying/check the status of the redis instance. if halyard has already
+> created a redis instance, you will have to manually delete it.
+
+## Configuration requirements
+
+Gate (the spinnaker front end API) requires keyspace notifications to be enabled in Redis, and tries to configure
+this when it starts up. Some hosted Redis services disable the `CONFIG` command, blocking
+Gate from modifying the configuration. In this case:
+1. Manually set the configuration parameter `notify-keyspace-events` to `gxE` on your Redis
+   instance by following the documentation provided by your hosted Redis provider.
+2.  Create the following file in order to customize the gate service. `~/.hal/default/profiles/gate-local.yml`:
+```yaml
+redis:
+    configuration:
+         secure:
+              true
 ```
 
-## Next steps
+## Verify config
 
-After you've set up Redis as your external storage service, you're ready to
-[deploy Spinnaker](/docs/setup/install/deploy/).
+You can confirm that this works by doing the following:
+
+1. Run `hal config generate`
+2. Check that the contents of `~/.hal/default/staging/spinnaker.yml` under the `services.redis.baseUrl:` section
+matches `$REDIS_ENDPOINT`
+3. (Optional) deploy your changes with `hal deploy apply`
