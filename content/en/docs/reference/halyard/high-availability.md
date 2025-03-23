@@ -14,7 +14,7 @@ Currently, this feature is only for Clouddriver and Echo.
 
 ## HA Clouddriver
 
-{{< mermaid >}}
+```mermaid
 graph TB
 
 clouddriver(Clouddriver) --> clouddriver-caching(Clouddriver-Caching);
@@ -27,7 +27,7 @@ linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
 
 classDef split fill:#42f4c2,stroke:#39546a;
 class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
-{{< /mermaid >}}
+```
 
 Clouddriver benefits greatly from isolating its operations into separate services. To split Clouddriver for increased availability, run:
 
@@ -81,7 +81,7 @@ To add a [custom profile](/docs/reference/halyard/custom/#custom-profiles) or [c
 
 ## HA Echo
 
-{{< mermaid >}}
+```mermaid
 graph TB
 
 echo(Echo) --> echo-scheduler(Echo-Scheduler);
@@ -93,7 +93,7 @@ linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
 classDef split fill:#42f4c2,stroke:#39546a;
 class clouddriver-caching,clouddriver-ro,clouddriver-rw,echo-scheduler,echo-worker split
 
-{{< /mermaid >}}
+```
 
 Echo can be split into two separate services that handle different operations. To split Echo for increased availability, run:
 
@@ -136,7 +136,7 @@ hal deploy apply --delete-orphaned-services
 
 With all services enabled for high availability, the new architecture looks like this:
 
-{{< mermaid >}}
+```mermaid
 graph TB
 
 deck(Deck) --> gate;
@@ -171,7 +171,7 @@ class deck,api external
 
 classDef split fill:#42f4c2,stroke:#39546a;
 class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
-{{< /mermaid >}}
+```
 
 ## Recoverability
 
