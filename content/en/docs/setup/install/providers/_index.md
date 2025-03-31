@@ -16,7 +16,7 @@ applications via those accounts.
 ## Supported providers
 
 All of Spinnaker's abstractions and capabilities are built on top of the [Cloud
-Providers](/docs/concepts/providers/) that it supports. So, for Spinnaker to do
+Providers](/docs/concepts/concepts-providers/) that it supports. So, for Spinnaker to do
 anything you must enable at least one provider, with one Account added for it.
 
 Add as many of the following providers as you need. When you're done, return to this page.
