@@ -9,6 +9,8 @@ Consult the [GitHub OAuth 2.0 documentation](https://developer.github.com/apps/b
 and [register](https://github.com/settings/applications/new) a new OAuth 2.0 application
 to obtain a client ID and client secret.
 
+**Note:** While registering the application in github, under "Authorized redirect URIs", add `https://localhost:8084/login/oauth2/code/github` (For Spinnaker v1.37.9 or below, it should be `https://localhost:8084/login`)
+
 ## Configure Halyard
 
 You may configure Halyard either with the CLI or by manually editing the hal config.
@@ -25,7 +27,7 @@ security:
         clientSecret: # client secret from above
         accessTokenUri: https://github.com/login/oauth/access_token
         userAuthorizationUri: https://github.com/login/oauth/authorize
-        scope: user:email
+        scope: user,email # for Spinnaker v1.37.9 or below, it should be "user:email" without double quotes
       resource:
         userInfoUri: https://api.github.com/user
       # You almost certainly want to restrict access to your Spinnaker by adding

@@ -39,15 +39,26 @@ security:
   authn:
     oauth2:
       client:
+        preEstablishedRedirectUri: https://my-real-gate-address.com:8084/login/oauth2/code/<provider>
+```
+
+> `provider` should be one among `azure`,`github`,`google`,`oracle`,`other`
+>
+> Be sure to include the `/login/oauth2/code/<provider>` suffix at the end of the of your `preEstablishedRedirectUri`!. 
+
+For Spinnaker v1.37.9 or below 
+```yaml
+security:
+  authn:
+    oauth2:
+      client:
         preEstablishedRedirectUri: https://my-real-gate-address.com:8084/login
 ```
+> Be sure to include the `/login` suffix at the end of the of your `preEstablishedRedirectUri`!. 
 or via the following `hal` command:
 ```bash
-hal config security authn oauth2 edit --pre-established-redirect-uri https://my-real-gate-address.com:8084/login
+hal config security authn oauth2 edit --pre-established-redirect-uri https://my-real-gate-address.com:8084/login/oauth2/code<provider>
 ```
-
-> Be sure to include the `/login` suffix at the end of the of your `preEstablishedRedirectUri`!
-
 Additionally, some configurations make it necessary to "unwind" external proxy instances. This makes the request to Gate
 look like the original request to the outer-most proxy. Add this to your `gate-local.yml` file in your Halyard
 [custom profile](/docs/reference/halyard/custom/#custom-profiles):
@@ -130,4 +141,5 @@ Now that you've authenticated the user, proceed to setting up their [authorizati
     does not match the ones authorized for the OAuth client.
 
     This likely means you've not set up your OAuth credentials correctly. Ensure that the Authorized
-    Request URIs list contains "https://my-gate-address/login" (no trailing /).
+    Request URIs list contains `https://my-gate-address/login/oauth2/code/<provider>` (no trailing /). `provider` should be one among `azure`,`github`,`google`,`oracle`,`other`
+    For Spinnaker v1.37.9 or below , it should be `https://my-gate-address/login`
