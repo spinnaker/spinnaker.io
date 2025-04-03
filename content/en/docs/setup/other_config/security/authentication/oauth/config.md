@@ -32,6 +32,9 @@ security:
         # The externally accessible URL for Gate. For use with load balancers
         # that do any kind of address manipulation for Gate traffic, such as an
         # SSL terminating load balancer.
+        # Example: https://my-real-gate-address.com:8084/login/oauth2/code/<provider>
+        # `provider` should be one among `azure`,`github`,`google`,`oracle`,`other`
+        # For Spinnaker v1.37.9 or below, it should be https://my-real-gate-address.com:8084/login
         preEstablishedRedirectUri: string
           
         # The method used to transmit authentication credentials to your
