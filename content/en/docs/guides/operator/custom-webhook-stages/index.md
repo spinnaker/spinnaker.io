@@ -8,79 +8,100 @@ description: "Custom webhook stages provide a simple, yet powerful, way of addin
 Custom webhook stages provide a simple, yet powerful, way of adding custom stages to Spinnaker. These stages are typically used to make quick API calls to an external system as part of a pipeline. Instead of extending the various components through code, users can simply add configuration to Orca for these stages. They appear in the UI as if they were a native stage.
 
 
-## Creating a custom webhook stage
+## Creating a Custom Webhook Stage
 
-To create a custom webhook stage, you'll need to add configuration for the stage in `orca-local.yml`. The `webhook.preconfigured` property supports configuring multiple webhook stages.
+To set up a custom webhook stage, you'll need to modify the `orca-local.yml` configuration file. The `webhook.preconfigured` property allows you to define multiple webhook stages. Here's an example configuration:
 
 ```yaml
 webhook:
   preconfigured:
-  - label: Github - Github Commit Status
-    type: githubStatus
-    enabled: true
-    description: Update a Github Commit Status
-    method: GET
-    url: https://api.example.com
+    - label: GitHub - Update Commit Status
+      type: githubStatus
+      enabled: true
+      description: Update a GitHub Commit Status
+      method: POST
+      url: https://api.github.com/repos/your-repo/statuses/${parameterValues['gitCommit']}
+      customHeaders:
+        Authorization:
+          - token YOUR_API_TOKEN
+      payload: |-
+        {
+          "state": "${parameterValues['status']}",
+          "target_url": "${parameterValues['targetUrl']}",
+          "context": "${parameterValues['context']}"
+        }
+      parameters:
+        - label: Git Commit
+          name: gitCommit
+          description: The Git commit SHA
+          type: string
+        - label: Status
+          name: status
+          description: The state of the status (e.g., success, failure)
+          type: string
+        - label: Target URL
+          name: targetUrl
+          description: The URL associated with this status
+          type: string
+        - label: Context
+          name: context
+          description: A string label to differentiate this status from others
+          type: string
 ```
 
-Custom webhook stages support a variety of options, most of which are available via the UI when using the vanilla Webhook stage. Once a property is set within a custom webhook stage, users will not be allowed to override that settings via the UI. The following basic properties can be set within your configuration. More advanced properties will be covered in other sections.
+In this configuration:
 
-* `enabled` - whether the stage will appear in the UI
-* `label` - the human readable name of the stage
-* `description` - a human readable description of what the stage is used for
-* `type` - a _unique_ key used to identifty the stage type within a pipeline
-* `url` - the url for the webhook
-* `customHeaders` - any headers needed for your webhook's http request. ex. API tokens.
-* `method` - HTTP method used for the webhook.
-* `payload` - the JSON payload
+- `label`: The name displayed in the UI for the stage.
+- `type`: A unique identifier for the stage.
+- `enabled`: Determines if the stage is available in the UI.
+- `description`: A brief explanation of the stage's purpose.
+- `method`: The HTTP method used for the webhook (e.g., GET, POST).
+- `url`: The endpoint for the webhook, which can include parameters.
+- `customHeaders`: Any headers required for the HTTP request, such as API tokens.
+- `payload`: The JSON payload sent with the request.
+- `parameters`: Defines user-input fields in the UI, which can be referenced in the `url` and `payload` using SpEL expressions.
 
-## Configuring parameters for custom webhook stages
+**Note:** Once a property is set within a custom webhook stage, users cannot override that setting via the UI.
 
-Custom webhook parameters allow for variables to be used within your stages. These parameters are rendered in the UI and let users of your stage set them as necessary. When the stage executes, the values of these parameters are evaluated using SpEL which means that they can be dynamic in nature. To configure webhook parameters, you can use the following configuration within your webhook stage:
+## Configuring Parameters for Custom Webhook Stages
+
+Parameters allow users to input values when configuring the stage in a pipeline. These values can be dynamically accessed using SpEL (Spring Expression Language) expressions. For example, to set up a parameter for a Git commit SHA:
 
 ```yaml
 parameters:
-- label: Git Commit
-  name: gitCommit
-  description: The Git commit of your application
-  defaultValue: ''
-  type: string
+  - label: Git Commit
+    name: gitCommit
+    description: The Git commit SHA
+    defaultValue: ''
+    type: string
 ```
 
-Currently, the only supported `type` is `string`, however, we imagine more advanced types will be supported in the future.
+Currently, only the `string` type is supported for parameters.
 
-The value of these properties can be accessed via SpEL within various attributes of the webhook configuration. For example, if we built a stage for updating Github statuses of a commit, we could use the above property and reference it's value by using SPeL within our webhook URL.
+## Using a Custom Webhook Stage
+
+Once configured, your custom webhook stage will appear in the list of available stages within the Pipeline editor. You can add it to your pipeline like any other stage. If you've specified any parameters, they will be rendered and editable as part of the stage configuration. You can also use SpEL to set these values dynamically during pipeline execution.
+
+![Adding a Custom Webhook Stage](add_stage.png)
+
+![Configuring Stage Properties](stage_props.png)
+
+## Useful Custom Webhook Stage Examples
+
+### Update GitHub Commit Status
+
+This stage updates a commit status in GitHub as part of a pipeline execution.
 
 ```yaml
-url: https://api.github.com/repos/spinnaker/my-repo/statuses/${parameterValues['gitCommit']}
-```
-
-Webhook properties are rendered in the UI as input fields.
-
-
-## Using a custom webhook stage
-
-Custom webhook stages will be added to the list of stages within the Pipeline editor. You can add these stages as you would any other stage.
-
-![](add_stage.png)
-
-If you've specified any `parameters`, they will be rendered and editable as part of the stage configuration. You can also use SPEL as a way of setting these values dynamically during pipeline execution.
-
-![](stage_props.png)
-
-## Useful custom webhook stages
-
-### Update Github commit status
-```yaml
-label: Github - Github Commit Status
+label: GitHub - Update Commit Status
 type: githubStatus
 enabled: true
-description: Update a Github Commit Status
+description: Update a GitHub Commit Status
 method: POST
 customHeaders:
   Authorization:
-    - token MY_API_TOKEN
-url: https://api.github.com/repos/ethanfrogers/spinnaker/statuses/${parameterValues['gitCommit']}
+    - token YOUR_API_TOKEN
+url: https://api.github.com/repos/your-repo/statuses/${parameterValues['gitCommit']}
 payload: |-
   {
     "state": "${parameterValues['status']}",
@@ -90,7 +111,7 @@ payload: |-
 parameters:
   - label: Git Commit
     name: gitCommit
-    description: The Git Commit to create a status for
+    description: The Git commit SHA
     type: string
   - label: Status
     name: status
@@ -103,7 +124,10 @@ parameters:
     type: string
 ```
 
-### Create New Relic Deployment
+### Create a New Relic Deployment
+
+This stage sends deployment details to New Relic for tracking.
+
 ```yaml
 label: New Relic - Create Deployment
 type: newRelicDeployment
@@ -112,7 +136,7 @@ description: Create a Deployment in New Relic
 method: POST
 customHeaders:
   X-Api-Key:
-    - my-api-key
+    - YOUR_API_KEY
   Content-Type:
     - application/json
 url: https://api.newrelic.com/v2/applications/${parameterValues['appId']}/deployments.json
@@ -139,3 +163,12 @@ parameters:
     name: description
     type: string
 ```
+
+## Testing Webhook Stages
+
+To test your webhook stages before adding them to your pipeline, you can use services like:
+
+- [Beeceptor](https://beeceptor.com/) – Set up a mock API endpoint to inspect webhook requests.
+- [RequestBin](https://pipedream.com/requestbin) – Capture and analyze HTTP requests to debug your webhooks.
+
+These tools help ensure your webhook stages are correctly configured before deploying them in Spinnaker.
