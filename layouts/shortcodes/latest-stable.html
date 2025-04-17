@@ -17,7 +17,7 @@ For example:
 
 <!-- add our latest major.minor to slice -->
 {{ range $grouped_changelogs }}
-{{ range first 1 (.Pages.ByParam "version").Reverse }}
+{{ range first 1 (.Pages.ByDate).Reverse }}
 {{ $latest_major_minors = $latest_major_minors | append .Page }}
 {{ end }}
 {{ end }}
