@@ -156,7 +156,7 @@ aggregate the data.
 
 ### Add filter templates
 
-If your telemetry provider is Stackdriver or Prometheus, you can add [filter templates](/docs/guides/user/canary/config/filter-templates/) and then assign each
+If your telemetry provider is Stackdriver, Prometheus, or Datadog, you can add [filter templates](/docs/guides/user/canary/config/filter-templates/) and then assign each
 metric a filter template, if you want.
 
 1. Click __Add Template__.
