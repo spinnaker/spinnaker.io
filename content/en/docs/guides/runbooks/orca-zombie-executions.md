@@ -104,7 +104,13 @@ If any part of an Execution cannot be re-hydrated, the entire Execution will be 
 ## Cancel the Execution
 
 If the Execution cannot be rehydrated, it will need to be canceled.
-You can cancel the Execution via the UI or force cancellation via an Orca admin API:
+
+> Note: Prior to Spinnaker 1.32.0, cancelling a zombied execution via the UI
+> did not work. If you still encounter issues cancelling executions via the UI please
+> open a [GitHub issue](https://github.com/spinnaker/spinnaker/issues/new).
+
+If cancelling an executuon from Deck does not work, you can force cancellation 
+via an Orca admin API:
 
 ```
 PUT /admin/forceCancelExecution?executionId=01CS076X85RX6MWBTQ0VGBF8VX&executionType=PIPELINE
