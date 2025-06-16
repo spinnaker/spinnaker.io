@@ -4,7 +4,7 @@ description:
 mermaid: true
 ---
 
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
 
 Title: Life of a Bake
@@ -49,5 +49,4 @@ Orca->>Rosco: Poll until task completion
 Rosco->>Redis: Query bake status
 Orca->>Redis: Update execution state
 end
-
-{{< /mermaid >}}
+```
