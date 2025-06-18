@@ -11,6 +11,9 @@ changelog.
 
 ## Coming Soon in Release 2025.1.0
 
+### Header Authentication in Gate
+
+https://github.com/spinnaker/spinnaker/pull/7109 added a gate-header module to gate that provides what's known as header authentication.  It's meant for scenarios where something external to gate it providing "real" authentication via mTLS or similar, as it's very permissive.  When `header.enabled` is true (false by default), gate requires an X-SPINNAKER-USER header on incoming http requests, and uses the value of that header as the username/email.  Gate logs in to fiat and queries fiat for allowed accounts.  Again, any incoming request can specify an arbitrary value for X-SPINNAKER-USER and gate-header uses it.
 
 #### Retrofit2 Upgrade
 
