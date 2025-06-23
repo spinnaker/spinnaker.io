@@ -46,7 +46,7 @@ security:
 >
 > Be sure to include the `/login/oauth2/code/<provider>` suffix at the end of the of your `preEstablishedRedirectUri`!. 
 
-For Spinnaker v1.37.9 or below 
+For Spinnaker below v2025.1.0
 ```yaml
 security:
   authn:

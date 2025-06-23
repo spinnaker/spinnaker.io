@@ -8,7 +8,7 @@ description: Spinnaker supports OAuth 2.0 for authentication with Oracle Cloud O
 Consult the [Oracle Cloud Documentation](https://docs.oracle.com/en/cloud/get-started/subscriptions-cloud/ocuid/introduction-oauth-oracle-cloud.html)
 to set up OAuth 2.0 and obtain a client ID and client secret.
 
-**Note:** While registering the application in Oracle Cloud OAuth 2.0, application redirect URI that should be used is `https://localhost:8084/login/oauth2/code/oracle` (For Spinnaker v1.37.9 or below, it should be `https://localhost:8084/login`)
+**Note:** While registering the application in Oracle Cloud OAuth 2.0, application redirect URI that should be used is `https://localhost:8084/login/oauth2/code/oracle` (For Spinnaker below v2025.1.0, it should be `https://localhost:8084/login`)
 
 ## Configure Halyard
 

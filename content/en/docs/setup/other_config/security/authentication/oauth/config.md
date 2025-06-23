@@ -34,7 +34,7 @@ security:
         # SSL terminating load balancer.
         # Example: https://my-real-gate-address.com:8084/login/oauth2/code/<provider>
         # `provider` should be one among `azure`,`github`,`google`,`oracle`,`other`
-        # For Spinnaker v1.37.9 or below, it should be https://my-real-gate-address.com:8084/login
+        # For Spinnaker below v2025.1.0, it should be https://my-real-gate-address.com:8084/login
         preEstablishedRedirectUri: string
           
         # The method used to transmit authentication credentials to your
