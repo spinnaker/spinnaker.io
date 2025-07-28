@@ -113,3 +113,25 @@ https://github.com/spinnaker/spinnaker/pull/7168 adds some new mechanisms to web
 - If `webhook.requireAccount` is true (it defaults to false), and the account property is not present (i.e. a non-empty string), the stage stage fails.
 - if `webhook.validateAcount` is true (it defaults to false), and an account property is present, call clouddriver's GET /credentials/{account}/authorized endpoint to validate that the current user has permission to use the account.
 - A new WebhookAccountProcessorInterface.  If a WebhookAccountProcessor bean is present, it has the opportunity to customize the headers in the outgoing http requests that webhook stages make.
+
+https://github.com/spinnaker/spinnaker/pull/7171 introduces regex support to the webhook allow list.  Before this, an allow list entry like:
+```yaml
+  allowedRequests:
+    - httpMethods:
+      - GET
+      urlPrefix: https://myurl:<port>/some/path
+```
+implied a "starts with" matching strategy.  Now there's matching strategy that defaults to `STARTS_WITH`, but `PATTERN_MATCHES` is also a valid value.  For example:
+```yaml
+  allowedRequests:
+    - httpMethods:
+      - GET
+      matchStrategy: STARTS_WITH
+      urlPrefix: https://myurl:port/some/path
+    - httpMethods:
+      - GET
+      - POST
+      matchStrategy: PATTERN_MATCHES
+      urlPattern: https://myhost[0-9]+.mycompany/some/path.*
+```
+Note: specify `urlPrefix` with STARTS_WITH, and `urlPattern` with PATTERN_MATCHES
