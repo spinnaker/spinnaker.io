@@ -108,3 +108,8 @@ A new CallAdapter named LegacySignatureCallAdapter has been introduced in Kork t
 ### Orca
 
 https://github.com/spinnaker/spinnaker/pull/7164 adds root id to the pipeline execution context.  Code outside of Spinnaker that processes executions may need adjusting to handle the additional field.
+
+https://github.com/spinnaker/spinnaker/pull/7168 adds some new mechanisms to webhook stages:
+- If `webhook.requireAccount` is true (it defaults to false), and the account property is not present (i.e. a non-empty string), the stage stage fails.
+- if `webhook.validateAcount` is true (it defaults to false), and an account property is present, call clouddriver's GET /credentials/{account}/authorized endpoint to validate that the current user has permission to use the account.
+- A new WebhookAccountProcessorInterface.  If a WebhookAccountProcessor bean is present, it has the opportunity to customize the headers in the outgoing http requests that webhook stages make.
