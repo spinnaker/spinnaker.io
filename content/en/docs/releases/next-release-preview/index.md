@@ -121,7 +121,7 @@ https://github.com/spinnaker/spinnaker/pull/7171 introduces regex support to the
       - GET
       urlPrefix: https://myurl:<port>/some/path
 ```
-implied a "starts with" matching strategy.  Now there's matching strategy that defaults to `STARTS_WITH`, but `PATTERN_MATCHES` is also a valid value.  For example:
+implied a "starts with" matching strategy. Matching strategy still defaults to `STARTS_WITH`, but `PATTERN_MATCHES` is also a valid value.  For example:
 ```yaml
   allowedRequests:
     - httpMethods:
