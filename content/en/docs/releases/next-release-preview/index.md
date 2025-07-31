@@ -135,3 +135,5 @@ implied a "starts with" matching strategy. Matching strategy still defaults to `
       urlPattern: https://myhost[0-9]+.mycompany/some/path.*
 ```
 Note: specify `urlPrefix` with STARTS_WITH, and `urlPattern` with PATTERN_MATCHES
+
+https://github.com/spinnaker/spinnaker/pull/7172 adds a new `safeToRetry` property (default false) to webhook allow list entries.  Before this, [CreateWebhookTask](https://github.com/spinnaker/spinnaker/blob/32649bce654c9440d6033ab5d72c93eebaee86b4/orca/orca-webhook/src/main/java/com/netflix/spinnaker/orca/webhook/pipeline/WebhookStage.java#L70) (the "initial" part of a webhook stage) would retry SocketTimeoutException only for GET requests. Now, it also retries other request methods (e.g. PUT, POST, etc.) if `safeToRetry` is true in the relevant allow list entry.
