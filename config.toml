@@ -141,12 +141,10 @@ offlineSearch = true
 #  Promo Banner variables
 [params.promoBanner]
   show = true
-  text = "Spinnaker talks from cdCon 2024 now available!"
-  ctaLink = "https://www.youtube.com/playlist?list=PL6dxiOR6v_7K9CWX2ni_bo-rcFShytL65"
+  text = "Spinnaker talks from cdCon 2025 now available!"
+  ctaLink = "https://www.youtube.com/playlist?list=PL2KXbZ9-EY9Qvfxh3i9YtiGLqNFHId1qM"
   ctaText = "Browse Playlist"
   label = ""
-
-
 
 # User interface configuration
 [params.ui]
