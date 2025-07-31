@@ -137,3 +137,36 @@ implied a "starts with" matching strategy. Matching strategy still defaults to `
 Note: specify `urlPrefix` with STARTS_WITH, and `urlPattern` with PATTERN_MATCHES
 
 https://github.com/spinnaker/spinnaker/pull/7172 adds a new `safeToRetry` property (default false) to webhook allow list entries.  Before this, [CreateWebhookTask](https://github.com/spinnaker/spinnaker/blob/32649bce654c9440d6033ab5d72c93eebaee86b4/orca/orca-webhook/src/main/java/com/netflix/spinnaker/orca/webhook/pipeline/WebhookStage.java#L70) (the "initial" part of a webhook stage) would retry SocketTimeoutException only for GET requests. Now, it also retries other request methods (e.g. PUT, POST, etc.) if `safeToRetry` is true in the relevant allow list entry.
+
+https://github.com/spinnaker/spinnaker/pull/7178 adds two new boolean properties that default ot false.
+```yaml
+webhook:
+  eventLoggingEnabled: false
+  eventLoggingVerbose: false
+```
+With webhook.eventLoggingEnabled true, and eventLoggingVerbose false, WebhookLoggingEventListener logs messages like:
+```
+2025-07-31 06:45:52.824  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] callStart: Request{method=GET, url=http://localhost:61843/test, headers=[Accept:text/plain, application/json, application/cbor, application/*+json, */*, Content-Length:0]}
+2025-07-31 06:45:52.825  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [1 ms] requestHeadersEnd
+2025-07-31 06:45:52.871  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [47 ms] responseBodyEnd: byteCount=33
+2025-07-31 06:45:52.871  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [47 ms] callEnd
+```
+With eventLoggingVerbose also true, WebhookLoggingEventListener logs messages like:
+```
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] callStart: Request{method=GET, url=http://localhost:61843/test, headers=[Accept:text/plain, application/json, application/cbor, application/*+json, */*, Content-Length:0]}
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] proxySelectStart: http://localhost:61843/
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] proxySelectEnd: [DIRECT]
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] dnsStart: localhost
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] dnsEnd: [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1]
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] connectStart: localhost/127.0.0.1:61843 DIRECT
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] connectEnd: http/1.1
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] connectionAcquired: Connection{localhost:61843, proxy=DIRECT hostAddress=localhost/127.0.0.1:61843 cipherSuite=none protocol=http/1.1}
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] requestHeadersStart
+2025-07-31 06:45:52.890  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [0 ms] requestHeadersEnd
+2025-07-31 06:45:52.891  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [1 ms] responseHeadersStart
+2025-07-31 06:45:52.891  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [1 ms] responseHeadersEnd: Response{protocol=http/1.1, code=200, message=OK, url=http://localhost:61843/test}
+2025-07-31 06:45:52.892  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [1 ms] responseBodyStart
+2025-07-31 06:45:52.892  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [2 ms] responseBodyEnd: byteCount=33
+2025-07-31 06:45:52.892  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [2 ms] connectionReleased
+2025-07-31 06:45:52.892  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [2 ms] callEnd
+```
