@@ -183,6 +183,20 @@ With eventLoggingVerbose also true, WebhookLoggingEventListener logs messages li
 2025-07-31 06:45:52.892  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [2 ms] callEnd
 ```
 
+https://github.com/spinnaker/spinnaker/pull/7179 teaches Spinnaker to (when enabled), plumb http request headers that arrive at gate all the way through to headers in outgoing http requests that [webhook stages](https://spinnaker.io/docs/reference/pipeline/stages/#webhook) make using the following new orca configuration properties and their defaults.  Note, ProvidedIdRequestFilter has the same configuration properties in orca as it does in gate.
+```yaml
+provided-id-request-filter:
+  enabled: false
+  headers:
+    - X-SPINNAKER-REQUEST-ID
+    - X-SPINNAKER-EXECUTION-ID
+  additionalHeaders: [] # empty list
+
+webhook:
+  includeAdditionalHeaders: false
+```
+To get additional headers in outgoing http requests in webhook stages, enable ProvidedIdRequestFilter configure `provided-id-request-filter.additionalHeaders` the same in both gate and orca.  Set `webhook.includeAdditionalHeaders` to true in orca, and then provide the configured additional headers in the http requests to gate that initate a pipeline execution.  Those headers make it through gate, to orca, into the pipeline execution context in a new `additionalHeaders` property, and then into webhook stages, and their outgoing http requests.
+
 ### Clouddriver
 
 https://github.com/spinnaker/spinnaker/pull/7185 adds a way to prevent caching agents from starting until clouddriver is healthy, when using ClusteredAgentScheduler.
