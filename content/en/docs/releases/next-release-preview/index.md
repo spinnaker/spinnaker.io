@@ -182,3 +182,17 @@ With eventLoggingVerbose also true, WebhookLoggingEventListener logs messages li
 2025-07-31 06:45:52.892  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [2 ms] connectionReleased
 2025-07-31 06:45:52.892  INFO 17273 --- [    Test worker] c.n.s.o.w.u.WebhookLoggingEventListener  : [] [2 ms] callEnd
 ```
+
+### Clouddriver
+
+https://github.com/spinnaker/spinnaker/pull/7185 adds a way to prevent caching agents from starting until clouddriver is healthy, when using ClusteredAgentScheduler.
+
+This can resolve issues at startup where clouddriver is so busy processing accounts that startup/readiness/liveness probes fail.  The following configuration properties and their defaults control this behavior:
+```yaml
+clustered:
+  agent:
+    scheduler:
+      wait-on-health-check-enabled: false
+      wait-time-after-successful-health-check-seconds: 75
+```
+Note: ClusteredAgentScheduler uses redis as its backing store.  The store for data that caching agents collect is independent of this.
