@@ -91,9 +91,21 @@ Additionally, a new trigger type (named `helm/oci`) has been implemented to allo
   ],
 ```
 
-### Header Authentication in Gate
+### Gate
 
 https://github.com/spinnaker/spinnaker/pull/7109 added a gate-header module to gate that provides what's known as header authentication.  It's meant for scenarios where something external to gate it providing "real" authentication via mTLS or similar, as it's very permissive.  When `header.enabled` is true (false by default), gate requires an X-SPINNAKER-USER header on incoming http requests, and uses the value of that header as the username/email.  Gate logs in to fiat and queries fiat for allowed accounts.  Again, any incoming request can specify an arbitrary value for X-SPINNAKER-USER and gate-header uses it.
+
+https://github.com/spinnaker/spinnaker/pull/7120 added ProvidedIdRequestFilter and these new configuration properties and their defaults:
+```yaml
+provided-id-request-filter:
+  enabled: false
+  headers:
+    - X-SPINNAKER-REQUEST-ID
+    - X-SPINNAKER-EXECUTION-ID
+  additionalHeaders: [] # empty list
+```
+
+ProvidedIdRequestFilter puts headers from incoming requests into the MDC which improves logging in gate.  As well, those values are used in outgoing http requests that gate makes (e.g. to fiat during authentication), as opposed to auto-generated ones when they're not present.  This makes it easier to trace requests through Spinnaker.
 
 #### Retrofit2 Upgrade
 
