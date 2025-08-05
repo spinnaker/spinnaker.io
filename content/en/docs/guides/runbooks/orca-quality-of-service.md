@@ -42,7 +42,7 @@ This promotion process happens (by default) on a 5-second interval on every Orca
 
 With both `BufferPolicy` and `PromotionPolicy`, the results of each function returns a result with a human readable "reason", which is logged out for each execution that is evaluated so it is easy to trace.
 
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
 participant ExecutionPersister
 participant ExecutionBufferActuator
@@ -71,7 +71,7 @@ note over ExecutionPromoter: For each promoted execution
 ExecutionPromoter->>ExecutionPersister: Update Execution status to NOT_STARTED
 ExecutionPromoter->>ExecutionLauncher: Start Execution
 end
-{{< /mermaid >}}
+```
 
 **Note**: This is the first implementation of the QoS system, we plan to iterate on this concept and make it more advanced over time.
 You can read the [original proposal][proposal] to get an idea of a potential roadmap.
