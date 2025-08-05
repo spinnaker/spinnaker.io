@@ -7,7 +7,7 @@ description: >
 
 In this codelab, you will create a cohesive workflow which takes source code and builds, tests, and promotes it to production.
 
-Building the binary from the source code is done outside of Spinnaker, typically in a CI system such as Jenkins, Travis, or Wercker. Spinnaker is integrated with three CI systems.  Workflows can be triggered by jobs in these CI systems.  The easiest binary form for Spinnaker to produce machine image is debian or rpm packages.
+Building the binary from the source code is done outside of Spinnaker, typically in a CI system such as Jenkins or Travis. Spinnaker is integrated with three CI systems.  Workflows can be triggered by jobs in these CI systems.  The easiest binary form for Spinnaker to produce machine image is debian or rpm packages.
 
 To simplify this tutorial, we will use tomcat8 debian package as a starting point.  It is assumed your CI jobs build and publish packages such as tomcat8 and your CI jobs will be used to trigger the Spinnaker workflow.
 
@@ -214,7 +214,7 @@ Create a new pipeline by navigating to the PIPELINES tab and clicking the link *
 
 #### Configure the pipeline
 
-In reality, we would set up the pipeline with an automated trigger that will kick off the pipeline.  Assuming the package is built in CI (Jenkins/Travis/Wercker), in the Automated Triggers section of the pipelines form, you would add Jenkins/Travis/Wercker Trigger for your job so that every time these job completes the pipeline would start automatically.
+In reality, we would set up the pipeline with an automated trigger that will kick off the pipeline.  Assuming the package is built in CI (Jenkins/Travis), in the Automated Triggers section of the pipelines form, you would add Jenkins/Travis Trigger for your job so that every time these job completes the pipeline would start automatically.
 
 To simplify this tutorial, we will skip the trigger and use tomcat8 package.
 
