@@ -210,3 +210,13 @@ clustered:
       wait-time-after-successful-health-check-seconds: 75
 ```
 Note: ClusteredAgentScheduler uses redis as its backing store.  The store for data that caching agents collect is independent of this.
+
+https://github.com/spinnaker/spinnaker/pull/7187 adds support for multiple managing accounts.  There's [a talk](https://www.youtube.com/watch?v=aEntwyZL2RE&list=PL2KXbZ9-EY9QW4vewD7Lk6Mm6PJbWECOM&index=18) about this ([slides](https://static.sched.com/hosted_files/spinnaker2022/1f/Managing%20Accounts%20Across%20AWS%20Partitions.pdf?_gl=1*2nspbg*_gcl_au*MTE4MjUxMDQ4MC4xNzU0MzU5MDg1*FPAU*MTE4MjUxMDQ4MC4xNzU0MzU5MDg1)).  There's a new configuration flag to enable this (defaults to false):
+```yaml
+aws:
+  loadAccounts:
+    useManagingAccountProfile: true
+```
+If enabled, the new `managingAccountProfile` property of AWS accounts specifies the profile to use.
+
+AWS doesn't support assuming a role across partitions. So, before this PR, Spinnaker needed to run in the same partition as the accounts it targets. With this PR, it's now possible for one Spinnaker instance to target multiple partitions.
