@@ -14,11 +14,7 @@ use with your Microsoft Azure tenant. More extensive documentation is available 
 3. Click "New application registration", and fill in the details:
    - Name of the application: (eg Spinnaker),
    - Application type: Web app / API
-<<<<<<< HEAD
    - Sign-on URL: `https://localhost:8084/login/oauth2/code/azure`  (replace localhost with your Gate address if known, and `https` with `http` if appropriate). For Spinnaker below v2025.2.0, it should be just `https://localhost:8084/login`
-=======
-   - Sign-on URL: `https://localhost:8084/login/oauth2/code/azure`  (replace localhost with your Gate address if known, and `https` with `http` if appropriate). For Spinnaker below v2025.1.0, it should be just `https://localhost:8084/login`
->>>>>>> b91c947110d05c1667e1934682380e74bd84b0d0
    - Click "Create"
 4. Note the "Application ID", this is the client ID to pass to hal. Copy it to a safe place.
 5. Click "Settings" -> "Keys". Under "Passwords", add a Key Description (eg Spinnaker), set the expiry and then click "Save".
