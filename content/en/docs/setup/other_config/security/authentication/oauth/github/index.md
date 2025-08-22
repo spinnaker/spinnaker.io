@@ -9,6 +9,7 @@ Consult the [GitHub OAuth 2.0 documentation](https://developer.github.com/apps/b
 and [register](https://github.com/settings/applications/new) a new OAuth 2.0 application
 to obtain a client ID and client secret.
 
+
 **Note:** While registering the application in github, under "Authorized redirect URIs", add `https://localhost:8084/login/oauth2/code/github` (For Spinnaker below v2025.2.0, it should be `https://localhost:8084/login`)
 
 ## Configure Halyard
