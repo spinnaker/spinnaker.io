@@ -13,12 +13,8 @@ changelog.
 
 ### Spring Security 5 Oauth2 Migration
 
-<<<<<<< HEAD
 
-#### Retrofit2 Upgrade
-=======
 https://github.com/spinnaker/spinnaker/pull/7052 removes deprecated OAuth2 annotations, and uses Spring Security 5's DSL.  As a result, the properties for configuring oauth2 in gate have changed.
->>>>>>> b91c947110d05c1667e1934682380e74bd84b0d0
 
 old:
 ```
@@ -43,21 +39,14 @@ security:
       provider: GOOGLE
 ```
 
-<<<<<<< HEAD
-A new CallAdapter named LegacySignatureCallAdapter has been introduced in Kork to provide support for legacy Retrofit method signatures. This adapter enables the use of Retrofit interfaces that do not return Call<..>, similar to how Retrofit 1 worked. Both Kayenta and Halyard leveraged this feature during their Retrofit 2 upgrades, allowing them to maintain their existing method signatures without wrapping them in Call<..> or using Retrofit2SyncCall.execute()
-- https://github.com/spinnaker/spinnaker/pull/7088
-
-All retrofit clients are upgraded to retrofit2 and any references to retrofit1 dependencies are removed in the following services.
-- Igor - https://github.com/spinnaker/igor/pull/1313
-
 ### spring security 5 oauth2 migration in gate
-Remove deprecated OAuth2 annotation. Instead Use Java DSL way of OAuth2
-- gate - https://github.com/spinnaker/gate/pull/1887
+
 Migrated OAuth2 configuration to align with Spring Security 5 Java DSL standards
-- halyard - https://github.com/spinnaker/halyard/pull/2216
+https://github.com/spinnaker/spinnaker/pull/7052
+
 Update Spinnaker documentation for OAuth2 property changes in Spring Security 5
 - spinnaker.io - https://github.com/spinnaker/spinnaker.io/pull/503
-=======
+
 new (google):
 ```
 spring:
@@ -111,4 +100,3 @@ halyard has been updated to generate the new configuration, with the same comman
 ```
 hal config security authn oauth2 edit --provider google --client-id some_id --client-secret some_secret --user-info-requirements hd=company.io
 ```
->>>>>>> b91c947110d05c1667e1934682380e74bd84b0d0
