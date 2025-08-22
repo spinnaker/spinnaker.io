@@ -46,7 +46,7 @@ security:
 >
 > Be sure to include the `/login/oauth2/code/<provider>` suffix at the end of the of your `preEstablishedRedirectUri`!. 
 
-For Spinnaker below v2025.1.0
+For Spinnaker below v2025.2.0
 ```yaml
 security:
   authn:
@@ -142,4 +142,4 @@ Now that you've authenticated the user, proceed to setting up their [authorizati
 
     This likely means you've not set up your OAuth credentials correctly. Ensure that the Authorized
     Request URIs list contains `https://my-gate-address/login/oauth2/code/<provider>` (no trailing /). `provider` should be one among `azure`,`github`,`google`,`oracle`,`other`
-    For Spinnaker v1.37.9 or below , it should be `https://my-gate-address/login`
+    For Spinnaker below v2025.2.0, it should be `https://my-gate-address/login`
