@@ -112,7 +112,7 @@ kubernetes:
     mounthPath: /opt/spinnaker/saml
 ```
 
-profiles/gate.yml
+profiles/gate-local.yml
 ```
 saml:
   enabled: true
