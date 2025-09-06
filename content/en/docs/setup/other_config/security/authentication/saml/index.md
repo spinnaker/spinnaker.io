@@ -92,6 +92,49 @@ may look something like this:
     hal config security authn saml enable
     ```
 
+## New SAML Integration 2025.x.x
+
+Starting with Spinnaker 2025.x.x, a new SAML integration mechanism has been introduced to improve compatibility, simplify configuration, and align with modern identity provider (IdP) standards. This replaces some of the legacy configuration approaches used in earlier versions of Spinnaker.
+
+The below setup is an easy way approach. If you want other approach to store your files its up to you.
+
+create configMap
+```
+kubectl create configmap configmap-saml --from-file=<your_metadata>.xml --from-file=<your_cert>.pem --from-file=<your_priv>.pem
+```
+
+service-settings/gate.yml
+```
+kubernetes:
+  volumes:
+  - id: configmap-saml
+    type: configMap
+    mounthPath: /opt/spinnaker/saml
+```
+
+profiles/gate.yml
+```
+saml:
+  enabled: true
+  issuerId: <Client>
+  metadataUrl: file:/opt/spinnaker/saml/<your_cert>.xml
+  sign-requests: true
+  signing-credentials:
+  - certificate-location: file:/opt/spinnaker/saml/<your_cert>.pem
+    private-key-location: file:/opt/spinnaker/saml/<your_priv>.pem
+```
+
+.hal/config
+```
+saml:
+  enabled: true
+  issuerId: <Client>
+  serviceAddress: <your_gate_url>
+
+  # you can add a userinfomappings if you want
+
+```
+
 ## Network architecture and SSL termination
 
 During the SAML [workflow](/docs/reference/architecture/authz_authn/authentication/#workflow), Gate makes an intelligent 
