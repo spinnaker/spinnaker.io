@@ -96,7 +96,7 @@ may look something like this:
 
 Starting with Spinnaker 2025.x.x, a new SAML integration mechanism has been introduced to improve compatibility, simplify configuration, and align with modern identity provider (IdP) standards. This replaces some of the legacy configuration approaches used in earlier versions of Spinnaker.
 
-The below setup is an easy way approach. If you want other approach to store your files its up to you.
+The below approach applies to certain IDPs that support signing credentials (Okta is NOT one of these).  This is a required change for keycloak and a few other providers.  Note alternatively to using a custom volume map, you can use [encryptedFile secret](https://spinnaker.io/docs/reference/halyard/secrets/) store references.  
 
 create configMap
 ```
@@ -127,8 +127,9 @@ saml:
 .hal/config
 ```
 saml:
-  enabled: true
-  issuerId: <Client>
+  # below enabled and issuerId is not needed but it is not a big deal if you still placed it on your hal config
+  #enabled: true
+  #issuerId: <Client>
   serviceAddress: <your_gate_url>
 
   # you can add a userinfomappings if you want
