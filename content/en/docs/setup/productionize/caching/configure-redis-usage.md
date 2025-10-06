@@ -55,7 +55,8 @@ pollers:
     minimumPipelineExecutions: 5   # How many executions to keep around (default: 5)
 
 tasks:
-  daysOfExecutionHistory: 180      # How many days to keep old task executions around.
+  controller:
+    daysOfExecutionHistory: 180      # How many days to keep old task executions around.
 ```
 
 > `$DEPLOYMENT` is typically `default`. See [the
