@@ -201,7 +201,7 @@ enable = false
   desc = "Spinnaker on Github"
 [[params.links.developer]]
 	name = "Slack"
-	url = "https://join.slack.com/t/spinnakerteam/shared_invite/zt-7juwxmx0-nQ4Ud4pJcbuPykX3SXwQrg"
+	url = "https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg"
 	icon = "fab fa-slack"
   desc = "Spinnaker Community on Slack"
 
@@ -226,7 +226,7 @@ enable = false
   name = "Community"
   weight = 3
   url = "/docs/community/"
-  
+
 [[menu.main]]
   name = "GitHub"
   weight = 50
