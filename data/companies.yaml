@@ -844,3 +844,11 @@
   is_case_study: false
   is_testimonial: false
   logo: "/images/companies/wise_logo.png"
+- id: 060
+  name: "Glean"
+  short_desc: "Work AI that works"
+  hide: false
+  is_featured: true
+  is_case_study: false
+  is_testimonial: false
+  logo: "/images/companies/glean_logo.svg"
