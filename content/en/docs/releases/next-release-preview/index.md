@@ -45,3 +45,40 @@ Executing:
 
 on Gate's redis instance removes the cached session information.
 
+
+### YAML Parsing Limits Configuration
+
+**Context:**
+Starting with **SnakeYAML 1.33**, strict safety limits are enforced by default:
+
+* `maxAliasesForCollections = 50`
+* `codePointLimit = 3145728`
+
+These limits can cause large or alias-heavy YAML files (such as Kubernetes manifests) to fail during parsing, potentially breaking Spinnaker deployments.
+
+**Improvement:**
+To address this, Spinnaker now exposes two configurable properties that allow operators to override these limits when needed:
+
+```
+snakeyaml.max-aliases-for-collections: <int>   # default: 50
+snakeyaml.code-point-limit: <int>              # default: 3145728
+```
+
+**Impact:**
+
+* Prevents deployment failures due to strict YAML parsing limits.
+* Provides flexibility for environments using complex or deeply aliased YAML manifests.
+* Defaults remain aligned with SnakeYAML 1.33’s secure settings.
+
+**Example:**
+To increase limits for large manifests:
+
+```
+snakeyaml:
+  max-aliases-for-collections: 500
+  code-point-limit: 10485760
+```
+
+reference links:
+https://www.javadoc.io/doc/org.yaml/snakeyaml/1.33/org/yaml/snakeyaml/LoaderOptions.html
+https://github.com/spinnaker/spinnaker/blob/main/kork/kork-core/src/main/java/com/netflix/spinnaker/kork/yaml/YamlHelper.java
