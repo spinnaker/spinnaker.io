@@ -9,4 +9,4 @@ Please make a pull request to describe any changes you wish to highlight
 in the next release of Spinnaker. These notes will be prepended to the release
 changelog.
 
-## Coming Soon in Release 2025.3.0
+## Coming Soon in Release 2025.4.0
