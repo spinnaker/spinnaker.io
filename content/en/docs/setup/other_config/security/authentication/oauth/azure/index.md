@@ -5,7 +5,7 @@ description: Spinnaker supports OAuth 2.0 for authentication with Azure.
 
 This page instructs you on how to obtain an OAuth 2.0 client ID and client secret for
 use with your Microsoft Azure tenant. More extensive documentation is available on
-[Microsoft's site](https://docs.microsoft.com/en-us/azure/active-directory/azuread-dev/v1-protocols-oauth-code).
+[Microsoft's site](https://learn.microsoft.com/pt-br/azure/active-directory-b2c/client-credentials-grant-flow?pivots=b2c-user-flow).
 
 ## Setting up an Azure Application Registration
 
@@ -34,8 +34,8 @@ security:
       client:
         clientId: # client ID from above
         clientSecret: # client secret from above
-        accessTokenUri: https://login.microsoftonline.com/${azureTenantId}/oauth2/token
-        userAuthorizationUri: https://login.microsoftonline.com/${azureTenantId}/oauth2/authorize?resource=https://graph.windows.net
+        accessTokenUri: https://login.microsoftonline.com/${azureTenantId}/v2.0/oauth2/token
+        userAuthorizationUri: https://login.microsoftonline.com/${azureTenantId}/v2.0/oauth2/authorize
         clientAuthenticationScheme: query
         scope: profile
       # You may want to restrict access to your Spinnaker by adding
@@ -43,7 +43,7 @@ security:
       # requiring that users have a valid account in your Azure AD Tenant.
       userInfoRequirements: {}
       resource:
-        userInfoUri: https://graph.windows.net/me?api-version=1.6
+        userInfoUri: https://graph.windows.net/v1.0/me
       userInfoMapping:
         email: userPrincipalName
         firstName: givenName
