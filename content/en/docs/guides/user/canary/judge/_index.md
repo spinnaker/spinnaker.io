@@ -180,3 +180,46 @@ The summary score is compared against thresholds (comparisons are inclusive):
 * Score ≥ `passThreshold` → **Pass**
 * Score ≥ `marginalThreshold` → **Marginal**
 * Otherwise → **Fail**
+
+## Reference
+
+### Effect size measures
+
+The judge supports two effect size measures:
+
+| Measure | Formula | Range | Default | Best for |
+|---------|---------|-------|---------|----------|
+| `meanRatio` | canary_mean / baseline_mean | 0 to ∞ | 1.0 | Latency, throughput metrics |
+| `cles` | Proportion of pairs where canary > baseline | 0 to 1 | 0.5 | When means can be zero |
+
+> **Note**: `meanRatio` returns NaN if either mean is zero. Use `cles` for
+> metrics like error counts where zero values are common.
+
+### Result metadata
+
+Each metric result includes statistics for debugging:
+
+* `controlMetadata.stats`: `{min, max, mean, std, count}` for baseline
+* `experimentMetadata.stats`: `{min, max, mean, std, count}` for canary
+* `resultMetadata.ratio`: The mean ratio (may be NaN)
+
+These statistics are calculated **after** NaN handling and outlier removal.
+
+### Hard-coded constants
+
+These values are built into NetflixACAJudge and cannot be configured:
+
+| Constant | Value | Purpose |
+|----------|-------|---------|
+| Confidence level | 98% | Mann-Whitney U test confidence interval |
+| Tolerance | 0.25 | Tolerance band = ±(0.25 × estimate) |
+| NODATA threshold | 50% | Canary fails if ≥50% metrics are Nodata |
+| Reduce sensitivity | true | Outlier detection uses permissive fences |
+
+### Special cases
+
+* **Identical data**: If baseline and canary arrays are identical after
+  transformation, the metric is classified as `Pass` with ratio `1.0`.
+
+* **Degenerate distributions**: If both arrays have only one unique value,
+  tiny Gaussian noise is added to enable the Mann-Whitney test.
