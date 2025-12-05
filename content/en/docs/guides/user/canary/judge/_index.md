@@ -163,14 +163,16 @@ The summary score is a weighted average of group scores:
   `(100 - sum_of_configured_weights) / number_of_unweighted_groups`
 
 > **Caution**: If configured weights sum to 100 or more, unweighted groups
-> effectively receive a weight of 0 and won't affect the summary score.
+> receive no positive remaining weight (they may effectively have zero or even
+> negative influence). Avoid having group weights sum to 100 or more.
 
 ### Automatic failures
 
 The canary automatically fails (score = 0) in these cases:
 
 1. **Critical metric failure**: Any metric with `critical: true` that is
-   classified as High or Low
+   classified as High or Low and exceeds the critical effect size threshold
+   (or has a NaN effect size, in which case the threshold check is skipped)
 2. **50% NODATA rule**: If 50% or more of all metrics are classified as `Nodata`
 
 ### Muted metrics
