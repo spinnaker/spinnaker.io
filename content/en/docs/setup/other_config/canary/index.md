@@ -101,11 +101,16 @@ hal config canary edit --default-metrics-store STORE
 
 `STORE` can be...
 
-* `atlas`
+* `atlas` (see [Netflix Atlas](https://netflix.github.io/atlas-docs/))
 * `datadog`
 * `stackdriver`
 * `prometheus`
 * `newrelic`
+* `signalfx`
+
+> **Note**: Setup instructions for Atlas and SignalFx are not included in this
+> guide. Refer to the respective provider documentation and Kayenta source code
+> for configuration details.
 
 ## Provide the default metrics account
 
