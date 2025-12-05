@@ -127,6 +127,8 @@ The `effectSize` configuration controls classification sensitivity:
 > **Important**: Effect size thresholds are secondary gates. A metric must first
 > show statistical significance before the effect size is checked. This means a
 > metric with a 20% increase might still pass if the confidence interval is wide.
+> If the effect size is NaN (e.g., when a mean is zero), the threshold check is
+> skipped and only statistical significance determines the classification.
 
 ### Critical metrics
 
@@ -159,6 +161,9 @@ The summary score is a weighted average of group scores:
 * Groups with configured weights use those weights
 * Unweighted groups share the remaining weight equally:
   `(100 - sum_of_configured_weights) / number_of_unweighted_groups`
+
+> **Caution**: If configured weights sum to 100 or more, unweighted groups
+> effectively receive a weight of 0 and won't affect the summary score.
 
 ### Automatic failures
 
@@ -325,3 +330,15 @@ classified as High or Low immediately set the canary score to 0.
   but counts toward the 50% NODATA threshold.
 * `NodataFailMetric`: Metric had `mustHaveData: true` but no data. It counts
   as a failure in group score calculations.
+
+## Other classifiers
+
+NetflixACAJudge uses the Mann-Whitney classifier by default. Kayenta also
+includes two other classifiers that are **not recommended for production**:
+
+* **MeanInequalityClassifier**: Compares means directly without statistical
+  testing. Primarily used for benchmarking.
+* **RandomClassifier**: Assigns random Pass/High/Low classifications. Intended
+  for testing only.
+
+These classifiers are not exposed in the standard configuration UI.
