@@ -223,3 +223,105 @@ These values are built into NetflixACAJudge and cannot be configured:
 
 * **Degenerate distributions**: If both arrays have only one unique value,
   tiny Gaussian noise is added to enable the Mann-Whitney test.
+
+## Worked examples
+
+### Example A: Error spike with NaN baseline
+
+**Scenario**: An error count metric where the baseline has no errors (all NaN)
+but the canary has errors.
+
+| Setting | Value |
+|---------|-------|
+| `nanStrategy` | `replace` |
+| `direction` | `increase` |
+| `critical` | `true` |
+
+**What happens**:
+1. Baseline: all NaN → replaced with zeros, mean = 0
+2. Canary: positive values, mean > 0
+3. Classification: **High** (canary significantly higher)
+4. Ratio: **NaN** (because baseline mean is 0)
+5. Result: Canary **fails with score 0** (critical metric classified High)
+
+> **Key insight**: A metric can be classified `High` even when the ratio is NaN.
+> The statistical test compares distributions, not just means.
+
+### Example B: No errors on either side
+
+**Scenario**: Both baseline and canary have no errors (all NaN values).
+
+| Setting | Value |
+|---------|-------|
+| `nanStrategy` | `replace` |
+
+**What happens**:
+1. Both arrays: all NaN → replaced with zeros
+2. Arrays are identical after transformation
+3. Classification: **Pass** with reason "data are identical"
+4. Ratio: **1.0**
+
+### Example C: Latency increase within tolerance
+
+**Scenario**: Latency increased by 23%, but the canary passes.
+
+| Setting | Value |
+|---------|-------|
+| `direction` | `increase` |
+| `allowedIncrease` | `1.2` |
+| Observed ratio | `1.23` |
+
+**What happens**:
+1. The ratio (1.23) exceeds `allowedIncrease` (1.2)
+2. However, the 98% confidence interval is wide due to variance
+3. The lower bound of the CI doesn't exceed the tolerance band
+4. Classification: **Pass**
+
+> **Key insight**: Effect size thresholds are secondary gates. Statistical
+> significance must be established first. Noisy data can cause metrics to pass
+> even when the observed ratio exceeds the threshold.
+
+### Example D: Critical latency failure
+
+**Scenario**: Latency increased by 60% on a critical metric.
+
+| Setting | Value |
+|---------|-------|
+| `direction` | `increase` |
+| `critical` | `true` |
+| `criticalIncrease` | `1.5` |
+| Observed ratio | `1.6` |
+
+**What happens**:
+1. Statistical test shows significant increase (CI outside tolerance)
+2. Ratio (1.6) exceeds `criticalIncrease` (1.5)
+3. Metric is `critical: true`
+4. Classification: **High (Critical)**
+5. Result: Canary **fails with score 0** regardless of other metrics
+
+## FAQ
+
+**Why is my metric High but its ratio is NaN?**
+
+The ratio is calculated as `canary_mean / baseline_mean`. If either mean is
+zero, the ratio is undefined (NaN). However, the Mann-Whitney test compares
+the full distributions, not just means, so it can still detect a significant
+difference.
+
+**Why did my canary Pass even though the ratio exceeds allowedIncrease?**
+
+The effect size threshold is a secondary check. The metric must first show
+statistical significance (98% CI outside the tolerance band). If the data is
+noisy, the confidence interval may be too wide to establish significance.
+
+**Why did my canary get a score of 0 when only one metric failed?**
+
+The metric likely has `critical: true` configured. Critical metrics that are
+classified as High or Low immediately set the canary score to 0.
+
+**What's the difference between Nodata and NodataFailMetric?**
+
+* `Nodata`: Metric had no data but wasn't required. It's excluded from scoring
+  but counts toward the 50% NODATA threshold.
+* `NodataFailMetric`: Metric had `mustHaveData: true` but no data. It counts
+  as a failure in group score calculations.
