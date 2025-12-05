@@ -53,13 +53,15 @@ You need to configure two thresholds for a canary analysis:
 
 * marginal
 
-  If a canary run has a score below than this threshold, then the whole canary
-  fails.
+  If a canary run scores below this threshold, the whole canary fails immediately.
 
 * pass
 
-  The last canary run of the analysis must score higher than this threshold for
-  the whole analysis to be considered successful. Otherwise it fails.
+  The final canary run must score at or above this threshold for the analysis
+  to be considered successful. Otherwise it fails.
+
+Note: Threshold comparisons are inclusive (≥). A score of exactly 95 with a
+pass threshold of 95 results in a pass.
 
 These thresholds are very important for the analysis to give an accurate result.
 You need to experiment with them, in the context of your own application, its
