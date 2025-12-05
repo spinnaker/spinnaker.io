@@ -177,6 +177,58 @@ metric a filter template, if you want.
 
    These variable bindings are also implicitly available: `project`, `resourceType`, `scope`, `location`
 
+### Advanced metric configuration
+
+Each metric supports additional configuration options in the `analysisConfigurations.canary`
+section of the JSON config. These options control how the judge handles the metric:
+
+#### NaN and missing data
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `nanStrategy` | `remove` | How to handle NaN values: `remove` (filter out) or `replace` (replace with 0.0) |
+| `mustHaveData` | `false` | If `true`, missing data causes the metric to fail (`NodataFailMetric`) |
+| `critical` | `false` | If `true`, a High/Low classification fails the entire canary (score = 0) |
+| `muted` | `false` | If `true`, metric is excluded from scoring but still shown in results |
+
+#### Effect size thresholds
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `effectSize.measure` | `meanRatio` | Effect size measure: `meanRatio` or `cles` |
+| `effectSize.allowedIncrease` | `1.0` | Ratio threshold for High classification |
+| `effectSize.allowedDecrease` | `1.0` | Ratio threshold for Low classification |
+| `effectSize.criticalIncrease` | `1.0` | Ratio threshold for critical High (requires `critical: true`) |
+| `effectSize.criticalDecrease` | `1.0` | Ratio threshold for critical Low (requires `critical: true`) |
+
+#### Outlier removal
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `outliers.strategy` | `keep` | Outlier handling: `keep` or `remove` |
+| `outliers.outlierFactor` | `3.0` | IQR multiplier for outlier detection |
+
+#### Example JSON configuration
+
+```json
+{
+  "name": "error-rate",
+  "analysisConfigurations": {
+    "canary": {
+      "direction": "increase",
+      "nanStrategy": "replace",
+      "critical": true,
+      "effectSize": {
+        "allowedIncrease": 1.1,
+        "criticalIncrease": 1.5
+      }
+    }
+  }
+}
+```
+
+For details on how these options affect the judge's behavior, see
+[How canary judgment works](/docs/guides/user/canary/judge/).
 
 ## Edit a configuration
 
