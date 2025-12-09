@@ -42,15 +42,21 @@ PRIVATE_KEY_PATH=/home/spinnaker/.github/spinnaker-fiat.pem
 ORG=my-org
 
 hal config security authz github edit \
+    --organization $ORG \
+    --baseUrl https://api.github.com \
+    --auth-method AUTO \
     --app-id $APP_ID \
     --installation-id $INSTALL_ID \
-    --private-key-path $PRIVATE_KEY_PATH \
-    --organization $ORG \
-    --baseUrl https://api.github.com
+    --private-key-path $PRIVATE_KEY_PATH
 
 hal config security authz edit --type github
 hal config security authz enable
 ```
+
+The `--auth-method` flag controls which authentication method Spinnaker uses:
+*   `AUTO` (Default): Automatically prefers GitHub App if `app-id`, `installation-id`, and `private-key-path` are configured. Falls back to PAT if App credentials are missing.
+*   `GITHUB_APP`: Forces GitHub App authentication. The configuration will fail if App credentials are not provided.
+*   `PAT`: Forces Personal Access Token authentication. The configuration will fail if `access-token` is not provided.
 
 ## Personal Access Token (Legacy)
 
