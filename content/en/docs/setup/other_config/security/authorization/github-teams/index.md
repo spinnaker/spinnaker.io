@@ -6,7 +6,55 @@ description: Spinnaker supports using GitHub teams for authorization. Roles from
 
 
 
-## Personal Access Token
+## GitHub App Authentication (Recommended)
+
+GitHub App authentication is the preferred method for connecting Spinnaker to GitHub. It offers significant advantages over Personal Access Tokens (PATs):
+
+*   **Higher Rate Limits**: GitHub Apps have a rate limit of [15,000](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-authenticated-users) requests per hour (vs [5,000](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-authenticated-users) for PATs).
+*   **Enhanced Security**: Uses short-lived tokens that are automatically refreshed, rather than long-lived static tokens.
+*   **Granular Permissions**: Apps can be scoped to specific permissions.
+
+### 1. Create a GitHub App
+
+1.  Navigate to your GitHub Organization Settings > Developer settings > GitHub Apps.
+2.  Click **New GitHub App**.
+3.  Set the following fields:
+    *   **GitHub App Name**: e.g., `spinnaker-fiat-auth`.
+    *   **Homepage URL**: Your Spinnaker URL (or placeholder).
+    *   **Callback URL**: Your Spinnaker URL (or placeholder).
+    *   **Webhook**: Uncheck "Active" (not needed for authorization).
+4.  **Permissions**:
+    *   **Organization Permissions > Members**: Read-only
+5.  Click **Create GitHub App**.
+6.  Note the **App ID**.
+7.  Generate a **Private key** and save the `.pem` file to your Halyard machine (e.g., `/home/spinnaker/.github/spinnaker-fiat.pem`).
+8.  **Install App**: Go to "Install App" in the sidebar and install it on your organization. Note the **Installation ID** from the URL (e.g., `https://github.com/organizations/my-org/settings/installations/12345678` -> `12345678`).
+
+### 2. Configure with Halyard
+
+Run the following commands to configure Fiat to use the GitHub App:
+
+```bash
+# Set your values
+APP_ID=12345
+INSTALL_ID=67890
+PRIVATE_KEY_PATH=/home/spinnaker/.github/spinnaker-fiat.pem
+ORG=my-org
+
+hal config security authz github edit \
+    --app-id $APP_ID \
+    --installation-id $INSTALL_ID \
+    --private-key-path $PRIVATE_KEY_PATH \
+    --organization $ORG \
+    --baseUrl https://api.github.com
+
+hal config security authz edit --type github
+hal config security authz enable
+```
+
+## Personal Access Token (Legacy)
+
+If you cannot use a GitHub App, you can still use a Personal Access Token (PAT). Note that this has lower rate limits.
 
 1. Under an administrator's account, generate a new Personal Access Token from
 [https://github.com/settings/tokens](https://github.com/settings/tokens).
