@@ -43,8 +43,9 @@ analysis begins. The behavior depends on the `nanStrategy` configuration:
 
 ### NaN strategies
 
-* **`remove`** (default): NaN values are filtered out of the metric arrays.
+* **`remove`**: NaN values are filtered out of the metric arrays.
   If this results in an empty array, the metric is classified based on other flags.
+  This is the default behavior when `nanStrategy` is not specified or set to an unrecognized value.
 
 * **`replace`**: NaN values are replaced with `0.0`. The metric proceeds to
   comparison even if all original values were NaN (the array will contain zeros).
