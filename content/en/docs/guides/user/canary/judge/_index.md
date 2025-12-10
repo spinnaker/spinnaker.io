@@ -108,14 +108,26 @@ classification indicating whether there's a significant difference.
 
 ### Mann-Whitney U test
 
-The judge uses the Mann-Whitney U test (a nonparametric statistical test) with
-a **98% confidence level**. A metric is classified as High or Low only when:
+The judge compares the canary and baseline metric values to determine if there's
+a real difference or just random noise. It uses a statistical test that answers:
+"Are these two sets of numbers meaningfully different?"
 
-1. The entire confidence interval falls outside a tolerance band
+**In plain terms:**
+- The judge needs to be **98% confident** there's a real difference before flagging a metric
+- Small differences that could be random noise are ignored
+- The test doesn't assume your data follows any particular pattern (like a bell curve)
+
+**Technical details:**
+
+The Mann-Whitney U test is a nonparametric test that compares two distributions.
+A metric is classified as High or Low only when:
+
+1. The 98% confidence interval falls entirely outside a tolerance band
 2. The effect size exceeds the configured threshold (`allowedIncrease`/`allowedDecrease`)
 3. The metric's `direction` allows that classification
 
-The tolerance band is calculated as ±(0.25 × |Hodges-Lehmann estimate|).
+The tolerance band is ±(0.25 × |Hodges-Lehmann estimate|), which creates a
+"dead zone" around zero where small differences are ignored.
 
 ### Effect size and thresholds
 
