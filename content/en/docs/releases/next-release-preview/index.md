@@ -26,3 +26,4 @@ Spinnaker has been upgraded to **Spring Boot 3.1.12** to incorporate the latest 
 - No functional changes are expected in Spinnaker APIs or user-facing behavior as part of this upgrade
 - Existing configurations and deployments should continue to work without modification
 - Applications running on **Java 17+** remain fully supported and recommended
+- No need to clear sessions from redis like previous upgrade (https://spinnaker.io/changelogs/1.35.0-changelog/#spring-boot-2718)
