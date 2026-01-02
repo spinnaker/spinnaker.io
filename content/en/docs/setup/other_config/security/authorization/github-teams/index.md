@@ -8,7 +8,7 @@ description: Spinnaker supports using GitHub teams for authorization. Roles from
 
 ## GitHub App Authentication (Recommended)
 
-GitHub App authentication is the preferred method for connecting Spinnaker to GitHub. It offers significant advantages over Personal Access Tokens (PATs):
+GitHub App authentication, available in releases after 2025.4.0, is the preferred method for connecting Spinnaker to GitHub. It offers significant advantages over Personal Access Tokens (PATs):
 
 *   **Higher Rate Limits**: GitHub Apps have a rate limit of [15,000](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-authenticated-users) requests per hour (vs [5,000](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#primary-rate-limit-for-authenticated-users) for PATs).
 *   **Enhanced Security**: Uses short-lived tokens that are automatically refreshed, rather than long-lived static tokens.
