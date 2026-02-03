@@ -11,6 +11,12 @@ changelog.
 
 ## Coming Soon in Release 2026.0.0
 
+### Images
+The spinnaker project will be moving docker images from Google's artifact registry to GHCR going forward.  This should save the project significantly on network and storage costs, while also allowing unlimited downloads.  As such
+we've started publishing all images to the [github packages pages](https://github.com/orgs/spinnaker/packages).  2025.6.0 should be the last release consuming images from google artifact registry.  Going forward, halyard
+and other images will start pulling from GHCR instead (incoming PRs shortly on this change).  Please update any whitelists, rules, and mirrors to start using GHCR as a package repository.  For more information, please join 
+slack and we'll answer any questions!
+
 ### Security fixes
 We have HIGH level vulnerabilities in spinnaker tied to user input validation handling on URL calls.  Specifically, see the advisories page for more information:
 https://github.com/spinnaker/spinnaker/security/advisories/
