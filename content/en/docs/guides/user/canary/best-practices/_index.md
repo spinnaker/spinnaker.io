@@ -8,11 +8,15 @@ description: >
 
 ## Don't put too many metrics in one group
 
-Especially for critical metrics, if you have many metrics in the group and one
-critical metric fails, but the rest pass, the group gets a passing score overall.
+If you have many metrics in a group and one fails while the rest pass, the group
+gets a passing score overall.
 
-You can put a critical metric in a group of only one to ensure that if it fails,
-the whole group fails every time.
+For truly critical metrics (e.g., error rates), use the `critical: true` flag in
+the metric configuration. This causes the entire canary to fail immediately
+(score = 0) if that metric is classified as High or Low, regardless of group scores.
+
+Alternatively, you can put an important metric in a group by itself to ensure
+that if it fails, the whole group fails.
 
 ## Compare canary against baseline, not against production
 
@@ -49,13 +53,15 @@ You need to configure two thresholds for a canary analysis:
 
 * marginal
 
-  If a canary run has a score below than this threshold, then the whole canary
-  fails.
+  If a canary run scores below this threshold, the whole canary fails immediately.
 
 * pass
 
-  The last canary run of the analysis must score higher than this threshold for
-  the whole analysis to be considered successful. Otherwise it fails.
+  The final canary run must score at or above this threshold for the analysis
+  to be considered successful. Otherwise it fails.
+
+Note: Threshold comparisons are inclusive (≥). A score of exactly 95 with a
+pass threshold of 95 results in a pass.
 
 These thresholds are very important for the analysis to give an accurate result.
 You need to experiment with them, in the context of your own application, its

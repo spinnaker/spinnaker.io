@@ -77,7 +77,7 @@ downstream of its dependencies.
      This is the canary config you created [here](/docs/guides/user/canary/config).
      That configuration must be visible to this application. By default, all
      configs are visible to all applications, but your canary might be [set up
-     so that each config is limited]() to the application in which it is created.
+     so that each config is limited](/docs/setup/other_config/canary/#specify-the-scope-of-canary-configs) to the application in which it is created.
 
    * Set a __Delay__.
 
@@ -155,10 +155,10 @@ downstream of its dependencies.
 1. Specify the accounts you're using for metrics and storage.
 
    * The __Metrics Account__ points to the telemetry service provider account
-   you configured [here]().
+   you configured [here](/docs/setup/other_config/canary/).
 
    * The __Storage Account__ points to the GCS or S3 account you configured
-   [here]().
+   [here](/docs/setup/install/storage/).
 
    ![Canary stage declaration](/docs/guides/user/canary/stage/advanced_settings.png)
 

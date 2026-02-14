@@ -49,9 +49,8 @@ configurations](/docs/guides/user/canary/config/).
    a [canary stage](/docs/guides/user/canary/stage/)
 
    You can configure each metric flexibly, to define its scope and whether it
-   fails when it deviates upward or down. You can also group metrics logically.
-   (Any that you leave ungrouped are evaluated, but they don't contribute to the
-   success or failure of the canary run.)
+   fails when it deviates upward or down. You can also group metrics logically
+   and assign weights to groups to control their impact on the final score.
 
    You can think of this configuration as a templated set of queries against
    your metric store.
