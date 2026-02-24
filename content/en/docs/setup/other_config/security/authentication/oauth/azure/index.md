@@ -5,7 +5,7 @@ description: Spinnaker supports OAuth 2.0 for authentication with Azure.
 
 This page instructs you on how to obtain an OAuth 2.0 client ID and client secret for
 use with your Microsoft Azure tenant. More extensive documentation is available on
-[Microsoft's site](https://learn.microsoft.com/pt-br/azure/active-directory-b2c/client-credentials-grant-flow?pivots=b2c-user-flow).
+[Microsoft's site](https://learn.microsoft.com/en-us/azure/active-directory-b2c/client-credentials-grant-flow?pivots=b2c-user-flow).
 
 ## Setting up an Azure Application Registration
 
