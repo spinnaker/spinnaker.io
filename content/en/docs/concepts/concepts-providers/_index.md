@@ -49,6 +49,6 @@ Setup instructions for providers are [here](/docs/setup/install/providers/)
 
 If you see a provider missing from this list that you feel Spinnaker should
 support, we gladly welcome your contributions. Please reach out to us on
-the __#dev__ channel on [Slack](http://join.spinnaker.io) for help
+the __#dev__ channel on [Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg) for help
 getting started, and check out the [Contributing
 Guide](/community/contributing) for pointers and guidelines.

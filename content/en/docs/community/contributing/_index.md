@@ -14,7 +14,7 @@ This is normally the place where we'd tell you about Contributor License Agreeme
 
 We'll probably end up doing something like this, but at the moment we're exploring options that might make it easier for most of you to contribute. Please stay tuned...
 
-In the meantime, if you're really excited about contributing and don't want to wait until we have all of this worked out, please reach out to us on [Slack](http://join.spinnaker.io). We love accepting community patches!
+In the meantime, if you're really excited about contributing and don't want to wait until we have all of this worked out, please reach out to us on [Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg). We love accepting community patches!
 
 For more details about the patch submission process, look at [How to submit a patch](https://spinnaker.io/docs/community/contributing/code/releasing/).
 

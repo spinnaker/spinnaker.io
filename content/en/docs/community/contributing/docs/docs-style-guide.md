@@ -7,7 +7,7 @@ sidebar:
 
 This page gives writing style guidelines for the Spinnaker documentation. Since these are guidelines, not rules, use your best judgment when creating content. Feel free to propose changes to this document in a pull request.
 
-If you have a style question that isn't answered in this guide, ask the SIG Docs team in the [Spinnaker Slack](https://join.spinnaker.io) `#sig-documentation` channel.
+If you have a style question that isn't answered in this guide, ask the SIG Docs team in the [Spinnaker Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg) `#sig-documentation` channel.
 
 ## Language
 
@@ -306,6 +306,6 @@ A list of Spinnaker-specific terms and words to be used consistently across the 
 | Kubernetes | kubernetes |
 | Docker  | docker |
 | SIG Docs  | SIG-DOCS or other variations.  |
-| On-premises or on-prem | On-premise or other variations. |  
+| On-premises or on-prem | On-premise or other variations. |
 | Halyard | halyard |
 | Operator or Spinnaker Operator | operator or Spinnaker operator |

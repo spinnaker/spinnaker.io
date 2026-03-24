@@ -74,7 +74,7 @@ Spinnaker setup used in this guide:
 
    The `minnaker/scripts` directory contains multiple scripts. Use the `no_auth_install` script to install Spinnaker in no-auth mode so you can access Spinnaker without credentials. **Be sure to use the `-o` option** to install the open source version of Spinnaker rather than Armory Spinnaker.
 
-   ```bash   
+   ```bash
    ./minnaker/scripts/no_auth_install.sh -o
    ```
 
@@ -442,4 +442,4 @@ If you want to debug the backend component of the plugin without a working Deck 
 
 ## Resources
 
-You can ask for help with plugins in the [Spinnaker Slack](https://join.spinnaker.io/)'s `#plugins` channel.
+You can ask for help with plugins in the [Spinnaker Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg/)'s `#plugins` channel.

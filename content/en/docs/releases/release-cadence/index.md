@@ -27,7 +27,7 @@ Candidate".
 
 > If you're brave enough to run the Release Candidate, please [file
 > bugs](https://github.com/spinnaker/spinnaker/issues) or alert us
-> on [slack](http://join.spinnaker.io) if you find any problems!
+> on [slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg) if you find any problems!
 
 Once these release branches are cut, anyone can run the release candidate using
 version `release-M.N.x-latest-unvalidated`:

@@ -48,7 +48,7 @@ An extension point is an interface that extends `org.pf4j.ExtensionPoint` and is
 * Echo
   - [EventListener](https://github.com/spinnaker/echo/blob/master/echo-api/src/main/java/com/netflix/spinnaker/echo/api/events/EventListener.java) for processing events posted into Echo
 
-Look through the code or ask in the [Spinnaker Slack](https://join.spinnaker.io/) to find extension points not listed here.
+Look through the code or ask in the [Spinnaker Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg/) to find extension points not listed here.
 
 ## Example ExtensionPoint plugin
 
@@ -56,7 +56,7 @@ The [pf4jStagePlugin](https://github.com/spinnaker-plugin-examples/pf4jStagePlug
 
 ## Interface (Non-ExtensionPoint) plugins
 
-The second way you can create a plugin is to implement a regular Java interface that you find in a service. Your plugin uses the PF4J `@Extension` annotation but does not extend `org.pf4j.ExtensionPoint`.    
+The second way you can create a plugin is to implement a regular Java interface that you find in a service. Your plugin uses the PF4J `@Extension` annotation but does not extend `org.pf4j.ExtensionPoint`.
 
 Advantages:
 * Spinnaker loads the plugin in an isolated classpath

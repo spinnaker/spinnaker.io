@@ -88,7 +88,7 @@ Import the project into IntelliJ:
 If your IntelliJ project becomes broken for any reason then a quick fix is to
 clean your workspace and delete all files that git doesn't already know about:
 
-1. Run `git clean -dnxf -e '*.iml' -e '*.ipr' -e '*.iws'` to perform a dry-run.  
+1. Run `git clean -dnxf -e '*.iml' -e '*.ipr' -e '*.iws'` to perform a dry-run.
    Make sure that you're happy with the output of this command before proceeding.
 1. Run `git clean -dxf -e '*.iml' -e '*.ipr' -e '*.iws'` to perform the deletion.
 
@@ -121,4 +121,4 @@ services' responsibilities, their dependencies on each other, and their port map
 * Consider working on one of the
 [issues marked "beginner-friendly"](https://github.com/spinnaker/spinnaker/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22beginner+friendly%22)
 to start learning and contributing to Spinnaker right away.
-* [Sign up for Spinnaker's Slack community](https://join.spinnaker.io) and join the [#dev](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) channel to ask questions and get feedback while developing Spinnaker.
+* [Sign up for Spinnaker's Slack community](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg) and join the [#dev](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) channel to ask questions and get feedback while developing Spinnaker.

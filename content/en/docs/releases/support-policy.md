@@ -3,7 +3,7 @@ layout: single
 title:  "Support Policy"
 sidebar:
   nav: community
-aliases: 
+aliases:
   - /docs/support-policy
 ---
 
@@ -17,7 +17,7 @@ for general user-related discussions and the <code>#dev</code> channel for
 developer-related discussions. Additionally, Special Interest Groups (SIGs) have dedicated Slack channels, like #sig-security for the Security SIG.
 
 Slack requires registration, but the Spinnaker team is open invitation to anyone to register
-[here](http://join.spinnaker.io). Feel free to come and ask any and all
+[here](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg). Feel free to come and ask any and all
 questions.
 
 ## Bugs and feature requests
