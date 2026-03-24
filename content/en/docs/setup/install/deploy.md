@@ -2,7 +2,7 @@
 
 title:  "Deploy Spinnaker and Connect to the UI"
 description: After you finish configuring Spinnaker, deploy it and connect to the Deck, the Spinnaker UI.
-aliases: 
+aliases:
    - /setup/install/upgrades/
 weight: 50
 ---
@@ -53,17 +53,17 @@ deploy apply`.
 1. Navigate to [localhost:9000](localhost:9000).
 
 
-__Note:__ Even if the `hal deploy apply` command returns successfully, the 
-installation may not be complete yet. This is especially the case with 
+__Note:__ Even if the `hal deploy apply` command returns successfully, the
+installation may not be complete yet. This is especially the case with
 kubernetes distributed installs. If you see errors such as `Connection refused`
-it may be that all of the containers are not yet available. You can either wait, 
+it may be that all of the containers are not yet available. You can either wait,
 or check the status of all of the containers using the commands for your cloud
 provider (such as `kubectl get pods --namespace spinnaker`).
 
 ## Troubleshooting
 
 If this command fails, and it's the first time you've run this command please
-reach out to us on [Slack](http://join.spinnaker.io).
+reach out to us on [Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg).
 If you've had a successful deployment, you can run `hal deploy diff` to see what
 changes you've made that may be causing problems. At any point you can rerun
 `hal deploy apply` with any changes you've made to retry the deployment.

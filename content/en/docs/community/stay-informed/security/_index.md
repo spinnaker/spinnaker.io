@@ -17,9 +17,9 @@ If you would like to report a vulnerability in the Spinnaker open source code, p
 
 Please share any information we need to understand and reproduce the security issue you've discovered, including:
 
-* A complete description of the security issue  
-* Steps to detect or reproduce the security bug  
-* Versions and configurations affected by the issue  
+* A complete description of the security issue
+* Steps to detect or reproduce the security bug
+* Versions and configurations affected by the issue
 * Whether you would like credit for finding the bug
 
 *Note:* As an independent open source community, we do not provide bug bounties for security reports at this time.
@@ -32,7 +32,7 @@ To help us prioritize bugs affecting the Spinnaker community, please only report
 
 ### Can I include code for fixing a security issue?
 
-Absolutely!  We love code contributions too, especially for security improvements.  Please follow the [contributing guidelines](https://spinnaker.io/community/contributing/submitting/) for any changes you would like to share.  If you have any questions, feel free to contact the Security SIG by saying _hello_ in the [Spinnaker Slack](http://join.spinnaker.io) [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.
+Absolutely!  We love code contributions too, especially for security improvements.  Please follow the [contributing guidelines](https://spinnaker.io/community/contributing/submitting/) for any changes you would like to share.  If you have any questions, feel free to contact the Security SIG by saying _hello_ in the [Spinnaker Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg) [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.
 
 ### How are security bugs handled?
 
@@ -56,8 +56,8 @@ Once a security issue has been confirmed and evaluated, the Security SIG will wo
 
 ## I have another question not answered here.  Who should I talk to?
 
-For general questions about Spinnaker security, feel free to join us in the [Spinnaker Slack](http://join.spinnaker.io) [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.  Questions or feedback regarding a security issue or vulnerability should be sent directly to [security@spinnaker.io](mailto:security@spinnaker.io).
+For general questions about Spinnaker security, feel free to join us in the [Spinnaker Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg) [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.  Questions or feedback regarding a security issue or vulnerability should be sent directly to [security@spinnaker.io](mailto:security@spinnaker.io).
 
 ## I'd like to participate in the [Security SIG](https://github.com/spinnaker/governance/tree/master/sig-security).  How do I join?
 
-We're thrilled that you're interested in supporting Spinnaker security!  The Security SIG meets bi-weekly to address security issues and provide input on security capabilities within the Spinnaker project.  You can get startetd by [requesting an invite](http://join.spinnaker.io) to the Spinnaker Slack team and joining the [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.
+We're thrilled that you're interested in supporting Spinnaker security!  The Security SIG meets bi-weekly to address security issues and provide input on security capabilities within the Spinnaker project.  You can get startetd by [requesting an invite](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg) to the Spinnaker Slack team and joining the [#security-sig](https://spinnakerteam.slack.com/archives/CFN8F5UR2) channel.
