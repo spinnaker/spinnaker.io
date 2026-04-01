@@ -10,8 +10,8 @@
     "prestart": "npm run clean",
     "start": "exec-bin node_modules/.bin/hugo/hugo server",
     "prebuild": "npm run clean",
-    "build": "exec-bin node_modules/.bin/hugo/hugo --gc --minify",
-    "build:preview": "exec-bin node_modules/.bin/hugo/hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL",
+    "build": "exec-bin node_modules/.bin/hugo/hugo --gc",
+    "build:preview": "exec-bin node_modules/.bin/hugo/hugo --gc --buildFuture -b $DEPLOY_PRIME_URL",
     "clean": "shx rm -rf public resources",
     "postinstall": "hugo-installer --version otherDependencies.hugo --extended --destination node_modules/.bin/hugo"
   },
