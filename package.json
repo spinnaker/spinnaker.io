@@ -19,7 +19,8 @@
     "url": "git+https://github.com/spinnaker/spinnaker.io.git"
   },
   "keywords": [
-    "spinnaker"
+    "spinnaker",
+    "documentation"
   ],
   "contributors": [
     {
