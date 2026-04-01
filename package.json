@@ -4,15 +4,22 @@
   "description": "Documentation site for spinnaker",
   "main": "index.html",
   "scripts": {
-    "test": "test"
+    "prestart": "npm run clean",
+    "start": "exec-bin node_modules/.bin/hugo/hugo server",
+    "prebuild": "npm run clean",
+    "build": "exec-bin node_modules/.bin/hugo/hugo --gc --minify",
+    "clean": "shx rm -rf public resources",
+    "postinstall": "hugo-installer --version otherDependencies.hugo --extended --destination node_modules/.bin/hugo"
+  },
+  "otherDependencies": {
+    "hugo": "0.104.3"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spinnaker/spinnaker.io.git"
   },
   "keywords": [
-    "spinnaker",
-    "documentation"
+    "spinnaker"
   ],
   "contributors": [
     {
@@ -41,18 +48,11 @@
   "homepage": "https://github.com/spinnaker/spinnaker.io#readme",
   "devDependencies": {
     "autoprefixer": "^9.8.6",
+    "exec-bin": "^1.0.0",
+    "hugo-installer": "^4.0.0",
     "postcss": "^8.4.31",
     "postcss-cli": "^7.1.1",
-    "prettier": "^2.3.0"
-  },
-  "browserslist": [
-    "Android 2.3",
-    "Android >= 4",
-    "Chrome >= 20",
-    "Firefox >= 24",
-    "Explorer >= 8",
-    "iOS >= 6",
-    "Opera >= 12",
-    "Safari >= 6"
-  ]
+    "prettier": "^2.3.0",
+    "shx": "^0.3"
+  }
 }

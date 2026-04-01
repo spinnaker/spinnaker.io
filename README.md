@@ -9,39 +9,36 @@ This site is built using [Hugo](https://gohugo.io) and the [Docsy Theme](https:/
 3. Netlify will spawn a preview branch which will verify build success.
 4. Branches merged back into `master` will deploy to the current active version-branch of the site.
 
-## Using this repository
+## Running locally
 
-You can run the website locally using Hugo (Extended version).
+### 1. Install prerequisites
 
-## Prerequisites
+- [Node.js](https://nodejs.org/) v16 or later
+- [Git](https://git-scm.com/)
 
-- [Hugo (Extended version)](https://gohugo.io/); check the Hugo version specified in `netlify.toml`.
+### 2. Clone the repository and pull in the theme
 
-Before you start, install the dependencies. Clone the repository and navigate to the directory:
-
-```
+```bash
 git clone https://github.com/spinnaker/spinnaker.io.git
 cd spinnaker.io
-```
-
-The Spinnaker website uses the [Docsy Hugo theme](https://github.com/google/docsy#readme). Pull in the submodule and other development dependencies by running the following:
-
-```
-# pull in the Docsy submodule
 git submodule update --init --recursive --depth 1
 ```
 
-## Running the website locally using Hugo
-
-Make sure to install the Hugo extended version specified by the `HUGO_VERSION` environment variable in the [`netlify.toml`](netlify.toml#L10) file.
-
-To build and test the site locally, run:
+### 3. Install dependencies
 
 ```bash
-hugo server
+npm install
 ```
 
-This will start the local Hugo server on port 1313. Open up your browser to http://localhost:1313 to view the website. As you make changes to the source files, Hugo updates the website and forces a browser refresh.
+This installs all dependencies and automatically downloads the correct version of Hugo Extended into `node_modules`.
+
+### 4. Start the local server
+
+```bash
+npm start
+```
+
+Open http://localhost:1313 in your browser. Hugo rebuilds and reloads the page automatically as you edit files.
 
 ## Documentation Versioning
 
