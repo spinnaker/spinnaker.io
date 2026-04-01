@@ -69,3 +69,5 @@ Use the `customyoutube` shortcode to embed a YouTube video with explicit dimensi
 ### Theme customization
 
 Theme overrides are in `./layouts`, `./assets`, and `./static`. The Docsy theme is vendored as a git submodule in `./themes/docsy` — make upgrades with care, as markup changes in the theme may affect existing SCSS customizations.
+
+For more detailed reference on frontmatter, homepage config, and theme internals, see [docs/website-contributing.md](docs/website-contributing.md).
