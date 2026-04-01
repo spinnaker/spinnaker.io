@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Documentation site for spinnaker",
   "main": "index.html",
+  "engines": {
+    "node": ">=16.15.0"
+  },
   "scripts": {
     "prestart": "npm run clean",
     "start": "exec-bin node_modules/.bin/hugo/hugo server",
