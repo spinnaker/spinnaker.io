@@ -1,141 +1,71 @@
 # Spinnaker.io Documentation and Community Site
 
-This site is built using [Hugo](https://gohugo.io) and the [Docsy Theme](https://www.docsy.dev/).
+The **spinnaker.io** website is the home for Spinnaker documentation and community resources. You can find the documentation files in Markdown under the `content` directory.
 
-## Contributing
+This site is built using [Hugo](https://gohugo.io) and the [Docsy](https://www.docsy.dev/) theme.
 
-1. Start new development branches off of the `master` branch.
-2. Create a pull request from your branch onto `master`.
-3. Netlify will spawn a preview branch which will verify build success.
-4. Branches merged back into `master` will deploy to the current active version-branch of the site.
+## Development
 
-## Running locally
+Clone the repository and pull in the theme submodule:
 
-### 1. Install prerequisites
-
-- [Node.js](https://nodejs.org/) v16 or later
-- [Git](https://git-scm.com/)
-
-### 2. Clone the repository and pull in the theme
-
-```bash
+```sh
 git clone https://github.com/spinnaker/spinnaker.io.git
 cd spinnaker.io
 git submodule update --init --recursive --depth 1
 ```
 
-### 3. Install dependencies
+Install dependencies (this also downloads the correct version of Hugo):
 
-```bash
+```sh
 npm install
 ```
 
-This installs all dependencies and automatically downloads the correct version of Hugo Extended into `node_modules`.
+Start the local development server:
 
-### 4. Start the local server
-
-```bash
+```sh
 npm start
 ```
 
-Open the URL printed in the terminal (typically http://localhost:1313) in your browser. Hugo rebuilds and reloads the page automatically as you edit files.
+Open the URL printed in the terminal in your browser. Hugo rebuilds and reloads automatically as you edit files.
 
-## Documentation Versioning
+## Contributing
 
-## Translation
+1. Start new development branches off of the `master` branch.
+2. Create a pull request from your branch onto `master`.
+3. Netlify will spawn a preview build to verify build success.
+4. Branches merged into `master` deploy to the live site.
 
-At present, there is only one language in the `./content` directory. Docsy assumes lang-en and uses this language automatically, but you can add additional directories with different contents. There is also a langauge switcher in the navbar that can be enabled by adding that language to the `[languages]` map in `.config.toml`.
+### Adding content
 
-## Theme Customization
+Documentation lives in `content/en/docs/`. Each page is a Markdown file with frontmatter:
 
-The Docsy theme is installed as a git submodule to this site. To update the theme, follow the Docsy documentation for git submodules. Make theme upgrades with care. Any changes to markup in the theme may render existing SCSS modifications ineffective.
+| Field | Description |
+|---|---|
+| `title` | Displayed on the content page |
+| `linkTitle` | Displayed in the docs navigation menu |
+| `description` | Short description, shown in directory listings |
+| `weight` | Controls ordering in the menu (lowest first) |
+| `mermaid` | Set to `true` to enable MermaidJS on the page |
 
-Overrides to the theme are in `./layouts`, `./assets`, and `./static`. In order to continue to use Docsy's color variables, the **entire** theme SCSS collection is has been copied to `./assets`. Some of these SCSS files have been further modified to alter the appearance of various site components. If something "breaks" on upgrade, a good first step is to compare the previous markup for that component and make sure old SCSS selectors are still valid.
+### Adding diagrams
 
-Dependencies are loaded into `./assets/scss` from `./themes/docsy`. If subsequent theme upgrades fail to load Bootstrap or Font Awesome assets, verify that the paths to these vendor dependencies within `./themes/docsy` are still valid.
-
-## Docs Frontmatter Variables
-
-`title`: Displayed on the content page  
-`linkTitle`: displayed where a link to the page appears (in the docs menu)  
-`weight`: Determines the order of appearance in lists of content in the same directory, lowest first. To let all titles appear in alphabetical order, remove all weights.  
-`description`: Short description, appears in lists of directory contents and on content page.  
-`mermaid`: Boolean `true` indicates that MermaidJS should be loaded on the page.
-
-## Homepage Frontmatter Page Params
-
-Edit the file `./content/en/_index.md` to change the homepage frontmatter variables.
-
-### Changing the News Link
-
-`news_banner`: Boolean `true` enables the news link in the hero info panel.  
-`news_text`: Sets the news link text.  
-`news_link`: Sets the news link target.
-
-Example news link:
-
-```
----
-title: 'Spinnaker'
-subtitle: 'Cloud Native Continuous Delivery'
-subtitle_1: 'Fast, safe, repeatable deployments for every enterprise'
-date: '2020-06-04'
-type: 'en'
-is_index: true
-layout: 'index'
-has_carousel: true
-news_banner: false
-news_text: 'Testing news banner'
-news_link: 'https://google.com'
-...
----
-```
-
-![desktop homepage hero](https://user-images.githubusercontent.com/70309473/125411287-9e818f80-e372-11eb-99eb-d24404e387e1.png)
-![tablet homepage hero](https://user-images.githubusercontent.com/70309473/125411010-582c3080-e372-11eb-83e4-7564097b3f2d.png)
-![mobile homepage hero](https://user-images.githubusercontent.com/70309473/125411499-d4bf0f00-e372-11eb-9ab0-1ecd6497c1ab.png)
-
-## Mermaid
-
-Mermaid is loaded into content pages only when the boolean frontmatter variable `mermaid` is set to `true`.
-
-1. Use the `mermaid` shortcode to make sure your graph isn't processed as markdown:
+Use the `mermaid` shortcode and set `mermaid: true` in the page frontmatter:
 
 ```
 {{< mermaid >}}
 graph TB
-
-clouddriver(Clouddriver) --> clouddriver-caching(Clouddriver-Caching);
-clouddriver --> clouddriver-rw(Clouddriver-RW);
-clouddriver --> clouddriver-ro(Clouddriver-RO);
-clouddriver --> clouddriver-ro-deck(Clouddriver-RO-Deck)
-
-classDef default fill:#d8e8ec,stroke:#39546a;
-linkStyle default stroke:#39546a,stroke-width:1px,fill:none;
-
-classDef split fill:#42f4c2,stroke:#39546a;
-class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
+  clouddriver --> clouddriver-caching
 {{< /mermaid >}}
 ```
 
-2. Add the frontmatter variable to the page: `mermaid: true`.
+### Adding videos
 
-## Custom YouTube Shortcode
-
-The internal YouTube embed template provided by Hugo does not allow for the setting if height and width. A custom YouTube shortcode has been added to the repository to allow for the setting of height and width of YouTube videos embedded in Markdown content. Width and height should always include percent or unit of measure.
+Use the `customyoutube` shortcode to embed a YouTube video with explicit dimensions:
 
 ```
 {{< customyoutube id="b7BmMY1kR10" width="320px" height="240px" >}}
 ```
 
-## Promo Banner on homepage
+### Theme customization
 
-The promo banner across the top of the home page is displayed depending on a parameter in config.toml and also configured there:
-
-[params.promoBanner]
-show = true
-text = "Spinnaker Summit is co-located with KubeCon this year! Join us on Oct 23-24 in Detroit."
-ctaLink = "http://go.armory.io/ss22"
-ctaText = "Register"
-label = "UPCOMING EVENT"
-
+Theme overrides are in `./layouts`, `./assets`, and `./static`. The Docsy theme is vendored as a git submodule in `./themes/docsy` — make upgrades with care, as markup changes in the theme may affect existing SCSS customizations.
