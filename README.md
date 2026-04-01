@@ -6,7 +6,7 @@ This site is built using [Hugo](https://gohugo.io) and the [Docsy](https://www.d
 
 ## Development
 
-You'll need [Node.js](https://nodejs.org/) v16 or later and [Git](https://git-scm.com/).
+You'll need [Node.js](https://nodejs.org/) v16 or later.
 
 Clone the repository and pull in the theme submodule:
 
