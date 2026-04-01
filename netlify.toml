@@ -14,7 +14,7 @@ command = "git submodule update --init --recursive --depth 1 && npm run build"
 HUGO_ENV = "production"
 
 [context.deploy-preview]
-command = "git submodule update --init --recursive --depth 1 && npm run build"
+command = "git submodule update --init --recursive --depth 1 && npm run build:preview"
 
 [context.branch-deploy]
 command = "git submodule update --init --recursive --depth 1 && npm run build"
