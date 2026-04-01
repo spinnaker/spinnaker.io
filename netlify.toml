@@ -9,7 +9,6 @@ NODE_VERSION = "18"
 [context.production.environment]
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
-NODE_VERSION = "18"
 
 [context.split1]
 command = "git submodule update --init --recursive --depth 1 && npm run build"
@@ -21,7 +20,7 @@ HUGO_ENV = "production"
 command = "git submodule update --init --recursive --depth 1 && npm run build:preview"
 
 [context.branch-deploy]
-command = "git submodule update --init --recursive --depth 1 && npm run build"
+command = "git submodule update --init --recursive --depth 1 && npm run build:preview"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
