@@ -38,7 +38,7 @@ This installs all dependencies and automatically downloads the correct version o
 npm start
 ```
 
-Open http://localhost:1313 in your browser. Hugo rebuilds and reloads the page automatically as you edit files.
+Open the URL printed in the terminal (typically http://localhost:1313) in your browser. Hugo rebuilds and reloads the page automatically as you edit files.
 
 ## Documentation Versioning
 
