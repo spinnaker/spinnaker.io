@@ -7,31 +7,40 @@ description: >
 
 ---
 
-Spinnaker requires an external storage provider for persisting your Application
-settings and configured Pipelines. Because these data are sensitive and can be
-costly to lose, we recommend you use a hosted storage solution you are confident
-in.
+Spinnaker requires a database for persisting your Application settings and configured 
+Pipelines as well as execution history.  A database is used for a few services 
+(clouddriver, front50, orca). Because this data can be sensitive and can be costly to
+lose, we recommend you use a hosted storage solution you are confident in.
 
-Spinnaker supports the storage providers listed below. Whichever option you
-choose does not affect your choice of [Cloud Provider](/docs/setup/install/providers/).
-That is, you can use [Google Cloud
-Storage](https://cloud.google.com/storage/) as a storage
-source but still deploy to [Microsoft Azure](https://azure.microsoft.com/).
+## Supported databases
+Spinnaker recommends MySQL/MariaDB or Postgresql.  It's recommended for most users to start
+with MariaDB/MySQL.  
 
-## Supported storage solutions
+Services ship with `mysql-connector-java` by default. You can provide additional JDBC 
+connectors on the classpath if desired.  MySQL/MariaDB is reported to work all the way
+up to version 10 of MariaDB and the latest Aurora MySQL engines.
 
-Set up persistent storage for your Spinnaker instance by choosing one of the options below. When you've
-completed the section, return to this page.
+Before you deploy services, you need to manually create a database and user grants.
+These are NOT automatically created as part of the start of spinnaker.  Note that
+the kustomize example on the install DOES create these as part of the mariadb
+[init script](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/components/mariadb/base/configmap.yml#L15).
 
-* [Azure Storage](/docs/setup/install/storage/azs)
-* [Google Cloud Storage](/docs/setup/install/storage/gcs)
-* [Minio](/docs/setup/install/storage/minio)
-* [Redis](/docs/setup/install/storage/redis) (Not recommended for production environments)
-* [S3](/docs/setup/install/storage/s3)
-* [Oracle Object Storage](/docs/setup/install/storage/oracle)
+Repeat these for orca, clouddriver and front50.
+```sql
+CREATE DATABASE `front50` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+GRANT
+  SELECT, INSERT, UPDATE, DELETE, CREATE, EXECUTE, SHOW VIEW
+ON `front50`.*
+TO 'front50_service'@'%'; -- IDENTIFIED BY "password" if using password based auth
 
-See also [hal config storage](/docs/reference/halyard/commands/#hal-config-storage).
+GRANT
+  SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, LOCK TABLES, EXECUTE, SHOW VIEW
+ON `front50`.*
+TO 'front50_migrate'@'%'; -- IDENTIFIED BY "password" if using password based auth
+```
+Note that the character set is key - using different character sets has been reported
+to cause issues.
 
 ## Next steps
 

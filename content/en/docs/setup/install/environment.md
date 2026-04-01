@@ -97,22 +97,7 @@ installation](https://www.spinnaker.io/setup/install/halyard/#docker) cannot be
 used as a __Local Debian__ base image because it does not contain the necessary
 packages to run Spinnaker.
 
-### Required Halyard invocations
 
-Currently, Halyard defaults to a __Local Debian__ install when first run,
-and no changes are required on your behalf. However, if you've edited
-Halyard's deployment type and want to revert to a local install, you can run
-the following command.
-
-```
-hal config deploy edit --type localdebian
-```
-
-<span class="end-collapsible-section"></span>
-
-<span class="begin-collapsible-section"></span>
-
-## Local Git
 
 The __Local Git__ installation means Spinnaker will be cloned, built, and run on
 the single machine Halyard is run on.

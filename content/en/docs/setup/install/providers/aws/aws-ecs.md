@@ -124,15 +124,7 @@ hal config provider ecs account add ecs-account-name --aws-account aws-account-n
 In the above example, `ecs-account-name` is the name of the Amazon ECS account, and `aws-account-name` is the name of a previously added, valid AWS account.  Do note that the Amazon ECS account will use credentials from the corresponding AWS account.
 
 #### Enable ECS Provider
-Make sure that the AWS Provider is already enabled. Proceed to enable the ECS Provider with `halyard`
-```bash
-hal config provider ecs enable
-```
-
-### Clouddriver yaml properties
-
-If you are not using Halyard, then you must declare Amazon ECS accounts and map them to a given AWS account by its name. Below is an example snippet you can put in `clouddriver.yml` or `clouddriver-local.yml`:
-
+Make sure that the AWS Provider is already enabled. Proceed to enable the ECS provider in [clouddriver (example)](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/overlays/config/files/clouddriver-local.yml)
 ```yaml
 aws:
   enabled: true
@@ -150,10 +142,6 @@ ecs:
     - name: ecs-account-name
       awsAccount: aws-account-name
 ```
-
-
-
-
 
 ## Next steps
 

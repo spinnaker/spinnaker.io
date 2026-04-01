@@ -21,12 +21,16 @@ AWS controls the permissions with AWS IAM Identity Access Management. Spinnaker 
 
 There are two types of Accounts in the Spinnaker AWS provider: __AWS Managing__ account and __AWS Managed__ account(s).
 
-From the Spinnaker perspective, [Halyard](https://www.spinnaker.io/reference/halyard/) configures Spinnaker to use the __AWS Managing__ account to control the __AWS Managed__ account(s).
+Spinnaker is considered to be the __AWS Managing__ account which then deploys into the __AWS Managed__ account(s).
 
-**_Note_** The AWS IAM structure must be set up prior to adding the Spinnaker AWS Provider with Halyard.
+**_Note_** The AWS IAM structure must be set up prior to adding AWS accounts.
 
 
-From the AWS perspective, __AWS Managing__ account assumes control of the __AWS Managed__ account(s) through the use of AWS IAM Roles. By assuming a role across AWS Accounts, Spinnaker can control AWS resources from multiple __AWS Managed__ accounts.
+From the AWS perspective, __AWS Managing__ account deploys into the __AWS Managed__ 
+account(s) through the use of AWS IAM Roles. By assuming a role across AWS Accounts,
+Spinnaker can control AWS resources from multiple __AWS Managed__ accounts.  Spinnaker
+when an account is added will start querying information in those accounts to show
+information on the UI as well as cache information to reduce API calls.
 
 Refer to [AWS IAM Providing Access to multiple AWS Accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) for AWS technical details.
 
@@ -43,3 +47,7 @@ Refer to [AWS IAM Providing Access to multiple AWS Accounts](https://docs.aws.am
    __Example:__ AWS __Managing__ account `spinnakermanaging` can assume the __Managed__ role in the accounts __*accountdev*__, __*accountstaging*__, __*accountprod*__ and deploy a baked AMI in the pipeline.
 
 ![Example diagram of managing and managed roles](concepts.png)
+
+
+## Additional documentation 
+* Armory (now harness) has docs available here: https://docs.armory.io/continuous-deployment/spinnaker-user-guides/aws-guides/
