@@ -48,13 +48,7 @@ Follow the [GitHub artifact configuration](/docs/setup/other_config/artifacts/gi
 
 ## 3. Apply your configuration changes
 
-Once the artifact changes have been made using Halyard, run
-
-```bash
-hal deploy apply
-```
-
-to apply them in Spinnaker.
+Once the artifact changes have been made deploy them [to Spinnaker](/docs/setup/install).
 
 ## Using GitHub artifacts in pipelines
 
@@ -68,14 +62,14 @@ below.
 
 Let's add a Git trigger to run our pipeline. To configure the trigger:
 
-| Field | Value |
-|-------|-------|
-| __Type__ | "Git" |
-| __Repo Type__ | "GitHub" |
-| __Organization or User__  | `$ORGANIZATION` from above |
-| __Project__ | `$REPOSITORY` from above |
-| __Branch__ | (optional) Can be used (via regular expressions) to describe which branches to listen to changes one |
-| __Secret__ | (optional) _Strongly encouraged_ It must match the secret provided to the [webhook configuration](/docs/setup/other_config/triggers/github/#configuring-your-github-webhook) |
+| Field                    | Value                                                                                                                                                                        |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| __Type__                 | "Git"                                                                                                                                                                        |
+| __Repo Type__            | "GitHub"                                                                                                                                                                     |
+| __Organization or User__ | `$ORGANIZATION` from above                                                                                                                                                   |
+| __Project__              | `$REPOSITORY` from above                                                                                                                                                     |
+| __Branch__               | (optional) Can be used (via regular expressions) to describe which branches to listen to changes one                                                                         |
+| __Secret__               | (optional) _Strongly encouraged_ It must match the secret provided to the [webhook configuration](/docs/setup/other_config/triggers/github/#configuring-your-github-webhook) |
 
 {{< figure src="./git-config.png" >}}
 

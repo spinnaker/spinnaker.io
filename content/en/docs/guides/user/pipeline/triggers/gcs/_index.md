@@ -51,13 +51,7 @@ Follow the [GCS artifact configuration](/docs/setup/other_config/artifacts/gcs/)
 
 ## 3. Apply your configuration changes
 
-Once the Pub/Sub and artifact changes have been made using Halyard, run
-
-```bash
-hal deploy apply
-```
-
-to apply them in Spinnaker.
+Once the Pub/Sub and artifact changes have been made deploy them [to Spinnaker](/docs/setup/install).
 
 ## Using GCS artifacts in pipelines
 
@@ -75,13 +69,13 @@ Let's add a Pub/Sub trigger to run our pipeline.
 
 Next, we must configure the trigger:
 
-| Field | Value |
-|-------|-------|
-| __Type__ | "Pub/Sub" |
-| __Pub/Sub System Type__ | "Google" |
-| __Subscription Name__  | Depends on your Pub/Sub configuration (from Halyard|
+| Field                     | Value                                                                                                                                                    |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| __Type__                  | "Pub/Sub"                                                                                                                                                |
+| __Pub/Sub System Type__   | "Google"                                                                                                                                                 |
+| __Subscription Name__     | Depends on your Pub/Sub configuration (from Halyard                                                                                                      |
 | __Attribute Constraints__ | Must be configured to include the pair `eventType`:`OBJECT_FINALIZE` (See the [docs](https://cloud.google.com/storage/docs/pubsub-notifications#events)) |
-| __Expected Artifacts__ | Must reference the artifact defined previously |
+| __Expected Artifacts__    | Must reference the artifact defined previously                                                                                                           |
 
 {{< figure src="./pubsub-config.png" >}}
 
