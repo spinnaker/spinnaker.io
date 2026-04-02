@@ -22,12 +22,12 @@ This guide is for developers who want to duplicate this functionality for their 
 It also exists as an explanation of certain code paths within Spinnaker which include hooks with no current corresponding open-source implementations.
 
 Developers who want to implement these features will have to build their own layered version
-of [Clouddriver](https://github.com/spinnaker/clouddriver) -
+of Clouddriver [(found in the monorepo)](https://github.com/spinnaker/spinnaker) -
   see Adam Jorden's [blog post](https://blog.spinnaker.io/scaling-spinnaker-at-netflix-custom-features-and-packaging-e78536d38040) - and should be familiar with the [Kubernetes provider](/docs/reference/providers/kubernetes-v2) and writing code for Clouddriver.
 
 ## Custom Handlers
 
-The central extension point is the [KubernetesHandler](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/op/handler/KubernetesHandler.java) class. A subclass of `KubernetesHandler` - e.g., [KubernetesReplicaSetHandler](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/op/handler/KubernetesReplicaSetHandler.java) - defines the
+The central extension point is the [KubernetesHandler](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/op/handler/KubernetesReplicaSetHandler.javaa) - defines the
 relationship between Spinnaker and your Kubernetes kind.
 
 For example, if you wanted to build a Spinnaker integration for your CRD of kind `MyCRDKind`, you would start with
@@ -80,7 +80,7 @@ public class MyCRDHandler extends KubernetesHandler {
 ## Custom Spinnaker Resource Models
 
 You may want to change how their CRD is represented in Spinnaker's API. By default, a CRD of `spinnakerKind` `serverGroups` will
-be represented with the model class [KubernetesV2ServerGroup](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/caching/view/model/KubernetesV2ServerGroup.java).
+be represented with the model class [KubernetesServerGroup](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/caching/view/model/KubernetesServerGroup.java)
 
 You may want to override this representation, for example, if you want to define how your server group's `region` is resolved.
 

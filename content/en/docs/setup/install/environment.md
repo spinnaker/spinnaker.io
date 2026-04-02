@@ -5,191 +5,87 @@ description: Based on your use case, choose how you want to install Spinnaker.
 weight: 30
 ---
 
-In this step, you tell Halyard in what type of environment to install Spinnaker.
+In this step, you choose where to install Spinnaker. The recommended path is a distributed installation onto a
+Kubernetes cluster
 
-The recommended path is a distributed installation onto a Kubernetes cluster,
-but all of these methods are supported:
+* [Kubernetes installation](#Kubernetes-installation)
 
-* [Distributed installation](#distributed-installation) on Kubernetes
-
-  Halyard deploys each of Spinnaker's [microservices](/docs/reference/architecture)
-  separately. __This is highly recommended for use in production.__
+  Each of Spinnaker's [microservices](/docs/reference/architecture) services
+  are deployed separately. __This is highly recommended for use in production.__
 
 * [Local installations](#local-debian) of Debian packages
 
   Spinnaker is deployed on a single machine. This is ok for smaller
   Spinnaker deployments, but Spinnaker will be unavailable when it's being
-  updated.
+  updated. Note it's often better to use a microk8s/k3s installation to deploy
+  rather than try to deploy a local debian.
 
-* [Local git installations](#local-git) from GitHub
+* Please see [Local git installations](/docs/community/contributing/code/developer-guides/getting-set-up/) from GitHub
 
-  This is for developers contributing to the Spinnaker project. If you're a
-  contributor, you'll probably have two separate installations&mdash;a
-  distributed one for using Spinnaker in production, and this local Git one for
-  developing Spinnaker contributions.
+  This is for developers contributing to the Spinnaker project.
 
-## Distributed installation
+## Kubernetes installation
 
-Distributed installations are for development orgs with large resource
-footprints, and for those who can't afford downtime during Spinnaker updates.
+Kubernetes installations are recommended for most organizations and even
+for test purposes. Spinnaker is deployed to a namespace in a kubernretes cluster
+[microservice](/docs/reference/architecture/) deployed independently.
 
-Spinnaker is deployed to a remote cloud, with each
-[microservice](/docs/reference/architecture/) deployed independently. Halyard
-creates a smaller, headless Spinnaker to update your Spinnaker and its
-microservices, ensuring zero-downtime updates.
+The base example is available in the monorepo here:
+https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize
+with more information and options. To install spinnaker:
 
-1. Run the following command, using the `$ACCOUNT` name you created when you
-configured the provider:
-
-   ```
-   hal config deploy edit --type distributed --account-name $ACCOUNT
-   ```
-
-1. If you haven't already done so, configure a provider for the environment in
-which you will install Spinnaker.
-
-   This must be on a Kubernetes cluster. It does not have to be the same
-   provider as the one you're using to deploy your applications.
-
-   * [Kubernetes](/docs/setup/install/providers/kubernetes-v2)
-
-   We recommend at least 4 cores and 16GB of RAM available in the cluster where
-   you will deploy Spinnaker.
-
-1. Make sure [kubectl is installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-on the machine running Halyard.
-
-   After you install it, you might need to update the `$PATH` to ensure Halyard
-   can find it, and if Halyard was already running you might need to restart it
-   to pick up the new `$PATH`:
-
-   `hal shutdown`
-
-   Then invoke any `hal` command to restart the Halyard daemon.
-   
-1. Optionally, configure [Kubernetes liveness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
-for your Spinnaker services, setting the `initialDelaySeconds` to the upper bound of your longest service startup time:
-
-   ```
-   hal config deploy edit --liveness-probe-enabled true --liveness-probe-initial-delay-seconds $LONGEST_SERVICE_STARTUP_TIME
-   ```  
-
-<span class="begin-collapsible-section"></span>
+1. Make sure [kubectl is installed](https://kubernetes.io/docs/tasks/tools/)
+2. Optionally,
+   configure [Kubernetes probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
+   for your Spinnaker services in their deployment manifests (in the `~/spinnaker-kustomize/base/*/deployment.yaml`
+   files.
+3. Create a file with the spinnaker kubernetes resources and apply it
+    1. `kubectl kustomize -o spinnaker.yaml`
+    2. `kubectl apply -f spinnaker.yaml`
 
 ## Local Debian
-
-The __Local Debian__ installation means Spinnaker will be downloaded and run on the
-single machine Halyard is currently installed on.
-
-We recommend at least 4 cores and 16GB of RAM.
-
-> **Note**: Local Debian installation requires either Ubuntu 18.04 or higher or Debian 10 or higher.
-
-### Intended use case
-
-The __Local Debian__ installation is intended for smaller deployments of Spinnaker,
-and for clouds where the __Distributed__ installation is not yet supported;
-however, since all services are on a single machine, there will be downtime when
-Halyard updates Spinnaker.
-
-Note that a Halyard [Docker
-installation](https://www.spinnaker.io/setup/install/halyard/#docker) cannot be
-used as a __Local Debian__ base image because it does not contain the necessary
-packages to run Spinnaker.
-
-
-
-The __Local Git__ installation means Spinnaker will be cloned, built, and run on
-the single machine Halyard is run on.
-
-### Intended use case
-
-The __Local Git__ installation is intended for developers who want to contribute
-to Spinnaker. It is not intended to be used to manage any production environment.
-
-For a short guide to getting up and running with developing Spinnaker, see the
-[developer setup guide](/docs/community/contributing/code/developer-guides/dev-env/getting-set-up).
 
 ### Prerequisites
 
 We recommend at least 4 cores and 16GB of RAM.
 
+### Overview
+
+The __Local Debian__ installation means Spinnaker will be installed and run on a
+single machine. We recommend at least 4 cores and 16GB of RAM.
+Note this is a non-recommended installation but is simple to install. Spinnaker configuration files default to
+/opt/spinnaker/config. You can copy the files from the `spinnaker-kustomize` example repo for each service. Services
+load properties from in the following priority order
+
+* `spinnaker.yml`
+* `spinnaker-local.yml`
+* `<service>.yml`
+* `<service>-local.yml`
+
+It's recommended NOT to change the spinnaker.yml or service.yml and instead override their settings in the service
+local yml files. These base files often are "defaults" or core settings. Base settings can be found in the
+source code for each service similar
+to https://github.com/spinnaker/spinnaker/blob/main/front50/front50-web/config/front50.yml
+path where each service has a `<service>/<service>-web/config/<service>.yml` file defining defaults.
+
+> **Note**: Local Debian installation requires a recent ubuntu/debian and installation of components like kubectl
+> or the aws cli depending upon deployment targets. They also need a Java 17 JRE installed.
+
+### Intended use case
+
+The __Local Debian__ installation is intended for smaller deployments of Spinnaker,
+however, since all services are on a single machine, there is potential downtime.
+
 #### Install local dependencies
 
 Ensure that the following are installed on your system:
 
-##### Ubuntu/Debian
-
 * git: `sudo apt-get install git`
 * curl: `sudo apt-get install curl`
-* netcat: `sudo apt-get install netcat`
 * redis-server: `sudo apt-get install redis-server`
-* OpenJDK 11 - JDK (we're building from source, so a JRE is not sufficient)
-    ```
-    sudo apt-get update
-    sudo apt-get install openjdk-11-jdk
-    ```
-* node (version >=12.16.0, [can be installed via nvm](https://github.com/creationix/nvm#install-script), summarized below)
-    ```
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-    # Follow instructions at end of script to add nvm to ~/.bash_rc
-
-    nvm install v12.16.0
-    ```
+* JDK 17 - JDK (we're building from source, so a JRE is not sufficient)
+* npm/node (version >=16)
 * yarn: `npm install -g yarn` or [guide](https://yarnpkg.com/lang/en/docs/install/)
-
-##### MacOS
-
-* brew (a package manager for MacOS, [can be installed via here](https://brew.sh/), summarized below)
-    ```
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ```
-* git: `brew install git`
-* curl: `brew install curl`
-* netcat: `brew install netcat`
-* redis-server:
-  * Install: `brew install redis`
-  * Start: `brew services start redis`
-* OpenJDK 8 - JDK (we're building from source, so a JRE is not sufficient)
-    ```
-  brew cask install adoptopenjdk/openjdk/adoptopenjdk8
-    ```
-* node (version >=12.16.0, [can be installed via nvm](https://github.com/creationix/nvm#install-script), summarized below)
-    ```
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-    # Follow instructions at end of script to add nvm to ~/.bash_rc
-
-    nvm install v12.16.0
-    ```
-* yarn: `npm install -g yarn` or [guide](https://yarnpkg.com/lang/en/docs/install/)
-
-#### Fork all Spinnaker repos
-
-Fork all of the microservices listed here: [Spinnaker Microservices](https://www.spinnaker.io/reference/architecture/#spinnaker-microservices) on github ([guide](https://guides.github.com/activities/forking/#fork)).
-
-#### Setup SSH keys
-
-Follow these guides to setup ssh access to your github.com account from your local machine:
-
-* [Generating a new ssh key and adding it to your ssh agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-* [Adding a new ssh key to your Github account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
-
-### Required Halyard invocations
-
-Halyard defaults to a __Local Debian__ install when first run. If you will be
-contributing code to the Spinnaker project, you can change your deployment type
-to __Local Git__ type and set up your development environment with the latest
-code.
-
-```
-hal config deploy edit --type localgit --git-origin-user=<YOUR_GITHUB_USERNAME>
-
-hal config version edit --version branch:upstream/master
-```
-
-*NOTE: Be sure to use the same username here that you forked the Spinnaker repositories to*
-
-<span class="end-collapsible-section"></span>
 
 ## Further reading
 

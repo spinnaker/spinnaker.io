@@ -17,63 +17,41 @@ if you plan to submit your work as a patch to the open source project.
 
 This guide assumes you have access to a machine with a minimum specification of:
 
-- 18 GB of RAM
-- A 4 core CPU
-- Either Ubuntu 18.04 or higher, or Debian 10 or higher
+- At least 16 GB of RAM
+- At least 6 cores CPU
 
-> This guide has been tested against a machine with these specifications but it's feasible
-> to develop Spinnaker on different flavors of Linux and with fewer resources, depending on
-> what you're working on.
 
-## Installing Spinnaker's codebase with Halyard
+### MacOS
 
-The following steps will install Spinnaker's management tool, Halyard, fetch Spinnaker's
-codebase, and perform just enough configuration to get Spinnaker up and running.
+These are some tools but install additional as needed the tools for your needs
 
-Each of these steps will take between 5 and 30 minutes to finish and may require you to
-do multiple things, such as installing CLI tools or configuring service accounts. A good
-way to approach this process is to open a step in its own browser tab and then work through
-it to completion, closing it (and any others you've opened in support of it) once it's done.
+* homebrew: Not required but useful - [can be installed via here](https://brew.sh/)
+* Docker: either docker desktop or rancher. CAUTION:  Spinnaker uses TestContainers heavily and you'll potentially need
+  to adjust settings for test containers which is out of the scope of this guide.
+* git: Installed usually via Xcode Command Line Tools - often by trying to run git from a terminal
+* curl: `brew install curl` - not required explicitly but useful for testing
+* JDK 17: A JDK is required since we're building from source.  This can be done using [sdkman](https://sdkman.io/) or any other installation tool.
+* node/npm: (version >=16)
+* yarn: `npm install -g yarn` or [guide](https://yarnpkg.com/lang/en/docs/install/)
+* mysql: `docker run -e MYSQL_ROOT_PASSWORD=changeit -it --rm mysql:8 --verbose` is a good basic example but will need the databases configured as documented in the [storage configuration](/docs/setup/install/storage/).  Adjust the docker command to persist if you want to keep your data between runs.  
+* redis: `docker run -d --rm --name redis -p 0.0.0.0:6379:6739 valkey/valkey:8` as an example.
+* [Set up your cloud provider of choice]({{< relref "/docs/setup/install/providers/" >}}).  Locally these providers would be added to `~/.spinnaker/clouddriver-local.yml` files
+* Add the other sql/redis/other configuration to your `~/.spinnaker/*.yml` files for development
 
-1. [Install Halyard]({{< relref "/docs/setup/install/halyard#install-on-debianubuntu" >}})
-2. [Set up a storage service]({{< relref "/docs/setup/install/storage/" >}})
-3. [Set up your cloud provider of choice]({{< relref "/docs/setup/install/providers/" >}})
-4. [Configure a LocalGit deployment]({{< relref "/docs/setup/install/environment#local-git" >}})
-5. Run `hal deploy apply`
-
-## What does this do?
-
-Halyard creates a directory at `~/dev/spinnaker` with the following contents:
-- a subdirectory for each Spinnaker service containing that service's source code
-- a `scripts` directory
-- a `logs` directory
-- a set of `.pid` files, one for each service that is running
-
-The `scripts` directory contains scripts to start and stop each individual service. For
-example calling `~/dev/spinnaker/scripts/deck-stop.sh` will kill the Deck process and
-delete the `deck.pid` file. Running `~/dev/spinnaker/scripts/deck-start.sh` will restart Deck
-and recreate its `deck.pid` file.
-
-The final step, `hal deploy apply`, checks out the git repos for each service and launches
-Spinnaker. You can then access the Deck UI by visiting `http://localhost:9000`.
-
-> Halyard will figure out how to individually configure each of Spinnaker's services based on
-> the settings you give it. You can change Halyard settings with the `hal` command but it's
-> also worth knowing that Halyard configuration lives in the `~/.hal` directory and that the
-> configuration it generates for each service is placed in the `~/.spinnaker` directory. This
-> guide won't go into further detail on this but you can
-> [read more about Halyard configuration here](/docs/reference/halyard/).
+Next, clone the [spinnaker monorepo](https://github.com/spinnaker/spinnaker).  You can now start spinnaker assuming you've configured the necessary settings locally for sql/redis.
+```shell
+cd spinnaker
+./gradlew run
+```
+This starts up *ALL* the spinnaker services service via a single gradle task.  Services can be started independently as needed.  Keep in mind that there is a dependency
+tree for services that will mean that things won't start unless a dependent service is up and running.  Front50 is a common base service dependency for all the other
+spinnaker services.  
 
 ## Making Changes to Spinnaker
 
 Once you have a working LocalGit deployment you can begin to make changes to the codebase.
 After you've made edits in the code of a service you can see those changes reflected
-by restarting the service you've modified.
-
-To restart a service call `hal deploy apply --service-names clouddriver`, replacing `clouddriver`
-with whichever service you want to restart. The only service that does not require this kind
-of restart is Deck; its webserver watches for file changes and re-compiles the application as
-necessary.
+by restarting the services as needed.
 
 ## Configuring an IDE
 
@@ -81,16 +59,7 @@ necessary.
 
 Import the project into IntelliJ:
 1. Select `New` > `Project from Existing Sources`
-1. Navigating to a service's `build.gradle` file (i.e., `~/dev/spinnaker/clouddriver/build.gradle`)
-
-### Repairing a Broken Project
-
-If your IntelliJ project becomes broken for any reason then a quick fix is to
-clean your workspace and delete all files that git doesn't already know about:
-
-1. Run `git clean -dnxf -e '*.iml' -e '*.ipr' -e '*.iws'` to perform a dry-run.
-   Make sure that you're happy with the output of this command before proceeding.
-1. Run `git clean -dxf -e '*.iml' -e '*.ipr' -e '*.iws'` to perform the deletion.
+1. Navigating to the `build.gradle` file (i.e., `~/dev/spinnaker/build.gradle`)
 
 ## Debugging
 
@@ -122,3 +91,5 @@ services' responsibilities, their dependencies on each other, and their port map
 [issues marked "beginner-friendly"](https://github.com/spinnaker/spinnaker/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22beginner+friendly%22)
 to start learning and contributing to Spinnaker right away.
 * [Sign up for Spinnaker's Slack community](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg) and join the [#dev](https://spinnakerteam.slack.com/messages/C0DPVDMQE/) channel to ask questions and get feedback while developing Spinnaker.
+* Read through the [New Stage guide](../extending/new-stage) to add new stages and steps
+* Read about extending spinnaker [with CRD handling](../extending/crd-extensions)

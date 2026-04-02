@@ -20,14 +20,6 @@ You can add as many target accounts as you want. There is nothing
 preventing you from deploying to two Kubernetes clusters, one Google Compute
 Engine project, and an App Engine application all at once.
 
-### Edit your storage settings
-
-[Documentation](/docs/setup/install/storage/)
-
-While you have likely already setup a storage source during the initial
-installation of Spinnaker, you can always reconfigure it. However, it is up to
-you to migrate any data that you depend on.
-
 ### Secure your Spinnaker installation
 
 [Documentation](/docs/setup/other_config/security/) 

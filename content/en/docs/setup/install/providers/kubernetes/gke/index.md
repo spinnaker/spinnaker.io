@@ -48,14 +48,14 @@ account in order to generate an authentication token.
 Given that all pods on GKE share the same service account, granting Spinnaker
 on GKE permission also grants permission to all pods running alongside
 Spinnaker. For this reason, we recommend configuring a [Kubernetes service
-account](/docs/setup/install/providers/kubernetes-v2/#optional-create-a-kubernetes-service-account)
+account](/docs/setup/install/providers/kubernetes/#optional-create-a-kubernetes-service-account)
 for Spinnaker to authenticate as.
 
 __TL;DR__ Use the credentials you've downloaded to create a [Kubernetes service
-account](/docs/setup/install/providers/kubernetes-v2/#optional-create-a-kubernetes-service-account)
+account](/docs/setup/install/providers/kubernetes/#optional-create-a-kubernetes-service-account)
 for Spinnaker to authenticate as.
 
 ## Next steps
 
 [Follow the setup instructions for adding a Kubernetes account in
-Spinnaker](/docs/setup/install/providers/kubernetes-v2/#adding-an-account).
+Spinnaker](/docs/setup/install/providers/kubernetes/#adding-an-account).

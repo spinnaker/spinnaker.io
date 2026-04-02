@@ -31,8 +31,6 @@ Add as many of the following providers as you need. When you're done, return to 
 * [Google Compute Engine](/docs/setup/install/providers/gce/)
 * [Oracle](/docs/setup/install/providers/oracle/)
 
-
-
 ## Next steps
 
 When you've finished setting up your cloud provider, you're ready to

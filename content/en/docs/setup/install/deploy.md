@@ -2,8 +2,6 @@
 
 title:  "Deploy Spinnaker and Connect to the UI"
 description: After you finish configuring Spinnaker, deploy it and connect to the Deck, the Spinnaker UI.
-aliases:
-   - /setup/install/upgrades/
 weight: 50
 ---
 

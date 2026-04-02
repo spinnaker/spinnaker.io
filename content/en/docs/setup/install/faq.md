@@ -1,10 +1,16 @@
 ---
-title: 'Halyard FAQ'
-description: Common questions about Halyard.
+title: 'Setup FAQ'
+description: Commonly Asked Questions
 weight: 70
 aliases:
   - /setup/quickstart/faq/
 ---
+
+# CAUTION
+Halyard is deprecated and no longer supported.  MANY FAQs here around halyard no longer work
+or are no longer relevant.  See a [Spinnaker Kustomize](https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize) 
+based installation for a current deployment of spinnaker.  Halyard FAQs and information will be removed
+on an ongoing basis
 
 ## I can't load the Applications screen
 
@@ -115,16 +121,15 @@ You have two options here:
    each subservice.
 
 ## I'm seeing duplicate/bad infrastructure entries in the UI after deploying config changes
+> This information is drastically out of date.  Spinnaker has cleanup services that
+> can be configured.  Configure the unknown-agent-cleanup-agent in clouddriver to purge
+> out of date information
 
 Spinnaker's cloud provider integration point (clouddriver) does not clean out
 cache entries that may be left around after reconfiguring existing
 accounts. The best way to get around this is to supply the
 `--flush-infrastructure-caches` to a `hal deploy apply`. This may cause
 jittering in the UI as the caches are repopulated.
-
-## I want to decouple my Halyard configuration from a single machine
-
-Please read [the backup documentation](/docs/setup/install/backups/).
 
 ## Halyard produces a lot of ugly ANSI escape sequences making it frustrating to automate
 
@@ -195,6 +200,6 @@ env:
 
 ## What is the best way to delete a Spinnaker deployment?
 
-Run `hal deploy clean` to delete an existing Spinnaker deployment. Note that this command destroys all Spinnaker artifacts in your target deployment environment. So, use it with caution and back up your configuration in case you want to restore it.
-
-After Spinnaker is deleted, delete Halyard by running `sudo ~/.hal/uninstall.sh`
+Delete the namespace where spinnaker runs.  This should remove all secrets/configmaps/etc
+NOTE external configured resources like databases will need manual cleanup OR automated cleanup via
+tooling like OpenTofu.

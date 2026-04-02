@@ -5,7 +5,8 @@ weight: 2
 description: The Kubernetes V2 Provider is the standard Kubernetes provider for Spinnaker. You can use it to deploy applications to a Kubernetes cluster.
 ---
 
-Spinnaker's Kubernetes provider fully supports Kubernetes-native, manifest-based deployments and is the recommended provider for deploying to Kubernetes with Spinnaker.
+Spinnaker's Kubernetes provider fully supports Kubernetes-native, manifest-based deployments and is the recommended
+provider for deploying to Kubernetes with Spinnaker.
 
 ## Accounts
 
@@ -99,7 +100,7 @@ kind: ClusterRole
 metadata:
   name: spinnaker-role
 rules:
-  - apiGroups: ['']
+  - apiGroups: [ '' ]
     resources:
       [
         'namespaces',
@@ -109,9 +110,9 @@ rules:
         'serviceaccounts',
         'pods/log',
       ]
-    verbs: ['get', 'list']
-  - apiGroups: ['']
-    resources: ['pods', 'services', 'secrets']
+    verbs: [ 'get', 'list' ]
+  - apiGroups: [ '' ]
+    resources: [ 'pods', 'services', 'secrets' ]
     verbs:
       [
         'create',
@@ -123,28 +124,14 @@ rules:
         'update',
         'watch',
       ]
-  - apiGroups: ['autoscaling']
-    resources: ['horizontalpodautoscalers']
-    verbs: ['list', 'get']
-  - apiGroups: ['apps']
-    resources: ['controllerrevisions']
-    verbs: ['list']
-  - apiGroups: ['extensions', 'apps']
-    resources: ['daemonsets', 'deployments', 'deployments/scale', 'ingresses', 'replicasets', 'statefulsets']
-    verbs:
-      [
-        'create',
-        'delete',
-        'deletecollection',
-        'get',
-        'list',
-        'patch',
-        'update',
-        'watch',
-      ]
-  # These permissions are necessary for halyard to operate. We use this role also to deploy Spinnaker itself.
-  - apiGroups: ['']
-    resources: ['services/proxy', 'pods/portforward']
+  - apiGroups: [ 'autoscaling' ]
+    resources: [ 'horizontalpodautoscalers' ]
+    verbs: [ 'list', 'get' ]
+  - apiGroups: [ 'apps' ]
+    resources: [ 'controllerrevisions' ]
+    verbs: [ 'list' ]
+  - apiGroups: [ 'extensions', 'apps' ]
+    resources: [ 'daemonsets', 'deployments', 'deployments/scale', 'ingresses', 'replicasets', 'statefulsets' ]
     verbs:
       [
         'create',
@@ -177,75 +164,34 @@ metadata:
   namespace: spinnaker
 ```
 
-<span class="end-collapsible-section"></span>
-
-<span class="begin-collapsible-section"></span>
-
-## Migrating from Spinnaker's legacy Kubernetes provider
-
-> Prior to the deprecation of Spinnaker's legacy (V1) Kubernetes provider, the
-> standard provider was often referred to as the V2 provider. For clarity, this
-> section refers to the providers as the V1 and V2 providers.
-
-There is no automatic pipeline migration from the V1 provider to V2, for a few
-reasons:
-
-- Unlike the V1 provider, the V2 provider encourages you to store your
-  Kubernetes Manifests outside of Spinnaker in some versioned, backing storage,
-  such as Git or GCS.
-
-- The V2 provider encourages you to leverage the Kubernetes native deployment
-  orchestration (e.g.
-  [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/))
-  instead of the Spinnaker blue/green (red/black), where possible.
-
-- The initial operations available on Kubernetes manifests (e.g. scale, pause
-  rollout, delete) in the V2 provider don't map nicely to the operations in the
-  V1 provider unless you contort Spinnaker abstractions to match those of
-  Kubernetes. To avoid building dense and brittle mappings between Spinnaker's
-  logical resources and Kubernetes's infrastructure resources, we chose to
-  adopt the Kubernetes resources and operations more natively.
-
-
-* The V2 provider does __not__ use the [Docker Registry
-  Provider]({{< ref "docker-registry" >}}).
-
-  You may still need Docker Registry accounts to trigger pipelines, but
-  otherwise we encourage you to stop using Docker Registry accounts in Spinnaker.
-  The V2 provider requires that you manage your private registry [configuration
-  and authentication](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
-  yourself.
-
-However, you can easily migrate your _infrastructure_ into the V2 provider.
-For any V1 account you have running, you can add a V2 account following the
-steps [below](#adding-an-account). This will surface your infrastructure twice
-(once per account) helping your pipeline & operation migration.
-
-{{< figure src="./v1v2.png" caption="A V1 and V2 provider surfacing the same infrastructure" >}}
-
-<span class="end-collapsible-section"></span>
-
 ## Adding an account
 
-First, make sure that the provider is enabled:
+Add the following config to clouddriver-local.yml
 
-```bash
-hal config provider kubernetes enable
-```
-
-Then add the account:
-
-```bash
-CONTEXT=$(kubectl config current-context)
-
-hal config provider kubernetes account add my-k8s-account \
-    --context $CONTEXT
+```yaml
+kubernetes:
+  enabled: true
+  loadNamespacesInAccount: false
+  verifyAccountHealth: false
+  accounts:
+    - name: k8s-example
+      kubeconfigFile: /mnt/configs/k8s-example-kubeconfig
+      kubectlExecutable: kubectl-1.29
+      cacheIntervalSeconds: 60
+      namespaces:
+        - spinnaker
+      permissions:
+        READ:
+          - everyone
+          - engineering-managed
+        WRITE:
+          - everyone
+          - engineering-managed
 ```
 
 Finally, enable [artifact support]({{< ref "ref-artifacts#enabling-artifact-support" >}}).
 
 ## Advanced account settings
 
-If you're looking for more configurability, please see the other options listed
-in the [Halyard
-Reference]({{< ref "commands#hal-config-provider-kubernetes-account-add" >}}).
+If you're looking for more configurability, please see
+the [code for a kubernetes account definition](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-kubernetes/src/main/java/com/netflix/spinnaker/clouddriver/kubernetes/config/KubernetesAccountProperties.java)

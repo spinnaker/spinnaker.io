@@ -1,6 +1,6 @@
 ---
-title: "External Storage"
-linkTitle: "External Storage"
+title: "Storage"
+linkTitle: "Storage"
 weight: 40
 description: >
   Spinnaker requires an external storage provider for persisting your Application settings and configured Pipelines.
@@ -20,27 +20,25 @@ Services ship with `mysql-connector-java` by default. You can provide additional
 connectors on the classpath if desired.  MySQL/MariaDB is reported to work all the way
 up to version 10 of MariaDB and the latest Aurora MySQL engines.
 
-Before you deploy services, you need to manually create a database and user grants.
-These are NOT automatically created as part of the start of spinnaker.  Note that
+Before you deploy services, you need to manually create a database and user grants for each service.
+These are NOT automatically created when spinnaker services start. Note that
 the kustomize example on the install DOES create these as part of the mariadb
 [init script](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/components/mariadb/base/configmap.yml#L15).
 
-Repeat these for orca, clouddriver and front50.
+Repeat these creation steps for orca, clouddriver and front50 replacing the database for each service
 ```sql
 CREATE DATABASE `front50` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 GRANT
   SELECT, INSERT, UPDATE, DELETE, CREATE, EXECUTE, SHOW VIEW
 ON `front50`.*
-TO 'front50_service'@'%'; -- IDENTIFIED BY "password" if using password based auth
+TO 'front50_service'@'%' IDENTIFIED BY "password";
 
 GRANT
   SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, LOCK TABLES, EXECUTE, SHOW VIEW
 ON `front50`.*
-TO 'front50_migrate'@'%'; -- IDENTIFIED BY "password" if using password based auth
+TO 'front50_migrate'@'%' IDENTIFIED BY "password";
 ```
-Note that the character set is key - using different character sets has been reported
-to cause issues.
 
 ## Next steps
 

@@ -6,6 +6,8 @@ description: >
 
 ## Overview
 
+# This document is deprecated and out of date, but left as a useful reference
+
 This guide explains how to set up a local Spinnaker environment on your Mac or Windows environment so you can test the `pf4jStagePlugin`, which has both Orca and Deck components. Spinnaker services running locally communicate with the other Spinnaker services running in a local VM. Although this guide is specific to the `pf4jStagePlugin`, you can adapt its contents to test your own plugin.
 
 Software for development:
@@ -16,12 +18,12 @@ Software for development:
 * [Yarn](https://classic.yarnpkg.com/en/docs/install#mac-stable) for building and running Deck
 * [Multipass](https://multipass.run/), 1.3.0
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/), 2020.1.2, with the JetBrains Kotlin plugin
-* [Spinnaker](https://www.spinnaker.io/community/releases/versions/) 1.20.6 and [Halyard](https://console.cloud.google.com/artifacts/docker/spinnaker-community/us/docker/halyard) 1.36.0, installed using [Minnaker](https://github.com/armory/minnaker), 0.0.20
+* [Spinnaker](https://www.spinnaker.io/community/releases/versions/) installed using [Minnaker](https://github.com/armory/minnaker)
 
 Specific to this guide:
 
-* [Orca](https://github.com/spinnaker/orca/tree/release-1.20.x), branch `release-1.20.x`
-* [Deck](https://github.com/spinnaker/deck/tree/release-1.20.x), branch `release-1.20.x`
+* [Orca](https://github.com/spinnaker/spinnaker/tree/release-2026.0.x), branch `release-2026.0.x`
+* [Deck](https://github.com/spinnaker/spinnaker/tree/release-2026.0.x), branch `release-2026.0.x`
 * [pf4jStagePlugin](https://github.com/spinnaker-plugin-examples/pf4jStagePlugin), v1.1.14
 
 Spinnaker setup used in this guide:

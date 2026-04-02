@@ -15,19 +15,12 @@ When configuring Docker Registries, an
 authenticate against a certain set of [Docker
 repositories](https://docs.docker.com/glossary/?term=repository).
 
-Perform the steps in this article in the same place where you have Halyard
-installed, whether [in a Docker
-container](/docs/setup/install/halyard/#install-halyard-on-docker) or [locally on
-Ubuntu/Debian](/docs/setup/install/halyard/#update-halyard-on-debianubuntu).
-
 ## Prerequisites
 
 * The Docker Registry you are configuring must already exist.
 * That Registry must support the
-  [v2 registry API](https://docs.docker.com/registry/spec/api/).
-* If the Registry doesn't have at least 1
-  [tag](https://docs.docker.com/glossary/?term=tag) among the
-  repositories you define in your Account, Halyard throws a warning.
+  [v2 registry API](https://docs.docker.com/registry/spec/api/). OCI registries are ALSO supported at this time.
+
 
 ## Registry providers
 
@@ -39,7 +32,7 @@ are subtle differences in how to get them to work with Spinnaker.
 - [Registry providers](#registry-providers)
     - [DockerHub](#dockerhub)
     - [GitHub Container Registry](#github-container-registry)
-    - [Google Container Registry](#google-artifact-registry)
+    - [Google Artifact Registry](#google-artifact-registry)
     - [Amazon Elastic Container Registry (ECR)](#amazon-elastic-container-registry-ecr)
     - [Other registries](#other-registries)
 - [Add the account](#add-the-account)
@@ -198,8 +191,7 @@ registry, and your username/password pair if you are accessing private images.
 If your registry supports the [`/_catalog`
 endpoint](https://docs.docker.com/registry/spec/api/#listing-repositories)
 you do not have to list your repositories. If it does not, keep in mind that the
-repository names are generally of the form `<username>/<image name>`. Halyard
-verifies this for you.
+repository names are generally of the form `<username>/<image name>`. 
 
 | Registry          | FQDN                                         | Catalog |
 |-------------------|----------------------------------------------|:-------:|

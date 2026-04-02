@@ -10,19 +10,19 @@ This section describes how to install and set up Spinnaker so that it can be con
 use in production. If you just want to evaluate Spinnaker without much work, one of the options
 in [Quickstart](/docs/setup/quickstart/) might be a better choice.
 
-### Halyard deprecation notice
+# Halyard deprecation notice
 Halyard was previously mentioned on this page, and is deprecated in favor
-of native installation using kustomize or similar tooling.   We've removed
-the docs referencing halyard.  An example of a script to export
-a halyard deployed spinnaker into kustomize was published here:
+of native installation using kustomize or similar native configurations.  References
+to halyard are being steadily removed from the project.  An example of a script to export
+a halyard or operator deployed spinnaker into kustomize style deployment has been published here:
 https://docs.armory.io/continuous-deployment/spinnaker-user-guides/armory-operator-to-kustomize-migration/
 
-## What you'll need
+## What you'll need to install spinnaker
 
 * A kubernetes cluster
 
   This can be any of the supported vendor solutions (AKS/EKS/GKE/etc.) or an on-premise kubernetes cluster.
-  Make sure it has at least 16GB of memory and 4 cores.  Spinnaker uses memory depending upon
+  Make sure it has at least 18GB of memory and 6 cores.  Spinnaker uses memory depending upon
   configuration and the number of "accounts" registered with spinnaker
 
 * Kustomize or kubectl with kustomize integrated
@@ -37,7 +37,9 @@ Installing a complete Spinnaker involves these steps:
 1. [Configure the database for storage](/docs/setup/install/storage/)
 1. [Deploy Spinnaker](/docs/setup/install/deploy/)
 1. [Configure everything else](/docs/setup/other_config/) 
-1. [Productionize Spinnaker](/docs/setup/productionize/) 
+1. [Productionize Spinnaker](/docs/setup/productionize/)
+
+It is HIGHTLY recommended to at LEAST setup security for spinnaker!
 
 ## And then what?
 

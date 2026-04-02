@@ -1,8 +1,3 @@
-- id: captains_log
-  name: State of Spinnaker
-  prompt: Visualize the story of the Spinnaker’s growth
-  link: /docs/community/stay-informed/captains-log/
-
 - id: op
   name: For Operators
   prompt: Guides for setting up, operating, & migrating components
