@@ -172,8 +172,7 @@ hugo server
        ```
 
        The Spinnaker repositories use a PR title checker, so your PR will fail if the title is not in the correct
-       format. For more information, see [commit message conventions]({{< ref "
-       submitting#commit-message-conventions" >}}).
+       format. For more information, see [commit message conventions]({{< ref "submitting#commit-message-conventions" >}}).
 
     2. The **Leave a comment** field defaults to the commit description. Pull request descriptions are the first step to
        helping reviewers and project maintainers understand why your change was made. Do not leave this field blank.
