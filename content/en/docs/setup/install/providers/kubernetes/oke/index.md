@@ -21,18 +21,23 @@ Kubernetes cluster on OKE by following [this tutorial](https://www.oracle.com/we
 Follow [the instructions](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-full/index.html#DownloadthekubeconfigFilefortheCluster)
 to download kubectl configuration file.
 
-## Enable Kubernetes Cloud provider using Halyard
-
-Run the following `hal` command to add an account named `my-k8s-v2-acct` to your list of Kubernetes accounts:
-
-```bash
-hal config provider kubernetes account add my-k8s-acct \
-    --context $(kubectl config current-context)
+## Store the config file in a secret that spinnaker can reference
+```shell
+kubectl create secret generic my-secret --from-file=kubeconfig-my-account=./kubeconfig
 ```
-Enable the Kubernetes provider:
+For additional entries you may need to determine an alternative strategy or use
+an [external secrets manager](/docs/reference/secrets/) instead of directly mounting secrets onto pods.
 
-```bash
-hal config provider kubernetes enable
+## Enable Kubernetes Cloud provider
+
+Like any other kubernetes account, add the configuration to `clouddriver-local.yml`
+
+
+```yaml
+kubernetes:
+  enabled: true
+  accounts:
+    - name: my-k8s-acct
+      kubeconfig: /mnt/kubeconfigs/kubeconfig-my-accoun
 ```
-
 Finally, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).

@@ -7,7 +7,7 @@ description: >
 ---
 
 This guide shows the basics of how to deploy a Kubernetes manifest using the
-[Kubernetes provider](/docs/setup/install/providers/kubernetes-v2).
+[Kubernetes provider](/docs/setup/install/providers/kubernetes).
 
 There are two main steps:
 
@@ -103,7 +103,7 @@ easily overriding the version of...
 * Kubernetes Secret
 
 When one of these objects exists in the pipeline context from an upstream stage,
-Spinnaker [automatically tries to inject it](/docs/reference/artifacts/in-kubernetes-v2/#binding-artifacts-in-manifests)
+Spinnaker [automatically tries to inject it](/docs/reference/artifacts/in-kubernetes/#binding-artifacts-in-manifests)
 into the manifest you're deploying.
 
 For example, say you trigger your pipeline using a webhook coming

@@ -40,4 +40,4 @@ There are several ways to configure the Amazon Web Services (AWS) Cloud Provider
 
 * [Amazon Elastic Compute Cloud (EC2)]({{< ref "aws-ec2" >}}) - - Use this option, if you want to manage [EC2 Instances](https://aws.amazon.com/ec2/) via Spinnaker
 * [Amazon Elastic Container Service (ECS)]({{< ref "aws-ecs" >}}) - Use this option, if you want to manage containers in [Amazon ECS](https://aws.amazon.com/ecs/)
-* [Amazon Elastic Kubernetes Service (EKS)]({{< ref "aws-eks" >}}) - Use this option, if you want to manage containers in [Amazon EKS](https://aws.amazon.com/eks/). This option uses [Kubernetes V2 (manifest based) Clouddriver](/docs/setup/install/providers/kubernetes-v2)
+* [Amazon Elastic Kubernetes Service (EKS)]({{< ref "aws-eks" >}}) - Use this option, if you want to manage containers in [Amazon EKS](https://aws.amazon.com/eks/). This option uses [Kubernetes (manifest based) Clouddriver](/docs/setup/install/providers/kubernetes)

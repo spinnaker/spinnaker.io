@@ -74,4 +74,4 @@ upstream deploy stage, or another stage's outputs. See more details in the
 If the artifacts deployed in your manifest (Docker image, ConfigMap, Secret,
 ...) are not versioned, rolling back your manifest will likely not roll back
 your code or config changes. See more details
-[here](/docs/guides/user/kubernetes-v2/best-practices#version-your-configmaps-and-secrets).
+[here](/docs/guides/user/kubernetes/best-practices#version-your-configmaps-and-secrets).

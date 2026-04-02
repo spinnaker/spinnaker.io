@@ -11198,7 +11198,7 @@ hal config provider kubernetes account add ACCOUNT [parameters]
 - `--docker-registries`: (_Default_: `[]`) A list of the Spinnaker docker registry account names this Spinnaker account can use as image sources. These docker registry accounts must be registered in your halconfig before you can add them here.
 - `--environment`: The environment name for the account. Many accounts can share the same environment (e.g. dev, test, prod)
 - `--kinds`: (_Default_: `[]`) (V2 Only) A list of resource kinds this Spinnaker account can deploy to and will cache.
-  When no kinds are configured, this defaults to 'all kinds described here [https://spinnaker.io/reference/providers/kubernetes-v2/](https://spinnaker.io/reference/providers/kubernetes-v2/)'.
+  When no kinds are configured, this defaults to 'all kinds described here [https://spinnaker.io/reference/providers/kubernetes/](https://spinnaker.io/reference/providers/kubernetes/)'.
 - `--kubeconfig-file`: The path to your kubeconfig file. By default, it will be under the Spinnaker user's home directory in the typical .kube/config location.
 - `--live-manifest-calls`: When true, clouddriver will query manifest status during pipeline executions using live data rather than the cache.
   This eliminates all time spent in the "force cache refresh" task in pipelines, greatly reducing execution time.
@@ -11274,7 +11274,7 @@ hal config provider kubernetes account edit ACCOUNT [parameters]
 - `--docker-registries`: (_Default_: `[]`) A list of the Spinnaker docker registry account names this Spinnaker account can use as image sources. These docker registry accounts must be registered in your halconfig before you can add them here.
 - `--environment`: The environment name for the account. Many accounts can share the same environment (e.g. dev, test, prod)
 - `--kinds`: (_Default_: `[]`) (V2 Only) A list of resource kinds this Spinnaker account can deploy to and will cache.
-  When no kinds are configured, this defaults to 'all kinds described here [https://spinnaker.io/reference/providers/kubernetes-v2/](https://spinnaker.io/reference/providers/kubernetes-v2/)'.
+  When no kinds are configured, this defaults to 'all kinds described here [https://spinnaker.io/reference/providers/kubernetes/](https://spinnaker.io/reference/providers/kubernetes/)'.
 - `--kubeconfig-file`: The path to your kubeconfig file. By default, it will be under the Spinnaker user's home directory in the typical .kube/config location.
 - `--live-manifest-calls`: When true, clouddriver will query manifest status during pipeline executions using live data rather than the cache.
   This eliminates all time spent in the "force cache refresh" task in pipelines, greatly reducing execution time.

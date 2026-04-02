@@ -6,7 +6,7 @@ description: Clouddriver can load and store accounts in a database for dynamic a
 
 Spinnaker 1.28 introduced an alpha API for loading, storing, updating, and otherwise managing Clouddriver account
 configurations from a database.
-Combined with a supported [external secrets manager](/docs/reference/halyard/secrets/), account credentials can be
+Combined with a supported [external secrets manager](/docs/reference/secrets/), account credentials can be
 provided by end users when setting up an account configuration.
 
 The following table lists the Clouddriver account types that currently support the account management API.

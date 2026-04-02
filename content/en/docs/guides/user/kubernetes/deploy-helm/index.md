@@ -163,4 +163,4 @@ When this stage runs, you can see every resource in your Helm chart get deployed
 
 ## Other Templating Engines
 
-In addition to Helm, Spinnaker also supports Kustomize as a templating engine. For more information, see [Using Kustomize for Manifests](/docs/guides/user/kubernetes-v2/kustomize-manifests/).
+In addition to Helm, Spinnaker also supports Kustomize as a templating engine. For more information, see [Using Kustomize for Manifests](/docs/guides/user/kubernetes/kustomize-manifests/).

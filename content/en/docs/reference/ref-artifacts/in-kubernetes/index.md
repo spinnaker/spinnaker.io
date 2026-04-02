@@ -52,7 +52,7 @@ by examining the execution's "source" directly:
 ## Versioned Kubernetes objects
 
 According to the [Kubernetes reference
-documentation](/docs/reference/providers/kubernetes-v2/#resource-management-policies),
+documentation](/docs/reference/providers/kubernetes/#resource-management-policies),
 certain resources are "versioned," meaning anytime a change is made to an
 object's manifest and deployed using Spinnaker, it is redeployed with a
 new version suffix (`-vNNN`). This is critical to supporting immutable

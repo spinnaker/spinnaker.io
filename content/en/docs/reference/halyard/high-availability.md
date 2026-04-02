@@ -10,7 +10,7 @@ When sharded, the new logical services are given new names. This means that thes
 
 Currently, this feature is only for Clouddriver and Echo.
 
-**Important:** Halyard only supports this functionality for a [distributed Spinnaker deployment](/docs/setup/install/environment/#distributed-installation) configured with the [Kubernetes provider](/docs/setup/install/providers/kubernetes-v2/).
+**Important:** Halyard only supports this functionality for a [distributed Spinnaker deployment](/docs/setup/install/environment/#distributed-installation) configured with the [Kubernetes provider](/docs/setup/install/providers/kubernetes/).
 
 ## HA Clouddriver
 

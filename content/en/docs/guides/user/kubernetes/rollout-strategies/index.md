@@ -6,9 +6,9 @@ description: >
 ---
 
 This guide describes how to take advantage of the
-[Kubernetes](/docs/setup/install/providers/kubernetes-v2) provider's first-class support for common rollout strategies, including dark, highlander, and blue/green rollouts.
+[Kubernetes](/docs/setup/install/providers/kubernetes) provider's first-class support for common rollout strategies, including dark, highlander, and blue/green rollouts.
 
->The implementation of these rollout strategies currently leverages Spinnaker's existing traffic management strategy and is valid for ReplicaSets only. See [traffic management]({{< ref "docs/guides/user/kubernetes-v2/traffic-management/index.md" >}}) for more information.
+>The implementation of these rollout strategies currently leverages Spinnaker's existing traffic management strategy and is valid for ReplicaSets only. See [traffic management]({{< ref "docs/guides/user/kubernetes/traffic-management/index.md" >}}) for more information.
 
 ## Rollout Strategy Options
 
@@ -27,7 +27,7 @@ Configuration options:
 
   Select one or more services you would like to associate with the workload. Spinnaker will
   add a `traffic.spinnaker.io/load-balancers` annotation listing the selected services as
-  described [here](/docs/guides/user/kubernetes-v2/traffic-management/#attach-a-service-to-a-workload).
+  described [here](/docs/guides/user/kubernetes/traffic-management/#attach-a-service-to-a-workload).
 
 - __Traffic__
 

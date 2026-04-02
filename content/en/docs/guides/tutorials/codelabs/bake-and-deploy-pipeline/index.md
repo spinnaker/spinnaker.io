@@ -10,7 +10,7 @@ description: >
 > on which to run it.
 >
 > For Kubernetes, try [Kubernetes
-Source-to-Prod](/docs/guides/tutorials/codelabs/kubernetes-v2-source-to-prod/),
+Source-to-Prod](/docs/guides/tutorials/codelabs/kubernetes-source-to-prod/),
 or [this one, for Azure](/docs/guides/tutorials/codelabs/azure-kubernetes-source-to-prod/).
 
 To walk you through some of the basics with Spinnaker, you're going to set up a Spinnaker pipeline that bakes a virtual machine (VM) image containing redis, then deploys that image to a test cluster.

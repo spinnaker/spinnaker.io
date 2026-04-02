@@ -23,7 +23,7 @@ are all managed in clouddriver's configuration files.
 Add as many of the following providers as you need. When you're done, return to this page.
 
 * [AWS/ECS](/docs/setup/install/providers/aws/)
-* [Kubernetes](/docs/setup/install/providers/kubernetes-v2/)
+* [Kubernetes](/docs/setup/install/providers/kubernetes/)
 * [Azure](/docs/setup/install/providers/azure/)
 * [Cloud Foundry](/docs/setup/install/providers/cf/)
 * [Docker Registry](/docs/setup/install/providers/docker-registry/)

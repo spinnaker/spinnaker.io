@@ -362,7 +362,7 @@ strategy for Kubernetes by first deploying a new ReplicaSet and then patching
 the fronting service's selectors to point to the new ReplicaSet.
 
 When patching with a _strategic_ or _merge_ strategy, Spinnaker also supports [artifact substitution
-](/docs/reference/artifacts/in-kubernetes-v2/#binding-artifacts-in-manifests) for the
+](/docs/reference/artifacts/in-kubernetes/#binding-artifacts-in-manifests) for the
 patch content just like the resource manifest in the deploy stage.
 
 ### Scale (Manifest)

@@ -7,7 +7,7 @@ description: >
 
 
 
-This guide shows the basics of how to update a Kubernetes resource in place using the patch manifest stage for the [Kubernetes provider](/docs/setup/install/providers/kubernetes-v2) provider.
+This guide shows the basics of how to update a Kubernetes resource in place using the patch manifest stage for the [Kubernetes provider](/docs/setup/install/providers/kubernetes) provider.
 
 There are a few steps:
 
@@ -61,7 +61,7 @@ metadata:
 
 ### Specify patch content dynamically
 
-Like the [Deploy (Manifest) stage](/docs/guides/user/kubernetes-v2/deploy-manifest#specify-manifests-dynamically), you can also reference an artifact as the source if you are storing your patch content externally. The artifact must be a text file containing the patch content.
+Like the [Deploy (Manifest) stage](/docs/guides/user/kubernetes/deploy-manifest#specify-manifests-dynamically), you can also reference an artifact as the source if you are storing your patch content externally. The artifact must be a text file containing the patch content.
 
 You can also set up the pipeline to trigger based on changes to the patch content:
 
@@ -78,7 +78,7 @@ Assuming you have declared an expected artifact upstream to your Patch (Manifest
 
 ## Override artifacts
 
-When patching with a _strategic_ or _merge_ strategy, the Patch (Manifest) stage also allows you to [override artifacts](/docs/guides/user/kubernetes-v2/deploy-manifest#override-artifacts) like in the deploy manifest stage.
+When patching with a _strategic_ or _merge_ strategy, the Patch (Manifest) stage also allows you to [override artifacts](/docs/guides/user/kubernetes/deploy-manifest#override-artifacts) like in the deploy manifest stage.
 
 For instance, say you have a pipeline with a Patch (Manifest) stage with the following patch content:
 
@@ -100,7 +100,7 @@ containers:
     image: gcr.io/my-project/my-image:2.0
 ```
 
-For more information on how this works, check out the [binding artifacts docs](/docs/reference/artifacts/in-kubernetes-v2#binding-artifacts-in-manifests).
+For more information on how this works, check out the [binding artifacts docs](/docs/reference/artifacts/in-kubernetes#binding-artifacts-in-manifests).
 
 
 ## Specify Patch Options

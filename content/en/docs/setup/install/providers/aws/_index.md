@@ -13,7 +13,7 @@ There are several ways to configure the Amazon Web Services (AWS) Cloud Provider
 
 * [Amazon Elastic Compute Cloud (EC2)](/docs/setup/install/providers/aws/aws-ec2/) - - Use this option, if you want to manage [AWS EC2](https://aws.amazon.com/ec2/) via Spinnaker
 * [Amazon Elastic Container Service (ECS)](/docs/setup/install/providers/aws/aws-ecs/) - - Use this option, if you want to manage containers in [AWS ECS](https://aws.amazon.com/ecs/)
-* [Amazon Elastic Kubernetes Service (EKS)](/docs/setup/install/providers/kubernetes-v2/aws-eks/) - Use this option, if you want to manage containers in [AWS EKS](https://aws.amazon.com/eks/). This option uses [Kubernetes V2 (manifest based) Clouddriver](/docs/setup/install/providers/kubernetes-v2)
+* [Amazon Elastic Kubernetes Service (EKS)](/docs/setup/install/providers/kubernetes/aws-eks/) - Use this option, if you want to manage containers in [AWS EKS](https://aws.amazon.com/eks/). This option uses [Kubernetes V2 (manifest based) Clouddriver](/docs/setup/install/providers/kubernetes)
 * [Amazon Lambda (Lambda)](https://aws.amazon.com/blogs/opensource/how-to-integrate-aws-lambda-with-spinnaker/) - Use this option, if you want to enable [AWS Lambda](https://aws.amazon.com/lambda/) support 
 
 ## AWS IAM Permissions with the AWS Cloud Provider

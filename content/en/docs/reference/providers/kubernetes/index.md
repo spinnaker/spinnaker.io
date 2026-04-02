@@ -3,7 +3,7 @@ title: "Kubernetes Provider Overview"
 linkTitle: "Kubernetes Provider"
 description: "This article describes how the Kubernetes provider works and how it differs from other providers in Spinnaker."
 alias:
-  - /reference/providers/kubernetes-v2/
+  - /reference/providers/kubernetes/
 ---
 
 > If you're unfamiliar with Kubernetes terminology, see the [Kubernetes documentation](https://kubernetes.io/docs/home/).

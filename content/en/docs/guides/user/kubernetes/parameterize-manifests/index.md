@@ -7,9 +7,9 @@ description: >
 
 Spinnaker can inject context from the currently executing pipeline into your
 manifests as they are deployed, whether they are deployed
-[statically](/docs/guides/user/kubernetes-v2/deploy-manifest/#specify-manifests-statically)
+[statically](/docs/guides/user/kubernetes/deploy-manifest/#specify-manifests-statically)
 or
-[dynamically](/docs/guides/user/kubernetes-v2/deploy-manifest/#specify-manifests-dynamically).
+[dynamically](/docs/guides/user/kubernetes/deploy-manifest/#specify-manifests-dynamically).
 
 This can be applied to a wide range of use-cases, but we will focus on using a
 pipeline parameter to specify the target namespace.
@@ -41,7 +41,7 @@ metadata:
 ```
 
 > Keep in mind this manifest [can be stored in the pipeline, or in an external
-> store such as GitHub](/docs/guides/user/kubernetes-v2/deploy-manifest).
+> store such as GitHub](/docs/guides/user/kubernetes/deploy-manifest).
 
 When you go to run the pipeline by hand, you will see the following:
 
