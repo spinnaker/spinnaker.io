@@ -185,7 +185,7 @@ spinnaker:
 ### Plugin configuration 
 
 To avoid each service restarting 
-and downloading the plugin, _do not_ add the plugin using Halyard. Instead, configure the plugin in the service's local file. For example, if your plugin extends Orca, add configuration to your `orca-local.yml` file.
+and downloading the plugin, _do not_ add the plugin to the `spinnaker-local.yml`. Instead, configure the plugin in the service's local file. For example, if your plugin extends Orca, add configuration to your `orca-local.yml` file.
 
 ```yaml
 spinnaker:
@@ -202,20 +202,11 @@ spinnaker:
             config: {}
 ```
 
-The plugin developer should provide configuration details in YAML format. If not:
-
-1. Add the plugin using Halyard.
-1. Do not restart Spinnaker.
-1. Copy the plugin configuration from the Halconfig file.
-1. Paste the plugin configuration into the relevant service's local file. Make sure configuration is in the format detailed above.
-1. [Delete](https://spinnaker.io/reference/halyard/commands/#hal-plugins-delete) the plugin by executing `hal plugins delete <unique-plugin-id>`.
-1. Restart Spinnaker
-
 ## Add a Deck proxy to Gate
 
 If your plugin has a Deck component, you need to configure a `deck-proxy` so Gate knows where to find the plugin.
 
-You can create or find the `gate-local.yml` in the same place as the other Halyard configuration files. This is usually `~/.hal/default/profiles` on the machine where Halyard is running.
+In your `gate-local.yml` add:
 
 ```yaml
 spinnaker:
@@ -231,13 +222,13 @@ spinnaker:
            url: <url-to-repositories.json-or-plugins.json>
 ```
 
-* `unique-plugin-id`: the plugin ID you used when you added the plugin to Spinnaker ([Add a plugin using Halyard](#add-a-plugin-using-halyard) section)
-* `unique-repo-name`: the plugin repository ID you used when you added the repository to Spinnaker ([Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard) section)
-* `url`: the location of the plugin repository ([Add a plugin repository using Halyard](#add-a-plugin-repository-using-halyard) section)
+* `unique-plugin-id`: the plugin ID 
+* `unique-repo-name`: the plugin repository ID 
+* `url`: the location of the plugin repository
 
 ## Redeploy Spinnaker
 
-Remember to `hal deploy apply` after you have finished configuring your plugin.
+Remember to apply your manifest changes after you have finished configuring your plugin.
 
 ## Deployment example
 
@@ -245,6 +236,6 @@ See the [pf4jStagePlugin Deployment Example]({{< ref "plugin-deploy-example" >}}
 
 ## Resources
 
-A central [repository for all Spinnaker plugins](https://github.com/spinnaker/plugins) has been initiated and any new plugins would be added going forward.
+A central [repository for all Spinnaker plugins](https://github.com/spinnaker/plugins) is available as an example but is no longer maintained or used.
 
 You can ask for help with plugins in the [Spinnaker Slack](https://join.slack.com/t/spinnakerteam/shared_invite/zt-3f4dqg66a-hX~tWeWPL3Sfnj3F8Ie2xg/) `#plugins` channel.
