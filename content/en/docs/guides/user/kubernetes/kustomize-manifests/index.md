@@ -13,30 +13,19 @@ To learn more about Kustomize and how to define a `kustomization.yaml` file, see
 * [Documentation for Kustomize](https://kubernetes-sigs.github.io/kustomize/)
 * [Example Kustomization](https://github.com/kubernetes-sigs/kustomize/tree/master/examples/wordpress)
 
-In the context of Spinnaker, Kustomize lets you generate a custom manifest, which can be deployed in a downstream `Deploy (Manifest)` stage. This manifest is tailored to your requirements and built on existing configurations.
-
-## Enabling Kustomize Prior to 1.20
-
-Kustomize must be enabled by a feature flag in Spinnaker 1.16 - 1.19.
-
-For Halyard, add the following line to `~/.hal/{DEPLOYMENT_NAME}/profiles/settings-local.js`:
-
-```javascript
-window.spinnakerSettings.feature.kustomizeEnabled = true;
-```
+In the context of Spinnaker, Kustomize lets you generate a custom manifest, which can be deployed in
+a downstream `Deploy (Manifest)` stage. This manifest is tailored to your requirements and built on
+existing configurations.
 
 ## Overview
 
-Kustomize works by running `kustomize build` against a `kustomization.yaml` file located in a Git repository. This file defines all of the other files needed by Kustomize to render a fully hydrated manifest.
-
-Kustomize support was added to Spinnaker in 1.16. However, the instructions for using Kustomize vary between Spinnaker 1.16 and 1.17+.
+Kustomize works by running `kustomize build` against a `kustomization.yaml` file located in a Git 
+repository. This file defines all of the other files needed by Kustomize to render a fully hydrated
+manifest.
 
 ## Configure the “Bake (Manifest)” stage
 
-### Using Spinnaker 1.17+
-
->Note: Kustomize in 1.17+ requires the [git/repo](/docs/reference/artifacts/types/git-repo/) artifact type.**
-
+>Note: Kustomize requires a [git/repo](/docs/reference/artifacts/types/git-repo/) artifact type.**
 
 Select `Kustomize` as the Render Engine and define the artifact for your `kustomization.yaml`.
 

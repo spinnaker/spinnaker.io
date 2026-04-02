@@ -45,8 +45,6 @@ Spinnaker setup used in this guide:
 
 ## Install Spinnaker in a Multipass VM
 
- Minnaker is an open source tool that installs the latest release of Spinnaker and Halyard on [Lightweight Kubernetes (K3s)](https://k3s.io/).
-
 1. Launch a Multipass VM with 2 cores, 10GB of memory, 30GB of storage.
 
    ```bash
@@ -65,7 +63,7 @@ Spinnaker setup used in this guide:
    multipass shell <vm-name>
    ```
 
-1. Download and unpack Minnaker.
+1. Download and unpack Minnaker (an old image that has some spinnaker tooling)
 
    ```bash
    curl -LO https://github.com/armory/minnaker/releases/download/0.0.20/minnaker.tgz

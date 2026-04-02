@@ -24,8 +24,6 @@ Users with all the roles defined in the service account can grant a pipeline "Ru
  the app can then run the pipeline with additional set of roles (e.g. access to a provider account or 
  some other app).
 
-Until Halyard supports creation of service accounts, you'll need to run the following commands:
-
 ```bash
 FRONT50=http://front50.url:8080
 

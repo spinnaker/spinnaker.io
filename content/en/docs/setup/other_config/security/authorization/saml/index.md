@@ -19,10 +19,4 @@ To enable SAML roles, configure your IdP to include group membership in the asse
 When Fiat is enabled, SAML groups are automatically pushed to Fiat upon user login and cannot be 
 updated until the user needs to reauthenticate.
 
-
-
-## Configure with Halyard
-
-SAML roles are automatically pushed to Fiat, so no further configuration is needed.
-
 ## Troubleshooting

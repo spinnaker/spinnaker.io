@@ -81,12 +81,11 @@ kubeconfig files [here](http://kubernetes.io/docs/user-guide/kubeconfig-file/).
 ## Configure Spinnaker
 
 We will be deploying Spinnaker to one of your Kubernetes clusters. To do so,
-start by [installing halyard](/docs/setup/install/halyard).
+start by [installing it here](/docs/setup/install/).
 
-### Choose a storage service
+### Configure Storage
 
-Pick a storage service [here](/docs/setup/install/storage), and run the required
-`hal` commands.
+Setup storage as per [here](/docs/setup/install/storage)
 
 ### Add your Kubernetes accounts
 
@@ -107,15 +106,7 @@ CURRENT   NAME                       CLUSTER        AUTHINFO       NAMESPACE
 
 Record the names of the contexts as `$STAGING_CONTEXT` and `$PROD_CONTEXT`.
 
-Now we will register both contexts with Spinnaker.
-
-```bash
-hal config provider kubernetes account add prod-demo \
-  --context $PROD_CONTEXT
-
-hal config provider kubernetes account add staging-demo \
-  --context $STAGING_CONTEXT
-```
+Now we will register both contexts with Spinnaker. See https://spinnaker.io/docs/setup/install/providers/
 
 ### Configure GitHub artifact credentials
 
@@ -130,20 +121,7 @@ image update.
 
 ### Deploy Spinnaker
 
-Pick a version & specify that you want to deploy Spinnaker inside the staging
-cluster:
-
-```bash
-hal config version edit --version $(hal version latest -q)
-
-hal config deploy edit --type distributed --account-name staging-demo
-```
-
-And finally, deploy Spinnaker.
-
-```bash
-hal deploy apply
-```
+Deploy spinnaker using kustomize and the [installation docs](/docs/setup/install)
 
 ## Configure webhooks
 
@@ -241,7 +219,7 @@ When you first open Spinnaker (if you've followed the above
 [prerequisites](#0-prerequisites)) it'll be running on `localhost:9000`) you'll
 be greeted with the following __Applications__ screen.
 
-{{< figure src="./app-screen.png" caption="By default, Spinnaker indexes your entire cluster, which explains why the screen is prepopulated with unrelated infrastructure. This can be changed by omiting namespaces as shown [here](/docs/reference/halyard/commands/#hal-config-provider-kubernetes-account-edit)." >}}
+{{< figure src="./app-screen.png" caption="By default, Spinnaker indexes your entire cluster, which explains why the screen is prepopulated with unrelated infrastructure. This can be changed by omitting namespaces defined in [kubernetes accounts documented here](https://spinnaker.io/docs/setup/install/providers/kubernetes/)." >}}
 
 Select __Actions__ > __Create Application__, and fill out the form as shown
 (the owner email will of course be different):

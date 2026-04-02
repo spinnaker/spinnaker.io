@@ -109,12 +109,10 @@ EOF
 
 ## Writing your Echo configuration
 
-Amazon pubsub configuration is not yet supported via Halyard, so you'll need to define the details regarding your subscription in an echo-local.yml file. Put this echo-local.yml file in `~/.hal/<Deployment Profile>/profiles/` directory and Halyard will automatically deploy it alongside echo the next time you run `hal deploy apply`. Halyard's default profile is named `default`, so if you haven't set up a different profile, this `echo-local.yaml` file would go in the `~/.hal/default/profiles/` directory on your halyard instance.
-
+Define the details regarding your subscription in your `echo-local.yml` file.
 If you are interested in contributing to Spinnaker in code but haven't found something simple to start on, this might be just the thing for you!
 
-```
-
+```yaml
 pubsub:
   enabled: true
   amazon:
@@ -129,21 +127,13 @@ pubsub:
 
 ## Turning on Amazon as an option in the UI (Deck)
 
-As of release 1.14.6, Amazon pubsub support is not supported by default in the UI, even if it's configured in echo-local.yaml as laid out above. In order to get `amazon` to show up in the list of pubsub, you must make a slight change to the settings.js file that is deployed with Gate and Deck.
+As of release 1.14.6, Amazon pubsub support is not supported by default in the UI, even if it's configured in echo-local.yaml as laid out above. In order to get `amazon` to show up in the list of pubsub, you must make a slight change to the `settings-local.js` file that is deployed with Deck.
 
-The easiest way to do this is to take it from an existing deployment in Halyard. Each time you run `hal deploy apply`, a copy of the configuration files that are deployed to your Spinnaker instance are copied to your Halyard pod in the ~/.hal/<Deployment Profile>/staging/ directory.
-
-In the staging directory, there is a file called `settings.js`. Copy the `settings.js` file to your `~/.hal/<default profile>/profiles`. Once the file is in your profiles directory, open your favorite editor and find the line that says:
+Add a line like so:
 ```
-  pubsubProviders: ['google'],
-```
-and change the line to say
-```
-  pubsubProviders: ['google','amazon'],
+window.spinnakerSettings.pubsubProviders = ['google', 'amazon'];
 ```                                                                                                            
-Once you have done that, redeploy Spinnaker using the `hal deploy apply` command.   
-
-After the new versions of Echo, Gate and Deck have come up and reported as healthy, you should be able too.
+Once you have done that, redeploy Spinnaker.  After the new versions of Echo, Gate and Deck have come up and reported as healthy, you should be able to see this in the UI.
 
 ## Troubleshooting
 

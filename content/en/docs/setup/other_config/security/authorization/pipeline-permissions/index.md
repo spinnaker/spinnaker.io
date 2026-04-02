@@ -64,8 +64,6 @@ migrations:
   migrateToManagedServiceAccounts: true
 ```
 
-If you're using Halyard, the file is `~/.hal/default/profiles/front50-local.yml`.
-
 This migration will migrate pipelines that have Fiat service accounts set to the
 new Pipeline Permissions. It will only run on pipelines where `roles` are not
 already present and `runAsUser` is set to a non-managed service account.
