@@ -189,7 +189,7 @@ kubernetes:
           - engineering-managed
 ```
 
-Finally, enable [artifact support]({{< ref "ref-artifacts#enabling-artifact-support" >}}).
+Finally, enable [artifact support]({{< ref "artifacts#enabling-artifact-support" >}}).
 
 ## Advanced account settings
 

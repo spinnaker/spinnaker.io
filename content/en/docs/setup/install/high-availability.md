@@ -4,26 +4,18 @@ mermaid: true
 description:
 ---
 
+## Warning this is an advanced that most basic users never need to worry about
 
+This page describes how you can configure a Spinnaker deployment to increase the availability/performance
+of specific services beyond simply [horizontally scaling](/docs/setup/productionize/scaling/horizontal-scaling/) the services.
 
-# HALYARD IS DEPRECATED
-> [!IMPORTANT]
-> At this time, halyard is considered deprecated and no longer supported.  
-> This document is kept here and alive for historical purposes. Documentation
-> should all be moved to native configuration files, and for more questions
-> and information please join the spinnaker slack.
-> 
-> The majority of the relevant [information has been moved to high-availability documentation](/docs/setup/install/high-availability/)
-
-
-
-This page describes how you can configure a Halyard deployment to increase the availability of specific services beyond simply [horizontally scaling](/docs/setup/productionize/scaling/horizontal-scaling/) the service. Halyard does this by splitting the functionalities of a service into separate logical roles (also known as sharding). The benefits of doing this is specific to the service that is being sharded. These deployment strategies are inspired by [Netflix's large scale experience](https://blog.spinnaker.io/scaling-spinnaker-at-netflix-part-1-8a5ae51ee6de).
+This is done by splitting the functionalities of a service into separate logical roles. The benefits of
+doing this is specific to the service that is being sharded. These deployment strategies are inspired
+by [Netflix's large scale experience](https://blog.spinnaker.io/scaling-spinnaker-at-netflix-part-1-8a5ae51ee6de).
 
 When sharded, the new logical services are given new names. This means that these logical services can be configured and scaled independently of each other.
 
-Currently, this feature is only for Clouddriver and Echo.
-
-**Important:** Halyard only supports this functionality for a [distributed Spinnaker deployment](/docs/setup/install/environment/#distributed-installation) configured with the [Kubernetes provider](/docs/setup/install/providers/kubernetes/).
+Currently, this feature is primarily for Clouddriver and/or Orca.  Echo can do some sharding as well.
 
 ## HA Clouddriver
 
@@ -42,21 +34,23 @@ classDef split fill:#42f4c2,stroke:#39546a;
 class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo-scheduler,echo-worker split
 {{< /mermaid >}}
 
-Clouddriver benefits greatly from isolating its operations into separate services. To split Clouddriver for increased availability, run:
+Clouddriver benefits greatly from isolating its operations into separate services. To split Clouddriver into
+multiple services, you'll configure each service to operate on specific configurations and operations.
+* Caching pods - for JUST executing cache agents.  These will not process any user or pipeline execution data
+* RW pods - for execution operations
+* RO pods - for UI and API operations for end users.
 
-```bash
-hal config deploy ha clouddriver enable
-```
+For more advanced configurations INCLUDING sharding clouddriver by account, region or application names, you can
+look at the code in clouddriver, orca, and gate around ServiceSelectors.  We'd welcome additional documentations
+for this as needed.
 
-When Spinnaker is deployed with this flag enabled, Clouddriver will be deployed as four different services, each only performing a subset of the base Clouddriver's operations.
+Although by default the four Clouddriver services will communicate with a global Redis and Database (all Spinnaker services speak
+to this Redis/SQL), it is recommended that the logical Clouddriver services be configured to communicate
+with external solutions. To be most effective, `clouddriver-ro` should be configured to speak to a RO SQL read
+replica, `clouddriver-ro-deck` should be configured to speak to a different read replica, and the other two should
+be configured to speak to the master. 
 
-Although by default the four Clouddriver services will communicate with the global Redis (all Spinnaker services speak to this Redis) provided by Halyard, it is recommended that the logical Clouddriver services be configured to communicate with an external Redis service. To be most effective, `clouddriver-ro` should be configured to speak to a Redis read replica, `clouddriver-ro-deck` should be configured to speak to a different Redis read replica, and the other two should be configured to speak to the master. This is handled automatically by Halyard if the user provides the two endpoints using this command:
-
-```bash
-hal config deploy ha clouddriver edit --redis-master-endpoint $REDIS_MASTER_ENDPOINT --redis-slave-endpoint $REDIS_SLAVE_ENDPOINT --redis-slave-deck-endpoint $REDIS_SLAVE_DECK_ENDPOINT
-```
-
-The values for `REDIS_MASTER_ENDPOINT`, `REDIS_SLAVE_ENDPOINT`, and `REDIS_SLAVE_DECK_ENDPOINT` must be [valid Redis URIs](https://www.iana.org/assignments/uri-schemes/prov/redis).
+For example configurations, please look into clouddrivers codebase, the [SQL configuration](/docs/setup/install/storage/) 
 
 More information on Redis replication can be [found here](https://redis.io/topics/replication).
 

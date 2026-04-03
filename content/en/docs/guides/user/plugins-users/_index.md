@@ -34,8 +34,8 @@ Spinnaker uses [PF4J-Update](https://github.com/pf4j/pf4j-update) to load and ma
 
 Adding a plugin to Spinnaker consists of the following steps:
 
-1. [Add a plugin repository](#add-a-plugin-repository-using-halyard)
-1. [Add a plugin](#add-a-plugin-using-halyard)
+1. [Add a plugin repository](#add-a-plugin-repository)
+1. [Add a plugin](#add-a-plugin-repository)
 1. [Add a Deck proxy to Gate](#add-a-deck-proxy-to-gate) (Optional)
 1. [Redeploy Spinnaker](#redeploy-spinnaker)
 

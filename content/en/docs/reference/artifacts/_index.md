@@ -6,7 +6,6 @@ aliases:
   - /reference/artifacts-with-artifactsrewrite/
 ---
 
-> The Legacy Artifacts UI has been removed. These pages refer to the newer Artifacts UI. For information about the legacy Artifacts UI, see this [page](/docs/reference/artifacts-legacy/).
 
 A Spinnaker artifact is a named JSON object that refers to an external resource.
 
@@ -17,38 +16,18 @@ Spinnaker supports a wide range of providers. An artifact can reference any of m
 * an Amazon Machine Image (AMI)
 * a binary blob in Amazon S3, Google Cloud Storage, etc.
 
-Each of these could be fetched using a URI and used within a pipeline, but a URI alone can omit other important information about the resource. You may wish to also fetch provenance information such as the commit that triggered the resource's build, or to store information about the account that has permission to download the resource.
+Each of these could be fetched using a URI and used within a pipeline, but a URI alone can omit other important
+information about the resource. You may wish to also fetch provenance information such as the commit that triggered the
+resource's build, or to store information about the account that has permission to download the resource.
 
-To incorporate metadata such as this along with the resource's URI, Spinnaker artifacts follow a particular specification that includes the human-readable name of the artifact, its URI, and any other applicable metadata. This is called "artifact decoration". Every Spinnaker artifact--whether supplied to a pipeline, accessed within a pipeline, or produced by a pipeline--follows this specification.
+To incorporate metadata such as this along with the resource's URI, Spinnaker artifacts follow a particular
+specification that includes the human-readable name of the artifact, its URI, and any other applicable metadata. This is
+called "artifact decoration". Every Spinnaker artifact--whether supplied to a pipeline, accessed within a pipeline, or
+produced by a pipeline--follows this specification.
 
-Keep in mind that the artifact in Spinnaker is a _reference_ to an external resource--it is not the resource itself. The resource itself could be of any type supported by Spinnaker; the artifact is the named JSON object that contains information about the resource.
-
-## Enabling artifact support
-
-If using a version of Spinnaker prior to 1.20, enable support for the standard artifacts UI:
-
-```bash
-hal config features edit --artifacts-rewrite true
-```
-
-If using Spinnaker 1.20 or later, support for the standard artifacts UI is enabled by default.
-
-## Transitioning from the legacy artifacts UI
-
-If you were using Spinnaker 1.19 or earlier with the legacy artifacts UI enabled,
-you will notice several changes upon upgrading to 1.20. For example, there is no
-longer a separate Expected Artifacts section when configuring a pipeline.
-Instead, you can add, edit, and remove expected artifacts from the Trigger
-Constraints section of each trigger. If an artifact is not associated with a
-trigger, it is no longer editable from the pipeline configuration view, and we
-recommend defining it inline in the stage that consumes it instead.
-
-For the 1.20 release only, you can add the following to your `settings-local.js`
-to revert to the legacy artifacts UI:
-
-```
-window.spinnakerSettings.feature.legacyArtifactsEnabled = true;
-```
+Keep in mind that the artifact in Spinnaker is a _reference_ to an external resource--it is not the resource itself. The
+resource itself could be of any type supported by Spinnaker; the artifact is the named JSON object that contains
+information about the resource.
 
 ## The artifact format
 
@@ -131,7 +110,11 @@ The fields that make up a Spinnaker artifact are described below.
 
 ## Expected artifacts
 
-Within a pipeline trigger or stage, you can declare that the trigger or stage expects a particular artifact to be available. This artifact is called an _expected artifact_. Spinnaker compares an incoming artifact (for example, a manifest file stored in GitHub) to the expected artifact (for example, a manifest with the file path `path/to/my/manifest.yml`); if the incoming artifact matches the specified expected artifact, the incoming artifact is _bound_ to that expected artifact and used by the trigger or stage.
+Within a pipeline trigger or stage, you can declare that the trigger or stage expects a particular artifact to be
+available. This artifact is called an _expected artifact_. Spinnaker compares an incoming artifact (for example, a
+manifest file stored in GitHub) to the expected artifact (for example, a manifest with the file path
+`path/to/my/manifest.yml`); if the incoming artifact matches the specified expected artifact, the incoming artifact is
+_bound_ to that expected artifact and used by the trigger or stage.
 
 <img
   src="./expected-artifact-github-file.png"
@@ -147,3 +130,14 @@ When declaring an expected artifact for a trigger, you can use fields under **Ma
 ### Prior execution and default artifact
 
 In the fields under **If Missing**, you can provide fallback behavior for the expected artifact in case the trigger doesn't find the desired artifact. If you enable the **Use prior execution** checkbox, Spinnaker will fall back to the artifact used in the last execution. If you enable the **Use default artifact** checkbox, Spinnaker will use a default artifact, which you can specify in the form (this allows you to provide fallback behavior for the first time a trigger is used, when there is no previous execution yet).
+
+## Enabling artifact support
+Clouddriver currently handles artifact fetches and processing and caching.  Enable artifacts by setting up the appropriate [artifact
+type](/docs/setup/other_config/artifacts/).  You can enable artifact handling in clouddriver by adding the following config:
+```yaml
+artifacts:
+  enabled: true
+```
+
+### Old docs and references
+These pages refer to the newer Artifacts UI. For information about the legacy Artifacts UI, see this [page](/docs/reference/artifacts-legacy/).

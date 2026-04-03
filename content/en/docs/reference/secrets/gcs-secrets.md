@@ -9,7 +9,7 @@ This example uses a bucket (`mybucket`) to store GitHub credentials and a kubeco
 ## Authorization
 Since you're storing sensitive information you protect the bucket by restricting access to it. Encryption at rest is [already provided](https://cloud.google.com/storage/docs/encryption/default-keys) automatically without additional setup.
 
-Remember to run Halyard's daemon and Spinnaker services with a service account that allows them to read that content.
+Remember to run Spinnaker services with a service account that allows them to read that content.
 
 
 ## Storing secrets

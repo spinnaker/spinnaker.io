@@ -7,9 +7,12 @@ This example uses secrets - `mysecret1`, `mysecret2` - to store GitHub credentia
 
 
 ## Authorization
-Since you're storing sensitive information you protect the secret by restricting access to it through [IAM roles](https://cloud.google.com/secret-manager/docs/access-control). Encryption at rest is [already provided](https://cloud.google.com/secret-manager/docs/encryption) by default.
 
-Remember to run Halyard's daemon and Spinnaker services with a service account that allows them to read that content.
+Since you're storing sensitive information you protect the secret by restricting access to it
+through [IAM roles](https://cloud.google.com/secret-manager/docs/access-control). Encryption at rest
+is [already provided](https://cloud.google.com/secret-manager/docs/encryption) by default.
+
+Remember to run Spinnaker services with a service account that allows them to read that content.
 
 
 ## Storing secrets

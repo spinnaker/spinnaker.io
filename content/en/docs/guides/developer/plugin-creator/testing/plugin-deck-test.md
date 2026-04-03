@@ -6,7 +6,7 @@ description: >
 
 ## Overview
 
-# This document is deprecated and out of date, but left as a useful reference
+# This document is deprecated and out of date.  Halyard is no longer supported but the document is being left as a useful reference
 
 This guide explains how to set up a local Spinnaker environment on your Mac or Windows environment so you can test the `pf4jStagePlugin`, which has both Orca and Deck components. Spinnaker services running locally communicate with the other Spinnaker services running in a local VM. Although this guide is specific to the `pf4jStagePlugin`, you can adapt its contents to test your own plugin.
 

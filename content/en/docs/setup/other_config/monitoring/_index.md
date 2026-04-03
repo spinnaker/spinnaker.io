@@ -17,9 +17,10 @@ microservice instance and reports them to a third-party monitoring system
 which you then use to view overview dashboards, receive alerts, and
 informally browse depending on your needs.
 
-The plugin currently supports two specific third-party systems:
+The plugin currently supports three specific third-party systems:
 [Prometheus](https://prometheus.io/),
-and [New Relic](https://newrelic.com/). The plugin is
+and [New Relic](https://newrelic.com/), 
+and [DataDog](https://datadog.com/). The plugin is
 extensible so that it should be straightforward to add other systems as well.
 
 Spinnaker publishes internal metrics using a multi-dimensional data model
@@ -43,7 +44,8 @@ To read more about the spinnaker monitoring daemon deprecation, check out the
 ## Configuring the Spinnaker Observability Plugin
 
 The instructions on how to install and configure the plugin can be found on
-the [Armory website](https://docs.armory.io/continuous-deployment/armory-admin/observe/prometheus-monitoring/).
+the [Armory website]https://github.com/armory-plugins/armory-observability-plugin).  
+We'd welcome PRs to improve the docs.
 
 Additional information on how to configure the plugin can be found below.
 

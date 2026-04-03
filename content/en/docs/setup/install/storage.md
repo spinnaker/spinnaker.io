@@ -25,7 +25,7 @@ These are NOT automatically created when spinnaker services start. Note that
 the kustomize example on the install DOES create these as part of the mariadb
 [init script](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/components/mariadb/base/configmap.yml#L15).
 
-Repeat these creation steps for orca, clouddriver and front50 replacing the database for each service
+Repeat these creation steps for echo, orca, clouddriver, fiat and front50 (and keel if using keel) replacing the database for each service
 ```sql
 CREATE DATABASE `front50` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -40,6 +40,28 @@ ON `front50`.*
 TO 'front50_migrate'@'%' IDENTIFIED BY "password";
 ```
 
-## Next steps
+## Configure the services
+Configure the services (when not using the native mariadb component in kustomize) to use the SQL configuration passed above.  AN example
+for mariadb:
+```yaml
+sql:
+  enabled: true
+  connectionPools:
+    default:
+      default: true
+      # additional connection pool parameters are available here,
+      # for more detail and to view defaults, see:
+      # https://github.com/spinnaker/kork/blob/master/kork-sql/src/main/kotlin/com/netflix/spinnaker/kork/sql/config/ConnectionPoolProperties.kt
+      jdbcUrl: jdbc:mysql://mariadb:3306/fiat
+      user: fiat_service
+      password: ${FIAT_MARIADB}
+  migration:
+    jdbcUrl: jdbc:mysql://mariadb:3306/fiat
+    user: fiat_migrate
+    password: ${FIAT_MARIADB}
+```
+The default spinnaker-kustomize installation uses a [component to auto inject](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/components/mariadb/kustomization.yml) these configurations
+into the targeted services.  
 
+## Next steps
 After you've set up your external storage service, you're ready to [deploy Spinnaker](/docs/setup/install/deploy/).

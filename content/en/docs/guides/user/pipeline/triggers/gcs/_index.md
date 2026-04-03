@@ -73,7 +73,7 @@ Next, we must configure the trigger:
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | __Type__                  | "Pub/Sub"                                                                                                                                                |
 | __Pub/Sub System Type__   | "Google"                                                                                                                                                 |
-| __Subscription Name__     | Depends on your Pub/Sub configuration (from Halyard                                                                                                      |
+| __Subscription Name__     | Depends on your Pub/Sub configuration                                                                                                                    |
 | __Attribute Constraints__ | Must be configured to include the pair `eventType`:`OBJECT_FINALIZE` (See the [docs](https://cloud.google.com/storage/docs/pubsub-notifications#events)) |
 | __Expected Artifacts__    | Must reference the artifact defined previously                                                                                                           |
 

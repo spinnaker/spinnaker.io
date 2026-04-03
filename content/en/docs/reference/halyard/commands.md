@@ -3,7 +3,13 @@ title: 'Commands'
 description: Halyard command reference
 ---
 
-Published: 2020-04-30 21:10:29
+# HALYARD IS DEPRECATED
+> [!IMPORTANT]
+> At this time, halyard is considered deprecated and no longer supported.  
+> This document is kept here and alive for historical purposes. Documentation
+> should all be moved to native configuration files, and for more questions
+> and information please join the spinnaker slack.
+
 
 ## Table of Contents
 

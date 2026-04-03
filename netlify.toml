@@ -156,6 +156,12 @@ HUGO_ENABLEGITINFO = "true"
   status = 301
   force = false
 
+[[redirects]]
+from = "/docs/reference/refs-artifactsrewrite/*"
+to = "/docs/reference/artifacts/:splat"
+status = 301
+force = false
+
 
 # headers  https://docs.netlify.com/routing/headers/#syntax-for-the-headers-file
 # https://cloud-armory.slack.com/archives/CH4RVCCTS/p1608572781420500

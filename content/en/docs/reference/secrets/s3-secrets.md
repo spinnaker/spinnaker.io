@@ -4,13 +4,16 @@ description: This document describes how to set up Spinnaker secrets in an encry
 ---
 
 
-This document describes how to set up Spinnaker secrets in an encrypted S3 bucket. This example uses a bucket (`mybucket`) in the `us-west-2` region to store GitHub credentials and a kubeconfig file. You reference the bucket by its URL `mybucket.us-west-2.amazonaws.com`.
-
+This document describes how to set up Spinnaker secrets in an encrypted S3 bucket. This example uses a bucket (
+`mybucket`) in the `us-west-2` region to store GitHub credentials and a kubeconfig file. You can reference the bucket by its
+URL `mybucket.us-west-2.amazonaws.com`.
 
 ## Authorization
-Since you're storing sensitive information, you protect the bucket by restricting access and [enabling encryption](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/default-bucket-encryption.html).
 
-Remember to run Halyard's daemon and Spinnaker services with IAM roles that allow them to read that content.
+Since you're storing sensitive information, you protect the bucket by restricting access
+and [enabling encryption](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/default-bucket-encryption.html).
+
+Remember to run Spinnaker services with IAM roles that allow them to read that content.
 
 
 ## Storing secrets
