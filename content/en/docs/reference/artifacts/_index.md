@@ -4,6 +4,7 @@ linkTitle: "Spinnaker Artifacts"
 description: A Spinnaker artifact is a named JSON object that refers to an external resource.
 aliases:
   - /reference/artifacts-with-artifactsrewrite/
+  - /reference/artifacts/
 ---
 
 

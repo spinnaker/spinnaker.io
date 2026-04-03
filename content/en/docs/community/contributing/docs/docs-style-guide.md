@@ -216,8 +216,7 @@ a specific order.
   1. Run these commands:
 
       ```
-        curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debian/InstallHalyard.sh
-        sudo bash InstallHalyard.sh
+        curl -O https://raw.githubusercontent.com/spinnaker/spinnaker/scrip
       ```
 
   1. Do the next thing
@@ -231,8 +230,7 @@ a specific order.
     1. Run these commands:
 
         ```
-        curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debian/InstallHalyard.sh
-        sudo bash InstallHalyard.sh
+        curl -O https://raw.githubusercontent.com/spinnaker/spinnaker/script.sh
         ```
 
     1. Do the next thing
