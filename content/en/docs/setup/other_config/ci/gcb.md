@@ -69,6 +69,30 @@ Use the following Halyard commands to create a GCB account, enable the GCB integ
     hal deploy apply
 ```
 
+### Regional Cloud Build (Private Pools)
+
+If you are using a [private pool](https://cloud.google.com/build/docs/private-pools/private-pools-overview) 
+in a region other than `us-central1`, you need to configure the `cloudBuildRegion` for your GCB account. 
+GCP uses regional endpoints for non-default private pools.
+
+Add the regional configuration directly in your Igor profile (`~/.hal/default/profiles/igor-local.yml`):
+
+```yaml
+gcb:
+  enabled: true
+  accounts:
+    - name: dev
+      project: my-project-id
+      subscriptionName: spinnaker-cloud-build
+    - name: dev-us-east1
+      project: my-project-id
+      cloudBuildRegion: us-east1
+      subscriptionName: spinnaker-cloud-build-us-east1
+```
+
+**Important:** Each regional account requires its own Pub/Sub subscription to avoid race 
+conditions between accounts when processing build notifications.
+
 ## Configure your pipeline trigger
 
 Configure your pipeline to be triggered by a completed GCB build:
