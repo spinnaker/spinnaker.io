@@ -62,18 +62,3 @@ below:
 {% include figure image_path="./patch.png" %}
 
 Once this PR is merged, your patch should be released in the next few days.
-
-# Run the nightly builds (not recommended)
-
-If you urgently need the change, you can always rely on the
-`master-latest-unvalidated` release version. Keep in mind these changes have
-not necessarily passed our integration test suite. You can pick this release
-with the following command:
-
-```bash
-hal config version edit --version master-latest-unvalidated
-```
-
-This release is built nightly at around 2:00am every day. As a result, each
-time you run `hal deploy apply`, you will be running the latest code for each
-service.

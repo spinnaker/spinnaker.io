@@ -62,7 +62,8 @@ The following MySQL configuration parameter may improve performance for large da
 
 ## Configure Clouddriver to use MySQL
 
-The following yaml-based parameters provide a Clouddriver configuration that entirely uses MySQL in place of Redis. [Halyard](/docs/reference/halyard/) does not yet natively support Clouddriver SQL configuration. Halyard users can provide these as overrides via a `clouddriver-local.yml` file.
+The following parameters provide a Clouddriver configuration that entirely uses MySQL in place of Redis.  
+SQL configuration. Set these in your `clouddriver-local.yml` file.
 
 ```yaml
 sql:
@@ -117,6 +118,8 @@ redis:
   taskRepository:
     enabled: false
 ```
+## CAUTION:  It's recommended to keep Clouddrivers cache data in SQL, but continue to use the redis SCHEDULER.  
+As such, the above is not a recommended configuration but shows all available options.
 
 ### Agent Scheduling
 
@@ -196,7 +199,7 @@ The following steps were taken to live migrate Clouddriver in the Netflix produc
       primaryClass: com.netflix.spinnaker.clouddriver.data.task.jedis.RedisTaskRepository
       previousClass: com.netflix.spinnaker.clouddriver.sql.SqlTaskRepository
     ```
-3. A [custom Spring profile](https://www.spinnaker.io/reference/halyard/custom/#custom-profiles) was created and scoped to a set of temporary clouddriver-sql-migration clusters. The `dualTaskRepository` class ordering is flipped.
+3. Add a temporary clouddriver-sql-migration clusters with the following configuration. The `dualTaskRepository` class ordering is flipped.
     ```yaml
     sql:
       enabled: true

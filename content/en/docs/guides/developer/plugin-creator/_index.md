@@ -18,8 +18,7 @@ The goal of this guide is to help with the core services side of plugin
 development: understand how plugins work and how to create new extension
 points for plugin developers to use.
 
-> Plugins are available in Spinnaker `1.20.6+` configured with
-> Halyard `1.36+`.
+> Plugins are available in Spinnaker `1.20.6+`
 
 ## Why there is a plugin framework
 

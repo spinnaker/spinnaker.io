@@ -8,7 +8,7 @@ description: >
 
 ## Overview
 
-_Note: Spinnaker 1.20.6 and 1.21+ support plugins with both server and frontend components. Spinnaker 1.19.x does not support frontend plugins due to a bug in Deck._
+_Note: Spinnaker supports plugins with both server and frontend components. 
 
 In this guide, you deploy the `pf4jStagePlugin` plugin from the [spinnaker-plugin-examples](https://github.com/spinnaker-plugin-examples/examplePluginRepository) repository.
 
@@ -18,37 +18,13 @@ In this guide, you deploy the `pf4jStagePlugin` plugin from the [spinnaker-plugi
 
 This guide was tested with the following software versions:
 
-* Spinnaker 1.20.6 and 1.21+
-* Halyard 1.36
+* Spinnaker current release
 * pf4jStagePlugin 1.1.14
 
 ## Add the plugin repository
+Add to the [spinnaker-local.yml](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/overlays/config/files/spinnaker-local.yml):
+> NOTE that the spinnaker prefix is intentional on this configuration
 
-```bash
-hal plugins repository add examplePluginsRepo \
-  --url=https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
-```
-
-This adds the following YAML to your Halconfig:
-
-```yaml
-spinnaker:
-  extensibility:
-    plugins: {}
-    repositories:
-      examplePluginsRepo:
-        id: examplePluginsRepo
-        url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
-```
-
-## Add the plugin
-
-```bash
- hal plugins add Armory.RandomWaitPlugin --version=1.1.14 \
-   --enabled=true --extensions=armory.randomWaitStage
- ```
-
-Next, configure the plugin. Edit your Halconfig to add the `defaultMaxWaitTime` in the `config` section:
 
 ```yaml
 spinnaker:
@@ -64,20 +40,14 @@ spinnaker:
             enabled: true
             config:
               defaultMaxWaitTime: 60
-     repositories:
+    repositories:
        examplePluginsRepo:
          url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
 ```
 
->Note: As of Spinnaker 1.23.0, listing extensions has been deprecated and configuration has been simplified. Plugin extension configurations have been moved and are now nested under the plugin itself.
-> See an example of the changes [here](../#plugin-v2-configuration-changes)
-
-
 ## Add `deck-proxy` to gate-local.yml
 
-Beginning in Spinnaker 1.20, Gate needs to know where to get any plugin that has a Deck component. If your plugin is backend only, you do not need to modify `gate-local.yml`.
-
-You can create or find `gate-local.yml` in the directory where Halyard stores local config files. This is usually `~\.hal\default\profiles` on the machine where Halyard is running. Add the following snippet:
+Gate needs to know where to get any plugin that has a Deck component. If your plugin is backend only, you do not need to modify [gate-local.yml](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/overlays/config/files/gate-local.yml).
 
 ```yaml
 spinnaker:
@@ -93,13 +63,7 @@ spinnaker:
          url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/plugins.json
 ```
 
-The plugin and repository information is a subset of the entries in your Halconfig.
-
 ## Redeploy Spinnaker
-
-```bash
-hal deploy apply
-```
 
 ## Access the RandomWait plugin in the UI
 

@@ -96,7 +96,7 @@ may look something like this:
 
 Starting with Spinnaker 2025.x.x, a new SAML integration mechanism has been introduced to improve compatibility, simplify configuration, and align with modern identity provider (IdP) standards. This replaces some of the legacy configuration approaches used in earlier versions of Spinnaker.
 
-The below approach applies to certain IDPs that support signing credentials (Okta is NOT one of these).  This is a required change for keycloak and a few other providers.  Note alternatively to using a custom volume map, you can use [encryptedFile secret](https://spinnaker.io/docs/reference/halyard/secrets/) store references.  
+The below approach applies to certain IDPs that support signing credentials (Okta is NOT one of these).  This is a required change for keycloak and a few other providers.  Note alternatively to using a custom volume map, you can use [encryptedFile secret](https://spinnaker.io/docs/reference/secrets/) store references.  
 
 create configMap
 ```

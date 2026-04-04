@@ -8,43 +8,25 @@ description: Configure a GitHub artifact account so that Spinnaker can download 
 
 * You need a [GitHub](https://github.com) account.
 
-### Downloading credentials
+### Download credentials
 
 Start by generating an [access token](https://github.com/settings/tokens)
 for GitHub. The token requires the __repo__ scope.
 
-Place the token in a file (`$TOKEN_FILE`) readable by Halyard:
+Add the credentials either to a [secrets manager](https://spinnaker.io/docs/reference/secrets/)
+for use by reference or to a volume mounted into the clouddriver pods by modifying the deployment.yaml for clouddriver.
 
-```bash
-echo $TOKEN > $TOKEN_FILE
+## Add the account and enable it
+Add the below to `clouddriver-local.yml` to enable artifacts and add a github account
+
+```yaml
+artifacts:
+  enabled: true
+  github:
+    enabled: true
+    accounts:
+    - name: my-github-account
+      tokenFile: /mnt/some/file|secretReference
 ```
 
-## Editing your artifact settings
-
-All that's required are the following values:
-
-```bash
-# See the prerequisites section above
-TOKEN_FILE=
-
-ARTIFACT_ACCOUNT_NAME=my-github-artifact-account
-```
-
-First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
-
-Next, enable the GitHub artifact provider:
-
-```bash
-hal config artifact github enable
-```
-
-Next, add an artifact account:
-
-```bash
-hal config artifact github account add $ARTIFACT_ACCOUNT_NAME \
-    --token-file $TOKEN_FILE
-```
-
-There are more options described
-[here](/docs/reference/halyard/commands#hal-config-artifact-github-account-edit)
-if you need more control over your configuration.
+There are more options available if you look at the [github account definition code](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-artifacts/clouddriver-artifacts-github/src/main/java/com/netflix/spinnaker/clouddriver/artifacts/github/GitHubArtifactAccount.java)

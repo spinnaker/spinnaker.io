@@ -34,12 +34,6 @@ SSH onto the compute instance you previously created.  `IP` is its public ip add
 ssh ubuntu@IP
 ```
 
-* Install Halyard
-
-```bash
-curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debian/InstallHalyard.sh
-sudo bash InstallHalyard.sh -y
-```
 
 * Set up Oracle Object Storage as your Spinnaker storage by following these steps: [Adding Oracle Object Storage to Spinnaker](/docs/setup/install/storage/oracle/).
 
@@ -122,19 +116,7 @@ Note that Oracle-provided images have a default set of firewall rules which allo
 {% endraw %}
 <span class="end-collapsible-section"></span>
 
-* Set up Spinnaker version.  To complete this tutorial, Spinnaker version has to be at least 1.11.x.
-
-```bash
-hal config version edit --version $SPINNAKER_VERSION
-```
-
-* Execute the following commands to complete the installation:
-
-```bash
-hal config deploy edit --type localdebian
-sudo hal deploy apply
-sudo systemctl daemon-reload
-```
+* [Install spinnaker per](/docs/setup/install/) using a debian installation
 
 ### Accessing Spinnaker
 

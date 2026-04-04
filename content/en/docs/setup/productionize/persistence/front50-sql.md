@@ -48,9 +48,8 @@ TO 'front50_migrate'@'%'; -- IDENTIFIED BY "password" if using password based au
 
 ## Configure Front50 to use MySQL
 
-The following yaml-based parameters provide a Front50 configuration that entirely uses MySQL. [Halyard](/docs/reference/halyard/) does not yet natively support Front50 SQL configuration. Halyard users can provide these as overrides via a `front50-local.yml` file.
-
-You will need to disable any other previously enabled storage services (s3, gcs, etc.).
+The following yaml-based parameters provide a Front50 configuration that entirely uses MySQL.  Add these 
+to your `front50-local.yml` file. You will need to disable any other previously enabled storage services (s3, gcs, etc.).
 
 
 ```yaml

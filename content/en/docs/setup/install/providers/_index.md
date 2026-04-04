@@ -17,22 +17,19 @@ applications via those accounts.
 
 All of Spinnaker's abstractions and capabilities are built on top of the [Cloud
 Providers](/docs/concepts/concepts-providers/) that it supports. So, for Spinnaker to do
-anything you must enable at least one provider, with one Account added for it.
+anything you must enable at least one provider, with one Account added for it.  These
+are all managed in clouddriver's configuration files.
 
 Add as many of the following providers as you need. When you're done, return to this page.
 
-* [AWS](/docs/setup/install/providers/aws/)
-* [Kubernetes](/docs/setup/install/providers/kubernetes-v2/)
+* [AWS/ECS](/docs/setup/install/providers/aws/)
+* [Kubernetes](/docs/setup/install/providers/kubernetes/)
 * [Azure](/docs/setup/install/providers/azure/)
 * [Cloud Foundry](/docs/setup/install/providers/cf/)
-* [DC/OS](/docs/setup/install/providers/dcos/)
 * [Docker Registry](/docs/setup/install/providers/docker-registry/)
 * [Google App Engine](/docs/setup/install/providers/appengine/)
 * [Google Compute Engine](/docs/setup/install/providers/gce/)
 * [Oracle](/docs/setup/install/providers/oracle/)
-
-See also [hal config provider](/docs/reference/halyard/commands/#hal-config-provider)
-for command reference documentation.
 
 ## Next steps
 
