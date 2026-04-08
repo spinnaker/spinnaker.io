@@ -4,7 +4,7 @@
   "description": "Documentation site for spinnaker",
   "main": "index.html",
   "engines": {
-    "node": ">=16.15.0"
+    "node": ">=18"
   },
   "scripts": {
     "prestart": "npm run clean",
@@ -46,7 +46,7 @@
       "name": "Aimee Ukasick"
     }
   ],
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/spinnaker/spinnaker.io/issues"
   },
