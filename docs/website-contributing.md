@@ -2,6 +2,10 @@
 
 Reference documentation for contributors working on the spinnaker.io website itself.
 
+## Adding content
+
+Documentation lives in `content/en/docs/`. Each page is a Markdown file with frontmatter.
+
 ## Docs frontmatter
 
 | Field | Description |
@@ -11,6 +15,25 @@ Reference documentation for contributors working on the spinnaker.io website its
 | `weight` | Controls ordering within the menu (lowest first). Remove to use alphabetical order. |
 | `description` | Short description, shown in directory listings and on the content page |
 | `mermaid` | Set to `true` to enable MermaidJS on the page |
+
+## Adding diagrams
+
+Use the `mermaid` shortcode and set `mermaid: true` in the page frontmatter:
+
+```
+{{< mermaid >}}
+graph TB
+  clouddriver --> clouddriver-caching
+{{< /mermaid >}}
+```
+
+## Adding videos
+
+Use the `customyoutube` shortcode to embed a YouTube video with explicit dimensions:
+
+```
+{{< customyoutube id="b7BmMY1kR10" width="320px" height="240px" >}}
+```
 
 ## Homepage configuration
 
