@@ -58,33 +58,23 @@ More information on Redis replication can be [found here](https://redis.io/topic
 
 The first of the four logical Clouddriver services is the `clouddriver-caching` service. This service caches and retrieves cloud infrastructure data. Since this is all that `clouddriver-caching` is doing, there is no communication between this service and any other Spinnaker service.
 
-This service's name when [configuring its sizing](/docs/reference/halyard/component-sizing/) is `spin-clouddriver-caching`.
-
-To add a [custom profile](/docs/reference/halyard/custom/#custom-profiles) or [custom service settings](/docs/reference/halyard/custom/#custom-service-settings) for this service, use the name `clouddriver-caching`.
+This service's name when [configuring its sizing](/docs/reference/component-sizing/) is `spin-clouddriver-caching`.
 
 ### `clouddriver-rw`
 
 The second logical Clouddriver service is the `clouddriver-rw` service. This service handles all mutating operations aside from what the `clouddriver-caching` service does. This service can be scaled to handle an increased number of writes.
 
-This service's name when [configuring its sizing](/docs/reference/halyard/component-sizing/) is `spin-clouddriver-rw`.
-
-To add a [custom profile](/docs/reference/halyard/custom/#custom-profiles) or [custom service settings](/docs/reference/halyard/custom/#custom-service-settings) for this service, use the name `clouddriver-rw`.
-
 ### `clouddriver-ro`
 
 The `clouddriver-ro` service handles all read requests to Clouddriver. This service can be scaled to handle an increased number of reads.
 
-This service's name when [configuring its sizing](/docs/reference/halyard/component-sizing/) is `spin-clouddriver-ro`.
-
-To add a [custom profile](/docs/reference/halyard/custom/#custom-profiles) or [custom service settings](/docs/reference/halyard/custom/#custom-service-settings) for this service, use the name `clouddriver-ro`.
+This service's name when [configuring its sizing](/docs/reference/component-sizing/) is `spin-clouddriver-ro`.
 
 ### `clouddriver-ro-deck`
 
 The `clouddriver-ro-deck` service handles all read requests to Clouddriver from Deck (through Gate). This service can be scaled to handle an increased number of reads.
 
-This service's name when [configuring its sizing](/docs/reference/halyard/component-sizing/) is `spin-clouddriver-ro-deck`.
-
-To add a [custom profile](/docs/reference/halyard/custom/#custom-profiles) or [custom service settings](/docs/reference/halyard/custom/#custom-service-settings) for this service, use the name `clouddriver-ro-deck`.
+This service's name when [configuring its sizing](/docs/reference/component-sizing/) is `spin-clouddriver-ro-deck`.
 
 ## HA Echo
 
@@ -119,25 +109,13 @@ Although only the `echo-worker` service can be horizontally scaled, splitting th
 
 The `echo-scheduler` service handles scheduled tasks, or cron-jobs. Since it performs its tasks periodically (no triggers) there is no need for communication with other Spinnaker services.
 
-This service's name when [configuring its sizing](/docs/reference/halyard/component-sizing/) is `spin-echo-scheduler`. To avoid duplicate triggering, this service must be deployed with exactly one pod.
-
-To add a [custom profile](/docs/reference/halyard/custom/#custom-profiles) or [custom service settings](/docs/reference/halyard/custom/#custom-service-settings) for this service, use the name `echo-scheduler`.
+This service's name when [configuring its sizing](/docs/reference/component-sizing/) is `spin-echo-scheduler`. To avoid duplicate triggering, this service must be deployed with exactly one pod.
 
 ### `echo-worker`
 
 The `echo-worker` service handles all operations of Echo besides the cron-jobs.
 
-This service's name when [configuring its sizing](/docs/reference/halyard/component-sizing/) is `spin-echo-worker`. This service can be scaled to more than one pod, unlike the `echo-scheduler`.
-
-To add a [custom profile](/docs/reference/halyard/custom/#custom-profiles) or [custom service settings](/docs/reference/halyard/custom/#custom-service-settings) for this service, use the name `echo-worker`.
-
-## Deleting Orphaned Services
-
-When enabling or disabling HA for a service on a running Spinnaker, Halyard will not clean up the old service(s) by default. This means that if a non-HA Clouddriver is running (for example) and Spinnaker is then deployed with HA Clouddriver enabled, the non-HA Clouddriver will still be running, even though it is no longer used. To clean up these orphaned services, add a `--delete-orphaned-services` flag to `hal deploy apply`:
-
-```bash
-hal deploy apply --delete-orphaned-services
-```
+This service's name when [configuring its sizing](/docs/reference/component-sizing/) is `spin-echo-worker`. This service can be scaled to more than one pod, unlike the `echo-scheduler`.
 
 ## HA Topology
 

@@ -5,80 +5,77 @@ weight: 35
 description: Set up Automated Canary Analysis to perform Canary deployments with Spinnaker.
 ---
 
-Setting up automated canary analysis in Spinnaker consists of running a bunch
-of Halyard commands, as described in this doc. Before you can use the canary
+Setting up automated canary analysis in Spinnaker consists of configuration for
+Kayenta which does canary analysis by querying metrics, storing the canary configuration templates, and
+storage for the canary reports in a storage location.  Before you can use the canary
 analysis service, you must configure at least one metrics service, and at least
 one storage service. The most common setup is to have one metrics service
 configured (e.g. Stackdriver, Atlas, Prometheus, Datadog or New Relic) and one storage
-service (e.g. S3, GCS or Minio) configured. For further details, [here's a
-comprehensive reference](/docs/reference/halyard/commands/#hal-config-canary).
+service (e.g. S3, GCS or Minio) configured. 
 
-## Quick start
+## Quick start 
 
-If you'd prefer to just get up and running quickly now, this set of sample Halyard commands will enable
-Kayenta and configure it to retrieve metrics from Stackdriver and use GCS for persistent storage:
+If you'd prefer to just get up and running quickly a very simple example with prometheus
+for metrics and s3 for storing the results/reports looks like the below.  Add
+this to your `kayenta-local.yml` file.
+
+```yaml
+kayenta:
+  ## This doesn't enable metrics, but does enable STORAGE of data
+  ## using a minio server as an example.
+  ## SQL IS supported, but has not been regularly tested at this time.
+  aws:
+    accounts:
+      - accessKeyId: minio
+        bucket: canaries
+        endpoint: http://minio:9000
+        name: minio
+        rootFolder: kayenta
+        secretAccessKey: secretKey
+        supportedTypes:
+          ## ONLY object/config stores are supported.  CloudWatch
+          ## Metrics are NOT supported in any OSS distribution
+          ## at this point in time.
+          - CONFIGURATION_STORE
+          - OBJECT_STORE
+    enabled: true
+  prometheus:
+    accounts:
+      - endpoint:
+          baseUrl: http://prometheus.monitoring:9090
+        name: local-prometheus
+        supportedTypes:
+          - METRICS_STORE
+      - endpoint:
+          baseUrl: http://prometheus.monitoring:9090
+        name: local-prometheus-2
+        supportedTypes:
+          - METRICS_STORE
+    enabled: true
+  ## Note though AWS is enabled, you must ALSO have s3 enabled
+  s3:
+    enabled: true
+```
+You also need the following in deck in the `settings-local.js` to set some defaults depending
+upon which canary you choose to enable for which purpose
+```javascript
+window.spinnakerSettings.canary.metricsAccountName = local-prometheus;
+// note that this is the metricStore TYPE.  NOT an account NAME
+window.spinnakerSettings.canary.metricStore = prometheus; 
+// Storage account allows segmentation of reports/types as needed.
+window.spinnakerSettings.canary.storageAccountName = minio;
 
 ```
-hal config canary enable
-hal config canary google enable
-hal config canary google account add my-google-account \
-  --project $PROJECT_ID \
-  --json-path $JSON_PATH \
-  --bucket $MY_SPINNAKER_BUCKET
-hal config canary google edit --gcs-enabled true \
-  --stackdriver-enabled true
-```
-
-In the commands above...
-
-`$PROJECT_ID` is your GCP project ID
-
-`$JSON_PATH` points to your service account JSON file&mdash;don't include quotes
-
-`$MY_SPINNAKER_BUCKET` points to a GCS bucket that accepts your credentials.
-
-These can be the same values you used when configuring your other Spinnaker
-services (like Clouddriver).
-
-> __Note__ All canary-specific Halyard commands require Halyard version 0.46.0
-> or later.
->
-> `sudo update-halyard`
->
-> or
->
-> `sudo apt-get update && sudo apt-get install halyard`
-
-Next, set the Spinnaker version to v1.7.0 or higher:
-
-`hal config version edit --version 1.7.0`
-
-Lastly, update your Spinnaker deployment to include Kayenta:
-
-`hal deploy apply` (to Kubernetes)
-`sudo hal deploy apply` (to local VM)
-
-## Enable/disable canary analysis
-
-```
-hal config canary enable
-```
-
-```
-hal config canary disable
-```
-
 ## Specify the scope of canary configs
 
 By default, each [canary configuration](/docs/guides/user/canary/config/) is
 visible to all pipeline canary stages in all apps. But you can change that so
-each canary config can be used only within the Spinnaker application in which it
-was created:
+each canary config will be VISIBLE in the application it was created.
 
+Add the following to your `settings-local.js` in deck
+```javascript
+window.spinnakerSettings.canary.showAllCanaryConfigs = false;
 ```
-hal config canary edit --show-all-configs-enabled false
-```
-
 Set it to `true` to revert to global visibility.
 
 ## Set the canary judge
@@ -89,17 +86,14 @@ is described [here](/docs/guides/user/canary/judge/).
 If there are any other judges available in your world, you can set Spinnaker to
 use it:
 
-```
-hal config canary edit --default-judge JUDGE
+Add the following to your `settings-local.js` in deck
+```javascript
+window.spinnakerSettings.canary.defaultJudge = 'static-baseline-judge';
 ```
 
 ## Identify your metrics provider
 
-```
-hal config canary edit --default-metrics-store STORE
-```
-
-`STORE` can be...
+Some options for metrics are:
 
 * `atlas` (see [Netflix Atlas](https://netflix.github.io/atlas-docs/))
 * `datadog`
@@ -115,11 +109,8 @@ hal config canary edit --default-metrics-store STORE
 ## Provide the default metrics account
 
 Add the account name to use for your metrics provider. This default can be
-overridden in [canary configuration](/docs/guides/user/canary/config/).
-
-```
-hal config canary edit --default-metrics-account ACCOUNT
-```
+overridden in [canary configuration](/docs/guides/user/canary/config/)
+as seen above
 
 ## Provide the default storage account
 
@@ -127,289 +118,73 @@ Add the account name for your [storage provider](/docs/setup/install/storage).
 This default can be overridden in [canary
 configuration](/docs/guides/user/canary/config/).
 
-```
-hal config canary edit --default-storage-account ACCOUNT
-```
-
-## Set up canary analysis for AWS
-
-Configure your canary analysis to use the AWS platform&mdash;S3 in particular.
-
-### Enable/disable AWS support for canary
-
-```
-hal config canary aws enable
-```
-
-```
-hal config canary aws disable
-```
-
-### Manage or view AWS account information for canary
-
-You can add, edit, and delete multiple accounts for AWS service integrations.
-
-#### Add an account to your AWS service integration
-
-```
-hal config canary aws account add ACCOUNT --bucket --deployment --no-validate
---root-folder
-```
-
-See the [command reference](/docs/reference/halyard/commands/#hal-config-canary)
-for more about these parameters.
-
-#### Enable S3 for your canary
-
-```
-hal config canary aws edit --s3-enabled true
-```
-
-#### View your AWS canary account details
-
-```
-hal config canary aws account get ACCOUNT
-```
-
-#### List your canary AWS accounts
-
-```
-hal config canary aws account list
-```
-
-
-
+This default can be
+overridden in [canary configuration](/docs/guides/user/canary/config/)
+as seen above
 
 ## Set up canary analysis to use Datadog
 
-If your telemetry provider is Datadog, use these commands to set up your canary
-to work with your Datadog metrics.
+If your telemetry provider is Datadog, add the datadog
+configuration to `kayenta-local.yml`.  You can add/remove
+additional accounts as needed.
 
-### Enable/disable your Datadog service integration
-
+```yaml
+kayenta:
+  datadog:
+    enabled: true
+    accounts:
+    - name: my-dd-account
+      apiKey: apiKey
+      applicationKey: appKey
+      endpoint:
+        baseUrl: https://api.datadog.com
+      supportedTypes:
+      - METRICS_STORE
 ```
-hal config canary datadog enable
-```
-
-```
-hal config canary datadog disable
-```
-
-### Manage or view Datadog account information for canary
-
-You can add, edit, and delete multiple accounts for Datadog service integrations.
-For details on the parameters for these commands, see the [Halyard reference
-documentation](/docs/reference/halyard/commands/#hal-config-canary).
-
-#### Add an account to your Datadog service integration
-
-```
-hal config canary datadog account add ACCOUNT --api-key --application-key
---base-url
-```
-
-See the [command reference](/docs/reference/halyard/commands/#hal-config-canary)
-for more about these parameters.
-
-#### Edit your Datadog account information
-
-```
-hal config canary datadog account edit ACCOUNT --api-key --application-key
---base-url
-```
-
-#### Delete your account
-
-```
-hal config canary datadog account delete ACCOUNT
-```
-
-#### View your Datadog canary account details
-
-```
-hal config canary datadog account get ACCOUNT
-```
-
-#### List your canary Datadog accounts
-
-```
-hal config canary datadog account list
-```
-
-
-
-
 
 ## Set up canary analysis for Google
 
 Configure your canary analysis to work with
 Google, including [Stackdriver](https://cloud.google.com/stackdriver)
 and [GCS](https://cloud.google.com/storage/).
+Add the following configuration to `kayenta-local.yml`.  You can add/remove
+additional accounts as needed.
 
-
-### Enable/disable your Google service integration
-
-```
-hal config canary google enable
-```
-
-```
-hal config canary google disable
-```
-
-### Manage or view Google account information for canary
-
-You can add, edit, and delete multiple accounts for Google service integrations.
-For details on the parameters for these commands, see the [Halyard reference
-documentation](/docs/reference/halyard/commands/#hal-config-canary).
-
-#### Add an account to your Google service integration
-
-```
-hal config canary google account add ACCOUNT --bucket --bucket-location
---json-path --project --root-folder
+```yaml
+kayenta:
+  google:
+    enabled: true
+    accounts: 
+    - name: my-google-account
+      bucket: my-gcs-storage-bucket
+      bucket-location: location
+      json-path: authData
+      project: myproject
+      root-folder: sometplace
+      supportedTypes:
+        - CONFIG_STORE
 ```
 
-See the [command reference](/docs/reference/halyard/commands/#hal-config-canary)
-for more about these parameters.
+    ## Set up canary analysis to use New Relic
 
-#### Edit your Google account information
+If your telemetry provider is New Relic, add the following
+to your `kayenta-local.yml`
 
-```
-hal config canary google account edit ACCOUNT --bucket --bucket-location
---json-path --project --root-folder
-```
-
-#### Delete your account
-
-```
-hal config canary google account delete ACCOUNT
-```
-
-#### View your Google canary account details
-
-```
-hal config canary google account get ACCOUNT
+```yaml
+kayenta:
+  newrelic:
+    enabled: true
+    accounts:
+    - name: accountName
+      apiKey: nrqlApiKey
+      applicationKey: appKey
+      endpoint:
+        baseUrl: https://insights-api.newrelic.com
+      supportedTypes:
+        - METRICS_STORE
 ```
 
-#### List your canary Google accounts
-
-```
-hal config canary google account list
-```
-
-
-
-
-## Set up canary analysis to use Prometheus
-Configure your canary analysis to use Prometheus as your telemetry provider.
-
-
-### Enable/disable your Prometheus service integration
-
-```
-hal config canary prometheus enable
-```
-
-```
-hal config canary prometheus disable
-```
-
-### Manage or view Prometheus account information for canary
-
-You can add, edit, and delete multiple accounts for Prometheus service integrations.
-For details on the parameters for these commands, see the [Halyard reference
-documentation](/docs/reference/halyard/commands/#hal-config-canary).
-
-#### Add an account to your Prometheus service integration
-
-```
-hal config canary prometheus account add ACCOUNT --base-url
-```
-
-See the [command
-reference](/docs/reference/halyard/commands/#hal-config-canary)
-for more information.
-
-#### Edit your Prometheus account information
-
-```
-hal config canary prometheus account edit ACCOUNT --base-url
-```
-
-#### Delete your account
-
-```
-hal config canary prometheus account delete ACCOUNT
-```
-
-#### View your Prometheus canary account details
-
-```
-hal config canary prometheus account get ACCOUNT
-```
-
-#### List your canary Prometheus accounts
-
-```
-hal config canary prometheus account list
-```
-
-
-
-
-## Set up canary analysis to use New Relic
-
-If your telemetry provider is New Relic, use these commands to set up your canary
-to work with your New Relic metrics.
-
-### Enable/disable your New Relic service integration
-
-```
-hal config canary newrelic enable
-```
-
-```
-hal config canary newrelic disable
-```
-
-### Manage or view New Relic account information for canary
-
-You can add, edit, and delete multiple accounts for New Relic service integrations.
-For details on the parameters for these commands, see the [Halyard reference
-documentation](/docs/reference/halyard/commands/#hal-config-canary).
-
-#### Add an account to your New Relic service integration
-
-```
-hal config canary newrelic account add ACCOUNT --api-key --application-key
---base-url
-```
-
-See the [command reference](/docs/reference/halyard/commands/#hal-config-canary)
-for more about these parameters.
-
-#### Edit your New Relic account information
-
-```
-hal config canary newrelic account edit ACCOUNT --api-key --application-key
---base-url
-```
-
-#### Delete your account
-
-```
-hal config canary newrelic account delete ACCOUNT
-```
-
-#### View your New Relic canary account details
-
-```
-hal config canary newrelic account get ACCOUNT
-```
-
-#### List your canary New Relic accounts
-
-```
-hal config canary newrelic account list
-```
+More providers/configuration options are available in the kayenta codebase.  NOT
+all providers support configuration stores.  You can see configuration
+references for most providers [in their configuration files like the newrelic configuration files](https://github.com/spinnaker/spinnaker/blob/main/kayenta/kayenta-newrelic-insights/src/main/java/com/netflix/kayenta/newrelic/config/NewRelicConfiguration.java)
+These generally are found in the `com/netflix/kayenta/<provider>/config/` folder for each library type.

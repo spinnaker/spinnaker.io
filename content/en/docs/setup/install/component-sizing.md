@@ -1,6 +1,6 @@
 ---
 title: "Component Sizing"
-description: Use Halyard to size your Spinnaker services to meet your usage requirements.
+description: Size your Spinnaker services to meet your usage requirements.
 ---
 
 ## CPU & Memory requests/limits
