@@ -76,16 +76,15 @@ You can edit your trust relationship to add the following policy:
 
 ## Configure Spinnaker to work with AWS CodeBuild
 
-Use the following Halyard commands to create an AWS CodeBuild account, enable the AWS CodeBuild integration, and re-deploy Spinnaker:
-```
-hal config ci codebuild account add $ACCOUNT_NAME \
-  --account-id $ACCOUNT_ID \
-  --assume-role $ASSUME_ROLE \
-  --region $REGION
-
-hal config ci codebuild enable
-
-hal deploy apply
+Add the following to `igor-local.yml` to enable code build integration
+```yaml
+codebuild:
+  enabled: true
+  accounts:
+  - name: accountName
+    accountId: 1234667890
+    region: us-west-2
+    assumeRole: role/CiBuild
 ```
 
 ## Configure an AWS CodeBuild stage

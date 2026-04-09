@@ -49,25 +49,63 @@ The commands below look for the service account key in a path/file defined in `$
 
 ## Configure Spinnaker to work with Google Cloud Build
 
-Add the following entry to your `igor-local.yml` file (in `~/.hal/default/profiles/`):
+### Make sure that you have locking enabled on igor
+This will allow you to run multiple igor pods while NOT triggering duplicate
+executions.  Make sure you have the following entry in your `igor-local.yml` file:
 ```
 locking:
   enabled: true
 ```
 
-Use the following Halyard commands to create a GCB account, enable the GCB integration, and re-deploy Spinnaker:
-```
-    hal config pubsub google enable
+### Enable pub/sub
+Read through and enable [pub/sub integration with google](/docs/setup/other_config/triggers/google/).  This
+should cover setting up google to send notifications that spinnaker will consume.
 
-    hal config ci gcb account add $ACCOUNT_NAME \
-      --project $PROJECT_ID \
-      --subscription-name $SUBSCRIPTION_NAME \
-      --json-key $SERVICE_ACCOUNT_KEY
 
-    hal config ci gcb enable
-    
-    hal deploy apply
+### Configure the spinnaker services
+You'll want to add the following to consume GCB messages: 
+
+
+#### User interface
+Add the following to your deck `settings-local.js` file to enable
+the UI around pub/sub.
+```javascript
+window.spinnakerSettings.feature.ci = true;
+
+// add other trigger types to show as needed.
+window.spinnakerSettings.triggerTypes = ["cron", "pubsub"]
 ```
+For a more complete list of UI options, see the [deck settings file](https://github.com/spinnaker/spinnaker/blob/main/deck/packages/app/src/settings.js)
+
+#### Event processing
+In echo (the event system) add the following config to `echo-local.yml`
+will enable subscriptions to events.
+
+```yaml
+gcb:
+  enabled: true
+  accounts:
+  - name: accountName 
+    project: projectID
+    subscriptionName: subscriptionForGCBEvents
+    jsonKey: ifNeeded
+```
+
+#### GCB invocation
+In igor (the CI build handler) add the following to `igor-local.yml`
+```
+gcb:
+  enabled: true
+  accounts:
+  - name: accountName
+    project: projectID
+    cloudBuildRegion: <optional>
+    jsonKey: authCredsIfNeeded
+```
+You'll note that the fields are similar to echo, but missing the subscription name.   Each service
+is responsible for different purposes.  Echo handles notifications FROM GCB, while igor handles requests
+to INVOKE GCB builds.  Orca (the execution engine) will call igor to get a list of accounts and make
+requests to GCB.
 
 ## Configure your pipeline trigger
 
@@ -114,30 +152,3 @@ will be converted to Spinnaker artifacts and injected into the pipeline on compl
 While your build is executing, the stage details will provide the current status of the build and a link to view
 the build logs in the Google Cloud Console:
 ![](/docs/setup/other_config/ci/gcb_status.png)
-
-## Configuration prior to Spinnaker 1.14
-
-Prior to version 1.14, Spinnaker did not have built-in support for Google Cloud Build, but pipelines could be
-triggered on changes to the build status by directly listening on the Pub/Sub subscription:
-
-```
-    hal config pubsub google subscription add $PUBSUB_SUBSCRIPTION_NAME \
-      --project $PROJECT_ID \
-      --subscription-name $SUBSCRIPTION_NAME \
-      --message-format GCB
-
-    hal config pubsub google enable
-
-    hal deploy apply
-```
-
-The steps to create a pipeline trigger in this case are exactly the same as [above](#configure-your-pipeline-trigger)
-except that the **Subscription Name** field should be set to `$PUBSUB_SUBSCRIPTION_NAME`.  With this
-configuration, there is no support for starting a GCB build using the Google Cloud Build stage.
-
-These two methods of triggering pipelines on GCB builds can co-exist, with two important caveats:
-* Pub/Sub subscriptions can only have a single listener, so you cannot use the same Pub/Sub subscription in both the
-`hal conifg pubsub` command and the `hal config ci gcb` commands.  Instead you should create two subscriptions listening
-to your `cloud-builds` topic and use one in each command.
-* Builds triggered using the direct Pub/Sub configuration will not correctly inject GCS artifacts produced by the build.
-This is because the Pub/Sub message does not directly contain the artifacts, only a reference to a manifest in GCS.
