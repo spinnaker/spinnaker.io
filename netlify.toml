@@ -1,31 +1,26 @@
 [build]
 publish = "public"
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify"
+command = "git submodule update --init --recursive --depth 1 && npm run build"
 functions = "./functions"
 
+[build.environment]
+NODE_VERSION = "18"
+
 [context.production.environment]
-HUGO_VERSION = "0.74.2"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.split1]
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --enableGitInfo"
+command = "git submodule update --init --recursive --depth 1 && npm run build"
 
 [context.split1.environment]
-HUGO_VERSION = "0.74.2"
 HUGO_ENV = "production"
 
 [context.deploy-preview]
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify --buildFuture -b $DEPLOY_PRIME_URL"
-
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.74.2"
+command = "git submodule update --init --recursive --depth 1 && npm run build:preview"
 
 [context.branch-deploy]
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && hugo --minify -b $DEPLOY_PRIME_URL"
-
-[context.branch-deploy.environment]
-HUGO_VERSION = "0.74.2"
+command = "git submodule update --init --recursive --depth 1 && npm run build:preview"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
