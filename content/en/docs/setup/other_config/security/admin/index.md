@@ -3,11 +3,10 @@ title:  "Administrator functionality"
 description: Administrators have complete control over your Spinnaker deployment.
 ---
 
-
-
 ## Introduction
 
-In Spinnaker, it is possible to define that users belonging to a certain role are considered "Administrators". This virtually removes all READ/WRITE restrictions to accounts and applications for these users.
+In Spinnaker, it is possible to define that users belonging to a certain role are considered "Administrators". This
+virtually removes all READ/WRITE restrictions to accounts and applications for these users.
 
 > This feature gives admins an immense amount of power. Proceed with caution.
 
@@ -15,7 +14,7 @@ In Spinnaker, it is possible to define that users belonging to a certain role ar
 
 ### Manually add configuration in Fiat
 
-In the Fiat config file, add the following:
+In the `fiat-local.yml` config file, add the following:
 
 ```yaml
 fiat:
@@ -23,6 +22,3 @@ fiat:
     roles:
       - devops-admin
 ```
-
-> For installations managed by Halyard, the file should be located in the following path
-`~/.hal/$DEPLOYMENT/profiles/fiat-local.yml` and remember to `hal deploy apply` after the change
