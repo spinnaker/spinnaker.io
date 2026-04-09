@@ -34,12 +34,12 @@ You can also install [on a single local machine](https://www.spinnaker.io/setup/
 Installing a complete Spinnaker involves these steps:
 1. [Choose a cloud provider](/docs/setup/install/providers/)
 1. [Choose an installation method](/docs/setup/install/environment/)
-1. [Configure the database for storage](/docs/setup/install/storage/)
+1. [Configure a database for storage](/docs/setup/install/storage/)
 1. [Deploy Spinnaker](/docs/setup/install/deploy/)
 1. [Configure everything else](/docs/setup/other_config/) 
 1. [Productionize Spinnaker](/docs/setup/productionize/)
 
-It is HIGHTLY recommended to at LEAST setup security for spinnaker!
+It is HIGHLY recommended to at LEAST setup authentication for spinnaker!
 
 ## And then what?
 

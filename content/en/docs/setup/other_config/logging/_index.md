@@ -68,20 +68,6 @@ For more information see the manual: https://logback.qos.ch/manual/index.html
    For Kubernetes you may wish to use a
    [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/).
 
-   **Halyard:**
-
-   It's not possible to create an arbitrary `ConfigMap` with Halyard so
-   instead you will need to:
-
-   1. In Kubernetes, create a [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) with `logback.xml`.
-   2. In Halyard, mount the `ConfigMap` using
-      [Service Settings - custom volumes](https://spinnaker.io/docs/reference/halyard/custom/#using-custom-volumes).
-
-      Note: [subPath](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath)
-      is not available in Halyard so the `logback.xml` file must be mounted
-      into its own directory. For example:
-      `/opt/spinnaker/config/logging/logback.xml`
-
 3. Configure Spinnaker services to load `logback.xml`.
 
    In each of the service files (eg: `orca-local.yml`) or in a shared file

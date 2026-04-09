@@ -33,22 +33,27 @@ method](/docs/setup/other_config/security/authentication/) for specifics.
 
 During certain authentication workflows, Gate makes an intelligent guess on how to assemble a URI to
 itself, called the **`redirect_uri`**. Sometimes this guess is wrong when Spinnaker is deployed
-in concert with other networking components, such as an SSL-terminating load balancer, or in the
+in concert with other networking components, like an NGINX ingress controller, an SSL-terminating load balancer, or in the
 case of the [Quickstart](/docs/setup/quickstart) images, a fronting Apache instance.
 
-To manually set the `redirect_uri` for Gate, use the following `hal` command:
-
-```bash
-hal config security authn <authtype> edit --pre-established-redirect-uri https://my-real-gate-address.com:8084/login
+To manually set the URLs which spinnaker runs, you'll need to adjust a few files:
+Deck's configuration for the API services in `settings.js`
+```javascript
+var gateHost = 'http://example.com/api/v1';
+```
+and the spinnaker.yaml which defines the "UI" endpoint
+```yaml
+services:
+   ## Change to whatever domain you're using.  This enables redirect on logins post auth
+   deck:
+      baseUrl: http://example.com/
+      enabled: true
 ```
 
-> Be sure to include the `/login` suffix at the end of the `--pre-established-redirect-uri` flag!
+Additionally, these are some recommended defaults to pass protocol and IP information downward.
+Add this to your `gate-local.yml` file:
 
-Additionally, some configurations make it necessary to "unwind" external proxy instances. This makes the request to 
-Gate look like the original request to the outermost proxy. Add this to your `gate-local.yml` file in your Halyard
-[custom profile](/docs/reference/halyard/custom/#custom-profiles):
-
-```
+```yaml
 server:
   tomcat:
     protocolHeader: X-Forwarded-Proto
@@ -59,6 +64,7 @@ server:
     httpsServerPort: X-Forwarded-Port
 
 ```
+This is already setup by default in the [example installation repository](https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize)
 
 ## Server-terminated SSL
 
@@ -76,7 +82,6 @@ GATE_EXPORT_PASSWORD=SOME_PASSWORD_FOR_GATE_P12
 
 In addition, in many of the calls below, if you want `openssl` or `keytool` to prompt
 for the key rather than providing them via the CLI, you can just remove the relevant flag.
-
 
 Terminating SSL within the Gate server is the de-facto way to enable SSL for
 Spinnaker. This works with or without a load balancer proxying traffic to this
@@ -304,50 +309,39 @@ key and server certificate ready to be used by Spinnaker Deck!
 
 #### 3. Configure SSL for Gate and Deck
 
-With the above certificates and keys in hand, you can use Halyard to set up SSL
+With the above certificates and keys in hand, you can setup SSL
 for [Gate and Deck](/docs/reference/architecture/).
 
-For Gate:
-
-*This will prompt twice, once for the keystore password and once for the truststore
-password, which are the same.*
-
-```bash
-KEYSTORE_PATH= # /path/to/gate.jks
-
-hal config security api ssl edit \
-  --key-alias gate \
-  --keystore ${KEYSTORE_PATH} \
-  --keystore-password \
-  --keystore-type jks \
-  --truststore ${KEYSTORE_PATH} \
-  --truststore-password \
-  --truststore-type jks
-
-hal config security api ssl enable
+For Gate, add the following to the `gate-local.yml`
+```yaml
+server:
+  ssl:
+    enabled: true
+    crlFile: <optional>
+    key-store: <reference to [service].p12>
+    key-store-type: PKCS12
+    key-store-password: <[SERVICE]_KEY_PASS>
 ```
 
-For Deck:
-
-*This will prompt for the pass phrase used to encrypt `deck.crt`.*
-
-```bash
-SERVER_CERT=   # /path/to/deck.crt
-SERVER_KEY=    # /path/to/deck.key
-
-hal config security ui ssl edit \
-  --ssl-certificate-file ${SERVER_CERT} \
-  --ssl-certificate-key-file ${SERVER_KEY} \
-  --ssl-certificate-passphrase
-
-hal config security ui ssl enable
+For Deck, you'll want to adjust the deck apache configuration to set the cert information.  This file
+should be mounted to `/etc/apache2/sites-enabled/spinnaker.conf` on the deck pod.
 ```
+<VirtualHost 0.0.0.0:9000>
+ <IfModule ssl_module>
+      SSLEngine on
+      SSLCertificateFile "/opt/spinnaker/config/ssl/deck.crt"
+      SSLCertificateKeyFile "/opt/spinnaker/config/ssl/deck.key" 
+  </IfModule>
 
-#### 4. Deploy Spinnaker
-
+  DocumentRoot /opt/deck/html
+  <Directory "/opt/deck/html/">
+     Require all granted
+  </Directory>
+</VirtualHost>
 ```
-hal deploy apply
-```
+Make sure the certs are stored in a secret volume that is mounted into the `/opt/spinnaker/config/ssl` folder.  Deck
+does NOT support encrypted secrets as it is a plain apache2 server, and as such, you can configure additional settings
+as needed.  You can mount these in other locations as needed.  The above 
 
 ## Verify your SSL setup
 
@@ -359,9 +353,8 @@ endpoints, like Gate or Deck, over SSL.
 If you have problems...
 
 * Are you using https?
-
-* If you are running Spinnaker in a distributed environment, have you run
-`hal deploy connect`?
+* Do you have certs correct?
+* Try curl or openssl commands against services to validate your certificate chain
 
 
 ## Using a custom CA for internal communications
@@ -378,26 +371,15 @@ cp {path-to-cacerts} /tmp/custom-trust-store
 keytool import -alias custom-ca -keystore /tmp/custom-trust-store/cacerts -file {your-internal-certificate}
 ```
 
-The below example applies when using Kubernetes to deploy Spinnaker.  If you are not using Spinnaker, you'll have 
-to get the cacerts file updated as appropriate for your environment.  
 ```bash
 kubectl create secret generic -n {your-spinnaker-namespace} internal-trust-store \
-   --from-file /tmp/custom-trust-store/cacerts
+   --from-file=cacerts=/tmp/custom-trust-store/cacerts
 ```
-Configure a Spinnaker service with the new trust/key store using a volume mount. In this example we’ll be configuring 
-Front50 with this new store.
+Configure a Spinnaker service with the new trust/key store using a volume mount.  Mount the cacerts file
+into a secret that's then mounted to replace the operating system cacerts.   This would be the file:
+`/etc/ssl/certs/java/cacerts` by default.
 
-In `~/.hal/default/service-settings/front50.yml`
-```
-kubernetes:
-  volumes:
-  - id: internal-trust-store
-    mountPath: /etc/ssl/certs/java
-    type: secret
-```
-
-Redeploy Spinnaker using `hal deploy apply`.
-The Spinnaker component (front 50 in this example) for which you configured the volume mount should now be using the 
+The Spinnaker component for which you configured the `cacerts` file should now be using the 
 new trust/key store by default.
 
 ## Next steps

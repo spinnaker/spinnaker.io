@@ -115,9 +115,9 @@ Once you are satisfied with the migration, remove the `spinnaker.migration` bloc
 The following steps were taken to live migrate Front50 at Netflix from S3 to SQL.
 
 1. Provision the database. In this case, a multi-AZ Aurora cluster was provisioned with 2 reader instances.
-2. A [custom Spring profile](https://www.spinnaker.io/reference/halyard/custom/#custom-profiles) was created and scoped to a temporary `front50-sql-migration` cluster. This profile had SQL, S3 and the migrator enabled (_see above for configuration_). The resulting cluster was not added to our load balancer and thus took no traffic.
+2. A configuration file was created and scoped to a temporary `front50-sql-migration` cluster. This profile had SQL, S3 and the migrator enabled (_see above for configuration_). The resulting cluster was not added to our load balancer and thus took no traffic.
 3. Verify the migration by looking at logs (search for `StorageServiceMigrator`) and the contents of the SQL database.
-4. Another [custom Spring profile](https://www.spinnaker.io/reference/halyard/custom/#custom-profiles) was created and scoped to a temporary `front50-sql` cluster. This profile had SQL, S3 and the composite storage service enabled with dual writes (_see above for configuration_). 
+4. Another custom Spring profile was created and scoped to a temporary `front50-sql` cluster. This profile had SQL, S3 and the composite storage service enabled with dual writes (_see above for configuration_). 
 5. Verify that writes are happening against SQL and S3 (search for `CompositeStorageService`).
 6. Enable reads against SQL with `spinnaker.migration.compositeStorageService.reads.primary: true`.
 7. Verify reads are happening against SQL (search for `CompositeStorageService`).
