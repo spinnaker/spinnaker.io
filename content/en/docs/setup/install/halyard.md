@@ -7,7 +7,7 @@ aliases:
   - /docs/target-deployment-configuration
 ---
 
-# This documentation is deprecated as halyard is deprecated.  This is left here for historical purposes
+# This documentation is deprecated as halyard is deprecated and no longer supported.  This is left here for historical purposes
 
 Halyard is a command-line administration tool that manages the lifecycle of your Spinnaker deployment,
 including writing & validating your deployment's configuration, deploying each of Spinnaker's

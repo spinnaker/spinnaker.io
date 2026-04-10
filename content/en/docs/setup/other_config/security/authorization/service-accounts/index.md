@@ -12,6 +12,10 @@ commit could trigger a Jenkins build that could then kick off a pipeline to depl
 image in your access-controlled QA environment.  The pipeline would run utilizing the permissions of the service 
 account.  Service accounts are NOT authenticated accounts but abstractions around permissions for roles.
 
+> A simpler approach for many users is [pipeline permissions](../pipeline-permissions/) which enable
+> auto creation of service accounts on demand.  This is here for those who do NOT want to allow
+> service account creation and require very tight control over trigger execution permissions
+
 
 ## Creating service accounts
 

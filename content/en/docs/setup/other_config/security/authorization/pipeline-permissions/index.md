@@ -24,6 +24,10 @@ setting the following flags:
 ```yaml
 tasks:
   useManagedServiceAccounts: true
+  ## Recommended to reduce duplicate service accounts by only creating unique service accounts by role set.  This drastically
+  ## can improve spinnaker auth sync times by reducing the number of service accounts, particularly with limited sets
+  ## of variable service accounts
+  useSharedManagedServiceAccounts: true
 ```
 
 * For Deck, add the following to `settings-local.js`

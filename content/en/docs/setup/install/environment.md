@@ -5,7 +5,7 @@ description: Based on your use case, choose how you want to install Spinnaker.
 weight: 30
 ---
 
-In this step, you choose where to install Spinnaker. The recommended path is a distributed installation onto a
+In this step, you choose where to install Spinnaker. The recommended path is an installation into a
 Kubernetes cluster
 
 * [Kubernetes installation](#Kubernetes-installation)
@@ -27,7 +27,7 @@ Kubernetes cluster
 ## Kubernetes installation
 
 Kubernetes installations are recommended for most organizations and even
-for test purposes. Spinnaker is deployed to a namespace in a kubernretes cluster
+for test purposes. Spinnaker is deployed to a namespace in a kubernetes cluster
 [microservice](/docs/reference/architecture/) deployed independently.
 
 The base example is available in the monorepo here:
@@ -39,9 +39,15 @@ with more information and options. To install spinnaker:
    configure [Kubernetes probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
    for your Spinnaker services in their deployment manifests (in the `~/spinnaker-kustomize/base/*/deployment.yaml`
    files.
-3. Create a file with the spinnaker kubernetes resources and apply it
+3. Adjust the domains. Look for any example.com reference and replace with your DNS domain.
+4. Create a file with the spinnaker kubernetes resources and apply it
     1. `kubectl kustomize -o spinnaker.yaml`
     2. `kubectl apply -f spinnaker.yaml`
+5. Get the ingress IP address and create DNS entries for your new spinnaker domain to this new entry
+
+REMINDER:  This basic setup defaults with a SIMPLE username/password auth.  It's recommended to change
+this from the default or better yet, use an identity provider (saml/oidc/ldap) solution.  The spinnaker
+project does integration tests today with Keycloak as a known out of the box solution.
 
 ## Local Debian
 
