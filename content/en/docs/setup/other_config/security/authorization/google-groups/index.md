@@ -44,24 +44,26 @@ create a service account that will access the G Suite Directory API.
 
 
 
-## Configure with Halyard
+## Configure Fiat
+
+NOTE you'll want to make sure fiat is enabled in the `spinnaker.yml` file as it defaults to disabled at this point in time.  It's likely to
+become mandatory in a future release.
 
 1. Make sure you've configured roles for accounts, as described [here](/docs/setup/other_config/security/authorization/#accounts). Each role included in the command must match the name of a group
 in the organization.
 
-1. With the authorized service account's credentials in hand, use Halyard to configure Fiat:
-
-   ```bash
-   ADMIN=admin@your.org              # An administrator's email address
-   CREDENTIALS=/path/to/creds.json   # The downloaded service account credentials
-   DOMAIN=your.org                   # Your organization's domain.
-   
-   hal config security authz google edit \
-       --admin-username $ADMIN \
-       --credential-path $CREDENTIALS \
-       --domain $DOMAIN
-   
-   hal config security authz edit --type google
-   
-   hal config security authz enable
-   ```
+1. With the authorized service account's credentials in hand, add the following to `fiat-local.yml`
+```yaml
+auth:
+  group-membership:
+    service: google
+    google:
+      credentialPath: /mnt/something/sa-creds.json
+      adminUsername: emailOfServiceAccount
+      domain: googleappsworkspacedomain
+      ## this defaults to false.
+      expandIndirectGroups: false|true
+      ## this is a new parameter to parallel query the google APIs to lookup group information.
+      groupLookupConcurrency:  10
+      
+```

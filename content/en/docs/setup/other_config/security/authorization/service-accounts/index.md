@@ -12,6 +12,10 @@ commit could trigger a Jenkins build that could then kick off a pipeline to depl
 image in your access-controlled QA environment.  The pipeline would run utilizing the permissions of the service 
 account.  Service accounts are NOT authenticated accounts but abstractions around permissions for roles.
 
+> A simpler approach for many users is [pipeline permissions](../pipeline-permissions/) which enable
+> auto creation of service accounts on demand.  This is here for those who do NOT want to allow
+> service account creation and require very tight control over trigger execution permissions
+
 
 ## Creating service accounts
 
@@ -23,8 +27,6 @@ Users with all the roles defined in the service account can grant a pipeline "Ru
  but only if the service account itself has EXECUTE access to that app. Users with EXECUTE access to 
  the app can then run the pipeline with additional set of roles (e.g. access to a provider account or 
  some other app).
-
-Until Halyard supports creation of service accounts, you'll need to run the following commands:
 
 ```bash
 FRONT50=http://front50.url:8080

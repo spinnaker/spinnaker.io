@@ -16,8 +16,9 @@ identifying information with the user and allows the user to proceed as authenti
 
 ## Identity provider setup
 
-1. In your SAML Identity Provider (IdP), download the `metadata.xml` file. Some providers expose this as a URL. It 
-may look something like this:
+1. In your SAML Identity Provider (IdP), download the `metadata.xml` file. Some providers expose this as a URL which
+can be used directly vs needing to download, as long as spinnaker gate can access the URL. It may look something 
+like this:
     
     ```xml
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -63,127 +64,85 @@ may look something like this:
     </md:EntityDescriptor>
     ```
 
-1. Create a Spinnaker SAML application.
-1. Specify the login URL as `https://localhost:8084/saml/SSO`. Replace "localhost" with Gate's address, if known.
-1. Specify a unique entity ID (we'll use `spinnaker.test` in our example).
-1. Enable the users you'd like to have access to your Spinnaker instance.
-
-1. Generate a keystore and key in a new Java Keystore with some password:
+2. Create a Spinnaker SAML application.
+3. Specify the login URL as `https://localhost:8084/saml/SSO`. Replace "localhost" with Gate's address, if known.
+4. Specify a unique entity ID (we'll use `spinnaker.test` in our example).
+5. Enable the users you'd like to have access to your Spinnaker instance.
+6. Generate a keystore and key in a new Java Keystore with some password:
     ```
     keytool -genkey -v -keystore saml.jks -alias saml -keyalg RSA -keysize 2048 -validity 10000
     ```
-1. Execute the following halyard commands and redeploy Gate:
 
-    ```
-    KEYSTORE_PATH= # /path/to/keystore.jks
-    KEYSTORE_PASSWORD=hunter2
-    METADATA_PATH= # /path/to/metadata.xml
-    SERVICE_ADDR_URL=https://localhost:8084
-    ISSUER_ID=spinnaker.test
-    
-    hal config security authn saml edit \
-      --keystore $KEYSTORE_PATH \
-      --keystore-alias saml \
-      --keystore-password $KEYSTORE_PASSWORD \
-      --metadata $METADATA_PATH \
-      --issuer-id $ISSUER_ID \
-      --service-address-url $SERVICE_ADDR_URL
-      
-    hal config security authn saml enable
-    ```
 
-## New SAML Integration 2025.x.x
+## Configure gate
 
-Starting with Spinnaker 2025.x.x, a new SAML integration mechanism has been introduced to improve compatibility, simplify configuration, and align with modern identity provider (IdP) standards. This replaces some of the legacy configuration approaches used in earlier versions of Spinnaker.
+Starting with Spinnaker 2025.x.x, a new SAML integration mechanism has been introduced to improve compatibility,
+simplify configuration, and align with modern identity provider (IdP) standards. This replaces some of the legacy
+configuration and libraries used in earlier versions of Spinnaker.
 
-The below approach applies to certain IDPs that support signing credentials (Okta is NOT one of these).  This is a required change for keycloak and a few other providers.  Note alternatively to using a custom volume map, you can use [encryptedFile secret](https://spinnaker.io/docs/reference/halyard/secrets/) store references.  
+The below approach applies to certain IDPs that support signing credentials (Okta is NOT one of these). This is a
+required change for keycloak and a few other providers. Note alternatively to using a custom volume map, you can
+use [encryptedFile secret](https://spinnaker.io/docs/reference/secrets/) store references.
 
-create configMap
+1. create configMap
 ```
-kubectl create configmap configmap-saml --from-file=<your_metadata>.xml --from-file=<your_cert>.pem --from-file=<your_priv>.pem
+kubectl create configmap configmap-saml --from-file=saml.jks --from-file=<your_metadata>.xml --from-file=<your_cert>.pem --from-file=<your_priv>.pem
 ```
 
-service-settings/gate.yml
-```
-kubernetes:
-  volumes:
-  - id: configmap-saml
-    type: configMap
-    mounthPath: /opt/spinnaker/saml
-```
+2. Configure gate by adding to `gate-local.yml`
 
-profiles/gate-local.yml
 ```
 saml:
   enabled: true
   issuerId: <Client>
+  ## Can be something LIKE https://integrator-3395767.okta.com/app/exku1rxeyhJeP16iJ697/sso/saml/metadata
+  ## as an alternative to a local file copy.  Gate will then refresh on a 15 minute interval this file and
+  ## at startup 
   metadataUrl: file:/opt/spinnaker/saml/<your_cert>.xml
+  keyStore: file:/opt/spinnaker/saml/saml.jks
+  keyStorePassword: <optional> from jks creation
+  keyStoreAliasName: <optional> defaults to "mykey" when using keytool
+  keyStoreType: jks (PKCS12 is new and should be used instead)
   sign-requests: true
   signing-credentials:
   - certificate-location: file:/opt/spinnaker/saml/<your_cert>.pem
     private-key-location: file:/opt/spinnaker/saml/<your_priv>.pem
 ```
 
-.hal/config
-```
-saml:
-  # below enabled and issuerId is not needed but it is not a big deal if you still placed it on your hal config
-  #enabled: true
-  #issuerId: <Client>
-  serviceAddress: <your_gate_url>
-
-  # you can add a userinfomappings if you want
-
-```
-
 ## Network architecture and SSL termination
-
-During the SAML [workflow](/docs/reference/architecture/authz_authn/authentication/#workflow), Gate makes an intelligent 
-guess on how to assemble a URI to itself, called the _Assertion Consumer Service URL_. Sometimes this guess is wrong 
-when Spinnaker is deployed in concert with other networking components, such as an SSL-terminating load balancer, or 
-in the case of the [Quickstart](/docs/setup/quickstart) images, a fronting Apache instance.  
-
-To override the values to assemble the URL, use the following `hal` command:
-```bash
-hal config security authn saml edit --service-address-url https://my-real-gate-address.com:8084
-```
-
 Please check on the [SSL Documentation](/docs/setup/other_config/security/ssl) for more information.
-
-> For the Quickstart images, append `/gate` to the `--service-address-url`. All other configurations
-can omit this setting.
 
 ## Workflow
 The SAML workflow below reflects the process when the user navigates to _Spinnaker first_, is redirected to the SAML 
 IdP for login, and redirected back to Spinnaker. Some SAML providers will allow the user login to the _SAML provider 
 first_, and click a link to be taken to Spinnaker.
 
-
+### Service-Provider login flow
 {{< mermaid >}}
-    sequenceDiagram
-    
-    participant Deck
-    participant Gate
-    participant IdentityProvider
-    
-    Deck->>+Gate: GET /something/protected
-    Gate->>-Deck: HTTP 302 to https://idp.url/?SAMLRequest=...
-    
-    Deck->>+IdentityProvider: GET https://idp.url/?SAMLRequest=...
-    IdentityProvider->>-Deck: Returns login page
+   sequenceDiagram    
+      participant Deck
+      participant Gate
+      participant IdentityProvider
+      Deck->>+Gate: GET /auth/user and if blank redirect to auth URL
+      Deck->>+Gate: GET /auth/redirect?redirect_uri=fromOriginalDeckUrl
+      Gate->>-IdentityProvider: JavaScript to redirect to https://idp.url/?SAMLRequest=...
+      IdentityProvider->>User: Login
+      User->>IdentityProvider: Complete login
+      IdentityProvider->>+Gate: POST /saml/SSO
+      Gate->>+Deck: HTTP 302 to originalDeckUrl 
 {{< /mermaid >}}
 
-1. User attempts to access a protected resource.
+1. User attempts to access a protected resource by using Spinnaker.  Deck detects an empty session user and initiates the login flow
 
 1. Gate redirects to the SAML provider, passing a few query params:
     * `SAMLRequest`: a Gzip'ed XML authentication request.
     * `SigAlg`: The algorithm used to generate the `Signature` parameter.
     * `Signature`: A digest of the `SAMLRequest` using the `SigAlg` algorithm and the server's key.
 
-    > Within the `SAMLRequest` is the _Assertion Consumer Service URL_, with is the URL to your Gate instance. See 
-    [here](#network-architecture-and-ssl-termination) for how to override this value.
-    
-1. SAML provider prompts user for username & password.
+### IDP initiated flow
+This is when a user logins in from their identity provider negating the need for gate to send a redirect.
+
+
     {{< mermaid >}}
         sequenceDiagram
         
@@ -191,23 +150,20 @@ first_, and click a link to be taken to Spinnaker.
         participant Gate
         participant IdentityProvider
         
-        Deck->>+IdentityProvider: User sends credentials
-        IdentityProvider->>-Deck: HTTP 200 with self-submitting form to POST https://gate.url
-        Deck->>+Gate: POST /saml/SSO with { SAMLResponse: ... }
+        User->>+IdentityProvider: User sends credentials
+        IdentityProvider->>-Gate: POST /saml/SSO with { SAMLResponse: ... }
+        Gate->>-Deck: HTTP 302
         Note right of Gate: User identity verified
         Note right of Gate: Gate extracts data based on userInfoMapping
         Gate->>-Deck: HTTP 302 /something/protected
-    {{< /mermaid >}}
-
-1. A SAML response must be POSTed to `/saml/SSO`, and most browsers won't re-POST when given an HTTP 302. Instead, 
+       {{< /mermaid >}}
+1. User logs into their provider and clicks a login button
+2. A SAML response must be POSTed to `/saml/SSO`, and most browsers won't re-POST when given an HTTP 302. Instead, 
 providers sometimes return a page (with HTTP 200) that has a self-submitting HTML form to POST to Gate's `/saml/SSO` 
 endpoint.
-
-1. Gate verifies the message's integrity by checking its signature, and thus verifying the user's identity information.
-
-1. Gate determines the username and/or email address, and optionally extracts group membership (if sent by the IdP).
-
-1. With the user's identity verified, Gate redirects the user to the originally requested URL.
+3. Gate verifies the message's integrity by checking its signature, and thus verifying the user's identity information.
+4. Gate determines the username and/or email address, and optionally extracts group membership (if sent by the IdP).
+5. With the user's identity verified, Gate redirects the user to the originally requested URL.
 
 ## Next steps
 

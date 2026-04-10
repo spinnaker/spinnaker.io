@@ -19,7 +19,7 @@ You can check that `gcloud` is installed and authenticated by running:
 gcloud info
 ```
 
-### Downloading credentials
+### Download credentials
 
 Spinnaker needs a [service
 account](https://cloud.google.com/compute/docs/access/service-accounts)
@@ -53,32 +53,22 @@ gcloud iam service-accounts keys create $SERVICE_ACCOUNT_DEST \
 Once you have run these commands, your GCS JSON key is sitting in a file
 called `$SERVICE_ACCOUNT_DEST`.
 
-## Editing Your Artifact Settings
+## Add the account and enable it
 
-All that's required are the following values:
+Add the credentials either to a [secrets manager](https://spinnaker.io/docs/reference/secrets/)
+for use by reference or to a volume mounted into the clouddriver pods by modifying the deployment.yaml for clouddriver.
 
-```bash
-# Same as in Prerequisites section above
-SERVICE_ACCOUNT_DEST=~/.gcp/gcs-artifacts-account.json
+Next, enable gcs artifacts and add an artifact account to `clouddriver-local.yml`:
 
-ARTIFACT_ACCOUNT_NAME=my-gcs-artifact-account
+```yaml
+artifacts:
+  enabled: true
+  gcs:
+    enabled: true
+    accounts:
+      - name: my-gcs-artifact-account
+        ## This can be a secret reference
+        json-path: /mnt/secrets/service-account-file.json
 ```
 
-First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
-
-Next, add an artifact account:
-
-```bash
-hal config artifact gcs account add $ARTIFACT_ACCOUNT_NAME \
-    --json-path $SERVICE_ACCOUNT_DEST
-```
-
-And enable GCS artifact support:
-
-```bash
-hal config artifact gcs enable
-```
-
-There are more options described
-[here](/docs/reference/halyard/commands#hal-config-artifact-gcs-account-edit)
-if you need more control over your configuration.
+Last, redeploy clouddriver with these changes

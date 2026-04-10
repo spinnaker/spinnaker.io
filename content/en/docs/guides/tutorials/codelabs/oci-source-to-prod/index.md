@@ -7,7 +7,7 @@ description: >
 
 In this codelab, you will create a cohesive workflow which takes source code and builds, tests, and promotes it to production.
 
-Building the binary from the source code is done outside of Spinnaker, typically in a CI system such as Jenkins, Travis, or Wercker. Spinnaker is integrated with three CI systems.  Workflows can be triggered by jobs in these CI systems.  The easiest binary form for Spinnaker to produce machine image is debian or rpm packages.
+Building the binary from the source code is done outside of Spinnaker, typically in a CI system such as Jenkins, Travis, etc. Spinnaker is integrated with three CI systems.  Workflows can be triggered by jobs in these CI systems.  The easiest binary form for Spinnaker to produce machine image is debian or rpm packages.
 
 To simplify this tutorial, we will use tomcat8 debian package as a starting point.  It is assumed your CI jobs build and publish packages such as tomcat8 and your CI jobs will be used to trigger the Spinnaker workflow.
 
@@ -34,12 +34,6 @@ SSH onto the compute instance you previously created.  `IP` is its public ip add
 ssh ubuntu@IP
 ```
 
-* Install Halyard
-
-```bash
-curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/debian/InstallHalyard.sh
-sudo bash InstallHalyard.sh -y
-```
 
 * Set up Oracle Object Storage as your Spinnaker storage by following these steps: [Adding Oracle Object Storage to Spinnaker](/docs/setup/install/storage/oracle/).
 
@@ -122,19 +116,7 @@ Note that Oracle-provided images have a default set of firewall rules which allo
 {% endraw %}
 <span class="end-collapsible-section"></span>
 
-* Set up Spinnaker version.  To complete this tutorial, Spinnaker version has to be at least 1.11.x.
-
-```bash
-hal config version edit --version $SPINNAKER_VERSION
-```
-
-* Execute the following commands to complete the installation:
-
-```bash
-hal config deploy edit --type localdebian
-sudo hal deploy apply
-sudo systemctl daemon-reload
-```
+* [Install spinnaker per](/docs/setup/install/) using a debian installation
 
 ### Accessing Spinnaker
 
@@ -214,7 +196,7 @@ Create a new pipeline by navigating to the PIPELINES tab and clicking the link *
 
 #### Configure the pipeline
 
-In reality, we would set up the pipeline with an automated trigger that will kick off the pipeline.  Assuming the package is built in CI (Jenkins/Travis/Wercker), in the Automated Triggers section of the pipelines form, you would add Jenkins/Travis/Wercker Trigger for your job so that every time these job completes the pipeline would start automatically.
+In reality, we would set up the pipeline with an automated trigger that will kick off the pipeline.  Assuming the package is built in CI (Jenkins/Travis/Etc), in the Automated Triggers section of the pipelines form, you would add Jenkins/Travis/Etc. Trigger for your job so that every time these job completes the pipeline would start automatically.
 
 To simplify this tutorial, we will skip the trigger and use tomcat8 package.
 

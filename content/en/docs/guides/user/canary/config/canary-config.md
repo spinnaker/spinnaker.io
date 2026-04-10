@@ -111,8 +111,7 @@ compared to the baseline.
 
 1. Optionally, choose a [filter template](/docs/guides/user/canary/config/filter-templates/).
 
-   This is only available  if your Spinnaker is
-   [configured for it](/docs/reference/halyard/commands/#hal-config-canary-edit).
+   This is only available  if your Spinnaker is setup with canaries.
 
    Here's an example:
 

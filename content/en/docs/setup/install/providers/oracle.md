@@ -11,9 +11,6 @@ aliases:
 In [Oracle Cloud](https://cloud.oracle.com/), a Spinnaker
 [Account](/docs/concepts/providers/#accounts) maps to an [Oracle Cloud Infrastructure user]( https://cloud.oracle.com/en_US/tryit).
 
-When setting up your Oracle Cloud provider account, you will [use halyard to add
-the account](#add-an-oracle-cloud-account).
-
 ## Prerequisites
 
 You will need the following to enable Oracle Cloud provider in Spinnaker:
@@ -40,35 +37,22 @@ See [How to Upload the Public Key](https://docs.cloud.oracle.com/iaas/Content/AP
 
 ## Add an Oracle Cloud account
 
-1. Run the following `hal` command to add an account named `my-oci-acct` to your list of Oracle Cloud accounts:
+1. Enable the Oracle Cloud provider and add the account
 
-   ```bash
-   hal config provider oracle account add my-oci-acct \
-       --compartment-id $COMPARTMENT_OCID \
-       --fingerprint $API_KEY_FINGERPRINT \
-       --region $REGION \
-       --ssh-private-key-file-path $PRIVATE_KEY_FILE \
-       --tenancyId $TENANCY_OCID \
-       --user-id $USER_OCID
-   ```
+```yaml
+oracle:
+  enabled: true
+  accounts:
+  - name: my-oci-acct
+    compartment-id: ocid1.compartment.oc1..aaaaaaaatjuwhxwkspkxhumqke4o73b2b
+    fingerprint: 8f:05:f4:94:f3:5f:e3:30:ec:35 
+    region: us-phoenix-1
+    ssh-private-key-file-path: /mnt/secrets/oci_api_key.pem
+    tenancyId: ocid1.tenancy.oc1..aaaaaaaa225wmphohi3iiyxxxjruo
+    userId: ocid1.user.oc1..aaaaaaaagosdr3zsh67tvgpnmw42ywqc 
+```
 
-   For example
-
-   ```bash
-   hal config provider oracle account edit my-oci-acct \
-       --compartment-id ocid1.compartment.oc1..aaaaaaaatjuwhxwkspkxhumqke4o73b2b \
-       --fingerprint 8f:05:f4:94:f3:5f:e3:30:ec:35 \
-       --region us-phoenix-1 \
-       --ssh-private-key-file-path /home/user/.oci/oci_api_key.pem \
-       --tenancyId ocid1.tenancy.oc1..aaaaaaaa225wmphohi3iiyxxxjruo \
-       --user-id ocid1.user.oc1..aaaaaaaagosdr3zsh67tvgpnmw42ywqc
-   ```
-   
-2. Enable the Oracle Cloud provider:
-
-   ```bash
-   hal config provider oracle enable
-   ```
-
-
+## Next steps
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/) or
+continue the [installation instructions](/docs/setup/install/)
 

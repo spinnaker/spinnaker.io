@@ -18,72 +18,68 @@ pipeline.
 
 To connect Jenkins to Spinnaker, you need:
 
-*   A running Jenkins Master at version 1.x - 2.x, reachable at a URL
-    (`$BASEURL`) from the provider that Spinnaker will be deployed in.
+*   A running Jenkins Master at version 2.x, reachable at a URL
+    (`$BASEURL`) from where Spinnaker runs.
 *   A username/API key (`$USERNAME`/`$APIKEY`) pair able to authenticate
     against Jenkins using HTTP Basic Auth, if Jenkins is secured. A user's
     API key can be found at `$BASEURL/user/$USERNAME/configure`.
 
 ## Add your Jenkins master
 
-1. First, make sure that your Jenkins master is enabled:
+Add the following to `igor-local.yml` to enable Jenkins;
+```yaml
+jenkins:
+  enabled: true
+  masters:
+    - name: my-jenkins-server
+      address: https://my.jenkins.example.com/jenkins
+      username: encrypted:secret
+      csrf: false
+      jsonPath: <OPTIONAL> when using google auth
+      oauthScopes:
+        - when using google auth
+      token: encrypted:secret:ideally
+      itemUpperThreshold: <OPTIONAL> maxItemsToProcessPerPollCycle
+      trustStore: <OPTIONAL> whenUsingCustomCerts
+      trustStoreType: <OPTIONAL> JKS or PKCS12
+      trustStorePassword: <OPTIONAL> if needed, native is changeit
+      keyStore: <OPTIONAL> If using MTLS
+      keyStoreType: <OPTIONAL> PKCS12 or JKS
+      keyStorePassword: <OPTIONAL>
+      skipHostnameVerification: toSkipTLSValidation
+      ciEnabled: defaultsTOFalse
+      permissions:
+        READ:
+          - groupName
+        WRITE:
+          - groupName
+```
+It is recommended to use [encrypted secrets](/docs/reference/secrets/) for password information in the above
 
-   ```bash
-   hal config ci jenkins enable
-   ```
+> *Note*: If you use the [GitHub OAuth
+> plugin](https://wiki.jenkins.io/display/JENKINS/GitHub+OAuth+Plugin)
+> for authentication into Jenkins, you can use the GitHub $USERNAME, and use the
+> OAuth token as the $APIKEY.
 
-1. Next, add Jenkins master named `my-jenkins-master` (an arbitrary,
-human-readable name), to your list of Jenkins masters:
-
-   ```bash
-   echo $APIKEY | hal config ci jenkins master add my-jenkins-master \
-       --address $BASEURL \
-       --username $USERNAME \
-       --password # api key will be read from STDIN to avoid appearing
-                  # in your .bash_history
-   ```
-
-   > *Note*: If you use the [GitHub OAuth
-   > plugin](https://wiki.jenkins.io/display/JENKINS/GitHub+OAuth+Plugin)
-   > for authentication into Jenkins, you can use the GitHub $USERNAME, and use the
-   > OAuth token as the $APIKEY.
-
-1. Re-deploy Spinnaker to apply your changes:
-
-   ```bash
-   hal deploy apply
-   ```
 
 ## Configure Jenkins and Spinnaker for CSRF protection
 
-> **NOTE:** Jenkins CSRF protection in Igor is only supported for Jenkins 2.x.
-
 To enable Spinnaker and Jenkins to share a crumb to protect against CSRF...
 
-1. Configure Halyard to enable the `csrf` flag:
+1. Configure Spinnaker to enable the `csrf` flag. Make sure the `csrf` value as mentioned above is set to true.
 
-    ```
-    hal config ci jenkins master edit MASTER --csrf true
-    ```
-
-    (`MASTER` is the name of the Jenkins master you've previously
-    configured. If you haven't yet added your master, use `hal config ci
-    jenkins master add` instead of `edit`. )
-
-    Here's what your Jenkins master configuration looks like in your Hal config:
+    Here's what your configuration looks like:
 
     ```yaml
     jenkins:
-          enabled: true
-          masters:
-          - name: <jenkins master name>
-            address: http://<jenkins ip>/jenkins
-            username: <jenkins admin user>
-            password: <admin password>
-            csrf: true
+      enabled: true
+      masters:
+      - name: <jenkins master name>
+        address: http://<jenkins ip>/pathIfNeeded
+        username: <jenkins admin user>
+        password: <admin password>
+        csrf: true
     ```
-
-    Be sure to invoke `hal deploy apply` to apply your changes.
 
 2. Install Strict Crumb Issuer Plugin in Jenkins:
 
@@ -106,7 +102,7 @@ To enable Spinnaker and Jenkins to share a crumb to protect against CSRF...
 
 You can configure `orca` such that it will update the description of a running Jenkins build and generate a suitable backlink.
 
-Add the following to your `orca` configuration:
+Add the following to your `orca-local.yml` file the following:
 
 ```
 spinnaker:

@@ -19,25 +19,22 @@ Additionally, Spinnaker allows you to set webhooks for git triggers. See the [Se
 
 You can also set Spinnaker to stream all its events to a downstream listener. See the [Add a Webhook to Spinnaker](#add-a-listening-webhook-to-spinnaker) section.
 
-Additionally, Spinnaker is capable of handling cron-based triggers and detect changes in Jenkins builds and Docker images. This functionality will be documented at a later time.
+Spinnaker is also capable of handling cron-based triggers and detect changes in Jenkins builds and Docker
+images by enabling [continuous integration configuration in spinnaker](https://spinnaker.io/docs/setup/other_config/ci/)
 
-See also [`hal config notifications`](/docs/reference/halyard/commands/#hal-config-notification).
+Last, pub/sub triggering with both custom and default types is available via [aws pub/sub configurations](https://spinnaker.io/docs/setup/other_config/triggers/amazon/)
+or [Google pub/sub integration](https://spinnaker.io/docs/setup/other_config/triggers/google/)
+
 
 ## Configuring notifications
 
-Notification configurations are in echo.yml and settings-local.js. For changes to echo.yml, create echo-local.yml and put your changes in there. You can customize settings-local.js directly.
-
-## Where to put echo-local.yml and settings.js
-
-If you use Halyard to configure Spinnaker, put echo-local.yml  `~/.hal/{deployment}/profiles/`. 
-
-For settings-local.js, follow the [Custom Profile for Deck](/docs/reference/halyard/custom/#custom-profile-for-deck) reference and place it in the following location `~/.hal/{deployment}/profiles/settings-local.js`.
-
-If you don’t use Halyard, put echo-local.yml in the same place as the current echo.yml, in `/opt/spinnaker/config`, and put settings-local.js in `/opt/deck/html/`.
+Notification configurations are in `echo-local.yml` and `settings-local.js`
 
 ## Spinnaker baseURL
 
-You need to set the `spinnaker.baseUrl` configuration value which is used by spinnaker templates. This should point back to the url for your spinnaker's UI ( deck ) instance. This url is used in notifications to link back to your spinnaker instance.
+You need to set the `spinnaker.baseUrl` configuration value which is used by spinnaker templates. This should point back
+to the url for your spinnaker's UI ( deck ) instance. This url is used in notifications to link back to your spinnaker
+instance.
 
 ## Email
 
@@ -56,7 +53,7 @@ Outlook | Your email address| Your email password | smtp-mail.outlook.com | 587 
 
 The following is an example of using hotmail to send notifications.
 
-`echo.yml`:
+`echo-local.yml`:
 ```
 mail:
   enabled: true
@@ -86,6 +83,8 @@ window.spinnakerSettings.notifications.email.enabled = true;
 ```
 
 ## Microsoft Teams
+> Note, teams has changed their APIs.  We are unable at this time to
+> send notifications to teams, but would welcome PRs to fix teams integration.
 
 To enable Microsoft Teams support, add the following statement to the `echo-local.yml` file:
 
@@ -108,9 +107,12 @@ For slack, you need to [create a custom bot
 user](https://api.slack.com/bot-users#how_do_i_create_custom_bot_users_for_my_team),
 then get the access token associated with that new bot user. Then...
 
-```bash
-hal config notification slack enable
-echo $TOKEN_FROM_SLACK | hal config notification slack edit --bot-name $SPINNAKER_BOT --token
+Add to `echo-local.yml`
+```yaml
+slack:
+  botName: SpinnakerNotifications
+  enabled: true
+  token: ${ECHO_NOTIFICATION_SECRETS_SLACK_BOT_TOKEN}
 ```
 
 Note: your users will need to invite the slack bot to private rooms that want to be notified.
@@ -118,12 +120,15 @@ Note: your users will need to invite the slack bot to private rooms that want to
 ## Twilio
 
 For Twilio, you need to add your account [credentials](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-how-to-change-them). Then...
-
-```bash
-hal config notification twilio enable
-echo $TWILIO_AUTH_TOKEN | hal config notification twilio edit --account $TWILIO_ACCOUNT_SID --from $TWILIO_PHONE_NUMBER --token
+add this to your `echo-local.yml`
+```yaml
+twilio:
+  enabled: true
+  baseUrl: https://api.twilio.com/
+  token: token
+  account: TWILIO_ACCOUNT_SID
+  from: twilioPhoneNumber
 ```
-
 
 ## CDEvents
 

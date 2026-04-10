@@ -74,42 +74,37 @@ Follow the Azure VM username and password rules documented [here](https://docs.m
 
 ## Adding an account
 
-First, make sure the provider is enabled:
+Enable azure and add the azure account to `clouddriver-local.yml`
+```yaml
+azure:
+  enabled: true
+  accounts:
+    - name: my-azure-account
+      clientId: replaceMeWithAppId
+      tenant-id: replaceMeWithTenantId
+      subscriptionId: replaceMeWithSubscriptId
+      defaultKeyValue: replaceMeWithVaultName
+      defaultResourceGroup: replaceMeWithResourceGroup
+      packerResourceGroup: replaceMeWithResourceGroup
+      useSshPublicKey: true
+      appKey: 
+      regions:
+      - regionname
 
-```bash
-hal config provider azure enable
-```
-
-Next, run the following `hal` command to add an account named `my-azure-account` to your list of Azure accounts:
-
-```bash
-hal config provider azure account add my-azure-account \
-  --client-id $APP_ID \
-  --tenant-id $TENANT_ID \
-  --subscription-id $SUBSCRIPTION_ID \
-  --default-key-vault $VAULT_NAME \
-  --default-resource-group $RESOURCE_GROUP \
-  --packer-resource-group $RESOURCE_GROUP \
-  --app-key
 ```
 
 > NOTE:
 > 1. You will be prompted for the App Key on standard input. If necessary,
 you can generate a new key: `az ad sp credential reset --name $APP_ID`
-> 2. Starting from Halyard v1.19, SSH public key will be used to provision VM scale set by default. If you prefer to use password, add the parameter\
-`--useSshPublicKey "false" \`\
-Prior to Halyard v1.19, the default credential option is password and halyard does not support the above parameter to switch the option to SSH public key.\
-Secret values of either the SSH public key or password are stored in the Azure key vault specified by the parameter `--default-key-vault`, in which the stored secret names are called "VMPassword" and "VMSshPublicKey", separately.
-> 3. The Azure regions used by default are "eastus" and "westus". If you would like to add custom regions, add the parameter\
-`--regions <input regions seperated by comma without quotation marks> \`
+> 2. SSH public key will be used to provision VM scale set by default. If you prefer to use password, change the flag for this as so:
+`useSshPublicKey: false`.  Secret values of either the SSH public key or password are stored in the Azure key vault specified by the property `defaultKeyVault`, in which the stored secret names are called "VMPassword" and "VMSshPublicKey", separately.
+> 3. The Azure regions used by default are "eastus" and "westus". If you would like to add custom regions, adjust the property\
+`regions` per the above
 
 ## Advanced account settings
-
-You can view the available configuration flags for Azure within the
-[Halyard reference](/docs/reference/halyard/commands#hal-config-provider-azure-account-add).
+For a full list of account properties, see the [AzureConfigurationProperties](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-azure/src/main/groovy/com/netflix/spinnaker/clouddriver/azure/config/AzureConfigurationProperties.groovy) class.
 
 ## Next steps
 
-Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
-but otherwise you're ready to [choose an environment](/docs/setup/install/environment/)
-in which to install Spinnaker.
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/) or
+continue the [installation instructions](/docs/setup/install/)

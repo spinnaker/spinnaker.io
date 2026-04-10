@@ -102,18 +102,15 @@ Your service account JSON key now sits inside `$SERVICE_ACCOUNT_DEST`.
 
 ## Adding an account
 
-First, make sure that the provider is enabled:
+First, make sure that the provider is enabled and add an account to clouddriver:
 
-```bash
-hal config provider cloudrun enable
-```
-
-Next, run the following `hal` command to add an account named `my-cloudrun-account` to your list of Cloud Run accounts:
-
-```bash
-hal config provider cloudrun account add my-cloudrun-account \
-  --project $PROJECT \
-  --json-path $SERVICE_ACCOUNT_DEST
+```yaml
+cloudrun:
+  enabled: true
+  accounts:
+  - name: my-cloudrun-account
+    project: replaceMe
+    json-path: serviceAccountDestFileFromConfigMap
 ```
 
 You can omit the `--json-path` flag if Spinnaker does not need service account credentials.
@@ -128,7 +125,7 @@ authenticate with your repositories - many of the configuration flags for Cloud 
 authentication.
 
 You can view the available configuration flags for Cloud Run within the
-[Halyard reference](/docs/reference/halyard/commands#hal-config-provider-cloudrun-account-add).
+[cloudrun account credentials properties code](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-cloudrun/src/main/java/com/netflix/spinnaker/clouddriver/cloudrun/security/CloudrunNamedAccountCredentials.java#L56)
 
 ### Deploying from storage
 
@@ -148,6 +145,5 @@ you can use an **Artifact** as the source of the container image URL.
 
 ## Next steps
 
-Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
-but otherwise you're ready to [choose an environment](/docs/setup/install/environment/)
-in which to install Spinnaker.
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/) or
+continue the [installation instructions](/docs/setup/install/)

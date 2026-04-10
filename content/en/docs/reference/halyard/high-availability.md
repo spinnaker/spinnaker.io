@@ -4,13 +4,26 @@ mermaid: true
 description:
 ---
 
+
+
+# HALYARD IS DEPRECATED
+> [!IMPORTANT]
+> At this time, halyard is considered deprecated and no longer supported.  
+> This document is kept here and alive for historical purposes. Documentation
+> should all be moved to native configuration files, and for more questions
+> and information please join the spinnaker slack.
+> 
+> The majority of the relevant [information has been moved to high-availability documentation](/docs/setup/install/high-availability/)
+
+
+
 This page describes how you can configure a Halyard deployment to increase the availability of specific services beyond simply [horizontally scaling](/docs/setup/productionize/scaling/horizontal-scaling/) the service. Halyard does this by splitting the functionalities of a service into separate logical roles (also known as sharding). The benefits of doing this is specific to the service that is being sharded. These deployment strategies are inspired by [Netflix's large scale experience](https://blog.spinnaker.io/scaling-spinnaker-at-netflix-part-1-8a5ae51ee6de).
 
 When sharded, the new logical services are given new names. This means that these logical services can be configured and scaled independently of each other.
 
 Currently, this feature is only for Clouddriver and Echo.
 
-**Important:** Halyard only supports this functionality for a [distributed Spinnaker deployment](/docs/setup/install/environment/#distributed-installation) configured with the [Kubernetes provider](/docs/setup/install/providers/kubernetes-v2/).
+**Important:** Halyard only supports this functionality for a [distributed Spinnaker deployment](/docs/setup/install/environment/#distributed-installation) configured with the [Kubernetes provider](/docs/setup/install/providers/kubernetes/).
 
 ## HA Clouddriver
 
