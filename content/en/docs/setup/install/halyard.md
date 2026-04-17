@@ -7,7 +7,7 @@ aliases:
   - /docs/target-deployment-configuration
 ---
 
-
+# This documentation is deprecated as halyard is deprecated and no longer supported.  This is left here for historical purposes
 
 Halyard is a command-line administration tool that manages the lifecycle of your Spinnaker deployment,
 including writing & validating your deployment's configuration, deploying each of Spinnaker's
@@ -27,9 +27,6 @@ There are two ways you can install Halyard:
 * [on Docker](#install-halyard-on-docker)
 
 We recommend you install Halyard on a machine with at least 12GB of RAM.
-
-> **Note**: If you need to run Halyard without access to public internet, read
-> [Deploy Custom Spinnaker Builds](/docs/guides/operator/custom-boms/).
 
 ## Install on Debian/Ubuntu
 

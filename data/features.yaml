@@ -4,9 +4,6 @@ ci_integrations_feature:
 monitoring_integrations_feature:
   title: Monitoring Integrations
   content: 'Tie your releases to monitoring services Datadog, Prometheus, Stackdriver, SignalFx, or New Relic using their metrics for canary analysis.'
-cli_feature:
-  title: CLI for Setup and Admin
-  content: 'Install, configure, and update your Spinnaker instance with halyard, Spinnaker’s CLI tool.'
 deployment_strategies_feature:
   title: Deployment Strategies
   content: 'Configure pipelines with built-in deployment strategies such as highlander and blue/green,  with rolling blue/green and canary in active development, or define your own custom strategy.'

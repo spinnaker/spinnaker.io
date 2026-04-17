@@ -245,14 +245,6 @@ dropdown menu.
 You can [add more certification authorities](/docs/guides/operator/webhook-custom-trust-store/)
 to trust when making webhook calls over HTTPS.
 
-### Wercker
-Run the specified Wercker pipeline. You must [set up Wercker](/docs/setup/other_config/ci/wercker/)
-in order to use this stage. Once Wercker has been configured, your Wercker
-masters and the applications and pipelines available for your master's
-credentials will be shown in the drop-down menus. When a Wercker pipeline stage
-runs, a link to the Wercker run will be available, and the status of
-the Wercker run will be reported in Spinnaker.
-
 ## App Engine
 
 ### Start a Server Group
@@ -362,7 +354,7 @@ strategy for Kubernetes by first deploying a new ReplicaSet and then patching
 the fronting service's selectors to point to the new ReplicaSet.
 
 When patching with a _strategic_ or _merge_ strategy, Spinnaker also supports [artifact substitution
-](/docs/reference/artifacts/in-kubernetes-v2/#binding-artifacts-in-manifests) for the
+](/docs/reference/artifacts/in-kubernetes/#binding-artifacts-in-manifests) for the
 patch content just like the resource manifest in the deploy stage.
 
 ### Scale (Manifest)

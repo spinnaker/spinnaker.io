@@ -184,20 +184,20 @@ SUBSCRIPTION=
 PUBSUB_NAME=my-google-pubsub
 ```
 
-First, make sure that Google Pub/Sub support is enabled:
+First, make sure that Google Pub/Sub support is enabled.  Add the following to `echo-local.yml`
 
-```bash
-hal config pubsub google enable
+```yml
+pubsub:
+  enabled: true
+  google:
+    enabled: true
+    pubsubType: GOOGLE
+    subscriptions:
+    - name: my-gcs-subscription
+      project: my-project
+      subscriptionName: my-gcs-subscription
+      jsonPath: /path/to/my-gce-account.json
+      ackDeadlineSeconds: 10
+      messageFormat: GCS
+    publishers: []
 ```
-
-Next, add your subscription
-
-```bash
-hal config pubsub google subscription add $PUBSUB_NAME \
-    --subscription-name $SUBSCRIPTION \
-    --json-path $SERVICE_ACCOUNT_DEST \
-    --project $PROJECT \
-    --message-format $MESSAGE_FORMAT
-```
-
-There are more options described [here](/docs/reference/halyard/commands/#hal-config-pubsub-google-subscription-edit) if you need more control over your configuration.

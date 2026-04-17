@@ -106,8 +106,7 @@ repository and submitting it to App Engine. Unless your code is public, Spinnake
 authenticate with your repositories - many of the configuration flags for App Engine manage this
 authentication.
 
-You can view the available configuration flags for App Engine within the
-[Halyard reference](/docs/reference/halyard/commands#hal-config-provider-appengine-account-add).
+You can view the available configuration properties for [App Engine within the codebase.](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-appengine/src/main/java/com/netflix/spinnaker/clouddriver/appengine/config/AppengineConfigurationProperties.java#L38)
 
 ### Deploying from storage
 
@@ -128,5 +127,4 @@ you can use an **Artifact** as the source of the container image URL.
 ## Next steps
 
 Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
-but otherwise you're ready to [choose an environment](/docs/setup/install/environment/)
-in which to install Spinnaker.
+or continue the [installation instructions](/docs/setup/install/)

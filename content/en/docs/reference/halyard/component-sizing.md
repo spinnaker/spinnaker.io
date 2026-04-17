@@ -4,6 +4,14 @@ description: Use Halyard to size your Spinnaker services to meet your usage requ
 ---
 
 
+# HALYARD IS DEPRECATED
+> [!IMPORTANT]
+> At this time, halyard is considered deprecated and no longer supported.  
+> This document is kept here and alive for historical purposes. Documentation
+> should all be moved to native configuration files, and for more questions
+> and information please join the spinnaker slack.
+
+
 Custom sizing can be specified for each Spinnaker component within the Halyard configuration. You can either add these sizes to the Halyard config manually, or use any of the [Halyard component sizing commands](https://www.spinnaker.io/reference/halyard/commands/#hal-config-deploy-component-sizing). This feature is currently only supported for distributed deployments using Kubernetes (`hal config deploy edit --type distributed --account-name my-k8s-cluster`).
 
 ## Kubernetes

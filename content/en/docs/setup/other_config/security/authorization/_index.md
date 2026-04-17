@@ -49,9 +49,6 @@ both permissions to perform certain actions.
 
 * [Authentication](../authentication) successfully setup in Gate.
 
-* Configured Front50 to use S3 or Google Cloud Storage (GCS) as the backing storage mechanism for
- persistent application configurations.
-
 * An external role provider from one of the following:
     * Google Groups via a G Suite Account
         * With access to the G Suite Admin console
@@ -60,11 +57,9 @@ both permissions to perform certain actions.
     * SAML Identity Provider (IdP) that includes groups in the assertion
         > SAML roles are fixed at login time, and cannot be changed until the user needs to
         reauthenticate.
+    * OAUTH2 with groups in the claims
 
-* Enable the [authorization](/docs/reference/halyard/commands/#hal-config-security-authz-enable) feature.
-
-* Patience&mdash;there are a lot of small details that must be _just_ right with anything related to
- authentication and authorization.
+* Enable fiat in the `spinnaker.yml` file.  This enables services to query fiat for auth information.
 
 * (Highly Suggested) All Spinnaker component microservices are either:
     * Firewalled off as a collective group, or:
@@ -80,60 +75,56 @@ both permissions to perform certain actions.
 ## Implementation
 
 ### Accounts
- Because Clouddriver is the source of truth for accounts, Fiat reaches out to Clouddriver
+ Because Clouddriver is the source of truth for cloud accounts, Fiat reaches out to Clouddriver
 to gather the list of available accounts. There are two types of access restrictions to an account: `READ` and 
 `WRITE`. Users must have at least one `READ` permission of an account to view the account's cloud resources, and at 
 least one `WRITE` permission to make changes to the resources.
 
-These halyard commands manage the `READ` and `WRITE` permissions.
+Every cloud provider, and many OTHER account types like those in igor for CI systems can set permissions.  You'll
+set these permissions by modifying the account with a `permissions` set of entries that contain the roles/groups
+that you want to grant READ/WRITE permissions.  
 
-```bash
-PROVIDER= # Your cloud provider
-
-hal config provider $PROVIDER account edit $ACCOUNT \
-  --add-read-permission role1 \ # Adds a READ permission
-  --add-write-permission role2 \ # Adds a WRITE permission
-  --remove-read-permission role3 \ # Removes a READ permission
-  --remove-write-permission role4 # Removes a WRITE permission
-
-# Alternatively, you can overwrite the whole read or write list, comma delimited.
-hal config provider $PROVIDER account edit $ACCOUNT \
-  --read-permissions role1,role2,role3 \
-  --write-permissions role1,role2,role3
+```yaml
+google:
+  accounts:
+  - name: my-google-account
+    permissions:
+      READ:
+      - role1
+      - role2
+      WRITE:
+      - role1
+      - role2
 ```
+NOTE That READ permissions ARE NOT implicitly granted by giving WRITE permissions.  AS SUCH it's HIGHLY recommended
+to ALWAYS add READ to any WRITE access.
 
 ## Applications
-Before Spinnaker 1.14, there were two types of restrictions to an application `READ` and `WRITE`.
-In the 1.14 release, a new permission type called `EXECUTE` was added. For any new applications,
-the permission required to trigger pipelines changes from groups with `READ` access to those with
-`EXECUTE` access.
-
-To maintain backward compatibility for existing applications, groups with `READ` access will implicitly
-get `EXECUTE` access. There are two ways to change this behavior:
-
-* Modify the application config in the UI to explicitly add `EXECUTE` permissions to a group for an application:
+Applications have three levels of permissions:  `EXECUTE`, `READ` and `WRITE` permissions. 
 
 {{% figure src="./applications_permissions.png" %}}
-
+By DEFAULT, `READ` permissions ALSO grant `EXECUTE` permissions.  To adjust this, 
+* Make sure you have `EXECUTE` set as needed for your applications
 * Flip the default behavior across all applications to only grant `WRITE` users implicit `EXECUTE` access by
 setting the following property in `fiat-local.yml`:
 
 ```yml
-  fiat.executeFallback: 'WRITE'
+fiat:
+  executeFallback: 'WRITE'
 ```
 
 ### Examples of required permissions
 
 - To delete a load balancer in account Z, you need to have `WRITE` permission on the account.
 - To update a pipeline in an app, you need `WRITE` permission on that app.
-- Since version 1.14, you can run a pipeline with just the `EXECUTE` permission.
+- You can run a pipeline with just the `EXECUTE` permission.
 - To successfully run a pipeline in app X that deploys to account Y, you need (at least)  `EXECUTE` on the app X and
  `WRITE` on the account Y.
 
 ## Role Providers
 In Spinnaker there are a few ways you can associate a role with a user:
 
-- With a [YAML file](https://github.com/spinnaker/fiat/blob/master/fiat-file/src/test/resources/fiat-test-permissions.yml): contains user ↔ role mapping. A YAML parseable map with structure [user]: list of roles
+- With a [YAML file](https://github.com/spinnaker/spinnaker/blob/main/fiat/fiat-file/src/test/resources/fiat-test-permissions.yml): contains user ↔ role mapping. A YAML parseable map with structure [user]: list of roles
 - Via [GitHub Teams](./github-teams/): roles are the teams a user belongs to in a configured Org
 - Via [Google Groups](./google-groups/): roles are mapped (see settings) from the Google directory
 - Via [LDAP](./ldap/): roles are searched in LDAP from the user
@@ -158,7 +149,7 @@ accounts and applications that are protected, it is necessary to configure
 them with enough permissions to access those protected resources. This can
 be done in two ways:
 
-* Using [Pipeline Permissions](./pipeline-permissions/)
+* Using [Pipeline Permissions](./pipeline-permissions/) - this is an automatic creation of service accounts on demand.
 * Using a Fiat [service account](./service-accounts/)
 
 ## Reference documentation

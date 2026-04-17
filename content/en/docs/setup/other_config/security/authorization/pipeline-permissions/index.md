@@ -24,6 +24,10 @@ setting the following flags:
 ```yaml
 tasks:
   useManagedServiceAccounts: true
+  ## Recommended to reduce duplicate service accounts by only creating unique service accounts by role set.  This drastically
+  ## can improve spinnaker auth sync times by reducing the number of service accounts, particularly with limited sets
+  ## of variable service accounts
+  useSharedManagedServiceAccounts: true
 ```
 
 * For Deck, add the following to `settings-local.js`
@@ -63,8 +67,6 @@ following flag to `front50-local.yml`:
 migrations:
   migrateToManagedServiceAccounts: true
 ```
-
-If you're using Halyard, the file is `~/.hal/default/profiles/front50-local.yml`.
 
 This migration will migrate pipelines that have Fiat service accounts set to the
 new Pipeline Permissions. It will only run on pipelines where `roles` are not

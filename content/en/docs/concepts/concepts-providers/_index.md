@@ -22,7 +22,7 @@ authenticate against a cloud provider. Each provider has slightly different
 requirements for what format credentials can be in, and what permissions they
 need to have afforded to them. The links under [Supported
 Providers](#supported-providers) describe exactly how to create an
-account and register the credentials with Halyard.
+account.
 
 Keep in mind that every Provider can have as many accounts added as desired -
 this will allow you to keep your environments (e.g. _staging_ vs. _prod_)
@@ -37,10 +37,9 @@ These are the cloud providers currently supported by Spinnaker:
 * <a href="https://aws.amazon.com/" target="_blank">Amazon Web Services</a>
 * <a href="https://azure.microsoft.com/" target="_blank">Azure</a>
 * <a href="https://www.cloudfoundry.org/" target="_blank">Cloud Foundry</a>
-* <a href="https://dcos.io/" target="_blank">DC/OS</a>
 * <a href="https://docs.docker.com/registry/" target="_blank">Docker v2 Registry</a> (__Note:__ This only
-  acts as a source of images, and does not include support for deploying Docker
-  images)
+  acts as a source of image tags/references, and does not include support for deploying 
+  Docker images)
 * <a href="https://cloud.google.com/compute/" target="_blank">Google Compute Engine</a>
 * <a href="https://kubernetes.io/" target="_blank">Kubernetes</a>
 * <a href="https://cloud.oracle.com/home" target="_blank">Oracle</a>

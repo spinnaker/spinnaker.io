@@ -5,27 +5,25 @@ weight: 1
 description: Configure the Oracle Cloud Infrastructure (OCI) bakery
 ---
 
-The Oracle Cloud Infrastructure (OCI) bakery configuration allows for setting the default availability domain, network, and instance shape of the VM used for baking the image:
+The Oracle Cloud Infrastructure (OCI) bakery configuration allows for setting the default availability domain, network,
+and instance shape of the VM used for baking the image.  Add the following to `rosco-local.yml` to enable oracle
+account baking.
 
-```bash
-hal config provider oracle bakery edit \
-    --instance-shape $INSTANCE_SHAPE \
-    --availability-domain $AVAILABILITY_DOMAIN \
-    --subnet-id $SUBNET_ID
-```
-
-You can also define custom base images:
-
-```bash
-hal config provider oracle bakery base-image add $BASE_IMAGE \
-    --base-image-id $OCI_IMAGE_OCID \
-    --ssh-user-name $SSH_USER_NAME \
-    --package-type deb
+```yaml
+oracle:
+  enabled: true
+  bakery-defaults:
+    availabilityDomain:
+    subnetId:
+    instanceShape:
+    templateFile: oracle.json
+    baseImages:
+      baseImageId: 
+      sshUserName: 
+      packageType: rpm
 ```
 
 These images are used to dynamically populate the bake stage UI:
 
 ![](bake_ui_base_images.png)
-
-The options are fully-described here:
-[here](/docs/reference/halyard/commands/#hal-config-provider-oracle-bakery)
+For more information, look at the oracle [bake code in rosco](https://github.com/spinnaker/spinnaker/tree/main/rosco/rosco-core/src/main/groovy/com/netflix/spinnaker/rosco/providers/oracle/config)

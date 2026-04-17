@@ -52,14 +52,7 @@ you don't need to add all of the root CAs to this custom trust store; only CAs
 that are not in the default trust store need to be added.
 
 ## Configure Spinnaker to use the trust store
-
-```bash
-hal config webhook trust edit --trustStore <path-to-trust-store> --trustStorePassword
-hal config webhook trust enable
-```
-The first command will prompt for the trust store password on standard input.
-
-Alternately, if not using Halyard, the following can be added to `orca-local.yml`:
+Aadd the following can be added to `orca-local.yml`:
 ```yaml
 webhook:
   trust:
@@ -67,3 +60,4 @@ webhook:
     trustStore: <path to trust store in jks format>
     trustStorePassword: <password for trustStore>
 ```
+Note:  Using a [secrets manager](https://spinnaker.io/docs/reference/secrets/) for these entries is recommended.
