@@ -1,7 +1,7 @@
 ---
 
-title:  "Install Halyard"
-weight: 1
+title:  "Deprecated - Halyard"
+weight: 1000
 aliases:
   - /docs/creating-a-spinnaker-instance
   - /docs/target-deployment-configuration

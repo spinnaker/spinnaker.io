@@ -6,16 +6,14 @@ description: >
   Describes how to install and set up Spinnaker so that it can be configured for use in production.
 ---
 
-This section describes how to install and set up Spinnaker so that it can be configured for
-use in production. If you just want to evaluate Spinnaker without much work, one of the options
-in [Quickstart](/docs/setup/quickstart/) might be a better choice.
+This section describes how to install and set up Spinnaker.
 
 # Halyard deprecation notice
 Halyard was previously mentioned on this page, and is deprecated in favor
 of native installation using kustomize or similar native configurations.  References
-to halyard are being steadily removed from the project.  An example of a script to export
-a halyard or operator deployed spinnaker into kustomize style deployment has been published here:
-https://docs.armory.io/continuous-deployment/spinnaker-user-guides/armory-operator-to-kustomize-migration/
+to halyard are being steadily removed from the project.  An
+[example script](/docs/setup/install/migration-to-kustomize-automation/) is available to export
+a halyard or operator deployed spinnaker into kustomize style deployment.
 
 ## What you'll need to install spinnaker
 

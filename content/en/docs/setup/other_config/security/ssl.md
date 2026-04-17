@@ -33,8 +33,7 @@ method](/docs/setup/other_config/security/authentication/) for specifics.
 
 During certain authentication workflows, Gate makes an intelligent guess on how to assemble a URI to
 itself, called the **`redirect_uri`**. Sometimes this guess is wrong when Spinnaker is deployed
-in concert with other networking components, like an NGINX ingress controller, an SSL-terminating load balancer, or in the
-case of the [Quickstart](/docs/setup/quickstart) images, a fronting Apache instance.
+in concert with other networking components, like an NGINX ingress controller, an SSL-terminating load balancer.
 
 To manually set the URLs which spinnaker runs, you'll need to adjust a few files:
 Deck's configuration for the API services in `settings.js`

@@ -27,9 +27,30 @@ kubectl apply -f ./spinnaker.yaml
 
 ```
 
-## Create an ingress
+## Ingress
+
+A default ingress is included that uses a single ingress with path based routes to gate's API
+on a prefix.  This bypasses CORS issues and enables a simple user experience to connect
+to spinnaker.  The default username and passwords are also set in this installation.  For
+ingress specific to your environment, please adjust [the default ingress](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/ingress.yaml) 
+as needed for your use case.
 
 ## Connect to the Spinnaker UI
+Once deployed, get the address for your ingress controller and connect to the ingress.  Make
+sure you have a domain address pointing to your new endpoint.  Example:
+```
+k get ingress -n spinnaker
+NAME                CLASS   HOSTS                     ADDRESS          PORTS     AGE
+spinnaker-ingress   nginx   spinnaker.example.com     192.168.1.2      80, 443   644d
+```
+This ingress would include 443 or TLS as configured.  It's recommended to enable a 
+cert provider and use HTTPS for requests but this is out of the scope of the installation.  
+See the [kubernetes networking documentation on TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) 
+for information on modifying the ingress for certificate handling.
+
+Once you've configured DNS to point to your address, go to http://spinnaker.example.com/ and
+login with the [username and password](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/overlays/config/files/gate-local.yml#L26-L27)
+that you've configured (or your SSO provider if so configured [per authentication configuration](/docs/setup/other_configuration/security/authentication)
 
 ## Troubleshooting
 First, check that services are running.  IF a service isn't running, check the logs
