@@ -11,7 +11,7 @@ description: >
 >
 > For Kubernetes, try [Kubernetes
 Source-to-Prod](/docs/guides/tutorials/codelabs/kubernetes-source-to-prod/),
-or [this one, for Azure](/docs/guides/tutorials/codelabs/azure-kubernetes-source-to-prod/).
+
 
 To walk you through some of the basics with Spinnaker, you're going to set up a Spinnaker pipeline that bakes a virtual machine (VM) image containing redis, then deploys that image to a test cluster.
 
@@ -20,12 +20,9 @@ Note here that the us-east-1a availability zone is currently full, so it will ne
 ### Set up Spinnaker
 
 If you don't already have a running Spinnaker instance, you'll need to set one
-up before you continue. A [demo installation](/docs/setup/quickstart) should be sufficient
-for this codelab, but you can also follow the [full setup guide](/docs/setup/install) to
-try out Spinnaker with a full installation.
+up before you continue. [Read the setup guide](/docs/setup/install) to install Spinnaker.
 
-Once you have deployed Spinnaker, navigate to [localhost:9000](http://localhost:9000)
-to start this codelab.
+Once you have deployed Spinnaker, navigate to [the ui](/docs/setup/install/deploy/#connect-to-the-spinnaker-ui).
 
 ### Create a Spinnaker application
 

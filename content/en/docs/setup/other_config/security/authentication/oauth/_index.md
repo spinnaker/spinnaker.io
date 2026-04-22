@@ -56,8 +56,7 @@ below for specific instructions on configuring your provider:
 During the OAuth [workflow](/docs/reference/architecture/authz_authn/authentication/#workflow), Gate makes an intelligent
 guess on how to assemble a URI to
 itself, called the *redirect URI*. Sometimes this guess is wrong when Spinnaker is deployed
-in concert with other networking components, such as an SSL-terminating load balancer, or in the
-case of the [Quickstart](/docs/setup/quickstart) images, a fronting Apache instance.
+in concert with other networking components, such as an SSL-terminating load balancer.
 
 You can manually set the redirect URI at the `spring.security.oauth2.client.registration.<provider>.redirect-uri` parameter as documented
 above.

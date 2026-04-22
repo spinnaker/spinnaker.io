@@ -116,6 +116,13 @@ HUGO_ENABLEGITINFO = "true"
   force = false
 
 [[redirects]]
+from = "/docs/setup/quickstart/*"
+to = "/docs/setup/install/:splat"
+status = 301
+force = false
+
+
+[[redirects]]
   from = "/guides/*"
   to = "/docs/guides/:splat"
   status = 301
