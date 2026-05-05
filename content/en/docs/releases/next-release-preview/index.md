@@ -98,3 +98,20 @@ fiat:
 
 These in combination should help reduce the number of sync times and improve overall fiat performance.  In some testing, we've seen this configuration reduce
 sync time from hours to minutes.
+
+### AWS pubsub support for cross-account / IaC-managed SQS queues
+A new `skipQueueBootstrap` flag on each `pubsub.amazon.subscriptions` entry lets the SQS subscriber skip
+`createQueue`, `setQueueAttributes`, and `SNS.Subscribe` at startup, so it works with queues provisioned
+externally (e.g. Terraform) or owned by another AWS account.
+
+```
+pubsub:
+  amazon:
+    subscriptions:
+      - name: my-subscription
+        queueARN: arn:aws:sqs:eu-central-1:000000000000:my-queue
+        topicARN: arn:aws:sns:eu-central-1:000000000000:my-topic
+        skipQueueBootstrap: true
+```
+
+Default is `false`; existing same-account subscribers are unaffected.
