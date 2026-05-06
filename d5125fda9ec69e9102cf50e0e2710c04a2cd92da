@@ -1,0 +1,114 @@
+layouts/partials/scripts.html
+  human 1,3-62,64-65,74-88,90,95,97-138
+go.sum
+  human 1-6
+package.json
+  human 19-20,58
+hugo.toml
+  human 1-292
+layouts/partials/toc.html
+  human 1-21
+go.mod
+  human 1-5
+---
+{
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 122,
+          "added_lines": 122,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1,3-62,64-65,74-88,90,95,97-138",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "layouts/partials/scripts.html"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 6,
+          "added_lines": 6,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-6",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "go.sum"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 3,
+          "added_lines": 3,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "19-20,58",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "package.json"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 292,
+          "added_lines": 292,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-292",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "hugo.toml"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 21,
+          "added_lines": 21,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-21",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "layouts/partials/toc.html"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 5,
+          "added_lines": 5,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-5",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "go.mod"
+    }
+  ],
+  "base_commit_sha": "4b4cbd8e1274702c34a04898298ca6f7c3047d13",
+  "branch": "upgradeHugoDocsy",
+  "commit_sha": "d5125fda9ec69e9102cf50e0e2710c04a2cd92da",
+  "commit_time": "2026-05-06T08:55:45-05:00",
+  "commit_type": "direct_commit",
+  "git_ai_version": "1.4.2",
+  "prompts": {
+    "human": {
+      "accepted_lines": 449,
+      "agent_id": null,
+      "human_author": "Jason McIntosh <jason.mcintosh@harness.io>",
+      "messages": [],
+      "overriden_lines": 0,
+      "total_additions": 449,
+      "total_deletions": 0
+    }
+  },
+  "repo": "git@github.com:spinnaker/spinnaker.io.git",
+  "schema_version": "authorship/3.0.0"
+}
