@@ -10,7 +10,9 @@ This section describes how to install and set up Spinnaker.
 
 ---
 
-> Halyard is deprecated
+{{% alert color="warning" title="Important" %}}
+Halyard is deprecated.
+{{% /alert %}}
 
 # Halyard deprecation notice
 Halyard was previously mentioned on this page, and is deprecated in favor
@@ -23,7 +25,7 @@ a halyard or operator deployed spinnaker into kustomize style deployment.
 
 ---
 
-## What you'll need to install spinnaker
+## Requirements to install spinnaker
 
 * A kubernetes cluster
 
