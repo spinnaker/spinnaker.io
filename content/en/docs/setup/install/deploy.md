@@ -1,8 +1,8 @@
 ---
 
-title:  "Deploy Spinnaker and Connect to the UI"
-description: After you finish configuring Spinnaker, deploy it and connect to the Deck, the Spinnaker UI.
-weight: 50
+title:  "Deploy Spinnaker and Connect"
+description: After you finish configuring Spinnaker, deploy it and connect to the Spinnaker UI (Deck).
+weight: 20
 ---
 
 Now that we've enabled one or more [Cloud Providers](/docs/setup/install/providers/), picked a [Deployment Environment](/docs/setup/install/environment/), and configured
@@ -17,34 +17,36 @@ Now that we've enabled one or more [Cloud Providers](/docs/setup/install/provide
 
 1. Set the version you want to use:
 Set this on the [kustomize image tag configuration](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/kustomization.yml#L12C15-L12C16).  All spinnaker versions since
-the monorepo use the same image tags, e.g. 2025.3.2.  
+the monorepo use the same image tags, e.g. 2025.3.2.
 
 ## Deploy Spinnaker
 
 ```bash
 kubectl kustomize -o ./spinnaker.yaml
 kubectl apply -f ./spinnaker.yaml
-
 ```
 
 ## Ingress
 
 A default ingress is included that uses a single ingress with path based routes to gate's API
 on a prefix.  This bypasses CORS issues and enables a simple user experience to connect
-to spinnaker.  The default username and passwords are also set in this installation.  For
-ingress specific to your environment, please adjust [the default ingress](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/ingress.yaml) 
+to spinnaker. The default username and passwords are also set in this installation. 
+
+For ingress specific to your environment, please adjust [the default ingress](https://github.com/spinnaker/spinnaker/blob/main/spinnaker-kustomize/ingress.yaml)
 as needed for your use case.
 
 ## Connect to the Spinnaker UI
 Once deployed, get the address for your ingress controller and connect to the ingress.  Make
 sure you have a domain address pointing to your new endpoint.  Example:
-```
-k get ingress -n spinnaker
+
+```bash
+kubectl get ingress --namespace spinnaker
+
 NAME                CLASS   HOSTS                     ADDRESS          PORTS     AGE
 spinnaker-ingress   nginx   spinnaker.example.com     192.168.1.2      80, 443   644d
 ```
 This ingress would include 443 or TLS as configured.  It's recommended to enable a 
-cert provider and use HTTPS for requests but this is out of the scope of the installation.  
+cert provider and use HTTPS for requests but this is out of the scope of the installation.
 See the [kubernetes networking documentation on TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) 
 for information on modifying the ingress for certificate handling.
 
@@ -54,7 +56,7 @@ that you've configured (or your SSO provider if so configured [per authenticatio
 
 ## Troubleshooting
 First, check that services are running.  IF a service isn't running, check the logs
-for configuration errors.  
+for configuration errors. 
 
 Next once all services are running, make sure you can talk to the gate endpoint.  You
 should be able to check the health endpoint even externally via the gate-api/health endpoint.
