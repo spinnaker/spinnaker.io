@@ -8,6 +8,12 @@ description: >
 
 This section describes how to install and set up Spinnaker.
 
+---
+
+{{% alert color="warning" title="Important" %}}
+Halyard is deprecated.
+{{% /alert %}}
+
 # Halyard deprecation notice
 Halyard was previously mentioned on this page, and is deprecated in favor
 of native installation using kustomize or similar native configurations.  References
@@ -15,7 +21,11 @@ to halyard are being steadily removed from the project.  An
 [example script](/docs/setup/install/migration-to-kustomize-automation/) is available to export
 a halyard or operator deployed spinnaker into kustomize style deployment.
 
-## What you'll need to install spinnaker
+> Halyard is deprecated
+
+---
+
+## Requirements to install spinnaker
 
 * A kubernetes cluster
 
@@ -30,12 +40,16 @@ You can also install [on a single local machine](https://www.spinnaker.io/setup/
 ## The process
 
 Installing a complete Spinnaker involves these steps:
-1. [Choose a cloud provider](/docs/setup/install/providers/)
-1. [Choose an installation method](/docs/setup/install/environment/)
-1. [Configure a database for storage](/docs/setup/install/storage/)
-1. [Deploy Spinnaker](/docs/setup/install/deploy/)
-1. [Configure everything else](/docs/setup/other_config/) 
-1. [Productionize Spinnaker](/docs/setup/productionize/)
+
+### Install spinnaker
+* [Choose an installation method](/docs/setup/install/environment/)
+* [Deploy Spinnaker](/docs/setup/install/deploy/)
+
+### Configure spinnaker
+* [Choose a cloud provider](/docs/setup/install/providers/)
+* [Configure a database for storage](/docs/setup/install/storage/)
+* [Configure everything else](/docs/setup/other_config/)
+* [Productionize Spinnaker](/docs/setup/productionize/)
 
 It is HIGHLY recommended to at LEAST setup authentication for spinnaker!
 

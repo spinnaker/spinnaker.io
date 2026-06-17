@@ -2,7 +2,7 @@
 
 title:  "Choose your Environment"
 description: Based on your use case, choose how you want to install Spinnaker.
-weight: 30
+weight: 10
 ---
 
 In this step, you choose where to install Spinnaker. The recommended path is an installation into a
@@ -99,6 +99,4 @@ Ensure that the following are installed on your system:
   of the Distributed installation.
 
 ## Next steps
-
-Now that your deployment environment is set up, you need to provide Spinnaker
-with a [Persistent Storage](/docs/setup/install/storage/) source.
+After you've set up your external storage service, you're ready to [deploy Spinnaker](/docs/setup/install/deploy/).
