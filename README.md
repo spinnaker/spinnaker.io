@@ -38,6 +38,3 @@ Open the URL printed in the terminal in your browser. Hugo rebuilds and reloads 
 4. Branches merged into `master` deploy to the live site.
 
 See [docs/website-contributing.md](docs/website-contributing.md) for content authoring, shortcodes, homepage config, and theme customization.
-
-## Recent Updates
-- Reorganized the installation documentation under `/docs/setup/install/` into clearer `Install` and `Configure` categories.
