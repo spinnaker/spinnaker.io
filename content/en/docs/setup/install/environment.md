@@ -8,12 +8,14 @@ weight: 10
 In this step, you choose where to install Spinnaker. The recommended path is an installation into a
 Kubernetes cluster
 
-* [Kubernetes installation](#Kubernetes-installation)
+* [Kubernetes installation](#kubernetes-installation)
 
   Each of Spinnaker's [microservices](/docs/reference/architecture) services
   are deployed separately. __This is highly recommended for use in production.__
 
 * [Local installations](#local-debian) of Debian packages
+
+  You can also install on a single local machine, or for Spinnaker development, making sure you have the 4 cores and 16GB in each case.
 
   Spinnaker is deployed on a single machine. This is ok for smaller
   Spinnaker deployments, but Spinnaker will be unavailable when it's being
@@ -31,7 +33,7 @@ for test purposes. Spinnaker is deployed to a namespace in a kubernetes cluster
 [microservice](/docs/reference/architecture/) deployed independently.
 
 The base example is available in the monorepo here:
-https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize
+<https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize>
 with more information and options. To install spinnaker:
 
 1. Make sure [kubectl is installed](https://kubernetes.io/docs/tasks/tools/)
@@ -71,10 +73,10 @@ load properties from in the following priority order
 It's recommended NOT to change the spinnaker.yml or service.yml and instead override their settings in the service
 local yml files. These base files often are "defaults" or core settings. Base settings can be found in the
 source code for each service similar
-to https://github.com/spinnaker/spinnaker/blob/main/front50/front50-web/config/front50.yml
+to <https://github.com/spinnaker/spinnaker/blob/main/front50/front50-web/config/front50.yml>
 path where each service has a `<service>/<service>-web/config/<service>.yml` file defining defaults.
 
-> **Note**: Local Debian installation requires a recent ubuntu/debian and installation of components like kubectl
+> __Note__: Local Debian installation requires a recent ubuntu/debian and installation of components like kubectl
 > or the aws cli depending upon deployment targets. They also need a Java 17 JRE installed.
 
 ### Intended use case
@@ -99,4 +101,5 @@ Ensure that the following are installed on your system:
   of the Distributed installation.
 
 ## Next steps
+
 After you've set up your external storage service, you're ready to [deploy Spinnaker](/docs/setup/install/deploy/).
