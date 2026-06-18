@@ -1,14 +1,15 @@
 ---
 title: 'Setup FAQ'
 description: Commonly Asked Questions
-weight: 70
+weight: 400
 aliases:
   - /setup/quickstart/faq/
 ---
 
 # CAUTION
+
 Halyard is deprecated and no longer supported.  MANY FAQs here around halyard no longer work
-or are no longer relevant.  See a [Spinnaker Kustomize](https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize) 
+or are no longer relevant.  See a [Spinnaker Kustomize](https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize)
 based installation for a current deployment of spinnaker.  Halyard FAQs and information will be removed
 on an ongoing basis
 
@@ -121,6 +122,7 @@ You have two options here:
    each subservice.
 
 ## I'm seeing duplicate/bad infrastructure entries in the UI after deploying config changes
+>
 > This information is drastically out of date.  Spinnaker has cleanup services that
 > can be configured.  Configure the unknown-agent-cleanup-agent in clouddriver to purge
 > out of date information
