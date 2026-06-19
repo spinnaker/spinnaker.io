@@ -28,27 +28,69 @@ Kubernetes cluster
 
 ## Kubernetes installation
 
-Kubernetes installations are recommended for most organizations and even
-for test purposes. Spinnaker is deployed to a namespace in a kubernetes cluster
-[microservice](/docs/reference/architecture/) deployed independently.
+Spinnaker runs in a dedicated Kubernetes namespace as a set of independently deployed microservices.
+
+See the [microservice reference architecture](/docs/reference/architecture/).
 
 The base example is available in the monorepo here:
 <https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize>
-with more information and options. To install spinnaker:
+with more information and options.
+
+To install spinnaker:
 
 1. Make sure [kubectl is installed](https://kubernetes.io/docs/tasks/tools/)
-2. Optionally,
-   configure [Kubernetes probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
-   for your Spinnaker services in their deployment manifests (in the `~/spinnaker-kustomize/base/*/deployment.yaml`
-   files.
-3. Adjust the domains. Look for any example.com reference and replace with your DNS domain.
-4. Create a file with the spinnaker kubernetes resources and apply it
-    1. `kubectl kustomize -o spinnaker.yaml`
-    2. `kubectl apply -f spinnaker.yaml`
-5. Get the ingress IP address and create DNS entries for your new spinnaker domain to this new entry
+
+    ```bash
+    kubectl version --client
+    ```
+
+2. set a working directory `WORKING_DIR="$HOME/workspace-install-spinnaker/"`
+
+    ```bash
+    mkdir -pv "$HOME/workspace-spinnaker-install/"
+    ```
+
+3. clone the base example github repo
+
+    ```bash
+    git clone https://github.com/spinnaker/spinnaker.git $HOME/workspace-spinnaker-install/spinnaker
+    ```
+
+4. Optional: configure [Kubernetes probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
+      for your Spinnaker services in their deployment manifests files. located inside `base/*/deployment.yaml`/
+
+    ```bash
+    ls -lha $HOME/workspace-spinnaker-install/spinnaker/spinnaker-kustomize/base/*/
+    ```
+
+5. switch to the `kustomize` directory in the `spinnaker` base repo
+
+   ```bash
+    pushd $WORKING_DIR/spinnaker/spinnaker-kustomize
+    ```
+
+6. Adjust the DNS domains. Look for any `example.com` reference and replace with your DNS domain.
+
+7. Create a file with the spinnaker kubernetes resources and apply it
+
+    ```bash
+    kubectl kustomize --output="spinnaker.yaml"
+    ```
+
+8. Apply the YAML file
+
+    ```bash
+    kubectl apply --filename="spinnaker.yaml"
+    ```
+
+9. Get the ingress IP address and create DNS entries for your new spinnaker domain to this new entry
+
+    ```bash
+    kubectl get ingress --namespace spinnaker
+    ```
 
 REMINDER:  This basic setup defaults with a SIMPLE username/password auth.  It's recommended to change
-this from the default or better yet, use an identity provider (saml/oidc/ldap) solution.  The spinnaker
+this from the default or better yet, use an identity provider (saml/oidc/ldap) solution. The spinnaker
 project does integration tests today with Keycloak as a known out of the box solution.
 
 ## Local Debian
@@ -102,4 +144,7 @@ Ensure that the following are installed on your system:
 
 ## Next steps
 
-After you've set up your external storage service, you're ready to [deploy Spinnaker](/docs/setup/install/deploy/).
+Congratulations, you have a basic Spinnaker installation. You can
+
+* Integrate with [Cloud Providers](/docs/setup/install/providers/)
+* check the [deploy Spinnaker](/docs/setup/install/deploy/) references
