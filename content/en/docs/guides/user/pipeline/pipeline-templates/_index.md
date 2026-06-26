@@ -12,13 +12,11 @@ Spinnaker itself.
 
 Templates can be managed using [spin](/docs/guides/spin/pipeline-templates/) or the UI. To manage templates through the UI, enable the requisite feature flag: `hal config features edit --managed-pipeline-templates-v2-ui true`
 
-## Component Architecture
+The following diagram illustrates one common workflow for Managed Pipeline Templates (MPT v2). Depending on your deployment, enabled features, and tooling, the lifecycle may vary. For example, Sponnet is optional, and templates may be authored or managed using different tools.
 
-The following diagram illustrates the major services involved in the lifecycle of a Managed Pipeline Template (MPT v2), including template authoring, storage, planning, hydration, and execution.
+![Example Managed Pipeline Template v2 workflow](/images/mpt-v2-architecture.png)
 
-![Managed Pipeline Template v2 Architecture](/images/mpt-v2-architecture.png)
-
-The diagram shows how templates are authored directly or generated using Sponnet, managed through the Spin CLI or Deck UI, stored through Gate and Front50, hydrated by Orca, and ultimately executed as pipelines.
+This diagram is intended as an illustrative example rather than the only supported architecture. In this example, templates are authored directly or generated using Sponnet, managed through the Spin CLI or Deck UI, stored through Gate and Front50, hydrated by Orca, and ultimately executed as pipelines.
 
 **Before you begin:**
 
