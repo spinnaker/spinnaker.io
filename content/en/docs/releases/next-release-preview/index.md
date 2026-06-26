@@ -56,6 +56,9 @@ API tokens provide:
 - **IAP-compatible transport**: `X-Spinnaker-Token: spk_…` flows cleanly through GCP IAP, which rejects non-JWT `Authorization: Bearer` values.
 - **Operator observability**: A new `gate.requests` Spectator counter is tagged with `authType`, `principalKind`, `method`, `statusCode`, and `status` so operators can answer "how much of our traffic is token-auth, and from which kind of principal?" without scraping logs.
 
+#### Configuration options
+https://github.com/spinnaker/spinnaker/commit/fd3c081c5ba93fe71e84cf1bd4bb54ba05c8db75 you can see the various options documented in the spinnaker-kustomize folder. Please adjust as needed for your use
+
 
 ### Major ECS Performance Improvements
 
