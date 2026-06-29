@@ -13,7 +13,7 @@ changelog.
 
 ### Deprecations and Removals
 
-* **MySQL 8+ REQUIREDk**: With recent upgrades to the underlying SQL libraries, MySQL 5.7 is no longer supported and will fail. You must be on MySQL 8+ (or equivalent MariaDB) to use Spinnaker going forward.
+* **MySQL 8+ REQUIRED**: With recent upgrades to the underlying SQL libraries, MySQL 5.7 is no longer supported and will fail. You must be on MySQL 8+ (or equivalent MariaDB) to use Spinnaker going forward.
 
 * **Halyard**: Halyard has been deprecated and will be removed from new publishing after this release. The current Halyard installation should continue to operate, but the code will be removed from the Spinnaker project core. Fixes can be backported as needed, but all users should migrate to an alternative installation method. Kustomize is the default documented and community-supported installation method.
 
