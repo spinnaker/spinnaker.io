@@ -17,11 +17,27 @@ changelog.
 
 * **Halyard**: Halyard has been deprecated and will be removed from new publishing after this release. The current Halyard installation should continue to operate, but the code will be removed from the Spinnaker project core. Fixes can be backported as needed, but all users should migrate to an alternative installation method. Kustomize is the default documented and community-supported installation method.
 
-* **AWS SDK v1**: AWS SDK v2 support has been introduced. AWS SDK v1 is likely to be removed in an upcoming release, though custom code using v1 should continue to operate. If you have custom implementations, it's recommended to immediately begin migrating to use the v2 integrations.
+* **AWS SDK v1**: AWS SDK v2 support has been introduced. AWS SDK v1 is likely to be removed in an upcoming release, though custom code using v1 should continue to operate. If you have custom implementations, it's recommended to immediately begin migrating to use the v2 integrations.  A few cache agents have been moved to use AWS V2 SDKs as part of this release.
 
 * **EDDA**: EDDA will not be supported going forward and will be removed once AWS SDK v2 is fully migrated. We have not heard of anyone in the OSS community using it and will not be continuing to support it. Please join the Spinnaker Slack if you have any concerns.
 
 * **Spectator**: Spectator should be considered end-of-life for the project. All operations will be moving to standard Micrometer registries. While Spectator itself is a Micrometer registry, the project will be removing implementation-specific libraries.
+
+
+### URL handling
+Due to spring boot changes, there is a new filter that restores a lenient handling of trailing slashes.  This filter enables clients to work with endpoints that do not have trailing slashes when previously they would work
+with this.  See [Github PR #7755](https://github.com/spinnaker/spinnaker/pull/7755) for more information and details.  This filter can have it's configuration adjusted as needed with the following config:
+
+```
+url-handler:
+  trailing-slash:
+    enabled: true          # default; set false to opt out
+    path-patterns:
+      - "/**"              # default; narrow if desired
+```
+
+IF you have controllers with ONLY a trailing slash, this may BREAK those controllers.  You can adjust the configuration on services using the above configuration block to be more explicit on which patterns are matched.  This
+ should be a stopgap as the long term plan will be to remove the need for this filter by changing various clients and endpoints.  It's recommended that you update your controllers in plugins or custom code to handle both paths.
 
 ### Major Dependency Upgrades
 
