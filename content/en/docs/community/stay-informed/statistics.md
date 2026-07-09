@@ -59,4 +59,4 @@ Account is required in order to access the data via Big Query).
 
 ## Dashboards
 
-<iframe width="100%" height="1068" src="https://lookerstudio.google.com/embed/reporting/123CtgjFMBZF2qrwAAt7mAss50Nuh5ruh/page/ZwADB" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe width="100%" height="1300" src="https://datastudio.google.com/embed/reporting/f01bb974-de78-498a-a45b-34c8f31131df/page/kMNPB" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
