@@ -3,6 +3,8 @@
 .AppleDouble
 .LSOverride
 .env
+## Ignore VIM swap files
+*.swp
 
 # Icon must end with two \r
 Icon
