@@ -54,8 +54,8 @@ SUBSCRIPTION_NAME=<subscription>
 
 ### Configure Spinnaker to deploy to GAE
 
-If Spinnaker is not yet configured, follow this Halyard [quickstart](https://www.spinnaker.io/setup/quickstart/halyard-gce/), then
-[configure the GAE cloud provider](https://www.spinnaker.io/setup/providers/appengine/).
+If Spinnaker is not yet configured, install it by following the [installation instructions](https://spinnaker.io/docs/setup/install/) and then add/configure
+[the app engine cloud provider](https://spinnaker.io/docs/setup/install/providers/appengine/).
 
 Note that while configuring the GAE cloud provider, you will create a service account with `roles/storage.admin`
 enabled and set two environment variables:
@@ -90,28 +90,41 @@ First, configure your GCS artifact provider.
 
 1. Enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
 
-2. Enable the GCS artifact provider:
-`hal config artifact gcs enable`
-
-4. Add Spinnaker configuration for the GCS artifact provider's account:
-`hal config artifact gcs account add --json-path $SERVICE_ACCOUNT_DEST my-artifact-account`
-
-Note that we're using the environment variable set in configuring the GAE provider here.
+2. Enable the GCS artifact provider by adding to `clouddriver-local.yml`
+```yaml
+artifacts:
+  gcs:
+    enabled: true
+    accounts:
+    - name: my-artifact-account
+      json-path: /mnt/some/path
+```
+It's recommended to use an [external secrets manager](/docs/reference/secrets/) instead of directly mounting secrets onto pods.
 
 Now configure Spinnaker to receive messages from your Google Cloud Pub/Sub subscription.
 
-1. Enable Google Pub/Sub:
-`hal config pubsub google enable`
+1. Enable Google Pub/Sub by adding to the `echo-local.yml`:
+```yaml
+pubsub:
+  enabled: true
+  google:
+    enabled: true
+```
 
 2. Add your subscription to Google Pub/Sub:
-`hal config pubsub google subscription add --project $PROJECT_ID --json-path $SERVICE_ACCOUNT_DEST --subscription-name $SUBSCRIPTION_NAME --message-format GCS my-gcs-subscription`
+```yaml
+pubsub:
+  enabled: true
+  google:
+    enabled: true
+    subscriptions:
+    - name: my-gcs-subscription
+      project: project-id
+      json-path: </mnt/secretorSecretManagerReference>
+      message-format: GCS
+```
 
-### Deploy Spinnaker with Halyard
-
-Select a Spinnaker version: `hal config version edit --version <version>`. List the available versions with `hal version list`.
-
-`sudo hal deploy apply`
-Wait a few minutes for the deploy to complete.
+### [Deploy Spinnaker with these changes](/docs/setup/install)
 
 ## Configure your pipeline
 

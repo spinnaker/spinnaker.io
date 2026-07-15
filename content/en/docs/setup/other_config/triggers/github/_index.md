@@ -15,9 +15,7 @@ These steps show you how to configure webhook push events to send to Spinnaker f
   GitHub's webhooks to reach Spinnaker.
 
   If you're unsure of what your Spinnaker API endpoint is, check the value of
-  `services.gate.baseUrl` in `~/.hal/$DEPLOYMENT/staging/spinnaker.yml`. The
-  value of `$DEPLOYMENT` is typically `default`. If you're unsure, see the
-  [Halyard reference](/docs/reference/halyard).
+  `services.gate.baseUrl` or your ingress or services.
 
 * You need a [GitHub
   repository](https://help.github.com/articles/create-a-repo/)
@@ -38,6 +36,5 @@ Webhook__. Here, provide the following values to the form shown below:
 
 ## Spinnaker configuration
 
-You do not need to configure Spinnaker via Halyard at this point -- all that's
-needed is pipeline trigger configuration. An example of that can be found in
+Aall that's needed is pipeline trigger configuration. An example of that can be found in
 [this guide](/docs/guides/user/pipeline/triggers/github/).

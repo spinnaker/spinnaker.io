@@ -12,8 +12,9 @@ Spinnaker you manage. You have a few options available:
 # Wait for the non-patch release
 
 Any time we release a new minor version of Spinnaker (e.g. 1.16.0 or 1.17.0), we
-include all commits merged into `master` for each service. We do this on a
-[regular cadence]({{< ref "release-cadence" >}}).
+include all commits merged into `main` for each service. We do this on a quarterly
+basis by default.  
+
 
 # Release branch patch criteria
 
@@ -42,8 +43,8 @@ manager.
 
 If your patch meets the [cherry-pick criteria](#release-branch-patch-criteria), you can request that your patch
 be merged into a release branch. Every minor release of Spinnaker has its own
-release branch. For example, all Spinnaker 1.16 releases (1.16.0, 1.16.1, etc.)
-are built from the `release-1.16.x` release branch. To get your patch into 1.16,
+release branch. For example, all Spinnaker 2026.0.x releases (2026.0.1, 2026.0.2, etc.)
+are built from the `release-2026.0.x` release branch. To get your patch into 2026.0.x,
 it must be cherry-picked onto that release branch.
 
 After you've created a pull request for a fix that you want backported to a release
@@ -62,18 +63,3 @@ below:
 {% include figure image_path="./patch.png" %}
 
 Once this PR is merged, your patch should be released in the next few days.
-
-# Run the nightly builds (not recommended)
-
-If you urgently need the change, you can always rely on the
-`master-latest-unvalidated` release version. Keep in mind these changes have
-not necessarily passed our integration test suite. You can pick this release
-with the following command:
-
-```bash
-hal config version edit --version master-latest-unvalidated
-```
-
-This release is built nightly at around 2:00am every day. As a result, each
-time you run `hal deploy apply`, you will be running the latest code for each
-service.

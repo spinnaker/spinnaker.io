@@ -322,6 +322,6 @@ profiles:
 
 * [Test your plugin locally using Minnaker]({{< ref "plugin-deck-test.md" >}})
 * [Plugin Compatibility Testing]({{< ref "compatibility-testing.md" >}})
-* [Deploy your plugin using Halyard](/docs/guides/user/plugins-users/plugin-deploy-example/)
+* [Deploy your plugin](/docs/guides/user/plugins-users/plugin-deploy-example/)
 
 {{% include "plugins-spin-operator.md" %}}

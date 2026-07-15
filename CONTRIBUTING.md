@@ -11,6 +11,7 @@ Relevant resources for Spinnaker contributors:
 - [How to Submit a Patch](https://spinnaker.io/docs/community/contributing/code/releasing/) (includes commit and PR message conventions)
 - [Make a Change Using a Local Clone](https://spinnaker.io/docs/community/contributing/local-clone/)
 - [Developer How-Tos](https://spinnaker.io/docs/community/contributing/code/developer-guides/)
+- [Website Contributing Guide](docs/website-contributing.md)
 
 ## Get Involved
 Once you join Slack, make yourself at home! Feel free to ask questions, start conversations, and flag issues that need attention. Join the #sig-contributor-experience channel to receive a warm welcome.

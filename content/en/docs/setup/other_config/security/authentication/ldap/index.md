@@ -9,12 +9,9 @@ authentication. This is a fancy way of saying that Gate uses your username and p
 to the LDAP server, and if the connection is successful, you're considered authenticated.  Note that there is a
 fair bit of crossover between the authorization and authentication settings. 
 
-
 ### Notes
 
-*  Make sure you’re using Halyard 1.20 or later as that adds the ability to set the manager user/password settings. 
-You can use a prior version, but you will need to use a `gate-local.yml` to define the manager properties instead of being able
-to use Halyard.
+* This is mostly a spring configuration around LDAP handling.  As such, many issues may be documented on spring on configuration values for your needs.
 
 * If the manager Domain Name (DN) is NOT set, all searches attempt to use the user currently logging in.  You'll often see errors
 in the log files tied to "bind failures" and LDAP error codes.
@@ -38,14 +35,14 @@ default.
 - Extract the Root DN from the `url` (`ldaps://my.server/a/b/c` → `a/b/c`)
     - If `com.netflix.spinnaker.fiat.roles.ldap.LdapUserRolesProvider` log level is at debug, you should 
     see `Root DN: <the actual root DN extracted>`
-- If `--user-search-filter` is provided:
+- If `userSearchFilter` is set:
     - Search LDAP:
-        - Search in  `--user-search-base` OR the root (would be `a/b/c` in this example) if user-search-base is not set.
-        - Filtered by `--user-search-filter="(d={0})"` where `uid=<the username as typed in>`, such as `jdoe`.
+        - Search in  `userSearchBase` OR the root (would be `a/b/c` in this example) if userSearchBase is not set.
+        - Filtered by `userSearchFilter="(d={0})"` where `uid=<the username as typed in>`, such as `jdoe`.
         - Start at the rootDn and use sub tree searches
     - Return root DN computed + the found user DN
-- If `user-search-filter` is not provided:
-    - Calculate the user DN using `user-dn-pattern`.  In the case below, the user `jdoe` would have a full DN of
+- If `userSearchFilter` is not provided:
+    - Calculate the user DN using `userDnPattern`.  In the case below, the user `jdoe` would have a full DN of
     `uid=jdoe,ou=users,dc=mydomain,dc=net`.
     - Return root DN computed + user DN
     
@@ -53,7 +50,7 @@ default.
 For example, given the following parameters:
 
 * Root DN is `dc=my-organization,dc=com` 
-* `user-dn-pattern` is `uid={0},ou=users`
+* `userDnPatternn` is `uid={0},ou=users`
 * User with the id `jdoe`
 
 The full, unique DN would be `uid=jdoe,ou=users,dc=my-organization,dc=com`.
@@ -68,47 +65,57 @@ In the above example, you could test with:
 
 ```bash
 //Search using manager DN, manager password on url with base of "X"
-# When: --user-search-filter=(uid={0}) --user-search-base=DC=USERS,OU=Y,O=io 
+# When: userSearchFilter=(uid={0}) userSearchBase=DC=USERS,OU=Y,O=io 
 ldapsearch -D "MANAGER_DN" -w 'MANAGER_PASSWORD' -H ldaps://1.2.3.4 -x -b "DC=USERS,OU=Y,O=io" "(UID=USERNAME)"
 ```
-Without a user-search-base
+Without a userSearchBase
 ```bash
 //Search using manager DN, manager password on url with base of "X"
-# When: --user-search-filter=(uid={0}) 
+# When: userSearchFilter=(uid={0}) 
 ldapsearch -D "MANAGER_DN" -w 'MANAGER_PASSWORD' -H ldaps://1.2.3.4 -x   "(UID=USERNAME})"
 ```
-Without a user-search-filter
+Without a userSearchFilter
 ```bash
 //Search using manager DN, manager password on url with base of "X"
 # When: --user-dn-pattern=(uid={0},ou=users) 
 ldapsearch -D "MANAGER_DN" -w 'MANAGER_PASSWORD' -H ldaps://1.2.3.4/OU=Y,O=io -x "(CN=USERNAME,OU=users,OU=Y,O=IO))"
 ```
 
-## Configure LDAP using Halyard
+## Configuration 
+Add the parameters to `gate-local.yml` and set as appropriate.  More information can be found below on how
+these parameters impact LDAP auth.
 
-You can use `hal config` to enable and configure LDAP. Here's an example:
-
-```bash
-
-hal config security authn ldap edit --user-dn-pattern="uid={0},ou=users" \ 
-       --url=ldaps://ldap.my-organization.com:636/dc=my-organization,dc=com
-
-hal config security authn ldap enable
+```yaml
+ldap:
+  enabled: true
+  url: ldaps://host/a/b/c
+  managerDn: dn=bob
+  managerPassword: encrypted:some:password
+  groupSearchBase: groupInfo
+  userDnPattern: <optional> userDnPattern
+  userSearchBase: <optional> searchBase
+  userSearchFilter: <optional> searchFilter
 ```
+The [source code for the ldap configuration](https://github.com/spinnaker/spinnaker/blob/main/gate/gate-ldap/src/main/groovy/com/netflix/spinnaker/gate/security/ldap/LdapSsoConfig.groovy) in gate
+can show you how this is utilized.  
 
-You can also use `--user-search-base` (optional) and `--user-search-filter` if the simpler
-`--user-dn-pattern` does not match what your organization uses for `userDn`. We don't explore this
+## Optional configurations
+You can also use `userSearchBase` (optional) and `userSearchFilterr` if the simpler
+`userDnPatternn` does not match what your organization uses for `userDn`. We don't explore this
 use case here, but you can read up more on LDAP search filters
-[here](https://confluence.atlassian.com/kb/how-to-write-ldap-search-filters-792496933.html).
+[here](https://support.atlassian.com/atlassian-knowledge-base/kb/how-to-write-ldap-search-filters/).
 
 
 ## Active Directory
 
-1. We recommend NOT using the `--user-dn-pattern` argument for AD. The following issue has been reported in an issue ticket:
- 
-    “userDnPattern should remain unset - AD groups store user DNs in the memberOf attribute; finding DNs from sAMAccountNames is easily doable but not with a simple, single-level pattern. The DN contains the the CN, and that can’t really be constructed without sub searches. userSearchFilter takes precedence if there’s no user-dn-pattern set.”
+1. We recommend NOT using the `userDnPattern` argument for AD. The following issue has been reported in an issue ticket:
+   
+ >  userDnPattern should remain unset - AD groups store user DNs in the memberOf attribute; finding DNs from
+ >  sAMAccountNames is easily doable but not with a simple, single-level pattern. The DN contains the CN, and that
+ >  can’t really be constructed without sub searches. userSearchFilter takes precedence if there’s no user-dn-pattern
+ >  set.
 
-1. Here's the raw settings that will eventually be there in Gate as an example.
+1. Here's the raw settings to add to `gate-local.yml` for active direct as an example:
 ```
 ldap:
   enabled: true
@@ -119,17 +126,6 @@ ldap:
 ```
 The managerUser will then find a user in your ou=users,ou=company,o=com directory via a subtree search. You 
 should be able to set the user-search-base parameter vs. including it on the URL to have it specified separately.
-
-Last, here are the Halyard commands to configure these:
-```bash
-hal config security authn ldap enable
-hal config security authn ldap edit \
-  --manager-dn 'CN=blah,OU=blah,OU=blah,O=blah' \
-  --user-search-filter '(&(objectClass=user)(sAMAccountName={0}))' \
-  --url ldaps://blah:686/searchbase
-## This one will prompt you for the password don't set it on the command
-hal config security authn ldap edit --manager-password
-```
 
 
 ## Next steps

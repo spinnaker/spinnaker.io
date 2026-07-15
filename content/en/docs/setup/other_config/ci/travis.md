@@ -18,27 +18,18 @@ repos you should see.
 
 ## Add your Travis CI master
 
-1. Enable Travis CI:
+1. Enable Travis CI in `igor-local.yml`
+```yaml
+travis:
+  enabled: true
+  masters:
+  - name: someName
+    baseUrl: https://travis-ci.com
+    ## Address IS Required but MAY not be actually used anymore
+    address: https://api.travis-ci.com
+    githubToken: patUse
+    numberOfJobs: number to poll for each cycle
+```
+It is recommended to use [encrypted secrets](/docs/reference/secrets/) for password information in the above
 
-   `hal config ci travis enable`
-
-1. If you're using Spinnaker 1.19 or earlier, enable the Travis stage by adding
-the following to your [Deck custom profile](/docs/reference/halyard/custom/#custom-profile-for-deck):
-
-    ```js
-     window.spinnakerSettings.feature.travis = true;
-    ```
-
-1. Add a Travis CI master named my-travis-master (or any arbitrary human-readable
-name):
-
-   ```
-   hal config ci travis master add my-travis-master \
-   --address https://api.travis-ci.org \
-   --base-url https://travis-ci.org \
-   --github-token <token> \ # The GitHub token to authenticate to Travis
-   --number-of-jobs # How many jobs the integration should fetch each
-                    # time the poller runs. Set this higher than the max
-                    # you expect during polling interval.
-                    # Defaults to 100.
-   ```
+For more configuration options, see the [travis configuration properties](https://github.com/spinnaker/spinnaker/tree/main/igor/igor-monitor-travis/src/main/java/com/netflix/spinnaker/igor/travis/config/TravisProperties.java) in igor.

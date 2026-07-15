@@ -6,10 +6,10 @@ description: >
   Spinnaker is a large system, made of many microservices, each intended to be scaled, restarted, and configured independently.
 ---
 
-Spinnaker is a large system, made of many microservices, each intended to be
+Spinnaker is a large system, made of several microservices, each intended to be
 scaled, restarted, and configured independently. This provides operators a
-great degree of flexibility, and allows Spinnaker to handle massive scale (1K+
-deployments/day, 10K+ managed machines). However, there is no one-size-fits-all
+great degree of flexibility, and allows Spinnaker to handle massive scale (100K+
+deployments/day, 10K+ managed accounts). However, there is no one-size-fits-all
 approach for configuring Spinnaker; your organization's usage patterns will
 need to inform how to prepare your Spinnaker deployment to be used in
 production.
@@ -26,8 +26,7 @@ metrics.
 * __Logs__
 
   In the __Distributed__ deployments to Kubernetes, logs are forwarded to
-  whatever [logging
-  solution](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
+  whatever [logging solution](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
   you have configured.
 
   In the __LocalDebian__ deployments, logs are written to `/var/log/spinnaker`.

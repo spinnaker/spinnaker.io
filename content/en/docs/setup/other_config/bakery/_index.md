@@ -26,13 +26,14 @@ Every time you initiate a bake using Spinnaker, Spinnaker invokes a [packer
 template](https://www.packer.io/docs/templates/index.html)
 with a mix of [variables](https://www.packer.io/docs/templates/index.html)
 provided by you, the Pipeline you are currently executing, and Spinnaker itself.
-All of the default packer templates are versioned alongside Rosco, the image
+All the default packer templates are versioned alongside Rosco, the image
 bakery service
-[here](https://github.com/spinnaker/rosco/tree/master/rosco-web/config/packer).
-If want to override/include a new template, place it into
-`~/.hal/$DEPLOYMENT/profiles/rosco/packer/` (`$DEPLOYMENT` is
-typically `default`, read more [here](/docs/reference/halyard/#deployments)). Any local
-scripts/artifacts required by that template can also be placed into that
+[here](https://github.com/spinnaker/spinnaker/tree/main/rosco/halconfig/packer).
+If want to override/include a new template, place it into a volume that replaces
+the `/opt/rosco/config/packer` folder on the rosco pods.  This can be a configmap,
+NFS volume or any solution you choose from kubernetes volume mount support.
+
+Any local scripts/artifacts required by that template can also be placed into that
 directory, and referenced relative to the `configDir` Packer variable that will
 automatically be set.
 

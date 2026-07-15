@@ -40,7 +40,9 @@ The certificates generated here only allow for the authentication of a user's id
 
 `roleOid` is used for this example.
 
-Client certificates with role information are parsed when roleOid is provided. This OID is configurable and is set via Halyard. The OID provided in the example below is defined [here](http://www.oid-info.com/cgi-bin/display?oid=1.2.840.10070.8.1&action=display).
+Client certificates with role information are parsed when roleOid is provided. This OID is configurable and is set in
+your `gate-local.yml` file. The OID provided in the example below is
+defined [here](http://www.oid-info.com/cgi-bin/display?oid=1.2.840.10070.8.1&action=display).
 
 Encoding with any other OID can be done by editing the `openssl.conf`.
 
@@ -128,46 +130,38 @@ aws acm-pca get-certificate --certificate-authority-arn [private CA ARN] \
     --output text > client.crt
 ```
 
-## Set roleOid
+## Configure Spinnaker
 
-```
-hal config security authn x509 edit --role-oid 1.2.840.10070.8.1
-```
+Add the following to your `gate-local.yml`
 
-### Configure SSL to require certs
-
-If you have SSL enabled, you need to set the Apache Tomcat SSL stack to require a valid certificate 
-chain as required by the Spring Security integration. 
-
-```
-hal config security api ssl edit --client-auth # Set to WANT or NEED
-```
-
-There are three states for `client-auth` - `WANT`, `NEED`, and when it is unset.
-
-Set `client-auth` to `WANT` to use a certificate if available. SSL connections will succeed even if 
-the client doesn’t provide a certificate. This is useful if you enable x509 with another 
-authentication method like OAuth, LDAP, SAML - when a certificate is not provided, users can still
-authenticate with one of these methods.
-
-Set `client-auth` to `NEED` if x509 is the sole authentication method, or if you want to ensure the
-certificate is provided AND another authentication mechanism is used.
-
-To revert back to not requiring a certificate after disabling x509, find and delete the `client-auth`
-field set in `~/.hal/config`.
-
-## Enable x509
-
-```
-hal config security authn x509 enable
-```
-
-## Optional settings
-
-A `subjectPrincipalRegex` can be provided if the certificates principal name needs parsing.
-
-```
-hal config security authn x509 edit --subject-principal-regex "EMAILADDRESS=(.*?)(?:,|$)"
+```yaml
+x509:
+  enabled: true
+  #regix: if you want to use the "Email Address" field from the certificate, the regex would be: EMAILADDRESS=(.*?)(?:,|$)
+  subject-principal-regex:  <Optional > regex
+  role-oid: 1.2.840.10070.8.1
+  required-roles: 
+  - admin
+  - some-random-group
+  ## HIGHLY recommend setting this as it reduces the fiat login operations by only logging in every 5 minutes
+  ## instead of on EVERY x509 call
+  loginDebounce:
+     enabled: true
+     ## Defaults to 5 minutes
+     debounceWindowSeconds: 300
+ 
+## Required if you want SSL as a required option
+server:
+  ssl:
+    enabled: true
+    
+## This sets up a dedicated API port for MTLS that NEEDS x509 auth.  Used with an NLB
+## or LB service to expose gate directly and REQUIRE x509 auth.  
+## this requires ALSO that ssl be enabled.  WITHOUT this, the user may be prompted
+## for a (optional) certificate to login with instead of any other login configuration. The x509 cert
+## in those cases is a "WANT" which is what would prompt the user for a cert.  
+default:
+  apiPort: 8085
 ```
 
 ### API port
@@ -175,14 +169,19 @@ hal config security authn x509 edit --subject-principal-regex "EMAILADDRESS=(.*?
 ![browser's client certificate request](cert-auth.png)
 
 By enabling X.509 on the main 8084 port, it causes the browser to ask the user to present their
-client certificate. Many end-users can get confused or annoyed by this message, so it is preferable to move this off of the main port.
+client certificate. Many end-users can get confused or annoyed by this message, so it is preferable to move this off of
+the main port.
 
-You can move the client certificate-enabled port by setting `default.apiPort` value to something other than 8084. This enables an additional port configuration that is [hardcoded](https://github.com/spinnaker/kork/blob/master/kork-web/src/main/groovy/com/netflix/spinnaker/config/TomcatConfiguration.groovy) to _need_ a valid X.509 certificate before allowing the request to proceed.
+You can move the client certificate-enabled port by setting `default.apiPort` value to something other than 8084. This
+enables an additional port configuration that
+is [hardcoded](https://github.com/spinnaker/kork/blob/master/kork-web/src/main/groovy/com/netflix/spinnaker/config/TomcatConfiguration.groovy)
+to _need_ a valid X.509 certificate before allowing the request to proceed.
 
 ## Workflow
 
 Unlike the other authentication methods, X.509 does not have any redirects or fancy control
-passing between Deck, Gate, and a third-party identity provider. Connections are either established with a valid certificate or they're not.
+passing between Deck, Gate, and a third-party identity provider. Connections are either established with a valid
+certificate or they're not.
 
 ## Next steps
 
@@ -192,6 +191,5 @@ Now that you've authenticated the user, proceed to setting up their [authorizati
 
 * Review the general [authentication guide](/docs/setup/other_config/security/authentication).
 * Review the authentication [reference guide](/docs/reference/architecture/authz_authn/authentication).
-
 
 * Use an [incognito window](/docs/setup/other_config/security/authentication#incognito-mode).

@@ -11,12 +11,30 @@ Artifactory](https://jfrog.com/artifactory/) trigger to your pipeline.
 > Currently, the Artifactory trigger only works with Maven artifacts.
 
 ## Prerequisites
+1. Configure artifactory.  Add the following to `igor-local.yml` for triggering/monitoring of repos:
+```yaml
+artifactory:
+  enabled: true
+  searches:
+  - name: dev
+    username: user
+    password: password
+    accessToken: accessToken
+```
 
-This guide assumes you have the following:
+More configuration properties are available in the [ArtifactorySearch](https://github.com/spinnaker/spinnaker/blob/main/igor/igor-monitor-artifactory/src/main/java/com/netflix/spinnaker/igor/artifactory/model/ArtifactorySearch.java) class.
 
-* An Artifactory search configured in Spinnaker (see the documentation for the [hal config repository artifactory](/docs/reference/halyard/commands/#hal-config-repository-artifactory)  Halyard commands).
-
-* A Maven account configured in Spinnaker (see the documentation for the [hal config artifact maven](/docs/reference/halyard/commands/#hal-config-artifact-maven)  Halyard commands).
+1. A Maven account configured in Spinnaker `clouddriver-local.yml` (used for pulling a file from maven):
+```yaml
+artifacts:
+  maven: 
+    enabled: true
+    accounts:
+    - name: maven-central
+      repositoryUrl: https://repo1.maven.org/maven2/
+```
+Configuration properties are available in the [MavenArtifactAccount](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-artifacts/clouddriver-artifacts-maven/src/main/java/com/netflix/spinnaker/clouddriver/artifacts/maven/MavenArtifactAccount.java).  Maven
+artifacts do not support a lot of features at this time.  For additional options, please open PRs to add additional capabilities.
 
 * Artifact support [enabled](/docs/reference/artifacts/#enabling-artifact-support).
 

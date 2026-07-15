@@ -4,6 +4,16 @@ linkTitle: "Halyard"
 description: Halyard is a tool for configuring, installing, and updating Spinnaker.
 ---
 
+
+# HALYARD IS DEPRECATED
+> [!IMPORTANT]
+> At this time, halyard is considered deprecated and no longer supported.  
+> This document is kept here and alive for historical purposes. Documentation
+> should all be moved to native configuration files, and for more questions
+> and information please join the spinnaker slack.
+
+
+### Legacy Documentation
 This is the reference documentation for Halyard, and will go into more detail
 than is needed to deploy most Spinnaker environments. If you're a new user
 looking for instructions for how to use Halyard to deploy Spinnaker, checkout

@@ -85,37 +85,38 @@ called `$SERVICE_ACCOUNT_DEST`.
 
 ## Adding an Account
 
-First, make sure that the provider is enabled:
 
-```bash
-hal config provider google enable
-```
 
-All that's required are the following values (we've provided defaults for you):
+1. Get the following values (we've provided defaults for you):
 
 ```bash
 PROJECT=$(gcloud config get-value project)
 SERVICE_ACCOUNT_DEST=# see Prerequisites section above
 ```
 
-Finally, add your new google account:
+2. Add your new google account and enable google:
 
-```bash
-ACCOUNT=my-gce-account
-hal config provider google account add $ACCOUNT --project $PROJECT \
-    --json-path $SERVICE_ACCOUNT_DEST
+```yaml
+google:
+  enabled: true
+  accounts:
+    - name: account-name
+      project: replaceMe
+      jsonPath: /mnt/configmap/file.json
 ```
 
-TODO(lwander or duftler): Add a note about application default credentials.
-
 ## Advanced account settings
+More account configuration properties can be found [in the codebase for the google account](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-google-common/src/main/groovy/com/netflix/spinnaker/clouddriver/googlecommon/config/GoogleCommonManagedAccount.groovy#L22).
+This code is actually extended with MORE options here: https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-google/src/main/groovy/com/netflix/spinnaker/clouddriver/google/config/GoogleConfigurationProperties.groovy#L44
 
-If you are looking for more configurability, please see the other options
-listed in the [Halyard
-Reference](/docs/reference/halyard/commands#hal-config-provider-google-account-add).
+It's recommended with large numbers of accounts to disable verification and check logs
+for account access healthy by setting:
+```yaml
+google:
+  health:
+    verifyAccountHealth: false
+```
 
 ## Next steps
-
-Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
-but otherwise you're ready to [choose an environment](/docs/setup/install/environment/)
-in which to install Spinnaker.
+Optionally, you can [set up another cloud provider](/docs/setup/install/providers/) or
+continue the [installation instructions](/docs/setup/install/)

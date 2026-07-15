@@ -40,7 +40,7 @@ Key features include
 [Minnaker]: https://github.com/armory/minnaker
 [Go Playground]: https://play.golang.org/
 [Play with Docker]: https://github.com/play-with-docker/play-with-docker
-[highlander]: https://spinnaker.io/docs/guides/user/kubernetes-v2/rollout-strategies/#highlander-rollouts
+[highlander]: https://spinnaker.io/docs/guides/user/kubernetes/rollout-strategies/#highlander-rollouts
 [Spinnaker Operator]: https://github.com/armory/spinnaker-operator
 [Portieris]: https://github.com/IBM/portieris
 [Phase 1]: https://youtu.be/-_MRDYxtOrs

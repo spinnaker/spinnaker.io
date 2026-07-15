@@ -8,16 +8,10 @@ description: >
 
 These pages contain instructions for installing and setting up Spinnaker
 
-## Try it out
-
-If you're new to Spinnaker and you want a quick way to evaluate it, try out one
-of the [quickstart solutions](/docs/setup/quickstart/). These are demos for
-evaluation only and are not suitable for use in production.
 
 ## Install it
 
-If you want a more serious, scalable deployment of Spinnaker continue
-[here](/docs/setup/install/) to installation guide. All other
+Start [here](/docs/setup/install/) for the installation guide. All other
 resources on this Setup page will assume you're following those instructions.
 
 ## Find out more

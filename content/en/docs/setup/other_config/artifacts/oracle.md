@@ -7,9 +7,11 @@ description: Spinnaker supports ORacle Object Storage as an artifact source.
 Spinnaker stages that read data from artifacts can consume
 [Oracle Object Storage](https://docs.cloud.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) objects as artifacts.
 
-## Prerequisites
+## Download credentials
 
-If you have enabled [Oracle Cloud provider](/docs/setup/install/providers/oracle/) in Spinnaker, you may use the same region, Tenancy’s OCID, user’s OCID, private key file, and fingerprint to enable Oracle Object Storage Artifact. You will need the following to enable Oracle Object Storage Artifact in Spinnaker:
+If you have enabled [Oracle Cloud provider](/docs/setup/install/providers/oracle/) in Spinnaker, you may use the same
+region, Tenancy’s OCID, user’s OCID, private key file, and fingerprint to enable Oracle Object Storage Artifact. You
+will need the following to enable Oracle Object Storage Artifact in Spinnaker:
 
 * A user in IAM for the person or system who will be using Spinnaker, and that user must be granted access to Object Storage or in one IAM group with permissions of Object Storage.
 
@@ -43,29 +45,25 @@ If you have enabled [Oracle Cloud provider](/docs/setup/install/providers/oracle
 
    See [Object Storage Namespaces](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/understandingnamespaces.htm), and [Managing Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm). 
    (e.g. `--namespace my-tenancy`)
-   
-## Add Oracle Object Storage Artifact to Spinnaker
+ 
+ 
+Add the credentials either to a [secrets manager](https://spinnaker.io/docs/reference/secrets/)
+for use by reference or to a volume mounted into the clouddriver pods by modifying the deployment.yaml for clouddriver.
 
-First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
-
-Next, add an artifact account:
-
-```bash
-hal config artifact oracle account add $ARTIFACT_ACCOUNT_NAME \
-    --namespace $TENANCY_NAME \
-    --fingerprint $API_KEY_FINGERPRINT \
-    --region $REGION \
-    --ssh-private-key-file-path $PRIVATE_KEY_FILE \
-    --tenancy-id $TENANCY_OCID \
-    --user-id $USER_OCID   
+### Add the account and enable it
+Add to `clouddriver-local.yml` the following configuration
+```yaml
+artifacts:
+  enabled: true
+  oracle:
+    enabled: true
+    accounts:
+    - name: my-dev-account
+      namespace: <replaceme>
+      region: region
+      userId: userId
+      fingerprint: fingerprint
+      sshPrivateKeyFilePath: /mnt/someplace|encryptedFileReference
+      privateKeyPassphrase: phrase|encryptedReference
+      tenancyId:  <replaceme>
 ```
-
-And enable Oracle Object Storage artifact support:
-
-```bash
-hal config artifact oracle enable
-```
-
-There are more options described
-[here](/docs/reference/halyard/commands#hal-config-artifact-oracle-account-edit)
-if you need more control over your configuration.

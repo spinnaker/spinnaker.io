@@ -7,11 +7,10 @@ description: "This doc covers the back-end changes you need to make to Orca to i
 
 ## Overview
 
-To create a new stage, you need to make backend changes to
-[orca](https://github.com/spinnaker/orca) to implement the logic of the stage,
-and the front-end changes to [deck](https://github.com/spinnaker/deck) to
+To create a new stage, you need to make changes [in the monorepo](https://github.com/spinnaker/spinnaker/) to
+`orca` to implement the logic of the stage, and the front-end changes in `deck` to
 implement the UI. Depending on what the stage does, you may need to implement
-new cloud provider-specific logic into [clouddriver](https://github.com/spinnaker/clouddriver) as well.
+new cloud provider-specific logic in `clouddriver` and/or expose new APIs in `gate` as well.
 
 This doc currently only covers the backend changes made to orca.
 
@@ -24,7 +23,8 @@ For the backend, you need to define:
 
 ## Stage class
 
-A stage class must implement the [com.netflix.spinnaker.orca.pipeline.StageDefinitionBuilder](https://github.com/spinnaker/orca/blob/master/orca-core/src/main/java/com/netflix/spinnaker/orca/pipeline/StageDefinitionBuilder.java) interface.
+A stage class must implement the [com.netflix.spinnaker.orca.api.pipeline.graph.StageDefinitionBuilder](https://github.com/spinnaker/spinnaker/blob/main/orca/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/graph/StageDefinitionBuilder.java) interface.  Note there are
+several abstract classes that have extended this with things like expression aware functionality that are usable.
 
 For providing additional functionality, it can also implement other interfaces:
 
@@ -83,7 +83,7 @@ public class ChapStage implements StageDefinitionBuilder, CancellableStage {
 
 ## Task classes
 
-A task class must implement a [com.netflix.spinnaker.orca.Task](https://github.com/spinnaker/orca/blob/master/orca-core/src/main/java/com/netflix/spinnaker/orca/Task.java),
+A task class must implement a [com.netflix.spinnaker.orca.api.pipeline.Task](https://github.com/spinnaker/spinnaker/blob/main/orca/orca-api/src/main/java/com/netflix/spinnaker/orca/api/pipeline/Task.java),
 or an interface that extends it, such as:
 
 * A **RetryableTask** can be retried if it fails.

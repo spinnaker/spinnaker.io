@@ -29,20 +29,19 @@ properties from your CI job:
 messageFormat=JAR
 ```
 
-The recommended way to configure artifact templates is by using the `hal config artifact templates` [Halyard command](/docs/reference/halyard/commands/#hal-config-artifact-templates):
-```
-hal config artifact templates add <name of template> --template-path <path to the template> 
-```
-
-As an alternative, you can manually configure templates by adding the following to `igor-local.yml`:
+The recommended way to configure artifact templates is by
+adding configuration to `igor-local.yml`.  
 ```yaml
 artifacts:
   templates:
-  - name: <name of template>
-    templatePath: <path to the template>
+    name: my-custom-template
+    templatePath: /mnt/files/whatever.json
+    
+## This provides information on debian/rpm artifacts 
+## See https://stackoverflow.com/questions/63095830/how-to-send-a-deb-file-from-jenkins-pipeline-to-spinnaker-pipeline
+  decorator:
+    enabled: true
 ```
-(Before Spinnaker 1.13, this manual configuration went into `echo-local.yml`. As of 1.13, it goes
-in `igor-local.yml`.)
 
 You can then use the configured custom template by exporting the following as properties from your
 CI build:

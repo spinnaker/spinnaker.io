@@ -8,43 +8,32 @@ description: Configure a GitLab artifact account so that Spinnaker can download 
 
 * You need a [GitLab](https://gitlab.com) account.
 
-### Downloading credentials
+### Download credentials
 
 Start by generating an [access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
 for GitLab.
 
-Place the token in a file (`$TOKEN_FILE`) readable by Halyard:
+Add the credentials either to a [secrets manager](https://spinnaker.io/docs/reference/secrets/)
+for use by reference or to a volume mounted into the clouddriver pods by modifying the deployment.yaml for clouddriver.
 
-```bash
-echo $TOKEN > $TOKEN_FILE
+
+
+## Add the account and enable it
+
+All that's required are the following configuration:
+
+```yaml
+artifacts:
+  enabled: true
+  gitlab:
+    enabled: true
+    accounts:
+    - name: my-gitlab-account
+      token: patToken
+      tokenFile: /mnt/someplace/tokenFile
+  
 ```
 
-## Editing your artifact settings
-
-All that's required are the following values:
-
-```bash
-# See the prerequisites section above
-TOKEN_FILE=
-
-ARTIFACT_ACCOUNT_NAME=my-gitlab-artifact-account
-```
-
-First, enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
-
-Next, enable the GitLab artifact provider:
-
-```bash
-hal config artifact gitlab enable
-```
-
-Next, add an artifact account:
-
-```bash
-hal config artifact gitlab account add $ARTIFACT_ACCOUNT_NAME \
-    --token-file $TOKEN_FILE
-```
-
-There are more options described
-[here](/docs/reference/halyard/commands#hal-config-artifact-gitlab-account-edit)
-if you need more control over your configuration.
+There are more options including URL restrictions that can be set to allow only internal gitlab hosts.
+[See the gitlab account definition ](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-artifacts/clouddriver-artifacts-gitlab/src/main/java/com/netflix/spinnaker/clouddriver/artifacts/gitlab/GitlabArtifactAccount.java)
+for information.

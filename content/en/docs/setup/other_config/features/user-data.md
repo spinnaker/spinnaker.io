@@ -88,13 +88,15 @@ In the `udf.udfRoot` directory, create a file called `udf0`. The contents of thi
 
 ### Google
 
-The path to the template file is controlled by the `--user-data` flag with [Halyard](/docs/reference/halyard/commands/#hal-config-provider-google-account-add).
+The path to the template file is controlled by the `userDataFile` property
+in `clouddriver-local.yml`.  You can find more properties or information
+in the [google account properties](https://github.com/spinnaker/spinnaker/blob/main/clouddriver/clouddriver-google/src/main/groovy/com/netflix/spinnaker/clouddriver/google/config/GoogleConfigurationProperties.groovy#L48)
 
 With Google, the user data file is set per account.
 It is best practice to use the same file for different accounts to ensure consistency,
 but different user data files can be used for different accounts if needed.
-The contents of the this file is parsed and set as the
-[Instance Metadata](https://cloud.google.com/compute/docs/storing-retrieving-metadata) on launched instances.
+The contents of the file is parsed and set as the
+[Instance Metadata](https://docs.cloud.google.com/compute/docs/metadata/overview) on launched instances.
 Any metadata defined in the server group configuration within Spinnaker is
 appended to the metadata defined by the *user data file*.
 The metadata defined in the server group configuration within Spinnaker takes preferences over the metadata defined in the *user data file* if the metadata keys match.

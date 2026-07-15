@@ -10,27 +10,17 @@ You can configure more than one artifact account, each with separate
 credentials. Specify which account to use in the configuration for the stage
 that reads the data.
 
-## Prerequisites
+### Download credentials
+Maven accounts at this time do not support credential authorization.  We'd welcome
+PRs to enable this and get maven closer to full artifact support.
 
-* A Maven repository
-
-## Edit your artifact settings
-
-1. Enable [artifact support](/docs/reference/artifacts/#enabling-artifact-support).
-
-2. Enable the Maven artifact provider:
-
-   ```bash
-   hal config artifact maven enable
-   ```
-
-3. Add an artifact account:
-
-   ```bash
-   hal config artifact maven account add my-maven-account \
-       --repository-url https://my.repo.example.com
-   ```
-
-There are more options described
-[here](/docs/reference/halyard/commands#hal-config-artifact-maven-account-edit)
-if you need more control over your configuration.
+### Add the account and enable it
+```yaml
+artifacts:
+  enabled: true
+  maven:
+    enabled: true
+    accounts:
+    - name:  nexus-internal
+      repositoryUrl: https://my.repo.example.com
+```

@@ -27,8 +27,7 @@ some things to check out:
 
 ### Users (deploying with Spinnaker)
 
-* If you want to try out Spinnaker, here are some
-[quickstarts](/docs/setup/quickstart/).
+* If you want to try out Spinnaker, please read the [installation guide](/docs/setup/install/)
 
 * If Spinnaker is already installed in your organization, and you want to practice it
 using some guided tutorials, here are 

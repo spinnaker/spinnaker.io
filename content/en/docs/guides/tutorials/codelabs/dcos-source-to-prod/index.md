@@ -19,8 +19,6 @@ description: >
 
 ## Configure Spinnaker
 
-### Manual
-
 #### clouddriver-local.yml
 
 ```yml
@@ -49,13 +47,9 @@ dockerRegistry:
     password: ${DOCKER_PASSWORD}
 ```
 
-### Halyard  
-
-If you've deployed your Spinnaker instance with Halyard, configuring Spinnaker requires the following steps.
-
 #### Enable Docker
 
-[Configure a docker registry with halyard](/docs/setup/install/providers/docker-registry/)
+[Configure a docker registry](/docs/setup/install/providers/docker-registry/)
 
 #### Set up the DC/OS provider
 

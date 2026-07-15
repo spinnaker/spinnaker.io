@@ -5,5 +5,5 @@ weight: 1
 description: 
 ---
 
-* [Configure Redis Usage](/docs/setup/productionize/caching/configure-redis-usage/)
+* [Basic configuration examples](/docs/setup/productionize/caching/configuration-examples/)
 * [Externalize Redis](/docs/setup/productionize/caching/externalize-redis/)

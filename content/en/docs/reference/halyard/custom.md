@@ -4,6 +4,16 @@ description: >
   "While Halyard handles the majority of Spinnaker configuration, there will always be feature flags and properties either too new or niche to be supported by Halyard."
 ---
 
+
+
+# HALYARD IS DEPRECATED
+> [!IMPORTANT]
+> At this time, halyard is considered deprecated and no longer supported.  
+> This document is kept here and alive for historical purposes. Documentation
+> should all be moved to native configuration files, and for more questions
+> and information please join the spinnaker slack.
+
+
 Furthermore, some users will be more comfortable forgoing Halyard's
 configuration generation, or will want to port their old Spinnaker
 configuration into Halyard. For these users & use-cases, Halyard supports
