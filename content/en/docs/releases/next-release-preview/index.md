@@ -9,109 +9,61 @@ Please make a pull request to describe any changes you wish to highlight
 in the next release of Spinnaker. These notes will be prepended to the release
 changelog.
 
-## Coming Soon in Release 2026.1.0
+## Coming Soon in Release 2026.3.0
 
-### Kubernetes secret engine support
-A new feature allows you to store and reference secrets from kubernetes.  You can now save a secret and use it in a 
-spinnaker configuration using the encrypted syntax similar to that for s3 or other services.
-```
-encrypted:k8s!n:somesecretName!k:secretKey
-```
-If you want to enable this, add to your spinnaker-local.yml (the default config file in spinnaker-kustomize) the
-following config:
-```
-spinnaker:
-  secrets:
-    kubernetes:
-      enabled: true
-```
-This will use the local pod credentials for accessing secrets.  You can also use a secret in a different namespace if your
-spinnaker is authorized to do so with an ns flag.  See https://github.com/spinnaker/spinnaker/pull/7603/changes for more
-information.
+## Features
+#### Global banner for admins
+[Global banner](https://github.com/spinnaker/spinnaker/pull/7781) -  Admins can create/set banners that ALL spinnaker apps will see for global notifications.
 
-### Lambda Naming and performance fixes
-Lambda had some issues around loading all lambdas into memory when enabled then filtering.  The new release with
-some configuration changes this to operate similarly to ECS and Kubernetes with tags added to the lambda
-that enable filtering by tags.  Further, this moves caching out of the shared application to a dedicated
-lambda application table.  This should drastically improve lambda experience across the board.  The tags behavior 
-is enabled by default and all new deploys will automatically add these tags on deployment.  You can disable this
-behavior by changing the following in clouddriver:
+#### Spin CLI API token support
+This is accessible today via main images but you can use the new API token with the spin cli.
 
-```
-aws:
-  lambda:
-    setMonikerTags: false
-```
-Next, to allow arbitrary naming of functions without a default prefix on deployments, you can disable by a flag
-the spinnaker behavior of adding this.  Note there are two configurations, one in orca and one in clouddriver.
-
-Clouddriver:
-```
-aws:
-  lambda:
-    prefixApplicationNameToFunction: false
-```
-
-Orca:
-```
-lambda:
-  prefixApplicationNameToFunction: false
-```
-This will allow you to using an expression edit the stage json and set any name you wish other than the UI generated
-function name.
+#### UI support for adding/removing accounts
+Admin restricted, adds a new UI panel to add/remove accounts with example payloads.
 
 
-### Fiat performance fixes
-A couple of PRs that fix some major performance issues in fiat.
-1.  The locking mechanism was restored but fixed the issues reported in https://github.com/spinnaker/spinnaker/issues/7339
-2.  The sync process does a parallel write and read of data.  https://github.com/spinnaker/spinnaker/pull/7648
+## Fixes
+#### Fixed a bug on account APIs
+This is an edge case, but in certain situations, new accounts would not be read/updated on all pods post account creation.  
 
-For configuration the parallel write when using redis, add the following to adjust this.
-```
-fiat:
-  redis:
-    repository:
-      sync-threads: 16   # default: Runtime.getRuntime().availableProcessors()
-```
 
-For the lock behavior there are two places to configure the recommended settings:
-1.  Fiat:
-```
-# Fiat – enable cross-pod sync coordination
-fiat:
-  write-mode:
-    enabled: true
-    synchronization-config:
-      enabled: true
-      prefix: "spinnaker:fiat"
-    sync-delay-ms: 600000
-    sync-failure-delay-ms: 600000
-    sync-delay-timeout-ms: 30000
-    retry-interval-ms: 10000
-```
-2.  Front50
-```
-# Front50 – avoid full sync (and locks) when saving service accounts
-fiat:
-  disableRoleSyncWhenSavingServiceAccounts: true
-```
+## Deprecations and removals
 
-These in combination should help reduce the number of sync times and improve overall fiat performance.  In some testing, we've seen this configuration reduce
-sync time from hours to minutes.
+#### Old kubernetes resource types are removed
+[VERY old API specs are removed](https://github.com/spinnaker/spinnaker/pull/7802/changes).  Specifically:
+* extensions/v1beta1 
+* networking.k8s.io/v1beta1
+and associated libraries for kuberentes are also upgraded to a current supported release of these specifications.  This removes any of the following type resources - please update your plugins as appropriate as these VERY old manifests will no longer work.  These were removed in kubernetes 1.22 and handling for these old API specs as well as associated resources are removed.
 
-### AWS pubsub support for cross-account / IaC-managed SQS queues
-A new `skipQueueBootstrap` flag on each `pubsub.amazon.subscriptions` entry lets the SQS subscriber skip
-`createQueue`, `setQueueAttributes`, and `SNS.Subscribe` at startup, so it works with queues provisioned
-externally (e.g. Terraform) or owned by another AWS account.
+#### Halyard is removed
+Halyard is removed from the codebase as of this release.  For emergency fixes/issues, we can do PRs to the 2026.2.x release branch.  Otherwise, halyard is no 
+longer going to be released or supported.  It likely will continue to work as we will for now continue to publish BOMs.  As of 2027.0.0, we will stop
+publishing the halyard BOMs.
 
-```
-pubsub:
-  amazon:
-    subscriptions:
-      - name: my-subscription
-        queueARN: arn:aws:sqs:eu-central-1:000000000000:my-queue
-        topicARN: arn:aws:sns:eu-central-1:000000000000:my-topic
-        skipQueueBootstrap: true
-```
+#### Kustomize version 3 deprecated, will be removed in 2027.0.0
+Kustomize V3 is deprecated. When using kustomize in a pipeline this is what's referenced when you select KUSTOMIZE for the rendering type.  KUSTOMIZE5 is being
+added, and 4 will continue to be added.  With 2027.0.0, kustomize 3 will be removed and no longer an option in the project.  Please upgrade to kustomize4/5 on your pipelines
+before upgrading in the future.  
 
-Default is `false`; existing same-account subscribers are unaffected.
+#### SQL is the only supported storage for execution data - redis will be removed in 2027.0.0
+In Orca - the execution engine - we are deprecating support for any pipeline storage OTHER than SQL.  Please move your executions to SQL as soon as possible.  Redis
+based storage of pipeline execution state will be removed in 2027.0.0.  NOTE:  This only impacts STORAGE of pipelines NOT the queue system.  It's recommended
+to stay on redis for the queue system at this time.
+
+#### Titus is deprecated and will be removed in 2027.0.0
+Given the lack of contributions, we'll be removing the titus cloud provider from the project in the upcoming release.  We are marking it deprecated at this time.
+
+#### SQL is the only supported storage for pipeline/templates - blob storage will be removed in 2027.0.0
+Currently front50 supports S3/GCS/etc. storage for pipelines and templates.  This will be removed in 2027.0.0.  Please see the instructions
+[on how netflix migrated](https://spinnaker.io/docs/setup/productionize/persistence/front50-sql/#migration) to move before these releases.
+At this time, we are marking all NON SQL STORAGE deprecated for front50.  This should simplify upgrades and front50 as a whole for the project once completed.
+
+#### Core utility upgrades:
+* Kustomize 5 is added.  Kustomize4 is updated to the latest supported versions.
+* Helmfile is upgraded to 1.7.0
+* Packer is upgraded to the latest release (1.14).
+* Kubectl binaries used for operations is updated to 1.30.  Older versions are removed.  You can select a newer version.
+* aws-iam-authenticator binary is upgraded to the latest supported version
+* Base images are upgraded from 3.20 to 3.24 of alpine.  Ubuntu is moved to the latest releases.
+
+

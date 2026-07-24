@@ -64,4 +64,7 @@ The default spinnaker-kustomize installation uses a [component to auto inject](h
 into the targeted services.  
 
 ## Next steps
-After you've set up your external storage service, you're ready to [deploy Spinnaker](/docs/setup/install/deploy/).
+
+Now that your deployment environment is set up, , you can…
+
+* [Configure everything else](/docs/setup/other_config/)

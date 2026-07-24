@@ -1,5 +1,6 @@
 ---
 title: "Component Sizing"
+weight: 800
 description: Size your Spinnaker services to meet your usage requirements.
 ---
 
@@ -29,7 +30,6 @@ As a starting point, the `-Xms` can be set to 80%-90% of the requests memory all
 of the limits memory allotment.  It's recommend NOT to make this too large for clouddriver
 or processes that fork to external operations (Rosco for bakes).  This is due to those processes not using JVM memory
 but OS memory.  
-
 
 #### Recommendations
 

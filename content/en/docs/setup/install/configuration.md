@@ -1,5 +1,6 @@
 ---
 title:  "Configuration"
+weight: 300
 description: Spinnaker configuration is a multipart process, including configuring Cloud providers as deployment targets and external storage for metadata persistence.
 ---
 
@@ -14,7 +15,7 @@ kubectl apply -f spinnaker.yml
 
 ### Deploy to more cloud accounts
 
-[Documentation](/docs/setup/install/providers/) 
+[Documentation](/docs/setup/install/providers/)
 
 You can add as many target accounts as you want. There is nothing
 preventing you from deploying to two Kubernetes clusters, one Google Compute
@@ -22,7 +23,7 @@ Engine project, and an App Engine application all at once.
 
 ### Secure your Spinnaker installation
 
-[Documentation](/docs/setup/other_config/security/) 
+[Documentation](/docs/setup/other_config/security/)
 
 You can configure SSL, setup a login page, or apply role-based authorization.~~
 
@@ -35,14 +36,14 @@ build artifacts to build into images and deploy.
 
 ### Configure notifications
 
-[Documentation](/docs/setup/other_config/features/notifications/) 
+[Documentation](/docs/setup/other_config/features/notifications/)
 
 Enable notifications to be sent on Spinnaker events, and allow external events
 to trigger Pipelines in Spinnaker.
 
 ### Monitor your Spinnaker installation
 
-[Documentation](/docs/setup/other_config/monitoring/) 
+[Documentation](/docs/setup/other_config/monitoring/)
 
 Publish timeseries data from your Spinnaker installation to a variety of
 metric sources into curated dashboards. This is useful for understanding how

@@ -1,7 +1,7 @@
 ---
 title: "Cloud Providers Overview"
 linkTitle: "Choose Cloud Providers"
-weight: 10
+weight: 30
 description: In Spinnaker, providers are integrations to the Cloud platforms you deploy your applications to.
 aliases:
   - /docs/target-deployment-setup

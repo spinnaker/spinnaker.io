@@ -1,5 +1,6 @@
 ---
 title: 'High Availability'
+weight: 900
 mermaid: true
 description:
 ---
@@ -36,6 +37,7 @@ class clouddriver-caching,clouddriver-ro,clouddriver-ro-deck,clouddriver-rw,echo
 
 Clouddriver benefits greatly from isolating its operations into separate services. To split Clouddriver into
 multiple services, you'll configure each service to operate on specific configurations and operations.
+
 * Caching pods - for JUST executing cache agents.  These will not process any user or pipeline execution data
 * RW pods - for execution operations
 * RO pods - for UI and API operations for end users.
@@ -48,9 +50,9 @@ Although by default the four Clouddriver services will communicate with a global
 to this Redis/SQL), it is recommended that the logical Clouddriver services be configured to communicate
 with external solutions. To be most effective, `clouddriver-ro` should be configured to speak to a RO SQL read
 replica, `clouddriver-ro-deck` should be configured to speak to a different read replica, and the other two should
-be configured to speak to the master. 
+be configured to speak to the master.
 
-For example configurations, please look into clouddrivers codebase, the [SQL configuration](/docs/setup/install/storage/) 
+For example configurations, please look into clouddrivers codebase, the [SQL configuration](/docs/setup/install/storage/)
 
 More information on Redis replication can be [found here](https://redis.io/topics/replication).
 
@@ -100,8 +102,8 @@ hal config deploy ha echo enable
 
 When Spinnaker is deployed with this enabled, Echo will be deploy as two different services:
 
-- [`echo-scheduler`](#echo-scheduler)
-- [`echo-worker`](#echo-worker)
+* [`echo-scheduler`](#echo-scheduler)
+* [`echo-worker`](#echo-worker)
 
 Although only the `echo-worker` service can be horizontally scaled, splitting the services will reduce the load on both.
 

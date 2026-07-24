@@ -1,6 +1,7 @@
 ---
 title: Migrating from Operator/Halyard to Kustomize Deployment
 linkTitle: Migrating from Operator/Halyard to Kustomize Deployment
+weight: 500
 aliases: []
 description: >
   Learn how to migrate to Kustomize Deployment automatically.  Mirrored from the armory
@@ -8,6 +9,7 @@ description: >
 ---
 
 ## Migrating to a Kustomize Deployment
+>
 > Thank you to harness spinnaker team for the script and automation to enable migration to kustomize easily.  This
 > is a mirror from their [documentation on migration off of operator](https://docs.armory.io/continuous-deployment/spinnaker-user-guides/armory-operator-to-kustomize-migration/)
 > and though operator specific in many aspects, this should work just as well for halyard deployments
@@ -16,12 +18,11 @@ description: >
 
 This document provides step-by-step instructions for migrating your Spinnaker installation from using the Armory Operator
 deployment method OR a halyard deployment to a native Kubernetes deployment using Kustomize. This approach gives you
-more direct control over your Spinnaker resources and removes the dependency on halyard 
+more direct control over your Spinnaker resources and removes the dependency on halyard
 
 {{% alert color="warning" title="Important" %}}
 Please thoroughly test this migration in a non-production environment before deploying to production.
 {{% /alert %}}
-
 
 #### Prerequisites
 
@@ -42,9 +43,9 @@ Please thoroughly test this migration in a non-production environment before dep
 ##### Step 1: Download Current Configuration
 
 The script provided below will download:
+
 - All configuration files located in /opt/spinnaker/config from each service
 - All deployment, service, and statefulset YAML files for each service
-
 
 ###### How to Use the Download Script
 
@@ -68,12 +69,13 @@ move secrets to a [valid secret engine](https://spinnaker.io/docs/reference/secr
 ##### Step 2: Set Up Kustomize Structure
 
 Create a Kustomize directory structure for your Spinnaker deployment:
+
 1. Move the downloaded deployments and services to their respective directories
 2. Create configmaps from the downloaded configuration files
 3. Set up the kustomization.yaml files
 
 {{% alert color="warning" title="Tip" %}}
-You can use the GitHub - https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize repo as a reference for Kustomize structure
+You can use the GitHub - <https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize> repo as a reference for Kustomize structure
 {{% /alert %}}
 
 ##### Step 3: Remove Operator Ownership from Services
@@ -91,15 +93,18 @@ should not need to execute this step.
    {{% /alert %}}
 
 ##### Step 4: Verify Ownership Removal
+
 ONLY for operator deployments.  Confirm that no resources are still owned by the Operator:
 `kubectl get all -n your-spinnaker-namespace -o json | jq '.items[] | select(.metadata.ownerReferences[]? | .apiVersion=="spinnaker.io/v1alpha2" and .kind=="SpinnakerService") | {name: .metadata.name, kind: .kind}'`
 The command should return empty if all ownership references have been removed.
 
 ##### Step 5: Extra Precautions Before Deployment
+
 Compare current resources with your Kustomize configurations:
 `kubectl diff -f <(kustomize build ./overlays/prod)`
 
 Review the differences carefully. Look for:
+
 - Immutable field changes (might require special handling)
 - Configuration changes that could affect service behavior
 - Missing resources that should be included
@@ -110,6 +115,7 @@ Test your deployment without actually applying changes:
 `kubectl apply --dry-run=client -f <(kustomize build ./overlays/prod)`
 
 ##### Step 6: Scale Down the Operator (only on operator deploys)
+
 Prevent the Operator from interfering with your deployment:
 `kubectl scale deployment spinnaker-operator -n your-spinnaker-namespace --replicas=0`
 
@@ -120,6 +126,7 @@ Apply your Kustomize configurations:
 `kubectl apply -f <(kustomize build ./overlays/prod)`
 
 ##### Step 8: Validate and Monitor
+
 1. Check that all pods are running:
    `kubectl get pods -n your-spinnaker-namespace`
 2. Verify Spinnaker services are accessible:
@@ -131,13 +138,16 @@ Apply your Kustomize configurations:
 ##### Step 9: Remove Operator and CRDs
 
 Once stability is confirmed (at least 24 hours later):
+
 1. Remove the Operator CRDs:
    `kubectl delete crd spinnakerservices.spinnaker.io`
 2. Remove the Operator deployment if still present:
    `kubectl delete deployment spinnaker-operator -n your-spinnaker-namespace`
 
 ##### Rollback Plan
+
 If issues arise during migration:
+
 1. Scale up the Operator:
    `kubectl scale deployment spinnaker-operator -n your-spinnaker-namespace --replicas=1`
 2. Reapply the previous SpinnakerService resource:
@@ -145,7 +155,8 @@ If issues arise during migration:
 3. Allow the Operator to reconcile and restore the previous state
 
 #### Download Script
-```bash 
+
+```bash
 #!/bin/bash
 
 # Script to download ONLY files from /opt/spinnaker/config in Spinnaker pods
@@ -266,6 +277,8 @@ done
 echo "Script execution complete!"
 
 ```
+
 ### Conclusion
+
 By following these steps, you'll successfully migrate from the Spinnaker Operator to a native Kubernetes deployment using Kustomize. This approach gives you more direct control over your Spinnaker resources and eliminates dependency on the Operator.
 If you encounter any issues during the migration process, please submit a support ticket for assistance.

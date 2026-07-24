@@ -40,3 +40,8 @@ You can read more about how you can get involved through project SIGs, roles, an
 ## Who's using Spinnaker?
 
 {{< logos >}}
+
+
+## Usage Statistics
+To see recent usage statistics, you can visit [statistics](/docs/community/statistics/) for more information.  NOTE This data is highly dependent upon anonymized 
+reporting.  As such this information does not encompass installations with this reporting disabled, and information may not be entirely accurate.  
