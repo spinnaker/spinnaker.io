@@ -80,11 +80,11 @@ label = "UPCOMING EVENT"
 
 ## Theme customization
 
-Theme overrides are in `./layouts`, `./assets`, and `./static`. The Docsy theme is vendored as a git submodule in `./themes/docsy`.
+Theme overrides are in `./layouts`, `./assets`, and `./static`. The Docsy theme is pulled in as a [Hugo Module](https://gohugo.io/hugo-modules/) (see `go.mod`/`go.sum`) rather than a git submodule; Hugo downloads and caches it outside the repo (under Hugo's module cache) when you build or run the site.
 
 The entire theme SCSS collection has been copied into `./assets/scss` so that Docsy's color variables remain available. Some of these files have been further modified to alter the appearance of site components. If something breaks after a theme upgrade, compare the previous markup for that component and verify that old SCSS selectors are still valid.
 
-Bootstrap and Font Awesome assets are vendored inside `./themes/docsy/assets/vendor/`. If a theme upgrade breaks styles, verify that the paths to these dependencies within `./themes/docsy` are still valid.
+Bootstrap and Font Awesome assets are vendored inside Docsy's own `assets/vendor/` directory. If a theme upgrade breaks styles, inspect the cached module (find its path with `hugo mod graph`, or check `hugo env` for the module cache directory) and verify those dependency paths are still valid.
 
 ## Translation
 

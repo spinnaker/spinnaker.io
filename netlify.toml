@@ -1,26 +1,27 @@
 [build]
 publish = "public"
-command = "git submodule update --init --recursive --depth 1 && npm run build"
+command = "npm run build"
 functions = "./functions"
 
 [build.environment]
 NODE_VERSION = "18"
+GO_VERSION = "1.25.1"
 
 [context.production.environment]
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.split1]
-command = "git submodule update --init --recursive --depth 1 && npm run build"
+command = "npm run build"
 
 [context.split1.environment]
 HUGO_ENV = "production"
 
 [context.deploy-preview]
-command = "git submodule update --init --recursive --depth 1 && npm run build:preview"
+command = "npm run build:preview"
 
 [context.branch-deploy]
-command = "git submodule update --init --recursive --depth 1 && npm run build:preview"
+command = "npm run build:preview"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"

@@ -6,14 +6,13 @@ This site is built using [Hugo](https://gohugo.io) and the [Docsy](https://www.d
 
 ## Development
 
-You'll need [Node.js](https://nodejs.org/) v18 or later.
+You'll need [Node.js](https://nodejs.org/) v18 or later and [Go](https://go.dev/) 1.25 or later. The Docsy theme is pulled in automatically as a [Hugo Module](https://gohugo.io/hugo-modules/) (see `go.mod`) — no submodule setup needed, but Hugo shells out to `go` to resolve it.
 
-Clone the repository and pull in the theme submodule:
+Clone the repository:
 
 ```sh
 git clone https://github.com/spinnaker/spinnaker.io.git
 cd spinnaker.io
-git submodule update --init --recursive --depth 1
 ```
 
 Install dependencies (this also downloads the correct version of Hugo):
@@ -22,7 +21,19 @@ Install dependencies (this also downloads the correct version of Hugo):
 npm install
 ```
 
-Start the local development server:
+**macOS note:** Hugo no longer publishes a `.tar.gz` for macOS (only a signed `.pkg`), which the `hugo-installer` npm package used by `npm install` can't extract. On macOS, install Hugo yourself instead:
+
+```sh
+brew install hugo
+```
+
+Then run Hugo directly rather than through `npm start`/`npm run build`:
+
+```sh
+hugo server
+```
+
+Start the local development server (Linux/Windows, or after installing Hugo manually on macOS as above):
 
 ```sh
 npm start
