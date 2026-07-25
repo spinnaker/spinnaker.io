@@ -55,7 +55,7 @@ th.status-th {
   .card {
     margin-bottom: 1rem;
 
-    @include media-breakpoint-between(lg, xl) {
+    @include media-breakpoint-up(lg) {
       width: 32%;
     }
   }
@@ -69,7 +69,7 @@ th.status-th {
   .card {
     margin-bottom: 1rem;
 
-    @include media-breakpoint-only(xl) {
+    @include media-breakpoint-up(xl) {
       width: 19%;
     }
 
