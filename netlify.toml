@@ -4,7 +4,7 @@ command = "npm run build"
 functions = "./functions"
 
 [build.environment]
-NODE_VERSION = "18"
+NODE_VERSION = "24"
 GO_VERSION = "1.25.1"
 
 [context.production.environment]

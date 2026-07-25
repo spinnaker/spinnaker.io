@@ -6,7 +6,7 @@ This site is built using [Hugo](https://gohugo.io) and the [Docsy](https://www.d
 
 ## Development
 
-You'll need [Node.js](https://nodejs.org/) v18 or later and [Go](https://go.dev/) 1.25 or later. The Docsy theme is pulled in automatically as a [Hugo Module](https://gohugo.io/hugo-modules/) (see `go.mod`) — no submodule setup needed, but Hugo shells out to `go` to resolve it.
+You'll need [Node.js](https://nodejs.org/) v24 or later and [Go](https://go.dev/) 1.25 or later. (Hugo sandboxes its Node-based asset transforms — like the PostCSS/autoprefixer step used here — with Node's `--permission` flag, which requires Node 20.6+; older Node versions will hang or fail during `hugo` builds.) The Docsy theme is pulled in automatically as a [Hugo Module](https://gohugo.io/hugo-modules/) (see `go.mod`) — no submodule setup needed, but Hugo shells out to `go` to resolve it.
 
 Clone the repository:
 
