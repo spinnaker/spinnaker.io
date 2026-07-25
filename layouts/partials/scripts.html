@@ -57,8 +57,6 @@
 {{ end -}}
 
 {{ $js := $jsArray | resources.Concat "js/main.js" -}}
-{{ if hugo.IsProduction -}}
-
 
 {{/* {{ if eq .Page.Layout "index" }} */}}
 <script type="text/javascript" src="/js/slick.min.js"></script>
@@ -95,6 +93,7 @@
 </script>
 {{/* {{ end }} */}}
 
+{{ if hugo.IsProduction -}}
 {{ $js = $js | minify | fingerprint -}}
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ else -}}

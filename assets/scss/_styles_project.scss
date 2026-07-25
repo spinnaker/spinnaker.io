@@ -15,6 +15,25 @@ h3 {
   font-weight: 700;
 }
 
+// Bootstrap 5 removed the jumbotron component entirely; recreate the padding
+// and background it used to provide since our markup still uses these classes.
+.jumbotron {
+  padding: 2rem 1rem;
+
+  &:not(.-bg-white) {
+    background-color: #eee;
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding: 4rem 2rem;
+  }
+}
+
+.jumbotron-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .jumbotron > * {
   margin: 0 3rem;
 
