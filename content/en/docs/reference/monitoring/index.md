@@ -8,6 +8,12 @@ If you're looking on instructions for how to install or setup monitoring, checko
 [Enable Monitoring](/docs/setup/other_config/monitoring/) section in the
 [Spinnaker Setup Guide](/docs/setup/).
 
+The `/spectator/metrics` JSON format documented here describes Spinnaker's
+Spectator/Micrometer metric data model. For the recommended way to collect
+metrics and traces with OpenTelemetry, see
+[OpenTelemetry (Recommended)](/docs/setup/other_config/monitoring/#opentelemetry-recommended)
+in the setup guide.
+
 ## Metrics overview
 
 A Spinnaker metric is a named collection of measurements used to track

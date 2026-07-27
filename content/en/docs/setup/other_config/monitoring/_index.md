@@ -6,65 +6,178 @@ description: >
   Each Spinnaker microservice is instrumented with numerous metrics exposed via a built in endpoint.
 ---
 
+Each Spinnaker microservice is instrumented with numerous metrics, published
+through an internal Spectator API that wraps a Micrometer `MeterRegistry` and
+exposed on a built-in `/spectator/metrics` endpoint. You can scrape that
+endpoint yourself, or collect metrics and traces with
+[OpenTelemetry (OTEL)](#opentelemetry-recommended), which is the recommended
+approach.
 
-> The Spinnaker Observability plugin replaces the Spinnaker monitoring daemon
- which was deprecated as of Spinnaker release 1.20.
+The metrics use a multi-dimensional, tag-based data model, described in
+[Consuming metrics](#consuming-metrics) and the
+[Monitoring reference](/docs/reference/monitoring/).
 
-Each Spinnaker microservice is instrumented with numerous metrics exposed
-via a built in endpoint. Monitoring spinnaker typically involves the
-Spinnaker Observability plugin, which collects metrics reported by each
-microservice instance and reports them to a third-party monitoring system
-which you then use to view overview dashboards, receive alerts, and
-informally browse depending on your needs.
+## OpenTelemetry (Recommended)
 
-The plugin currently supports three specific third-party systems:
+Attach the [OpenTelemetry Java auto-instrumentation agent](https://opentelemetry.io/docs/zero-code/java/agent/)
+to each Spinnaker JVM process. The agent exports telemetry over OTLP, either to
+an [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) or
+directly to any OTLP-compatible vendor endpoint. A collector is the more
+flexible option, since it lets you send the same data to more than one backend.
+
+### Why this works with Spinnaker
+
+Spinnaker registers its metrics as Micrometer meters on each service's
+`MeterRegistry` (exposed externally through the Spectator API and
+`/spectator/metrics`). The OTEL Java agent includes optional Micrometer
+instrumentation that exports Micrometer meters through the OpenTelemetry
+metrics SDK over OTLP, so no Spinnaker code changes are required.
+
+The Micrometer bridge is **disabled by default** in OTEL Java agent 2.0.0 and
+later. Enable it with `OTEL_INSTRUMENTATION_MICROMETER_ENABLED=true` (or
+`-Dotel.instrumentation.micrometer.enabled=true`). Without it the agent still
+provides auto-instrumented traces (HTTP, JDBC, and other supported libraries)
+but exports no Micrometer meters.
+
+Independently of the Micrometer bridge, the agent collects JVM runtime metrics
+and auto-instruments supported HTTP, RPC, database, messaging, and other
+libraries for traces and selected metrics. See the
+[supported libraries](https://opentelemetry.io/docs/zero-code/java/agent/supported-libraries/)
+for the current coverage.
+
+The same setting also turns on the agent's Spring Boot actuator
+autoconfiguration, which registers the OpenTelemetry meter registry as a Spring
+bean. Spring Boot combines it with the service's existing registry into a
+`CompositeMeterRegistry`, and that composite is the registry Spinnaker's
+Spectator API wraps, so Spinnaker's own metrics are included. Without it the
+agent would only register with Micrometer's static global registry, which
+Spinnaker does not publish to. Compare the exported series against
+`/spectator/metrics` if you depend on specific Spinnaker metrics.
+
+### Minimal configuration
+
+How you attach the agent depends on your deployment method (Halyard,
+Operator, Helm, raw Kubernetes manifests, and so on). In all cases you need:
+
+1. The OTEL Java agent JAR available to the process (for example via an init
+   container that copies it into a shared volume, or baked into the image).
+2. JVM options and environment variables similar to:
+
+```bash
+JAVA_OPTS="-javaagent:/path/to/opentelemetry-javaagent.jar -Dotel.service.name=clouddriver"
+
+OTEL_INSTRUMENTATION_MICROMETER_ENABLED=true
+OTEL_EXPORTER_OTLP_ENDPOINT=http://opentelemetrycollector:4318
+```
+
+Repeat for each microservice, using a distinct `otel.service.name` (or
+`OTEL_SERVICE_NAME`) per service. Point `OTEL_EXPORTER_OTLP_ENDPOINT` at your
+collector or at a vendor OTLP ingest URL.
+
+Consult the
+[OpenTelemetry Java agent configuration reference](https://opentelemetry.io/docs/zero-code/java/agent/configuration/)
+for additional exporters, protocols, resource attributes, and sampling
+options.
+
+### New Relic note
+
+The New Relic APM Java agent and the OpenTelemetry Java agent are alternative
+instrumentation paths. The New Relic agent does not automatically collect
+Spinnaker's Spectator/Micrometer metrics.
+
+{{% alert color="warning" title="Only one Java agent per JVM" %}}
+Don't attach both the New Relic APM Java agent and the OpenTelemetry Java agent
+to the same process. New Relic's guidance is to [pick one and only one APM
+product per process](https://docs.newrelic.com/docs/opentelemetry/get-started/apm-monitoring/opentelemetry-apm-intro/).
+Both agents rewrite bytecode and both emit W3C trace context headers, which can
+break instrumented classes and [split one request across multiple trace
+IDs](https://knowledge.newrelic.com/s/article/Possible-conflicts-between-OpenTelemetry-OpenTracing-the-OTEL-agent-and-the-New-Relic-Java-agent-when-it-comes-to-distributed-tracing).
+{{% /alert %}}
+
+New Relic Java agent 9.1.0 and later can, when this support is enabled,
+[capture signals recorded through the OpenTelemetry Tracing, Metrics, and Logs APIs](https://docs.newrelic.com/docs/apm/agents/manage-apm-agents/opentelemetry-api-support/).
+This does not turn it into the OpenTelemetry Java agent or automatically export
+Spinnaker's Micrometer meters. New Relic lists separately installed
+OpenTelemetry library instrumentation and Java bytecode auto-instrumentation as
+unsupported. Its
+[Micrometer instructions](https://docs.newrelic.com/docs/apm/agents/java-agent/related-integrations/micrometer/micrometer-metrics-registry/)
+require the OpenTelemetry Micrometer bridge, SDK and exporter, and application
+wiring.
+
+Choose one of these collection paths:
+
+* Keep the New Relic APM agent and collect Spinnaker's own metrics separately.
+  Scrape `/spectator/metrics` with an external collection pipeline when
+  practical. If you need direct, in-process export to New Relic, the
+  [legacy Observability Plugin](#legacy-spinnaker-observability-plugin)'s New
+  Relic registry remains a compatibility option.
+* Use the OpenTelemetry agent instead and send OTLP to New Relic. New Relic
+  renders this data as an OpenTelemetry service with
+  [APM views](https://docs.newrelic.com/docs/opentelemetry/get-started/apm-monitoring/opentelemetry-apm-ui/)
+  for summary metrics, transactions and traces, databases, external services,
+  errors, logs, and JVM runtime data. This provides broad APM coverage, but is
+  not identical to the New Relic agent: some views are derived from sampled
+  spans, and instrumentation coverage and names can differ. The JVM runtime
+  view requires `service.instance.id`, which the current OpenTelemetry Java
+  agent generates automatically.
+
+## Legacy: Spinnaker Observability Plugin
+
+{{% alert color="warning" title="Legacy" %}}
+The Spinnaker Observability Plugin is legacy. Use the OpenTelemetry Java agent
+to export Spinnaker's Micrometer metrics when it is your APM agent. Existing
+users can keep running the plugin. Deployments that retain the New Relic APM
+agent can use the plugin's New Relic registry as a compatibility option. Prefer
+external collection of `/spectator/metrics` where practical.
+{{% /alert %}}
+
+> The Spinnaker Observability plugin replaced the Spinnaker monitoring daemon,
+> which was deprecated as of Spinnaker release 1.20. See the
+> [announcement](https://blog.spinnaker.io/announcing-the-new-spinnaker-observability-plugin-d7fbb17e1e07)
+> for background.
+
+The plugin collects metrics reported by each microservice instance and
+reports them to a third-party monitoring system. It currently supports
 [Prometheus](https://prometheus.io/),
-and [New Relic](https://newrelic.com/), 
-and [DataDog](https://datadog.com/). The plugin is
-extensible so that it should be straightforward to add other systems as well.
-
-Spinnaker publishes internal metrics using a multi-dimensional data model
-based on "tags". The metrics, data-model, and usage are discussed further
-in the sections [Consuming Metrics](#consuming-metrics) and in the
-[Monitoring Reference document](/docs/reference/monitoring/).
-
-You can also use the microservice HTTP endpoint `/spectator/metrics`
-directly to scrape metrics yourself. The JSON document structure is
-further documented in the Monitoring reference section.
+[New Relic](https://newrelic.com/), and
+[DataDog](https://datadog.com/). The plugin is extensible so that it should
+be straightforward to add other systems as well.
 
 The plugin can be configured to control which collected metrics are forwarded
 to the persistent metrics store. This can alleviate costs and pressure on the
 underlying metric stores depending on your situation.
 
+### Configuring the Spinnaker Observability Plugin
 
-To read more about the spinnaker monitoring daemon deprecation, check out the
-[announcement](https://blog.spinnaker.io/announcing-the-new-spinnaker-observability-plugin-d7fbb17e1e07).
-
-
-## Configuring the Spinnaker Observability Plugin
-
-The instructions on how to install and configure the plugin can be found on
-the [Armory website]https://github.com/armory-plugins/armory-observability-plugin).  
-We'd welcome PRs to improve the docs.
-
-Additional information on how to configure the plugin can be found below.
+Install and configure the plugin using the
+[armory-observability-plugin](https://github.com/armory-plugins/armory-observability-plugin)
+repository. Additional configuration examples:
 
 * [Prometheus](https://github.com/armory-plugins/armory-observability-plugin#condensed-prometheus-example)
 * [New Relic](https://github.com/armory-plugins/armory-observability-plugin#condensed-nr-example)
+* [DataDog](https://github.com/armory-plugins/armory-observability-plugin#condensed-datadog-example)
+
+Plugin `v2.0.0` and later require Spinnaker `2025.4.0` or newer, which is the
+release that moved to Spring Boot 3. Use the `v1.6.x` line on earlier
+Spinnaker versions.
 
 Once this is complete, you can optionally use the
-[spinnaker-mixin](https://github.com/uneeq-oss/spinnaker-mixin) package to deploy pre-configured [Spinnaker
-dashboards](#supplied-dashboards) for Grafana.
+[spinnaker-mixin](https://github.com/uneeq-oss/spinnaker-mixin) package to
+deploy pre-configured [Spinnaker dashboards](#supplied-dashboards) for Grafana.
 
 ## Consuming metrics
 
-Spinnaker publishes internal metrics using a multi-dimensional data model
-based on "tags". Each "metric" has a name and type. Each data point is a
-numeric value that is time-stamped at the time of reporting and tagged with
-a set of one or more "label"="value" tags. These tag values are strings,
-though some may have numeric-looking values. Taken together, the set of
-tags convey the context for the reported measurement. Each of these
-contexts forms a distinct time-series data stream.
+This data model applies however you collect metrics: by scraping
+`/spectator/metrics`, with the
+[legacy Observability Plugin](#legacy-spinnaker-observability-plugin), or
+through the [OpenTelemetry Micrometer bridge](#opentelemetry-recommended).
+
+Each "metric" has a name and type. Each data point is a numeric value that is
+time-stamped at the time of reporting and tagged with a set of one or more
+"label"="value" tags. These tag values are strings, though some may have
+numeric-looking values. Taken together, the set of tags convey the context for
+the reported measurement. Each of these contexts forms a distinct time-series
+data stream.
 
 For example a metric counting we requests may be tagged with a "status" label
 and values indicating whether the call was successful or not. So rather
@@ -101,10 +214,11 @@ There are two basic types of metrics currently supported,
     Counters are scoped to the process they are in. If you have a counter
     in each of two different microservice replicas (including a restart),
     those counters will be independent of one another. Each process only
-    knows about itself. The plugin adds a tag to each data point that
-    identifies which instance it came from so that you can drill down
-    into individual instances if you need. However, typically you will
-    use your monitoring system to aggregate counters across all replicas.
+    knows about itself. Collection tooling typically adds a tag to each
+    data point that identifies which instance it came from so that you can
+    drill down into individual instances if you need. However, typically
+    you will use your monitoring system to aggregate counters across all
+    replicas.
 
     Counters are useful to determine rates. Given two points in time,
     the counter differences will be the measurement delta and the
@@ -143,9 +257,9 @@ There are two basic types of metrics currently supported,
 
   * __Gauges__ are instantaneous value readings at a given point in time.
     Like counters, individual gauges are scoped to individual microservice
-    instances. The daemon adds an instance tag to each data point so
-    that you  can identify the particular instance if you want to, but
-    typically you will use your monitoring system to aggregate across
+    instances. Collection tooling typically adds an instance tag to each
+    data point so that you can identify the particular instance if you want
+    to, but typically you will use your monitoring system to aggregate across
     instances.
 
     Since gauges are instantaneous, the values between samples is
