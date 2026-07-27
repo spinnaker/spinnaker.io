@@ -4,7 +4,7 @@
   "description": "Documentation site for spinnaker",
   "main": "index.html",
   "engines": {
-    "node": ">=18"
+    "node": ">=24"
   },
   "scripts": {
     "prestart": "npm run clean",
@@ -16,7 +16,7 @@
     "postinstall": "hugo-installer --version otherDependencies.hugo --extended --destination node_modules/.bin/hugo"
   },
   "otherDependencies": {
-    "hugo": "0.104.3"
+    "hugo": "0.164.0"
   },
   "repository": {
     "type": "git",
@@ -54,10 +54,10 @@
   "devDependencies": {
     "autoprefixer": "^9.8.6",
     "exec-bin": "^1.0.0",
-    "hugo-installer": "^4.0.0",
+    "hugo-installer": "^4.0.1",
     "postcss": "^8.4.31",
     "postcss-cli": "^7.1.1",
-    "prettier": "^2.3.0",
-    "shx": "^0.3"
+    "prettier": "^3.9.6",
+    "shx": "^0.4.0"
   }
 }

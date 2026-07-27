@@ -1,10 +1,13 @@
+
+theme = ["github.com/google/docsy"]
+
+
 baseURL = "/"
 title = "Spinnaker"
 
 enableRobotsTXT = true
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["docsy"]
 
 # Will give values to .Lastmod etc.
 enableGitInfo = true
@@ -16,7 +19,7 @@ defaultContentLanguageInSubdir = false
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
 
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomy"]
 
 # Highlighting config
 pygmentsCodeFences = true
@@ -56,7 +59,7 @@ id = "G-H0XE7ESBFR"
 [languages.en]
 title = "Spinnaker"
 description = "Multi-cloud continuous delivery for the enterprise"
-languageName ="English"
+label ="English"
 # Weight used for sorting.
 weight = 1
 
@@ -86,10 +89,7 @@ defaultMarkdownHandler = "goldmark"
           noClasses = true
           style = "monokai"
           tabWidth = 4
-        [markup.tableOfContents]
-          endLevel = 3
-          ordered = false
-          startLevel = 2
+
 # Everything below this are Site Params
 [params]
 copyright = 'Copyright © 2020 The Linux Foundation®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds.'
@@ -149,12 +149,13 @@ offlineSearch = true
 # User interface configuration
 [params.ui]
 # Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = false
+sidebar_menu_compact = true
 # Set to true to hide sub-items
-sidebar_menu_always_expand = true
+sidebar_menu_always_expand = false
 
 #  Set to true to disable breadcrumb navigation.
-breadcrumb_disable = false
+breadcrumb_disable = true
+taxonomy_breadcrumb_disable = true
 #  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
 sidebar_search_disable = true
 nav_search_disable = false
@@ -287,3 +288,4 @@ enable = false
 # [permalinks]
 #   post = "/:year/:month/:day/:slug/"
 #   pages = "/:filename/"
+
