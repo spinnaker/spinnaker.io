@@ -12,7 +12,6 @@ changelog.
 ## Coming Soon in Release 2026.3.0
 
 ## Breaking Changes
-
 ### AWS V2 SDK migration
 The caching agents and code have been moved to the AWS V2 SDK. Any V1 usage via plugins or similar will no longer work going forward.
 
@@ -65,6 +64,13 @@ spring:
 * aws-iam-authenticator binary is upgraded to the latest supported version.
 * Base images are upgraded from Alpine 3.20 to 3.24. Ubuntu is moved to the latest release.
 
+### Native metric feeds to stackdriver will removed in 2026.4.0
+Native feeds of spectator to stackdriver are deprecated and will be removed in 2026.4.0.  Spectator as a whole hasn't been supported in the project since the observability plugin 
+and will be migrated to native spring metrics based (which uses micrometer) for metric handling.
+
+### Spectator to beremoved in 2027.0.0
+There's already work in progress to migrate from spectator to native spring metrics based upon micrometer.  This will be fully removed in 2027.0.0
+
 ### Old Kubernetes resource types removed
 [Very old API specs are removed](https://github.com/spinnaker/spinnaker/pull/7802/changes). Specifically:
 * `extensions/v1beta1`
@@ -89,6 +95,32 @@ Front50 currently supports S3/GCS/etc. storage for pipelines and templates. This
 
 
 ## Features
+
+### New stage to run multiple child pipelines from one call
+There's a new stage to invoke multiple child pipelines in a single stage vs creating multiple stages to invoke those child pipelines.  Add this stage, and add the following config to invoke multiple child pipelines with this:
+```
+bundle_web:
+  appName1:
+    arguments:
+      app: app1
+      deploymentFrezeOverride: true
+      skipCanary: true
+      tag: 1.1.1
+      targetEnv: targetEnv
+    child_pipeline: childPipeline
+  appName2:
+    arguments:
+      app: app2
+      deploymentFrezeOverride: true
+      skipCanary: true
+      tag: 1.1.1
+      targetEnv: targetEnv
+    child_pipeline: childPipeline
+    depends_on:
+      - appName1
+```
+This will then call the appName1 pipeline "childPipeline" as well as the appName2 childPipeline AFTER the appName1 pipeleine completes.  This enables you to invoke multiple pipelines with different arguments as needed to do a more dynamic invocation of child pipeline executions.  For rollback on failure handling, YOU MUST create in that
+down stream application a pipeline named "rollbackOnFailure" to handle rollbacks.
 
 ### Configurable timeout on manifest stable checks
 [Kubernetes manifest stable time](https://github.com/spinnaker/spinnaker/pull/7804) — Kubernetes deploys previously had a fixed 30-minute timeout before Deployments were considered "stable." This timeout is now configurable via a pipeline parameter.
