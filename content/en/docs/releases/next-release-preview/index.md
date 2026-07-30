@@ -122,6 +122,11 @@ bundle_web:
 This will then call the appName1 pipeline "childPipeline" as well as the appName2 childPipeline AFTER the appName1 pipeleine completes.  This enables you to invoke multiple pipelines with different arguments as needed to do a more dynamic invocation of child pipeline executions.  For rollback on failure handling, YOU MUST create in that
 down stream application a pipeline named "rollbackOnFailure" to handle rollbacks.
 
+### Evaluate Artifacts stage
+[Evaluate Artifacts](https://github.com/spinnaker/spinnaker/pull/7845) — A new pipeline stage that evaluates SpEL expressions inside artifact contents and produces `embedded/base64` artifacts. Each artifact is evaluated sequentially, so a later artifact can reference the evaluated value of an earlier one. This makes it easier to generate artifacts dynamically within a pipeline.
+
+To use the stage, add one or more artifacts with a display name and contents. Contents may include any SpEL expression available in the pipeline context. The stage outputs the resulting artifacts so they can be consumed by downstream stages.
+
 ### Configurable timeout on manifest stable checks
 [Kubernetes manifest stable time](https://github.com/spinnaker/spinnaker/pull/7804) — Kubernetes deploys previously had a fixed 30-minute timeout before Deployments were considered "stable." This timeout is now configurable via a pipeline parameter.
 
