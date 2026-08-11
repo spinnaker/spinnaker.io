@@ -219,7 +219,7 @@ enable = false
 [[menu.main]]
   name = "Blog"
   weight = 4
-  url = "https://blog.spinnaker.io/"
+  url = "https://medium.com/continuous-delivery-scale/"
 
 [[menu.main]]
   name = "Docs"
@@ -282,7 +282,7 @@ enable = false
 #
 # [[menu.main]]
 #   name = "Blog"
-#   url = "https://blog.spinnaker.io/"
+#   url = "https://medium.com/continuous-delivery-scale/"
 #   weight = 4
 #
 # [permalinks]

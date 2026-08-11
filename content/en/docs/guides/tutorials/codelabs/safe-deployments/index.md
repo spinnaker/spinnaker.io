@@ -279,4 +279,4 @@ The child pipeline should not run
 
 ## Learn more
 
-Hopefully this codelab has given you a taste of the built-in mechanisms for safe deployment in Spinnaker. An almost complete list of safe deployment features in Spinnaker can be found in this [blog post](https://blog.spinnaker.io/can-i-push-that-building-safer-low-risk-deployments-with-spinnaker-a27290847ac4).
+Hopefully this codelab has given you a taste of the built-in mechanisms for safe deployment in Spinnaker. An almost complete list of safe deployment features in Spinnaker can be found in this [blog post](https://medium.com/continuous-delivery-scale/can-i-push-that-building-safer-low-risk-deployments-with-spinnaker-a27290847ac4).

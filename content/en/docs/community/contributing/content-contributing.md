@@ -3,7 +3,7 @@ title: Getting Started as a Content Contributor
 weight: 3
 ---
 
-[Originally published on the Spinnaker Community Blog](https://blog.spinnaker.io/getting-started-as-a-content-contributor-fd4d3bde420a)
+[Originally published on the Spinnaker Community Blog](https://medium.com/continuous-delivery-scale/getting-started-as-a-content-contributor-fd4d3bde420a)
 
 Hi! Nikema here. I co-lead the Spinnaker Contributor Experience Special Interest Group (SIG) with Adetokunbo Ige. Since stepping into this role, I’ve wanted to write a post to explicitly welcome non-code contributions to the project. This is meant to be a living document, and I am open to feedback and suggestions. Let’s work together to make open source contributing a little less intimidating.
 

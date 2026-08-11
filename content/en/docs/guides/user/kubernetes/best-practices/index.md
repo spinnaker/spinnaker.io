@@ -39,7 +39,7 @@ There are two ways to achieve this in Spinnaker:
 To keep track of what's changing in your cluster, and under what circumstances
 it is changing, we highly recommend [configuring Spinnaker to emit events to an
 external audit
-log](https://blog.spinnaker.io/spinnaker-echo-google-cloud-functions-stackdriver-logging-spinnaker-audit-log-81139f084db9).
+log](https://medium.com/continuous-delivery-scale/spinnaker-echo-google-cloud-functions-stackdriver-logging-spinnaker-audit-log-81139f084db9).
 
 Spinnaker already generates events for any events running through its
 orchestration engine, all that's needed is an endpoint to send them to.  When

@@ -58,7 +58,7 @@ two solutions.
    and `hal config security api edit --override-base-url <full api url>`.
 
 2. If you don't want to rely on authentication, you can follow [this
-   guide](https://blog.spinnaker.io/exposing-spinnaker-to-end-users-4808bc936698).
+   guide](https://medium.com/continuous-delivery-scale/exposing-spinnaker-to-end-users-4808bc936698).
    This makes sense if you're running Spinnaker in a private network, or have
    another form of authentication fronting Spinnaker.
 

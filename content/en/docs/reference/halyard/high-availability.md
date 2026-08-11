@@ -17,7 +17,7 @@ description:
 
 
 
-This page describes how you can configure a Halyard deployment to increase the availability of specific services beyond simply [horizontally scaling](/docs/setup/productionize/scaling/horizontal-scaling/) the service. Halyard does this by splitting the functionalities of a service into separate logical roles (also known as sharding). The benefits of doing this is specific to the service that is being sharded. These deployment strategies are inspired by [Netflix's large scale experience](https://blog.spinnaker.io/scaling-spinnaker-at-netflix-part-1-8a5ae51ee6de).
+This page describes how you can configure a Halyard deployment to increase the availability of specific services beyond simply [horizontally scaling](/docs/setup/productionize/scaling/horizontal-scaling/) the service. Halyard does this by splitting the functionalities of a service into separate logical roles (also known as sharding). The benefits of doing this is specific to the service that is being sharded. These deployment strategies are inspired by [Netflix's large scale experience](https://medium.com/continuous-delivery-scale/scaling-spinnaker-at-netflix-part-1-8a5ae51ee6de).
 
 When sharded, the new logical services are given new names. This means that these logical services can be configured and scaled independently of each other.
 
@@ -192,4 +192,4 @@ If you've [configured an external Redis](/docs/setup/productionize/caching/exter
 
 Although it's possible, it is not recommended to use spot instances on AWS or preemtible nodes to lower cost in production, as outages in your continuous deployment tool will likely cost more than any savings. Also consider hosting Spinnaker on isolated infrastructure to reduce the possibility that other applications or teams will affect your Spinnaker instance.
 
-It's also recommended to spread out services over multiple availability zones, as described in [the Netflix implementation](https://blog.spinnaker.io/scaling-spinnaker-at-netflix-part-1-8a5ae51ee6de).
+It's also recommended to spread out services over multiple availability zones, as described in [the Netflix implementation](https://medium.com/continuous-delivery-scale/scaling-spinnaker-at-netflix-part-1-8a5ae51ee6de).

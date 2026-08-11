@@ -38,7 +38,7 @@ underlying metric stores depending on your situation.
 
 
 To read more about the spinnaker monitoring daemon deprecation, check out the
-[announcement](https://blog.spinnaker.io/announcing-the-new-spinnaker-observability-plugin-d7fbb17e1e07).
+[announcement](https://medium.com/continuous-delivery-scale/announcing-the-new-spinnaker-observability-plugin-d7fbb17e1e07).
 
 
 ## Configuring the Spinnaker Observability Plugin

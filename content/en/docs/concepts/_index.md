@@ -128,7 +128,7 @@ diverge from the desired state, and acts upon that information to reconcile the 
 desired state.
 
 For more details on the inspiration and guiding principles behind
-Managed Delivery, check out [our blog](https://blog.spinnaker.io/managed-delivery-evolving-continuous-delivery-at-netflix-eb74877fb33c),
+Managed Delivery, check out [our blog](https://medium.com/continuous-delivery-scale/managed-delivery-evolving-continuous-delivery-at-netflix-eb74877fb33c),
 or the talk below from Spinnaker Summit 2019.
 
 <iframe src="https://www.youtube.com/embed/mEgvOfmLnlY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

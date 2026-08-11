@@ -7,7 +7,7 @@ description: >
 
 The `Run Job (Manifest)` stage can be used to execute a Kubernetes Job as part of your pipeline. This stage will deploy a `Job` manifest and wait until it completes, allowing you to gate your pipeline's continuation on the job's success or failure.
 
-For example use cases, check out [this post](https://blog.spinnaker.io/extending-spinnaker-with-kubernetes-and-containers-5d16ec810d81) on the Spinnaker blog!
+For example use cases, check out [this post](https://medium.com/continuous-delivery-scale/extending-spinnaker-with-kubernetes-and-containers-5d16ec810d81) on the Spinnaker blog!
 
 ## Viewing execution logs
 

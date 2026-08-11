@@ -109,7 +109,7 @@ command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
   These simply provide ways to group resources using Spinnaker's cluster filters
   as well as apply policies such as [Traffic
-  Guards](https://blog.spinnaker.io/can-i-push-that-building-safer-low-risk-deployments-with-spinnaker-a27290847ac4).
+  Guards](https://medium.com/continuous-delivery-scale/can-i-push-that-building-safer-low-risk-deployments-with-spinnaker-a27290847ac4).
 
 ## Caching
 

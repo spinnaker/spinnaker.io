@@ -50,7 +50,7 @@ forwarding and waiting for the status of various tasks requested in a pipeline.
 Central to Orca's orchestration is a message queue, written into Redis and
 shared among all Orca nodes. This is explained in more detail [in this post on
 monitoring
-Spinnaker](https://blog.spinnaker.io/monitoring-spinnaker-part-1-4847f42a3abd)
+Spinnaker](https://medium.com/continuous-delivery-scale/monitoring-spinnaker-part-1-4847f42a3abd)
 for the curious.
 
 If you see slowdowns in some of Spinnaker's operations, such as...
