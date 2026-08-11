@@ -44,29 +44,30 @@ To install spinnaker:
     kubectl version --client
     ```
 
-2. set a working directory `WORKING_DIR="$HOME/workspace-install-spinnaker/"`
+2. create a working directory `$HOME/workspace-spinnaker-install`
 
     ```bash
-    mkdir -pv "$HOME/workspace-spinnaker-install/"
+    WORKING_DIR="$HOME/workspace-spinnaker-install"
+    mkdir --parents --verbose "$WORKING_DIR"
     ```
 
 3. clone the base example github repo
 
     ```bash
-    git clone https://github.com/spinnaker/spinnaker.git $HOME/workspace-spinnaker-install/spinnaker
+    git clone https://github.com/spinnaker/spinnaker.git "$WORKING_DIR"
     ```
 
 4. Optional: configure [Kubernetes probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
       for your Spinnaker services in their deployment manifests files. located inside `base/*/deployment.yaml`/
 
     ```bash
-    ls -lha $HOME/workspace-spinnaker-install/spinnaker/spinnaker-kustomize/base/*/
+    ls -lha $WORKING_DIR/spinnaker/spinnaker-kustomize/base/*/
     ```
 
 5. switch to the `kustomize` directory in the `spinnaker` base repo
 
    ```bash
-    pushd $WORKING_DIR/spinnaker/spinnaker-kustomize
+    pushd "$WORKING_DIR/spinnaker/spinnaker-kustomize"
     ```
 
 6. Adjust the DNS domains. Look for any `example.com` reference and replace with your DNS domain.
