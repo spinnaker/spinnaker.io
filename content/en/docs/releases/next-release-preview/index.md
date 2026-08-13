@@ -15,6 +15,94 @@ changelog.
 ### AWS V2 SDK migration
 The caching agents and code have been moved to the AWS V2 SDK. Any V1 usage via plugins or similar will no longer work going forward.
 
+### GCE: Compute API beta to stable v1
+
+[Spinnaker PR #7510](https://github.com/spinnaker/spinnaker/pull/7510)
+migrates the Google provider from the Compute beta API to stable v1. Before
+upgrading, check saved GCE Deploy stages for the fields below.
+
+#### `partnerMetadata` is no longer propagated
+
+Stable Compute v1 instance template requests do not support the beta-only
+`partnerMetadata` field. Clouddriver continues to accept saved deploy and clone
+payloads that contain the field, but removes it before creating the instance
+template and logs a warning. The pipeline can still run, but the partner
+metadata is not applied.
+
+Remove `partnerMetadata` from saved pipeline JSON. If an integration depends on
+its namespaced structured data, consult that integration's migration guidance;
+there is no automatic conversion to a stable-v1 field.
+
+##### Use Resource Manager tags when they match the use case
+
+`resourceManagerTags` is not a drop-in replacement for `partnerMetadata`.
+Resource Manager tags bind pre-created GCP tag keys and values to instances for
+organization, policy, and access-control use cases. They do not carry arbitrary
+partner-integration data.
+
+For a tag key named `environment` under organization `123456789012`, with a tag
+value named `production`, use this deploy-stage field:
+
+```json
+{
+  "resourceManagerTags": {
+    "123456789012/environment": "production"
+  }
+}
+```
+
+GCP also accepts numeric resource names such as `tagKeys/123456789` and
+`tagValues/987654321`. The tag keys and values must exist before the pipeline
+runs. See the
+[Compute v1 instance template `resourceManagerTags` contract](https://cloud.google.com/compute/docs/reference/rest/v1/instanceTemplates#resource:-instancetemplate)
+for accepted key and value formats.
+
+#### Remove `autoHealingPolicy.maxUnavailable`
+
+Stable Compute v1 MIG auto-healing policies support `healthCheck` and
+`initialDelaySec`; they do not support `maxUnavailable`. Clouddriver rejects a
+saved deploy stage containing any non-null `maxUnavailable` value, including an
+empty object, rather than silently discarding a safety setting.
+
+Before:
+
+```json
+{
+  "autoHealingPolicy": {
+    "healthCheck": "example-health-check",
+    "healthCheckKind": "healthCheck",
+    "initialDelaySec": 300,
+    "maxUnavailable": {
+      "fixed": 2
+    }
+  }
+}
+```
+
+After:
+
+```json
+{
+  "autoHealingPolicy": {
+    "healthCheck": "example-health-check",
+    "healthCheckKind": "healthCheck",
+    "initialDelaySec": 300
+  }
+}
+```
+
+In updated Deck, edit and save each affected GCE Deploy stage; Deck rebuilds
+the command with supported fields and removes `maxUnavailable`. Pipelines
+managed through the API or as custom JSON must remove the field explicitly.
+
+Do not move this value to `updatePolicy.maxUnavailable` as a mechanical
+migration. That setting controls rolling updates, not auto-healing repair
+concurrency.
+
+See the
+[stable v1 instance group manager contract](https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroupManagers)
+for the supported `autoHealingPolicies` fields.
+
 ### Angular removed
 Angular has been removed from the Spinnaker project. For any plugins or forks, please migrate to React. This is a substantial migration — a big thank you to the contributors, primarily Matt Gogerly.
 
