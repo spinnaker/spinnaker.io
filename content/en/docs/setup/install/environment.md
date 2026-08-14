@@ -48,7 +48,8 @@ To install spinnaker:
 
     ```bash
     WORKING_DIR="$HOME/workspace-spinnaker-install"
-    mkdir --parents --verbose "$WORKING_DIR"
+    # mkdir --parents --verbose "$WORKING_DIR" # Often overlooked, long format helps new users.
+    mkdir -pv "$WORKING_DIR"
     ```
 
 3. clone the base example github repo
@@ -70,7 +71,7 @@ To install spinnaker:
     pushd "$WORKING_DIR/spinnaker/spinnaker-kustomize"
     ```
 
-6. Adjust the DNS domains. Look for any `example.com` reference and replace with your DNS domain.
+6. Adjust the DNS domain references. Look for any `example.com` reference and replace with your DNS domain.
 
 7. Create a file with the spinnaker kubernetes resources and apply it
 
@@ -90,9 +91,10 @@ To install spinnaker:
     kubectl get ingress --namespace spinnaker
     ```
 
-REMINDER:  This basic setup defaults with a SIMPLE username/password auth.  It's recommended to change
-this from the default or better yet, use an identity provider (saml/oidc/ldap) solution. The spinnaker
-project does integration tests today with Keycloak as a known out of the box solution.
+> __Reminder:__ This basic setup defaults with a SIMPLE username/password auth.
+> 
+> It's recommended to change this from the default and use an identity provider ([saml](https://auth0.com/resources/ebooks/saml-authentication-explained)/[oidc](https://auth0.com/resources/ebooks/the-openid-connect-handbook)/[ldap](https://auth0.com/docs/authenticate/protocols/ldap-protocol)) solution. The spinnaker
+project does integration tests today with [Keycloak](https://www.keycloak.org/guides#getting-started) as a known out of the box solution.
 
 ## Local Debian
 
