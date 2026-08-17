@@ -6,251 +6,362 @@ description: >
   Each Spinnaker microservice is instrumented with numerous metrics exposed via a built in endpoint.
 ---
 
-
-> The Spinnaker Observability plugin replaces the Spinnaker monitoring daemon
- which was deprecated as of Spinnaker release 1.20.
-
 Each Spinnaker microservice is instrumented with numerous metrics exposed
-via a built in endpoint. Monitoring spinnaker typically involves the
-Spinnaker Observability plugin, which collects metrics reported by each
-microservice instance and reports them to a third-party monitoring system
-which you then use to view overview dashboards, receive alerts, and
-informally browse depending on your needs.
+via a built in endpoint. The recommended approach for monitoring Spinnaker
+is to attach the [OpenTelemetry (OTEL) Java agent](https://opentelemetry.io/docs/zero-code/java/agent/)
+to each microservice via a Kubernetes init container, send telemetry to an
+[OpenTelemetry Collector](https://opentelemetry.io/docs/collector/), and
+configure that collector to forward data to your preferred monitoring backend.
 
-The plugin currently supports three specific third-party systems:
-[Prometheus](https://prometheus.io/),
-and [New Relic](https://newrelic.com/), 
-and [DataDog](https://datadog.com/). The plugin is
-extensible so that it should be straightforward to add other systems as well.
+> **Note on the Spinnaker Observability Plugin**: The Armory Observability Plugin
+> (`armory-plugins/armory-observability-plugin`) was previously recommended but is
+> no longer actively developed. New deployments should use the OTEL Java agent
+> approach described on this page.
+
+This approach provides:
+
+- **Standard JVM metrics** (heap, GC, thread pools) auto-instrumented with no code changes
+- **Spinnaker application metrics** via the agent's built-in Micrometer extraction — no scraping required
+- **Distributed tracing** across Spinnaker microservices
+- **Vendor-neutral pipeline**: route the same telemetry to Prometheus, Datadog,
+  New Relic, Grafana Cloud, or any OTLP-compatible backend by changing only
+  the collector config
+
+
+## Architecture Overview
+
+```
+Spinnaker microservices
+  (OTEL Java agent injected via init container)
+        │
+        │ OTLP (gRPC or HTTP)
+        ▼
+  OpenTelemetry Collector
+        │
+        ├──▶ Prometheus (remote write or scrape)
+        ├──▶ Datadog
+        ├──▶ New Relic
+        └──▶ Any OTLP-compatible backend
+```
+
+The OTEL Java agent includes built-in support for extracting
+[Micrometer](https://micrometer.io/) metrics from the JVM. Enabling this
+instrumentation causes the agent to collect Spinnaker's internal application
+metrics and emit them via OTLP alongside standard JVM and HTTP metrics — no
+separate Prometheus scrape of `/spectator/metrics` is required.
+
+
+## Step 1: Add the OTEL Agent as a Kustomize Component
+
+The recommended way to inject the OTEL agent is as a
+[Kustomize component](https://github.com/spinnaker/spinnaker/tree/main/spinnaker-kustomize)
+that patches each service deployment to add an init container, a shared volume,
+and the required environment variables. This requires no changes to the base
+service images.
+
+Create `components/otel-agent/kustomization.yml` in your spinnaker-kustomize
+directory:
+
+```yaml
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+patches:
+- patch: |-
+    - op: add
+      path: /spec/template/spec/initContainers
+      value:
+        - name: otel-agent-init
+          image: otel/autoinstrumentation-java:2.27.0
+          command: ["cp", "/javaagent.jar", "/otel/opentelemetry-javaagent.jar"]
+          volumeMounts:
+            - name: otel-agent
+              mountPath: /otel
+    - op: add
+      path: /spec/template/spec/volumes/-
+      value:
+        name: otel-agent
+        emptyDir: {}
+    - op: add
+      path: /spec/template/spec/containers/0/volumeMounts/-
+      value:
+        name: otel-agent
+        mountPath: /otel
+    - op: add
+      path: /spec/template/spec/containers/0/env/-
+      value:
+        name: JAVA_TOOL_OPTIONS
+        value: "-javaagent:/otel/opentelemetry-javaagent.jar"
+    - op: add
+      path: /spec/template/spec/containers/0/env/-
+      value:
+        name: OTEL_EXPORTER_OTLP_ENDPOINT
+        value: "http://otel-collector:4317"
+    - op: add
+      path: /spec/template/spec/containers/0/env/-
+      value:
+        name: OTEL_EXPORTER_OTLP_PROTOCOL
+        value: grpc
+    - op: add
+      path: /spec/template/spec/containers/0/env/-
+      value:
+        name: OTEL_METRICS_EXPORTER
+        value: otlp
+    - op: add
+      path: /spec/template/spec/containers/0/env/-
+      value:
+        name: OTEL_TRACES_EXPORTER
+        value: otlp
+    - op: add
+      path: /spec/template/spec/containers/0/env/-
+      value:
+        name: OTEL_LOGS_EXPORTER
+        value: none
+    - op: add
+      path: /spec/template/spec/containers/0/env/-
+      value:
+        name: OTEL_INSTRUMENTATION_MICROMETER_ENABLED
+        value: "true"
+  target:
+    group: apps
+    version: v1
+    kind: Deployment
+    labelSelector: "app.kubernetes.io/part-of=spinnaker"
+```
+
+The `OTEL_INSTRUMENTATION_MICROMETER_ENABLED=true` flag activates the agent's
+built-in Micrometer instrumentation, which reads Spinnaker's internal metrics
+at the JVM level and emits them via OTLP. No additional Spring or application
+config is needed.
+
+> **Service names**: By default the agent uses the Deployment name as
+> `service.name`. To set it explicitly per service, add individual per-deployment
+> patches that set `OTEL_SERVICE_NAME` (e.g. `clouddriver`, `orca`, `gate`).
+
+Enable the component in your root `kustomization.yml`:
+
+```yaml
+components:
+- components/otel-agent
+# ... other components
+```
+
+Then apply as usual:
+
+```bash
+kubectl kustomize -o spinnaker.yml
+kubectl apply -f spinnaker.yml
+```
+
+
+## Step 2: Deploy the OpenTelemetry Collector
+
+The OTEL Collector is the central hub that receives telemetry from the agents
+and routes it to your backend(s). Deploy it as a standalone Deployment or
+DaemonSet depending on your scale.
+
+### Kubernetes Deployment
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-collector
+  namespace: spinnaker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otel-collector
+  template:
+    metadata:
+      labels:
+        app: otel-collector
+    spec:
+      containers:
+        - name: otel-collector
+          image: otel/opentelemetry-collector-contrib:latest
+          args: ["--config=/conf/otel-collector-config.yaml"]
+          ports:
+            - containerPort: 4317  # OTLP gRPC
+            - containerPort: 4318  # OTLP HTTP
+            - containerPort: 8888  # Collector self-metrics
+          volumeMounts:
+            - name: otel-collector-config
+              mountPath: /conf
+      volumes:
+        - name: otel-collector-config
+          configMap:
+            name: otel-collector-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-collector
+  namespace: spinnaker
+spec:
+  selector:
+    app: otel-collector
+  ports:
+    - name: otlp-grpc
+      port: 4317
+      targetPort: 4317
+    - name: otlp-http
+      port: 4318
+      targetPort: 4318
+```
+
+### Collector Configuration
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otel-collector-config
+  namespace: spinnaker
+data:
+  otel-collector-config.yaml: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+          http:
+            endpoint: 0.0.0.0:4318
+
+    processors:
+      batch:
+        timeout: 10s
+      memory_limiter:
+        check_interval: 1s
+        limit_mib: 512
+
+    exporters:
+      # Replace with your chosen backend — see Step 4
+      prometheusremotewrite:
+        endpoint: "http://prometheus:9090/api/v1/write"
+
+    service:
+      pipelines:
+        metrics:
+          receivers: [otlp]
+          processors: [memory_limiter, batch]
+          exporters: [prometheusremotewrite]
+        traces:
+          receivers: [otlp]
+          processors: [memory_limiter, batch]
+          exporters: [prometheusremotewrite]
+```
+
+
+## Step 3: Configure a Backend
+
+Replace the `exporters` section of the collector config with one of the
+following. You can fan out to multiple backends simultaneously by listing
+them all and referencing each in the pipeline.
+
+### Prometheus
+
+Run Prometheus with the remote write receiver enabled
+(`--web.enable-remote-write-receiver`), then use:
+
+```yaml
+exporters:
+  prometheusremotewrite:
+    endpoint: "http://prometheus:9090/api/v1/write"
+```
+
+Or expose a scrape endpoint from the collector itself:
+
+```yaml
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+```
+
+### Datadog
+
+```yaml
+exporters:
+  datadog:
+    api:
+      key: "${DD_API_KEY}"
+      site: datadoghq.com   # or datadoghq.eu
+```
+
+Requires the `otel/opentelemetry-collector-contrib` image.
+
+### New Relic
+
+```yaml
+exporters:
+  otlp:
+    endpoint: "https://otlp.nr-data.net:4317"
+    headers:
+      api-key: "${NEW_RELIC_LICENSE_KEY}"
+```
+
+### Grafana Cloud (OTLP)
+
+```yaml
+exporters:
+  otlp:
+    endpoint: "https://otlp-gateway-<region>.grafana.net/otlp"
+    headers:
+      authorization: "Basic ${GRAFANA_OTLP_TOKEN}"
+```
+
+
+## Consuming Metrics
+
+### Spinnaker Application Metrics (Micrometer)
 
 Spinnaker publishes internal metrics using a multi-dimensional data model
-based on "tags". The metrics, data-model, and usage are discussed further
-in the sections [Consuming Metrics](#consuming-metrics) and in the
-[Monitoring Reference document](/docs/reference/monitoring/).
+based on "tags". Each metric has a name and type; each data point is a
+numeric value time-stamped at the time of reporting and tagged with a set
+of one or more `label=value` pairs.
 
-You can also use the microservice HTTP endpoint `/spectator/metrics`
-directly to scrape metrics yourself. The JSON document structure is
-further documented in the Monitoring reference section.
+With `OTEL_INSTRUMENTATION_MICROMETER_ENABLED=true`, the OTEL agent reads
+these metrics directly from the JVM's Micrometer registry and emits them via
+OTLP. See the [Monitoring Reference](/docs/reference/monitoring/) for a full
+description of available metrics, tags, and the data model.
 
-The plugin can be configured to control which collected metrics are forwarded
-to the persistent metrics store. This can alleviate costs and pressure on the
-underlying metric stores depending on your situation.
+### Types of Metrics
 
+- **Counters** are monotonically increasing values over the lifetime of
+  the process. Use counter differences over a time window to compute rates.
+  Spinnaker also uses a special **Timer** counter type (always in nanoseconds)
+  that emits complementary `__count` and `__totalTime` series. Divide
+  `totalTime` by `count` to get average latency.
 
-To read more about the spinnaker monitoring daemon deprecation, check out the
-[announcement](https://blog.spinnaker.io/announcing-the-new-spinnaker-observability-plugin-d7fbb17e1e07).
+- **Gauges** are instantaneous value readings. Useful for queue sizes,
+  active connections, and similar current-state measurements.
 
+### Standard JVM Metrics (from OTEL agent)
 
-## Configuring the Spinnaker Observability Plugin
+The OTEL Java agent automatically emits:
 
-The instructions on how to install and configure the plugin can be found on
-the [Armory website]https://github.com/armory-plugins/armory-observability-plugin).  
-We'd welcome PRs to improve the docs.
+- `jvm.memory.used` / `jvm.memory.committed` — heap and non-heap usage
+- `jvm.gc.duration` — GC pause times
+- `jvm.thread.count` — live threads
+- `http.server.request.duration` — latency histogram for all HTTP endpoints
+- `http.client.request.duration` — latency for outbound HTTP calls
 
-Additional information on how to configure the plugin can be found below.
-
-* [Prometheus](https://github.com/armory-plugins/armory-observability-plugin#condensed-prometheus-example)
-* [New Relic](https://github.com/armory-plugins/armory-observability-plugin#condensed-nr-example)
-
-Once this is complete, you can optionally use the
-[spinnaker-mixin](https://github.com/uneeq-oss/spinnaker-mixin) package to deploy pre-configured [Spinnaker
-dashboards](#supplied-dashboards) for Grafana.
-
-## Consuming metrics
-
-Spinnaker publishes internal metrics using a multi-dimensional data model
-based on "tags". Each "metric" has a name and type. Each data point is a
-numeric value that is time-stamped at the time of reporting and tagged with
-a set of one or more "label"="value" tags. These tag values are strings,
-though some may have numeric-looking values. Taken together, the set of
-tags convey the context for the reported measurement. Each of these
-contexts forms a distinct time-series data stream.
-
-For example a metric counting we requests may be tagged with a "status" label
-and values indicating whether the call was successful or not. So rather
-than having two metrics, one for successful calls and the other for
-unsuccessful calls, there is a single metric, where the underlying
-monitoring system can filter the successful from unsuccessful as you want
-depending on how you wish to abstract and interpret the data. In practice
-the metrics have many tags providing a lot of granularity and ways in
-which you can aggregate and interpret them. The data model is described
-further in [the Monitoring reference section](/docs/reference/monitoring/).
-
-In practice there are relatively few distinct metric names (hundreds).
-However when considering all the distinct time-series streams from the
-different label values there are thousands of distinct streams. Some
-metrics are tagged with the application or account they were used on
-behalf of, so the number of streams may grow as the scope of your
-deployment grows. Typically you will be aggregating these dimensions
-together while breaking out along others. The granularity can come in
-handy when it comes time to diagnose problems or investigate for deeper
-understanding of runtime behaviors but you can aggregate across dimensions
-(or parts of dimensions) when you dont care about that level of refinement.
-
-### Types of metrics
-
-There are two basic types of metrics currently supported,
-*counters* and *gauges*.
-
-  * __Counters__ are monotonically increasing values over the lifetime of
-    the process. The process starts out with them at 0, then increments
-    them as appropriate. Some counters may increase by 1 each time, such
-    as the number of calls. Other counters may increase by an arbitrary
-    (but non-negative) amount, such as number of bytes.
-
-    Counters are scoped to the process they are in. If you have a counter
-    in each of two different microservice replicas (including a restart),
-    those counters will be independent of one another. Each process only
-    knows about itself. The plugin adds a tag to each data point that
-    identifies which instance it came from so that you can drill down
-    into individual instances if you need. However, typically you will
-    use your monitoring system to aggregate counters across all replicas.
-
-    Counters are useful to determine rates. Given two points in time,
-    the counter differences will be the measurement delta and the
-    delta divided by the time difference will be the rate.
-    (divide by another 1000000 to convert nanoseconds to milliseconds,
-     such as for latency-oriented metrics or by another 100000000 for seconds,
-     such as for call-rate metrics).
-
-    * Spinnaker also has a special type of counter called a *Timer*.
-
-      __Timers__ are used to measure timing information. These are
-      always in nanoseconds. When consuming metrics straight from
-      Spinnaker, a Timer will have two complementary time series.
-      One will have a tag "statistic" with the value "count" and
-      the other a tag with a "statistic" with the value "totalTime".
-
-      The "count" represents the number of measurements taken.
-      The "totalTime" represents the number of nanoseconds measured
-      across all the calls. Dividing the "totalTime" by the "count"
-      over some time window gives the latency over that time window.
-
-      For example given a series of measurements for the pair of
-      metrics example__count and example__totalTime, where the
-      sum of the __count values was 5 and of the __totalTime values
-      was 50000000, then dividing the time by count gives
-      10000000 as an average time per count. Since this is in nanoseconds,
-      we can divide by another 1000000000 to get 0.1 seconds per call.
-      (or we could divide by 1000000 to get 100 milliseconds per call)
-
-      Note that in order to do this, the tag bindings for the two measurements
-      should be the same. Dividing measurements whose count has a success=true
-      tag by times that have success=false tags wont give you the average time
-      of the success calls (but would give you the average cost in total time
-      spent for each successful call outcome if that is what you wanted.)
+These use [OpenTelemetry semantic conventions](https://opentelemetry.io/docs/specs/semconv/)
+and are available in any backend without additional configuration.
 
 
-  * __Gauges__ are instantaneous value readings at a given point in time.
-    Like counters, individual gauges are scoped to individual microservice
-    instances. The daemon adds an instance tag to each data point so
-    that you  can identify the particular instance if you want to, but
-    typically you will use your monitoring system to aggregate across
-    instances.
+## Dashboards
 
-    Since gauges are instantaneous, the values between samples is
-    unknown. Gauges are useful to determine current state, such as the
-    size of queues. Sometimes answers to questions provided by gauges
-    (e.g. active requests) might be answered by taking the difference
-    in counters (e.g. completed requests - started requests).
+The [spinnaker-mixin](https://github.com/uneeq-oss/spinnaker-mixin) project
+provides pre-built Grafana dashboards that work with Prometheus-backed
+Spinnaker metrics. You can import these as a starting point and extend them
+with the standard JVM metrics produced by the OTEL agent.
 
+The dashboards include:
 
-### Example
-
-Each microservice has a `controller.invocations` metric used to
-instrument API calls into it. Since this is a timer, in practice
-this is broken out into two 'controller.invocations\_\_count' and
-'controller.invocations\_\_totalTime'.
-
-These typically have the labels "controller", "method", "status",
-"statusCode", and "success". Some microservices may add an additional
-label such as "account" or "application" depending on the nature of
-the microservices API.
-
-These metrics will have several time series, such as those with the
-following tag bindings:
-
-| account    | controller             | method                      | status | statusCode | success |
-|------------|------------------------|-----------------------------|--------|------------|---------|
-| my-account | ClusterController      | getForAccountAndNameAndType | 2xx    | 200        | true    |
-| my-account | ClusterController      | getForAccountAndNameAndType | 4xx    | 404        | false   |
-| my-account | ClusterController      | getForAccountAndNameAndType | 4xx    | 400        | false   |
-| None       | ApplicationsController | list                        | 2xx    | 200        | true    |
-| None       | ApplicationsController | get                         | 2xx    | 200        | true    |
-| None       | ApplicationsController | get                         | 4xx    | 404        | false   |
-
-You can aggregate over the success tag to count successful calls vs failures,
-perhaps breaking out by controller and/or method to see where the failures
-were. You can break out by statusCode to see which controller and/or
-method the errors are coming from and so forth.
-
-Different metrics have different tags depending on their concept and
-semantics. Some of these tags may be of more interest than others. In
-the case above, some of the tags are at different levels of abstraction
-and not actually independent. For example a 2xx status will always be
-success=true and a non-2xx status code will always be success=false.
-Which to use is a matter of convenience but given the status tag (which
-can distinguish 4xx from 5xx errors) the success tag does not add any
-additional time-series permutations since its value is not actually
-independent.
-
-### Supplied dashboards
-
-Each of the supplied monitoring solutions provides a set of dashboards
-tailored for that system. These are likely to evolve at different rates
-so are not completely analogous or consistent across systems and might
-not be completely consistent with the document. However, the gist and
-intent described here should still hold since the monitoring intent is
-the same across all the concrete systems.
-
-As a rule of thumb, the dashboards currently prefer showing value differences
-(over rates) for 1-minute sliding windows. This might change in the future.
-Some of the caveats here are due to the choice to show values over rates, but
-at this time the values seem more meaningful than rates, particularly where
-there arent continuous streams of activity. Where latencies are shown, they
-are computed using the counters from the past minute.
-
-Depending on the chart and underlying monitoring system, some charts show
-instantaneous value differences (between samples) while others show
-differences over a sliding window. The accuracy of the timeline may vary
-depending on the dashboard, but the underlying trends and relative signals
-over time will still be valid.
-
-
-#### Types of dashboards
-
-There are several different dashboards. Each monitoring system has its own
-implementation of the dashboards. See the corresponding documentation for
-that system for more details or caveats.
-
-*__Note__: Some systems might have an earlier prototype "KitchenSinkDashboard"
-that has not yet been broken out into the individual dashboards. Most of the
-information is still there, just all in the one dashboard.*
-
-   * __*&lt;Microservice&gt;* Microservice__
-
-     These dashboards are tailored for an individual microservice. As a rule
-     of thumb they provide a system wide view of all replicas of a given
-     microservice while also letting you isolate a particular instance. They
-     show success/error counts and latencies for the different APIs the
-     microservice offers as well as special metrics that are fundamental to
-     the operation or responsibilities of that particular service.
-
-   * __Spinnaker *&lt;Provider&gt;* API__
-
-     These dashboards are tailored for a particular cloud provider. They
-     show a system level perspective of Spinnaker's interaction with that
-     provider. Depending on the provider, the dashboard details may vary.
-     In general they offer a system wide view while also letting you isolate
-     a particular instance and region, showing success/error counts and
-     latencies for different resource interactions or individual operations.
-     This provides visibility into what your deployment is doing and where
-     any problems might be coming from.
-
-   * __Minimal Spinnaker__
-
-     The intent of this dashboard is provide the most essential or useful
-     metrics to quickly suggest whether there are any issues and confirm
-     Spinnaker is behaving normally. Your needs may vary so consult each of
-     the other dashboards and consider refining your own. If you do, also
-     consider sharing that back!
+- **Per-microservice dashboards** — API success/error counts, latency by
+  controller and method, service-specific operational metrics
+- **Cloud provider dashboards** — Spinnaker's interaction with each configured
+  cloud provider (success rates, latency, resource operations)
+- **Minimal Spinnaker** — a concise overview for quick health assessment
