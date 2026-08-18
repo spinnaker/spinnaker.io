@@ -44,32 +44,34 @@ To install spinnaker:
     kubectl version --client
     ```
 
-2. set a working directory `WORKING_DIR="$HOME/workspace-install-spinnaker/"`
+2. create a working directory `$HOME/workspace-spinnaker-install`
 
     ```bash
-    mkdir -pv "$HOME/workspace-spinnaker-install/"
+    WORKING_DIR="$HOME/workspace-spinnaker-install"
+    # mkdir --parents --verbose "$WORKING_DIR" # Often overlooked, long format helps new users.
+    mkdir -pv "$WORKING_DIR"
     ```
 
 3. clone the base example github repo
 
     ```bash
-    git clone https://github.com/spinnaker/spinnaker.git $HOME/workspace-spinnaker-install/spinnaker
+    git clone https://github.com/spinnaker/spinnaker.git "$WORKING_DIR"
     ```
 
 4. Optional: configure [Kubernetes probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
       for your Spinnaker services in their deployment manifests files. located inside `base/*/deployment.yaml`/
 
     ```bash
-    ls -lha $HOME/workspace-spinnaker-install/spinnaker/spinnaker-kustomize/base/*/
+    ls -lha $WORKING_DIR/spinnaker/spinnaker-kustomize/base/*/
     ```
 
 5. switch to the `kustomize` directory in the `spinnaker` base repo
 
    ```bash
-    pushd $WORKING_DIR/spinnaker/spinnaker-kustomize
+    pushd "$WORKING_DIR/spinnaker/spinnaker-kustomize"
     ```
 
-6. Adjust the DNS domains. Look for any `example.com` reference and replace with your DNS domain.
+6. Adjust the DNS domain references. Look for any `example.com` reference and replace with your DNS domain.
 
 7. Create a file with the spinnaker kubernetes resources and apply it
 
@@ -89,9 +91,10 @@ To install spinnaker:
     kubectl get ingress --namespace spinnaker
     ```
 
-REMINDER:  This basic setup defaults with a SIMPLE username/password auth.  It's recommended to change
-this from the default or better yet, use an identity provider (saml/oidc/ldap) solution. The spinnaker
-project does integration tests today with Keycloak as a known out of the box solution.
+> __Reminder:__ This basic setup defaults with a SIMPLE username/password auth.
+> 
+> It's recommended to change this from the default and use an identity provider ([saml](https://auth0.com/resources/ebooks/saml-authentication-explained)/[oidc](https://auth0.com/resources/ebooks/the-openid-connect-handbook)/[ldap](https://auth0.com/docs/authenticate/protocols/ldap-protocol)) solution. The spinnaker
+project does integration tests today with [Keycloak](https://www.keycloak.org/guides#getting-started) as a known out of the box solution.
 
 ## Local Debian
 
