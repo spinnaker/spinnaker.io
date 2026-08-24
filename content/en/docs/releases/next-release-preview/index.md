@@ -259,6 +259,40 @@ The new API token can be used with the Spin CLI. This is available in current ma
 ### UI support for adding/removing accounts
 Admin-restricted. Adds a new UI panel to add and remove accounts with example payloads.
 
+### GitHub App authentication for git/repo and github/file artifacts
+Clouddriver artifact accounts of type `git/repo` and `github/file` can now authenticate as a [GitHub App](https://docs.github.com/en/apps) instead of using a personal access token, username/password, or SSH key. Installation tokens are minted automatically, cached, and refreshed before they expire — no external token rotation is needed.
+
+```yaml
+artifacts:
+  git-repo:
+    enabled: true
+    accounts:
+      - name: my-github-app-repo
+        githubApp:
+          appId: "123456"
+          # Plain path or an encrypted secret URI, e.g. encryptedFile:secrets-manager!r:us-west-2!s:gh-app-private-key
+          appPrivateKeyPath: /secrets/gh-app-key.pem
+          # optional - when omitted, the installation is derived from the repository being
+          # accessed, so one account can serve repositories across several organizations
+          appInstallationId: "789012"
+          # optional - when the installation is derived, restricts which repository owners
+          # this account may access. Omitting it allows any organization where the app is installed.
+          allowedOrganizations:
+            - my-org
+            - my-other-org
+          # apiBaseUrl: https://ghe.example.com/api/v3  # optional, for GitHub Enterprise
+```
+
+The same `githubApp` block is supported under `artifacts.github.accounts`. When present, GitHub App authentication takes precedence over the other auth methods on the account.
+
+Installation tokens are cached per installation and refreshed shortly before they expire, so cached tokens are served without any GitHub API calls. When `appInstallationId` is omitted, the installation is resolved from the repository being accessed (organization- and user-owned repositories are both supported), which requires the app to be installed there with access to that repository; that resolution also happens only when a token is minted.
+
+Because the repository is chosen by whoever defines the artifact, an account without `appInstallationId` can reach every organization where the app is installed. Set `allowedOrganizations` to restrict it to a known set of repository owners; a warning is logged at startup for accounts that derive installations without one. The list is matched case-insensitively and is ignored when `appInstallationId` pins a single installation.
+
+Note that GitHub App clones use HTTPS (via `x-access-token`), so SSH-style repo URLs (`git@...`) are not supported with this auth method. For `github/file` accounts without a pinned `appInstallationId`, setting `useContentAPI: true` is recommended so that downloads are served by a single contents-API request that identifies the repository.
+
+**For plugin and fork authors:** supporting this required a change to clouddriver's shared artifact base class. `BaseHttpArtifactCredentials.getHeaders(T account)` now declares `throws IOException`, and a `getHeaders(T account, HttpUrl url)` overload was added for credentials whose auth material depends on the URL being fetched (it delegates to the URL-agnostic method by default). This is binary-compatible, but any out-of-tree subclass that overrides `getHeaders` and calls `super.getHeaders(...)` needs the same `throws IOException` on its signature to recompile. The GitHub App support itself lives in the new `kork-github` module, which clouddriver's `github/file` and `git/repo` artifact modules now depend on.
+
 
 ## Fixes
 
