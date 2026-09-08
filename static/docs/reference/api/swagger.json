@@ -9823,7 +9823,10 @@
                   "name" : "type",
                   "required" : true,
                   "schema" : {
-                     "type" : "string"
+                     "items" : {
+                        "type" : "string"
+                     },
+                     "type" : "array"
                   }
                },
                {
@@ -12662,6 +12665,14 @@
             },
             "responses" : {
                "200" : {
+                  "content" : {
+                     "*/*" : {
+                        "schema" : {
+                           "additionalProperties" : {},
+                           "type" : "object"
+                        }
+                     }
+                  },
                   "description" : "OK"
                }
             },
