@@ -1,6 +1,6 @@
 ---
 title: "Orca: Reducing Execution Size by Excluding Keys from Stage Outputs"
-linkTitle: "Orca: Excluding Stage Outputs"
+linkTitle: "Orca: Excluding Keys from Stage Outputs"
 weight: 2
 description: "Some Orca tasks copy large objects such as manifests and artifacts into a stage's outputs, which are then propagated for the rest of the execution. You can configure Orca to exclude those keys and keep executions considerably smaller."
 ---
