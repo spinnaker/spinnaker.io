@@ -199,6 +199,27 @@ command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
   The default behavior is `'false'`.
 
+## Provenance
+
+* `provenance.spinnaker.io/deployed-by` 📝
+
+  The Spinnaker user that deployed the resource. The user is taken from the
+  request that triggered the stage, falling back to the authenticated principal
+  recorded on the pipeline execution.
+
+* `provenance.spinnaker.io/execution-id` 📝
+
+  The id of the pipeline execution that deployed the resource. Together with
+  `deployed-by`, this lets you trace a running workload back to the execution
+  that created it.
+
+These annotations are written only when
+`kubernetes.v2.apply-provenance-annotations` is enabled in Clouddriver, which
+defaults to `false`. When enabled, they're written to the top-level `metadata` of
+the deployed resource (not to a pod template's `metadata`), and any existing
+values are overwritten. A value that is unknown — for example, a deploy with no
+resolvable user — is left unset rather than written as an empty annotation.
+
 ## Traffic
 
 * `traffic.spinnaker.io/load-balancers`
