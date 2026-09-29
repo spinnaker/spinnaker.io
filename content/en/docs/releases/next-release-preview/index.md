@@ -134,6 +134,27 @@ alongside its kind in the Deploy (Manifest) stage status, so it's possible to te
 apart multiple manifests of the same kind (for example several ConfigMaps or Secrets)
 at a glance.
 
+### Deployment provenance annotations
+[#8100](https://github.com/spinnaker/spinnaker/pull/8100) lets Clouddriver stamp
+Kubernetes resources it deploys with the Spinnaker user and pipeline execution
+behind them, writing `provenance.spinnaker.io/deployed-by` and
+`provenance.spinnaker.io/execution-id` to the top-level `metadata.annotations` of
+each manifest. That makes it possible to answer "who deployed this, and from
+which pipeline?" by looking at a live cluster, without correlating against
+Spinnaker's own execution history. Both Deploy (Manifest) and Run Job stages are
+covered, and the values show up under [Reserved
+annotations]({{< ref "docs/reference/providers/kubernetes" >}}#provenance).
+
+Orca resolves the user from the request that triggered the stage, falling back to
+the authenticated principal recorded on the execution, and always records the
+execution id. The annotations are opt-in, so no existing deployment changes
+behavior until an operator enables them in `clouddriver-local.yml`:
+```yaml
+kubernetes:
+  v2:
+    apply-provenance-annotations: true
+```
+
 ## Fixes
 
 ### Orca: zombie executions from a queue-ack race on looping/redirecting stages
