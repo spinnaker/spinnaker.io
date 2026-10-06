@@ -60,7 +60,7 @@ my-plugin
     ├── package.json  
     ├── my-plugin-deck.gradle  
     ├── tsconfig.json  
-    ├── rollup.config.js  
+    ├── vite.config.js  
     ├── yarn.lock  
     ├── node_modules  
     └── src  
@@ -86,6 +86,35 @@ You should now be able to successfully build the plugin:
 
 ```shell
 yarn && yarn build
+```
+
+### Migrate a plugin from Rollup
+
+Spinnaker 2026.4.0 builds Deck plugins with Vite instead of Rollup, and
+`@spinnaker/pluginsdk` no longer ships `pluginconfig/rollup.config.js`. To move an
+existing plugin over, upgrade the SDK packages, then replace `rollup.config.js` with the
+scaffold's `vite.config.js`:
+
+```shell
+yarn add @spinnaker/pluginsdk@latest @spinnaker/pluginsdk-peerdeps@latest @spinnaker/scripts@latest
+npx check-peer-dependencies --install
+rm rollup.config.js
+npx check-plugin --fix
+```
+
+`check-plugin --fix` restores `vite.config.js` and points the `build` and `watch`
+scripts at `spinnaker-scripts`. You can then remove Rollup and its plugins from your
+`devDependencies`. If you customized `rollup.config.js`, wrap the SDK config in
+`vite.config.js` instead:
+
+```js
+const pluginConfig = require('@spinnaker/pluginsdk/pluginconfig/vite.config');
+
+module.exports = async () => {
+  const config = await pluginConfig();
+  config.plugins.push(myPlugin());
+  return config;
+};
 ```
 
 ### Gradle Configuration

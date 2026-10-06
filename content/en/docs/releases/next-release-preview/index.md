@@ -76,6 +76,53 @@ should vendor that dependency directly going forward. Paired with
 [#8038](https://github.com/spinnaker/spinnaker/pull/8038), which updates the AWS SDK v2
 dependency itself to its latest release.
 
+### Deck plugins now build with Vite
+[#8119](https://github.com/spinnaker/spinnaker/pull/8119) moves Deck's package builds,
+including the build config the plugin SDK provides to Deck plugins, from Rollup to
+Vite 7. `@spinnaker/pluginsdk/pluginconfig/rollup.config.js` has been removed, so **an
+existing Deck plugin stops building as soon as it upgrades `@spinnaker/pluginsdk`**. The
+SDK packages are published with the Spinnaker version, so the upgrade isn't flagged as a
+major version bump.
+
+The plugin build output is unchanged: an ES module in `build/dist` that bundles the
+plugin's own dependencies, with the libraries Deck shares with plugins (`@spinnaker/core`,
+`react`, `rxjs`, and so on) resolved to the globals Deck exposes at runtime. As before,
+the plugin build doesn't type-check or emit declaration files. Vite 7 requires Node.js
+20.19+ or 22.12+.
+
+To migrate a plugin:
+
+1. Upgrade the SDK packages and add `@spinnaker/scripts`, which now runs the build:
+   ```shell
+   yarn add @spinnaker/pluginsdk@latest @spinnaker/pluginsdk-peerdeps@latest @spinnaker/scripts@latest
+   npx check-peer-dependencies --install
+   ```
+2. Delete `rollup.config.js` and let `check-plugin` restore the scaffold's
+   `vite.config.js` and update the `build` and `watch` scripts:
+   ```shell
+   rm rollup.config.js
+   npx check-plugin --fix
+   ```
+   This leaves `package.json` with
+   `"build": "NODE_ENV=production spinnaker-scripts build"` and
+   `"watch": "spinnaker-scripts start"`, and a `vite.config.js` containing:
+   ```js
+   module.exports = require('@spinnaker/pluginsdk/pluginconfig/vite.config');
+   ```
+3. Remove Rollup and its plugins (`rollup`, `@rollup/*`, `rollup-plugin-*`) from your
+   `devDependencies` unless your own code still uses them.
+4. If you had customized `rollup.config.js`, move those changes into `vite.config.js` by
+   wrapping the SDK config. Most Rollup plugins also work as Vite plugins:
+   ```js
+   const pluginConfig = require('@spinnaker/pluginsdk/pluginconfig/vite.config');
+
+   module.exports = async () => {
+     const config = await pluginConfig();
+     config.plugins.push(myPlugin());
+     return config;
+   };
+   ```
+
 ## Features
 
 ### SQL-backed artifact/entity store
