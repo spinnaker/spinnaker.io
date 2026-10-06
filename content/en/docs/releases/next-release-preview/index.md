@@ -94,7 +94,7 @@ To migrate a plugin:
 
 1. Upgrade the SDK packages and add `@spinnaker/scripts`, which now runs the build:
    ```shell
-   yarn add @spinnaker/pluginsdk@latest @spinnaker/pluginsdk-peerdeps@latest @spinnaker/scripts@latest
+   pnpm add @spinnaker/pluginsdk@latest @spinnaker/pluginsdk-peerdeps@latest @spinnaker/scripts@latest
    npx check-peer-dependencies --install
    ```
 2. Delete `rollup.config.js`, then run `check-plugin --fix` to restore the scaffold's

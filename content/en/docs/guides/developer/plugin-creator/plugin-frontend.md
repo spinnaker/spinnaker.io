@@ -14,7 +14,7 @@ Make sure you have the following tools installed:
 
 - [Gradle](https://gradle.org/install/).
 - [NPM and NPX](https://docs.npmjs.com/cli/v7/configuring-npm/install).
-- [Yarn](https://yarnpkg.com/getting-started/install).
+- [pnpm](https://pnpm.io/installation).
 
 You also need access to a Spinnaker instance `>= 1.20.6` running in a Kubernetes cluster.
 
@@ -47,7 +47,7 @@ npx: installed 117 in 6.229s
 Enter the short name for your plugin (default: myplugin): my-plugin
 Directory to scaffold into (default: my-plugin-deck):
 Deck plugin scaffolded into my-plugin-deck
-Installing dependencies using 'yarn' and 'npx check-peer-dependencies --install' ...
+Installing dependencies using 'pnpm' and 'npx check-peer-dependencies --install' ...
 ```
 
 The script creates the following project structure:
@@ -61,7 +61,7 @@ my-plugin
     ├── my-plugin-deck.gradle  
     ├── tsconfig.json  
     ├── vite.config.js  
-    ├── yarn.lock  
+    ├── pnpm-lock.yaml  
     ├── node_modules  
     └── src  
         ├── index.ts  
@@ -85,7 +85,7 @@ npx check-plugin --fix
 You should now be able to successfully build the plugin:
 
 ```shell
-yarn && yarn build
+pnpm install && pnpm build
 ```
 
 ### Migrate a plugin from Rollup
@@ -96,7 +96,7 @@ existing plugin across, upgrade the SDK packages and swap `rollup.config.js` for
 scaffold's `vite.config.js`:
 
 ```shell
-yarn add @spinnaker/pluginsdk@latest @spinnaker/pluginsdk-peerdeps@latest @spinnaker/scripts@latest
+pnpm add @spinnaker/pluginsdk@latest @spinnaker/pluginsdk-peerdeps@latest @spinnaker/scripts@latest
 npx check-peer-dependencies --install
 rm rollup.config.js
 npx check-plugin --fix
@@ -138,10 +138,10 @@ instance to your local machine using `kubectl`.
 kubectl port-forward service/spin-deck 90001:9000
 ```
 
-This forwards Deck to your local machine on port 9001. Then you can run your plugin locally on port 9000 using `yarn develop`.
+This forwards Deck to your local machine on port 9001. Then you can run your plugin locally on port 9000 using `pnpm develop`.
 
 ```shell
-DEV_PROXY_HOST=http://localhost:9001 yarn develop
+DEV_PROXY_HOST=http://localhost:9001 pnpm develop
 ```
 
 You should now be able to navigate to `http://localhost:9000` and access
