@@ -90,9 +90,9 @@ yarn && yarn build
 
 ### Migrate a plugin from Rollup
 
-Spinnaker 2026.4.0 builds Deck plugins with Vite instead of Rollup, and
+From Spinnaker 2026.4.0, Deck plugins build with Vite rather than Rollup, and
 `@spinnaker/pluginsdk` no longer ships `pluginconfig/rollup.config.js`. To move an
-existing plugin over, upgrade the SDK packages, then replace `rollup.config.js` with the
+existing plugin across, upgrade the SDK packages and swap `rollup.config.js` for the
 scaffold's `vite.config.js`:
 
 ```shell
@@ -103,8 +103,8 @@ npx check-plugin --fix
 ```
 
 `check-plugin --fix` restores `vite.config.js` and points the `build` and `watch`
-scripts at `spinnaker-scripts`. You can then remove Rollup and its plugins from your
-`devDependencies`. If you customized `rollup.config.js`, wrap the SDK config in
+scripts at `spinnaker-scripts`. After that you can remove Rollup and its plugins from
+`devDependencies`. If you customised `rollup.config.js`, wrap the SDK config in
 `vite.config.js` instead:
 
 ```js

@@ -77,18 +77,18 @@ should vendor that dependency directly going forward. Paired with
 dependency itself to its latest release.
 
 ### Deck plugins now build with Vite
-[#8119](https://github.com/spinnaker/spinnaker/pull/8119) moves Deck's package builds,
-including the build config the plugin SDK provides to Deck plugins, from Rollup to
-Vite 7. `@spinnaker/pluginsdk/pluginconfig/rollup.config.js` has been removed, so **an
-existing Deck plugin stops building as soon as it upgrades `@spinnaker/pluginsdk`**. The
-SDK packages are published with the Spinnaker version, so the upgrade isn't flagged as a
-major version bump.
+[#8119](https://github.com/spinnaker/spinnaker/pull/8119) moves Deck's package builds
+from Rollup to Vite 7, including the build config that `@spinnaker/pluginsdk` provides
+to Deck plugins. The SDK no longer ships `pluginconfig/rollup.config.js`, so an existing
+plugin stops building as soon as it upgrades `@spinnaker/pluginsdk`. The SDK packages are
+versioned with Spinnaker releases, so nothing in the version number warns plugin authors
+about this.
 
-The plugin build output is unchanged: an ES module in `build/dist` that bundles the
-plugin's own dependencies, with the libraries Deck shares with plugins (`@spinnaker/core`,
-`react`, `rxjs`, and so on) resolved to the globals Deck exposes at runtime. As before,
-the plugin build doesn't type-check or emit declaration files. Vite 7 requires Node.js
-20.19+ or 22.12+.
+The build produces the same output as before. It writes an ES module to `build/dist`
+that bundles the plugin's own dependencies, and maps the libraries Deck shares with
+plugins (`@spinnaker/core`, `react`, `rxjs` and so on) to the globals Deck exposes at
+runtime. It still doesn't type-check the plugin or emit declaration files. Vite 7 needs
+Node.js 20.19+ or 22.12+.
 
 To migrate a plugin:
 
@@ -97,21 +97,21 @@ To migrate a plugin:
    yarn add @spinnaker/pluginsdk@latest @spinnaker/pluginsdk-peerdeps@latest @spinnaker/scripts@latest
    npx check-peer-dependencies --install
    ```
-2. Delete `rollup.config.js` and let `check-plugin` restore the scaffold's
+2. Delete `rollup.config.js`, then run `check-plugin --fix` to restore the scaffold's
    `vite.config.js` and update the `build` and `watch` scripts:
    ```shell
    rm rollup.config.js
    npx check-plugin --fix
    ```
-   This leaves `package.json` with
+   Afterwards `package.json` has
    `"build": "NODE_ENV=production spinnaker-scripts build"` and
-   `"watch": "spinnaker-scripts start"`, and a `vite.config.js` containing:
+   `"watch": "spinnaker-scripts start"`, and `vite.config.js` contains:
    ```js
    module.exports = require('@spinnaker/pluginsdk/pluginconfig/vite.config');
    ```
-3. Remove Rollup and its plugins (`rollup`, `@rollup/*`, `rollup-plugin-*`) from your
-   `devDependencies` unless your own code still uses them.
-4. If you had customized `rollup.config.js`, move those changes into `vite.config.js` by
+3. Remove `rollup`, `@rollup/*` and `rollup-plugin-*` from `devDependencies`, unless your
+   own code still uses them.
+4. If you customised `rollup.config.js`, move the changes into `vite.config.js` by
    wrapping the SDK config. Most Rollup plugins also work as Vite plugins:
    ```js
    const pluginConfig = require('@spinnaker/pluginsdk/pluginconfig/vite.config');
