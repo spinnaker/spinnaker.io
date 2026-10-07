@@ -14,7 +14,7 @@ Make sure you have the following tools installed:
 
 - [Gradle](https://gradle.org/install/).
 - [NPM and NPX](https://docs.npmjs.com/cli/v7/configuring-npm/install).
-- [Yarn](https://yarnpkg.com/getting-started/install).
+- [pnpm](https://pnpm.io/installation).
 
 You also need access to a Spinnaker instance `>= 1.20.6` running in a Kubernetes cluster.
 
@@ -47,7 +47,7 @@ npx: installed 117 in 6.229s
 Enter the short name for your plugin (default: myplugin): my-plugin
 Directory to scaffold into (default: my-plugin-deck):
 Deck plugin scaffolded into my-plugin-deck
-Installing dependencies using 'yarn' and 'npx check-peer-dependencies --install' ...
+Installing dependencies using 'pnpm' and 'npx check-peer-dependencies --install' ...
 ```
 
 The script creates the following project structure:
@@ -60,8 +60,8 @@ my-plugin
     ├── package.json  
     ├── my-plugin-deck.gradle  
     ├── tsconfig.json  
-    ├── rollup.config.js  
-    ├── yarn.lock  
+    ├── vite.config.js  
+    ├── pnpm-lock.yaml  
     ├── node_modules  
     └── src  
         ├── index.ts  
@@ -85,7 +85,36 @@ npx check-plugin --fix
 You should now be able to successfully build the plugin:
 
 ```shell
-yarn && yarn build
+pnpm install && pnpm build
+```
+
+### Migrate a plugin from Rollup
+
+From Spinnaker 2026.4.0, Deck plugins build with Vite rather than Rollup, and
+`@spinnaker/pluginsdk` no longer ships `pluginconfig/rollup.config.js`. To move an
+existing plugin across, upgrade the SDK packages and swap `rollup.config.js` for the
+scaffold's `vite.config.js`:
+
+```shell
+pnpm add @spinnaker/pluginsdk@latest @spinnaker/pluginsdk-peerdeps@latest @spinnaker/scripts@latest
+npx check-peer-dependencies --install
+rm rollup.config.js
+npx check-plugin --fix
+```
+
+`check-plugin --fix` restores `vite.config.js` and points the `build` and `watch`
+scripts at `spinnaker-scripts`. After that you can remove Rollup and its plugins from
+`devDependencies`. If you customised `rollup.config.js`, wrap the SDK config in
+`vite.config.js` instead:
+
+```js
+const pluginConfig = require('@spinnaker/pluginsdk/pluginconfig/vite.config');
+
+module.exports = async () => {
+  const config = await pluginConfig();
+  config.plugins.push(myPlugin());
+  return config;
+};
 ```
 
 ### Gradle Configuration
@@ -109,10 +138,10 @@ instance to your local machine using `kubectl`.
 kubectl port-forward service/spin-deck 90001:9000
 ```
 
-This forwards Deck to your local machine on port 9001. Then you can run your plugin locally on port 9000 using `yarn develop`.
+This forwards Deck to your local machine on port 9001. Then you can run your plugin locally on port 9000 using `pnpm develop`.
 
 ```shell
-DEV_PROXY_HOST=http://localhost:9001 yarn develop
+DEV_PROXY_HOST=http://localhost:9001 pnpm develop
 ```
 
 You should now be able to navigate to `http://localhost:9000` and access
