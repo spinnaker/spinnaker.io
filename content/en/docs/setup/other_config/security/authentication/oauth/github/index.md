@@ -9,7 +9,7 @@ IF YOU ARE NOT CAREFUL you can configure spinnaker to allow ANY github user, not
 in your organization access to spinnaker.  As such, please make sure to set the restrictions as appropriate
 for your org!  Specifically `spring.security.oauth2.client.registration.github.provider-requirements` restriction
 to limit access to a specific github org!  Failure to set this places your spinnaker installation at risk
-of unintended access! For this to work, your users MUST be public members to validate their membership in the github organization.
+of unintended access! See [Restrict access to an organization](#restrict-access-to-an-organization).
 
 It's recommended to use something like keycloak to terminate and control access and federate access than
 directly using github authentication via spinnaker.  OR an alternative SSO provider!
@@ -42,7 +42,7 @@ spring:
             username: login
           github:
             client-secret: client-secret
-            scope: user,email
+            scope: user:email
             client-id: client-id
         provider:
           github:
@@ -50,6 +50,39 @@ spring:
             authorization-uri: https://github.com/login/oauth/authorize
             token-uri: https://github.com/login/oauth/access_token
 ```
+
+### Restrict access to an organization
+
+To only let members of a GitHub organization log in, set the `organization` provider
+requirement and add the `read:org` scope in `gate-local.yml`:
+```yaml
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            scope: user:email,read:org
+            provider-requirements:
+              organization: my-org
+```
+
+Gate checks the user's membership with the private
+`GET <user-info-uri>/memberships/orgs/my-org` endpoint, where `<user-info-uri>` is the
+`user-info-uri` of the `github` provider, and only lets the user in if the membership
+is `active`. GitHub only answers this request when:
+- the token has the `read:org` scope, and
+- the organization has approved the OAuth app, if it
+  [restricts OAuth app access](https://docs.github.com/en/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions).
+  An organization owner can approve it, or a member can
+  [request approval](https://docs.github.com/en/account-and-profile/how-tos/organization-membership/requesting-organization-approval-for-oauth-apps)
+  when authorizing the app.
+
+Otherwise the lookup fails and every user is rejected.
+
+Before 2026.4.0, Gate checks the public `organizations_url` from GitHub's `/user`
+response instead, which only lists memberships the user has made public, so users must
+make their membership of the organization public to log in.
 
 ### For spinnaker before 2025.2.0
 For older versions of spinnaker you'd have this configuration in `gate-local.yml`:
@@ -63,7 +96,7 @@ security:
         clientSecret: # client secret from above
         accessTokenUri: https://github.com/login/oauth/access_token
         userAuthorizationUri: https://github.com/login/oauth/authorize
-        scope: user,email # for Spinnaker below v2025.2.0, it should be "user:email" without double quotes
+        scope: user:email
       resource:
         userInfoUri: https://api.github.com/user
       # You almost certainly want to restrict access to your Spinnaker by adding
