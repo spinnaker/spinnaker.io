@@ -51,6 +51,23 @@ where before it silently succeeded against whatever the kubeconfig context resol
 Accounts whose allow-list includes `"default"`, or that don't restrict namespaces at
 all, see no change.
 
+### GitHub organization check needs the `read:org` scope and organization approval
+[#8187](https://github.com/spinnaker/spinnaker/pull/8187) changes how Gate's GitHub
+`provider-requirements.organization` check looks up a user's membership. Gate used to
+call the public `organizations_url` from GitHub's `/user` response
+(`/users/{login}/orgs`), which only lists memberships the user has made public. It now
+calls the private `GET <user-info-uri>/memberships/orgs/{org}` endpoint on behalf of
+the authenticated user and requires the membership to be `active`, so users no longer
+have to make their membership public.
+
+**This breaks logins for setups that restrict access to an organization** unless both
+of the following hold, otherwise GitHub denies the lookup and every user is rejected:
+- The `github` client registration requests the `read:org` scope.
+- The organization has approved the OAuth app, if it restricts OAuth app access.
+
+See the [GitHub setup guide]({{< ref "docs/setup/other_config/security/authentication/oauth/github" >}}#restrict-access-to-an-organization)
+for the configuration.
+
 ### Java 25 required to build
 [#8014](https://github.com/spinnaker/spinnaker/pull/8014) upgrades every service's
 build toolchain from Java 17 to Java 25 (Dockerfiles, CI workflows, and Gradle
