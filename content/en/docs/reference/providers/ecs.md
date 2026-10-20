@@ -30,6 +30,9 @@ An [Amazon ECS cluster](https://docs.aws.amazon.com/AmazonECS/latest/developergu
 
 ## Operation mapping
 
+The operations below describe the classic provider, which creates a new service per deploy. For the opt-in mode
+that updates one durable service in place, see [Amazon ECS native deployments](/docs/reference/providers/ecs-native/).
+
 ### Deploy
 
 Deploys a new Amazon ECS service to the specified server group(s). For load balanced services, the previous service will be drained after the new service is considered healthy.

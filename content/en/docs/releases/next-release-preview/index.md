@@ -142,6 +142,30 @@ To migrate a plugin:
 
 ## Features
 
+### Opt-in native Amazon ECS deployments
+[#8210](https://github.com/spinnaker/spinnaker/pull/8210) adds a native deployment mode to the Amazon ECS
+provider. Instead of creating a new ECS service per deploy and keeping the previous ones as separate server
+groups, a native deploy keeps one durable service per cluster (fixed name, tagged `spinnaker:provider=ecs-native`)
+and updates it in place with the ECS deployment features: rolling or blue/green strategy, minimum/maximum healthy
+percent, circuit-breaker and alarm-based rollback, bake time, and an optional pause at an ECS lifecycle hook that
+new **Continue ECS Native Service Deployment** and **Stop ECS Native Service Deployment** pipeline stages act on.
+The deploy stage waits for the exact ECS service deployment to succeed. Rollback picks an earlier task-definition
+revision of the same service.
+
+The mode is selected per deploy stage with the "Use native ECS deployment" checkbox; nothing changes for
+existing ECS pipelines or classic server groups, and both kinds can share a cluster and target group. The account
+must support ECS service tagging (long resource ID format), and the `SpinnakerManaged` role needs the ECS service
+deployment APIs in addition to the classic permissions.
+
+Things to know before switching a service: there is no in-place migration (deploy the native service next to the
+classic server groups, then disable and destroy the classic ones); Disable sets the single service to a desired
+count of `0`, so it stops the application rather than failing over to a sibling; Enable brings it back at the
+scalable target's maximum (or `1`), the same as the classic provider does once every server group of a cluster
+is disabled. Clone, terminate instances and scaling-policy edits are not supported for native server groups. See
+[Amazon ECS native deployments](/docs/reference/providers/ecs-native/) and the
+[account requirements](/docs/setup/install/providers/aws/aws-ecs/#native-ecs-deployments).
+
+
 ### SQL-backed artifact/entity store
 [#8000](https://github.com/spinnaker/spinnaker/pull/8000) adds a SQL-backed
 `ArtifactStoreGetter`/`ArtifactStoreStorer` implementation alongside the existing
