@@ -448,6 +448,54 @@ Streams single-delivery and native Pub/Sub broadcast. It is a foundation for lat
 isn't used by default. Tests now run against Valkey 8
 ([#8029](https://github.com/spinnaker/spinnaker/pull/8029)).
 
+## Major Fiat Performance Fixes
+
+Three changes cut the cost of Fiat's per-user permission resolution and role sync. The
+figures below come from the authors' local, synthetic benchmarks, not production, so treat
+them as ballpark.
+
+### Role-name checks no longer copy roles per resource
+[#8093](https://github.com/spinnaker/spinnaker/pull/8093) stops `Permissions` from copying
+a user's role names into a new set for every resource, which made resolving a user O(resources
+× roles). With 5,000 roles per user, 17,000 accounts and applications, and 500 service
+accounts, login permission resolution dropped from about 2.7 s to about 15 ms (Redis), and a
+full role sync from roughly 23 minutes to 21–27 seconds. `Permissions.getAuthorizations(List<String>)`
+became `getAuthorizationsForRoleNames(Set<String>)`, so code that calls it directly needs updating.
+
+### Restricted resources are indexed by group
+[#8136](https://github.com/spinnaker/spinnaker/pull/8136) builds, once per cache refresh,
+an index from permission group to the restricted resources that list it, instead of scanning
+every resource for every user. Service account role checks also use sets instead of list
+lookups, and predicates are built lazily. In a benchmark with 17,000 applications and 200
+users holding 2,000 roles each, restricted-resource lookup went from about 1.4 s to about
+170 ms and service account checks from about 300–350 ms to about 25 ms.
+`ServiceAccountPredicateProvider` gains a default `Set`-based overload, so existing
+implementations still compile. This applies to every resource provider, including the new
+artifact account provider.
+
+### Resources are serialized once per sync and unchanged Redis writes are skipped
+[#8137](https://github.com/spinnaker/spinnaker/pull/8137) serializes each resource once per
+sync instead of once per user that can see it, and skips rewriting a user's Redis keys when
+their content hasn't changed. It tracks this with digest keys
+(`<prefix>:permissions-v2-digest:<user>:<type>`) stored beside the data. In the authors'
+benchmark (1,000 users, 5,000 applications), a steady-state unchanged sync went from 115 ms
+to 46 ms wall time and from 469 ms to 152 ms JVM CPU. The first sync after a deploy costs
+Redis slightly more because of the digest writes.
+
+Configuration, all under `fiat.redis.repository`:
+| Property | Default | Meaning |
+|---|---|---|
+| `skip-unchanged-writes` | `true` | Set to `false` to rewrite every key on every put. |
+| `write-digest-ttl` | unset | A positive duration expires digest keys; intended only for temporary use during a mixed-version rollout or rollback. |
+| `write-digest-generation` | `"1"` | Changing it invalidates all stored digests, so the next sync rewrites everything. |
+
+The key schema and value format are unchanged, and older Fiat versions ignore the digest
+keys, so rolling back is safe. After a rollback, bump `write-digest-generation` in the same
+change as the roll-forward (and once every pod runs the new version) so a same-size rewrite
+by old code can't be mistaken for unchanged data.
+
+#8093 and #8136 were also backported to the supported release branches.
+
 ## Fixes
 
 ### Clouddriver: task store reliability
@@ -485,11 +533,6 @@ memberships are kept when GitHub returns an error (only a 404 yields an empty re
 metrics include `fiat.github.dataAgeSeconds` (the one to alert on) and
 `fiat.github.fetchFailures`. An opt-in `healthCheckEnabled` (default `false`) adds the
 provider to `/health`, and can hold a starting replica DOWN while GitHub is unreachable.
-Fiat also indexes restricted resources by group, avoids copying role names, and skips
-unchanged Redis writes
-([#8136](https://github.com/spinnaker/spinnaker/pull/8136),
-[#8093](https://github.com/spinnaker/spinnaker/pull/8093),
-[#8137](https://github.com/spinnaker/spinnaker/pull/8137)).
 
 ### Orca fixes
 - [#8144](https://github.com/spinnaker/spinnaker/pull/8144) sends Clouddriver requests that
