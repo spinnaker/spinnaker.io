@@ -162,7 +162,67 @@ deploys and rollbacks keep working. Other things to be aware of:
   optional. A config that has a guided `metricName` plus a template without the prefix keeps its
   old meaning (label matchers combined with the guided fields).
 
+### Artifact accounts that send credentials must list `allowedDomains`
+[#8171](https://github.com/spinnaker/spinnaker/pull/8171) stops Clouddriver from starting
+when an `http`, `gitlab`, `bitbucket` or `gitea` artifact account has credentials
+(username/password, token or token file) but no `urlRestrictions.allowedDomains`. Entries
+are regular expressions matched against the whole host name:
+```yaml
+artifacts:
+  gitlab:
+    accounts:
+    - name: my-gitlab
+      token: ...
+      urlRestrictions:
+        allowedDomains:
+        - gitlab\.example\.com
+        allowedSchemes:
+        - https
+```
+- `github` accounts default to `github.com`, `api.github.com`, `codeload.github.com`,
+  `raw.githubusercontent.com`, `media.githubusercontent.com` and
+  `objects.githubusercontent.com`. GitHub Enterprise accounts must set their own hosts.
+- Accounts without credentials are unaffected.
+- `.*` keeps the previous behavior of not restricting hosts. Escape the dots, and only list
+  hosts the credentials should be sent to.
+
+The same change makes Echo derive a git webhook's artifacts only from its payload (an
+`artifacts` key in the body is ignored), and applies the repository checks the Gitea
+extractor already had to the GitHub and GitLab extractors.
+
+[#8099](https://github.com/spinnaker/spinnaker/pull/8099) moves URL restriction checks for
+Orca and Clouddriver into kork-web, with existing YAML unchanged. It fixes artifact accounts
+with `urlRestrictions` rejecting every URL, and Orca's `rejectedIps` rejecting every
+hostname. Resolved addresses are now checked (all of them, not just the first), so
+URLs that were previously rejected by mistake may start working, and Orca gains
+`allowedDomains`.
+
+### Orca CI task classes renamed
+[#8205](https://github.com/spinnaker/spinnaker/pull/8205) renames `StartJenkinsJobTask`,
+`MonitorJenkinsJobTask`, `MonitorQueuedJenkinsJobTask` and `StopJenkinsJobTask` to
+`StartBuildJobTask`, `MonitorBuildJobTask`, `MonitorQueuedBuildJobTask` and
+`StopBuildJobTask`, since Jenkins, Travis, GitLab CI and Script stages all share them.
+Persisted task names are unchanged, so stored and in-flight executions are unaffected.
+Orca plugins that reference the old classes need updating. Failure breadcrumbs now link
+to the actual build URL instead of saying "see Jenkins".
+
 ## Removals and Deprecations
+
+### Titus, Yandex and the Stackdriver metrics push are removed
+- [#8095](https://github.com/spinnaker/spinnaker/pull/8095) removes the Titus cloud provider
+  across Clouddriver, Orca, Deck and Keel, including the Titus-only stages
+  (`UpsertDisruptionBudget`, `UpdateJobProcesses`) and `TitusPreconfiguredJobProperties`
+  from the `orca-api` plugin API.
+- [#8186](https://github.com/spinnaker/spinnaker/pull/8186) removes the Yandex provider
+  from Clouddriver.
+- [#8107](https://github.com/spinnaker/spinnaker/pull/8107) removes `kork-stackdriver`.
+  `spectator.stackdriver.enabled=true` is now silently ignored and metrics are no longer
+  pushed to Stackdriver; use an OpenTelemetry agent or the observability plugin instead.
+  Kayenta's Stackdriver metrics source is unaffected.
+- [#8106](https://github.com/spinnaker/spinnaker/pull/8106) deletes the public
+  `ProviderCacheConfiguration` class from `clouddriver-api`, now that full cache eviction
+  is always on. Plugins or forks that implement it, or call the two-argument
+  `NamedCacheFactory.getCache` / `SqlCache` constructor, will no longer compile.
 
 ### Canary "Guided" metric forms are deprecated
 The provider-specific guided query forms (for example Prometheus `metricName`/`labelBindings`,
@@ -289,7 +349,187 @@ stock settings file). The `canary.telemetry.query` metric gains a `queryMode` ta
 [canary config docs](https://github.com/spinnaker/spinnaker/blob/main/kayenta/docs/canary-config.md)
 for details.
 
+### GitLab CI stage
+[#8222](https://github.com/spinnaker/spinnaker/pull/8222) adds a `gitlabCi` stage so Orca
+can trigger and monitor native GitLab CI pipelines, building on Igor's GitLab CI
+trigger/cancel support and the shared CI tasks. It also fixes CI stages (Jenkins, Travis,
+GitLab CI, Script) failing with `Query map was null` when started through the API without a
+`parameters` field.
+
+### Gitea and Forgejo artifacts and webhook triggers
+[#8153](https://github.com/spinnaker/spinnaker/pull/8153) adds a `gitea/file` artifact type
+(enable with `artifacts.gitea.enabled`), a `/webhooks/git/gitea` handler in Echo with
+`X-Gitea-Signature` HMAC verification, and Gitea as a Git trigger repo type and artifact
+editor in Deck. If neither the trigger nor the shared secret configures a secret, Gitea
+events are accepted unsigned. The same change fixes GitHub webhook branch events losing
+their event type after the Spring Boot 4 migration (case-sensitive header lookup).
+
+### Deck dark theme
+[#8194](https://github.com/spinnaker/spinnaker/pull/8194) adds a dark theme to Deck with
+theme switching.
+
+### Faster Deck loads and a Vite application build
+[#8175](https://github.com/spinnaker/spinnaker/pull/8175) pre-compresses Deck's JavaScript
+and CSS with Brotli and gzip when building the container image and serves them according
+to `Accept-Encoding`; `settings*.js` stays uncompressed so runtime configuration stays
+current. [#8118](https://github.com/spinnaker/spinnaker/pull/8118) moves Deck's application
+build and dev server from Webpack to Vite 7, and #8121/#8124 move unit tests to Vitest and
+React Testing Library.
+
+### Branded sign-in page for basic auth and LDAP
+[#8084](https://github.com/spinnaker/spinnaker/pull/8084) serves a Spinnaker-branded
+sign-in page from Gate, instead of Spring Security's default form, for
+`security.basicform.enabled` and `ldap.enabled`.
+[#8212](https://github.com/spinnaker/spinnaker/pull/8212) makes the form post through
+Gate's context path.
+
+### Gate MCP tool allowlist and deleted-pipeline search
+- [#8184](https://github.com/spinnaker/spinnaker/pull/8184) adds `mcp.server.allowed-tools`
+  so operators can limit which MCP tools Gate exposes. If unset, all tools stay enabled.
+- [#8027](https://github.com/spinnaker/spinnaker/pull/8027) adds an opt-in
+  `includeDeletedPipelines` parameter (default `false`) to Orca's pipeline search and
+  `GET /applications/{application}/pipelines`, passed through Gate and the
+  `search_executions` MCP tool, to find executions of pipelines deleted from Front50. It
+  has no effect when a pipeline name filter is also given.
+
+### Fiat permissions for artifact accounts
+[#7892](https://github.com/spinnaker/spinnaker/pull/7892) makes artifact accounts a Fiat
+resource type (`artifact_account`), so access is authorized per user instead of open to any
+authenticated caller. Artifact accounts accept `permissions`, `GET /artifacts/credentials`
+is filtered by READ, fetching requires WRITE, and a denied account returns 404. Both Fiat
+toggles (`auth.permissions.source.artifact-account.resource.enabled` and
+`auth.permissions.provider.artifact-account`) default to enabled, so review account
+permissions before upgrading.
+
+### Kubernetes: custom resource health and faster artifact lookups
+- [#8102](https://github.com/spinnaker/spinnaker/pull/8102) lets Clouddriver evaluate the
+  health of custom resources (observed generation, `Stalled`/`Reconciling`/`Ready`
+  conditions, `status.phase`) instead of always reporting them healthy. It is off by
+  default:
+  ```yaml
+  kubernetes:
+    customResourceStatus:
+      enabled: true
+  ```
+- [#8045](https://github.com/spinnaker/spinnaker/pull/8045) passes label selectors to the
+  `kubectl get` calls used for artifact lookups, avoiding large memory spikes in busy
+  namespaces, and fixes Orca's `CleanupArtifactsTask` not passing them.
+- [#8101](https://github.com/spinnaker/spinnaker/pull/8101) shows controller-written
+  status text as plain text.
+
+### AWS and ECS
+- [#8104](https://github.com/spinnaker/spinnaker/pull/8104) adds optional
+  `tcpEstablishedTimeout`, `udpStreamTimeout` and `udpTimeout` (seconds) to AWS launch
+  templates, applied as the primary interface's connection tracking specification. Nitro v6
+  instance types otherwise drop idle established TCP connections after 350 seconds.
+- [#8048](https://github.com/spinnaker/spinnaker/pull/8048) and
+  [#8049](https://github.com/spinnaker/spinnaker/pull/8049) copy ECS service monitoring
+  configuration to new server groups and make it configurable in the server group wizard.
+- [#8132](https://github.com/spinnaker/spinnaker/pull/8132) makes AWS bootstrapping calls
+  use the account's first region.
+
+### Stage metric tags
+[#8005](https://github.com/spinnaker/spinnaker/pull/8005) lets a stage context carry an
+`additionalMetricTags` map that is added to the stage's metrics, for example
+`"additionalMetricTags": {"service": "foo"}`.
+[#8140](https://github.com/spinnaker/spinnaker/pull/8140) adds a metric for system errors
+when starting executions.
+
+### Deck conveniences
+[#8094](https://github.com/spinnaker/spinnaker/pull/8094) adds copy-to-clipboard for
+artifact and image references and shows the Kubernetes load balancer FQDN.
+[#8025](https://github.com/spinnaker/spinnaker/pull/8025) and
+[#8156](https://github.com/spinnaker/spinnaker/pull/8156) show stored manifest references
+as syntax-highlighted YAML.
+
+### Redis-backed pub/sub (foundation)
+[#8031](https://github.com/spinnaker/spinnaker/pull/8031) adds `kork-pubsub-redis`: Redis
+Streams single-delivery and native Pub/Sub broadcast. It is a foundation for later work and
+isn't used by default. Tests now run against Valkey 8
+([#8029](https://github.com/spinnaker/spinnaker/pull/8029)).
+
 ## Fixes
+
+### Clouddriver: task store reliability
+- [#8130](https://github.com/spinnaker/spinnaker/pull/8130) orders SQL task state by a
+  per-task sequence and makes terminal states final, fixing invisible retries, completed
+  tasks that looked running, and finished tasks being reopened. It adds nullable columns,
+  indexes on `tasks`, and a unique `tasks.request_id` (existing duplicates are renamed, not
+  deleted). Large Postgres installs can pre-create the indexes with `CONCURRENTLY`.
+- [#8172](https://github.com/spinnaker/spinnaker/pull/8172) cleans up `FAILED_RETRYABLE`
+  tasks (TTL `sql.agent.task-cleanup.failed-retryable-ttl-ms`, default 7 days) and no longer
+  fails a successful operation when the final progress write fails.
+- [#8173](https://github.com/spinnaker/spinnaker/pull/8173) bounds the operation executor
+  (`clouddriver.operations.executor.max-threads`, default 500) and answers `503` with
+  `Retry-After` when full; Orca retries a 503. Installs running more than about 500
+  concurrent operations per pod should raise the limit.
+- [#8111](https://github.com/spinnaker/spinnaker/pull/8111) makes clouddriver-sql retries
+  actually run, [#8129](https://github.com/spinnaker/spinnaker/pull/8129) persists Redis
+  task saga IDs and stops task key leaks, and
+  [#8110](https://github.com/spinnaker/spinnaker/pull/8110) reports an unreachable Redis
+  task store as 503 instead of 500.
+- [#8154](https://github.com/spinnaker/spinnaker/pull/8154) runs atomic operations with the
+  caller's security context.
+- [#8141](https://github.com/spinnaker/spinnaker/pull/8141) and
+  [#8163](https://github.com/spinnaker/spinnaker/pull/8163) fix caching of AWS SDK v2
+  timestamps and named-image enums, [#8196](https://github.com/spinnaker/spinnaker/pull/8196)
+  reloads ECS account credentials when their backing AWS account changes, and
+  [#8052](https://github.com/spinnaker/spinnaker/pull/8052) stores ECS on-demand timestamps
+  as epoch millis.
+
+### Fiat: GitHub App team role sync
+[#8224](https://github.com/spinnaker/spinnaker/pull/8224) and
+[#8229](https://github.com/spinnaker/spinnaker/pull/8229) fix Fiat dropping every user's
+GitHub roles with `authMethod: GITHUB_APP`: installation tokens are now renewed and cached
+memberships are kept when GitHub returns an error (only a 404 yields an empty result). New
+metrics include `fiat.github.dataAgeSeconds` (the one to alert on) and
+`fiat.github.fetchFailures`. An opt-in `healthCheckEnabled` (default `false`) adds the
+provider to `/health`, and can hold a starting replica DOWN while GitHub is unreachable.
+Fiat also indexes restricted resources by group, avoids copying role names, and skips
+unchanged Redis writes
+([#8136](https://github.com/spinnaker/spinnaker/pull/8136),
+[#8093](https://github.com/spinnaker/spinnaker/pull/8093),
+[#8137](https://github.com/spinnaker/spinnaker/pull/8137)).
+
+### Orca fixes
+- [#8144](https://github.com/spinnaker/spinnaker/pull/8144) sends Clouddriver requests that
+  the Retrofit2 migration left unexecuted.
+- [#8174](https://github.com/spinnaker/spinnaker/pull/8174) stops a duplicate
+  `StartExecution` from overwriting a newer execution status, and
+  [#8211](https://github.com/spinnaker/spinnaker/pull/8211) stops sharing the `NO_TRIGGER`
+  instance across executions.
+- [#8135](https://github.com/spinnaker/spinnaker/pull/8135) avoids loading the full
+  execution for foreign partition checks.
+
+### Echo, Gate, Rosco and Igor
+- [#8162](https://github.com/spinnaker/spinnaker/pull/8162) compares GitHub webhook
+  signatures in constant time, and [#8160](https://github.com/spinnaker/spinnaker/pull/8160)
+  forwards SCM webhook headers and the raw body from Gate to Echo.
+- [#8235](https://github.com/spinnaker/spinnaker/pull/8235) handles null type/schema when
+  Echo hydrates pipelines.
+- [#8126](https://github.com/spinnaker/spinnaker/pull/8126) lets Gate's
+  `JsonHttpMessageConverter` return raw JSON bodies as strings, and
+  [#8134](https://github.com/spinnaker/spinnaker/pull/8134) keeps Jackson 2-only HTTP
+  serialization working on Spring Boot 4 for Clouddriver, Front50, Gate, Orca and Rosco.
+- [#8217](https://github.com/spinnaker/spinnaker/pull/8217) keeps Rosco polling bakes after
+  an error.
+- [#8105](https://github.com/spinnaker/spinnaker/pull/8105) makes Igor accept Jenkins' 303
+  already-queued redirect when submitting a build.
+- [#8176](https://github.com/spinnaker/spinnaker/pull/8176) names the request in kork-web's
+  unhandled-error logs and logs them once, and
+  [#8051](https://github.com/spinnaker/spinnaker/pull/8051) ignores Spring Boot 4
+  empty-string placeholders in the plugin resolver.
+- [#8181](https://github.com/spinnaker/spinnaker/pull/8181) updates image packages and
+  shared Java dependencies.
+
+### Deck fixes
+- [#8213](https://github.com/spinnaker/spinnaker/pull/8213) stores manifest selector changes
+  in Formik manifest stages.
+- [#8202](https://github.com/spinnaker/spinnaker/pull/8202) keeps pipeline editors in sync
+  with pipeline changes, and [#8128](https://github.com/spinnaker/spinnaker/pull/8128)
+  reloads Run Pipeline stage parameters when switching stages.
+- [#8003](https://github.com/spinnaker/spinnaker/pull/8003) hides SpEL expressions in
+  execution deployment targets.
 
 ### Orca: zombie executions from a queue-ack race on looping/redirecting stages
 [#7919](https://github.com/spinnaker/spinnaker/pull/7919) fixes a race in the Redis
