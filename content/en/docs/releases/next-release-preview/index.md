@@ -140,6 +140,37 @@ To migrate a plugin:
    };
    ```
 
+### Kayenta and Deck must be upgraded together for canary query templates
+[Spinnaker PR #7900](https://github.com/spinnaker/spinnaker/pull/7900) collapses the two
+per-metric template fields (`customInlineTemplate` and `customFilterTemplate`) into a single
+`template` field. Deck only reads `template`, while an older Kayenta only returns
+`customInlineTemplate`, so existing templates will not appear in the Deck metric editor if the two
+are out of step. Upgrade Kayenta and Deck together.
+
+Kayenta still writes the template under both `template` and `customInlineTemplate`, so rolling
+deploys and rollbacks keep working. Other things to be aware of:
+
+- Reading or saving a canary config through the API now returns metrics with `template`
+  populated from any `customFilterTemplate` they reference. GitOps or API consumers that diff
+  the stored config against what they read back will see that addition.
+- The copy is a snapshot. Once a metric has its own `template`, later edits to the shared entry in
+  the config's top-level `templates` map no longer affect that metric. `customFilterTemplate` and
+  the `templates` map are left in place, so nothing is lost on rollback.
+- A `customFilterTemplate` that does not resolve still fails the analysis rather than falling
+  back to the guided query.
+- Prometheus: a template is now a complete PromQL expression and the `PromQL:` prefix is
+  optional. A config that has a guided `metricName` plus a template without the prefix keeps its
+  old meaning (label matchers combined with the guided fields).
+
+## Removals and Deprecations
+
+### Canary "Guided" metric forms are deprecated
+The provider-specific guided query forms (for example Prometheus `metricName`/`labelBindings`,
+Stackdriver `resourceType`, Atlas `q`) and the `customInlineTemplate` / `customFilterTemplate`
+fields are deprecated in favor of the single `template` field. They keep working in 2026.4.0,
+2027.0 and 2027.1, and will be removed after the 2027.1.x release. There is no forced migration
+before then.
+
 ## Features
 
 ### Opt-in native Amazon ECS deployments
@@ -242,6 +273,21 @@ kubernetes:
   v2:
     apply-provenance-annotations: true
 ```
+
+### Canary metrics use a single query template for every provider
+[Spinnaker PR #7900](https://github.com/spinnaker/spinnaker/pull/7900) replaces the
+provider-specific guided query forms in the canary config editor with one query template field,
+for every Kayenta metrics provider. You write the query in your metrics provider's own syntax with
+`${scope}`, `${location}` and similar variables, and each provider's starter example and variable
+list is shown in the editor. Existing metrics open in whichever form matches their data, so
+nothing changes for them.
+
+This is the default for new metrics. To keep showing only the guided forms, set
+`canary.templatesEnabled` to `false` in Deck's `settings.js` (`TEMPLATES_ENABLED=false` in the
+stock settings file). The `canary.telemetry.query` metric gains a `queryMode` tag (`template`,
+`namedTemplate` or `guided`) so you can watch adoption and failure rates. See the
+[canary config docs](https://github.com/spinnaker/spinnaker/blob/main/kayenta/docs/canary-config.md)
+for details.
 
 ## Fixes
 
