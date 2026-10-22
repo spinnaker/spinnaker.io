@@ -136,6 +136,27 @@ ecs:
       awsAccount: aws-account-name
 ```
 
+#### Native ECS deployments
+
+Native deployments (one durable ECS service per cluster, updated in place with ECS rolling or blue/green
+deployments) need no additional Clouddriver configuration. Users opt in per deploy stage with the "Use native ECS
+deployment" checkbox. What the mode does is described in
+[Amazon ECS native deployments](/docs/reference/providers/ecs-native/).
+
+The account has to meet these requirements before the first native deploy:
+
+* **Service tagging.** Native services are identified by the tag `spinnaker:provider=ecs-native`, so the account
+  must be opted into the long ECS resource ID format, the same requirement as for the
+  [`tags` naming strategy](/docs/reference/providers/ecs/#tags-naming-strategy). A native deploy checks this with
+  `ecs:ListAccountSettings` and fails before creating anything when tags are unavailable.
+* **IAM.** In addition to what the classic provider uses, the `SpinnakerManaged` role calls `ecs:TagResource`
+  (tags on `CreateService`), `ecs:DescribeServiceDeployments`, `ecs:DescribeServiceRevisions`,
+  `ecs:ContinueServiceDeployment` and `ecs:StopServiceDeployment`. Blue/green deployments also pass the configured
+  blue/green role to ECS, which needs `iam:PassRole` on that role.
+* **Blue/green only.** An Application Load Balancer with a production and a test listener rule, an alternate target
+  group, and an [ECS blue/green service role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html)
+  that ECS can assume to shift traffic.
+
 ## Next steps
 
 Optionally, you can [set up another cloud provider](/docs/setup/install/providers/),
