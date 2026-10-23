@@ -197,6 +197,31 @@ hostname. Resolved addresses are now checked (all of them, not just the first), 
 URLs that were previously rejected by mistake may start working, and Orca gains
 `allowedDomains`.
 
+### Fiat extension resources: upgrade clients before Fiat, or use a patched release
+Fiat returns resource types it doesn't model itself (such as artifact accounts, added in
+[#7892](https://github.com/spinnaker/spinnaker/pull/7892)) in the `extensionResources`
+of a user's permissions. Releases before the fix cannot deserialize that part of the
+response, because `Authorizable` is an interface and no deserializer was registered
+for it ([#8253](https://github.com/spinnaker/spinnaker/pull/8253)). **When Fiat returns an
+extension resource, any service that is still on an unfixed release fails to read the
+user's permissions.** Gate logins fail with a `SpinnakerConversionException` ("Cannot
+construct instance of `com.netflix.spinnaker.fiat.model.resources.Authorizable`"), and
+permission lookups in Clouddriver, Orca, Echo, Igor, Front50 and Keel fail the same way.
+
+Artifact accounts are a Fiat resource by default in 2026.4.0, so this applies to every
+upgrade to 2026.4.0 that doesn't deploy all services together. Plugins that register
+their own Fiat resource provider can trigger the same failure on older releases.
+
+Either:
+- **Upgrade to a release that has the fix** on the 2026.3 or 2026.2 line first
+  (**2026.3.2** or **2026.2.5**), then move to 2026.4.0. Do this for all Fiat clients, not
+  only Gate.
+- **Or upgrade one service at a time in this order:** **Gate first**, then Clouddriver,
+  Orca, Echo, Igor, Front50 and Keel, and **Fiat last**.
+
+This doesn't matter if every service is deployed together at 2026.4.0 or a fixed release.
+Rolling back in any order is safe.
+
 ### Orca CI task classes renamed
 [#8205](https://github.com/spinnaker/spinnaker/pull/8205) renames `StartJenkinsJobTask`,
 `MonitorJenkinsJobTask`, `MonitorQueuedJenkinsJobTask` and `StopJenkinsJobTask` to
