@@ -307,7 +307,7 @@
                   "type" : "string"
                },
                "pluginVersion" : {
-                  "type" : "object",
+                  "$ref" : "#/components/schemas/DefaultPluginDescriptor",
                   "writeOnly" : true
                },
                "provider" : {
@@ -2040,6 +2040,16 @@
                      "default" : false,
                      "type" : "boolean"
                   }
+               },
+               {
+                  "description" : "When true, and pipelineName is not supplied, also includes executions belonging to pipelines that have since been deleted. If this value is missing, it is defaulted to false.",
+                  "in" : "query",
+                  "name" : "includeDeletedPipelines",
+                  "required" : false,
+                  "schema" : {
+                     "default" : false,
+                     "type" : "boolean"
+                  }
                }
             ],
             "responses" : {
@@ -2384,6 +2394,14 @@
                   "schema" : {
                      "format" : "int32",
                      "type" : "integer"
+                  }
+               },
+               {
+                  "in" : "query",
+                  "name" : "includeDeletedPipelines",
+                  "required" : false,
+                  "schema" : {
+                     "type" : "boolean"
                   }
                }
             ],
@@ -12723,30 +12741,14 @@
                   "schema" : {
                      "type" : "string"
                   }
-               },
-               {
-                  "in" : "header",
-                  "name" : "X-Hub-Signature",
-                  "required" : false,
-                  "schema" : {
-                     "type" : "string"
-                  }
-               },
-               {
-                  "in" : "header",
-                  "name" : "X-Event-Key",
-                  "required" : false,
-                  "schema" : {
-                     "type" : "string"
-                  }
                }
             ],
             "requestBody" : {
                "content" : {
                   "application/json" : {
                      "schema" : {
-                        "additionalProperties" : {},
-                        "type" : "object"
+                        "format" : "byte",
+                        "type" : "string"
                      }
                   }
                }
