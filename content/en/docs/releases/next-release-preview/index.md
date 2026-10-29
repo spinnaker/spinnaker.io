@@ -381,6 +381,14 @@ trigger/cancel support and the shared CI tasks. It also fixes CI stages (Jenkins
 GitLab CI, Script) failing with `Query map was null` when started through the API without a
 `parameters` field.
 
+[#8259](https://github.com/spinnaker/spinnaker/pull/8259) makes Igor's GitLab CI trigger forward every parameter other than `ref` to GitLab
+as a pipeline variable (`variables[KEY]=value`); before, only the trigger token and `ref` were
+sent and the rest were silently dropped. Parameters with a null value are skipped.
+[#8278](https://github.com/spinnaker/spinnaker/pull/8278) fixes reading build properties back from GitLab CI: GitLab prefixes each job-log
+line with a timestamp and stream code, so `SPINNAKER_PROPERTY_*` lines never matched and the
+`getBuildProperties` task failed with "Expected properties file ... missing, empty or
+contained invalid syntax".
+
 ### Gitea and Forgejo artifacts and webhook triggers
 [#8153](https://github.com/spinnaker/spinnaker/pull/8153) adds a `gitea/file` artifact type
 (enable with `artifacts.gitea.enabled`), a `/webhooks/git/gitea` handler in Echo with
@@ -441,6 +449,15 @@ permissions before upgrading.
   namespaces, and fixes Orca's `CleanupArtifactsTask` not passing them.
 - [#8101](https://github.com/spinnaker/spinnaker/pull/8101) shows controller-written
   status text as plain text.
+
+### Clouddriver: kubectl bundled for every supported EKS version
+[#8183](https://github.com/spinnaker/spinnaker/pull/8183) packages kubectl 1.34–1.37 alongside the existing 1.31–1.33 clients in both
+Clouddriver image variants (`Dockerfile.slim` and `Dockerfile.ubuntu`), covering the full
+EKS 1.31–1.37 support range, and keeps 1.30.14 as an explicit compatibility option. Every
+binary is verified against Kubernetes' published SHA-512 checksum. **The unversioned
+`kubectl` now points at 1.36.5 (it was 1.30).** Kubernetes allows one minor version of skew
+between client and server, so clusters more than one minor away from 1.36 should set the
+global or per-account `kubectl` executable to a matching bundled version.
 
 ### AWS and ECS
 - [#8104](https://github.com/spinnaker/spinnaker/pull/8104) adds optional
@@ -598,6 +615,41 @@ provider to `/health`, and can hold a starting replica DOWN while GitHub is unre
   reloads Run Pipeline stage parameters when switching stages.
 - [#8003](https://github.com/spinnaker/spinnaker/pull/8003) hides SpEL expressions in
   execution deployment targets.
+
+### Security: CA trust and dependency bumps
+- [#8242](https://github.com/spinnaker/spinnaker/pull/8242) rebuilds the service images against current CA packages and fails the build
+  if `emSign ECC Root CA - G3` is still trusted, removing that root from the JVM `cacerts`.
+  Anything that relies on certificates chained to that root will stop validating.
+- [#8267](https://github.com/spinnaker/spinnaker/pull/8267) bumps `netty-bom` to 4.1.137.Final (CVE-2026-75595) and
+  [#8268](https://github.com/spinnaker/spinnaker/pull/8268) bumps `tomcat-embed` to 10.1.59 (CVE-2026-65182).
+
+### More fixes
+- **Fiat:** [#8261](https://github.com/spinnaker/spinnaker/pull/8261) makes `MOST_SPECIFIC` prefix permission resolution independent of
+  the order of the entries in the configuration. Before, with `foo*` listed before `foo`, an
+  application named exactly `foo` could be authorized with the wildcard's roles. A full
+  application name now always beats a wildcard, and among wildcards the longest prefix wins.
+- **Orca:** [#8208](https://github.com/spinnaker/spinnaker/pull/8208) stops `StartExecution`'s rollback from undoing a cancellation, which
+  could start a pipeline that had been canceled. [#8236](https://github.com/spinnaker/spinnaker/pull/8236) reuses transaction connections
+  in SQL execution persistence, cutting connection use on status updates and cancel, pause
+  and resume.
+- **Echo:** [#8221](https://github.com/spinnaker/spinnaker/pull/8221) keeps compensating missed cron triggers after an error (one
+  unparseable cron expression used to stop it permanently), and [#8220](https://github.com/spinnaker/spinnaker/pull/8220) keeps the SQS
+  subscriber running when recreating its queue fails.
+- **Front50:** [#8262](https://github.com/spinnaker/spinnaker/pull/8262) fixes the plugin binary cache, which looked up a literal `key`
+  and so never hit; binaries were always re-fetched from storage.
+- **Kayenta:** [#8252](https://github.com/spinnaker/spinnaker/pull/8252) excludes `DataSourceAutoConfiguration` in code, so a Kayenta
+  config that still uses the Spring Boot 3 class name no longer fails startup with "Failed to
+  configure a DataSource". [#8282](https://github.com/spinnaker/spinnaker/pull/8282) appends a trailing slash to the GCS `rootFolder`
+  prefix when deleting objects, so deleting one key can't match sibling keys sharing the prefix.
+- **Google:** [#8280](https://github.com/spinnaker/spinnaker/pull/8280) makes `updateBackendService` failures actually retry (and retry
+  on 500/503) instead of being swallowed and reported as success, and [#8281](https://github.com/spinnaker/spinnaker/pull/8281) keeps one
+  server group that fails to build from failing the whole region's caching cycle. A skipped
+  server group is evicted from the cache until a later cycle builds it.
+- **Deck:** [#8263](https://github.com/spinnaker/spinnaker/pull/8263) revalidates `index.html` and `settings*.js` on reload, fixing stale
+  bundles after an upgrade (such as `useDeckRuntimeServices is not a function`) that needed a
+  hard refresh. [#8273](https://github.com/spinnaker/spinnaker/pull/8273) speeds up stage editors and account selectors with thousands
+  of accounts, and [#8288](https://github.com/spinnaker/spinnaker/pull/8288) stops Apache gracefully on container stop, so pod
+  termination no longer waits out the grace period.
 
 ### Orca: zombie executions from a queue-ack race on looping/redirecting stages
 [#7919](https://github.com/spinnaker/spinnaker/pull/7919) fixes a race in the Redis
