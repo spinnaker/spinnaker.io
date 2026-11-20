@@ -8529,9 +8529,7 @@
                "content" : {
                   "application/json" : {
                      "schema" : {
-                        "additionalProperties" : {
-                           "type" : "object"
-                        },
+                        "additionalProperties" : {},
                         "type" : "object"
                      }
                   }
@@ -8543,7 +8541,8 @@
                   "content" : {
                      "*/*" : {
                         "schema" : {
-                           "type" : "string"
+                           "additionalProperties" : {},
+                           "type" : "object"
                         }
                      }
                   },
@@ -8558,6 +8557,8 @@
       },
       "/pipelines/{application}/{pipelineNameOrId}" : {
          "post" : {
+            "deprecated" : true,
+            "description" : "Deprecated: use POST /pipelines/v2/{application}/{pipelineNameOrId} instead.",
             "operationId" : "invokePipelineConfig",
             "parameters" : [
                {
